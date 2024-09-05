@@ -1,0 +1,8 @@
+.projectGrid {
+    /* max-width: 90rem; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 5vh;
+}

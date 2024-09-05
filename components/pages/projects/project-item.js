@@ -1,11 +1,21 @@
 /** @format */
 
 import Link from "next/link";
+import Image from "next/image";
 
-export default function ProjectItem({ id }) {
+import classes from "./project-item.module.css";
+
+export default function ProjectItem({ id, slug }) {
   return (
-    <>
-      <Link href={`/projects/${id}`}>View Details</Link>
-    </>
+    <div className={classes.img}>
+      {/* <Link href={`/projects/${id}`}>View Details</Link> */}
+      <Image
+        src={slug}
+        alt="alt"
+        width={1920}
+        height={960}
+        layout="responsive"
+      />
+    </div>
   );
 }
