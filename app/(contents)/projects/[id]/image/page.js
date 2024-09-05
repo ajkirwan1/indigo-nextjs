@@ -2,17 +2,30 @@
 
 import { getProject } from "@/server/data/projects";
 // import classes from "./page.module.css";
-// import Image from "next/image";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function ProjectDetailsPage({ params }) {
-  console.log(params.id);
-  // console.log(params.slug);
   const project = getProject(params.id);
+  console.log("project");
 
   if (!project) {
     notFound();
   }
 
-  return <>{<h1>{params.id}</h1>}</>;
+  return (
+    <>
+      <Image
+        src={project.slug}
+        alt="alt"
+        width={1920}
+        height={960}
+        style={{
+          width: "80%",
+          height: "auto",
+        }}
+        sizes="100vw"
+      />
+    </>
+  );
 }
