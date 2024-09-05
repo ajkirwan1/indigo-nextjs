@@ -1,0 +1,31 @@
+.button {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .arrow {
+    height: 20px;
+  }
+  
+  .wrapper {
+    border: 1px solid #505050;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .wrapper:hover {
+    cursor: pointer;
+  }
+  .link {
+    text-decoration: none;
+    color: #505050;
+  }
+  
