@@ -9,7 +9,7 @@ export default function ProjectItem({ id, slug }) {
   console.log(id);
   return (
     <div className={classes.img}>
-      <Link href={`/projects/${id}/image`}>
+      <Link href={`/projects/${id}`}>
         <Image
           src={slug}
           alt="alt"
