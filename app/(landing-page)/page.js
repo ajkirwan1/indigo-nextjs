@@ -9,6 +9,8 @@ import { propertyData } from "@/public/data/data";
 import { Carousel } from "@/components/carousel";
 
 export default function Homepage() {
+  const loggedIn = false;
+
   return (
     <>
       <div className="hero">
@@ -42,7 +44,7 @@ export default function Homepage() {
           <Carousel images={propertyData} />
         </div>
         <div className={classes.btnWrapper}>
-          <Button href="/projects">ALL PROJECTS</Button>
+          <Button href={loggedIn ? "/projects" : "/login"}>ALL PROJECTS</Button>
         </div>
       </section>
       <Footer></Footer>
