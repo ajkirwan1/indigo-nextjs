@@ -33,7 +33,7 @@ export default function Header({ className }) {
             </NavLink>
           </li>
           <li className={classes.hoverEffect}>
-            <NavLink href="/sign-in">Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </li>
         </ul>
       </nav>

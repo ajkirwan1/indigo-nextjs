@@ -10,10 +10,10 @@ import { redirect } from "next/navigation";
 import { Form } from "@/lib/form";
 
 export default async function Page() {
-  const { user } = await validateRequest();
-  if (user) {
-    return redirect("/");
-  }
+  // const { user } = await validateRequest();
+  // if (user) {
+  //   return redirect("/");
+  // }
   return (
     <>
       <h1>Sign in</h1>
@@ -27,6 +27,11 @@ export default async function Page() {
         <button>Continue</button>
       </Form>
       <Link href="/signup">Create an account</Link>
+      <div>
+        <form action={logout}>
+          <button>Sign out</button>
+        </form>
+      </div>
     </>
   );
 }
@@ -58,6 +63,7 @@ async function login(_, formData) {
   const existingUser = db
     .prepare("SELECT * FROM user WHERE username = ?")
     .get(username);
+  console.log(existingUser);
   if (!existingUser) {
     return {
       error: "Incorrect username or password",
@@ -87,6 +93,26 @@ async function login(_, formData) {
 
   const session = await lucia.createSession(existingUser.id, {});
   const sessionCookie = lucia.createSessionCookie(session.id);
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
+  return redirect("/");
+}
+
+async function logout() {
+  "use server";
+  const { session } = await validateRequest();
+  if (!session) {
+    return {
+      error: "Unauthorized",
+    };
+  }
+
+  await lucia.invalidateSession(session.id);
+
+  const sessionCookie = lucia.createBlankSessionCookie();
   cookies().set(
     sessionCookie.name,
     sessionCookie.value,
