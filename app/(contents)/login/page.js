@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 import { lucia, validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { Form } from "@/lib/form";
-
+import classes from "./page.module.css";
 export default async function Page() {
   // const { user } = await validateRequest();
   // if (user) {
@@ -16,22 +16,32 @@ export default async function Page() {
   // }
   return (
     <>
-      <h1>Sign in</h1>
-      <Form action={login}>
-        <label htmlFor="username">Username</label>
-        <input name="username" id="username" />
-        <br />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" />
-        <br />
-        <button>Continue</button>
-      </Form>
-      <Link href="/signup">Create an account</Link>
-      <div>
-        <form action={logout}>
-          <button>Sign out</button>
-        </form>
+      <div className={classes.hero}>
+        <div className={classes.formcontainer}>
+          <img
+            className={classes.logoIndigo}
+            src="../../../public/logoindigo.png"
+          ></img>
+          <Form action={login}>
+            <label htmlFor="username">Username</label>
+            <input name="username" id="username" />
+            <br />
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" />
+            <br />
+            <button>Continue</button>
+          </Form>
+          <Link href="/signup">Create an account</Link>
+          <div>
+            <form action={logout}>
+              <button>Sign out</button>
+            </form>
+          </div>
+          <h1>EXCLUSIVE ACCESS</h1>
+          <h2>User ID</h2>
+        </div>
       </div>
+      {/* <Footer></Footer> */}
     </>
   );
 }
