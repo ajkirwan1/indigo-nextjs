@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 import { Form } from "@/lib/form";
 import ModalBackdrop from "@/components/modal-backdrop";
 import classes from "./page.module.css";
+import "../../../app/globals.css";
 export default async function Page() {
   // const { user } = await validateRequest();
   // if (user) {
@@ -18,29 +19,35 @@ export default async function Page() {
   return (
     <>
       <ModalBackdrop></ModalBackdrop>
-      <div className={classes.formcontainer}>
-        <img
-          className={classes.logoIndigo}
-          src="../../../public/logoindigo.png"
-        ></img>
-        <Form action={login}>
-          <label htmlFor="username">Username</label>
-          <input name="username" id="username" />
-          <br />
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
-          <br />
-          <button>Continue</button>
-        </Form>
-        <Link href="/signup">Create an account</Link>
-        <div>
-          <form action={logout}>
-            <button>Sign out</button>
-          </form>
+
+      <dialog className="modal" open>
+        {/* <div className={classes.fullScreenImage}> */}
+        <div className={classes.formcontainer}>
+          <img
+            className={classes.logoIndigo}
+            src="../../../public/logoindigo.png"
+          ></img>
+          <Form action={login}>
+            <label htmlFor="username">Username</label>
+            <input name="username" id="username" />
+            <br />
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" />
+            <br />
+            <button>Continue</button>
+          </Form>
+          <Link href="/signup">Create an account</Link>
+          <div>
+            <form action={logout}>
+              <button>Sign out</button>
+            </form>
+          </div>
+          <h1>EXCLUSIVE ACCESS</h1>
+          <h2>User ID</h2>
         </div>
-        <h1>EXCLUSIVE ACCESS</h1>
-        <h2>User ID</h2>
-      </div>
+        {/* </div> */}
+      </dialog>
+
       {/* <Footer></Footer> */}
     </>
   );
