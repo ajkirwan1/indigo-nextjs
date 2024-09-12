@@ -73,7 +73,7 @@ async function login(_, formData) {
   const existingUser = db
     .prepare("SELECT * FROM user WHERE username = ?")
     .get(username);
-  console.log(existingUser);
+  // console.log(existingUser);
   if (!existingUser) {
     return {
       error: "Incorrect username or password",
