@@ -9,11 +9,12 @@ import { LoginForm } from "@/components/login-form";
 import { login } from "@/server/actions/login";
 import { Logout } from "@/server/actions/logout";
 
-export default async function Page() {
+export default async function Page({ params }) {
   // const { user } = await validateRequest();
   // if (user) {
   //   return redirect("/");
   // }
+  console.log(params);
   return (
     <>
       <div className={classes.hero}>
