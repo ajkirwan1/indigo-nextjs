@@ -1,9 +1,13 @@
 /** @format */
+"use client";
+import withAuthentication from "@/components/withAuthentication";
 
-export default function PropertiesPage() {
+function PropertiesPage() {
   return (
     <>
       <h1>Properties page</h1>
     </>
   );
 }
+
+export default withAuthentication(PropertiesPage);
