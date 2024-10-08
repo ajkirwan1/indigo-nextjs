@@ -1,26 +1,35 @@
 /** @format */
-"use client";
-import { useRouter } from "next/router";
+// "use client";
+
 import { useSession } from "../contexts/session-context";
-import { useEffect } from "react";
+
 
 const withAuthentication = (WrappedComponent) => {
   return (props) => {
-    const { user } = useSession();
-    const router = useRouter();
+    // const { user } = useSession();
+    // // const router = useRouter();
 
-    useEffect(() => {
-      if (!isAuthenticating) {
-        if (!user && router.pathname !== "/login") {
-          router.push("/login");
-        }
-      }
-    }, [user, isAuthenticating, router]);
+    // console.log("user", user)
 
-    if (isAuthenticating) {
-      return <>LOADING</>;
-    }
-    console.log("authentication component", user);
+    // if (!user && router.pathname !== "/login") {
+    //         router.push("/login");
+    //       }
+
+    // if (!user && router.pathname !== "/login") {
+    //   router.push("/login");
+    // }
+    // useEffect(() => {
+    //   if (!isAuthenticating) {
+    //     if (!user && router.pathname !== "/login") {
+    //       router.push("/login");
+    //     }
+    //   }
+    // }, [user, isAuthenticating, router]);
+
+    // if (isAuthenticating) {
+    //   return <>LOADING</>;
+    // }
+    // console.log("authentication component", user);
 
     return <WrappedComponent {...props} />;
   };

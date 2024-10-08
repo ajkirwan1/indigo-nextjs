@@ -1,38 +1,52 @@
-/** @format */
-
-import { lucia } from "lucia";
-import { nextjs_future } from "lucia/middleware";
-import { betterSqlite3 } from "@lucia-auth/adapter-sqlite";
-// import "lucia/polyfill/node";
-
+import { Lucia } from "lucia";
+import { BetterSqlite3Adapter } from "@lucia-auth/adapter-sqlite";
+import sql from "better-sqlite3";
+import { cookies } from "next/headers";
 import { cache } from "react";
-import * as context from "next/headers";
 
-import sqlite from "better-sqlite3";
-import fs from "fs";
-
-const db = sqlite(":memory:");
-db.exec(fs.readFileSync("schema.sql", "utf8"));
-
-export const auth = lucia({
-  adapter: betterSqlite3(db, {
-    user: "user",
-    session: "user_session",
-    key: "user_key",
-  }),
-  env: process.env.NODE_ENV === "development" ? "DEV" : "PROD",
-  middleware: nextjs_future(),
-  sessionCookie: {
-    expires: false,
-  },
-  getUserAttributes: (data) => {
-    return {
-      username: data.username,
-    };
-  },
+// import { webcrypto } from "crypto";
+// globalThis.crypto = webcrypto as Crypto;
+const db = sql("main.db");
+const adapter = new BetterSqlite3Adapter(db, {
+	user: "user",
+	session: "session"
 });
 
-export const getPageSession = cache(() => {
-  const authRequest = auth.handleRequest("GET", context);
-  return authRequest.validate();
+export const lucia = new Lucia(adapter, {
+	sessionCookie: {
+		attributes: {
+			secure: process.env.NODE_ENV === "production"
+		}
+	},
+	getUserAttributes: (attributes) => {
+		return {
+			username: attributes.username
+		};
+	}
 });
+
+export const validateRequest = cache(
+	async () => {
+		const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
+		if (!sessionId) {
+			return {
+				user: null,
+				session: null
+			};
+		}
+
+		const result = await lucia.validateSession(sessionId);
+		// next.js throws when you attempt to set cookie when rendering page
+		try {
+			if (result.session && result.session.fresh) {
+				const sessionCookie = lucia.createSessionCookie(result.session.id);
+				cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+			}
+			if (!result.session) {
+				const sessionCookie = lucia.createBlankSessionCookie();
+				cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
+			}
+		} catch {}
+		return result;
+	}
+);

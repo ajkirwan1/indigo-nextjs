@@ -10,6 +10,8 @@ export default function Header({ className }) {
   console.log("Header session", session);
   console.log("User session", user);
 
+  
+
   function AdminNav() {
     return (
       <>

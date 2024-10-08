@@ -2,9 +2,11 @@
 
 "use server";
 
-export async function LoginAction(prevState, formData) {
+export async function RegisterAction(prevState, formData) {
   const userName = formData.get("userName");
   const password = formData.get("password");
+  const passwordConfirm = formData.get("passwordConfirm");
+  const email = formData.get("email");
 
   let errors = [];
 
@@ -16,9 +18,17 @@ export async function LoginAction(prevState, formData) {
     errors.push("Password required");
   }
 
+  if (!passwordConfirm || passwordConfirm.trim().length === 0) {
+    errors.push("passwordConfirm required");
+  }
+
+  if (!email || email.trim().length === 0) {
+    errors.push("email required");
+  }
+
   if (errors.length > 0) {
     return { errors };
   }
 
-  console.log("login")
+  console.log("register")
 }

@@ -4,6 +4,7 @@
 
 import { createContext, useContext } from "react";
 
+
 const SessionContext = createContext({
   session: null,
   user: null,
@@ -14,7 +15,9 @@ export const useSession = () => {
 };
 
 export const SessionProvider = ({ children, value }) => {
+
+
   return (
-    <SessionContext.Provider value={value}>{children}</SessionContext.Provider>
+    <SessionContext.Provider value={{value}}>{children}</SessionContext.Provider>
   );
 };
