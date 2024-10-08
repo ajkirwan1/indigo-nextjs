@@ -3,7 +3,6 @@
     position: absolute;
     top: 0;
     width: 100%;
-    /* color: white !important; */
   }
   
   .loginForm {
@@ -37,7 +36,7 @@
     align-items: center;
     justify-content: space-around;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("../../../public/images/authbackground.jpg");
+      url("../../public//images/authbackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 90%;
@@ -61,7 +60,7 @@
     min-height: 60%;
     max-width: 70vw;
     position: absolute;
-    top: 20vh;
+    top: 25vh;
     box-shadow: 1px 1px 1px;
   }
   .logoIndigo {

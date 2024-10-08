@@ -15,7 +15,6 @@ export default async function RootLayout({ children, landingModal }) {
     <html lang="en">
       <body>
         <SessionProvider value={session}>
-          {/* {landingModal} */}
           {children}
         </SessionProvider>
       </body>
