@@ -1,5 +1,5 @@
 /** @format */
-import { LoginAction } from "@/server/actions/forms/login";
+import { Login } from "@/server/actions/login";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 import LoginForm from "@/components/forms/login-form";
@@ -13,7 +13,7 @@ export default function LoginPage() {
         <div className={classes.hero}>
           <Header className={classes.header}></Header>
           <div className={classes.formcontainer}>
-          <LoginForm action={LoginAction}></LoginForm>
+          <LoginForm action={Login}></LoginForm>
           </div>
         </div>
         <Footer></Footer>

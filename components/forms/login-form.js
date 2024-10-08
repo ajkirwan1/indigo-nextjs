@@ -3,10 +3,9 @@
 "use client";
 import { useFormState } from "react-dom";
 import FormSubmit from "./formsubmit";
-import { Login } from "@/server/actions/login";
 import classes from "./login-form.module.css";
 export default function LoginForm({ action }) {
-  const [state, formAction] = useFormState(Login, {});
+  const [state, formAction] = useFormState(action, {});
 
   return (
     <>

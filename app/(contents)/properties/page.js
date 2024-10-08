@@ -1,7 +1,7 @@
 /** @format */
 
 import withAuthentication from "@/components/withAuthentication";
-import { validateRequest } from "@/auth/lucia";
+import { validateRequest } from "@/lib/auth";
 
 async function PropertiesPage() {
   const { user } = await validateRequest();

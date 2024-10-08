@@ -6,16 +6,11 @@ import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { useSession } from "@/contexts/session-context";
-// import { CheckUser, ValidatePassword } from "../utils/login";
 
+const db = sql("main.db");
 
 
 export async function Login(_, formData) {
-
-  // const { user, userSession } = useSession();
-
-  const db = sql("main.db");
 
   const username = formData.get("username");
   const password = formData.get("password");
@@ -25,7 +20,7 @@ export async function Login(_, formData) {
   const existingUser = db
     .prepare("SELECT * FROM user WHERE username = ?")
     .get(username);
-  // console.log("existing:", existingUser);
+ 
   if (!existingUser) {
     errors.push("Invalid username or password")
     return {errors}
