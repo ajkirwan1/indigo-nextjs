@@ -18,6 +18,6 @@ export const SessionProvider = ({ children, value }) => {
 
 
   return (
-    <SessionContext.Provider value={{value}}>{children}</SessionContext.Provider>
+    <SessionContext.Provider value={value}>{children}</SessionContext.Provider>
   );
 };
