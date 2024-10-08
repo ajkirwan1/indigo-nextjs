@@ -47,6 +47,9 @@ export default function Header({ className }) {
             <NavLink href="/who-we-are">Who we are</NavLink>
           </li>
           <li className={classes.hoverEffect}>
+            <NavLink href="/what-we-do">What we do</NavLink>
+          </li>
+          <li className={classes.hoverEffect}>
             <NavLink href="/contact-us">Contact us</NavLink>
           </li>
           <li className={classes.hoverEffect}>
@@ -54,6 +57,12 @@ export default function Header({ className }) {
           </li>
           <li className={classes.hoverEffect}>
             <NavLink href="/consulting">Consulting</NavLink>
+          </li>
+          <li className={classes.hoverEffect}>
+            <NavLink href="/login">Login</NavLink>
+          </li>
+          <li className={classes.hoverEffect}>
+            <NavLink href="/register">Register</NavLink>
           </li>
           <li className={classes.hoverEffect}>
             {session ? <LogOutNav /> : <LogInNav />}

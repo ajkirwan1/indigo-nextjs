@@ -80,7 +80,6 @@ section h1 {
   height: 30vh;
 }
 
-
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -94,16 +93,6 @@ section h1 {
   z-index: 1;
 }
 
-/* .modal {
-  background-color: #bababa;
-  padding: 2rem;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 0 0 10px 0 #181817;
-  max-width: 50rem;
-  width: 100%;
-} */
-
 .fullscreen-image {
   width: 100%;
 }
@@ -113,3 +102,21 @@ section h1 {
   height: 100%;
   object-fit: contain;
 } 
+
+input[type="text"] {
+  border: 1px solid;
+  height: 2rem;
+  width: 100%;
+  background-color: #d5dfe1;
+  color: #505050;
+  border-radius: 4px;
+}
+
+input[type="email"] {
+  border: 1px solid;
+  height: 2rem;
+  width: 100%;
+  background-color: #d5dfe1;
+  color: #505050;
+  border-radius: 4px;
+}
