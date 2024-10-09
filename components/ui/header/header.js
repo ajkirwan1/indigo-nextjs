@@ -3,6 +3,7 @@
 
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
+import { MobileMenuIcon } from "./mobile-menu-icon";
 import DesktopNav from "./desktop-nav";
 import LayoutContext from "@/contexts/layout-context";
 import { navigationData } from "@/data/navigation-data";
@@ -10,12 +11,8 @@ import { useSession } from "@/contexts/session-context";
 import { useContext, useEffect } from "react";
 
 export default function Header({ className }) {
-  // const { session, user } = useSession();
   const { handleLayoutChange, showMobileNavMenu, mobileMenuOpen } =
     useContext(LayoutContext);
-
-  // console.log("Header session", session);
-  // console.log("User session", user);
 
   useEffect(() => {
     document.body.style.overflow = "scroll";
@@ -40,36 +37,14 @@ export default function Header({ className }) {
     };
   });
 
-  // function AdminNav() {
-  //   return (
-  //     <>
-  //       <NavLink href="/admin">Admin</NavLink>
-  //     </>
-  //   );
-  // }
-
-  // function LogInNav() {
-  //   return (
-  //     <>
-  //       <NavLink href="/login">Login</NavLink>
-  //     </>
-  //   );
-  // }
-
-  // function LogOutNav() {
-  //   return (
-  //     <>
-  //       <NavLink href="/logout">Logout</NavLink>
-  //     </>
-  //   );
-  // }
-
   return (
     <header className={className}>
       <NavLink href="/">
         <img className={classes.logoIndigo} src="/logoindigo.png"></img>
       </NavLink>
-      {!showMobileNavMenu ? <DesktopNav data={navigationData}></DesktopNav> : null}
+      {!showMobileNavMenu ? (
+        <DesktopNav data={navigationData}></DesktopNav>
+      ) : <MobileMenuIcon />}
     </header>
   );
 }

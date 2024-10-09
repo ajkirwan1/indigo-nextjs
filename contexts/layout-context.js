@@ -20,6 +20,11 @@ export const LayoutProvider = ({ children }) => {
     console.warn("CHANGE OF VIEW");
   };
 
+  const handleBurger = (value) => {
+    setMobileMenuOpen(value);
+    // console.warn("CHANGE OF VIEW");
+  };
+
   //   useEffect(() => {
   //     document.body.style.overflow = "scroll";
   //     if (window.innerWidth > 767) {
@@ -43,7 +48,10 @@ export const LayoutProvider = ({ children }) => {
     <LayoutContext.Provider
       value={{
         handleLayoutChange,
+        handleBurger,
         showMobileNavMenu,
+        mobileMenuOpen
+        
       }}
     >
       {children}
