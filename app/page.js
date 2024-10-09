@@ -12,7 +12,7 @@ export default function Homepage() {
   return (
     <>
       <div className="hero">
-        <Header className={classes.header}></Header>
+        <Header className={classes.heroHeader}></Header>
         <div className="hero-contents">
           <Overlay />
         </div>

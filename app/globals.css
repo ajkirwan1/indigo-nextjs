@@ -8,6 +8,7 @@ body {
   background-color: #faefe8 
 }
 
+
 html:has(.modal) {
   overflow:hidden;
 }
@@ -68,6 +69,12 @@ section h1 {
   height: 100vh;
 }
 
+.non-hero {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
 .section-1-image {
   height: 50vh;
 }
@@ -125,4 +132,8 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+main {
+  padding: 5vh;
 }

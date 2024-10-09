@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 import { Form } from "@/lib/form";
 import ModalBackdrop from "@/components/modal-backdrop";
 import classes from "./page.module.css";
-import "../../../app/globals.css";
+// import "../../../app/globals.css";
 export default async function Page() {
   // const { user } = await validateRequest();
   // if (user) {
