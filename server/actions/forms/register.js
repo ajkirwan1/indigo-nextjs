@@ -30,5 +30,4 @@ export async function RegisterAction(prevState, formData) {
     return { errors };
   }
 
-  console.log("register")
 }

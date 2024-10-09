@@ -17,7 +17,6 @@ export const LayoutProvider = ({ children }) => {
 
   const handleLayoutChange = (showMobileNavMenu) => {
     setShowMobileNavMenu(showMobileNavMenu);
-    console.warn("CHANGE OF VIEW");
   };
 
   const handleBurger = (value) => {

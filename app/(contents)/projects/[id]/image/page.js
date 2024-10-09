@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 
 export default function ProjectDetailsPage({ params }) {
   const project = getProject(params.id);
-  console.log("project");
 
   if (!project) {
     notFound();

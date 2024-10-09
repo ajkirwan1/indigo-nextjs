@@ -12,7 +12,6 @@ export async function middleware(req) {
 
   for (const middleware of middlewareFunctions) {
     const result = await middleware;
-    console.log(result);
 
     if (!result.ok) {
       return result;

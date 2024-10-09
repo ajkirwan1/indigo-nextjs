@@ -7,7 +7,6 @@ import { getProject } from "@/server/data/projects";
 
 export default async function InterceptedImagePage({ params }) {
   const project = getProject(params.id);
-  console.log("intercepting");
 
   if (!project) {
     notFound();

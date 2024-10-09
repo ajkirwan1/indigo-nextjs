@@ -5,7 +5,6 @@ import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
 
 export function NavigationItems({ items }) {
-  console.warn(items);
     const [dropdown, setDropdown] = useState(false);
   return (
     <ul className={classes.ulWrapper} onMouseLeave={() => setDropdown(false)}>

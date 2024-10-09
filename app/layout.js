@@ -12,7 +12,6 @@ export const metadata = {
 
 export default async function RootLayout({ children, landingModal }) {
   const session = await validateRequest();
-  console.log("Layout", session);
   return (
     <html lang="en">
       <body>
