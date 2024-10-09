@@ -4,6 +4,7 @@
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
 import { MobileMenuIcon } from "./mobile-menu-icon";
+import { MobileNavbar } from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
 import LayoutContext from "@/contexts/layout-context";
 import { navigationData } from "@/data/navigation-data";
@@ -38,13 +39,18 @@ export default function Header({ className }) {
   });
 
   return (
-    <header className={className}>
-      <NavLink href="/">
-        <img className={classes.logoIndigo} src="/logoindigo.png"></img>
-      </NavLink>
-      {!showMobileNavMenu ? (
-        <DesktopNav data={navigationData}></DesktopNav>
-      ) : <MobileMenuIcon />}
-    </header>
+    <>
+      <header className={className}>
+        <NavLink href="/">
+          <img className={classes.logoIndigo} src="/logoindigo.png"></img>
+        </NavLink>
+        {!showMobileNavMenu ? (
+          <DesktopNav data={navigationData}></DesktopNav>
+        ) : (
+          <MobileMenuIcon />
+        )}
+      </header>
+      {mobileMenuOpen && <MobileNavbar data={navigationData}/>}
+    </>
   );
 }
