@@ -65,8 +65,10 @@ export default function Header({ className }) {
 
   return (
     <header className={className}>
+      <NavLink href="/">
+        <img className={classes.logoIndigo} src="/logoindigo.png"></img>
+      </NavLink>
       {!showMobileNavMenu ? <DesktopNav></DesktopNav> : null}
-      
     </header>
   );
 }

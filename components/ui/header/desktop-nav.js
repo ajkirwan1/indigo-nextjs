@@ -11,9 +11,9 @@ export default function DesktopNav() {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink href="/">
+            {/* <NavLink href="/">
               <img className={classes.logoIndigo} src="/logoindigo.png"></img>
-            </NavLink>
+            </NavLink> */}
           </li>
           <li className={classes.hoverEffect}>
             <NavLink href="/who-we-are">Who we are</NavLink>
