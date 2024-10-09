@@ -1,9 +1,10 @@
 /** @format */
 
 import { Inter } from "next/font/google";
-import Header from "@/components/ui/header";
+import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
-// import "./globals.css";
+
+// import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,7 @@ export const metadata = {
 export default function ContentLayout({ children }) {
   return (
     <>
-      <Header></Header>
+      <Header className="non-hero"></Header>
       <main>{children}</main>
       <Footer></Footer>
     </>

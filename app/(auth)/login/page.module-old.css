@@ -1,0 +1,30 @@
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("../../../public/greece7.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  .formcontainer {
+    background-color: #d9d9d9b2;
+    border: 0.5px solid black;
+    width:80vh;
+    height: 80vh;
+    border-radius: 20px;
+}
+.logoIndigo {
+    height: 12rem;
+  width: auto;
+}
+/* .buttoncontainer {
+    
+
+} */
+/* input[type="text"] {
+    height: 2rem;
+    width:50%
+} */

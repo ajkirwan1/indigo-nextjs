@@ -1,0 +1,36 @@
+.paragraph {
+  color: #505050;
+}
+
+.leftArrowSvg {
+  height: 50px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10vh;
+}
+.heroHeader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  width: 100%;
+}
+
+.section3 {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+.section3Div {
+  max-width: 70vw;
+}
+
+.btnWrapper {
+  margin-top: 2rem;
+}

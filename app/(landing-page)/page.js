@@ -1,15 +1,16 @@
 /** @format */
-
-import Header from "@/components/ui/header";
+"use client";
+import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
 import Button from "@/components/ui/button";
 import classes from "./page.module.css";
 import { propertyData } from "@/public/data/data";
 import { Carousel } from "@/components/carousel";
+import { useSession } from "../../contexts/session-context";
 
 export default function Homepage() {
-  const loggedIn = false;
+  const session = useSession();
 
   return (
     <>
@@ -44,7 +45,7 @@ export default function Homepage() {
           <Carousel images={propertyData} />
         </div>
         <div className={classes.btnWrapper}>
-          <Button href={loggedIn ? "/projects" : "/login"}>ALL PROJECTS</Button>
+          <Button href={session ? "/projects" : "/login"}>ALL PROJECTS</Button>
         </div>
       </section>
       <Footer></Footer>

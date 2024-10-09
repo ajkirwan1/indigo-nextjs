@@ -1,0 +1,124 @@
+.nav {
+  display: flex;
+  padding: 20px;
+  font-size: 20px;
+  width:100%
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #505050;
+    letter-spacing: 0.07em;
+    flex-wrap: wrap;
+
+  }
+  .hoverEffect a {
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+  }
+  .hoverEffect a:hover {
+    text-decoration: none;
+  }
+  .hoverEffect a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.06em;
+    background-color: #505050;
+    opacity: 0;
+    transition: opacity 600ms, transform 600ms;
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+  }
+  
+  .hoverEffect a:hover::after,
+  .hoverEffect a:focus::after {
+    transform: scale(1);
+  }
+  
+  .logoIndigo {
+    height: 12rem;
+    width: auto;
+  }
+  .mobileNavContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    transform: translateX(-100%);
+    transition-duration: 0.3s;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .hamburgerMenu {
+    cursor: pointer;
+    z-index: 9999;
+  }
+
+  .hamburgerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .mobileNavMenuActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: translate(0%, 0%);
+    width: 100vw;
+    height: 100vh;
+    background-color: #d5dfe1;
+    z-index: 20;
+    transition-duration: 0.3s;
+  }
+
+  .mobileNavMenuActive nav {
+    width: 100%;
+  }
+  .mobileNavMenuActive li {
+    width: 100%;
+  }
+  
+  .mobileNavMenuActive ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mobileNavMenuActive button {
+    border: none;
+    font-size: inherit;
+    background-color: transparent;
+    font: inherit;
+    cursor: pointer;
+  }
+  .mobileNavMenuActive button:hover {
+    text-decoration: underline;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .hamburgerMenu {
+      cursor: pointer;
+      z-index: 9999;
+      height: 50px;
+    }
+    .logoIndigo {
+      height: 8rem;
+      width: auto;
+    }
+  }
