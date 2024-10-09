@@ -4,11 +4,13 @@
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
 import DesktopNav from "./desktop-nav";
+import LayoutContext from "@/contexts/layout-context";
+import { navigationData } from "@/data/navigation-data";
 import { useSession } from "@/contexts/session-context";
 import { useContext, useEffect } from "react";
-import LayoutContext from "@/contexts/layout-context";
+
 export default function Header({ className }) {
-  const { session, user } = useSession();
+  // const { session, user } = useSession();
   const { handleLayoutChange, showMobileNavMenu, mobileMenuOpen } =
     useContext(LayoutContext);
 
@@ -28,7 +30,6 @@ export default function Header({ className }) {
     const handleResize = () => {
       if (window.innerWidth > 767) {
         handleLayoutChange(false);
-        // setMobileMenuOpen(false);
       } else if (window.innerWidth < 767) {
         handleLayoutChange(true);
       }
@@ -68,7 +69,7 @@ export default function Header({ className }) {
       <NavLink href="/">
         <img className={classes.logoIndigo} src="/logoindigo.png"></img>
       </NavLink>
-      {!showMobileNavMenu ? <DesktopNav></DesktopNav> : null}
+      {!showMobileNavMenu ? <DesktopNav data={navigationData}></DesktopNav> : null}
     </header>
   );
 }

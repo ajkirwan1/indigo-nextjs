@@ -1,14 +1,5 @@
 .paragraph {
   color: #505050;
-  /* font-size: 25px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1vh;
-  letter-spacing: 0.05em; */
 }
 
 .leftArrowSvg {
@@ -23,6 +14,8 @@
 }
 .header {
   position: absolute;
+  display: flex;
+  align-items: center;
   top: 0;
   width: 100%;
 }

@@ -1,19 +1,19 @@
 /** @format */
 "use client";
 
-import classes from "./header.module.css";
-import NavLink from "@/components/nav-link";
+import classes from "./sub-header.module.css";
+import { NavigationItems } from "./navigation-items";
+// import NavLink from "@/components/nav-link";
 
-export default function DesktopNav() {
-
+export default function DesktopNav({ data }) {
   return (
     <>
-      <nav className={classes.nav}>
+      {/* <nav className={classes.nav}>
         <ul>
           <li>
-            {/* <NavLink href="/">
+            <NavLink href="/">
               <img className={classes.logoIndigo} src="/logoindigo.png"></img>
-            </NavLink> */}
+            </NavLink>
           </li>
           <li className={classes.hoverEffect}>
             <NavLink href="/who-we-are">Who we are</NavLink>
@@ -36,10 +36,17 @@ export default function DesktopNav() {
           <li className={classes.hoverEffect}>
             <NavLink href="/register">Register</NavLink>
           </li>
-          {/* <li className={classes.hoverEffect}>
+          <li className={classes.hoverEffect}>
             {session ? <LogOutNav /> : <LogInNav />}
           </li>
-          <li>{user?.adminUser ? <AdminNav /> : null}</li> */}
+          <li>{user?.adminUser ? <AdminNav /> : null}</li>
+        </ul>
+      </nav> */}
+      <nav className={classes.desktopNav}>
+        <ul className={classes.menus}>
+          {data.map((menu, index) => {
+            return <NavigationItems items={menu} key={index} />;
+          })}
         </ul>
       </nav>
     </>
