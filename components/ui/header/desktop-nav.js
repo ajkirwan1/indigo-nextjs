@@ -3,40 +3,11 @@
 
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
-import { useSession } from "@/contexts/session-context";
-export default function Header({ className }) {
-  const { session, user } = useSession();
 
-  console.log("Header session", session);
-  console.log("User session", user);
-  
-
-  function AdminNav() {
-    return (
-      <>
-        <NavLink href="/admin">Admin</NavLink>
-      </>
-    );
-  }
-
-  function LogInNav() {
-    return (
-      <>
-        <NavLink href="/login">Login</NavLink>
-      </>
-    );
-  }
-
-  function LogOutNav() {
-    return (
-      <>
-        <NavLink href="/logout">Logout</NavLink>
-      </>
-    );
-  }
+export default function DesktopNav() {
 
   return (
-    <header className={className}>
+    <>
       <nav className={classes.nav}>
         <ul>
           <li>
@@ -65,12 +36,12 @@ export default function Header({ className }) {
           <li className={classes.hoverEffect}>
             <NavLink href="/register">Register</NavLink>
           </li>
-          <li className={classes.hoverEffect}>
+          {/* <li className={classes.hoverEffect}>
             {session ? <LogOutNav /> : <LogInNav />}
           </li>
-          <li>{user?.adminUser ? <AdminNav /> : null}</li>
+          <li>{user?.adminUser ? <AdminNav /> : null}</li> */}
         </ul>
       </nav>
-    </header>
+    </>
   );
 }

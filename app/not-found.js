@@ -1,6 +1,6 @@
 /** @format */
 
-import Header from "@/components/ui/header";
+import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 
 export default function NotFound() {

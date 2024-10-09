@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import Header from "@/components/ui/header";
+import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
 import Button from "@/components/ui/button";

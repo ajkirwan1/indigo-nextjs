@@ -1,6 +1,6 @@
 /** @format */
 import { Login } from "@/server/actions/login";
-import Header from "@/components/ui/header";
+import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import LoginForm from "@/components/forms/login-form";
 import classes from "./page.module.css";

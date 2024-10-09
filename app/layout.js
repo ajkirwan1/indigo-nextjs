@@ -1,6 +1,7 @@
 /** @format */
 
 import { SessionProvider } from "@/contexts/session-context";
+import { LayoutProvider } from "@/contexts/layout-context";
 
 import "./globals.css";
 import { validateRequest } from "@/lib/auth";
@@ -11,13 +12,13 @@ export const metadata = {
 
 export default async function RootLayout({ children, landingModal }) {
   const session = await validateRequest();
-  console.log("Layout", session)
+  console.log("Layout", session);
   return (
     <html lang="en">
       <body>
-        <SessionProvider value={session}>
-          {children}
-        </SessionProvider>
+        <LayoutProvider>
+          <SessionProvider value={session}>{children}</SessionProvider>
+        </LayoutProvider>
       </body>
     </html>
   );
