@@ -1,12 +1,12 @@
 /** @format */
 "use server";
 
-import { db } from "@/lib/db";
-import { verify } from "@node-rs/argon2";
 import { validateRequest } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { lucia } from "@/lib/auth";
 import { redirect } from "next/navigation";
+
+
 
 export async function Logout() {
   const { session } = await validateRequest();

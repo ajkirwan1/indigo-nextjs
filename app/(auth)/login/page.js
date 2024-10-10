@@ -1,11 +1,19 @@
 /** @format */
 import { Login } from "@/server/actions/login";
+import { Logout } from "@/server/actions/logout";
+import { validateRequest } from "@/lib/auth";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import LoginForm from "@/components/forms/login-form";
 import classes from "./page.module.css";
+import { redirect } from "next/navigation";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const { user } = await validateRequest();
+  if (user) 
+  {
+    Logout()
+  }
 
   return (
     <>

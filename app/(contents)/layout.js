@@ -14,6 +14,7 @@ export const metadata = {
 };
 
 export default function ContentLayout({ children }) {
+  console.warn("THIS")
   return (
     <>
       <Header className="non-hero"></Header>

@@ -38,6 +38,7 @@ export async function Login(_, formData) {
 
     const session = await lucia.createSession(existingUser.id, {});
     const sessionCookie = lucia.createSessionCookie(session.id);
+    console.log(sessionCookie.name, "Cookie name")
     cookies().set(
       sessionCookie.name,
       sessionCookie.value,
