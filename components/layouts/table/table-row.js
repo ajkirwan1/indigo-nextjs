@@ -1,12 +1,15 @@
 /** @format */
-'use client'
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function TableRow({ data }) {
-
-    const handleClick = () => {
-        console.log("CLICK")
-    }
+  const router = useRouter();
+  const id = data[0];
+  const handleClick = () => {
+    console.log(data[0]);
+    router.push(`/admin/user/${id}`);
+  };
 
   return (
     <tr onClick={handleClick}>

@@ -22,7 +22,7 @@ export default async function AdminPage() {
     console.warn("error fetching data", error);
   }
 
-  const theadData = ["Username", "First name", "Last name", "Email", "Property access", "Consulting Access" ]
+  const theadData = ["id", "Username", "First name", "Last name", "Email", "Property access", "Consulting Access" ]
   let tbodyData = [];
 
   data.forEach((element, index) => {
