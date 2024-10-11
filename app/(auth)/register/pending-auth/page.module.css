@@ -5,22 +5,6 @@
     width: 100%;
   }
   
-  .heroHeader {
-    color: aliceblue;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: 0;
-    width: 100%;
-  }
-  .heroHeader a {
-    color: aliceblue;
-  }
-  
-  .heroHeader button {
-    color: aliceblue;
-  }
-
   .loginForm {
     display: flex;
     flex-direction: column;
@@ -52,7 +36,7 @@
     align-items: center;
     justify-content: space-around;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("../../../public/images/authbackground.jpg");
+      url("../../../../public/images/authbackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     height: 90%;

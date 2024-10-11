@@ -13,12 +13,21 @@
   gap: 10vh;
 }
 .heroHeader {
+  color: aliceblue;
   position: absolute;
   display: flex;
   align-items: center;
   top: 0;
   width: 100%;
 }
+.heroHeader a {
+  color: aliceblue;
+}
+
+.heroHeader button {
+  color: aliceblue;
+}
+
 
 .section3 {
   display: flex;

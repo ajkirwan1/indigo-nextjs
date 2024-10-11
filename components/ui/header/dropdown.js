@@ -1,14 +1,16 @@
 /** @format */
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
+import { useSession } from "@/contexts/session-context";
 import { motion } from "framer-motion";
 
 export function Dropdown({ submenus, dropdown, setDropdown }) {
 
-const isLoggedIn = false;
+  const {user} = useSession()
+  console.log(user, "desktop")
 
   let data;
-  if (isLoggedIn) {
+  if (user) {
     data = submenus.filter((item) => {
       return item.title !== "Login";
     });

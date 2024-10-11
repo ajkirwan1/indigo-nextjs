@@ -98,6 +98,22 @@
   .registerPageContainer {
     height: 100vh;
   }
+
+  .heroHeader {
+    color: aliceblue;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    width: 100%;
+  }
+  .heroHeader a {
+    color: aliceblue;
+  }
+  
+  .heroHeader button {
+    color: aliceblue;
+  }
   
   @media only screen and (max-width: 600px) {
     .logoIndigo {

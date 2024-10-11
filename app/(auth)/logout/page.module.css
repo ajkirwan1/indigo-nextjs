@@ -3,8 +3,9 @@
     position: absolute;
     top: 0;
     width: 100%;
+    /* color: white !important; */
   }
-  
+
   .heroHeader {
     color: aliceblue;
     position: absolute;
@@ -20,7 +21,7 @@
   .heroHeader button {
     color: aliceblue;
   }
-
+  
   .loginForm {
     display: flex;
     flex-direction: column;

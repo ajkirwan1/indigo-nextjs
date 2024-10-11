@@ -2,13 +2,13 @@
     width: 100%;
     line-height: 3vh;
   }
-  .desktopNav a{
+  /* .desktopNav a{
     color: #505050;
   }
 
   .desktopNav button{
     color: #505050;
-  }
+  } */
   
   .desktopNav .dropdown {
     display: none;

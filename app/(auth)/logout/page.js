@@ -1,19 +1,19 @@
 /** @format */
-import { Login } from "@/server/actions/login";
-import { Logout } from "@/server/actions/logout";
+
 import { validateRequest } from "@/lib/auth";
+import { Logout } from "@/server/actions/logout";
+import LogoutForm from "@/components/forms/logout-form";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
-import LoginForm from "@/components/forms/login-form";
 import classes from "./page.module.css";
 import { redirect } from "next/navigation";
 
-export default async function LoginPage() {
+export default async function LogoutPage() {
   const {user}= await validateRequest();
 
-  if (user)
+  if (!user)
   {
-    redirect("/logout");
+    redirect("/login");
   }
 
   return (
@@ -22,7 +22,7 @@ export default async function LoginPage() {
         <div className={classes.hero}>
           <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
-          <LoginForm action={Login}></LoginForm>
+            <LogoutForm action={Logout}></LogoutForm>
           </div>
         </div>
         <Footer></Footer>
@@ -30,3 +30,7 @@ export default async function LoginPage() {
     </>
   );
 }
+
+// export default async function LogOutPage() {
+//     const response = await fetch('http://localhost:3000/api/logout')
+// }

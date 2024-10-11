@@ -21,27 +21,7 @@ export const LayoutProvider = ({ children }) => {
 
   const handleBurger = (value) => {
     setMobileMenuOpen(value);
-    // console.warn("CHANGE OF VIEW");
   };
-
-  //   useEffect(() => {
-  //     document.body.style.overflow = "scroll";
-  //     if (window.innerWidth > 767) {
-  //       setShowMobileNavMenu(false);
-  //     } else if (window.innerWidth < 767) {
-  //       setShowMobileNavMenu(true);
-  //     }
-  //   }, []);
-
-  //   useEffect(() => {
-  //     const handleResize = () => {
-  //       if (window.innerWidth > 767) {
-  //         setShowMobileNavMenu(false);
-  //         setMobileMenuOpen(false);
-  //       } else if (window.innerWidth < 767) {
-  //         setShowMobileNavMenu(true);
-  //       }
-  //     };
 
   return (
     <LayoutContext.Provider
@@ -50,7 +30,6 @@ export const LayoutProvider = ({ children }) => {
         handleBurger,
         showMobileNavMenu,
         mobileMenuOpen
-        
       }}
     >
       {children}
