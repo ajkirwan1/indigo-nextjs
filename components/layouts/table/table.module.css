@@ -17,3 +17,7 @@
 .admin tr {
     height: 12vh;
 }
+
+.admin tbody tr:hover {
+    background-color: azure;
+}
