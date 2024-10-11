@@ -1,12 +1,14 @@
 /** @format */
 
 import { validateRequest } from "@/lib/auth";
+import { Logout } from "@/server/actions/logout";
+import LogoutForm from "@/components/forms/logout-form";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import classes from "./page.module.css";
 import { redirect } from "next/navigation";
 
-export default async function LoginPage() {
+export default async function LogoutPage() {
   const {user}= await validateRequest();
 
   if (!user)
@@ -20,8 +22,7 @@ export default async function LoginPage() {
         <div className={classes.hero}>
           <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
-            Logout
-          {/* <LoginForm action={Login}></LoginForm> */}
+            <LogoutForm action={Logout}></LogoutForm>
           </div>
         </div>
         <Footer></Footer>
