@@ -44,6 +44,11 @@ export async function Login(_, formData) {
       sessionCookie.value,
       sessionCookie.attributes
     );
+    console.warn(existingUser.admin_access, "esisting user");
+    if (existingUser.admin_access == 1)
+    {
+      return redirect("/admin");
+    }
     // userSession = {session}
     return redirect("/");
   }
