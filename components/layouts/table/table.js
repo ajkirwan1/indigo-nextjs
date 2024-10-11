@@ -1,13 +1,14 @@
 /** @format */
 import TableHeadItem from "./table-head-item";
 import TableRow from "./table-row";
+import classes from "./table.module.css"
 
 export default function Table({ theadData, tbodyData, customClass }) {
-
-
+let value = customClass
+console.log(customClass)
   return (
     <>
-      <table className={customClass}>
+      <table className={classes[customClass]}>
         <thead>
           <tr>
             {theadData.map((h) => {

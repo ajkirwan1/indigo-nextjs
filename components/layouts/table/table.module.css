@@ -1,0 +1,19 @@
+.admin {
+    width: 100%;
+}
+
+.admin thead {
+    font-size: 46px;
+}
+
+.admin tbody {
+    font-size: 30px;
+}
+
+.admin td {
+    border-bottom: 1px solid black;
+}
+
+.admin tr {
+    height: 12vh;
+}

@@ -6,6 +6,10 @@ import { redirect } from "next/navigation";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
+
+  if (!user) {
+    redirect("/")
+  }
   if (user?.adminUser != 1) {
     redirect("/");
   }
@@ -30,7 +34,9 @@ export default async function AdminPage() {
 
   return (
     <>
-      <Table theadData={theadData} tbodyData={tbodyData}></Table>
+    <h1>Hi Emmanuel</h1>
+    <h2>List of registered users</h2>
+      <Table theadData={theadData} tbodyData={tbodyData} customClass="admin"></Table>
     </>
   );
 }
