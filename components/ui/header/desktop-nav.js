@@ -3,9 +3,10 @@
 
 import classes from "./sub-header.module.css";
 import { NavigationItems } from "./navigation-items";
-// import NavLink from "@/components/nav-link";
+
 
 export default function DesktopNav({ data }) {
+
   return (
     <>
       <div className={classes.desktopNav}>

@@ -9,17 +9,18 @@ import classes from "./page.module.css";
 import { redirect } from "next/navigation";
 
 export default async function LoginPage() {
-  const { user } = await validateRequest();
-  if (user) 
+  const {user}= await validateRequest();
+
+  if (user)
   {
-    Logout()
+    redirect("/logout");
   }
 
   return (
     <>
       <div className={classes.registerPageContainer}>
         <div className={classes.hero}>
-          <Header className={classes.header}></Header>
+          <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
           <LoginForm action={Login}></LoginForm>
           </div>

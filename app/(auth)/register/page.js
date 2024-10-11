@@ -21,7 +21,7 @@ export default async function RegisterPage() {
     <>
   <div className={classes.registerPageContainer}>
         <div className={classes.hero}>
-        <Header className={classes.header}></Header>
+        <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
          <RegisterForm action={RegisterAction}></RegisterForm>
           </div>
