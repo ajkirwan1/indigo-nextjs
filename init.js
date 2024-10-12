@@ -41,8 +41,8 @@ const userData = [
   {
     id: generateId(15),
     username: "property123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "john",
+    last_name: "smith",
     email: "property@123.com",
     admin_access: 0,
     property_access: 1,
@@ -59,8 +59,8 @@ const userData = [
   {
     id: generateId(15),
     username: "consulting123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "pete",
+    last_name: "burns",
     email: "consulting@123.com",
     admin_access: 0,
     property_access: 1,
@@ -77,8 +77,8 @@ const userData = [
   {
     id: generateId(15),
     username: "user123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "mick",
+    last_name: "jackson",
     email: "user@123.com",
     admin_access: 0,
     property_access: 0,
