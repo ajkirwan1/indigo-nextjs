@@ -5,6 +5,7 @@ import { getUser } from "@/server/actions/db/client";
 import { redirect } from "next/navigation";
 import AdminSubmitForm from "@/components/forms/admin-submit-form";
 import { AdminSubmit } from "@/server/actions/admin-submit";
+import Link from "next/link";
 
 export default async function AdminClientPage({ params }) {
   const { user } = await validateRequest();
@@ -15,10 +16,8 @@ export default async function AdminClientPage({ params }) {
   if (user?.adminUser != 1) {
     redirect("/");
   }
-  const {username, first_name, email } = await getUser(params.id);
-  
+  const { username, first_name, email } = await getUser(params.id);
 
-  
   return (
     <>
       <h1>{username}</h1>
