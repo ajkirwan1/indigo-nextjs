@@ -49,6 +49,5 @@ export async function Login(_, formData) {
     {
       return redirect("/admin");
     }
-    // userSession = {session}
     return redirect("/");
   }

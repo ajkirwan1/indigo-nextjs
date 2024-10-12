@@ -1,6 +1,5 @@
 /** @format */
 import { Login } from "@/server/actions/login";
-import { Logout } from "@/server/actions/logout";
 import { validateRequest } from "@/lib/auth";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
