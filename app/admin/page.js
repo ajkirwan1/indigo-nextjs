@@ -15,32 +15,25 @@ export default async function AdminPage() {
     redirect("/");
   }
 
-  let data
+  let theadData, tbodyData;
+
+
   try {
     const response = await fetch("http://localhost:3000/api/users");
-    data = await response.json();
+    const data = await response.json();
 
-    // util function to prepare data
-    const result = PrepareAdminClientData(data)
-    console.log(result, "the result is:")
+    const {headerData, bodyData} = PrepareAdminClientData(data)
+    theadData = [...headerData]
+    tbodyData = [...bodyData]
     
   } catch (error) {
-    console.warn("error fetching data", error);
+    // console.warn("error fetching data", error);
+    throw new Error("Data collection failed", error)
   }
-
-  const theadData = ["id", "Username", "First name", "Last name", "Email", "Property access", "Consulting access", "Date of request" ]
-  let tbodyData = [];
-
-  data.forEach((element, index) => {
-    let arr = {};
-    arr.id = index;
-    arr.items = Object.values(element)
-    tbodyData.push(arr);
-  });
 
   return (
     <>
-    <h1>Hi Emmanuel</h1>
+     <h1>Hi Emmanuel</h1>
     <h2>List of registered users</h2>
       <Table theadData={theadData} tbodyData={tbodyData} customClass="admin"></Table>
     </>

@@ -4,7 +4,6 @@ import TableRow from "./table-row";
 import classes from "./table.module.css";
 
 export default function Table({ theadData, tbodyData, customClass }) {
-  console.log(customClass);
   return (
     <>
       <table className={classes[customClass]}>
@@ -17,7 +16,7 @@ export default function Table({ theadData, tbodyData, customClass }) {
         </thead>
         <tbody>
           {tbodyData.map((item) => {
-            return <TableRow id={item.id} key={item.id} data={item.items} />;
+            return <TableRow id={item.userId} key={item.userId} data={item.items} />;
           })}
         </tbody>
       </table>

@@ -14,7 +14,7 @@ export default async function AdminClientPage({ params }) {
   if (user?.adminUser != 1) {
     redirect("/");
   }
-  const {username, first_name, email, } = await getUser(params.id);
+  const {username, first_name, email } = await getUser(params.id);
   
   return (
     <>
