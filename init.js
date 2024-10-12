@@ -28,6 +28,7 @@ const userData = [
     admin_access: 1,
     property_access: 1,
     consulting_access: 1,
+    access_request_date: new Date(2022, 8, 10).toJSON().slice(0,10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -35,6 +36,7 @@ const userData = [
       outputLen: 32,
       parallelism: 1,
     }),
+
   },
   {
     id: generateId(15),
@@ -45,6 +47,7 @@ const userData = [
     admin_access: 0,
     property_access: 1,
     consulting_access: 0,
+    access_request_date: new Date(2020, 1, 24).toJSON().slice(0,10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -62,6 +65,7 @@ const userData = [
     admin_access: 0,
     property_access: 1,
     consulting_access: 0,
+    access_request_date: new Date(2024, 1, 1).toJSON().slice(0,10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -79,6 +83,7 @@ const userData = [
     admin_access: 0,
     property_access: 0,
     consulting_access: 0,
+    access_request_date: new Date(2019, 12, 3).toJSON().slice(0,10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -98,6 +103,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS user (
     admin_access INTEGER,
     property_access INTEGER,
     consulting_access INTEGER,
+    access_request_date TEXT,
     password_hash TEXT NOT NULL
 )`);
 
@@ -148,6 +154,7 @@ if (users.length === 0) {
                  @admin_access,
                  @property_access,
                  @consulting_access,
+                 @access_request_date,
                  @password_hash
               )
            `);

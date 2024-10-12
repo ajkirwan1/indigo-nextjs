@@ -21,3 +21,7 @@
 .admin tbody tr:hover {
     background-color: azure;
 }
+
+.admin .pending {
+    background-color: #f5cdb4;;
+}

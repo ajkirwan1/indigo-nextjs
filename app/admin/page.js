@@ -3,6 +3,7 @@
 import { validateRequest } from "@/lib/auth";
 import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
+import PrepareAdminClientData from "@/utils/admin-table-data";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
@@ -18,11 +19,16 @@ export default async function AdminPage() {
   try {
     const response = await fetch("http://localhost:3000/api/users");
     data = await response.json();
+
+    // util function to prepare data
+    const result = PrepareAdminClientData(data)
+    console.log(result, "the result is:")
+    
   } catch (error) {
     console.warn("error fetching data", error);
   }
 
-  const theadData = ["id", "Username", "First name", "Last name", "Email", "Property access", "Consulting Access" ]
+  const theadData = ["id", "Username", "First name", "Last name", "Email", "Property access", "Consulting access", "Date of request" ]
   let tbodyData = [];
 
   data.forEach((element, index) => {

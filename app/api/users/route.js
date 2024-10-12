@@ -8,7 +8,7 @@ export async function GET(request) {
   // return Response.json();
   //   return new Response("GET user resonse!");
 
-  const items = await db.prepare("SELECT id, username, first_name, last_name, email, property_access, consulting_access FROM user").all();
+  const items = await db.prepare("SELECT id, username, first_name, last_name, email, property_access, consulting_access, access_request_date FROM user").all();
 
   return new Response(JSON.stringify(items), {
     headers: { "Content-Type": "application/json" },
