@@ -71,7 +71,7 @@ export async function RegisterAction(_, formData) {
     const userId = generateIdFromEntropySize(10);
   
     const stmt = db.prepare(
-      "INSERT INTO user VALUES (@id, @username, @first_name, @last_name, @email, @admin_access, @property_access, @admin_access, @password_hash)"
+      "INSERT INTO user VALUES (@id, @username, @first_name, @last_name, @email, @admin_access, @property_access, @consulting_access, @access_request_date, @password_hash)"
     );
   
     stmt.run({
@@ -82,7 +82,9 @@ export async function RegisterAction(_, formData) {
       email: email,
       admin_access: 0,
       property_access: 0,
+      consulting_access:0,
       admin_access: 0,
+      access_request_date: new Date().toJSON().slice(0,10),
       password_hash: passwordHash,
     });
   

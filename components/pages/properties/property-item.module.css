@@ -1,0 +1,23 @@
+.img {
+    width: 40%;
+    height: auto;
+}
+
+.icon {
+    width: 3vw;
+}
+
+.propertyItemContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.infoContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}

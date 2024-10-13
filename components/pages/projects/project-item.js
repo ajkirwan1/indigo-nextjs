@@ -6,7 +6,6 @@ import Image from "next/image";
 import classes from "./project-item.module.css";
 
 export default function ProjectItem({ id, slug }) {
-  console.log(id);
   return (
     <div className={classes.img}>
       <Link href={`/projects/${id}`}>

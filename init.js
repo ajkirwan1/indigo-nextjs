@@ -6,6 +6,10 @@ const db = new Database("main.db");
 import { generateId } from "lucia";
 import { hash } from "@node-rs/argon2";
 
+const pdf1Id = generateId(15);
+const pdf2Id = generateId(15);
+const pdf3Id = generateId(15);
+
 const projectsSeedData = [
   { slug: "/carousel-images/entrance.jpg" },
   { slug: "/carousel-images/dinning.jpg" },
@@ -25,9 +29,10 @@ const userData = [
     first_name: "adam",
     last_name: "kirwan",
     email: "ajkirwan@123.com",
-    admin_access: 1,
-    property_access: 1,
-    consulting_access: 1,
+    admin_access: 2,
+    property_access: 2,
+    consulting_access: 2,
+    access_request_date: new Date(2022, 8, 10).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -39,12 +44,13 @@ const userData = [
   {
     id: generateId(15),
     username: "property123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "john",
+    last_name: "smith",
     email: "property@123.com",
     admin_access: 0,
-    property_access: 1,
+    property_access: 2,
     consulting_access: 0,
+    access_request_date: new Date(2020, 1, 24).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -56,12 +62,13 @@ const userData = [
   {
     id: generateId(15),
     username: "consulting123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "pete",
+    last_name: "burns",
     email: "consulting@123.com",
     admin_access: 0,
-    property_access: 1,
-    consulting_access: 0,
+    property_access: 0,
+    consulting_access: 2,
+    access_request_date: new Date(2024, 1, 1).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -73,12 +80,13 @@ const userData = [
   {
     id: generateId(15),
     username: "user123",
-    first_name: "adam",
-    last_name: "kirwan",
+    first_name: "mick",
+    last_name: "jackson",
     email: "user@123.com",
     admin_access: 0,
     property_access: 0,
     consulting_access: 0,
+    access_request_date: new Date().toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -89,6 +97,14 @@ const userData = [
   },
 ];
 
+const propertiesSeedData = [
+  { id: generateId(15), title: "Φ 19", name: "Glyfada", image: "entrance.jpg", pdf_id: pdf1Id },
+  { id: generateId(15), title: "Σ 14", name: "Voula", image: "final.jpg", pdf_id: pdf2Id },
+  { id: generateId(15), title: "β 7", name: "Kavouri", image: "pool.jpg", pdf_id: pdf3Id },
+];
+
+const pdfSeedData = [{ id: pdf1Id }, { id: pdf2Id }, { id: pdf3Id }];
+
 db.exec(`CREATE TABLE IF NOT EXISTS user (
     id TEXT NOT NULL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
@@ -98,6 +114,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS user (
     admin_access INTEGER,
     property_access INTEGER,
     consulting_access INTEGER,
+    access_request_date TEXT,
     password_hash TEXT NOT NULL
 )`);
 
@@ -107,6 +124,20 @@ db.exec(`CREATE TABLE IF NOT EXISTS session (
     user_id TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(id)
 )`);
+
+db.exec(`CREATE TABLE IF NOT EXISTS pdfs (
+  id TEXT NOT NULL PRIMARY KEY
+)`);
+
+db.exec(`CREATE TABLE IF NOT EXISTS properties (
+  id TEXT NOT NULL PRIMARY KEY,
+  title INTEGER NOT NULL,
+  name INTEGER NOT NULL,
+  image TEXT UNIQUE,
+  pdf_id TEXT NOT NULL,
+  FOREIGN KEY (pdf_id) REFERENCES pdfs(id)
+)`);
+
 
 db.prepare(
   `
@@ -119,6 +150,45 @@ db.prepare(
 
 const projectData = db.prepare("SELECT * FROM projects").all();
 const users = db.prepare("SELECT * FROM user").all();
+const properties = db.prepare("SELECT * FROM properties").all();
+const pdfs = db.prepare("SELECT * FROM pdfs").all();
+
+
+if (pdfs.length === 0) {
+  async function initPdfs() {
+    const stmtPdfs = db.prepare(`
+          INSERT INTO pdfs VALUES (
+             @id
+          )
+       `);
+
+    for (const pdf of pdfSeedData) {
+      stmtPdfs.run(pdf);
+    }
+  }
+  initPdfs();
+}
+
+
+
+if (properties.length === 0) {
+  async function initProperties() {
+    const stmtProperties = db.prepare(`
+              INSERT INTO properties VALUES (
+                 @id,
+                 @title,
+                 @name,
+                 @image,
+                 @pdf_id
+              )
+           `);
+
+    for (const properties of propertiesSeedData) {
+      stmtProperties.run(properties);
+    }
+  }
+  initProperties();
+}
 
 if (projectData.length === 0) {
   async function initData() {
@@ -136,6 +206,8 @@ if (projectData.length === 0) {
   initData();
 }
 
+
+
 if (users.length === 0) {
   async function initUsers() {
     const stmt2 = db.prepare(`
@@ -148,6 +220,7 @@ if (users.length === 0) {
                  @admin_access,
                  @property_access,
                  @consulting_access,
+                 @access_request_date,
                  @password_hash
               )
            `);

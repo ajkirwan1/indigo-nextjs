@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 export function Dropdown({ submenus, dropdown, setDropdown }) {
 
   const {user} = useSession()
-  console.log(user, "desktop")
 
   let data;
   if (user) {

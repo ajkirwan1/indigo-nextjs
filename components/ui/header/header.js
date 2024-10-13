@@ -3,18 +3,21 @@
 
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
+import { useSession } from "@/contexts/session-context";
 import { MobileMenuIcon } from "./mobile-menu-icon";
 import { MobileNavbar } from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
 import LayoutContext from "@/contexts/layout-context";
 import { navigationData } from "@/data/navigation-data";
-import { useSession } from "@/contexts/session-context";
 import { useContext, useEffect } from "react";
+import { adminNavigationData } from "@/data/admin-navigation-data";
 
 export default function Header({ className }) {
   const { handleLayoutChange, showMobileNavMenu, mobileMenuOpen } =
     useContext(LayoutContext);
 
+  const {user} = useSession();
+    
   useEffect(() => {
     document.body.style.overflow = "scroll";
     if (window.innerWidth > 767) {
@@ -47,7 +50,7 @@ export default function Header({ className }) {
           </NavLink>
 
           {!showMobileNavMenu ? (
-            <DesktopNav data={navigationData}></DesktopNav>
+            <DesktopNav data={user?.adminUser ? adminNavigationData : navigationData}></DesktopNav>
           ) : (
             <MobileMenuIcon />
           )}

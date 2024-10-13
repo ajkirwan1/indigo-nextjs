@@ -12,10 +12,10 @@ async function Projects() {
 export default function ProjectsPage() {
   return (
     <>
-      <h1>
-        <Projects />
-        <Link href="/login">LOGIN</Link>
-      </h1>
+      <div className={classes.subHeader}>
+        <h1>OUR PROJECTS</h1>
+      </div>
+      <Projects />
     </>
   );
 }
