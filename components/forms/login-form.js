@@ -4,9 +4,9 @@
 import { useFormState } from "react-dom";
 import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
-export default function LoginForm({ action }) {
-  const [state, formAction] = useFormState(action, {});
-
+export default function LoginForm({ action, redirection }) {
+  const [state, formAction] = useFormState(action, {redirection});
+  
   return (
     <>
       <img className={classes.logoIndigo} src="./logoindigo.png"></img>

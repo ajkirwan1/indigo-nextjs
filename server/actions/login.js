@@ -6,11 +6,10 @@ import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia } from "@/lib/auth";
 import { redirect } from "next/navigation";
-
 const db = sql("main.db");
 
 
-export async function Login(_, formData) {
+export async function Login(state, formData) {
 
   const username = formData.get("username");
   const password = formData.get("password");
@@ -44,7 +43,11 @@ export async function Login(_, formData) {
       sessionCookie.value,
       sessionCookie.attributes
     );
-    console.warn(existingUser.admin_access, "esisting user");
+    // console.warn(existingUser.admin_access, "esisting user");
+
+    if (state.redirection) {
+      redirect(`/${state.redirection}`)
+    }
     if (existingUser.admin_access == 1)
     {
       return redirect("/admin");
