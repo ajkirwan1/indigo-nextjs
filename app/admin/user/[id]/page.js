@@ -13,7 +13,7 @@ export default async function AdminClientPage({ params }) {
   if (!user) {
     redirect("/");
   }
-  if (user?.adminUser != 1) {
+  if (user?.adminUser != 2) {
     redirect("/");
   }
   const { username, first_name, email } = await getUser(params.id);

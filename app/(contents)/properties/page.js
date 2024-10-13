@@ -13,6 +13,18 @@ async function Properties() {
 
 async function PropertiesPage() {
 
+  const {user}= await validateRequest();
+
+  if (!user)
+    {
+      redirect("/login");
+    }
+
+  if (user?.property_access != 2)
+  {
+    redirect("/register");
+  }
+
   return (
     <>
      <div className={classes.subHeader}>

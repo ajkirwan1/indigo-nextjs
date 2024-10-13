@@ -29,9 +29,9 @@ const userData = [
     first_name: "adam",
     last_name: "kirwan",
     email: "ajkirwan@123.com",
-    admin_access: 1,
-    property_access: 1,
-    consulting_access: 1,
+    admin_access: 2,
+    property_access: 2,
+    consulting_access: 2,
     access_request_date: new Date(2022, 8, 10).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
@@ -48,7 +48,7 @@ const userData = [
     last_name: "smith",
     email: "property@123.com",
     admin_access: 0,
-    property_access: 1,
+    property_access: 2,
     consulting_access: 0,
     access_request_date: new Date(2020, 1, 24).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
@@ -66,8 +66,8 @@ const userData = [
     last_name: "burns",
     email: "consulting@123.com",
     admin_access: 0,
-    property_access: 1,
-    consulting_access: 0,
+    property_access: 0,
+    consulting_access: 2,
     access_request_date: new Date(2024, 1, 1).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
@@ -98,9 +98,9 @@ const userData = [
 ];
 
 const propertiesSeedData = [
-  { id: generateId(15), name: "pic1", image: "entrance.jpg", pdf_id: pdf1Id },
-  { id: generateId(15), name: "pic2", image: "final.jpg", pdf_id: pdf2Id },
-  { id: generateId(15), name: "pic3", image: "pool.jpg", pdf_id: pdf3Id },
+  { id: generateId(15), title: "Φ 19", name: "Glyfada", image: "entrance.jpg", pdf_id: pdf1Id },
+  { id: generateId(15), title: "Σ 14", name: "Voula", image: "final.jpg", pdf_id: pdf2Id },
+  { id: generateId(15), title: "β 7", name: "Kavouri", image: "pool.jpg", pdf_id: pdf3Id },
 ];
 
 const pdfSeedData = [{ id: pdf1Id }, { id: pdf2Id }, { id: pdf3Id }];
@@ -131,6 +131,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS pdfs (
 
 db.exec(`CREATE TABLE IF NOT EXISTS properties (
   id TEXT NOT NULL PRIMARY KEY,
+  title INTEGER NOT NULL,
   name INTEGER NOT NULL,
   image TEXT UNIQUE,
   pdf_id TEXT NOT NULL,
@@ -175,6 +176,7 @@ if (properties.length === 0) {
     const stmtProperties = db.prepare(`
               INSERT INTO properties VALUES (
                  @id,
+                 @title,
                  @name,
                  @image,
                  @pdf_id

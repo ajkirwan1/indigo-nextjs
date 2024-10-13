@@ -6,7 +6,6 @@ import { redirect } from "next/navigation";
 const db = sql("main.db");
 
 export async function AdminSubmit(initialState, formData) {
-    console.log(initialState)
   const id = initialState.id;
   const consulting = formData.get("consulting") == "on" ?  2  : 1;
   const properties = formData.get("properties") == "on" ?  2  : 1;
