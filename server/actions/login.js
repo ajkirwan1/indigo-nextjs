@@ -10,7 +10,7 @@ const db = sql("main.db");
 
 
 export async function Login(state, formData) {
-
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const username = formData.get("username");
   const password = formData.get("password");
 

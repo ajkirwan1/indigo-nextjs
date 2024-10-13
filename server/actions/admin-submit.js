@@ -7,8 +7,8 @@ const db = sql("main.db");
 
 export async function AdminSubmit(initialState, formData) {
   const id = initialState.id;
-  const consulting = formData.get("consulting") == "on" ?  2  : 1;
-  const properties = formData.get("properties") == "on" ?  2  : 1;
+  const consulting = formData.get("consulting") == "on" ?  2  : 4;
+  const properties = formData.get("properties") == "on" ?  2  : 4;
 
   const user = db
     .prepare(
@@ -19,6 +19,5 @@ export async function AdminSubmit(initialState, formData) {
        `
     )
     user.run(properties, consulting, id);
-    // return initialState;
     return redirect("/admin")
 }

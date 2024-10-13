@@ -52,7 +52,10 @@ function convertAccessToString(accessInt) {
     return "Not requested";
   } else if (accessInt == 1) {
     return "Pending";
-  } else {
+  } else if (accessInt == 2){
     return "Granted";
+  }
+  else {
+    return "Declined"
   }
 }

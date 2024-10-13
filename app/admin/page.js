@@ -27,15 +27,14 @@ export default async function AdminPage() {
     tbodyData = [...bodyData]
     
   } catch (error) {
-    // console.warn("error fetching data", error);
-    throw new Error("Data collection failed", error)
+      throw new Error("Data collection failed", error)
   }
 
   return (
     <>
-     <h1>Hi Emmanuel</h1>
-    <h2>List of registered users</h2>
-      <Table theadData={theadData} tbodyData={tbodyData} customClass="admin"></Table>
+      <h1>Hi Emmanuel</h1>
+      <h2>List of registered users</h2>
+      <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
     </>
   );
 }
