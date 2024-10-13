@@ -98,9 +98,9 @@ const userData = [
 ];
 
 const propertiesSeedData = [
-  { id: generateId(15), name: "pic1", slug: "entrance", pdf_id: pdf1Id },
-  { id: generateId(15), name: "pic2", slug: "final", pdf_id: pdf2Id },
-  { id: generateId(15), name: "pic3", slug: "pool", pdf_id: pdf3Id },
+  { id: generateId(15), name: "pic1", image: "entrance.jpg", pdf_id: pdf1Id },
+  { id: generateId(15), name: "pic2", image: "final.jpg", pdf_id: pdf2Id },
+  { id: generateId(15), name: "pic3", image: "pool.jpg", pdf_id: pdf3Id },
 ];
 
 const pdfSeedData = [{ id: pdf1Id }, { id: pdf2Id }, { id: pdf3Id }];
@@ -132,7 +132,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS pdfs (
 db.exec(`CREATE TABLE IF NOT EXISTS properties (
   id TEXT NOT NULL PRIMARY KEY,
   name INTEGER NOT NULL,
-  slug TEXT UNIQUE,
+  image TEXT UNIQUE,
   pdf_id TEXT NOT NULL,
   FOREIGN KEY (pdf_id) REFERENCES pdfs(id)
 )`);
@@ -176,7 +176,7 @@ if (properties.length === 0) {
               INSERT INTO properties VALUES (
                  @id,
                  @name,
-                 @slug,
+                 @image,
                  @pdf_id
               )
            `);

@@ -1,6 +1,6 @@
 /** @format */
 
-import PropertyItem from "./project-item";
+import PropertyItem from "./property-item";
 import classes from "./property-list.module.css";
 
 export default function PropertyList({ properties }) {
