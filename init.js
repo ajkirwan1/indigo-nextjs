@@ -6,6 +6,10 @@ const db = new Database("main.db");
 import { generateId } from "lucia";
 import { hash } from "@node-rs/argon2";
 
+const pdf1Id = generateId(15);
+const pdf2Id = generateId(15);
+const pdf3Id = generateId(15);
+
 const projectsSeedData = [
   { slug: "/carousel-images/entrance.jpg" },
   { slug: "/carousel-images/dinning.jpg" },
@@ -28,7 +32,7 @@ const userData = [
     admin_access: 1,
     property_access: 1,
     consulting_access: 1,
-    access_request_date: new Date(2022, 8, 10).toJSON().slice(0,10),
+    access_request_date: new Date(2022, 8, 10).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -36,7 +40,6 @@ const userData = [
       outputLen: 32,
       parallelism: 1,
     }),
-
   },
   {
     id: generateId(15),
@@ -47,7 +50,7 @@ const userData = [
     admin_access: 0,
     property_access: 1,
     consulting_access: 0,
-    access_request_date: new Date(2020, 1, 24).toJSON().slice(0,10),
+    access_request_date: new Date(2020, 1, 24).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -65,7 +68,7 @@ const userData = [
     admin_access: 0,
     property_access: 1,
     consulting_access: 0,
-    access_request_date: new Date(2024, 1, 1).toJSON().slice(0,10),
+    access_request_date: new Date(2024, 1, 1).toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -83,7 +86,7 @@ const userData = [
     admin_access: 0,
     property_access: 0,
     consulting_access: 0,
-    access_request_date: new Date(2019, 12, 3).toJSON().slice(0,10),
+    access_request_date: new Date().toJSON().slice(0, 10),
     password_hash: await hash("password123", {
       // recommended minimum parameters
       memoryCost: 19456,
@@ -93,6 +96,14 @@ const userData = [
     }),
   },
 ];
+
+const propertiesSeedData = [
+  { id: generateId(15), name: "pic1", slug: "entrance", pdf_id: pdf1Id },
+  { id: generateId(15), name: "pic2", slug: "final", pdf_id: pdf2Id },
+  { id: generateId(15), name: "pic3", slug: "pool", pdf_id: pdf3Id },
+];
+
+const pdfSeedData = [{ id: pdf1Id }, { id: pdf2Id }, { id: pdf3Id }];
 
 db.exec(`CREATE TABLE IF NOT EXISTS user (
     id TEXT NOT NULL PRIMARY KEY,
@@ -114,6 +125,19 @@ db.exec(`CREATE TABLE IF NOT EXISTS session (
     FOREIGN KEY (user_id) REFERENCES user(id)
 )`);
 
+db.exec(`CREATE TABLE IF NOT EXISTS pdfs (
+  id TEXT NOT NULL PRIMARY KEY
+)`);
+
+db.exec(`CREATE TABLE IF NOT EXISTS properties (
+  id TEXT NOT NULL PRIMARY KEY,
+  name INTEGER NOT NULL,
+  slug TEXT UNIQUE,
+  pdf_id TEXT NOT NULL,
+  FOREIGN KEY (pdf_id) REFERENCES pdfs(id)
+)`);
+
+
 db.prepare(
   `
     CREATE TABLE IF NOT EXISTS projects (
@@ -125,6 +149,44 @@ db.prepare(
 
 const projectData = db.prepare("SELECT * FROM projects").all();
 const users = db.prepare("SELECT * FROM user").all();
+const properties = db.prepare("SELECT * FROM properties").all();
+const pdfs = db.prepare("SELECT * FROM pdfs").all();
+
+
+if (pdfs.length === 0) {
+  async function initPdfs() {
+    const stmtPdfs = db.prepare(`
+          INSERT INTO pdfs VALUES (
+             @id
+          )
+       `);
+
+    for (const pdf of pdfSeedData) {
+      stmtPdfs.run(pdf);
+    }
+  }
+  initPdfs();
+}
+
+
+
+if (properties.length === 0) {
+  async function initProperties() {
+    const stmtProperties = db.prepare(`
+              INSERT INTO properties VALUES (
+                 @id,
+                 @name,
+                 @slug,
+                 @pdf_id
+              )
+           `);
+
+    for (const properties of propertiesSeedData) {
+      stmtProperties.run(properties);
+    }
+  }
+  initProperties();
+}
 
 if (projectData.length === 0) {
   async function initData() {
@@ -141,6 +203,8 @@ if (projectData.length === 0) {
   }
   initData();
 }
+
+
 
 if (users.length === 0) {
   async function initUsers() {
