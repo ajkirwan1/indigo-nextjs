@@ -25,9 +25,9 @@ async function PropertiesPage() {
 
   return (
     <>
-     <div className={classes.subHeader}>
-          <h1>PROPERTIES FOR SALE</h1>
-          </div>
+      <div className={classes.subHeader}>
+        <h1>PROPERTIES FOR SALE</h1>
+      </div>
       <Properties />
     </>
   );

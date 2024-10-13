@@ -11,7 +11,7 @@ export default async function AdminPage() {
   if (!user) {
     redirect("/")
   }
-  if (user?.adminUser != 1) {
+  if (user?.adminUser != 2) {
     redirect("/");
   }
 

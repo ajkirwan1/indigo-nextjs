@@ -48,7 +48,7 @@ export async function Login(state, formData) {
     if (state.redirection) {
       redirect(`/${state.redirection}`)
     }
-    if (existingUser.admin_access == 1)
+    if (existingUser.admin_access == 2)
     {
       return redirect("/admin");
     }
