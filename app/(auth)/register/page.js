@@ -13,7 +13,8 @@ export default async function RegisterPage() {
   const { user } = await validateRequest();
   if (user && (user.properyAccess == 0 || user.consultingAccess == 0))
   {
-    redirect("/register/pending-auth")
+    // redirect("/register/pending-auth")
+    null
   }
   
   return (

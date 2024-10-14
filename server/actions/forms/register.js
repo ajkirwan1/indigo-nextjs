@@ -60,8 +60,7 @@ export async function RegisterAction(_, formData) {
 
   if (errors.length > 0) {
     return { errors };
-  }
-  else {
+  } else {
     const passwordHash = await hash(password, {
       memoryCost: 19456,
       timeCost: 2,
@@ -69,11 +68,11 @@ export async function RegisterAction(_, formData) {
       parallelism: 1,
     });
     const userId = generateIdFromEntropySize(10);
-  
+
     const stmt = db.prepare(
       "INSERT INTO user VALUES (@id, @username, @first_name, @last_name, @email, @admin_access, @property_access, @consulting_access, @access_request_date, @password_hash)"
     );
-  
+
     stmt.run({
       id: userId,
       username: username,
@@ -82,15 +81,20 @@ export async function RegisterAction(_, formData) {
       email: email,
       admin_access: 0,
       property_access: 0,
-      consulting_access:0,
+      consulting_access: 0,
       admin_access: 0,
-      access_request_date: new Date().toJSON().slice(0,10),
+      access_request_date: new Date().toJSON().slice(0, 10),
       password_hash: passwordHash,
     });
-  
+
     const session = await lucia.createSession(userId, {});
     const sessionCookie = lucia.createSessionCookie(session.id);
-    cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes);
-    return redirect("/register/pending-auth");
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+    // return redirect("/register/pending-auth");
+    return { success: true };
   }
 }

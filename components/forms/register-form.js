@@ -6,9 +6,11 @@ import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
 export default function RegisterForm({ action }) {
   const [state, formAction] = useFormState(action, {});
+  console.log(state);
 
   return (
     <>
+      {state.success ? <h1>AAAAAAAAAAAAAAAAAAAAAAAAAA</h1> : null}
       <img className={classes.logoIndigo} src="./logoindigo.png"></img>
       <h1>Register</h1>
       <form className={classes.loginForm} action={formAction}>
