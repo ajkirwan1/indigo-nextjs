@@ -12,9 +12,17 @@ export default function WebItemComponent(props) {
         <p>{props.paragraph1}</p>
         <p>{props.paragraph2}</p>
         <p>{props.paragraph3}</p>
+        {props.buttonPath && (
+          <Button href={props.buttonPath}>{props.buttonText}</Button>
+        )}
       </div>
-      <Image src={`/${props.image}`} alt="alt" width={50} height={50} />
-      <Button href={"/"}>JSJKDJDSJKD</Button>
+      <Image
+        className={classes.image}
+        src={`/${props.image}`}
+        alt="alt"
+        width={2048}
+        height={1400}
+      />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 export const projectsData = [
   {
-    title: "anagnostopoulo",
+    title: "Anagnostopoulo",
     images: [
       {
         url: "/images/pages/projects/test.jpg",

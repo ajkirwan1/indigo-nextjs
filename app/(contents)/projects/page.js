@@ -1,10 +1,6 @@
 /** @format */
 
-import ProjectsGrid from "@/components/pages/projects/projects-grid";
-import ProjectItem from "@/components/pages/projects/project-item";
 import Image from "next/image";
-import { getProjects } from "@/server/data/projects";
-import Link from "next/link";
 import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 
@@ -14,15 +10,14 @@ function ImageList(images) {
     <>
       <div className={classes.imageContainer}>
         {imageArray.map((element) => (
-          <Link href="/" key={element.url}>
-            <Image
-              className={classes.image}
-              src={element.url}
-              alt="alt"
-              width={750}
-              height={500}
-            />
-          </Link>
+          <Image
+            key={element.url}
+            className={classes.image}
+            src={element.url}
+            alt="alt"
+            width={750}
+            height={500}
+          />
         ))}
       </div>
     </>
