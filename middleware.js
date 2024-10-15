@@ -6,6 +6,10 @@ export function middleware(request) {
   requestHeaders.set("x-current-path", request.nextUrl.pathname);
   requestHeaders.set("x-search-params", request.nextUrl.searchParams);
 
+
+  // const viewport = getViewportFromUserAgent(req.headers.get('user-agent'));
+
+  // console.log(request.headers.get('user-agent'))
   return NextResponse.next({request: { headers: requestHeaders }});
 }
 

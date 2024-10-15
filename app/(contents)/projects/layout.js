@@ -1,9 +1,8 @@
 /** @format */
 
-export default function Layout({ children, loginModal, modal }) {
+export default function Layout({ children, modal }) {
   return (
     <>
-      {loginModal}
       {modal}
       {children}
     </>

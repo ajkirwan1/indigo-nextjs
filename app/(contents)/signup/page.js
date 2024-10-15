@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { db } from "@/lib/db";
+import sql from "better-sqlite3"
 import { hash } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia, validateRequest } from "@/lib/auth";
@@ -10,6 +10,8 @@ import { redirect } from "next/navigation";
 import { Form } from "@/lib/form";
 import { generateId } from "lucia";
 import { SqliteError } from "better-sqlite3";
+
+const db = sql("main.db");
 
 export default async function Page() {
   const { user } = await validateRequest();
