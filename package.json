@@ -7,21 +7,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "knex migrate:latest",
+    "db:migrate:undo": "knex migrate:down",
+    "db:migrate:make": "knex migrate:make"
   },
   "dependencies": {
     "@lucia-auth/adapter-sqlite": "^3.0.2",
     "@node-rs/argon2": "^1.8.3",
+    "@prisma/client": "^5.21.0",
     "@types/react": "^18.3.5",
     "better-sqlite3": "^11.2.1",
+    "dotenv": "^16.4.5",
     "file-loader": "^6.2.0",
     "framer-motion": "^11.3.31",
+    "knex": "^3.1.0",
     "lucia": "^3.2.0",
     "lucide-react": "^0.438.0",
     "next": "14.2.7",
+    "pg": "^8.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
+    "save-dev": "^0.0.1-security",
     "shimmer-effects-react": "^1.0.4",
     "sqlite3": "^5.1.7",
     "url-loader": "^4.1.1"
@@ -31,6 +39,7 @@
     "@types/node": "^22.1.0",
     "@types/react-dom": "^18.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.2.7"
+    "eslint-config-next": "14.2.7",
+    "prisma": "^5.21.0"
   }
 }
