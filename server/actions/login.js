@@ -10,11 +10,14 @@ import { redirect } from "next/navigation";
 
 export async function Login(state, formData) {
   const users = await db.user.findMany();
+  const user = await db.user.findFirst({
+    where: { username: "user123" },
+  });
+  console.log(user);
 
-  {users.map((user) => (
-    console.log(user)
-  ))}
-
+  // {users.map((user) => (
+  //   console.log(user)
+  // ))}
 
   // await new Promise((resolve) => setTimeout(resolve, 10000));
   // const username = formData.get("username");
