@@ -4,7 +4,8 @@
  */
 export async function up(knex) {
     return await knex.schema.createTable("users", function (table) {
-      table.string("id");
+      table.string("id").unique();
+      table.string("auth_session");
       table.string("username", 25).notNullable();
       table.string("firstname", 25).notNullable();
       table.string("lastname", 25).notNullable();

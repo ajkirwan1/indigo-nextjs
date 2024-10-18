@@ -1,6 +1,7 @@
 /** @format */
 "use server";
 import sql from "better-sqlite3";
+import { hash } from "@node-rs/argon2";
 import db from "@/modules/db";
 import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
@@ -15,51 +16,59 @@ export async function Login(state, formData) {
   });
   console.log(user);
 
-  // {users.map((user) => (
-  //   console.log(user)
-  // ))}
 
   // await new Promise((resolve) => setTimeout(resolve, 10000));
-  // const username = formData.get("username");
-  // const password = formData.get("password");
+  const username = formData.get("username");
+  const password = formData.get("password");
 
-  // let errors = [];
+  let errors = [];
 
-  // const existingUser = db
-  //   .prepare("SELECT * FROM user WHERE username = ?")
-  //   .get(username);
+  const existingUser = await db.user.findFirst({
+    where: { username: username },
+  });
 
-  // if (!existingUser) {
-  //   errors.push("Invalid username or password")
-  //   return {errors}
-  // }
-  //   const validPassword = await verify(existingUser.password_hash, password, {
-  //     memoryCost: 19456,
-  //     timeCost: 2,
-  //     outputLen: 32,
-  //     parallelism: 1,
-  //   });
-  //   if (!validPassword) {
-  //     errors.push("Invalid username or password")
-  //     return {errors}
-  //   }
+  if (!existingUser) {
+    errors.push("Invalid username or password")
+    return {errors}
+  }
 
-  //   const session = await lucia.createSession(existingUser.id, {});
-  //   const sessionCookie = lucia.createSessionCookie(session.id);
-  //   console.log(sessionCookie.name, "Cookie name")
-  //   cookies().set(
-  //     sessionCookie.name,
-  //     sessionCookie.value,
-  //     sessionCookie.attributes
-  //   );
-  //   // console.warn(existingUser.admin_access, "esisting user");
+ async function createHash() {
+  const result = await hash("password123", {
+    // recommended minimum parameters
+    memoryCost: 19456,
+    timeCost: 2,
+    outputLen: 32,
+    parallelism: 1,
+  });
+  return result;
+}
 
-  //   if (state.redirection) {
-  //     redirect(`/${state.redirection}`)
-  //   }
-  //   if (existingUser.admin_access == 2)
-  //   {
-  //     return redirect("/admin");
-  //   }
-  //   return redirect("/");
+    const validPassword = await verify(existingUser.passwordhash, password, {
+      memoryCost: 19456,
+      timeCost: 2,
+      outputLen: 32,
+      parallelism: 1,
+    });
+    if (!validPassword) {
+      errors.push("Invalid username or password")
+      return {errors}
+    }
+
+    const session = await lucia.createSession(existingUser.id, {});
+    const sessionCookie = lucia.createSessionCookie(session.id);
+    console.log(sessionCookie.name, "Cookie name")
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+
+    if (state.redirection) {
+      redirect(`/${state.redirection}`)
+    }
+    if (existingUser.admin_access == 2)
+    {
+      return redirect("/admin");
+    }
+    return redirect("/");
 }

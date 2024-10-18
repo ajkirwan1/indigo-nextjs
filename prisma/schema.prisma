@@ -14,7 +14,8 @@ datasource db {
 }
 
 model User {
-  id String @id @default(cuid())
+  id String @id @unique
+  auth_session Session[]
   username String
   firstname String
   lastname String
@@ -26,8 +27,19 @@ model User {
   accessrequestdate DateTime
   createdAt DateTime @default(now())
 
+
 @@index([createdAt])
   @@map("users")
+}
+
+model Session {
+  id             String @id @unique
+  user_id        String
+  active_expires BigInt
+  idle_expires   BigInt
+  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+
+  @@index([user_id])
 }
 
 model Property {

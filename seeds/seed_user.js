@@ -13,7 +13,7 @@ export async function seed(knex) {
     {
       id: generateId(15),
       username: "user123",
-      firstname: "mick",
+      firstname: "micsadasdsadsak",
       lastname: "jackson",
       email: "user@123.com",
       adminaccess: 0,
@@ -26,7 +26,7 @@ export async function seed(knex) {
         timeCost: 2,
         outputLen: 32,
         parallelism: 1,
-      }),
+      })
     },
     {
       id: generateId(15),
@@ -44,7 +44,7 @@ export async function seed(knex) {
         timeCost: 2,
         outputLen: 32,
         parallelism: 1,
-      }),
+      })
     },
     {
       id: generateId(15),
@@ -62,7 +62,7 @@ export async function seed(knex) {
         timeCost: 2,
         outputLen: 32,
         parallelism: 1,
-      }),
+      })
     },
     {
       id: generateId(15),
@@ -80,7 +80,7 @@ export async function seed(knex) {
         timeCost: 2,
         outputLen: 32,
         parallelism: 1,
-      }),
+      })
     },
   ]);
 }
