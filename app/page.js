@@ -1,34 +1,13 @@
 /** @format */
-'use client'
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
 import Button from "@/components/ui/button";
 import classes from "./page.module.css";
 import { propertyData } from "@/public/data/data";
-import { Carousel } from "@/components/carousel";
-
-import db from "@/modules/db";
+import Carousel from "@/components/carousel";
 
 export default function Homepage() {
-
-
-const handlefetchpassword = async () => {
-  
-  const passwords = await db.password.findMany();
-  console.log(passwords);
-}
-
-const handlefetchuser = async () => {
-  const users = await db.user.findMany();
-  console.log(users);
-}
-
-const handlefetchSession = async () => {
-  const sessions = await db.session.findMany();
-  console.log(sessions);
-}
-
 
   return (
     <>
@@ -66,9 +45,6 @@ const handlefetchSession = async () => {
           <Button href="/projects">ALL PROJECTS</Button>
         </div>
       </section>
-      <button onClick={handlefetchSession}>Session data</button>
-      <button onClick={handlefetchuser}>User data</button>
-      <button onClick={handlefetchpassword}>Password data</button>
       <Footer></Footer>
     </>
   );

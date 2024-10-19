@@ -1,10 +1,10 @@
 /** @format */
 import { useState } from "react";
-import { Dropdown } from "./dropdown";
+import  Dropdown  from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./header.module.css";
 
-export function MobileNavigationItems({ items }) {
+export default function MobileNavigationItems({ items }) {
   const [dropdown, setDropdown] = useState(false);
   return (
     <li className={classes.menuItems}>

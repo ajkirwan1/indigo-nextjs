@@ -7,7 +7,7 @@ import { hash } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia, validateRequest } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { Form } from "@/lib/form";
+import Form from "@/lib/form";
 import { generateId } from "lucia";
 import { SqliteError } from "better-sqlite3";
 
