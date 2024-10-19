@@ -14,32 +14,45 @@ datasource db {
 }
 
 model User {
-  id String @id @unique
-  auth_session Session[]
-  username String
-  firstname String
-  lastname String
-  email String
-  adminaccess Int
-  consultingaccess Int
-  propertyaccess Int
-  passwordhash String
-  accessrequestdate DateTime
-  createdAt DateTime @default(now())
+    id         String     @id
+    sessions   Session[]
+    passwords  Password[]
+    username String
+    firstname String
+    lastname String
+    email String
+    adminaccess Int
+    consultingaccess Int
+    propertyaccess Int
+    accessrequestdate DateTime
+    createdAt DateTime @default(now())
 
 
 @@index([createdAt])
   @@map("users")
 }
 
-model Session {
-  id             String @id @unique
-  user_id        String
-  active_expires BigInt
-  idle_expires   BigInt
-  user           User   @relation(references: [id], fields: [user_id], onDelete: Cascade)
+model Password {
+    id             Int    @id @default(autoincrement())
+    hashedPassword String
+    userId         String
+    user           User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+    
+    @@map("passwords")
+}
 
-  @@index([user_id])
+
+model Session {
+  id        String @id @unique
+  userId    String
+  expiresAt DateTime         
+  user      User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  
+
+  @@map("sessions")
+  @@index([createdAt])
+  @@index([userId])
 }
 
 model Property {

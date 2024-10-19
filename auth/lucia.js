@@ -16,21 +16,30 @@ import db from "@/modules/db";
 // 	session: "session"
 // });
 
-const prismaadapter = new PrismaAdapter(db.session, db.user);
+// const prismaadapter = new PrismaAdapter(db.session, db.user);
 
-export const lucia = new Lucia(prismaadapter, {
-	sessionCookie: {
-	  attributes: {
-		secure: process.env.NODE_ENV === "production",
-	  },
-	},
-	sessionExpiresIn: new TimeSpan(30, "d"),
-	getUserAttributes: (attributes) => {
-	  return {
-		username: attributes.username,
-	  };
-	},
-  });
+const client = new PrismaClient();
+const adapter = new PrismaAdapter(client.session, client.user);
+export const lucia = new Lucia(adapter, {
+  // sessionExpiresIn: new TimeSpan(2, "w"),
+  sessionCookie: {
+    attributes: {
+      secure: process.env.NODE_ENV === "production",
+    },
+  },
+  // sessionExpiresIn: new TimeSpan(30, "d"),
+  getUserAttributes: (attributes) => {
+    return {
+      username: attributes.username,
+    };
+  },
+  // getSessionAttributes: (databaseSession) => {
+  //   console.log(databaseSession)
+  //   return {
+  //     active_expires: databaseSession.active_expires,
+  //   };
+  // },
+});
 
 // const prismaadapter = new PrismaAdapter(db,  {
 // 		sessionCookie: {

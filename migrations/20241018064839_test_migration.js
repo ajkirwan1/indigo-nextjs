@@ -5,7 +5,6 @@
 export async function up(knex) {
     return await knex.schema.createTable("users", function (table) {
       table.string("id").unique();
-      table.string("auth_session");
       table.string("username", 25).notNullable();
       table.string("firstname", 25).notNullable();
       table.string("lastname", 25).notNullable();
@@ -14,7 +13,6 @@ export async function up(knex) {
       table.integer("consultingaccess").notNullable();
       table.integer("propertyaccess").notNullable();
       table.dateTime("accessrequestdate").notNullable();
-      table.string("passwordhash").notNullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now()).index();
   })
   }
