@@ -11,7 +11,7 @@
     "db:migrate": "knex migrate:latest",
     "db:migrate:undo": "knex migrate:down",
     "db:migrate:make": "knex migrate:make",
-    "vercel-build": "prisma generate && npm db:migrate && next build"
+    "vercel-build": "prisma generate && npm run db:migrate && next build"
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^4.0.1",
