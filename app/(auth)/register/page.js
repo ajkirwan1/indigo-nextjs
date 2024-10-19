@@ -1,6 +1,6 @@
 /** @format */
 
-import { RegisterAction } from "@/server/actions/forms/register";
+// import { RegisterAction } from "@/server/actions/forms/register";
 import { validateRequest } from "@/auth/lucia";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
@@ -22,9 +22,9 @@ export default async function RegisterPage() {
   <div className={classes.registerPageContainer}>
         <div className={classes.hero}>
         <Header className={classes.heroHeader}></Header>
-          <div className={classes.formcontainer}>
+          {/* <div className={classes.formcontainer}>
          <RegisterForm action={RegisterAction}></RegisterForm>
-          </div>
+          </div> */}
         </div>
         <Footer></Footer>
       </div>

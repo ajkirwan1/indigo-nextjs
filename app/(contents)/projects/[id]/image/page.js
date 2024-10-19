@@ -1,16 +1,16 @@
 /** @format */
 
-import { getProject } from "@/server/data/projects";
+// import { getProject } from "@/server/data/projects";
 // import classes from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export default function ProjectDetailsPage({ params }) {
-  const project = getProject(params.id);
+  // const project = getProject(params.id);
 
-  if (!project) {
-    notFound();
-  }
+  // if (!project) {
+  //   notFound();
+  // }
 
   return (
     <>
