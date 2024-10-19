@@ -16,7 +16,8 @@ export async function Login(state, formData) {
   });
   console.log(user);
   console.log(passwords);
-  // await new Promise((resolve) => setTimeout(resolve, 10000));
+  const sessions = await db.session.findMany();
+  console.log(sessions);
   const username = formData.get("username");
   const password = formData.get("password");
 
@@ -31,21 +32,9 @@ export async function Login(state, formData) {
     return { errors };
   }
 
-  // async function createHash() {
-  //   const result = await hash("password123", {
-  //     // recommended minimum parameters
-  //     memoryCost: 19456,
-  //     timeCost: 2,
-  //     outputLen: 32,
-  //     parallelism: 1,
-  //   });
-  //   return result;
-  // }
-
   const userpasswords = await db.password.findFirst({
     where: { userId: existingUser.id },
   });
-  console.log(userpasswords);
 
   const validPassword = await verify(userpasswords.hashedPassword, password, {
     memoryCost: 19456,
@@ -63,12 +52,6 @@ export async function Login(state, formData) {
   const userId = existingUser.id;
   const session = await lucia.createSession(
      userId 
-
-    // attributes: {
-    //   active_expires: 10000,
-    //   idle_expires : 10000
-    // },
-    // active_expires: 10000,
   );
 
   const sessionCookie = lucia.createSessionCookie(session.id);
