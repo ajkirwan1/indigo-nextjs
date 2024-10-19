@@ -2,7 +2,7 @@
 import { redirect } from "next/navigation";
 import withAuthentication from "@/components/withAuthentication";
 import PropertyList from "@/components/pages/properties/property-list";
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "/auth/lucia";
 import { getProperties } from "@/server/actions/db/properties";
 import classes from "./page.module.css"
 import { headers } from "next/headers";

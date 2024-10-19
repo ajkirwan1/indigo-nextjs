@@ -1,7 +1,7 @@
 /** @format */
 
 import { RegisterAction } from "@/server/actions/forms/register";
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import RegisterForm from "@/components/forms/register-form";

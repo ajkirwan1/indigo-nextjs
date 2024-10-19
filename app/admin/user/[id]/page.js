@@ -1,6 +1,6 @@
 /** @format */
 
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 import { getUser } from "@/server/actions/db/client";
 import { redirect } from "next/navigation";
 import AdminSubmitForm from "@/components/forms/admin-submit-form";
