@@ -1,6 +1,5 @@
 /** @format */
 "use server";
-import sql from "better-sqlite3";
 import { hash } from "@node-rs/argon2";
 import db from "@/modules/db";
 import { verify } from "@node-rs/argon2";
