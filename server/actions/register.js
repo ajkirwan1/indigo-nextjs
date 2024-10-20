@@ -2,7 +2,6 @@
 "use server";
 import {LegacyScrypt} from "lucia"
 
-import { hash } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia } from "@/auth/lucia";
 import { generateIdFromEntropySize } from "lucia";
