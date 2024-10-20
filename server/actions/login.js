@@ -1,8 +1,9 @@
 /** @format */
 "use server";
-import { hash } from "@node-rs/argon2";
+import {LegacyScrypt} from "lucia"
+// import { hash } from "@node-rs/argon2";
 import db from "@/modules/db";
-import { verify } from "@node-rs/argon2";
+// import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
@@ -35,7 +36,7 @@ export async function Login(state, formData) {
     where: { userId: existingUser.id },
   });
 
-  const validPassword = await verify(userpasswords.hashedPassword, password, {
+  const validPassword = await new LegacyScrypt().verify(userpasswords.hashedPassword, password, {
     memoryCost: 19456,
     timeCost: 2,
     outputLen: 32,
