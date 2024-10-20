@@ -2,6 +2,14 @@
   color: #505050;
 }
 
+.section1 img {
+  max-width: 40%;
+}
+
+.subHeader {
+  display: flex;
+} 
+
 .leftArrowSvg {
   height: 50px;
 }
