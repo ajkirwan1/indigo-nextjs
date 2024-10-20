@@ -1,5 +1,5 @@
 import classes from "./submit-button.module.css";
-export function SubmitButton({ children }) {
+export default function SubmitButton({ children }) {
   return (
     <>
       <button className={classes.button}>

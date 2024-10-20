@@ -30,7 +30,3 @@ export default async function LogoutPage() {
     </>
   );
 }
-
-// export default async function LogOutPage() {
-//     const response = await fetch('http://localhost:3000/api/logout')
-// }

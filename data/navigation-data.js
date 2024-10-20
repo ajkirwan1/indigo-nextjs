@@ -1,5 +1,5 @@
 /** @format */
-
+'use client'
 export const navigationData = [
   {
     title: "Home",

@@ -2,11 +2,9 @@
 "use client";
 
 import classes from "./sub-header.module.css";
-import { NavigationItems } from "./navigation-items";
-
+import NavigationItems from "./navigation-items";
 
 export default function DesktopNav({ data }) {
-
   return (
     <>
       <div className={classes.desktopNav}>

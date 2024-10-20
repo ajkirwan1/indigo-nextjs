@@ -49,7 +49,7 @@ function Cross() {
   );
 }
 
-export function MobileMenuIcon() {
+export default function MobileMenuIcon() {
   const {
     handleLayoutChange,
     showMobileNavMenu,

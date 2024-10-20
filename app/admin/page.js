@@ -1,6 +1,6 @@
 /** @format */
 
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
 import PrepareAdminClientData from "@/utils/admin-table-data";

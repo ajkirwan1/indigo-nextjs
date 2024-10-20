@@ -1,9 +1,9 @@
 /** @format */
 
-import { MobileNavigationItems } from "./mobile-navigation-items";
+import  MobileNavigationItems  from "./mobile-navigation-items";
 import classes from "./header.module.css";
 
-export function MobileNavbar({data}) {
+export default function MobileNavbar({data}) {
   return (
     <div
       className={`${classes.mobileNavContainer} ${classes.mobileNavMenuActive}`}

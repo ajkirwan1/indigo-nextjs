@@ -1,7 +1,7 @@
 /** @format */
 import { redirect } from "next/navigation";
 import withAuthentication from "@/components/withAuthentication";
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 
 async function ConsultingPage() {
   const { user } = await validateRequest();
