@@ -2,8 +2,9 @@
 
 "use client";
 import { useFormState } from "react-dom";
+import { useState } from "react";
 import FormSubmit from "./formsubmit";
-import classes from "./login-form.module.css";
+import classes from "./register-form.module.css";
 import Button from "../ui/button";
 
 function SubmitContainer() {
@@ -23,10 +24,23 @@ function SubmitContainer() {
 }
 
 export default function RegisterForm({ action }) {
+  const [privateBuyer, setPrivateBuyer] = useState(false);
+  const [realEstateBuyer, setReaEstateBuyer] = useState(false);
   const [state, formAction] = useFormState(action, {});
   const handleClick = () => {
     setConfirm((val) => !val);
   };
+
+  const handlePrivateBuyer = () => {
+    setPrivateBuyer(true);
+    setReaEstateBuyer(false);
+  };
+
+  const handleRealEstateBuyer = () => {
+    setReaEstateBuyer(true);
+    setPrivateBuyer(false);
+  };
+
 
   return (
     <>
@@ -35,23 +49,105 @@ export default function RegisterForm({ action }) {
       ) : (
         <>
           <img className={classes.logoIndigo} src="./logoindigo.png"></img>
-          <h1>Register</h1>
-          <form className={classes.loginForm} action={formAction}>
-            <div className={classes.formItemContainer}>
-              <label>User name:</label>
-              <input type="text" name="userName" />
+          <form className={classes.registerForm} action={formAction}>
+            <div className={classes.registerFormSection}>
+              <h1>Your credentials</h1>
+              <div className={classes.formRow}>
+                <div className={classes.formItemContainer}>
+                  <label>Username:</label>
+                  <input type="text" name="userName" />
+                </div>
+                <div className={classes.formItemContainer}>
+                  <label>Email:</label>
+                  <input type="email" name="email" />
+                </div>
+              </div>
+              <div className={classes.formRow}>
+                <div className={classes.formItemContainer}>
+                  <label>Password</label>
+                  <input type="text" name="password" />
+                </div>
+                <div className={classes.formItemContainer}>
+                  <label>Confirm password:</label>
+                  <input type="text" name="passwordConfirm" />
+                </div>
+              </div>
             </div>
-            <div className={classes.formItemContainer}>
-              <label>Password</label>
-              <input type="text" name="password" />
-            </div>
-            <div className={classes.formItemContainer}>
-              <label>Confirm password:</label>
-              <input type="text" name="passwordConfirm" />
-            </div>
-            <div className={classes.formItemContainer}>
-              <label>Email:</label>
-              <input type="email" name="email" />
+            <div className={classes.registerFormSection}>
+              <h1>Registration information</h1>
+              <div className={classes.formRow}>
+                <div className={classes.formItemContainer}>
+                  <label>First name:</label>
+                  <input type="text" name="firstName" />
+                </div>
+                <div className={classes.formItemContainer}>
+                  <label>Last name:</label>
+                  <input type="text" name="lastName" />
+                </div>
+              </div>
+              <div className={classes.formRow}>
+                <div className={classes.formItemContainer}>
+                  <label>Comapany name:</label>
+                  <input type="text" name="passwordConfirm" />
+                </div>
+                <div className={classes.formItemContainer}>
+                  <label>Phone number - including area code:</label>
+                  <input type="text" name="passwordConfirm" />
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
+                <label>Private buyer or real estate agent:</label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Private buyer</label>
+                    <input
+                      type="checkbox"
+                      name="privateBuyer"
+                      checked={privateBuyer}
+                      onChange={handlePrivateBuyer}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>Real estate agent</label>
+                    <input
+                      type="checkbox"
+                      name="reaEstateBuyer"
+                      checked={realEstateBuyer}
+                      onChange={handleRealEstateBuyer}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
+                <label>Location:</label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Greece</label>
+                    <input type="checkbox"></input>
+                  </div>
+                  <div>
+                    <label>Other</label>
+                    <input type="checkbox"></input>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
+                <label>Investment interest:</label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Residential</label>
+                    <input type="checkbox"></input>
+                  </div>
+                  <div>
+                    <label>Commercial</label>
+                    <input type="checkbox"></input>
+                  </div>
+                  <div>
+                    <label>Land</label>
+                    <input type="checkbox"></input>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className={classes.submitButtonContainer}>
