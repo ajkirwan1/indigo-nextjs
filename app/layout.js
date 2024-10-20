@@ -11,7 +11,7 @@ export const metadata = {
 };
 
 const inter = Josefin_Sans({
-  weight: '400',
+  weight: ['100', '200', '300', '400'],
   subsets: ['latin'],
 })
 

@@ -20,14 +20,15 @@ export default function Homepage() {
 
       <main>
         <div className={classes.letsTalkContainer}>
-          <h1>
-            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE....
-          </h1>
+          <h2>
+            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
+          </h2>
           <Image
             src="/images/pages/home/posh.jpg"
             alt="alt"
             width={1024}
             height={683}
+            className={classes.poshImage}
           />
         </div>
         <div className={classes.subHeader}>
@@ -40,7 +41,7 @@ export default function Homepage() {
             paragraph3={homepageData[0]["info"]["paragraph3"]}
             image={homepageData[0]["image"]}
           />
-          <HomepageItemComponent
+          <HomepageItemComponent className={"left"}
             paragraph1={homepageData[1]["info"]["paragraph"]}
             paragraph2={homepageData[1]["info"]["paragraph2"]}
             paragraph3={homepageData[1]["info"]["paragraph3"]}

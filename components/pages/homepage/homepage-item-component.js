@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HomepageItemComponent(props) {
   return (
-    <div className={classes.sectionContainer}>
+    <div className={props.className == 'left' ? classes.sectionContainer : `${classes.sectionContainerLeft}`}>
       <div className={classes.flexWrapper}>
         <div className={classes.paragraphWrapper}>
           <Link href="/what-we-do">{props.paragraph1}</Link>

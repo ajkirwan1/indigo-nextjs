@@ -1,36 +1,21 @@
-/* .section1 img {
-    max-width: 40%;
-  } */
-  
 .image {
 max-width: 50%;
 height: auto;
 }
-  /* .icon {
-    height: 20vh;
-    margin-bottom: 8vh;
-    box-shadow: 0.5px 0.5px;
-    background-color: #5c663f14;
-  } */
-  
-  /* .section3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 2px;
-    line-height: 2rem;
-  } */
-  
-  /* .section4 img {
-    max-width: 40%;
-    height: auto;
-  } */
 .sectionContainer {
 display: flex;
 justify-content: space-around;
 margin-top: 10vh;
 margin-bottom: 10vh;
 }
+
+.sectionContainerLeft {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  }
 
 .flexWrapper {
   display: flex;
@@ -47,7 +32,7 @@ padding-right: 5vw;
 
 .paragraphWrapper a{
   color: unset;
-  font-size: 32px;
+  font-size: 20px;
   text-decoration: none;
   font-weight: 300;
   }

@@ -1,7 +1,7 @@
 .nav {
   display: flex;
   padding: 20px;
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
   width:100%
 }
 
@@ -46,7 +46,7 @@
   }
   
   .logoIndigo {
-    height: 16rem;
+    height: 14rem;
     width: auto;
   }
   .mobileNavContainer {
