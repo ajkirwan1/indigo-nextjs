@@ -26,6 +26,7 @@ function SubmitContainer() {
 export default function RegisterForm({ action }) {
   const [privateBuyer, setPrivateBuyer] = useState(false);
   const [realEstateBuyer, setReaEstateBuyer] = useState(false);
+  const [location, setLocation] = useState([false, false]);
   const [state, formAction] = useFormState(action, {});
   const handleClick = () => {
     setConfirm((val) => !val);
@@ -41,6 +42,17 @@ export default function RegisterForm({ action }) {
     setPrivateBuyer(false);
   };
 
+  const handleLocation = (e) => {
+    const eventSource = e.target.name;
+    if (eventSource == "locationOther")
+    {
+      setLocation([false, true])
+    }
+    if (eventSource == "locationGreece")
+    {
+      setLocation([true, false])
+    }
+  };
 
   return (
     <>
@@ -123,11 +135,21 @@ export default function RegisterForm({ action }) {
                 <div className={classes.tickRow}>
                   <div>
                     <label>Greece</label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="checkbox"
+                      name="locationGreece"
+                      checked={location[0]}
+                      onChange={(event) => handleLocation(event)}
+                    ></input>
                   </div>
                   <div>
                     <label>Other</label>
-                    <input type="checkbox"></input>
+                    <input
+                      type="checkbox"
+                      name="locationOther"
+                      checked={location[1]}
+                      onChange={(event) => handleLocation(event)}
+                    ></input>
                   </div>
                 </div>
               </div>

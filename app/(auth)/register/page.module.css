@@ -55,7 +55,7 @@
       url("../../../public/images/authbackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    min-height:160vh;
+    min-height:200vh;
   }
   .hero:after {
     content: "";
