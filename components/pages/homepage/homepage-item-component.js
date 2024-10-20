@@ -9,9 +9,9 @@ export default function HomepageItemComponent(props) {
     <div className={classes.sectionContainer}>
       <div className={classes.flexWrapper}>
         <div className={classes.paragraphWrapper}>
-          <Link href="href">{props.paragraph1}</Link>
-          <Link href="href">{props.paragraph2}</Link>
-          <Link href="href">{props.paragraph3}</Link>
+          <Link href="/what-we-do">{props.paragraph1}</Link>
+          <Link href="/what-we-do">{props.paragraph2}</Link>
+          <Link href="/what-we-do">{props.paragraph3}</Link>
           {props.paragraph4 && <Link href="href">{props.paragraph4}</Link>}
         </div>
       </div>

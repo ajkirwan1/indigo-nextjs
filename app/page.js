@@ -1,11 +1,10 @@
 /** @format */
 import Header from "@/components/ui/header/header";
+import Button from "@/components/ui/button";
 import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
-import Button from "@/components/ui/button";
+import Image from "next/image";
 import classes from "./page.module.css";
-import { propertyData } from "@/public/data/data";
-import Carousel from "@/components/carousel";
 import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
 import { homepageData } from "@/data/homepage-data";
 
@@ -20,9 +19,20 @@ export default function Homepage() {
       </div>
 
       <main>
-      <div className={classes.subHeader}>
-        <h1>WHAT WE OFFER</h1>
-      </div>
+        <div className={classes.letsTalkContainer}>
+          <h1>
+            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE....
+          </h1>
+          <Image
+            src="/images/pages/home/posh.jpg"
+            alt="alt"
+            width={1024}
+            height={683}
+          />
+        </div>
+        <div className={classes.subHeader}>
+          <h1>WHAT WE OFFER</h1>
+        </div>
         <section className={classes.section1}>
           <HomepageItemComponent
             paragraph1={homepageData[0]["info"]["paragraph"]}
@@ -37,35 +47,11 @@ export default function Homepage() {
             paragraph4={homepageData[1]["info"]["paragraph4"]}
             image={homepageData[1]["image"]}
           />
-
-          {/* <img className="section-1-image" src="./picture-1.jpg" alt="" />
-        <div className={classes.paragraph}>
-          <h2>DEVELOPMENT CONSULTANCY</h2>
-          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
-          <h2>DEVELOPMENT PROJECT MANAGEMENT</h2>
-        </div>
-      </section>
-      <section id="section-2">
-        <div className={classes.paragraph}>
-          <h1>TITLE 3</h1>
-          <h2>MARKET ANALYSIS</h2>
-          <h2>REDEVELOPMENT-DEVELOPMENT PROJECTS</h2>
-          <h2>PROPERTY MANAGEMENT</h2>
-          <h2>LEGAL&NOTARIAL SERVICES</h2>
-        </div>
-        <img className="section-2-image" src="./picture-2.jpg" alt="" /> */}
         </section>
-        <section className={classes.section3}>
-          <h1>Section 3</h1>
-          <div className={classes.section3Div}>
-            <Carousel images={propertyData} />
-          </div>
-          <div className={classes.btnWrapper}>
-            <Button href="/projects">ALL PROJECTS</Button>
-          </div>
-        </section>
+        <div className={classes.buttonContainer}>
+          <Button href="/contact-us">Let&apos;s talk</Button>
+        </div>
       </main>
-
       <Footer></Footer>
     </>
   );
