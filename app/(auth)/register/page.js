@@ -6,20 +6,45 @@ import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import RegisterForm from "@/components/forms/register-form";
 import classes from "./page.module.css";
+import heroImage from "/public/images/authbackground.jpg";
 import { redirect } from "next/navigation";
-
+import Image from "next/image";
 
 export default async function RegisterPage() {
   const { user } = await validateRequest();
-  if (user && (user.properyAccess == 0 || user.consultingAccess == 0))
-  {
+  if (user && (user.properyAccess == 0 || user.consultingAccess == 0)) {
     // redirect("/register/pending-auth")
-    null
+    null;
   }
-  
+
   return (
     <>
-  {/* <div className={classes.registerPageContainer}> */}
+      <div className={classes.heroWrapper}>
+        <div className={classes.imageWrapper}>
+          <Image
+            priority
+            alt="alt"
+            // fill
+            src={heroImage}
+            className={classes.imageHero}
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
+        {/* <div className={classes.heroContent}> */}
+
+        <div className={classes.formContainerOuterWrapper}>
+          <Header className={classes.heroHeader}></Header>
+          <div className={classes.formcontainer}>
+            <RegisterForm action={RegisterAction}></RegisterForm>
+          </div>
+          <Footer></Footer>
+        </div>
+
+        {/* </div> */}
+      </div>
+
+      {/* <div className={classes.registerPageContainer}>
         <div className={classes.hero}>
         <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
@@ -27,7 +52,7 @@ export default async function RegisterPage() {
           </div>
         </div>
         <Footer></Footer>
-      {/* </div> */}
+      </div> */}
     </>
   );
 }
