@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // Uses connection pooling
+  url = env("POSTGRES_PRISMA_URL")
+  // Uses direct connection, ⚠️ make sure to keep this to `POSTGRES_URL_NON_POOLING`
+  // or you'll have dangling databases from migrations
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model User {
+    id         String     @id
+    sessions   Session[]
+    passwords  Password[]
+    username String
+    firstname String
+    lastname String
+    email String
+    adminaccess Int
+    consultingaccess Int
+    propertyaccess Int
+    accessrequestdate DateTime
+    createdAt DateTime @default(now())
+
+
+@@index([createdAt])
+  @@map("users")
+}
+
+model Password {
+    id             Int    @id @default(autoincrement())
+    hashedPassword String
+    userId         String
+    user           User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+    
+    @@map("passwords")
+}
+
+
+model Session {
+  id        String @id @unique
+  userId    String
+  expiresAt DateTime         
+  user      User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  
+
+  @@map("sessions")
+  @@index([createdAt])
+  @@index([userId])
+}
+
+model Property {
+  id String @id @default(cuid())
+  title String
+  name String
+  image String
+  pdfid String
+  createdAt DateTime @default(now())
+  
+  @@index([createdAt])
+  @@map("properties")
+}
+
+
+
+
+model Pdf {
+  id String @id @default(cuid())
+  url String
+}
+

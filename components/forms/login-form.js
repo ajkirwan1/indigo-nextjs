@@ -23,7 +23,7 @@ export default function LoginForm({ action, redirection }) {
         <div className={classes.submitButtonContainer}>
           <FormSubmit />
         </div>
-        {state.errors && (
+        {/* {state.errors && (
           <ul>
             {state.errors.map((error) => (
               <li key={error}>
@@ -31,7 +31,7 @@ export default function LoginForm({ action, redirection }) {
               </li>
             ))}
           </ul>
-        )}
+        )} */}
       </form>
     </>
   );

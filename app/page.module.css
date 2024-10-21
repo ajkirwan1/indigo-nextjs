@@ -1,9 +1,40 @@
+.buttonContainer a img,
+.buttonContainer a button {
+  transition: 0.3s;
+}
+.buttonContainer a:hover button + img {
+  transform: translateX(10px);
+}
+.buttonContainer a:hover button {
+  transform: translateX(-5px);
+}
+
+.poshImage {
+  width: 60%;
+  height: auto;
+}
 .paragraph {
   color: #505050;
 }
 
+.section1 img {
+  max-width: 40%;
+}
+
+.subHeader {
+  display: flex;
+  justify-content: center;
+} 
+
 .leftArrowSvg {
   height: 50px;
+}
+
+.hero-contents {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .imageContainer {
@@ -26,6 +57,7 @@
 
 .heroHeader button {
   color: aliceblue;
+  font-weight: 600;
 }
 
 
@@ -42,4 +74,17 @@
 
 .btnWrapper {
   margin-top: 2rem;
+}
+
+.letsTalkContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vh;
+  margin-bottom: 5vh;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center
 }

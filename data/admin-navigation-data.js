@@ -1,5 +1,5 @@
 /** @format */
-
+'use client'
 export const adminNavigationData = [
     {
       title: "Clients",

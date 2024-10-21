@@ -1,6 +1,5 @@
 /** @format */
 import classes from "./page.module.css";
-import Button from "@/components/ui/button";
 import WebItemComponent from "@/components/web-item-component";
 import { whatWeDoData } from "@/data/what-we-do-data";
 

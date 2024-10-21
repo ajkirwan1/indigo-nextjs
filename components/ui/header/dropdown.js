@@ -4,7 +4,7 @@ import classes from "./sub-header.module.css";
 import { useSession } from "@/contexts/session-context";
 import { motion } from "framer-motion";
 
-export function Dropdown({ submenus, dropdown, setDropdown }) {
+export default function Dropdown({ submenus, dropdown, setDropdown }) {
 
   const {user} = useSession()
 

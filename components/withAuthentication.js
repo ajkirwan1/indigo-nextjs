@@ -1,5 +1,4 @@
 /** @format */
-// "use client";
 
 const withAuthentication = (WrappedComponent) => {
   return (props) => {

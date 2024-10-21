@@ -1,13 +1,39 @@
-body {
-  /* font-family: "Antic Didone", serif; */
-  font-weight: 400;
-  font-style: normal;
-  color: #505050;
-  margin: 0;
+#root {
   text-align: center;
-  background-color: #faefe8 
+  background-color: #faefe8;
 }
 
+body {
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* font-weight: 200; */
+  color: #505050;
+  margin: 0;
+  letter-spacing: 0.16em;
+  text-align: center;
+  background-color: #faefe8;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  --webkit-text-size-adjust: 12px;
+}
+
+
+h1, h2 {
+  /* font-size: 2.5em; */
+  font-optical-sizing: auto;
+  /* font-style: normal; */
+  font-weight: 300;
+}
+
+
+p, button {
+  font-size: 1.5em;
+  margin-top: 0;
+}
 
 html:has(.modal) {
   overflow:hidden;
@@ -63,7 +89,7 @@ section h1 {
   align-items: center;
   justify-content: space-around;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../public/backgroundpicture.jpg");
+    url("../public//images/pages/home/greecehero1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -126,6 +152,19 @@ input[type="email"] {
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
+}
+textarea {
+  border: 1px solid;
+  /* height: 2rem; */
+  width: 100%;
+  background-color: #d5dfe1;
+  color: #505050;
+  border-radius: 4px;
+  resize: none;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
 }
 
 ul {

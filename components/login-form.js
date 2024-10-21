@@ -13,7 +13,7 @@ function Password() {
   );
 }
 
-export function LoginForm({ action }) {
+export default function LoginForm({ action }) {
   const [state, formAction] = useFormState(action, {
     error: null,
   });

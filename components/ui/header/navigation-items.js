@@ -1,10 +1,10 @@
 /** @format */
 import { useState } from "react";
-import { Dropdown } from "./dropdown";
+import  Dropdown  from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
 
-export function NavigationItems({ items }) {
+export default function NavigationItems({ items }) {
     const [dropdown, setDropdown] = useState(false);
   return (
     <ul className={classes.ulWrapper} onMouseLeave={() => setDropdown(false)}>

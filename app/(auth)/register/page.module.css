@@ -7,7 +7,7 @@
   
   .heroHeader {
     color: aliceblue;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     align-items: center;
     top: 0;
@@ -39,14 +39,14 @@
     width: 40%;
   }
   
-  .formItemContainer label {
+  /* .formItemContainer label {
     font-size: x-large;
-  }
+  } */
   .formCheckboxContainer {
     display: flex;
   }
   
-  .hero {
+  /* .hero {
     position: relative;
     display: flex;
     align-items: center;
@@ -55,8 +55,8 @@
       url("../../../public/images/authbackground.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90%;
-  }
+    min-height:200vh;
+  } */
   .hero:after {
     content: "";
     position: absolute;
@@ -69,14 +69,27 @@
     opacity: 0.1;
     pointer-events: none;
   }
+
+  .formContainerOuterWrapper {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    flex-direction: column;
+  }
   
   .formcontainer {
     background-color: #d9d9d9b2;
-    width: 800px;
-    min-height: 60%;
-    max-width: 70vw;
-    position: absolute;
-    top: 20vh;
+    position: relative;
+    width: 85vw;
+    /* left: 10vw; */
+    /* min-height: 60%; */
+    /* max-width: 70vw; */
+    /* position: absolute; */
+    /* top: 30vh; */
     box-shadow: 1px 1px 1px;
   }
   .logoIndigo {
@@ -110,10 +123,49 @@
     height: 50px;
   }
   
-  .registerPageContainer {
-    height: 100vh;
-  }
+  /* .registerPageContainer {
+    min-height: 100vh;
+  } */
   
+
+.heroWrapper {
+  position: relative;
+  width: 100vw;
+  /* height: 2000px */
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: -1;
+  background-color:rgb(10 10 10 / 83%);
+}
+
+.imageHero {
+  color: transparent;
+  position: relative;
+  height: 1600px;
+  width: 100%;
+  inset: 0px;
+  opacity: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.heroContent {
+  left: 0;
+  top: 0;
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
+
+
+
+
+
   @media only screen and (max-width: 600px) {
     .logoIndigo {
       height: 10rem;

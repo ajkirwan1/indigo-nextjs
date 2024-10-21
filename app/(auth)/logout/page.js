@@ -1,6 +1,6 @@
 /** @format */
 
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 import { Logout } from "@/server/actions/logout";
 import LogoutForm from "@/components/forms/logout-form";
 import Header from "@/components/ui/header/header";
@@ -30,7 +30,3 @@ export default async function LogoutPage() {
     </>
   );
 }
-
-// export default async function LogOutPage() {
-//     const response = await fetch('http://localhost:3000/api/logout')
-// }

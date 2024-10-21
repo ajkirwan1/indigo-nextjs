@@ -1,8 +1,7 @@
-import sql from "better-sqlite3";
+// import sql from "better-sqlite3";
 
-const db = sql("main.db");
+// const db = sql("main.db");
 
-export async function getUser(id) {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    return db.prepare("SELECT * FROM user WHERE id = ?").get(id);
-  }
+// export async function getUser(id) {
+//     return db.prepare("SELECT * FROM user WHERE id = ?").get(id);
+//   }

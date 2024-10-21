@@ -4,8 +4,8 @@
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
 import { useSession } from "@/contexts/session-context";
-import { MobileMenuIcon } from "./mobile-menu-icon";
-import { MobileNavbar } from "./mobile-nav";
+import  MobileMenuIcon  from "./mobile-menu-icon";
+import  MobileNavbar  from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
 import LayoutContext from "@/contexts/layout-context";
 import { navigationData } from "@/data/navigation-data";

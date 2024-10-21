@@ -40,9 +40,9 @@
     width: 40%;
   }
   
-  .formItemContainer label {
+  /* .formItemContainer label {
     font-size: x-large;
-  }
+  } */
   .formCheckboxContainer {
     display: flex;
   }

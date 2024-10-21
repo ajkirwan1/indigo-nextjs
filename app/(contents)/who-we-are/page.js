@@ -7,7 +7,7 @@ export default function  WhoWeArePage() {
     return (
       <>
          <div className={classes.subHeader}>
-          <h1>Who WE ARE</h1>
+          <h1>WHO WE ARE</h1>
           </div>
           <section className={classes.section1}>
           <div className={classes.sectionContainer}>

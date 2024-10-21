@@ -1,14 +1,17 @@
 /** @format */
 "use server";
 
-import { validateRequest } from "@/lib/auth";
+import { validateRequest } from "@/auth/lucia";
 import { cookies } from "next/headers";
-import { lucia } from "@/lib/auth";
+import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
+import db from "@/modules/db";
 
 
 
 export async function Logout() {
+  const sessions = await db.session.findMany();
+  console.log(sessions);
   const { session } = await validateRequest();
   if (!session) {
     return {

@@ -7,7 +7,7 @@ import Image from "next/image";
 import classes from "./carousel.module.css";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
-export function Carousel({ images }) {
+export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
