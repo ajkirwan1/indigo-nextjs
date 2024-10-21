@@ -8,10 +8,12 @@ import classes from "./page.module.css";
 import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
 import { homepageData } from "@/data/homepage-data";
 
+
+
 export default function Homepage() {
   return (
     <>
-      <div className="hero">
+      <div  className="hero">
         <Header className={classes.heroHeader}></Header>
         <div className="hero-contents">
           <Overlay />

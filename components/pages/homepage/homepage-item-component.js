@@ -1,19 +1,60 @@
 /** @format */
-
+"use client";
 import classes from "./homepage-item-component.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+    },
+  },
+  // show: {
+  //   opacity: 1,
+  //   transition: {
+  //     staggerChildren: 1,
+  //   },
+  // },
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
 
 export default function HomepageItemComponent(props) {
   return (
-    <div className={props.className == 'left' ? classes.sectionContainer : `${classes.sectionContainerLeft}`}>
+    <div
+      className={
+        props.className == "left"
+          ? classes.sectionContainer
+          : `${classes.sectionContainerLeft}`
+      }
+    >
       <div className={classes.flexWrapper}>
-        <div className={classes.paragraphWrapper}>
-          <Link href="/what-we-do">{props.paragraph1}</Link>
-          <Link href="/what-we-do">{props.paragraph2}</Link>
-          <Link href="/what-we-do">{props.paragraph3}</Link>
-          {props.paragraph4 && <Link href="href">{props.paragraph4}</Link>}
-        </div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.paragraphWrapper}
+        >
+          <motion.div variants={item}>
+            <Link href="/what-we-do">{props.paragraph1}</Link>
+          </motion.div>
+          <motion.div variants={item}>
+            <Link href="/what-we-do">{props.paragraph2}</Link>
+          </motion.div>
+          <motion.div variants={item}>
+            <Link href="/what-we-do">{props.paragraph3}</Link>
+          </motion.div>
+          <motion.div variants={item}>
+            {props.paragraph4 && <Link href="href">{props.paragraph4}</Link>}
+          </motion.div>
+        </motion.div>
       </div>
       <Image
         className={classes.image}
