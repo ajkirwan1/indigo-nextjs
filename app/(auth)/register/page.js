@@ -31,28 +31,14 @@ export default async function RegisterPage() {
             objectPosition="center"
           />
         </div>
-        {/* <div className={classes.heroContent}> */}
-
         <div className={classes.formContainerOuterWrapper}>
           <Header className={classes.heroHeader}></Header>
           <div className={classes.formcontainer}>
             <RegisterForm action={RegisterAction}></RegisterForm>
           </div>
-          <Footer></Footer>
-        </div>
-
-        {/* </div> */}
-      </div>
-
-      {/* <div className={classes.registerPageContainer}>
-        <div className={classes.hero}>
-        <Header className={classes.heroHeader}></Header>
-          <div className={classes.formcontainer}>
-         <RegisterForm action={RegisterAction}></RegisterForm>
-          </div>
         </div>
         <Footer></Footer>
-      </div> */}
+      </div>
     </>
   );
 }

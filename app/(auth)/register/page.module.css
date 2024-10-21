@@ -131,17 +131,13 @@
 .heroWrapper {
   position: relative;
   width: 100vw;
-  height: 1000px;
+  /* height: 2000px */
 }
 
 .imageWrapper {
   position: relative;
   z-index: -1;
   background-color:rgb(10 10 10 / 83%);
-  /* width: 100%;
-  height: auto; */
-
-
 }
 
 .imageHero {
@@ -151,6 +147,7 @@
   width: 100%;
   inset: 0px;
   opacity: 50%;
+  
 }
 
 .heroContent {

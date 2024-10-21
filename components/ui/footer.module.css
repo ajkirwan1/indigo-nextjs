@@ -11,6 +11,9 @@
     background-color: #d5dfe1;
     height: 10vh;
     flex-wrap: wrap;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
   }
   
   .aklogo {
