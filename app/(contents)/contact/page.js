@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         </div>
         <span></span>
         <div className={classes.letsTalk}>
-          <h1>LET'S TALK</h1>
+          <h1>LET&apos;S TALK</h1>
           <h2>T:+30 210 12 34 567</h2>
           <h2>E: INFO@INDIGO.GR</h2>
         </div>
