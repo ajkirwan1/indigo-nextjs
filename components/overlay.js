@@ -8,7 +8,7 @@ export default function Overlay() {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ ease: "easeOut", duration: 1.5 }}
+      transition={{ duration: 2 }}
       viewport={{ once: true }}
       className={classes.overlay}
     >
