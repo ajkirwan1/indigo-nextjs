@@ -50,7 +50,7 @@ export default function Homepage() {
           />
         </section>
         <div className={classes.buttonContainer}>
-          <Button href="/contact-us">Let&apos;s talk</Button>
+          <Button href="/contact">Let&apos;s talk</Button>
         </div>
       </main>
       <Footer></Footer>
