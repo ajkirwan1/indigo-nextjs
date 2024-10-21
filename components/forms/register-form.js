@@ -27,6 +27,18 @@ export default function RegisterForm({ action }) {
   const [privateBuyer, setPrivateBuyer] = useState(false);
   const [realEstateBuyer, setReaEstateBuyer] = useState(false);
   const [location, setLocation] = useState([false, false]);
+  const [purchaseTimeline, setpurchaseTimeline] = useState([
+    false,
+    false,
+    false,
+  ]);
+  const [investmentInterest, setinvestmentInterest] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
+  const [previousInvestment, setpreviousInvestment] = useState([false, false]);
   const [state, formAction] = useFormState(action, {});
   const handleClick = () => {
     setConfirm((val) => !val);
@@ -44,13 +56,50 @@ export default function RegisterForm({ action }) {
 
   const handleLocation = (e) => {
     const eventSource = e.target.name;
-    if (eventSource == "locationOther")
-    {
-      setLocation([false, true])
+    if (eventSource == "locationOther") {
+      setLocation([false, true]);
     }
-    if (eventSource == "locationGreece")
-    {
-      setLocation([true, false])
+    if (eventSource == "locationGreece") {
+      setLocation([true, false]);
+    }
+  };
+
+  const handlePurchaseTimeline = (e) => {
+    const eventSource = e.target.name;
+    if (eventSource == "sixMonths") {
+      setpurchaseTimeline([true, false, false]);
+    }
+    if (eventSource == "sixToTwelveMonths") {
+      setpurchaseTimeline([false, true, false]);
+    }
+    if (eventSource == "twelveMonths") {
+      setpurchaseTimeline([false, false, true]);
+    }
+  };
+
+  const handleInvestmentInterest = (e) => {
+    const eventSource = e.target.name;
+    if (eventSource == "50") {
+      setinvestmentInterest([true, false, false, false]);
+    }
+    if (eventSource == "50-100") {
+      setinvestmentInterest([false, true, false, false]);
+    }
+    if (eventSource == "100-150") {
+      setinvestmentInterest([false, false, true, false]);
+    }
+    if (eventSource == "150+") {
+      setinvestmentInterest([false, false, false, true]);
+    }
+  };
+
+  const handlePreviousInvestment = (e) => {
+    const eventSource = e.target.name;
+    if (eventSource == "yes") {
+      setpreviousInvestment([true, false]);
+    }
+    if (eventSource == "no") {
+      setpreviousInvestment([false, true]);
     }
   };
 
@@ -154,24 +203,121 @@ export default function RegisterForm({ action }) {
                 </div>
               </div>
               <div className={classes.formtickContainer}>
+                <label>Prefered pusrchase timeline:</label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Within 6 months</label>
+                    <input
+                      type="checkbox"
+                      name="sixMonths"
+                      checked={purchaseTimeline[0]}
+                      onChange={(event) => handlePurchaseTimeline(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>6 - 12 months</label>
+                    <input
+                      type="checkbox"
+                      name="sixToTwelveMonths"
+                      checked={purchaseTimeline[1]}
+                      onChange={(event) => handlePurchaseTimeline(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>+12 months</label>
+                    <input
+                      type="checkbox"
+                      name="twelveMonths"
+                      checked={purchaseTimeline[2]}
+                      onChange={(event) => handlePurchaseTimeline(event)}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
                 <label>Investment interest:</label>
                 <div className={classes.tickRow}>
                   <div>
                     <label>Residential</label>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" name="residential"></input>
                   </div>
                   <div>
                     <label>Commercial</label>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" name="commercial"></input>
                   </div>
                   <div>
                     <label>Land</label>
-                    <input type="checkbox"></input>
+                    <input type="checkbox" name="land"></input>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
+                <label>Estimated investment interest</label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Up to 50,000€</label>
+                    <input
+                      type="checkbox"
+                      name="50"
+                      checked={investmentInterest[0]}
+                      onChange={(event) => handleInvestmentInterest(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>50,000€ - 100,000€</label>
+                    <input
+                      type="checkbox"
+                      name="50-100"
+                      checked={investmentInterest[1]}
+                      onChange={(event) => handleInvestmentInterest(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>100,000€ - 150,000€</label>
+                    <input
+                      type="checkbox"
+                      name="100-150"
+                      checked={investmentInterest[2]}
+                      onChange={(event) => handleInvestmentInterest(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>More than 150,000€</label>
+                    <input
+                      type="checkbox"
+                      name="150+"
+                      checked={investmentInterest[3]}
+                      onChange={(event) => handleInvestmentInterest(event)}
+                    ></input>
+                  </div>
+                </div>
+              </div>
+              <div className={classes.formtickContainer}>
+                <label>
+                  Have you previously invested in Greek real estate?
+                </label>
+                <div className={classes.tickRow}>
+                  <div>
+                    <label>Yes</label>
+                    <input
+                      type="checkbox"
+                      name="yes"
+                      checked={previousInvestment[0]}
+                      onChange={(event) => handlePreviousInvestment(event)}
+                    ></input>
+                  </div>
+                  <div>
+                    <label>No</label>
+                    <input
+                      type="checkbox"
+                      name="no"
+                      checked={previousInvestment[1]}
+                      onChange={(event) => handlePreviousInvestment(event)}
+                    ></input>
                   </div>
                 </div>
               </div>
             </div>
-
             <div className={classes.submitButtonContainer}>
               <FormSubmit />
             </div>

@@ -6,9 +6,9 @@
   }
   
   .registerForm {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    align-items: center; */
+    align-items: center;
   }
 
   .registerForm label {
@@ -20,12 +20,9 @@
   }
   .registerFormSection {
     padding: 20px;
+    width:90%
   }
-  
-  /* .form label {
-    font-size: large;
-  } */
-  
+
   .formItemContainer {
     display: flex;
     padding-top: 2vh;
@@ -33,7 +30,6 @@
     align-items: flex-start;
     width: 45%;
   }
-
   .formtickContainer {
     display: flex;
     padding-top: 2vh;
@@ -41,7 +37,6 @@
     align-items: flex-start;
     width: 100%;
   }
-
   .formRow {
     display: flex;
     justify-content: space-between
@@ -51,17 +46,12 @@
     gap: 10vw;
     width: 100%;
   }
-  
-  .tickRow label{
+  .tickRow label {
     font-weight: 400;
   }
-  /* .formItemContainer label {
-    font-size: x-large;
-  } */
   .formCheckboxContainer {
     display: flex;
   }
-  
   .hero {
     position: relative;
     display: flex;
@@ -95,6 +85,7 @@
     top: 35vh;
     box-shadow: 1px 1px 1px;
   }
+
   .logoIndigo {
     height: 10rem;
     width: auto;

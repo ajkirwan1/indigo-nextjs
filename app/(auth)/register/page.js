@@ -24,7 +24,6 @@ export default async function RegisterPage() {
           <Image
             priority
             alt="alt"
-            // fill
             src={heroImage}
             className={classes.imageHero}
             objectFit="cover"
