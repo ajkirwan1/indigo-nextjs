@@ -40,18 +40,19 @@ export default function HomepageItemComponent(props) {
           variants={container}
           initial="hidden"
           whileInView="show"
+          viewport={{ once: true }}
           className={classes.paragraphWrapper}
         >
-          <motion.div variants={item}>
+          <motion.div variants={item} viewport={{ once: true }}>
             <Link href="/what-we-do">{props.paragraph1}</Link>
           </motion.div>
-          <motion.div variants={item}>
+          <motion.div variants={item} viewport={{ once: true }}>
             <Link href="/what-we-do">{props.paragraph2}</Link>
           </motion.div>
-          <motion.div variants={item}>
+          <motion.div variants={item} viewport={{ once: true }}>
             <Link href="/what-we-do">{props.paragraph3}</Link>
           </motion.div>
-          <motion.div variants={item}>
+          <motion.div variants={item} viewport={{ once: true }}>
             {props.paragraph4 && <Link href="href">{props.paragraph4}</Link>}
           </motion.div>
         </motion.div>
