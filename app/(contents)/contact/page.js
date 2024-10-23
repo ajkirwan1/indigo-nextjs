@@ -3,15 +3,17 @@ import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
 
-export default function ProjectsPage() {
+export default function ContactUsPage() {
   return (
     <>
-      <p>
-        Feel free to fill out the contact form below and one of our team members
-        will get back to you as soon as possible. Alternatively, you can find
-        our contact details listed below if you prefer to reach out to us
-        directly.
-      </p>
+      <div className={classes.pageWrapper}>
+        <p>
+          Feel free to fill out the contact form below and one of our team
+          members will get back to you as soon as possible. Alternatively, you
+          can find our contact details listed below if you prefer to reach out
+          to us directly.
+        </p>
+      </div>
       <div className={classes.wrapper}>
         <div className={classes.form}>
           <div className={classes.formcontainer}>
