@@ -64,42 +64,22 @@ export async function seed(knex) {
   await knex("passwords").insert([
     {
       id: 1,
-      hashedPassword: await new LegacyScrypt().hash("password", {
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId1,
     },
     {
       id: 2,
-      hashedPassword: await new LegacyScrypt().hash("password", {
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId2,
     },
     {
       id: 3,
-      hashedPassword: await new LegacyScrypt().hash("password", {
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId3,
     },
     {
       id: 4,
-      hashedPassword: await new LegacyScrypt().hash("password", {
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId4,
     },
   ]);
