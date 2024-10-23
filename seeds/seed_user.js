@@ -3,7 +3,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-import { hash } from "@node-rs/argon2";
+import { LegacyScrypt } from "lucia";
 import { generateId } from "lucia";
 
 const userId1 = generateId(15);
@@ -64,8 +64,7 @@ export async function seed(knex) {
   await knex("passwords").insert([
     {
       id: 1,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
+      hashedPassword: await new LegacyScrypt().hash(password)(password, {
         memoryCost: 19456,
         timeCost: 2,
         outputLen: 32,
@@ -75,8 +74,7 @@ export async function seed(knex) {
     },
     {
       id: 2,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
+      hashedPassword: await new LegacyScrypt().hash(password)(password, {
         memoryCost: 19456,
         timeCost: 2,
         outputLen: 32,
@@ -86,8 +84,7 @@ export async function seed(knex) {
     },
     {
       id: 3,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
+      hashedPassword: await new LegacyScrypt().hash(password)(password, {
         memoryCost: 19456,
         timeCost: 2,
         outputLen: 32,
@@ -97,8 +94,7 @@ export async function seed(knex) {
     },
     {
       id: 4,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
+      hashedPassword: await new LegacyScrypt().hash(password)(password, {
         memoryCost: 19456,
         timeCost: 2,
         outputLen: 32,
