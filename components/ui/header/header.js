@@ -49,6 +49,7 @@ export default function Header({ className }) {
         <nav className={classes.nav}>
           <NavLink href="/">
             <Image
+              priority
               src={IndigoLogo}
               alt="The logo for indigo"
               className={classes.logoIndigo}

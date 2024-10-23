@@ -13,13 +13,13 @@ export const whoWeAreData = [
         finance and realty professionals, collaborates with reputable
         firms such as developers, architects, lawyers, notaries and
         more.`,
-    //   paragraph3: `The clientele includes private investors and investment funds,
-    //     both local and foreign, seeking tailored solutions for various
-    //     real estate ventures. Indigo emphasizes in transparency,
-    //     low-risk strategies, and a commitment to guide clients through
-    //     every step of their investment projects in Greece.`,
+        paragraph3: `The clientele includes private investors and investment funds,
+          both local and foreign, seeking tailored solutions for various
+          real estate ventures. Indigo emphasizes in transparency,
+          low-risk strategies, and a commitment to guide clients through
+          every step of their investment projects in Greece.`,
     },
-    image: "./images/pages/what-we-do/constructioncrop.jpg",
+    image: "./images/pages/who-we-are/voulfinal.jpg",
     button: {
       text: "Contact us",
       href: "/contact",
@@ -27,17 +27,18 @@ export const whoWeAreData = [
   },
   {
     title: "EMMANUEL PETRAKIS",
+    subtitle: "Director and founder",
     info: {
-      paragraph: `Indigo's founder, an experienced investor, has led visionary
-          transformations in residential projects through previous
-          companies, focusing on flipping properties for substantial
-          returns on investment.  These endeavors illustrate a history of
-          successful ventures and innovative strategies in real estate.`,
-      paragraph2: ` Committed to revitalizing urban spaces, we've transformed
-          ordinary properties into luxurious minimalist havens,
-          specializing primarily in residential properties with ventures
-          into commercial projects.`,
+      paragraph: `With more than 25 years of extensive local
+          expertise spanning diverse business sectors I have cultivated
+          a deep understanding of the investment landscape. `,
+      paragraph2: `Over the last 18 years my focus has extended to
+          encompass real estate.`,
+      paragraph3: `Having served as CEO within this quarter-century
+          timeframe I bring a wealth of knowledge and experience to the
+          table.`,
+      paragraph4: `With 20 years of accumulated local knowledge and expertise I guide you towards informed decisions and profitable ventures.`,
     },
-    image: "./images/pages/what-we-do/elinikocrop.jpg",
+    image: "./images/pages/who-we-are/eman.jpg",
   },
 ];

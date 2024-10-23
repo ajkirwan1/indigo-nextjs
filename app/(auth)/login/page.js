@@ -28,15 +28,6 @@ export default async function LoginPage() {
 
   return (
     <>
-      {/* <div className={classes.registerPageContainer}>
-        <div className={classes.hero}>
-          <Header className={classes.heroHeader}></Header>
-          <div className={classes.formcontainer}>
-          <LoginForm redirection={redirection} action={Login}></LoginForm>
-          </div>
-        </div>
-        <Footer></Footer>
-      </div> */}
       <div className={classes.heroWrapper}>
         <div className={classes.imageWrapper}>
           <Image
