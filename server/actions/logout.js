@@ -7,18 +7,15 @@ import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
 import db from "@/modules/db";
 
-
-
 export async function Logout() {
   const sessions = await db.session.findMany();
-  console.log(sessions);
   const { session } = await validateRequest();
+  console.log(session)
   if (!session) {
     return {
       error: "Unauthorized",
     };
   }
-
   await lucia.invalidateSession(session.id);
 
   const sessionCookie = lucia.createBlankSessionCookie();

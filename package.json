@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "docker": "docker compose up",
+    "knex:init" : "npm run db:migrate && npm run db:seed",
     "dev": "next dev",
+    "init": "npm run knex:init && npm run dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

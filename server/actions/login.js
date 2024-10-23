@@ -1,9 +1,7 @@
 /** @format */
 "use server";
-import {LegacyScrypt} from "lucia"
-// import { hash } from "@node-rs/argon2";
+import { LegacyScrypt } from "lucia";
 import db from "@/modules/db";
-// import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
@@ -18,49 +16,49 @@ export async function Login(state, formData) {
   // console.log(passwords);
   // const sessions = await db.session.findMany();
   // console.log(sessions);
-  // const username = formData.get("username");
-  // const password = formData.get("password");
+  const username = formData.get("username");
+  const password = formData.get("password");
 
-  // let errors = [];
+  let errors = [];
 
-  // const existingUser = await db.user.findFirst({
-  //   where: { username: username },
-  // });
+  const existingUser = await db.user.findFirst({
+    where: { username: username },
+  });
 
-  // if (!existingUser) {
-  //   errors.push("Invalid username or password");
-  //   return { errors };
-  // }
+  if (!existingUser) {
+    errors.push("Invalid username or password");
+    return { errors };
+  }
+  console.log(existingUser);
 
-  // const userpasswords = await db.password.findFirst({
-  //   where: { userId: existingUser.id },
-  // });
+  const userpasswords = await db.password.findFirst({
+    where: { userId: existingUser.id },
+  });
 
-  // const validPassword = await new LegacyScrypt().verify(userpasswords.hashedPassword, password, {
-  //   memoryCost: 19456,
-  //   timeCost: 2,
-  //   outputLen: 32,
-  //   parallelism: 1,
-  // });
+  console.log(userpasswords);
 
-  // if (!validPassword) {
-  //   errors.push("Invalid username or password");
-  //   return { errors };
-  // }
-  // const active_expires = 10000;
+  const validPassword = await new LegacyScrypt().verify(userpasswords.hashedPassword, password);
+  console.log(validPassword)
 
-  // const userId = existingUser.id;
-  // const session = await lucia.createSession(
-  //    userId 
-  // );
+  if (!validPassword) {
+    errors.push("Invalid username or password");
+    return { errors };
+  }
 
-  // const sessionCookie = lucia.createSessionCookie(session.id);
-  // console.log(sessionCookie.name, "Cookie name");
-  // cookies().set(
-  //   sessionCookie.name,
-  //   sessionCookie.value,
-  //   sessionCookie.attributes
-  // );
+  const userId = existingUser.id;
+  const session = await lucia.createSession(
+     userId
+  );
+  const sessions = await db.session.findMany();
+  console.log(sessions)
+
+  const sessionCookie = lucia.createSessionCookie(session.id);
+  console.log(sessionCookie.name, "Cookie name");
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
 
   // if (state.redirection) {
   //   redirect(`/${state.redirection}`);
@@ -68,5 +66,5 @@ export async function Login(state, formData) {
   // if (existingUser.admin_access == 2) {
   //   return redirect("/admin");
   // }
-  return redirect("/");
+  // return redirect("/");
 }
