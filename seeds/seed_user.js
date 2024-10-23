@@ -18,7 +18,7 @@ export async function seed(knex) {
     {
       id: userId1,
       username: "user123",
-      firstname: "Michael",
+      firstname: "micsadasdsadsak",
       lastname: "jackson",
       email: "user@123.com",
       adminaccess: 0,
