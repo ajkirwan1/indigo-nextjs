@@ -2,11 +2,11 @@
 'use client'
 export const navigationData = [
   {
-    title: "Home",
+    title: "HOME",
     url: "/",
   },
   {
-    title: "About us",
+    title: "ABOUT US",
     url: "/about-us",
     submenu: [
       {
@@ -20,7 +20,7 @@ export const navigationData = [
     ],
   },
   {
-    title: "Services",
+    title: "SERVICES",
     url: "/services",
     submenu: [
       {
@@ -34,11 +34,11 @@ export const navigationData = [
     ],
   },
   {
-    title: "Contact us",
+    title: "CONTACT US",
     url: "/contact",
   },
   {
-    title: "Account",
+    title: "ACCOUNT",
     url: "/contact",
     submenu: [
       {

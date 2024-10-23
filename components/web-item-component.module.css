@@ -30,6 +30,17 @@
     margin-top: 10vh;
     margin-bottom: 10vh;
   }
+
+  .sectionContainerReverse {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+  }
+
+  .sectionContainer h2{
+font-weight: 400;
+  }
   
   .paragraphWrapper {
     display: flex;
@@ -39,6 +50,17 @@
     letter-spacing: 2px;
     line-height: 2rem;
     padding-right: 5vw;
+  }
+
+
+  .paragraphWrapperReverse {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    justify-content: space-evenly;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    padding-left: 5vw;
   }
   
   .paragraphWrapperRight {
@@ -100,3 +122,17 @@
     display: flex;
   } 
   
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-start
+  }
+  .buttonContainer a img,
+.buttonContainer a button {
+  transition: 0.3s;
+}
+.buttonContainer a:hover button + img {
+  transform: translateX(10px);
+}
+.buttonContainer a:hover button {
+  transform: translateX(-5px);
+}

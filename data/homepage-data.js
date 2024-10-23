@@ -2,13 +2,14 @@
 
 export const homepageData = [
     {
+      title: "WHAT WE OFFER",
       info: 
         {
           paragraph: `Development Consultancy`,
           paragraph2: `Development Opportunities Sourcing`,
           paragraph3: `Development Project Management`,
         },
-      image: "./images/pages/what-we-do/greece12.jpg",
+      image: "./images/pages/home/secondpicture2.jpg",
     },
     {
         info: 
@@ -18,7 +19,7 @@ export const homepageData = [
             paragraph3: `Property Management`,
             paragraph4: `Legal & Notarial Services`,
           },
-        image: "./images/pages/what-we-do/greece12.jpg",
+        image: "./images/pages/home/thirdpicture.jpg",
       },
   ];
   

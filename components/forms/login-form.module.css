@@ -55,6 +55,7 @@
   }
   
   .formcontainer {
+    /* margin-top: 10vh; */
     background-color: #d9d9d9b2;
     width: 800px;
     min-height: 60%;
@@ -64,7 +65,8 @@
     box-shadow: 1px 1px 1px;
   }
   .logoIndigo {
-    height: 12rem;
+    height: 4rem;
+    margin-top: 4vh;
     width: auto;
   }
   .buttoncontainer {
@@ -88,7 +90,7 @@
   }
   
   .submitButtonContainer {
-    margin: 2vh;
+    margin: 5vh;
     display: flex;
     width: 200px;
     height: 50px;

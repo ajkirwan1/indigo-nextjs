@@ -109,7 +109,7 @@ export default function RegisterForm({ action }) {
         <SubmitContainer handle={handleClick} />
       ) : (
         <>
-          <img className={classes.logoIndigo} src="./logoindigo.png"></img>
+          <img className={classes.logoIndigo} src="./Indigo_Logo_Transparent.png"></img>
           <form className={classes.registerForm} action={formAction}>
             <div className={classes.registerFormSection}>
               <h1>Your credentials</h1>

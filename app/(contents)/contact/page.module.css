@@ -50,8 +50,15 @@
     justify-content: space-around
   }
   
+  .pageWrapper {
+    display: flex;
+    justify-content: center
+  }
 
-
+  .pageWrapper p{
+    width: 60vw;
+    line-height: 2rem;
+  }
 
   
   .formcontainer {

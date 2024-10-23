@@ -3,7 +3,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-import { hash } from "@node-rs/argon2";
+import { LegacyScrypt } from "lucia";
 import { generateId } from "lucia";
 
 const userId1 = generateId(15);
@@ -13,6 +13,7 @@ const userId4 = generateId(15);
 
 export async function seed(knex) {
   // Deletes ALL existing entries
+  await knex("passwords").del();
   await knex("users").del();
   await knex("users").insert([
     {
@@ -60,50 +61,26 @@ export async function seed(knex) {
       accessrequestdate: new Date().toJSON().slice(0, 10),
     },
   ]);
-  await knex("passwords").del();
+ 
   await knex("passwords").insert([
     {
       id: 1,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId1,
     },
     {
       id: 2,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId2,
     },
     {
       id: 3,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId3,
     },
     {
       id: 4,
-      hashedPassword: await hash("password123", {
-        // recommended minimum parameters
-        memoryCost: 19456,
-        timeCost: 2,
-        outputLen: 32,
-        parallelism: 1,
-      }),
+      hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId4,
     },
   ]);

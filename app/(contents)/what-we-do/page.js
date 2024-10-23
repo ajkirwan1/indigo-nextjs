@@ -32,7 +32,7 @@ export default function WhatWeDoPage() {
           paragraph1={whatWeDoData[3]["info"]["paragraph"]}
           paragraph2={whatWeDoData[3]["info"]["paragraph2"]}
           paragraph3={whatWeDoData[3]["info"]["paragraph3"]}
-          image={whatWeDoData[2]["image"]}
+          image={whatWeDoData[3]["image"]}
           buttonText={whatWeDoData[3]["button"]["text"]}
           buttonPath={whatWeDoData[3]["button"]["href"]}
         />

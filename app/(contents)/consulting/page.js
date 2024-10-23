@@ -5,7 +5,7 @@ import { validateRequest } from "@/auth/lucia";
 
 async function ConsultingPage() {
   const { user } = await validateRequest();
-  if (user) {
+  if (!user) {
     return redirect("/login");
   }
   return (

@@ -87,7 +87,8 @@
   }
 
   .logoIndigo {
-    height: 10rem;
+    height: 4rem;
+    margin-top: 4vh;
     width: auto;
   }
   .buttoncontainer {
@@ -111,7 +112,7 @@
   }
   
   .submitButtonContainer {
-    margin: 2vh;
+    margin: 5vh;
     display: flex;
     width: 200px;
     height: 50px;
