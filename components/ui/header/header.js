@@ -46,7 +46,7 @@ export default function Header({ className }) {
       <header className={className}>
         <nav className={classes.nav}>
           <NavLink href="/">
-            <img className={classes.logoIndigo} src="/logoindigo.png"></img>
+            <img className={classes.logoIndigo} src="./Indigo_Logo_Transparent.png"></img>
           </NavLink>
 
           {!showMobileNavMenu ? (
