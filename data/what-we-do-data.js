@@ -48,10 +48,10 @@ export const whatWeDoData = [
         paragraph3: `Our company conducts comprehensive market analyses, providing
         invaluable insights into residential development trends.`,
       },
-    image: "./images/pages/what-we-do/constructioncrop.jpg",
+    image: "./images/pages/what-we-do/analysis1.jpg",
     button: 
       {
-        text: "Contact us",
+        text: "CONTACT US",
         href: "/contact",
       },
   },
@@ -74,7 +74,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/elinikocrop.jpg",
     button:
       {
-        text: "Sample projects",
+        text: "SAMPLE PROJECTS",
         href: "/login",
       },
   },
@@ -89,7 +89,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/elinikocrop.jpg",
     button:
       {
-        text: "Properties",
+        text: "PROPERTIES",
         href: "/properties",
       },
   },

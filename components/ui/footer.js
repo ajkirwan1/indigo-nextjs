@@ -9,7 +9,7 @@ export default function Footer() {
         <li>Privacy Policy</li>
         <li className={classes.flexlist}>
           Developed By
-          <img className={classes.aklogo} src="./images/aklogo.png"></img>{" "}
+          <img className={classes.aklogo} src="/images/aklogo.png"></img>{" "}
         </li>
       </ul>
     </footer>

@@ -46,7 +46,7 @@ export default function Homepage() {
             className={classes.poshImage}
           />
           <div className={classes.buttonContainer}>
-            <Button href="/contact">Let&apos;s talk</Button>
+            <Button href="/contact">LET&apos;S TALK</Button>
           </div>
         </section>
       </main>

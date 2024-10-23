@@ -12,10 +12,10 @@ export default function FormSubmit({ loading }) {
     <>
       {status.pending ? (
         <PendingButton>
-          Pending.....
+          PENDING.....
         </PendingButton>
       ) : (
-        <SubmitButton>Submit</SubmitButton>
+        <SubmitButton>SUBMIT</SubmitButton>
       )}
     </>
   );

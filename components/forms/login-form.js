@@ -9,7 +9,7 @@ export default function LoginForm({ action, redirection }) {
   
   return (
     <>
-      <img className={classes.logoIndigo} src="./logoindigo.png"></img>
+      <img className={classes.logoIndigo} src="./Indigo_Logo_Transparent.png"></img>
       <h1>Login</h1>
       <form className={classes.loginForm} action={formAction}>
         <div className={classes.formItemContainer}>
