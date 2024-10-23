@@ -14,6 +14,7 @@ const userId4 = generateId(15);
 export async function seed(knex) {
   // Deletes ALL existing entries
   await knex("users").del();
+  await knex("passwords").del();
   await knex("users").insert([
     {
       id: userId1,
@@ -60,7 +61,7 @@ export async function seed(knex) {
       accessrequestdate: new Date().toJSON().slice(0, 10),
     },
   ]);
-  await knex("passwords").del();
+ 
   await knex("passwords").insert([
     {
       id: 1,
