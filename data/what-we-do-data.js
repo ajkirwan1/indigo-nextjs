@@ -52,7 +52,7 @@ export const whatWeDoData = [
     button: 
       {
         text: "Contact us",
-        href: "/contact-us",
+        href: "/contact",
       },
   },
   {
@@ -75,7 +75,7 @@ export const whatWeDoData = [
     button:
       {
         text: "Sample projects",
-        href: "/projects",
+        href: "/login",
       },
   },
   {

@@ -2,6 +2,7 @@
 
 export const homepageData = [
     {
+      title: "WHAT WE OFFER",
       info: 
         {
           paragraph: `Development Consultancy`,

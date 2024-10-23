@@ -8,12 +8,14 @@ export default function WebItemComponent(props) {
   return (
     <div className={classes.sectionContainer}>
       <div className={classes.paragraphWrapper}>
-        <h1>{props.title}</h1>
+        {props.title && <h1>{props.title}</h1>}
         <p>{props.paragraph1}</p>
         <p>{props.paragraph2}</p>
         <p>{props.paragraph3}</p>
         {props.buttonPath && (
-          <Button href={props.buttonPath}>{props.buttonText}</Button>
+          <div className={classes.buttonContainer}>
+            <Button href={props.buttonPath}>{props.buttonText}</Button>
+          </div>
         )}
       </div>
       <Image

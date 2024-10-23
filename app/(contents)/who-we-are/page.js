@@ -1,16 +1,44 @@
 /** @format */
 
-import classes from "./page.module.css"
+import classes from "./page.module.css";
+import WebItemComponent from "@/components/web-item-component";
+import { whoWeAreData } from "@/data/who-we-are-data";
 
-export default function  WhoWeArePage() {
-  
-    return (
-      <>
-         <div className={classes.subHeader}>
-          <h1>WHO WE ARE</h1>
-          </div>
-          <section className={classes.section1}>
-          <div className={classes.sectionContainer}>
+export default function WhoWeArePage() {
+  return (
+    <>
+      <div className={classes.subHeader}>
+        <h1>WHO WE ARE</h1>
+      </div>
+      <section className={classes.section1}>
+        <WebItemComponent
+          paragraph1={whoWeAreData[0]["info"]["paragraph"]}
+          paragraph2={whoWeAreData[0]["info"]["paragraph2"]}
+          paragraph3={whoWeAreData[0]["info"]["paragraph3"]}
+          image={whoWeAreData[0]["image"]}
+        />
+        <div className={classes.paragraphWrapper}>
+          <p>
+            The clientele includes private investors and investment funds, both
+            local and foreign, seeking tailored solutions for various real
+            estate ventures. Indigo emphasizes in transparency, low-risk
+            strategies, and a commitment to guide clients through every step of
+            their investment projects in Greece.
+          </p>
+        </div>
+        <WebItemComponent
+          paragraph1={whoWeAreData[1]["info"]["paragraph"]}
+          paragraph2={whoWeAreData[1]["info"]["paragraph2"]}
+          image={whoWeAreData[1]["image"]}
+        />
+        <div className={classes.paragraphWrapper}>
+          <p>
+          Our proven portfolio spans Greece and
+          beyond, meticulously crafted for resale to showcase our
+          commitment to excellence and financial success.
+          </p>
+        </div>
+        {/* <div className={classes.sectionContainer}>
             <div className={classes.paragraphWrapper}>
               <h1>INDIGO</h1>
               <p>
@@ -78,9 +106,8 @@ export default function  WhoWeArePage() {
               </div>
             </div>
             <div className={classes.paragraphContainer}></div>
-          </div>
-        </section>
-      </>
-    );
-  }
-  
+          </div> */}
+      </section>
+    </>
+  );
+}

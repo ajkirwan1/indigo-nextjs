@@ -13,8 +13,8 @@
 
 .wrapper {
   border: 1px solid #505050;
-  width: 300px;
-  height: 80px;
+  width: 200px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;

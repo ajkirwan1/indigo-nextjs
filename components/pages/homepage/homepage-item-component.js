@@ -4,6 +4,7 @@ import classes from "./homepage-item-component.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PanelTopDashed } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -37,12 +38,15 @@ export default function HomepageItemComponent(props) {
     >
       <div className={classes.flexWrapper}>
         <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2 }}
           viewport={{ once: true }}
           className={classes.paragraphWrapper}
         >
+          <motion.div variants={item} viewport={{ once: true }}>
+            {props.title && <h1>{props.title}</h1>}
+          </motion.div>
           <motion.div variants={item} viewport={{ once: true }}>
             <Link href="/what-we-do">{props.paragraph1}</Link>
           </motion.div>
@@ -57,7 +61,7 @@ export default function HomepageItemComponent(props) {
           </motion.div>
         </motion.div>
       </div>
-      
+
       <Image
         className={classes.image}
         src={`/${props.image}`}
