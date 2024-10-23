@@ -10,8 +10,9 @@
     "lint": "next lint",
     "db:migrate": "knex migrate:latest",
     "db:migrate:undo": "knex migrate:down",
+    "db:seed": "knex seed:run seed_user",
     "db:migrate:make": "knex migrate:make",
-    "vercel-build": "prisma generate && npm run db:migrate && next build"
+    "vercel-build": "prisma generate && npm run db:migrate && npm run db:seed && next build"
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^4.0.1",
