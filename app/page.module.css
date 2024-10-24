@@ -12,16 +12,16 @@
 .poshImage {
   margin-top:5vh;
   margin-bottom:5vh;
-  width: 60%;
+  width: 40%;
   height: auto;
 }
 .paragraph {
   color: #505050;
 }
 
-.section1 img {
+/* .section1 img {
   max-width: 40%;
-}
+} */
 
 .subHeader {
   display: flex;

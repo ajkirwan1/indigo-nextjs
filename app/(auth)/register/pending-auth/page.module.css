@@ -69,8 +69,8 @@
 }
 
 .formcontainer {
-  margin-top: 10vh;
-  background-color: #d9d9d9b2;
+  border-radius: 10px;
+  background-color:#ffffffcc;
   position: relative;
   width: 85vw;
   box-shadow: 1px 1px 1px;
