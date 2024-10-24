@@ -2,13 +2,17 @@
   border: 0.5px solid rgba(217, 217, 217, 0.686);
   background-color: #faefe8ad;
   border-radius: 2px;
-  width: 90vh;
   color: #3a3939ee;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
   letter-spacing: 0.16em;
   padding: 30px;
+}
+
+.overlay h1{ 
+  font-size: 38px;
+  font-weight: 200;
 }
 
 @media only screen and (max-width: 600px) {
