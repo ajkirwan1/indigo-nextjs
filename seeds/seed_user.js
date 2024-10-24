@@ -156,18 +156,18 @@ export async function seed(knex) {
       userId: userId1,
     },
     {
-      id: 3,
+      id: 4,
       interesttype: "land",
       userId: userId3,
     },
     {
-      id: 3,
+      id: 5,
       interesttype: "residential",
       userId: userId4,
     },
     {
-      id: 3,
-      interesttype: "land",
+      id: 6,
+      interesttype: "private",
       userId: userId4,
     },
   ]);

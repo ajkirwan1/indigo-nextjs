@@ -149,11 +149,11 @@ export default function RegisterForm({ action }) {
               <div className={classes.formRow}>
                 <div className={classes.formItemContainer}>
                   <label>Comapany name:</label>
-                  <input type="text" name="passwordConfirm" />
+                  <input type="text" name="companyName" />
                 </div>
                 <div className={classes.formItemContainer}>
                   <label>Phone number - including area code:</label>
-                  <input type="text" name="passwordConfirm" />
+                  <input type="text" name="phoneNumber" />
                 </div>
               </div>
               <div className={classes.formtickContainer}>
@@ -172,7 +172,7 @@ export default function RegisterForm({ action }) {
                     <label>Real estate agent</label>
                     <input
                       type="checkbox"
-                      name="reaEstateBuyer"
+                      name="realEstateBuyer"
                       checked={realEstateBuyer}
                       onChange={handleRealEstateBuyer}
                     ></input>

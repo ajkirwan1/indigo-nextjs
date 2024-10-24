@@ -8,49 +8,114 @@ import { generateIdFromEntropySize } from "lucia";
 import { redirect } from "next/navigation";
 
 import db from "@/modules/db";
+import { Cone } from "lucide-react";
+
+async function processCredentials(userName, email, password, passwordConfirm) {
+  let errors = [];
+
+  const existingUuser = await db.user.findFirst({
+    where: { username: userName },
+  });
+
+  if (existingUuser) {
+    errors.push("Username already exists");
+    return { errors };
+  }
+
+  if (
+    typeof userName !== "string" ||
+    userName.length < 3 ||
+    userName.length > 31
+  ) {
+    errors.push("Invalid username");
+    return { errors };
+  }
+
+  if (password != passwordConfirm) {
+    errors.push("Passwords do not match");
+    return { errors };
+  }
+
+  if (
+    typeof password !== "string" ||
+    password.length < 6 ||
+    password.length > 255
+  ) {
+    errors.push("Invalid Password - password must be longer than 6 characters");
+    return { errors };
+  }
+
+  if (typeof email !== "string" || email.length < 6 || email.length > 255) {
+    errors.push("Invalid email address");
+    return { errors };
+  }
+  return false;
+}
 
 export async function RegisterAction(_, formData) {
-
   const users = await db.user.findMany();
-  console.log(users)
-  // const username = formData.get("userName");
-  // const password = formData.get("password");
-  // const passwordConfirm = formData.get("passwordConfirm");
-  // const email = formData.get("email");
+  console.log(users);
 
-  // let errors = [];
+  const details = await db.investmentinterest.findMany();
+  console.log(details);
 
-  // if (password != passwordConfirm) {
-  //   errors.push("Passwords do not match");
+  const userName = formData.get("userName");
+  const email = formData.get("email");
+  const password = formData.get("password");
+  const passwordConfirm = formData.get("passwordConfirm");
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
+  const companyName = formData.get("companyName");
+  const phoneNumber = formData.get("phoneNumber");
+  const privateBuyer = formData.get("privateBuyer");
+  const realEstateBuyer = formData.get("realEstateBuyer");
+  const locationGreece = formData.get("locationGreece");
+  const locationOther = formData.get("locationOther");
+  const sixMonths = formData.get("sixMonths");
+  const sixToTwelveMonths = formData.get("sixToTwelveMonths");
+  const twelveMonths = formData.get("twelveMonths");
+  const residential = formData.get("residential");
+  const commercial = formData.get("commercial");
+  const land = formData.get("land");
+  const small = formData.get("50");
+  const medium = formData.get("50-100");
+  const large = formData.get("100-150");
+  const xlarge = formData.get("150+");
+  const yes = formData.get("yes");
+  const no = formData.get("no");
+
+  let errors = [];
+
+  const result = await processCredentials(userName, email, password, passwordConfirm);
+
+  // console.log(result);
+  if (result != false) {
+    console.log(result);
+    return result;
+  }
+  if (result == false)
+  {
+    console.log("fsdfdsfdsf")
+  }
+
+    // console.log(firstName);
+
+
+  // if (
+  //   typeof firstName !== "string" ||
+  //   firstName.length < 3 ||
+  //   firstName.length > 31) {
+  //   errors.push("Invalid first name");
+  //   return {errors}
   // }
 
   // if (
-  //   typeof username !== "string" ||
-  //   username.length < 3 ||
-  //   username.length > 31 ||
-
-  // ) {
-  //   errors.push("Invalid username");
+  //   typeof lastName !== "string" ||
+  //   lastName.length < 3 ||
+  //   lastName.length > 31) {
+  //   errors.push("Invalid last name");
+  //   return {errors}
   // }
-
-  // if (
-  //   typeof password !== "string" ||
-  //   password.length < 6 ||
-  //   password.length > 255
-  // ) {
-  //   errors.push("Invalid Password");
-  // }
-
-  // if (typeof email !== "string" || email.length < 6 || email.length > 255) {
-  //   errors.push("Invalid email address");
-  // }
-
-  //   const existingUser = db
-  //     .prepare("SELECT * FROM user WHERE username = ?")
-  //     .get(username);
-  //   if (existingUser) {
-  //     errors.push("Username already exists");
-  //   }
 
   //   const existingEmail = db
   //     .prepare("SELECT * FROM user WHERE email = ?")
