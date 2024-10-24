@@ -21,10 +21,18 @@ model User {
     id         String     @id
     sessions   Session[]
     passwords  Password[]
+    investmentinterests  Investmentinterest[]
     username String
     firstname String
     lastname String
     email String
+    companyname String?
+    phonenumber String?
+    buyertype String?
+    location String?
+    purchasetimeline String?
+    estinvestmentinterest String?
+    previousinvestment String?
     adminaccess Int
     consultingaccess Int
     propertyaccess Int
@@ -45,6 +53,14 @@ model Password {
     @@map("passwords")
 }
 
+model Investmentinterest {
+    id             Int    @id @default(autoincrement())
+    interesttype   String
+    userId         String
+    user           User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+    
+    @@map("investmentinterests")
+}
 
 model Session {
   id        String @id @unique

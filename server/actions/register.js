@@ -10,6 +10,9 @@ import { redirect } from "next/navigation";
 import db from "@/modules/db";
 
 export async function RegisterAction(_, formData) {
+
+  const users = await db.user.findMany();
+  console.log(users)
   // const username = formData.get("userName");
   // const password = formData.get("password");
   // const passwordConfirm = formData.get("passwordConfirm");
@@ -94,5 +97,5 @@ export async function RegisterAction(_, formData) {
   //   sessionCookie.attributes
   // );
   // return { success: true };
-  return redirect("/register/pending-auth");
+  // return redirect("/register/pending-auth");
 }

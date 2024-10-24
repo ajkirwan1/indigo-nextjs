@@ -23,6 +23,13 @@ export async function seed(knex) {
       firstname: "micsadasdsadsak",
       lastname: "jackson",
       email: "user@123.com",
+      companyname: "company1",
+      phonenumber: "+4412345",
+      buyertype: "private",
+      location: "other",
+      purchasetimeline: "within 6 months",
+      estinvestmentinterest: "more than 150,000€",
+      previousinvestment: "no",
       adminaccess: 0,
       propertyaccess: 0,
       consultingaccess: 0,
@@ -34,6 +41,13 @@ export async function seed(knex) {
       firstname: "adam",
       lastname: "kirwan",
       email: "ajkirwan@123.com",
+      companyname: null,
+      phonenumber: null,
+      buyertype: null,
+      location: null,
+      purchasetimeline: null,
+      estinvestmentinterest: null,
+      previousinvestment: null,
       adminaccess: 2,
       propertyaccess: 2,
       consultingaccess: 2,
@@ -46,6 +60,13 @@ export async function seed(knex) {
       lastname: "smith",
       email: "property@123.com",
       adminaccess: 0,
+      companyname: "companyxxxxxx",
+      phonenumber: "+3212345",
+      buyertype: "agent",
+      location: "greece",
+      purchasetimeline: "6 - 12 months",
+      estinvestmentinterest: "100,000€ - 150,000€",
+      previousinvestment: "yes",
       propertyaccess: 2,
       consultingaccess: 0,
       accessrequestdate: new Date().toJSON().slice(0, 10),
@@ -57,6 +78,13 @@ export async function seed(knex) {
       lastname: "burns",
       email: "consulting@123.com",
       adminaccess: 0,
+      companyname: "McDonalds",
+      phonenumber: "+32123451323232",
+      buyertype: "private",
+      location: "other",
+      purchasetimeline: "+12 months",
+      estinvestmentinterest: "50,000€ - 100,000€",
+      previousinvestment: "yes",
       propertyaccess: 0,
       consultingaccess: 2,
       accessrequestdate: new Date().toJSON().slice(0, 10),
@@ -109,4 +137,42 @@ export async function seed(knex) {
       pdfid: "jngv6mweml560ml",
     },
   ]);
+
+  await knex("investmentinterests").insert([
+    {
+      id: 1,
+      interesttype: "commercial",
+      userId: userId1,
+    },
+    {
+      id: 2,
+      interesttype: "land",
+      userId: userId1,
+    },
+
+    {
+      id: 3,
+      interesttype: "residential",
+      userId: userId1,
+    },
+    {
+      id: 3,
+      interesttype: "land",
+      userId: userId3,
+    },
+    {
+      id: 3,
+      interesttype: "residential",
+      userId: userId4,
+    },
+    {
+      id: 3,
+      interesttype: "land",
+      userId: userId4,
+    },
+  ]);
+
+
+
+
 }
