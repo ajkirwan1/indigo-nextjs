@@ -2,17 +2,16 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-export async function up(knex) {
-    return await knex.schema.createTable("properties", function (table) {
-      table.integer("id").unique();
-      table.string("title");
-      table.string("name");
-      table.string("image");
-      table.string("pdfid");
+export function up(knex) {
+    return knex.schema.createTable("properties", function (table) {
+      table.string("id");
+      table.string("title")
+      table.string("name")
+      table.string("image")
+      table.string("pdfid").notNullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now()).index();
   })
-  }
-  
+}
   /**
    * @param { import("knex").Knex } knex
    * @returns { Promise<void> }
@@ -20,4 +19,3 @@ export async function up(knex) {
   export function down(knex) {
     return knex.schema.dropTable('properties')
   }
-  

@@ -30,7 +30,8 @@
   }
 
   .formcontainer {
-    background-color: #d9d9d9b2;
+    border-radius: 10px;
+    background-color:#ffffffcc;
     width: 800px;
     min-height: 60%;
     max-width: 70vw;

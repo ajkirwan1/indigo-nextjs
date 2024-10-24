@@ -1,6 +1,6 @@
-.section1 img {
+/* .section1 img {
     max-width: 40%;
-  }
+  } */
   
   .img {
     max-width: 50%;
@@ -26,6 +26,7 @@
     height: auto;
   }
   .sectionContainer {
+    min-height: 60vh;
     display: flex;
     margin-top: 10vh;
     margin-bottom: 10vh;

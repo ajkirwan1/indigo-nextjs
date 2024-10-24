@@ -4,7 +4,6 @@ import classes from "./homepage-item-component.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { PanelTopDashed } from "lucide-react";
 
 const container = {
   hidden: { opacity: 0 },
@@ -14,12 +13,6 @@ const container = {
       staggerChildren: 1,
     },
   },
-  // show: {
-  //   opacity: 1,
-  //   transition: {
-  //     staggerChildren: 1,
-  //   },
-  // },
 };
 
 const item = {
@@ -48,16 +41,26 @@ export default function HomepageItemComponent(props) {
             {props.title && <h1>{props.title}</h1>}
           </motion.div>
           <motion.div variants={item} viewport={{ once: true }}>
-            <Link href="/what-we-do">{props.paragraph1}</Link>
+            <Link href="/what-we-do">
+              <h2>{props.paragraph1}</h2>
+            </Link>
           </motion.div>
           <motion.div variants={item} viewport={{ once: true }}>
-            <Link href="/what-we-do">{props.paragraph2}</Link>
+            <Link href="/what-we-do">
+              <h2>{props.paragraph2}</h2>
+            </Link>
           </motion.div>
           <motion.div variants={item} viewport={{ once: true }}>
-            <Link href="/what-we-do">{props.paragraph3}</Link>
+            <Link href="/what-we-do">
+              <h2>{props.paragraph3}</h2>
+            </Link>
           </motion.div>
           <motion.div variants={item} viewport={{ once: true }}>
-            {props.paragraph4 && <Link href="/what-we-do">{props.paragraph4}</Link>}
+            {props.paragraph4 && (
+              <Link href="/what-we-do">
+                <h2>{props.paragraph4}</h2>
+              </Link>
+            )}
           </motion.div>
         </motion.div>
       </div>
