@@ -3,7 +3,7 @@
   } */
   
   .image {
-    max-width: 30%;
+    max-width: 40%;
     height: auto;
   }
   .icon {
@@ -44,6 +44,7 @@ font-weight: 400;
   
   .paragraphWrapper {
     display: flex;
+    gap:4vh;
     flex-direction: column;
     text-align: start;
     justify-content: space-evenly;
