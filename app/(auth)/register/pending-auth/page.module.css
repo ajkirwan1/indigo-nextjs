@@ -69,10 +69,12 @@
 }
 
 .formcontainer {
+  margin-top: 10vh;
   border-radius: 10px;
   background-color:#ffffffcc;
   position: relative;
-  width: 85vw;
+  width: 50vw;
+  line-height: 2rem;
   box-shadow: 1px 1px 1px;
 }
 .logoIndigo {
