@@ -60,11 +60,11 @@ export async function Login(state, formData) {
     sessionCookie.attributes
   );
 
-  // if (state.redirection) {
-  //   redirect(`/${state.redirection}`);
-  // }
-  // if (existingUser.admin_access == 2) {
-  //   return redirect("/admin");
-  // }
-  // return redirect("/");
+  if (state.redirection) {
+    redirect(`/${state.redirection}`);
+  }
+  if (existingUser.admin_access == 2) {
+    return redirect("/admin");
+  }
+  return redirect("/");
 }

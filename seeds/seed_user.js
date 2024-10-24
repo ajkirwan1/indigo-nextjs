@@ -15,6 +15,7 @@ export async function seed(knex) {
   // Deletes ALL existing entries
   await knex("passwords").del();
   await knex("users").del();
+  await knex("properties").del();
   await knex("users").insert([
     {
       id: userId1,
@@ -61,7 +62,7 @@ export async function seed(knex) {
       accessrequestdate: new Date().toJSON().slice(0, 10),
     },
   ]);
- 
+
   await knex("passwords").insert([
     {
       id: 1,
@@ -82,6 +83,30 @@ export async function seed(knex) {
       id: 4,
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId4,
+    },
+  ]);
+  await knex("properties").insert([
+    {
+      id: 1,
+      title: "Φ 19",
+      name: "Glyfada",
+      image: "entrance.jpg",
+      pdfid: "hc5i241tgd2wop1",
+    },
+    {
+      id: 2,
+      title: "Σ 14",
+      name: "Voula",
+      image: "final.jpg",
+      pdfid: "ysdp9k7v35wtvlc",
+    },
+
+    {
+      id: 3,
+      title: "β 7",
+      name: "Kavouri",
+      image: "pool.jpg",
+      pdfid: "jngv6mweml560ml",
     },
   ]);
 }

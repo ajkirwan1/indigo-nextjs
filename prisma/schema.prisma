@@ -60,7 +60,7 @@ model Session {
 }
 
 model Property {
-  id String @id @default(cuid())
+  id Int    @id @default(autoincrement())
   title String
   name String
   image String
@@ -70,9 +70,6 @@ model Property {
   @@index([createdAt])
   @@map("properties")
 }
-
-
-
 
 model Pdf {
   id String @id @default(cuid())

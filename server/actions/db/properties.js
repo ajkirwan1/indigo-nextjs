@@ -1,12 +1,9 @@
-// /** @format */
-// import sql from "better-sqlite3";
-// const db = sql("main.db");
+/** @format */
+import db from "@/modules/db";
 
-// export async function getProperties() {
-//   // throw new Error("loading meals fails");
-//   return db.prepare("SELECT * FROM properties").all();
-// }
+export async function getProperties() {
+    
+    const properties = await db.property.findMany();
 
-// // export function getProject(id) {
-// //   return db.prepare("SELECT * FROM projects WHERE id = ?").get(id);
-// // }
+  return properties
+}
