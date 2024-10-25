@@ -8,18 +8,20 @@ import { generateIdFromEntropySize } from "lucia";
 import { redirect } from "next/navigation";
 
 import db from "@/modules/db";
-import { Cone } from "lucide-react";
 
-async function processCredentials(userName, email, password, passwordConfirm) {
+async function validateCredentials(userName, email, password, passwordConfirm) {
   let errors = [];
 
   const existingUuser = await db.user.findFirst({
     where: { username: userName },
   });
 
+  const existingEmail = await db.user.findFirst({
+    where: { email: email },
+  });
+
   if (existingUuser) {
     errors.push("Username already exists");
-    return { errors };
   }
 
   if (
@@ -28,12 +30,10 @@ async function processCredentials(userName, email, password, passwordConfirm) {
     userName.length > 31
   ) {
     errors.push("Invalid username");
-    return { errors };
   }
 
   if (password != passwordConfirm) {
     errors.push("Passwords do not match");
-    return { errors };
   }
 
   if (
@@ -41,24 +41,148 @@ async function processCredentials(userName, email, password, passwordConfirm) {
     password.length < 6 ||
     password.length > 255
   ) {
-    errors.push("Invalid Password - password must be longer than 6 characters");
-    return { errors };
+    errors.push("Invalid Password");
+  }
+
+  if (existingEmail) {
+    errors.push("Email already exists");
   }
 
   if (typeof email !== "string" || email.length < 6 || email.length > 255) {
     errors.push("Invalid email address");
-    return { errors };
   }
-  return false;
+
+  return { errors };
+}
+
+function validateRegistration(firstName, lastName, companyName, phoneNumber) {
+  let errors = [];
+  if (
+    typeof firstName !== "string" ||
+    firstName.length < 3 ||
+    firstName.length > 31
+  ) {
+    errors.push("Invalid first name");
+  }
+  if (
+    typeof lastName !== "string" ||
+    lastName.length < 3 ||
+    lastName.length > 31
+  ) {
+    errors.push("Invalid last name");
+  }
+  if (
+    typeof companyName !== "string" ||
+    companyName.length < 3 ||
+    companyName.length > 31
+  ) {
+    errors.push("Invalid company name");
+  }
+
+  if (
+    typeof phoneNumber !== "string" ||
+    phoneNumber.length < 3 ||
+    phoneNumber.length > 31
+  ) {
+    errors.push("Invalid phone number");
+  }
+
+  return { errors };
+}
+
+function getBuyerType(realEstateBuyer, privateBuyer) {
+  let buyerType;
+
+  if (realEstateBuyer) {
+    buyerType = "real estate";
+  } else if (privateBuyer) {
+    buyerType = "private";
+  } else {
+    buyerType = null;
+  }
+
+  return buyerType;
+}
+
+function getLocation(locationGreece, locationOther) {
+  let location;
+
+  if (locationGreece) {
+    location = "Greece";
+  } else if (locationOther) {
+    location = "Other";
+  } else {
+    location = null;
+  }
+
+  return location;
+}
+
+function getTimeline(sixMonths, sixToTwelveMonths, twelveMonths) {
+  let timeFrame;
+
+  if (sixMonths) {
+    timeFrame = "Six months";
+  } else if (sixToTwelveMonths) {
+    timeFrame = "Six to twelve months";
+  } else if (twelveMonths) {
+    timeFrame = "More than twelve months";
+  } else {
+    timeFrame = null;
+  }
+
+  return timeFrame;
+}
+
+function getInvestment(residential, commercial, land) {
+  let investment = [null, null, null];
+
+  if (residential) {
+    investment[0] = "residential";
+  }
+  if (commercial) {
+    investment[1] = "commerical";
+  }
+  if (land) {
+    investment[2] = "lesidential";
+  }
+
+  return investment;
+}
+
+function getInvestmentValue(small, medium, large, xlarge) {
+  let investment;
+
+  if (small) {
+    investment = "less than 50,000€";
+  } else if (medium) {
+    investment = "50,000€ - 100,000€";
+  } else if (large) {
+    investment = "100,000€ - 150,000€";
+  } else if (xlarge) {
+    investment = "More than 150,000€";
+  } else {
+    investment = null;
+  }
+
+  return investment;
+}
+
+function getInvestmentHistory(yes, no) {
+  let history;
+
+  if (yes) {
+    history = "yes";
+  } else if (no) {
+    history = "no";
+  } else {
+    history = null;
+  }
+
+  return history;
 }
 
 export async function RegisterAction(_, formData) {
-  const users = await db.user.findMany();
-  console.log(users);
-
-  const details = await db.investmentinterest.findMany();
-  console.log(details);
-
   const userName = formData.get("userName");
   const email = formData.get("email");
   const password = formData.get("password");
@@ -84,46 +208,115 @@ export async function RegisterAction(_, formData) {
   const yes = formData.get("yes");
   const no = formData.get("no");
 
-  let errors = [];
-
-  const result = await processCredentials(userName, email, password, passwordConfirm);
-
-  // console.log(result);
-  if (result != false) {
-    console.log(result);
-    return result;
-  }
-  if (result == false)
-  {
-    console.log("fsdfdsfdsf")
-  }
-
-    // console.log(firstName);
-
-
-  // if (
-  //   typeof firstName !== "string" ||
-  //   firstName.length < 3 ||
-  //   firstName.length > 31) {
-  //   errors.push("Invalid first name");
-  //   return {errors}
+  // const validatedCredentials = await validateCredentials(
+  //   userName,
+  //   email,
+  //   password,
+  //   passwordConfirm
+  // );
+  // if (validatedCredentials.errors.length > 0) {
+  //   return validatedCredentials;
   // }
 
-  // if (
-  //   typeof lastName !== "string" ||
-  //   lastName.length < 3 ||
-  //   lastName.length > 31) {
-  //   errors.push("Invalid last name");
-  //   return {errors}
+  // const validatedRegistration = validateRegistration(
+  //   firstName,
+  //   lastName,
+  //   companyName,
+  //   phoneNumber
+  // );
+
+  // if (validatedRegistration.errors.length > 0) {
+  //   return validatedRegistration;
   // }
 
-  //   const existingEmail = db
-  //     .prepare("SELECT * FROM user WHERE email = ?")
-  //     .get(email);
+  const buyerType = getBuyerType(realEstateBuyer, privateBuyer);
 
-  //   if (existingEmail) {
-  //     errors.push("Email already exists");
-  //   }
+  const location = getLocation(locationGreece, locationOther);
+
+  const timeFrame = getTimeline(sixMonths, sixToTwelveMonths, twelveMonths);
+
+  const propertyTypeInvestment = getInvestment(residential, commercial, land);
+
+  const investmentValue = getInvestmentValue(small, medium, large, xlarge);
+
+  const investmentHistory = getInvestmentHistory(yes, no);
+
+  const passwordHash = await new LegacyScrypt().hash(password);
+  const userid = generateIdFromEntropySize(10);
+
+  try {
+    // const userPassword = await db.password.create({
+    //   data: {
+    //     hashedPassword: passwordHash,
+    //     userId: userId,
+    //   },
+    // });
+
+    const user = await db.user.create({
+      data: {
+        id: userid,
+        username: userName,
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        companyname: companyName,
+        phonenumber: phoneNumber,
+        buyertype: buyerType,
+        location: location,
+        purchasetimeline: timeFrame,
+        estinvestmentinterest: investmentValue,
+        previousinvestment: investmentHistory,
+        adminaccess: 0,
+        consultingaccess: 0,
+        propertyaccess: 0,
+        accessrequestdate: new Date(),
+        passwords: {
+          create: {
+            hashedPassword: passwordHash,
+          },
+        },
+        investmentinterests: {
+          create: {
+            interesttype: "jjdsa"
+          }
+        }
+      },
+    });
+
+    console.log(user);
+
+    // console.log(userPassword)
+    // const investmentInterests = await db.investmentinterest.createMany({
+    //   data: [
+    //     {
+    //       interesttype: propertyTypeInvestment[0],
+    //       userId: userId,
+    //     },
+    //     {
+    //       interesttype: propertyTypeInvestment[1],
+    //       userId: userId,
+    //     },
+    //     {
+    //       interesttype: propertyTypeInvestment[2],
+    //       userId: userId,
+    //     },
+    //   ],
+    // });
+
+    // console.log(investmentInterests);
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log("Success");
+
+  const users = await db.user.findMany();
+  const passwwrds = await db.password.findMany();
+  const interests = await db.investmentinterest.findMany();
+
+  console.log(users);
+  console.log(passwwrds);
+  console.log(interests);
 
   // if (errors.length > 0) {
   //   return { errors };

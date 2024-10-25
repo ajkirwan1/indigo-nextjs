@@ -47,8 +47,8 @@ model User {
 model Password {
     id             Int    @id @default(autoincrement())
     hashedPassword String
-    userId         String
-    user           User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+    userId         String?
+    user           User?   @relation(references: [id], fields: [userId], onDelete: Cascade)
     
     @@map("passwords")
 }

@@ -93,36 +93,36 @@ export async function seed(knex) {
 
   await knex("passwords").insert([
     {
-      id: 1,
+      id: 100000001,
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId1,
     },
     {
-      id: 2,
+      id: 100000002,
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId2,
     },
     {
-      id: 3,
+      id: 100000003,
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId3,
     },
     {
-      id: 4,
+      id: 100000004,
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId4,
     },
   ]);
   await knex("properties").insert([
     {
-      id: 1,
+      id: 100000001,
       title: "Φ 19",
       name: "Glyfada",
       image: "entrance.jpg",
       pdfid: "hc5i241tgd2wop1",
     },
     {
-      id: 2,
+      id: 100000002,
       title: "Σ 14",
       name: "Voula",
       image: "final.jpg",
@@ -130,7 +130,7 @@ export async function seed(knex) {
     },
 
     {
-      id: 3,
+      id: 100000003,
       title: "β 7",
       name: "Kavouri",
       image: "pool.jpg",
@@ -140,39 +140,35 @@ export async function seed(knex) {
 
   await knex("investmentinterests").insert([
     {
-      id: 1,
+      id: 100000001,
       interesttype: "commercial",
       userId: userId1,
     },
     {
-      id: 2,
+      id: 100000002,
       interesttype: "land",
       userId: userId1,
     },
 
     {
-      id: 3,
+      id: 100000003,
       interesttype: "residential",
       userId: userId1,
     },
     {
-      id: 4,
+      id: 100000004,
       interesttype: "land",
       userId: userId3,
     },
     {
-      id: 5,
+      id: 100000005,
       interesttype: "residential",
       userId: userId4,
     },
     {
-      id: 6,
+      id: 100000006,
       interesttype: "private",
       userId: userId4,
     },
   ]);
-
-
-
-
 }
