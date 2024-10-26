@@ -321,7 +321,7 @@ export default function RegisterForm({ action }) {
             <div className={classes.submitButtonContainer}>
               <FormSubmit />
             </div>
-            {/* {state.errors && (
+            {state.errors && (
               <ul>
                 {state.errors.map((error) => (
                   <li key={error}>
@@ -329,7 +329,7 @@ export default function RegisterForm({ action }) {
                   </li>
                 ))}
               </ul>
-            )} */}
+            )}
           </form>
         </>
     //   )}

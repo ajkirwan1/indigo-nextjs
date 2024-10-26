@@ -55,9 +55,9 @@ model Password {
 
 model Investmentinterest {
     id             Int    @id @default(autoincrement())
-    interesttype   String
-    userId         String
-    user           User   @relation(references: [id], fields: [userId], onDelete: Cascade)
+    interesttype   String?
+    userId         String?
+    user           User?   @relation(references: [id], fields: [userId], onDelete: Cascade)
     
     @@map("investmentinterests")
 }

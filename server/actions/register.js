@@ -135,16 +135,21 @@ function getTimeline(sixMonths, sixToTwelveMonths, twelveMonths) {
 }
 
 function getInvestment(residential, commercial, land) {
-  let investment = [null, null, null];
+  let investment = [];
+  let errors = [];
 
   if (residential) {
-    investment[0] = "residential";
+    investment.push("residential");
   }
   if (commercial) {
-    investment[1] = "commerical";
+    investment.push("commerical");
   }
   if (land) {
-    investment[2] = "lesidential";
+    investment.push("land");
+  }
+  if (investment.length === 0) {
+    errors.push("Please select an investment type")
+    return {errors};
   }
 
   return investment;
@@ -276,10 +281,12 @@ export async function RegisterAction(_, formData) {
           },
         },
         investmentinterests: {
-          create: {
-            interesttype: "jjdsa"
-          }
-        }
+          createMany: {
+            data: propertyTypeInvestment.map((el) => ({
+              interesttype: el,
+            })),
+          },
+        },
       },
     });
 
@@ -306,6 +313,7 @@ export async function RegisterAction(_, formData) {
     // console.log(investmentInterests);
   } catch (error) {
     console.log(error);
+    return { error };
   }
 
   console.log("Success");
