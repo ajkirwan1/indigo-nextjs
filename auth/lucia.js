@@ -17,6 +17,11 @@ export const lucia = new Lucia(adapter, {
   getUserAttributes: (attributes) => {
     return {
       username: attributes.username,
+      firstname: attributes.firstname,
+      propertyaccess: attributes.propertyaccess,
+      consultingaccess: attributes.consultingaccess,
+      adminaccess: attributes.adminaccess,
+      email: attributes.email
     };
   },
 });
@@ -31,6 +36,7 @@ export const validateRequest = cache(async () => {
   }
 
   const result = await lucia.validateSession(sessionId);
+  console.log("RESULTY", result)
   try {
     if (result.session && result.session.fresh) {
       const sessionCookie = lucia.createSessionCookie(result.session.id);

@@ -147,11 +147,13 @@ function getInvestment(residential, commercial, land) {
   if (land) {
     investment.push("land");
   }
-  if (investment.length === 0) {
-    errors.push("Please select an investment type")
-    return {errors};
+  if (investment.length == 0) {
+    errors.push("Please select an investment type");
   }
-
+  if (errors.length > 0) {
+    return { errors };
+  }
+  console.log(investment.length);
   return investment;
 }
 
@@ -223,16 +225,16 @@ export async function RegisterAction(_, formData) {
   //   return validatedCredentials;
   // }
 
-  // const validatedRegistration = validateRegistration(
-  //   firstName,
-  //   lastName,
-  //   companyName,
-  //   phoneNumber
-  // );
+  const validatedRegistration = validateRegistration(
+    firstName,
+    lastName,
+    companyName,
+    phoneNumber
+  );
 
-  // if (validatedRegistration.errors.length > 0) {
-  //   return validatedRegistration;
-  // }
+  if (validatedRegistration.errors.length > 0) {
+    return validatedRegistration;
+  }
 
   const buyerType = getBuyerType(realEstateBuyer, privateBuyer);
 
@@ -242,6 +244,10 @@ export async function RegisterAction(_, formData) {
 
   const propertyTypeInvestment = getInvestment(residential, commercial, land);
 
+  if (propertyTypeInvestment?.errors?.length > 0) {
+    return propertyTypeInvestment;
+  }
+
   const investmentValue = getInvestmentValue(small, medium, large, xlarge);
 
   const investmentHistory = getInvestmentHistory(yes, no);
@@ -250,13 +256,6 @@ export async function RegisterAction(_, formData) {
   const userid = generateIdFromEntropySize(10);
 
   try {
-    // const userPassword = await db.password.create({
-    //   data: {
-    //     hashedPassword: passwordHash,
-    //     userId: userId,
-    //   },
-    // });
-
     const user = await db.user.create({
       data: {
         id: userid,
@@ -289,79 +288,16 @@ export async function RegisterAction(_, formData) {
         },
       },
     });
-
-    console.log(user);
-
-    // console.log(userPassword)
-    // const investmentInterests = await db.investmentinterest.createMany({
-    //   data: [
-    //     {
-    //       interesttype: propertyTypeInvestment[0],
-    //       userId: userId,
-    //     },
-    //     {
-    //       interesttype: propertyTypeInvestment[1],
-    //       userId: userId,
-    //     },
-    //     {
-    //       interesttype: propertyTypeInvestment[2],
-    //       userId: userId,
-    //     },
-    //   ],
-    // });
-
-    // console.log(investmentInterests);
   } catch (error) {
-    console.log(error);
     return { error };
   }
 
-  console.log("Success");
-
-  const users = await db.user.findMany();
-  const passwwrds = await db.password.findMany();
-  const interests = await db.investmentinterest.findMany();
-
-  console.log(users);
-  console.log(passwwrds);
-  console.log(interests);
-
-  // if (errors.length > 0) {
-  //   return { errors };
-  // } else {
-  //   const passwordHash = await new LegacyScrypt().hash(password)(password, {
-  //     memoryCost: 19456,
-  //     timeCost: 2,
-  //     outputLen: 32,
-  //     parallelism: 1,
-  //   });
-  //   const userId = generateIdFromEntropySize(10);
-
-  // const stmt = db.prepare(
-  //   "INSERT INTO user VALUES (@id, @username, @first_name, @last_name, @email, @admin_access, @property_access, @consulting_access, @access_request_date, @password_hash)"
-  // );
-
-  // stmt.run({
-  //   id: userId,
-  //   username: username,
-  //   first_name: "",
-  //   last_name: "",
-  //   email: email,
-  //   admin_access: 0,
-  //   property_access: 0,
-  //   consulting_access: 0,
-  //   admin_access: 0,
-  //   access_request_date: new Date().toJSON().slice(0, 10),
-  //   password_hash: passwordHash,
-  // });
-
-  // const session = await lucia.createSession(userId, {});
-  // const sessionCookie = lucia.createSessionCookie(session.id);
-  // cookies().set(
-  //   sessionCookie.name,
-  //   sessionCookie.value,
-  //   sessionCookie.attributes
-  // );
-  // return { success: true };
-  // return redirect("/register/pending-auth");
+  const session = await lucia.createSession(userid, {});
+  const sessionCookie = lucia.createSessionCookie(session.id);
+  cookies().set(
+    sessionCookie.name,
+    sessionCookie.value,
+    sessionCookie.attributes
+  );
+  return redirect("/register/pending-auth");
 }
