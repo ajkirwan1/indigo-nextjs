@@ -35,8 +35,7 @@ export default async function AdminPage() {
 
   return (
     <>
-      <h1>Hi Emmanuel</h1>
-      <h2>List of registered users</h2>
+      <h1>List of registered users</h1>
       <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
     </>
   );

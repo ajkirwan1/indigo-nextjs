@@ -4,7 +4,6 @@ import TableRow from "./table-row";
 import classes from "./table.module.css";
 
 export default function Table({ theadData, tbodyData, customClass }) {
-  console.log("TBODYDATA", tbodyData)
   return (
     <>
       <table className={classes[customClass]}>
