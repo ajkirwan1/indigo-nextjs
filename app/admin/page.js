@@ -7,11 +7,12 @@ import PrepareAdminClientData from "@/utils/admin-table-data";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
+  console.log("ADMIN USER", user)
 
   if (!user) {
     redirect("/")
   }
-  if (user?.adminUser != 2) {
+  if (user?.adminaccess != 2) {
     redirect("/");
   }
 
@@ -21,6 +22,8 @@ export default async function AdminPage() {
   try {
     const response = await fetch("http://localhost:3000/api/users");
     const data = await response.json();
+
+    console.log(data)
 
     const {headerData, bodyData} = PrepareAdminClientData(data)
     theadData = [...headerData]
