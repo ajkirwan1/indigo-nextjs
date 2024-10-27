@@ -10,6 +10,7 @@ export async function GET(request) {
 
   const existingUsers = await db.user.findMany({
     select: {
+      id: true,
       firstname: true,
       lastname: true,
       email: true,
