@@ -1,52 +1,52 @@
 .header {
-    color: aliceblue !important;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  
-  .heroHeader {
-    color: aliceblue;
-    /* position: absolute; */
-    display: flex;
-    align-items: center;
-    top: 0;
-    width: 100%;
-  }
-  .heroHeader a {
-    color: aliceblue;
-  }
-  
-  .heroHeader button {
-    color: aliceblue;
-  }
+  color: aliceblue !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
-  .loginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form label {
-    font-size: large;
-  }
-  
-  .formItemContainer {
-    display: flex;
-    padding: 5px;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40%;
-  }
-  
-  /* .formItemContainer label {
+.heroHeader {
+  color: aliceblue;
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  top: 0;
+  width: 100%;
+}
+.heroHeader a {
+  color: aliceblue;
+}
+
+.heroHeader button {
+  color: aliceblue;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form label {
+  font-size: large;
+}
+
+.formItemContainer {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}
+
+/* .formItemContainer label {
     font-size: x-large;
   } */
-  .formCheckboxContainer {
-    display: flex;
-  }
-  
-  /* .hero {
+.formCheckboxContainer {
+  display: flex;
+}
+
+/* .hero {
     position: relative;
     display: flex;
     align-items: center;
@@ -57,78 +57,77 @@
     background-repeat: no-repeat;
     min-height:200vh;
   } */
-  .hero:after {
-    content: "";
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.378);
-    opacity: 0.1;
-    pointer-events: none;
-  }
+.hero:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.378);
+  opacity: 0.1;
+  pointer-events: none;
+}
 
-  .formContainerOuterWrapper {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .formcontainer {
-    margin-top: 10vh;
-    border-radius: 10px;
-    background-color:#ffffffcc;
-    position: relative;
-    width: 85vw;
-    /* left: 10vw; */
-    /* min-height: 60%; */
-    /* max-width: 70vw; */
-    /* position: absolute; */
-    /* top: 30vh; */
-    box-shadow: 1px 1px 1px;
-  }
-  .logoIndigo {
-    height: 12rem;
-    width: auto;
-  }
-  .buttoncontainer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5vh;
-  }
-  
-  .errorList {
-    list-style: none;
-    display: flex;
-  }
-  
-  .submitButton {
-    background: none;
-    color: inherit;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .submitButtonContainer {
-    margin: 2vh;
-    display: flex;
-    width: 200px;
-    height: 50px;
-  }
-  
-  /* .registerPageContainer {
+.formContainerOuterWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.formcontainer {
+  /* margin-top: 10vh; */
+  border-radius: 10px;
+  background-color: #ffffffcc;
+  position: relative;
+  width: 85vw;
+  /* left: 10vw; */
+  /* min-height: 60%; */
+  /* max-width: 70vw; */
+  /* position: absolute; */
+  /* top: 30vh; */
+  box-shadow: 1px 1px 1px;
+}
+.logoIndigo {
+  height: 12rem;
+  width: auto;
+}
+.buttoncontainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh;
+}
+
+.errorList {
+  list-style: none;
+  display: flex;
+}
+
+.submitButton {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.submitButtonContainer {
+  margin: 2vh;
+  display: flex;
+  width: 200px;
+  height: 50px;
+}
+
+/* .registerPageContainer {
     min-height: 100vh;
   } */
-  
 
 .heroWrapper {
   position: relative;
@@ -139,7 +138,7 @@
 .imageWrapper {
   position: relative;
   z-index: -1;
-  background-color:rgb(10 10 10 / 83%);
+  background-color: rgb(10 10 10 / 83%);
 }
 
 .imageHero {
@@ -151,7 +150,6 @@
   opacity: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .heroContent {
@@ -164,20 +162,15 @@
   align-items: center;
 }
 
-
-
-
-
-  @media only screen and (max-width: 600px) {
-    .logoIndigo {
-      height: 10rem;
-      width: auto;
-    }
-    .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 20px;
-    }
+@media only screen and (max-width: 600px) {
+  .logoIndigo {
+    height: 10rem;
+    width: auto;
   }
-  
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+    width: 100px;
+    height: 20px;
+  }
+}

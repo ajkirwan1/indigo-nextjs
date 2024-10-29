@@ -7,12 +7,21 @@
   font-weight: 200;
   line-height: normal;
   letter-spacing: 0.16em;
-  padding: 30px;
+  padding: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
-.overlay h1{ 
+.overlay h1 {
   font-size: 38px;
   font-weight: 200;
+}
+
+@media only screen and (min-width: 1800px) {
+  .overlay h1 {
+    font-size: 30px;
+    font-weight: 200;
+  }
 }
 
 @media only screen and (max-width: 600px) {
