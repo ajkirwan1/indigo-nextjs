@@ -11,7 +11,7 @@ import { sendMail } from "@/lib/send-mail";
 
 
 export async function ContactUs(_, formData) {
-  const message = formData.get("username");
+  const message = formData.get("message");
   const email = formData.get("password");
   const fullName = formData.get("fullName");
   const contactNumber = formData.get("contactNumber");
@@ -19,9 +19,11 @@ export async function ContactUs(_, formData) {
   const response = await sendMail({
     email: "ajkirwan1gmail.com",
     subject: "A test email",
-    message: "Hello Jimmy"
-
+    message: "Hello Jimmy",
+    text: message
   })
+
+  const sessions = await db.session.findMany();
 
 //   const sessions = await db.session.findMany();
 //   console.log(sessions);
