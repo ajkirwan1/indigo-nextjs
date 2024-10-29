@@ -32,7 +32,7 @@ export default async function LoginPage() {
         <div className={classes.imageWrapper}>
           <Image
             priority
-            alt="alt"
+            alt="A background overlaid with text. The image displays Greece"
             src={heroImage}
             className={classes.imageHero}
             objectFit="cover"

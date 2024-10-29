@@ -203,7 +203,7 @@ export default function RegisterForm({ action }) {
                 </div>
               </div>
               <div className={classes.formtickContainer}>
-                <label>Prefered pusrchase timeline:</label>
+                <label>Prefered purchase timeline:</label>
                 <div className={classes.tickRow}>
                   <div>
                     <label>Within 6 months</label>

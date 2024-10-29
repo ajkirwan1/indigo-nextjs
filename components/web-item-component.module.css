@@ -1,10 +1,19 @@
-.section1 img {
+/* .section1 img {
     max-width: 40%;
-  }
+  } */
   
   .image {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
+  }
+  .imageButton {
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
   .icon {
     height: 20vh;
@@ -44,6 +53,8 @@ font-weight: 400;
   
   .paragraphWrapper {
     display: flex;
+    flex: 1 1 60%;
+    gap:4vh;
     flex-direction: column;
     text-align: start;
     justify-content: space-evenly;
