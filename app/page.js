@@ -50,11 +50,11 @@ export default function Homepage() {
           />
         </section>
       </main>
-      <div className={classes.heroWrapper}>
-        <HeroComponent heroImage={poshImage} altText="Alt text">
-          <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
-        </HeroComponent>
-      </div>
+      {/* <div className={classes.heroWrapper}> */}
+      <HeroComponent heroImage={poshImage} altText="Alt text">
+        <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
+      </HeroComponent>
+      {/* </div> */}
       <div className={classes.buttonContainer}>
         <Button href="/contact">LET&apos;S TALK</Button>
       </div>
