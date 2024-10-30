@@ -19,6 +19,7 @@
 
 .sectionContainer {
   display: flex;
+  flex-direction: column;
   margin-top: 18vh;
   margin-bottom: 18vh;
 }
@@ -39,6 +40,15 @@
   letter-spacing: 2px;
   line-height: 2rem;
   padding-right: 5vw;
+}
+
+.paragraphWrapperLower {
+  justify-content: flex-start;
+  text-align: start;
+  gap: 2vh;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  margin-top: 25px;
 }
 
 .paragraphWrapperReverse {
@@ -69,6 +79,10 @@
 .smallImage {
   width: 500px;
   height: auto;
+}
+
+.topWrapper {
+  display: flex;
 }
 
 @media only screen and (min-width: 1800px) {

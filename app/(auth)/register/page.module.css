@@ -41,7 +41,7 @@
 .imageWrapper {
   position: relative;
   z-index: -1;
-  background-color:rgb(10 10 10 / 83%);
+  background-color: rgb(10 10 10 / 83%);
 }
 
 .imageHero {
@@ -53,19 +53,17 @@
   opacity: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
-  @media only screen and (max-width: 600px) {
-    .logoIndigo {
-      height: 10rem;
-      width: auto;
-    }
-    .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 20px;
-    }
+@media only screen and (max-width: 600px) {
+  .logoIndigo {
+    height: 10rem;
+    width: auto;
   }
-  
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+    width: 100px;
+    height: 20px;
+  }
+}

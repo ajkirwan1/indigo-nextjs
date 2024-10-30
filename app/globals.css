@@ -21,21 +21,21 @@ html {
   --webkit-text-size-adjust: 12px;
 }
 
-
-h1, h2 {
+h1,
+h2 {
   font-optical-sizing: auto;
   font-weight: 300;
 }
 
-
-p, button {
+p,
+button {
   font-weight: 200;
   font-size: 18px;
   margin-top: 0;
 }
 
 html:has(.modal) {
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .modal {
@@ -48,7 +48,6 @@ html:has(.modal) {
   border: none;
   background: none;
   z-index: 2;
-
 }
 
 .not-found {
@@ -82,7 +81,6 @@ section h1 {
   padding: 20px;
 }
 
-
 .hero {
   display: flex;
   align-items: center;
@@ -105,7 +103,7 @@ section h1 {
 }
 
 .section-2-image {
-  width: 60vw
+  width: 60vw;
 }
 
 .section-3-image {
@@ -118,7 +116,7 @@ section h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:  rgb(61 61 61 / 73%);
+  background-color: rgb(61 61 61 / 73%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +131,7 @@ section h1 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-} 
+}
 
 input[type="text"] {
   border: 1px solid;
@@ -174,4 +172,10 @@ ul {
 
 main {
   padding: 5vh;
+}
+
+@media only screen and (min-width: 1800px) {
+  p {
+    font-size: 1.25rem;
+  }
 }

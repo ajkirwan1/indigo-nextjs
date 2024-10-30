@@ -84,9 +84,9 @@
 .formcontainer {
   /* margin-top: 10vh; */
   border-radius: 10px;
-  background-color:#ffffffcc;
+  background-color: #ffffffcc;
   position: relative;
-  width: 50vw;
+  width: 600px;
   box-shadow: 1px 1px 1px;
 }
 .logoIndigo {
@@ -124,19 +124,18 @@
   min-height: 100vh;
 } */
 
-
 .heroWrapper {
-position: relative;
-width: 100vw;
+  position: relative;
+  width: 100vw;
 
-/* height: 2000px */
+  /* height: 2000px */
 }
 
 .imageWrapper {
-position: relative;
-height: 85vh;
-z-index: -1;
-background-color:rgb(10 10 10 / 83%);
+  position: relative;
+  height: 85vh;
+  z-index: -1;
+  background-color: rgb(10 10 10 / 83%);
 }
 
 .imageHero {
@@ -148,22 +147,17 @@ background-color:rgb(10 10 10 / 83%);
   opacity: 50%;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .heroContent {
-left: 0;
-top: 0;
-height: 100%;
-/* position: absolute; */
-display: flex;
-/* flex-direction: column; */
-align-items: center;
+  left: 0;
+  top: 0;
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
 }
-
-
-
-
 
 @media only screen and (max-width: 600px) {
   .logoIndigo {
