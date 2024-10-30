@@ -49,7 +49,7 @@ export default function WhatWeDoPage() {
         buttonPosition="left"
         title={whatWeDoData[5]["title"]}
         paragraph1={whatWeDoData[5]["info"]["paragraph"]}
-        image={whatWeDoData[4]["image"]}
+        image={whatWeDoData[5]["image"]}
         buttonText={whatWeDoData[5]["button"]["text"]}
         buttonPath={whatWeDoData[5]["button"]["href"]}
       />
