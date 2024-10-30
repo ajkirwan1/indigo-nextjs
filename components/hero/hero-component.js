@@ -24,7 +24,8 @@ export default async function HeroComponent({
         </div>
         <div className={classes.formContainerOuterWrapper}>
           {header && <Header className={classes.heroHeader}></Header>}
-          <div className={classes.formcontainer}>{children}</div>
+          {children}
+          {/* <div className={classes.formcontainer}>{children}</div> */}
         </div>
       </div>
     </>

@@ -53,7 +53,6 @@ export default function Homepage() {
       {/* <section className={classes.lower}> */}
       <div className={classes.heroWrapper}>
         <HeroComponent heroImage={poshImage} altText="Alt text">
-          {" "}
           <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
         </HeroComponent>
       </div>

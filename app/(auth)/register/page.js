@@ -21,7 +21,9 @@ export default async function RegisterPage() {
   return (
     <div className={classes.pageWrapper}>
       <HeroComponent heroImage={heroImage} altText="Alt text" header>
-        <RegisterForm action={RegisterAction}></RegisterForm>
+        <div className={classes.formcontainer}>
+          <RegisterForm action={RegisterAction}></RegisterForm>
+        </div>
       </HeroComponent>
       <Footer></Footer>
     </div>
