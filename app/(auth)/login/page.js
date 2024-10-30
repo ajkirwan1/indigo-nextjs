@@ -27,7 +27,7 @@ export default async function LoginPage() {
   return (
     <>
       <div className={classes.pageWrapper}>
-        <HeroComponent heroImage={heroImage} altText="Alt text">
+        <HeroComponent heroImage={heroImage} altText="Alt text" header>
           <LoginForm redirection={redirection} action={Login}></LoginForm>
         </HeroComponent>
       </div>

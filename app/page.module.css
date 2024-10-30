@@ -11,29 +11,28 @@
 
 .heroWrapper {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  }
+  /* width: 100vw; */
+  /* height: 100vh; */
+}
 
 .imageWrapper {
   /* position: relative; */
   height: 85vh;
   z-index: -1;
-  }
-  .imageHero {
-    color: transparent;
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    inset: 0px;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
+}
+.imageHero {
+  color: transparent;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  inset: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .poshImage {
-  margin-top:5vh;
-  margin-bottom:5vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   width: 40%;
   height: auto;
 }
@@ -48,7 +47,7 @@
 .subHeader {
   display: flex;
   justify-content: center;
-} 
+}
 
 .leftArrowSvg {
   height: 50px;
@@ -84,7 +83,6 @@
   font-weight: 600;
 }
 
-
 .section3 {
   display: flex;
   flex-direction: column;
@@ -110,17 +108,16 @@
 
 .buttonContainer {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 .lower {
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
 }
-.lower h1{
-  width:70%;
+.lower h1 {
+  width: 70%;
   line-height: 4.5rem;
   letter-spacing: 1.5px;
-
 }

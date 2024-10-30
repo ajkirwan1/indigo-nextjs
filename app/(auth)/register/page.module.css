@@ -13,7 +13,7 @@
   color: aliceblue;
 }
 
-.formContainerOuterWrapper {
+/* .formContainerOuterWrapper {
   position: absolute;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
   left: 0;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
 .formcontainer {
   margin-top: 10vh;
