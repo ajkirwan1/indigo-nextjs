@@ -1,7 +1,11 @@
-// import sql from "better-sqlite3";
+/** @format */
 
-// const db = sql("main.db");
+import db from "@/modules/db";
 
-// export async function getUser(id) {
-//     return db.prepare("SELECT * FROM user WHERE id = ?").get(id);
-//   }
+export async function getUser(id) {
+  const existingUser = await db.user.findFirst({
+    where: { id: id },
+  });
+  console.log(existingUser)
+  return existingUser;
+}

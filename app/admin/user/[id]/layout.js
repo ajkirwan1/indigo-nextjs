@@ -1,9 +1,8 @@
 
-export default function Layout({ children, modal }) {
+export default function Layout({ children }) {
   return (
     <>
       <div>{children}</div>
-      <div>{modal}</div>
     </>
   );
 }

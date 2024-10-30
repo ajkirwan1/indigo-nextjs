@@ -11,11 +11,11 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 
 export default async function RegisterPage() {
-  const { user } = await validateRequest();
-  if (user && (user.properyAccess == 0 || user.consultingAccess == 0)) {
-    // redirect("/register/pending-auth")
-    null;
-  }
+  // const { user } = await validateRequest();
+  // if (user && (user.properyAccess == 0 || user.consultingAccess == 0)) {
+  //   // redirect("/register/pending-auth")
+  //   null;
+  // }
 
   return (
     <>

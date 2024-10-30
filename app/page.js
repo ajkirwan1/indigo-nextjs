@@ -6,14 +6,26 @@ import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
 import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
+import heroImage from "/public/images/pages/home/greecehero1.jpg";
+import poshImage from "/public/images/pages/home/posh.jpg";
 import { homepageData } from "@/data/homepage-data";
 
 export default function Homepage() {
   return (
     <>
-      <div className="hero">
+      <div className={classes.heroWrapper}>
+        <div className={classes.imageWrapper}>
+          <Image
+            priority
+            alt="A background overlaid with text. The image displays Greece"
+            src={heroImage}
+            className={classes.imageHero}
+            objectFit="cover"
+            objectPosition="center"
+          />
+        </div>
         <Header className={classes.heroHeader}></Header>
-        <div className="hero-contents">
+        <div className={classes.heroContents}>
           <Overlay />
         </div>
       </div>
@@ -41,10 +53,10 @@ export default function Homepage() {
         <section className={classes.lower}>
           <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
           <Image
-            src="/images/pages/home/posh.jpg"
+            src={poshImage}
             alt="alt"
-            width={1024}
-            height={683}
+            // width={1024}
+            // height={683}
             className={classes.poshImage}
           />
           <div className={classes.buttonContainer}>

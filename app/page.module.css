@@ -9,6 +9,28 @@
   transform: translateX(-5px);
 }
 
+.heroWrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  }
+
+.imageWrapper {
+  /* position: relative; */
+  height: 85vh;
+  z-index: -1;
+  }
+  .imageHero {
+    color: transparent;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    inset: 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+
 .poshImage {
   margin-top:5vh;
   margin-bottom:5vh;
@@ -32,7 +54,7 @@
   height: 50px;
 }
 
-.hero-contents {
+.heroContents {
   position: absolute;
   left: 50%;
   top: 50%;

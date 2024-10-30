@@ -105,234 +105,229 @@ export default function RegisterForm({ action }) {
 
   return (
     <>
-      {state.success ? (
-        <SubmitContainer handle={handleClick} />
-      ) : (
-        <>
-          <img className={classes.logoIndigo} src="./Indigo_Logo_Transparent.png"></img>
-          <form className={classes.registerForm} action={formAction}>
-            <div className={classes.registerFormSection}>
-              <h1>Your credentials</h1>
-              <div className={classes.formRow}>
-                <div className={classes.formItemContainer}>
-                  <label>Username:</label>
-                  <input type="text" name="userName" />
-                </div>
-                <div className={classes.formItemContainer}>
-                  <label>Email:</label>
-                  <input type="email" name="email" />
-                </div>
+      <img
+        className={classes.logoIndigo}
+        src="./Indigo_Logo_Transparent.png"
+      ></img>
+      <form className={classes.registerForm} action={formAction}>
+        <div className={classes.registerFormSection}>
+          <h1>Your credentials</h1>
+          <div className={classes.formRow}>
+            <div className={classes.formItemContainer}>
+              <label>Username:</label>
+              <input type="text" name="userName" />
+            </div>
+            <div className={classes.formItemContainer}>
+              <label>Email:</label>
+              <input type="email" name="email" />
+            </div>
+          </div>
+          <div className={classes.formRow}>
+            <div className={classes.formItemContainer}>
+              <label>Password</label>
+              <input type="text" name="password" />
+            </div>
+            <div className={classes.formItemContainer}>
+              <label>Confirm password:</label>
+              <input type="text" name="passwordConfirm" />
+            </div>
+          </div>
+        </div>
+        <div className={classes.registerFormSection}>
+          <h1>Registration information</h1>
+          <div className={classes.formRow}>
+            <div className={classes.formItemContainer}>
+              <label>First name:</label>
+              <input type="text" name="firstName" />
+            </div>
+            <div className={classes.formItemContainer}>
+              <label>Last name:</label>
+              <input type="text" name="lastName" />
+            </div>
+          </div>
+          <div className={classes.formRow}>
+            <div className={classes.formItemContainer}>
+              <label>Comapany name:</label>
+              <input type="text" name="companyName" />
+            </div>
+            <div className={classes.formItemContainer}>
+              <label>Phone number - including area code:</label>
+              <input type="text" name="phoneNumber" />
+            </div>
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Private buyer or real estate agent:</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Private buyer</label>
+                <input
+                  type="checkbox"
+                  name="privateBuyer"
+                  checked={privateBuyer}
+                  onChange={handlePrivateBuyer}
+                ></input>
               </div>
-              <div className={classes.formRow}>
-                <div className={classes.formItemContainer}>
-                  <label>Password</label>
-                  <input type="text" name="password" />
-                </div>
-                <div className={classes.formItemContainer}>
-                  <label>Confirm password:</label>
-                  <input type="text" name="passwordConfirm" />
-                </div>
+              <div>
+                <label>Real estate agent</label>
+                <input
+                  type="checkbox"
+                  name="realEstateBuyer"
+                  checked={realEstateBuyer}
+                  onChange={handleRealEstateBuyer}
+                ></input>
               </div>
             </div>
-            <div className={classes.registerFormSection}>
-              <h1>Registration information</h1>
-              <div className={classes.formRow}>
-                <div className={classes.formItemContainer}>
-                  <label>First name:</label>
-                  <input type="text" name="firstName" />
-                </div>
-                <div className={classes.formItemContainer}>
-                  <label>Last name:</label>
-                  <input type="text" name="lastName" />
-                </div>
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Location:</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Greece</label>
+                <input
+                  type="checkbox"
+                  name="locationGreece"
+                  checked={location[0]}
+                  onChange={(event) => handleLocation(event)}
+                ></input>
               </div>
-              <div className={classes.formRow}>
-                <div className={classes.formItemContainer}>
-                  <label>Comapany name:</label>
-                  <input type="text" name="passwordConfirm" />
-                </div>
-                <div className={classes.formItemContainer}>
-                  <label>Phone number - including area code:</label>
-                  <input type="text" name="passwordConfirm" />
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>Private buyer or real estate agent:</label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Private buyer</label>
-                    <input
-                      type="checkbox"
-                      name="privateBuyer"
-                      checked={privateBuyer}
-                      onChange={handlePrivateBuyer}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>Real estate agent</label>
-                    <input
-                      type="checkbox"
-                      name="reaEstateBuyer"
-                      checked={realEstateBuyer}
-                      onChange={handleRealEstateBuyer}
-                    ></input>
-                  </div>
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>Location:</label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Greece</label>
-                    <input
-                      type="checkbox"
-                      name="locationGreece"
-                      checked={location[0]}
-                      onChange={(event) => handleLocation(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>Other</label>
-                    <input
-                      type="checkbox"
-                      name="locationOther"
-                      checked={location[1]}
-                      onChange={(event) => handleLocation(event)}
-                    ></input>
-                  </div>
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>Prefered purchase timeline:</label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Within 6 months</label>
-                    <input
-                      type="checkbox"
-                      name="sixMonths"
-                      checked={purchaseTimeline[0]}
-                      onChange={(event) => handlePurchaseTimeline(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>6 - 12 months</label>
-                    <input
-                      type="checkbox"
-                      name="sixToTwelveMonths"
-                      checked={purchaseTimeline[1]}
-                      onChange={(event) => handlePurchaseTimeline(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>+12 months</label>
-                    <input
-                      type="checkbox"
-                      name="twelveMonths"
-                      checked={purchaseTimeline[2]}
-                      onChange={(event) => handlePurchaseTimeline(event)}
-                    ></input>
-                  </div>
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>Investment interest:</label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Residential</label>
-                    <input type="checkbox" name="residential"></input>
-                  </div>
-                  <div>
-                    <label>Commercial</label>
-                    <input type="checkbox" name="commercial"></input>
-                  </div>
-                  <div>
-                    <label>Land</label>
-                    <input type="checkbox" name="land"></input>
-                  </div>
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>Estimated investment interest</label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Up to 50,000€</label>
-                    <input
-                      type="checkbox"
-                      name="50"
-                      checked={investmentInterest[0]}
-                      onChange={(event) => handleInvestmentInterest(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>50,000€ - 100,000€</label>
-                    <input
-                      type="checkbox"
-                      name="50-100"
-                      checked={investmentInterest[1]}
-                      onChange={(event) => handleInvestmentInterest(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>100,000€ - 150,000€</label>
-                    <input
-                      type="checkbox"
-                      name="100-150"
-                      checked={investmentInterest[2]}
-                      onChange={(event) => handleInvestmentInterest(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>More than 150,000€</label>
-                    <input
-                      type="checkbox"
-                      name="150+"
-                      checked={investmentInterest[3]}
-                      onChange={(event) => handleInvestmentInterest(event)}
-                    ></input>
-                  </div>
-                </div>
-              </div>
-              <div className={classes.formtickContainer}>
-                <label>
-                  Have you previously invested in Greek real estate?
-                </label>
-                <div className={classes.tickRow}>
-                  <div>
-                    <label>Yes</label>
-                    <input
-                      type="checkbox"
-                      name="yes"
-                      checked={previousInvestment[0]}
-                      onChange={(event) => handlePreviousInvestment(event)}
-                    ></input>
-                  </div>
-                  <div>
-                    <label>No</label>
-                    <input
-                      type="checkbox"
-                      name="no"
-                      checked={previousInvestment[1]}
-                      onChange={(event) => handlePreviousInvestment(event)}
-                    ></input>
-                  </div>
-                </div>
+              <div>
+                <label>Other</label>
+                <input
+                  type="checkbox"
+                  name="locationOther"
+                  checked={location[1]}
+                  onChange={(event) => handleLocation(event)}
+                ></input>
               </div>
             </div>
-            <div className={classes.submitButtonContainer}>
-              <FormSubmit />
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Prefered purchase timeline:</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Within 6 months</label>
+                <input
+                  type="checkbox"
+                  name="sixMonths"
+                  checked={purchaseTimeline[0]}
+                  onChange={(event) => handlePurchaseTimeline(event)}
+                ></input>
+              </div>
+              <div>
+                <label>6 - 12 months</label>
+                <input
+                  type="checkbox"
+                  name="sixToTwelveMonths"
+                  checked={purchaseTimeline[1]}
+                  onChange={(event) => handlePurchaseTimeline(event)}
+                ></input>
+              </div>
+              <div>
+                <label>+12 months</label>
+                <input
+                  type="checkbox"
+                  name="twelveMonths"
+                  checked={purchaseTimeline[2]}
+                  onChange={(event) => handlePurchaseTimeline(event)}
+                ></input>
+              </div>
             </div>
-            {state.errors && (
-              <ul>
-                {state.errors.map((error) => (
-                  <li key={error}>
-                    <p>{error}</p>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </form>
-        </>
-      )}
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Investment interest:</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Residential</label>
+                <input type="checkbox" name="residential"></input>
+              </div>
+              <div>
+                <label>Commercial</label>
+                <input type="checkbox" name="commercial"></input>
+              </div>
+              <div>
+                <label>Land</label>
+                <input type="checkbox" name="land"></input>
+              </div>
+            </div>
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Estimated investment interest</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Up to 50,000€</label>
+                <input
+                  type="checkbox"
+                  name="50"
+                  checked={investmentInterest[0]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              <div>
+                <label>50,000€ - 100,000€</label>
+                <input
+                  type="checkbox"
+                  name="50-100"
+                  checked={investmentInterest[1]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              <div>
+                <label>100,000€ - 150,000€</label>
+                <input
+                  type="checkbox"
+                  name="100-150"
+                  checked={investmentInterest[2]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              <div>
+                <label>More than 150,000€</label>
+                <input
+                  type="checkbox"
+                  name="150+"
+                  checked={investmentInterest[3]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+            </div>
+          </div>
+          <div className={classes.formtickContainer}>
+            <label>Have you previously invested in Greek real estate?</label>
+            <div className={classes.tickRow}>
+              <div>
+                <label>Yes</label>
+                <input
+                  type="checkbox"
+                  name="yes"
+                  checked={previousInvestment[0]}
+                  onChange={(event) => handlePreviousInvestment(event)}
+                ></input>
+              </div>
+              <div>
+                <label>No</label>
+                <input
+                  type="checkbox"
+                  name="no"
+                  checked={previousInvestment[1]}
+                  onChange={(event) => handlePreviousInvestment(event)}
+                ></input>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={classes.submitButtonContainer}>
+          <FormSubmit />
+        </div>
+        {state.errors && (
+          <ul>
+            {state.errors.map((error) => (
+              <li key={error}>
+                <p>{error}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </form>
     </>
   );
 }

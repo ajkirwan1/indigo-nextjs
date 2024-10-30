@@ -6,10 +6,25 @@ import { cookies } from "next/headers";
 import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
 import db from "@/modules/db";
+import { sendMail } from "@/lib/send-mail";
 
 
 
-export async function ContactUs() {
+export async function ContactUs(_, formData) {
+  const message = formData.get("message");
+  const email = formData.get("password");
+  const fullName = formData.get("fullName");
+  const contactNumber = formData.get("contactNumber");
+
+  const response = await sendMail({
+    email: "ajkirwan1gmail.com",
+    subject: "A test email",
+    message: "Hello Jimmy",
+    text: message
+  })
+
+  const sessions = await db.session.findMany();
+
 //   const sessions = await db.session.findMany();
 //   console.log(sessions);
 //   const { session } = await validateRequest();
@@ -27,5 +42,5 @@ export async function ContactUs() {
 //     sessionCookie.value,
 //     sessionCookie.attributes
 //   );
-  return redirect("/");
+  // return redirect("/");
 }

@@ -16,20 +16,20 @@ export default function PrepareAdminClientData(data) {
 
     arr.userId = element["id"];
 
-    const fullName = joinName(element["first_name"], element["last_name"]);
+    const fullName = joinName(element["firstname"], element["lastname"]);
     dataList.push(fullName);
 
     dataList.push(element["email"]);
 
     const propertyAccessString = convertAccessToString(
-      element["property_access"]
+      element["propertyaccess"]
     );
     dataList.push(propertyAccessString);
 
-    const consultingAccessString = convertAccessToString(element["consulting_access"]);
+    const consultingAccessString = convertAccessToString(element["consultingaccess"]);
     dataList.push(consultingAccessString);
 
-    dataList.push(element["access_request_date"]);
+    dataList.push(element["accessrequestdate"]);
 
     arr.items = dataList
 
