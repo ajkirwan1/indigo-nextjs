@@ -6,7 +6,7 @@ import LoginForm from "@/components/forms/login-form";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import HeroComponent from "@/components/hero/hero-component";
-import heroImage from "/public/images/authbackground.jpg";
+import heroImage from "/public/images/croppednight.jpg";
 import classes from "./page.module.css";
 
 export default async function LoginPage() {

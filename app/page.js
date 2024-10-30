@@ -50,7 +50,6 @@ export default function Homepage() {
           />
         </section>
       </main>
-      {/* <section className={classes.lower}> */}
       <div className={classes.heroWrapper}>
         <HeroComponent heroImage={poshImage} altText="Alt text">
           <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
@@ -59,8 +58,6 @@ export default function Homepage() {
       <div className={classes.buttonContainer}>
         <Button href="/contact">LET&apos;S TALK</Button>
       </div>
-      {/* </section> */}
-
       <Footer></Footer>
     </>
   );

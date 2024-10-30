@@ -6,7 +6,7 @@ import Header from "@/components/ui/header/header";
 import Footer from "@/components/ui/footer";
 import RegisterForm from "@/components/forms/register-form";
 import classes from "./page.module.css";
-import heroImage from "/public/images/authbackground.jpg";
+import heroImage from "/public/images/croppednight.jpg";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import HeroComponent from "@/components/hero/hero-component";
