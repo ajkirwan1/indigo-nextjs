@@ -9,6 +9,7 @@ import classes from "./page.module.css";
 import heroImage from "/public/images/authbackground.jpg";
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import HeroComponent from "@/components/hero/hero-component";
 
 export default async function RegisterPage() {
   // const { user } = await validateRequest();
@@ -18,26 +19,11 @@ export default async function RegisterPage() {
   // }
 
   return (
-    <>
-      <div className={classes.heroWrapper}>
-        <div className={classes.imageWrapper}>
-          <Image
-            priority
-            alt="alt"
-            src={heroImage}
-            className={classes.imageHero}
-            objectFit="cover"
-            objectPosition="center"
-          />
-        </div>
-        <div className={classes.formContainerOuterWrapper}>
-          <Header className={classes.heroHeader}></Header>
-          <div className={classes.formcontainer}>
-            <RegisterForm action={RegisterAction}></RegisterForm>
-          </div>
-        </div>
-        <Footer></Footer>
-      </div>
-    </>
+    <div className={classes.pageWrapper}>
+      <HeroComponent heroImage={heroImage} altText="Alt text">
+        <RegisterForm action={RegisterAction}></RegisterForm>
+      </HeroComponent>
+      <Footer></Footer>
+    </div>
   );
 }
