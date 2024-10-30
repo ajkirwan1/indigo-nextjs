@@ -54,9 +54,9 @@ html:has(.modal) {
   height: 100vh;
 }
 
-section h1 {
+/* section h1 {
   font-size: 2em;
-}
+} */
 
 #background-image {
   width: 100%;
@@ -175,7 +175,22 @@ main {
 }
 
 @media only screen and (min-width: 1800px) {
+  section h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+
   p {
     font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1799px) {
+  section h1 {
+    font-size: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.2rem;
   }
 }

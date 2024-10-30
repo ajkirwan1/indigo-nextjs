@@ -7,7 +7,7 @@ import Image from "next/image";
 import classes from "./page.module.css";
 import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
 import heroImage from "/public/images/pages/home/greecehero1.jpg";
-import poshImage from "/public/images/pages/home/posh.jpg";
+import poshImage from "/public/images/pages/home/hero2people.jpg";
 import { homepageData } from "@/data/homepage-data";
 
 export default function Homepage() {
@@ -39,7 +39,6 @@ export default function Homepage() {
             paragraph3={homepageData[0]["info"]["paragraph3"]}
             image={homepageData[0]["image"]}
           />
-          <hr />
           <HomepageItemComponent
             className={"left"}
             paragraph1={homepageData[1]["info"]["paragraph"]}
@@ -49,7 +48,6 @@ export default function Homepage() {
             image={homepageData[1]["image"]}
           />
         </section>
-        <hr />
         <section className={classes.lower}>
           <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
           <Image
