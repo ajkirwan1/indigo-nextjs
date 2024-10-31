@@ -15,7 +15,6 @@
 }
 
 .imageWrapper {
-  /* position: relative; */
   height: 85vh;
   z-index: -1;
 }
@@ -38,10 +37,6 @@
 .paragraph {
   color: #505050;
 }
-
-/* .section1 img {
-  max-width: 40%;
-} */
 
 .subHeader {
   display: flex;
