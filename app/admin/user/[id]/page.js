@@ -2,9 +2,11 @@
 
 import { validateRequest } from "@/auth/lucia";
 import { getUser } from "@/server/actions/db/client";
+import { getProperties } from "@/server/actions/db/properties";
 import { redirect } from "next/navigation";
 import AdminSubmitForm from "@/components/forms/admin-submit-form";
 import { AdminSubmit } from "@/server/actions/admin-submit";
+import AdminClientPropertyList from "@/components/admin-components/properties-list";
 import classes from "./page.module.css";
 
 export default async function AdminClientPage({ params }) {
@@ -32,9 +34,12 @@ export default async function AdminClientPage({ params }) {
     consultingaccess,
   } = await getUser(params.id);
 
+  const properties = await getProperties(params.id);
+  console.log(properties, "ADMIN");
+
   return (
     <>
-        <h1>Client details</h1>
+      <h1>Client details</h1>
       <div className={classes.userDetailsContainer}>
         <h2>User name: </h2>
         <p>{username}</p>
@@ -75,12 +80,14 @@ export default async function AdminClientPage({ params }) {
         <h2>Property access status:</h2>
         <p>{propertyaccess}</p>
       </div>
-      <div>
-        <h1>Visible properties</h1>
+      <h1>Visible properties</h1>
+      <div className={classes.userDetailsContainer}>
+        <AdminClientPropertyList properties={properties} />
+        <button>Update</button>
+        <button>Remove</button>
       </div>
-      <div>
-        <h1>Visible consulting</h1>
-      </div>
+      <h1>Visible consulting</h1>
+      <div></div>
       <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm>
     </>
   );

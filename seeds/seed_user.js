@@ -10,6 +10,7 @@ const userId1 = generateId(15);
 const userId2 = generateId(15);
 const userId3 = generateId(15);
 const userId4 = generateId(15);
+const userId5 = generateId(15);
 
 export async function seed(knex) {
   // Deletes ALL existing entries
@@ -90,6 +91,24 @@ export async function seed(knex) {
       consultingaccess: 2,
       accessrequestdate: new Date().toJSON().slice(0, 10),
     },
+    {
+      id: userId5,
+      username: "property456",
+      firstname: "Jim",
+      lastname: "Johnson",
+      email: "property@456.com",
+      adminaccess: 0,
+      companyname: "companyxxxxxx",
+      phonenumber: "+3212345",
+      buyertype: "agent",
+      location: "greece",
+      purchasetimeline: "6 - 12 months",
+      estinvestmentinterest: "100,000€ - 150,000€",
+      previousinvestment: "yes",
+      propertyaccess: 2,
+      consultingaccess: 0,
+      accessrequestdate: new Date().toJSON().slice(0, 10),
+    },
   ]);
 
   await knex("passwords").insert([
@@ -113,6 +132,11 @@ export async function seed(knex) {
       hashedPassword: await new LegacyScrypt().hash("password"),
       userId: userId4,
     },
+    {
+      id: 100000005,
+      hashedPassword: await new LegacyScrypt().hash("password"),
+      userId: userId5,
+    },
   ]);
   await knex("properties").insert([
     {
@@ -133,6 +157,28 @@ export async function seed(knex) {
     {
       id: 100000003,
       title: "β 7",
+      name: "Kavouri",
+      image: "pool.jpg",
+      pdfid: "jngv6mweml560ml",
+    },
+    {
+      id: 100000004,
+      title: "ΦΣ 1954",
+      name: "Glyfada",
+      image: "entrance.jpg",
+      pdfid: "hc5i241tgd2wop1",
+    },
+    {
+      id: 100000005,
+      title: "ΣΣ Σ14",
+      name: "Voula",
+      image: "final.jpg",
+      pdfid: "ysdp9k7v35wtvlc",
+    },
+
+    {
+      id: 100000006,
+      title: "βΣβΣ 456",
       name: "Kavouri",
       image: "pool.jpg",
       pdfid: "jngv6mweml560ml",
@@ -187,6 +233,26 @@ export async function seed(knex) {
       id: 100000003,
       userId: userId3,
       propertyId: 100000003,
+    },
+    {
+      id: 100000004,
+      userId: userId3,
+      propertyId: 100000004,
+    },
+    {
+      id: 100000005,
+      userId: userId3,
+      propertyId: 100000005,
+    },
+    {
+      id: 100000006,
+      userId: userId3,
+      propertyId: 100000006,
+    },
+    {
+      id: 100000007,
+      userId: userId5,
+      propertyId: 100000001,
     }
   ]);
 }
