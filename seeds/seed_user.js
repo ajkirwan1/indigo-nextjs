@@ -16,6 +16,7 @@ export async function seed(knex) {
   await knex("passwords").del();
   await knex("users").del();
   await knex("properties").del();
+  await knex("usersonproperties").del();
   await knex("users").insert([
     {
       id: userId1,
@@ -171,4 +172,22 @@ export async function seed(knex) {
       userId: userId4,
     },
   ]);
+  await knex("usersonproperties").insert([
+    {
+      id: 100000001,
+      userId: userId3,
+      propertyId: 100000001,
+    },
+    {
+      id: 100000002,
+      userId: userId3,
+      propertyId: 100000002,
+    },
+    {
+      id: 100000003,
+      userId: userId3,
+      propertyId: 100000003,
+    }
+  ]);
 }
+

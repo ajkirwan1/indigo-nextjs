@@ -19,7 +19,7 @@ export default function Header({ className }) {
     useContext(LayoutContext);
 
   const { user } = useSession();
-  console.log("HEADER", user)
+  // console.log("HEADER", user)
 
   useEffect(() => {
     document.body.style.overflow = "scroll";

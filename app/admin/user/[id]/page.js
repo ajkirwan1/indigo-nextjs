@@ -34,6 +34,7 @@ export default async function AdminClientPage({ params }) {
 
   return (
     <>
+        <h1>Client details</h1>
       <div className={classes.userDetailsContainer}>
         <h2>User name: </h2>
         <p>{username}</p>
@@ -73,6 +74,12 @@ export default async function AdminClientPage({ params }) {
         <hr />
         <h2>Property access status:</h2>
         <p>{propertyaccess}</p>
+      </div>
+      <div>
+        <h1>Visible properties</h1>
+      </div>
+      <div>
+        <h1>Visible consulting</h1>
       </div>
       <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm>
     </>
