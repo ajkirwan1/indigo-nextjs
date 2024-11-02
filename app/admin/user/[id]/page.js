@@ -8,6 +8,7 @@ import AdminSubmitForm from "@/components/forms/admin-submit-form";
 import { AdminSubmit } from "@/server/actions/admin-submit";
 import AdminClientPropertyList from "@/components/admin-components/properties-list";
 import classes from "./page.module.css";
+import Button from "@/components/ui/button";
 
 export default async function AdminClientPage({ params }) {
   const { user } = await validateRequest();
@@ -83,8 +84,7 @@ export default async function AdminClientPage({ params }) {
       <h1>Visible properties</h1>
       <div className={classes.userDetailsContainer}>
         <AdminClientPropertyList properties={properties} />
-        <button>Update</button>
-        <button>Remove</button>
+        <Button href={`/admin/user/${params.id}/properties`}>Update</Button>
       </div>
       <h1>Visible consulting</h1>
       <div></div>

@@ -5,12 +5,9 @@ import classes from "./table.module.css"
 import React from "react";
 
 export default function TableRow({ data, id }) {
-  console.log(data);
   const router = useRouter();
-  // const id = data[0];
   const requestStatus = data[2];
   const handleClick = () => {
-    console.log(data);
     router.push(`/admin/user/${id}`);
   };
 
