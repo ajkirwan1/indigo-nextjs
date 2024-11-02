@@ -7,21 +7,21 @@ import FormSubmit from "./formsubmit";
 import classes from "./register-form.module.css";
 import Button from "../ui/button";
 
-function SubmitContainer() {
-  return (
-    <>
-      <div className={classes.darkBG}>
-        <div className={classes.centered}>
-          <h1>Your registration has been sent</h1>
-          <p>You will receive confirmation of your application shortly</p>
-          <p>Once confirmed, you wull recieve an email</p>
-          <Button href="/logout">Logout</Button>
-          <Button href="/">Return to homepage and stay logged in</Button>
-        </div>
-      </div>
-    </>
-  );
-}
+// function SubmitContainer() {
+//   return (
+//     <>
+//       <div className={classes.darkBG}>
+//         <div className={classes.centered}>
+//           <h1>Your registration has been sent</h1>
+//           <p>You will receive confirmation of your application shortly</p>
+//           <p>Once confirmed, you wull recieve an email</p>
+//           <Button href="/logout">Logout</Button>
+//           <Button href="/">Return to homepage and stay logged in</Button>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 export default function RegisterForm({ action }) {
   const [privateBuyer, setPrivateBuyer] = useState(false);

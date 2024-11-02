@@ -4,7 +4,7 @@ export default function SubmitButton({ children }) {
     <>
       <button className={classes.button}>
         {children}
-        <img className={classes.arrow} src="./images/arrow-right.png"></img>
+        <img className={classes.arrow} src="/images/arrow-right.png"></img>
       </button>
     </>
   );

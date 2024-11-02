@@ -164,14 +164,14 @@ export async function seed(knex) {
     {
       id: 100000004,
       title: "ΦΣ 1954",
-      name: "Glyfada",
+      name: "Poole",
       image: "entrance.jpg",
       pdfid: "hc5i241tgd2wop1",
     },
     {
       id: 100000005,
       title: "ΣΣ Σ14",
-      name: "Voula",
+      name: "Bristol",
       image: "final.jpg",
       pdfid: "ysdp9k7v35wtvlc",
     },
@@ -179,7 +179,7 @@ export async function seed(knex) {
     {
       id: 100000006,
       title: "βΣβΣ 456",
-      name: "Kavouri",
+      name: "Malvern",
       image: "pool.jpg",
       pdfid: "jngv6mweml560ml",
     },

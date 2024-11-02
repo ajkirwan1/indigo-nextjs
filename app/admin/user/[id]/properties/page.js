@@ -4,7 +4,7 @@ import { validateRequest } from "@/auth/lucia";
 import { getProperties } from "@/server/actions/db/properties";
 import { redirect } from "next/navigation";
 import { getAllProperties } from "@/server/actions/db/all-properties";
-import ClientPropertiesList from "@/components/admin-components/client-properties-list";
+import ClientPropertiesForm from "@/components/forms/client-properties-form";
 import classes from "./page.module.css";
 
 export default async function ClientProperties({ params }) {
@@ -22,7 +22,10 @@ export default async function ClientProperties({ params }) {
 
   return (
     <>
-      <ClientPropertiesList allProperties={allProperties} properties={properties}/>
+    <p>Back</p>
+      {/* <ClientPropertiesList action={RegisterAction} allProperties={allProperties} properties={properties}/> */}
+      <ClientPropertiesForm allProperties={allProperties} properties={properties}/>
+      {/* <ClientPropertiesForm allProperties={allProperties} properties={properties} id={params.id} action={UpdatePropertiesAction}/> */}
     </>
   );
 }

@@ -8,7 +8,7 @@ export default function Button({ children, onClick, href }) {
     <Link className={classes.link} href={href}>
       <div onClick={onClick} className={classes.wrapper}>
         <button className={classes.button}>{children}</button>
-        <img className={classes.arrow} src="./images/arrow-right.png"></img>
+        <img className={classes.arrow} src="/images/arrow-right.png"></img>
       </div>
     </Link>
   );
