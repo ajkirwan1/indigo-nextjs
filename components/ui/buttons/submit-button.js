@@ -2,10 +2,10 @@ import classes from "./submit-button.module.css";
 export default function SubmitButton({ children }) {
   return (
     <>
-      <button className={classes.button}>
-        {children}
+      <div className={classes.wrapper}>
+        <button className={classes.button}>{children}</button>
         <img className={classes.arrow} src="./images/arrow-right.png"></img>
-      </button>
+      </div>
     </>
   );
 }

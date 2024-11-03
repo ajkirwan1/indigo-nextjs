@@ -1,78 +1,75 @@
 .desktopNav {
-    width: 100%;
-    line-height: 3vh;
-  }
-  /* .desktopNav a{
-    color: #505050;
-  }
+  width: 100%;
+  line-height: 3vh;
+}
 
-  .desktopNav button{
-    color: #505050;
-  } */
-  
-  .desktopNav .dropdown {
-    display: none;
-    list-style: none;
-    z-index: 9999;
-    position: absolute;
-    right: 0;
-    left: auto;
-  }
-  .menuItems {
-    width: 10vw;
-  }
-  
-  .desktopNav .menuItems {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    
-  }
-  
-  .desktopNav .dropdown.show {
-    display: block;
-  }
-  
-  .desktopNav .dropdown {
-    display: none;
-  }
-  
-  .menus {
-    height: 100%;
-  }
-  .desktopNav .menus {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style: none;
-  }
-  
-  .menuItems button {
-    border: none;
-    font-size: inherit;
-    background-color: transparent;
-    font: inherit;
-    cursor: pointer;
-  }
-  
-  .menuItems h3 {
-    margin: 0;
-  }
-  .ulWrapper {
-    height: 100%;
-  }
-  
-  .desktopNav a {
-    /* display: block;
+.desktopNav .dropdown {
+  display: none;
+  list-style: none;
+  z-index: 9999;
+  position: absolute;
+  right: 0;
+  left: auto;
+}
+.menuItems {
+  width: 10vw;
+}
+
+.desktopNav .menuItems {
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+.desktopNav .dropdown.show {
+  display: block;
+}
+
+.desktopNav .dropdown {
+  display: none;
+}
+
+.menus {
+  height: 100%;
+}
+.desktopNav .menus {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.menuItems button {
+  border: none;
+  font-size: inherit;
+  background-color: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.menuItems h3 {
+  margin: 0;
+}
+.ulWrapper {
+  height: 100%;
+}
+
+.desktopNav a {
+  /* display: block;
     position: relative;
     padding: 0.2em 0; */
+}
+.mobileNavContainer ul {
+  list-style: none;
+}
+
+.desktopNav button:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 1800px) {
+  .desktopNav {
+    font-size: 1.3rem;
   }
-  .mobileNavContainer ul {
-    list-style: none;
-  }
-  
-  .desktopNav button:hover {
-    text-decoration: underline;
-  }
-  
+}

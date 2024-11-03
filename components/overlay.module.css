@@ -19,17 +19,43 @@
 
 @media only screen and (min-width: 1800px) {
   .overlay h1 {
-    font-size: 30px;
+    font-size: 2rem;
+    font-weight: 200;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .overlay h1 {
+    font-size: 1.8rem;
     font-weight: 200;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .overlay h1 {
+    font-size: 1.7rem;
+    font-weight: 200;
+  }
+  .overlay {
+    width: 80vw;
+    padding: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
   .overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 30vh;
-    width: 100%;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    /* width: 100%; */
+  }
+  .overlay h1 {
+    font-size: 1.2rem;
+    font-weight: 200;
   }
 }
