@@ -54,9 +54,9 @@ html:has(.modal) {
   height: 100vh;
 }
 
-section h1 {
+/* section h1 {
   font-size: 2em;
-}
+} */
 
 #background-image {
   width: 100%;
@@ -152,7 +152,6 @@ input[type="email"] {
 }
 textarea {
   border: 1px solid;
-  /* height: 2rem; */
   width: 100%;
   background-color: #d5dfe1;
   color: #505050;
@@ -175,7 +174,31 @@ main {
 }
 
 @media only screen and (min-width: 1800px) {
+  section h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+
   p {
     font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  section h1 {
+    font-size: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  section h1 {
+    font-size: 1.3rem;
+  }
+  section h2 {
+    font-size: 1rem;
   }
 }

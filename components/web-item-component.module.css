@@ -1,7 +1,7 @@
-.image {
+/* .image {
   max-width: 100%;
   height: auto;
-}
+} */
 .imageButton {
   display: flex;
   gap: 5vh;
@@ -74,6 +74,19 @@
 @media only screen and (min-width: 1800px) {
   .image {
     max-width: 700px;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .image {
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .image {
+    max-width: 400px;
     height: auto;
   }
 }
