@@ -8,11 +8,10 @@ export default async function HeroComponent({
   altText,
   header,
   children,
-  mobile,
 }) {
   return (
     <>
-      <div className={mobile == "mobile" ? classes.hide : null}>
+      {/* <div className={mobile == "mobile" ? classes.hide : null}> */}
         <div className={classes.heroWrapper}>
           <div className={classes.imageWrapper}>
             <Image
@@ -21,17 +20,19 @@ export default async function HeroComponent({
               alt={altText}
               src={heroImage}
               className={classes.imageHero}
-              objectFit="cover"
-              objectPosition="center"
+              // objectFit="cover"
+              // objectPosition="center"
             />
           </div>
           <div className={classes.formContainerOuterWrapper}>
-            {header && <Header className={classes.heroHeader}></Header>}
+            {header ? <div className={classes.headerOverlap}>{header}</div> : null}
+          
+
             {children}
             {/* <div className={classes.formcontainer}>{children}</div> */}
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

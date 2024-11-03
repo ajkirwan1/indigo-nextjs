@@ -8,13 +8,29 @@ import classes from "./page.module.css";
 import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
 import heroImage from "/public/images/pages/home/greecehero1.jpg";
 import poshImage from "/public/images/pages/home/hero2people.jpg";
+import swimmingImage from "/public/images/pages/home/swimming.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import { homepageData } from "@/data/homepage-data";
 
 export default function Homepage() {
   return (
     <>
-      <div className={classes.heroWrapper}>
+      <div className={classes.container}>
+        <div className={classes.heroWrapper}>
+          <HeroComponent heroImage={heroImage} altText="Alt text">
+            <Header className={classes.heroHeader}></Header>
+            <div className={classes.heroContents}>
+              <Overlay />
+            </div>
+          </HeroComponent>
+        </div>
+        <div className={classes.heroWrapper}>
+          <HeroComponent heroImage={swimmingImage} altText="Alt text">
+            <Header className={classes.heroHeader}></Header>
+          </HeroComponent>
+        </div>
+      </div>
+      {/* <div className={classes.heroWrapper}>
         <div className={classes.imageWrapper}>
           <Image
             priority
@@ -29,8 +45,9 @@ export default function Homepage() {
         <div className={classes.heroContents}>
           <Overlay />
         </div>
-      </div>
-      <main>
+      </div> */}
+
+      {/* <main>
         <div className={classes.subHeader}></div>
         <section className={classes.section1}>
           <HomepageItemComponent
@@ -49,15 +66,16 @@ export default function Homepage() {
             image={homepageData[1]["image"]}
           />
         </section>
-      </main>
+      </main> */}
       {/* <div className={classes.heroWrapper}> */}
-      <HeroComponent heroImage={poshImage} altText="Alt text">
-        <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
-      </HeroComponent>
-      {/* </div> */}
-      <div className={classes.buttonContainer}>
-        <Button href="/contact">LET&apos;S TALK</Button>
+
+      <div className={classes.heroWrapper}>
+        <HeroComponent heroImage={poshImage} altText="Alt text">
+          <Button href="/contact">LET&apos;S TALK</Button>
+        </HeroComponent>
       </div>
+      {/* </div> */}
+      <div className={classes.buttonContainer}></div>
       <Footer></Footer>
     </>
   );

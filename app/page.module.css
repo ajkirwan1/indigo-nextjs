@@ -12,6 +12,10 @@
 .heroWrapper {
   position: relative;
   height: 100vh;
+  scroll-snap-align: center;
+}
+.container {
+  scroll-snap-type: y mandatory;
 }
 
 .imageWrapper {
