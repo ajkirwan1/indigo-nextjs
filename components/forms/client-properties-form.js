@@ -19,6 +19,8 @@ export default function ClientPropertiesForm({
   const [state, formAction] = useFormState(action, {id});
 
   useEffect(() => {
+    state.id = id;
+    console.log(state, "STATE")
     let clientObj = {};
     let array = [];
     let finalArray = [];

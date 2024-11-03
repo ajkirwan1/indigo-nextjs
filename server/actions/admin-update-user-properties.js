@@ -5,12 +5,15 @@ import { validateRequest } from "@/auth/lucia";
 import { redirect } from "next/navigation";
 
 export async function UpdatePropertiesAction(initialState, formData) {
-  //   const id = initialState.id;
-  const { user } = await validateRequest();
+  const id = initialState.id;
+
+  console.log(id);
+  //   const { user } = await validateRequest();
 
   //   const newObj = Object.values(formData).filter((val) =>
   //     val.includes("on")
   //   );
+  //   console.log(user)
   const formDataObj = {};
   formData.forEach((val, key) => {
     if (val == "on") {
@@ -18,15 +21,41 @@ export async function UpdatePropertiesAction(initialState, formData) {
     }
   });
 
-  // let newObj = Object.values(formData)
+  const list = Object.keys(formDataObj);
 
-  console.log("NEWOBJ", formDataObj);
-  console.log(user.id);
-  //   console.log(id, "id");
-  console.log(formData, "FORMDATA");
-  //   const consulting = formData.get("consulting") == "on" ?  2  : 4;
-  //   const properties = formData.get("properties") == "on" ?  2  : 4;
+  const result1 = await db.property.findMany({
+    where: {
+      name: { in: list },
+    },
+    select: {
+        id: true
+    }
+  });
 
-  // user.run(properties, consulting, id);
-  // return redirect("/admin")
+  let listOfIds = [];
+
+  result1.forEach(element => {
+    // console.log(element, "element");
+    listOfIds.push(element.id)
+  });
+
+  console.log(listOfIds)
+
+    const change = await db.$transaction([
+      db.usersOnProperties.deleteMany({
+        where: {
+          userId: id,
+        },
+      }),
+      db.usersOnProperties.createMany({
+          data: listOfIds.map((el) => ({
+            userId: id,
+            propertyId: el
+
+          }))
+      })
+    ]);
+
+
+  return redirect(`/admin/user/${id}`);
 }
