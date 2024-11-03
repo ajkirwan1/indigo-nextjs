@@ -8,24 +8,28 @@ export default async function HeroComponent({
   altText,
   header,
   children,
+  mobile,
 }) {
   return (
     <>
-      <div className={classes.heroWrapper}>
-        <div className={classes.imageWrapper}>
-          <Image
-            priority
-            alt={altText}
-            src={heroImage}
-            className={classes.imageHero}
-            objectFit="cover"
-            objectPosition="center"
-          />
-        </div>
-        <div className={classes.formContainerOuterWrapper}>
-          {header && <Header className={classes.heroHeader}></Header>}
-          {children}
-          {/* <div className={classes.formcontainer}>{children}</div> */}
+      <div className={mobile == "mobile" ? classes.hide : null}>
+        <div className={classes.heroWrapper}>
+          <div className={classes.imageWrapper}>
+            <Image
+              priority
+              mobile
+              alt={altText}
+              src={heroImage}
+              className={classes.imageHero}
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </div>
+          <div className={classes.formContainerOuterWrapper}>
+            {header && <Header className={classes.heroHeader}></Header>}
+            {children}
+            {/* <div className={classes.formcontainer}>{children}</div> */}
+          </div>
         </div>
       </div>
     </>

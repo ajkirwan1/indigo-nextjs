@@ -46,12 +46,12 @@
 
 @media only screen and (min-width: 1800px) {
   .button {
-    font-size: 10rem;
+    font-size: 0.8rem;
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
   .button {
-    font-size: 12px;
+    font-size: 0.7rem;
   }
 }
