@@ -7,13 +7,6 @@ import { redirect } from "next/navigation";
 export async function UpdatePropertiesAction(initialState, formData) {
   const id = initialState.id;
 
-  console.log(id);
-  //   const { user } = await validateRequest();
-
-  //   const newObj = Object.values(formData).filter((val) =>
-  //     val.includes("on")
-  //   );
-  //   console.log(user)
   const formDataObj = {};
   formData.forEach((val, key) => {
     if (val == "on") {
@@ -21,11 +14,11 @@ export async function UpdatePropertiesAction(initialState, formData) {
     }
   });
 
-  const list = Object.keys(formDataObj);
+  const formDataKeys = Object.keys(formDataObj);
 
-  const result1 = await db.property.findMany({
+  const propertyIds = await db.property.findMany({
     where: {
-      name: { in: list },
+      name: { in: formDataKeys },
     },
     select: {
         id: true
@@ -34,12 +27,10 @@ export async function UpdatePropertiesAction(initialState, formData) {
 
   let listOfIds = [];
 
-  result1.forEach(element => {
-    // console.log(element, "element");
+  propertyIds.forEach(element => {
     listOfIds.push(element.id)
   });
 
-  console.log(listOfIds)
 
     const change = await db.$transaction([
       db.usersOnProperties.deleteMany({

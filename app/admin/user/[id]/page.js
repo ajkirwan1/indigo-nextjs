@@ -84,11 +84,11 @@ export default async function AdminClientPage({ params }) {
       <h1>Visible properties</h1>
       <div className={classes.userDetailsContainer}>
         <AdminClientPropertyList properties={properties} />
-        <Button href={`/admin/user/${params.id}/properties`}>Update</Button>
+        <div className={classes.buttonContainer}>
+        <Button href={`/admin/user/${params.id}/properties`}>Update client records</Button>
+        </div>
       </div>
-      <h1>Visible consulting</h1>
-      <div></div>
-      <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm>
+      {/* <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm> */}
     </>
   );
 }

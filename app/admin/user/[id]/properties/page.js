@@ -23,10 +23,13 @@ export default async function ClientProperties({ params }) {
 
   return (
     <>
-    <p>Back</p>
-      {/* <ClientPropertiesList action={RegisterAction} allProperties={allProperties} properties={properties}/> */}
-      <ClientPropertiesForm id={params.id} action={UpdatePropertiesAction} allProperties={allProperties} properties={properties}/>
-      {/* <ClientPropertiesForm allProperties={allProperties} properties={properties} id={params.id} action={UpdatePropertiesAction}/> */}
+      <p>Back</p>
+      <ClientPropertiesForm
+        id={params.id}
+        action={UpdatePropertiesAction}
+        allProperties={allProperties}
+        properties={properties}
+      />
     </>
   );
 }
