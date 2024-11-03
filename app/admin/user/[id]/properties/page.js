@@ -2,6 +2,7 @@
 
 import { validateRequest } from "@/auth/lucia";
 import { getProperties } from "@/server/actions/db/properties";
+import { UpdatePropertiesAction } from "@/server/actions/admin-update-user-properties";
 import { redirect } from "next/navigation";
 import { getAllProperties } from "@/server/actions/db/all-properties";
 import ClientPropertiesForm from "@/components/forms/client-properties-form";
@@ -24,7 +25,7 @@ export default async function ClientProperties({ params }) {
     <>
     <p>Back</p>
       {/* <ClientPropertiesList action={RegisterAction} allProperties={allProperties} properties={properties}/> */}
-      <ClientPropertiesForm allProperties={allProperties} properties={properties}/>
+      <ClientPropertiesForm id={params.id} action={UpdatePropertiesAction} allProperties={allProperties} properties={properties}/>
       {/* <ClientPropertiesForm allProperties={allProperties} properties={properties} id={params.id} action={UpdatePropertiesAction}/> */}
     </>
   );

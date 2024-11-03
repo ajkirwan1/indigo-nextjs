@@ -9,13 +9,14 @@ import Button from "../ui/button";
 
 export default function ClientPropertiesForm({
   action,
+  id,
   allProperties,
   properties,
 }) {
   const [clientState, setClientState] = useState([]);
   const [initialState, setInitialState] = useState([]);
   // const [checkedProperties, setCheckedProperties] = useState([])
-  // const [state, formAction] = useFormState(action);
+  const [state, formAction] = useFormState(action, {id});
 
   useEffect(() => {
     let clientObj = {};
@@ -70,7 +71,7 @@ export default function ClientPropertiesForm({
     <>
       <h1>User: Michael Jackson</h1>
       <div className={classes.userDetailsContainer}>
-        <form>
+        <form action={formAction}>
           <ul>
             {clientState.map((item, index) => (
               <div key={item.clientObj.id}>
