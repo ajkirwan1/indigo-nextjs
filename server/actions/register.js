@@ -153,7 +153,7 @@ function getInvestment(residential, commercial, land) {
   if (errors.length > 0) {
     return { errors };
   }
-  console.log(investment.length);
+  // console.log(investment.length);
   return investment;
 }
 

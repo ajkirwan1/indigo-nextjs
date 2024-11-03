@@ -6,6 +6,6 @@ export async function getUser(id) {
   const existingUser = await db.user.findFirst({
     where: { id: id },
   });
-  console.log(existingUser)
+  // console.log(existingUser)
   return existingUser;
 }

@@ -2,10 +2,13 @@
 
 import { validateRequest } from "@/auth/lucia";
 import { getUser } from "@/server/actions/db/client";
+import { getProperties } from "@/server/actions/db/properties";
 import { redirect } from "next/navigation";
 import AdminSubmitForm from "@/components/forms/admin-submit-form";
 import { AdminSubmit } from "@/server/actions/admin-submit";
+import AdminClientPropertyList from "@/components/admin-components/properties-list";
 import classes from "./page.module.css";
+import Button from "@/components/ui/button";
 
 export default async function AdminClientPage({ params }) {
   const { user } = await validateRequest();
@@ -32,8 +35,12 @@ export default async function AdminClientPage({ params }) {
     consultingaccess,
   } = await getUser(params.id);
 
+  const properties = await getProperties(params.id);
+  console.log(properties, "ADMIN");
+
   return (
     <>
+      <h1>Client details</h1>
       <div className={classes.userDetailsContainer}>
         <h2>User name: </h2>
         <p>{username}</p>
@@ -74,7 +81,14 @@ export default async function AdminClientPage({ params }) {
         <h2>Property access status:</h2>
         <p>{propertyaccess}</p>
       </div>
-      <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm>
+      <h1>Visible properties</h1>
+      <div className={classes.userDetailsContainer}>
+        <AdminClientPropertyList properties={properties} />
+        <div className={classes.buttonContainer}>
+        <Button href={`/admin/user/${params.id}/properties`}>Update client records</Button>
+        </div>
+      </div>
+      {/* <AdminSubmitForm id={params.id} action={AdminSubmit}></AdminSubmitForm> */}
     </>
   );
 }

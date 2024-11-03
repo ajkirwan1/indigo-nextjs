@@ -7,8 +7,8 @@ import { getProperties } from "@/server/actions/db/properties";
 import classes from "./page.module.css";
 import { headers } from "next/headers";
 
-async function Properties() {
-  const properties = await getProperties();
+async function Properties({userId}) {
+  const properties = await getProperties(userId);
   return <PropertyList properties={properties} />;
 }
 
@@ -20,13 +20,15 @@ async function PropertiesPage() {
   if (!user) {
     redirect(`/login?next=${pathname}`);
   }
+  console.log(user);
+  const userId = user.id;
 
   return (
     <>
       <div className={classes.subHeader}>
         <h1>PROPERTIES FOR SALE</h1>
       </div>
-      <Properties />
+      <Properties userId={userId}/>
     </>
   );
 }

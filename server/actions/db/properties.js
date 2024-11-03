@@ -1,9 +1,19 @@
 /** @format */
 import db from "@/modules/db";
 
-export async function getProperties() {
-    
-    const properties = await db.property.findMany();
+export async function getProperties(userId) {
 
-  return properties
+  const properties = await db.property.findMany({
+    where: {
+      users: {
+        some: {
+          user: {
+            id: userId,
+          },
+        },
+      },
+    },
+  });
+
+  return properties;
 }
