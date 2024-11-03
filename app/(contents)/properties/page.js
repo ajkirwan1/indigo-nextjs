@@ -5,7 +5,6 @@ import PropertyList from "@/components/pages/properties/property-list";
 import { validateRequest } from "/auth/lucia";
 import { getProperties } from "@/server/actions/db/properties";
 import classes from "./page.module.css";
-import classes from "./page.module.css";
 import { headers } from "next/headers";
 
 async function Properties({userId}) {
