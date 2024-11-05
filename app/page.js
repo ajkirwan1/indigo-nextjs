@@ -19,7 +19,6 @@ import HomepageCarousel from "@/components/homepage-carousel";
 const componentArray = [
   <div key={1} className={classes.heroWrapper}>
     <HeroComponent heroImage={heroImage} altText="Alt text">
-      {/* <Header className={classes.heroHeader}></Header> */}
       <div className={classes.heroContents}>
         <Overlay />
       </div>
@@ -27,7 +26,6 @@ const componentArray = [
   </div>,
   <div key={2} className={classes.heroWrapper}>
     <HeroComponent heroImage={swimmingImage} altText="Alt text">
-      {/* <Header className={classes.heroHeader}></Header> */}
       <div className={classes.heroContents}>
         <Overlay />
       </div>
@@ -35,7 +33,6 @@ const componentArray = [
   </div>,
   <div key={3} className={classes.heroWrapper}>
     <HeroComponent heroImage={poshImage} altText="Alt text">
-      {/* <Header className={classes.heroHeader}></Header> */}
       <div className={classes.heroContents}>
         <Overlay />
       </div>
