@@ -45,7 +45,7 @@ export default function HomepageCarousel({ components }) {
           <div className={classes.container2} key={index}>
             {component}
             <div className={classes.buttonWrapper}>
-              <button
+              {/* <button
                 onClick={handlePrevious}
                 className={`${classes.imageSliderBtn} ${classes.top}`}
               >
@@ -56,7 +56,7 @@ export default function HomepageCarousel({ components }) {
                 className={`${classes.imageSliderBtn} ${classes.bottom}`}
               >
                 <ArrowBigRight />
-              </button>
+              </button> */}
             </div>
           </div>
         ))}
