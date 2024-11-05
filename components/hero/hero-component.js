@@ -16,7 +16,7 @@ export default async function HeroComponent({
           <div className={classes.imageWrapper}>
             <Image
               priority
-              mobile
+              // mobile
               alt={altText}
               src={heroImage}
               className={classes.imageHero}

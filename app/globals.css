@@ -12,6 +12,7 @@ body {
   letter-spacing: 0.16em;
   text-align: center;
   background-color: #faefe8;
+  /* overflow: hidden; */
 }
 
 body,

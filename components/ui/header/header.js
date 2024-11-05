@@ -22,7 +22,7 @@ export default function Header({ className }) {
   // console.log("HEADER", user)
 
   useEffect(() => {
-    document.body.style.overflow = "scroll";
+    // document.body.style.overflow = "scroll";
     if (window.innerWidth > 767) {
       handleLayoutChange(false);
     } else if (window.innerWidth < 767) {

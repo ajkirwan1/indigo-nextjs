@@ -1,5 +1,8 @@
 /** @format */
+
+
 import Header from "@/components/ui/header/header";
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import Button from "@/components/ui/button";
 import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
@@ -11,72 +14,40 @@ import poshImage from "/public/images/pages/home/hero2people.jpg";
 import swimmingImage from "/public/images/pages/home/swimming.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import { homepageData } from "@/data/homepage-data";
+import HomepageCarousel from "@/components/homepage-carousel";
+
+const componentArray = [
+  <div key={1} className={classes.heroWrapper}>
+    <HeroComponent heroImage={heroImage} altText="Alt text">
+      {/* <Header className={classes.heroHeader}></Header> */}
+      <div className={classes.heroContents}>
+        <Overlay />
+      </div>
+    </HeroComponent>
+  </div>,
+  <div key={2} className={classes.heroWrapper}>
+    <HeroComponent heroImage={swimmingImage} altText="Alt text">
+      {/* <Header className={classes.heroHeader}></Header> */}
+      <div className={classes.heroContents}>
+        <Overlay />
+      </div>
+    </HeroComponent>
+  </div>,
+  <div key={3} className={classes.heroWrapper}>
+    <HeroComponent heroImage={poshImage} altText="Alt text">
+      {/* <Header className={classes.heroHeader}></Header> */}
+      <div className={classes.heroContents}>
+        <Overlay />
+      </div>
+    </HeroComponent>
+  </div>,
+];
 
 export default function Homepage() {
   return (
     <>
-      <div className={classes.container}>
-        <div className={classes.heroWrapper}>
-          <HeroComponent heroImage={heroImage} altText="Alt text">
-            <Header className={classes.heroHeader}></Header>
-            <div className={classes.heroContents}>
-              <Overlay />
-            </div>
-          </HeroComponent>
-        </div>
-        <div className={classes.heroWrapper}>
-          <HeroComponent heroImage={swimmingImage} altText="Alt text">
-            <Header className={classes.heroHeader}></Header>
-          </HeroComponent>
-        </div>
-      </div>
-      {/* <div className={classes.heroWrapper}>
-        <div className={classes.imageWrapper}>
-          <Image
-            priority
-            alt="A background overlaid with text. The image displays Greece"
-            src={heroImage}
-            className={classes.imageHero}
-            objectFit="cover"
-            objectPosition="center"
-          />
-        </div>
-        <Header className={classes.heroHeader}></Header>
-        <div className={classes.heroContents}>
-          <Overlay />
-        </div>
-      </div> */}
-
-      {/* <main>
-        <div className={classes.subHeader}></div>
-        <section className={classes.section1}>
-          <HomepageItemComponent
-            title={homepageData[0]["title"]}
-            paragraph1={homepageData[0]["info"]["paragraph"]}
-            paragraph2={homepageData[0]["info"]["paragraph2"]}
-            paragraph3={homepageData[0]["info"]["paragraph3"]}
-            image={homepageData[0]["image"]}
-          />
-          <HomepageItemComponent
-            className={"left"}
-            paragraph1={homepageData[1]["info"]["paragraph"]}
-            paragraph2={homepageData[1]["info"]["paragraph2"]}
-            paragraph3={homepageData[1]["info"]["paragraph3"]}
-            paragraph4={homepageData[1]["info"]["paragraph4"]}
-            image={homepageData[1]["image"]}
-          />
-        </section>
-      </main> */}
-      {/* <div className={classes.heroWrapper}> */}
-
-      <div className={classes.heroWrapper}>
-        <HeroComponent heroImage={poshImage} altText="Alt text">
-          <Button href="/contact">LET&apos;S TALK</Button>
-        </HeroComponent>
-      </div>
-      {/* </div> */}
-      <div className={classes.buttonContainer}></div>
-      <Footer></Footer>
-    </>
+      <Header className={classes.heroHeader}></Header>
+      <HomepageCarousel components={componentArray} />
+     </>
   );
 }
