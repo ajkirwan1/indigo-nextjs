@@ -26,7 +26,7 @@ export default async function AdminPage() {
 
     const resp = await FindAllUsers()
 
-    console.log("DATA", data)
+    // console.log("DATA", data)
     console.log("RESPONSE", resp)
 
     const {headerData, bodyData} = PrepareAdminClientData(resp)
