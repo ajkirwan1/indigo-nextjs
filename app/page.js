@@ -113,7 +113,7 @@ const componentArray = [
           </motion.h1>
 
           <NavLink href="/contact">
-            <motion.h2 variants={item}>LET'S TALK</motion.h2>
+            <motion.h2 variants={item}>LET&apos;S TALK</motion.h2>
           </NavLink>
         </motion.div>
       </div>
