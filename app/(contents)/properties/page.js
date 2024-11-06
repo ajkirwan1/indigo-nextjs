@@ -1,4 +1,5 @@
 /** @format */
+'use server'
 import { redirect } from "next/navigation";
 import withAuthentication from "@/components/withAuthentication";
 import PropertyList from "@/components/pages/properties/property-list";

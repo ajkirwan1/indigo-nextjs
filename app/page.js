@@ -1,64 +1,131 @@
 /** @format */
+"use client";
+
 import Header from "@/components/ui/header/header";
-import Button from "@/components/ui/button";
-import Footer from "@/components/ui/footer";
 import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
-import HomepageItemComponent from "@/components/pages/homepage/homepage-item-component";
+import circle from "/public/images/pages/home/icons8-circled.png";
 import heroImage from "/public/images/pages/home/greecehero1.jpg";
 import poshImage from "/public/images/pages/home/hero2people.jpg";
+import swimmingImage from "/public/images/pages/home/swimming.jpg";
+import buildingImage from "/public/images//pages/home/building.jpg";
 import HeroComponent from "@/components/hero/hero-component";
-import { homepageData } from "@/data/homepage-data";
+import HomepageCarousel from "@/components/homepage-carousel";
+import downArrow from "/public/images/pages/home/icons8-expand-arrow.png";
+import { motion } from "framer-motion";
+import NavLink from "@/components/nav-link";
+
+const container = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 1,
+      delayChildren: 0.5,
+      delay: 0.5,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+};
+
+const componentArray = [
+  <div key={1} className={classes.heroWrapper}>
+    <HeroComponent heroImage={heroImage} altText="Alt text">
+      <div className={classes.heroContents}>
+        <Overlay>
+          <div>
+            <h1>GUIDING VISIONS, MANAGING REALITIES</h1>
+            <h1>YOUR PARTNER IN DEVELOPMENT</h1>
+            <h1>CONSULTING & MANAGEMENT</h1>
+          </div>
+        </Overlay>
+      </div>
+      <motion.div
+        className={classes.downArrowContainer}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 1 }}
+        viewport={{ once: true }}
+      >
+        <Image alt="icon" src={downArrow} className={classes.downArrow} />
+      </motion.div>
+    </HeroComponent>
+  </div>,
+  <div key={2} className={classes.heroWrapper}>
+    <HeroComponent heroImage={swimmingImage} altText="Alt text">
+      <div className={classes.heroContents}>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.heroInnerContents}
+        >
+          <motion.h1 variants={item}>OUR SERVICES</motion.h1>
+          <div>
+            <motion.div className={classes.separator} variants={item}>
+              <h2>Development Consultancy</h2>
+              <Image alt="icon" src={circle} className={classes.circleIcon} />
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <h2>Development Opportunities Sourcing</h2>
+              <Image alt="icon" src={circle} className={classes.circleIcon} />
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <h2>Development Project Management</h2>
+              <Image alt="icon" src={circle} className={classes.circleIcon} />
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 4.5 }}
+        viewport={{ once: true }}
+        className={classes.downArrowContainer}
+      >
+        <Image alt="icon" src={downArrow} className={classes.downArrow} />
+      </motion.div>
+    </HeroComponent>
+  </div>,
+  <div key={3} className={classes.heroWrapper}>
+    <HeroComponent heroImage={buildingImage} altText="Alt text">
+      <div className={classes.heroContents}></div>
+    </HeroComponent>
+  </div>,
+  <div key={4} className={classes.heroWrapper}>
+    <HeroComponent heroImage={poshImage} altText="Alt text">
+      <div className={classes.heroContents}>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.heroInnerContents}
+        >
+          <motion.h1 variants={item}>
+            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
+          </motion.h1>
+
+          <NavLink href="/contact">
+            <motion.h2 variants={item}>LET&apos;S TALK</motion.h2>
+          </NavLink>
+        </motion.div>
+      </div>
+    </HeroComponent>
+  </div>,
+];
 
 export default function Homepage() {
   return (
     <>
-      <div className={classes.heroWrapper}>
-        <div className={classes.imageWrapper}>
-          <Image
-            priority
-            alt="A background overlaid with text. The image displays Greece"
-            src={heroImage}
-            className={classes.imageHero}
-            objectFit="cover"
-            objectPosition="center"
-          />
-        </div>
-        <Header className={classes.heroHeader}></Header>
-        <div className={classes.heroContents}>
-          <Overlay />
-        </div>
-      </div>
-      <main>
-        <div className={classes.subHeader}></div>
-        <section className={classes.section1}>
-          <HomepageItemComponent
-            title={homepageData[0]["title"]}
-            paragraph1={homepageData[0]["info"]["paragraph"]}
-            paragraph2={homepageData[0]["info"]["paragraph2"]}
-            paragraph3={homepageData[0]["info"]["paragraph3"]}
-            image={homepageData[0]["image"]}
-          />
-          <HomepageItemComponent
-            className={"left"}
-            paragraph1={homepageData[1]["info"]["paragraph"]}
-            paragraph2={homepageData[1]["info"]["paragraph2"]}
-            paragraph3={homepageData[1]["info"]["paragraph3"]}
-            paragraph4={homepageData[1]["info"]["paragraph4"]}
-            image={homepageData[1]["image"]}
-          />
-        </section>
-      </main>
-      {/* <div className={classes.heroWrapper}> */}
-      <HeroComponent heroImage={poshImage} altText="Alt text">
-        <h1>YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE</h1>
-      </HeroComponent>
-      {/* </div> */}
-      <div className={classes.buttonContainer}>
-        <Button href="/contact">LET&apos;S TALK</Button>
-      </div>
-      <Footer></Footer>
+      <Header className={classes.heroHeader}></Header>
+      <HomepageCarousel components={componentArray} />
     </>
   );
 }

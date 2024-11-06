@@ -1,3 +1,7 @@
+/* body {
+  overflow: unset;
+} */
+
 .buttonContainer a img,
 .buttonContainer a button {
   transition: 0.3s;
@@ -12,6 +16,15 @@
 .heroWrapper {
   position: relative;
   height: 100vh;
+  scroll-snap-align: center;
+  scroll-snap-align: start;
+}
+.container {
+  overflow-y: scroll;
+  /* overflow: scroll; */
+  height: 100vh;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 .imageWrapper {
@@ -62,7 +75,8 @@
 }
 .heroHeader {
   color: aliceblue;
-  position: absolute;
+  z-index: 10;
+  position: fixed;
   display: flex;
   align-items: center;
   top: 0;
@@ -114,4 +128,64 @@
   width: 70%;
   line-height: 4.5rem;
   letter-spacing: 1.5px;
+}
+
+.imageSliderBtn:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+}
+
+.imageSliderBtn > * {
+  stroke: white;
+  fill: black;
+  width: 2rem;
+  height: 2rem;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+}
+.bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.heroInnerContents {
+  color: #f0f8ff;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 50vh;
+}
+
+.iconContainer {
+  margin-top: 10vh;
+}
+
+.circleIcon {
+  height: 5vh;
+  width: auto;
+}
+
+.heroInnerContents h1 {
+  line-height: 6vh;
+  margin: 5vh;
+  font-size: 3rem;
+}
+
+.heroContents a {
+  color: #f0f8ff;
+}
+.separator {
+  padding-top: 3vh;
+}
+
+.downArrow {
+  height: 6vh;
+  width: auto;
+}
+
+.downArrowContainer {
+  position: absolute;
+  bottom: 0;
 }
