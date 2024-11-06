@@ -55,7 +55,7 @@
   display: flex;
   justify-content: flex-start;
 }
-.buttonContainer a img,
+/* .buttonContainer a img,
 .buttonContainer a button {
   transition: 0.3s;
 }
@@ -64,7 +64,7 @@
 }
 .buttonContainer a:hover button {
   transform: translateX(-5px);
-}
+} */
 
 .smallImage {
   width: 500px;
