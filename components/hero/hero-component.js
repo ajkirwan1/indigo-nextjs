@@ -23,9 +23,7 @@ export default function HeroComponent({
           />
         </div>
         <div className={classes.formContainerOuterWrapper}>
-          {header ? (
-            <div className={classes.headerOverlap}>{header}</div>
-          ) : null}
+          {header ? <Header className={classes.heroHeader} /> : null}
           {children}
         </div>
       </div>

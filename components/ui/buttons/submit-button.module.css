@@ -1,10 +1,25 @@
 .button {
   background: none;
+  display: flex;
   color: inherit;
   padding: 0;
   font: inherit;
   cursor: pointer;
-  border: none;
+  border: 1px solid #505050;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 5px;
+}
+
+.button:hover {
+  border: 2px solid #505050;
+  background-color: #48474721;
+}
+
+.arrow {
+  height: 20px;
 }
 
 .arrow {
@@ -39,19 +54,19 @@
   font-weight: 200;
 }
 
-.wrapper img,
+/* .wrapper img,
 .wrapper button {
   transition: 0.3s;
 }
 
-.wrapper:hover button + img {
+.wrapper button + img {
   transform: translateX(10px);
 }
-.wrapper:hover button {
+.wrapper button {
   transform: translateX(-5px);
-}
+} */
 
-.wrapper:hover {
+.wrapper {
   cursor: pointer;
   background-color: #50505028;
 }
@@ -68,6 +83,9 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
   .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
     font-size: 0.7rem;
   }
 }
