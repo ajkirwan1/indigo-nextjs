@@ -21,8 +21,8 @@ export default async function AdminPage() {
 
 
   try {
-    const response = await fetch("http://localhost:3000/api/users");
-    const data = await response.json();
+    // const response = await fetch("http://localhost:3000/api/users");
+    // const data = await response.json();
 
     const resp = await FindAllUsers()
 
