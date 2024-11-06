@@ -26,17 +26,19 @@ export default function PrepareAdminClientData(data) {
     );
     dataList.push(propertyAccessString);
 
-    const consultingAccessString = convertAccessToString(element["consultingaccess"]);
+    const consultingAccessString = convertAccessToString(
+      element["consultingaccess"]
+    );
     dataList.push(consultingAccessString);
 
-    dataList.push(element["accessrequestdate"]);
+    dataList.push(JSON.stringify(element["accessrequestdate"]));
 
-    arr.items = dataList
+    arr.items = dataList;
 
-    bodyData.push(arr)
+    bodyData.push(arr);
   });
 
-  return {headerData, bodyData}
+  return { headerData, bodyData };
 }
 
 function joinName(firstName, lastName) {
@@ -52,10 +54,9 @@ function convertAccessToString(accessInt) {
     return "Not requested";
   } else if (accessInt == 1) {
     return "Pending";
-  } else if (accessInt == 2){
+  } else if (accessInt == 2) {
     return "Granted";
-  }
-  else {
-    return "Declined"
+  } else {
+    return "Declined";
   }
 }

@@ -4,6 +4,7 @@ import { validateRequest } from "@/auth/lucia";
 import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
 import PrepareAdminClientData from "@/utils/admin-table-data";
+import { FindAllUsers } from "@/server/actions/find-all-users";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
@@ -23,9 +24,12 @@ export default async function AdminPage() {
     const response = await fetch("http://localhost:3000/api/users");
     const data = await response.json();
 
-    console.log(data)
+    const resp = await FindAllUsers()
 
-    const {headerData, bodyData} = PrepareAdminClientData(data)
+    console.log("DATA", data)
+    console.log("RESPONSE", resp)
+
+    const {headerData, bodyData} = PrepareAdminClientData(resp)
     theadData = [...headerData]
     tbodyData = [...bodyData]
     
