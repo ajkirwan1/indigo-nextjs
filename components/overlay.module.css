@@ -1,15 +1,18 @@
 .overlay {
-  border: 0.5px solid rgba(217, 217, 217, 0.686);
-  background-color: #faefe8ad;
-  border-radius: 2px;
-  color: #3a3939ee;
+  border: 0.5px solid #faefe86e;
+  border-radius: 8px;
+  background-color: #faefe86e;
+  border-radius: 4px;
+  color: #3a3939f2;
   font-style: normal;
   font-weight: 200;
-  line-height: normal;
+  line-height: 2.5rem;
   letter-spacing: 0.16em;
   padding: 50px;
   padding-left: 80px;
   padding-right: 80px;
+  filter: invert(1);
+  box-shadow: 4px 4px #1b333b12;
 }
 
 .overlay h1 {

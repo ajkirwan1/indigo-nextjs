@@ -9,28 +9,25 @@
 }
 
 .pageWrapper {
-
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
-.pageWrapper p{
-  width: 60vw;
-  line-height: 2rem;
+.pageWrapper p {
+  width: 30vw;
+  line-height: 2.5rem;
 }
-
 
 .formcontainer {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 50%;
 }
 
 .letsTalk {
   flex: 1 1 40%;
 }
-  
-  
+
 .wrapper {
   margin-top: 10vh;
   display: flex;
@@ -38,18 +35,16 @@
 .wrapper span {
   border-right: 1px solid black;
 }
-  
-  
-  @media only screen and (max-width: 600px) {
-    .logoIndigo {
-      height: 10rem;
-      width: auto;
-    }
-    .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 20px;
-    }
+
+@media only screen and (max-width: 600px) {
+  .logoIndigo {
+    height: 10rem;
+    width: auto;
   }
-  
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+    width: 100px;
+    height: 20px;
+  }
+}
