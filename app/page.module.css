@@ -163,14 +163,16 @@
 }
 
 .circleIcon {
-  height: 5vh;
+  height: 4vh;
   width: auto;
 }
 
 .heroInnerContents h1 {
-  line-height: 6vh;
+  line-height: 6.5vh;
   margin: 5vh;
   font-size: 3rem;
+  opacity: 0.5;
+  font-weight: 100;
 }
 
 .heroContents a {
@@ -181,11 +183,15 @@
 }
 
 .downArrow {
-  height: 6vh;
+  height: 4vh;
   width: auto;
 }
 
 .downArrowContainer {
   position: absolute;
   bottom: 0;
+}
+.properties {
+  height: 8vh;
+  width: auto;
 }
