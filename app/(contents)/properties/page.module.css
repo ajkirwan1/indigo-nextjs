@@ -1,3 +1,14 @@
 .subHeader {
-    display: flex;
-  } 
+  display: flex;
+}
+.subSubHeader {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+  line-height: 2.5rem;
+}
+
+.subSubHeader p {
+  width: 60vw;
+}

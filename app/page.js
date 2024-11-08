@@ -106,7 +106,7 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h1 variants={item}>PROPERTIES</motion.h1>
-          <div>
+          <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <h2>CHECK OUR PROPERTIES</h2>
               <Image

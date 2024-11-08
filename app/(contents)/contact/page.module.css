@@ -14,18 +14,21 @@
 }
 
 .pageWrapper p {
-  width: 30vw;
+  width: 60vw;
   line-height: 2.5rem;
 }
 
 .formcontainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 50%;
 }
 
 .letsTalk {
   flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
@@ -34,6 +37,9 @@
 }
 .wrapper span {
   border-right: 1px solid black;
+}
+.phoneAndEmail {
+  margin-top: 12vh;
 }
 
 @media only screen and (max-width: 600px) {
