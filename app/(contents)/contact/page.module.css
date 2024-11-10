@@ -9,28 +9,29 @@
 }
 
 .pageWrapper {
-
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
-.pageWrapper p{
+.pageWrapper p {
   width: 60vw;
-  line-height: 2rem;
+  line-height: 2.5rem;
 }
-
 
 .formcontainer {
-  display: flex;
+  width: 30vw;
+  /* display: flex;
   flex-direction: column;
-  width: 60%;
+  align-items: center;
+  width: 50%; */
 }
 
 .letsTalk {
   flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
 }
-  
-  
+
 .wrapper {
   margin-top: 10vh;
   display: flex;
@@ -38,18 +39,19 @@
 .wrapper span {
   border-right: 1px solid black;
 }
-  
-  
-  @media only screen and (max-width: 600px) {
-    .logoIndigo {
-      height: 10rem;
-      width: auto;
-    }
-    .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 20px;
-    }
+.phoneAndEmail {
+  margin-top: 12vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .logoIndigo {
+    height: 10rem;
+    width: auto;
   }
-  
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+    width: 100px;
+    height: 20px;
+  }
+}

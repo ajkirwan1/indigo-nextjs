@@ -7,7 +7,7 @@ export default function PropertyList({ properties }) {
   return (
     <ul className={classes.projectGrid}>
       {properties.map((property) => (
-        <li key={property.id}>
+        <li className={classes.propertyItem} key={property.id}>
           <PropertyItem {...property} />
         </li>
       ))}

@@ -88,7 +88,7 @@
 
 .heroHeader button {
   color: aliceblue;
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .section3 {
@@ -163,25 +163,27 @@
 }
 
 .circleIcon {
-  height: 5vh;
+  height: 4vh;
   width: auto;
 }
 
 .heroInnerContents h1 {
-  line-height: 6vh;
+  line-height: 6.5vh;
   margin: 5vh;
   font-size: 3rem;
+  opacity: 0.5;
+  font-weight: 100;
 }
 
 .heroContents a {
   color: #f0f8ff;
 }
 .separator {
-  padding-top: 3vh;
+  /* padding-top: 3vh; */
 }
 
 .downArrow {
-  height: 6vh;
+  height: 4vh;
   width: auto;
 }
 
@@ -189,3 +191,52 @@
   position: absolute;
   bottom: 0;
 }
+.properties {
+  height: 8vh;
+  width: auto;
+}
+
+/* .box {
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+}
+.box::after {
+  content: "";
+  transform: translateX(-100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+}
+
+.box:hover::after {
+  transition: 0.1s transform linear, 0.1s height linear 0.1s;
+  transform: translateX(0);
+  height: 100%;
+  width: 100%;
+  border-color: aliceblue;
+}
+
+.box:hover::before {
+  transition: 0.1s transform linear 0.2s, 0.1s height linear 0.3s;
+  transform: translateX(0);
+  height: 100%;
+  width: 100%;
+  border-color: aliceblue;
+} */
