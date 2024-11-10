@@ -20,7 +20,7 @@ export default function ContactForm({ action, redirection }) {
         <div className={classes.formItemContainer}>
           <input type="text" name="lastName" placeholder="Last name" />
         </div>
-        <div className={classes.formItemContainer}>
+        <div className={`${classes.formItemContainer}`}>
           <input
             type="text"
             name="contactNumber"
@@ -30,14 +30,14 @@ export default function ContactForm({ action, redirection }) {
         <div className={classes.formItemContainer}>
           <input type="email" name="email" placeholder="Email" />
         </div>
-        <div className={classes.formItemContainer}>
+        <div className={`${classes.formItemContainer} ${classes.input}`}>
           {/* <label>Message:</label> */}
           <textarea
             type="textArea"
             rows="10"
             cols="50"
             name="message"
-            placeholder="Message…"
+            placeholder="Message"
           />
         </div>
         <div className={classes.submitButtonContainer}>

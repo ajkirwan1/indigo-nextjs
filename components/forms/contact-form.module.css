@@ -6,9 +6,14 @@
 }
 
 .loginForm {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 3fr 1fr;
   align-items: center;
+
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
 }
 
 .form label {
@@ -16,19 +21,20 @@
 }
 
 .formItemContainer {
-  display: flex;
+  padding: 20px;
+  /* display: flex;
   padding: 2.5px;
   margin-bottom: 2.5vh;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 100%; */
 }
 
 .formCheckboxContainer {
   display: flex;
 }
 
-.hero {
+/* .hero {
   position: relative;
   display: flex;
   align-items: center;
@@ -50,17 +56,18 @@
   background: rgba(0, 0, 0, 0.378);
   opacity: 0.1;
   pointer-events: none;
-}
+} */
 
 .formcontainer {
-  border-radius: 10px;
+  /* width: 60vw; */
+  /* border-radius: 10px;
   background-color: #ffffffcc;
   width: 800px;
   min-height: 60%;
   max-width: 70vw;
   position: absolute;
   top: 25vh;
-  box-shadow: 1px 1px 1px;
+  box-shadow: 1px 1px 1px; */
 }
 .logoIndigo {
   height: 12rem;
@@ -87,10 +94,22 @@
 }
 
 .submitButtonContainer {
-  margin: 2vh;
-  display: flex;
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+  /* margin: 2vh;
+  display: flex; */
   width: 200px;
   height: 50px;
+  justify-self: center;
+}
+
+.input {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
 }
 
 .registerPageContainer {
@@ -123,8 +142,9 @@
   align-items: center;
 }
 .loginForm input[type="text"],
-.loginForm input[type="email"] {
-  width: 14vw;
+.loginForm input[type="email"],
+.loginForm input[type="textArea"] {
+  /* width: 60%; */
 }
 .contactIcon {
   height: auto;

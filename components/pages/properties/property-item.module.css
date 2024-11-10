@@ -13,12 +13,6 @@
   display: flex;
   padding: 20px;
   height: 350px;
-  /* margin-top: 3vh;
-  margin-bottom: 3vh; */
-  /* justify-content: space-around;
-  align-items: center;
-  margin-top: 10vh;
-  margin-bottom: 10vh; */
 }
 
 .propertyItemContainer h4 {
@@ -47,18 +41,10 @@
   color: inherit;
 }
 
-/* .infoContainer a:hover {
-  text-decoration: underline;
-} */
-
 .infoContainer h2 {
   margin-top: 0;
   margin-bottom: 0;
 }
-
-/* .infoContainer a:hover {
-  text-decoration: underline;
-} */
 
 .subItemContainer {
   display: flex;

@@ -141,6 +141,9 @@ input[type="text"] {
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 input[type="email"] {
@@ -150,14 +153,21 @@ input[type="email"] {
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 textarea {
+  font: inherit;
   border: 1px solid;
   width: 100%;
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
   resize: none;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 input[type="checkbox"] {
