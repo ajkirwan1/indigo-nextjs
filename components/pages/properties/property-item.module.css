@@ -1,24 +1,35 @@
 .img {
-  width: 400px;
-  height: auto;
+  width: auto;
+  height: 350px;
 }
 
 .icon {
   width: 1vw;
   height: auto;
+  opacity: 0.5;
 }
 
 .propertyItemContainer {
   display: flex;
+  padding: 20px;
+  height: 350px;
+  /* margin-top: 3vh;
+  margin-bottom: 3vh; */
   /* justify-content: space-around;
   align-items: center;
   margin-top: 10vh;
   margin-bottom: 10vh; */
 }
+
+.propertyItemContainer h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .iconContainer {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 0.5vw;
+  margin-bottom: 12px;
 }
 .infoContainer {
   height: 100%;
@@ -30,4 +41,66 @@
 }
 .infoContainer p {
   margin: 0;
+}
+.infoContainer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* .infoContainer a:hover {
+  text-decoration: underline;
+} */
+
+.infoContainer h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* .infoContainer a:hover {
+  text-decoration: underline;
+} */
+
+.subItemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messageIcon {
+  height: 25px;
+  width: auto;
+  opacity: 0.5;
+  /* margin-left: 20px; */
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  opacity: 0;
+}
+.messageContainer::before {
+  display: flex;
+}
+
+.messageContainer:hover p {
+  text-decoration: underline;
+}
+
+.propertyItemContainer:hover .messageContainer {
+  opacity: 1;
+}
+
+.iconContainer p:hover {
+  text-decoration: underline;
+}
+
+.iconOuterWrapper {
+  margin-top: 20px;
 }

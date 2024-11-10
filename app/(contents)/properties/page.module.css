@@ -2,13 +2,13 @@
   display: flex;
 }
 .subSubHeader {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 8vh;
+  margin-bottom: 8vh;
   display: flex;
   justify-content: center;
   line-height: 2.5rem;
 }
 
 .subSubHeader p {
-  width: 60vw;
+  width: 50vw;
 }

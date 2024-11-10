@@ -1,10 +1,24 @@
 .projectGrid {
-  display: flex;
-  flex-wrap: wrap;
+  /* padding: 20px; */
 }
 
 .projectGrid li {
-  flex: 1;
+  /* flex: 1;
   gap: 3px;
   padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 50px; */
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.projectGrid li:hover {
+  border: 1px solid rgba(0, 0, 0, 0.123);
+  border-radius: 5px;
+  background-color: rgba(37, 36, 36, 0.022);
+  cursor: pointer;
+}
+
+.propertyItem:hover .messageContainer {
+  opacity: 1;
 }

@@ -21,7 +21,6 @@ async function PropertiesPage() {
   if (!user) {
     redirect(`/login?next=${pathname}`);
   }
-  console.log(user);
   const userId = user.id;
 
   return (
