@@ -7,11 +7,15 @@ import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
 import Image from "next/image";
 export default function LoginForm({ action, redirection }) {
-  const [state, formAction] = useFormState(action, {redirection});
-  
+  const [state, formAction] = useFormState(action, { redirection });
+
   return (
     <>
-    <Image className={classes.logoIndigo} src={indigoLogo} alt="An image displayinging the logo for Indigo" />
+      <Image
+        className={classes.logoIndigo}
+        src={indigoLogo}
+        alt="An image displayinging the logo for Indigo"
+      />
       <h1>Login</h1>
       <form className={classes.loginForm} action={formAction}>
         <div className={classes.formItemContainer}>

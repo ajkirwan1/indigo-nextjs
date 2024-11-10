@@ -4,14 +4,16 @@ import { validateRequest } from "@/auth/lucia";
 import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
 import PrepareAdminClientData from "@/utils/admin-table-data";
+import { FindAllUsers } from "@/server/actions/find-all-users";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
+  console.log("ADMIN USER", user)
 
   if (!user) {
     redirect("/")
   }
-  if (user?.adminUser != 2) {
+  if (user?.adminaccess != 2) {
     redirect("/");
   }
 
@@ -19,10 +21,15 @@ export default async function AdminPage() {
 
 
   try {
-    const response = await fetch("http://localhost:3000/api/users");
-    const data = await response.json();
+    // const response = await fetch("http://localhost:3000/api/users");
+    // const data = await response.json();
 
-    const {headerData, bodyData} = PrepareAdminClientData(data)
+    const resp = await FindAllUsers()
+
+    // console.log("DATA", data)
+    console.log("RESPONSE", resp)
+
+    const {headerData, bodyData} = PrepareAdminClientData(resp)
     theadData = [...headerData]
     tbodyData = [...bodyData]
     
@@ -32,8 +39,7 @@ export default async function AdminPage() {
 
   return (
     <>
-      <h1>Hi Emmanuel</h1>
-      <h2>List of registered users</h2>
+      <h1>List of registered users</h1>
       <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
     </>
   );

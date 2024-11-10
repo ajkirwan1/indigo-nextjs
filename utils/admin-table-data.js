@@ -16,27 +16,29 @@ export default function PrepareAdminClientData(data) {
 
     arr.userId = element["id"];
 
-    const fullName = joinName(element["first_name"], element["last_name"]);
+    const fullName = joinName(element["firstname"], element["lastname"]);
     dataList.push(fullName);
 
     dataList.push(element["email"]);
 
     const propertyAccessString = convertAccessToString(
-      element["property_access"]
+      element["propertyaccess"]
     );
     dataList.push(propertyAccessString);
 
-    const consultingAccessString = convertAccessToString(element["consulting_access"]);
+    const consultingAccessString = convertAccessToString(
+      element["consultingaccess"]
+    );
     dataList.push(consultingAccessString);
 
-    dataList.push(element["access_request_date"]);
+    dataList.push(JSON.stringify(element["accessrequestdate"]));
 
-    arr.items = dataList
+    arr.items = dataList;
 
-    bodyData.push(arr)
+    bodyData.push(arr);
   });
 
-  return {headerData, bodyData}
+  return { headerData, bodyData };
 }
 
 function joinName(firstName, lastName) {
@@ -52,10 +54,9 @@ function convertAccessToString(accessInt) {
     return "Not requested";
   } else if (accessInt == 1) {
     return "Pending";
-  } else if (accessInt == 2){
+  } else if (accessInt == 2) {
     return "Granted";
-  }
-  else {
-    return "Declined"
+  } else {
+    return "Declined";
   }
 }

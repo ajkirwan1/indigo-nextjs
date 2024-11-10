@@ -3,11 +3,12 @@
  * @returns { Promise<void> }
  */
 export async function up(knex) {
-    return await knex.schema.createTable("passwords", function (table) {
-      table.integer("id").unique();
+    return  knex.schema.createTable("passwords", function (table) {
+      table.increments('id').primary();
       table.string("hashedPassword");
       table.string("userId").references("id").inTable("users").onDelete("CASCADE");
       table.timestamp("createdAt").defaultTo(knex.fn.now()).index();
+      
   })
   }
   

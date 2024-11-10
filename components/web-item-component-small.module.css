@@ -1,0 +1,106 @@
+.image {
+  max-width: 100%;
+  height: auto;
+}
+.imageButton {
+  display: flex;
+  gap: 5vh;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.buttonParagraphWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18vh;
+  margin-bottom: 18vh;
+}
+
+.sectionContainerReverse {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.paragraphWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  gap: 2vh;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  padding-right: 5vw;
+}
+
+.paragraphWrapperLower {
+  justify-content: flex-start;
+  text-align: start;
+  gap: 2vh;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  margin-top: 25px;
+}
+
+.paragraphWrapperReverse {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  justify-content: space-evenly;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  padding-left: 5vw;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.buttonContainer a img,
+.buttonContainer a button {
+  transition: 0.3s;
+}
+.buttonContainer a:hover button + img {
+  transform: translateX(10px);
+}
+.buttonContainer a:hover button {
+  transform: translateX(-5px);
+}
+
+.smallImage {
+  width: 500px;
+  height: auto;
+}
+
+.topWrapper {
+  display: flex;
+}
+
+@media only screen and (min-width: 1800px) {
+  .image {
+    max-width: 700px;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .image {
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .image {
+    max-width: 400px;
+    height: auto;
+  }
+}

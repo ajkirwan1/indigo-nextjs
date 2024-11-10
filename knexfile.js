@@ -5,6 +5,4 @@ const config = {
   connection: process.env.POSTGRES_PRISMA_URL,
 };
 
-console.log(config)
-
 export default config;

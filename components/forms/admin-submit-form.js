@@ -32,12 +32,12 @@ export default function AdminSubmitForm({ action, id, func }) {
       <form className={classes.loginForm} action={formAction}>
         <label htmlFor="consulting">Grant consulting access</label>
         <input name="consulting" type="checkbox" />
-        <label htmlFor="properties">Grant consulting access</label>
+        <label htmlFor="properties">Grant property access</label>
         <input name="properties" type="checkbox" />
         {confirm == true ? <SubmitContainer handle={handleClick}/> : null}
         {/* <FormSubmit /> */}
       </form>
-      <button onClick={handleClick}>Submitttty</button>
+      <button onClick={handleClick}>Submit</button>
     </div>
   );
 }

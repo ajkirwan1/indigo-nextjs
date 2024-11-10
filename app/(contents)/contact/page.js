@@ -23,8 +23,10 @@ export default function ContactUsPage() {
         <span></span>
         <div className={classes.letsTalk}>
           <h1>LET&apos;S TALK</h1>
-          <h2>T:+30 210 12 34 567</h2>
-          <h2>E: INFO@INDIGO.GR</h2>
+          <div className={classes.phoneAndEmail}>
+            <h1>T:+30 210 12 34 567</h1>
+            <h1>E: INFO@INDIGO.GR</h1>
+          </div>
         </div>
       </div>
     </>

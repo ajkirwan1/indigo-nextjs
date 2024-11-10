@@ -13,19 +13,21 @@ export default function WebItemComponent(props) {
           : classes.sectionContainer
       }
     >
-      <div
-        className={
-          props.className == "reverse"
-            ? classes.paragraphWrapperReverse
-            : classes.paragraphWrapper
-        }
-      >
-        {props.title && <h1>{props.title}</h1>}
-        {props.subtitle && <h2>{props.subtitle}</h2>}
-        <p>{props.paragraph1}</p>
-        {props.paragraph2 && <p>{props.paragraph2}</p>}
-        {props.paragraph3 && <p>{props.paragraph3}</p>}
-        {props.paragraph4 && <p>{props.paragraph4}</p>}
+      <div className={classes.buttonParagraphWrapper}>
+        <div
+          className={
+            props.className == "reverse"
+              ? classes.paragraphWrapperReverse
+              : classes.paragraphWrapper
+          }
+        >
+          {props.title && <h1>{props.title}</h1>}
+          {props.subtitle && <h2>{props.subtitle}</h2>}
+          <p>{props.paragraph1}</p>
+          {props.paragraph2 && <p>{props.paragraph2}</p>}
+          {props.paragraph3 && <p>{props.paragraph3}</p>}
+          {props.paragraph4 && <p>{props.paragraph4}</p>}
+        </div>
         {props.buttonPosition && (
           <div className={classes.buttonContainer}>
             <Button href={props.buttonPath}>{props.buttonText}</Button>
@@ -35,13 +37,17 @@ export default function WebItemComponent(props) {
 
       <div className={classes.imageButton}>
         <Image
-          className={classes.image}
+          className={
+            props.imageClassName == "smallImage"
+              ? classes.smallImage
+              : classes.image
+          }
           src={`/${props.image}`}
           alt="alt"
           width={2048}
           height={1400}
         />
-        {(props.buttonPath && !props.buttonPosition) && (
+        {props.buttonPath && !props.buttonPosition && (
           <div className={classes.buttonContainer}>
             <Button href={props.buttonPath}>{props.buttonText}</Button>
           </div>

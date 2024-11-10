@@ -12,6 +12,7 @@ body {
   letter-spacing: 0.16em;
   text-align: center;
   background-color: #faefe8;
+  /* overflow: hidden; */
 }
 
 body,
@@ -21,21 +22,21 @@ html {
   --webkit-text-size-adjust: 12px;
 }
 
-
-h1, h2 {
+h1,
+h2 {
   font-optical-sizing: auto;
   font-weight: 300;
 }
 
-
-p, button {
+p,
+button {
   font-weight: 200;
   font-size: 18px;
   margin-top: 0;
 }
 
 html:has(.modal) {
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .modal {
@@ -48,16 +49,15 @@ html:has(.modal) {
   border: none;
   background: none;
   z-index: 2;
-
 }
 
 .not-found {
   height: 100vh;
 }
 
-section h1 {
+/* section h1 {
   font-size: 2em;
-}
+} */
 
 #background-image {
   width: 100%;
@@ -82,7 +82,6 @@ section h1 {
   padding: 20px;
 }
 
-
 .hero {
   display: flex;
   align-items: center;
@@ -105,7 +104,7 @@ section h1 {
 }
 
 .section-2-image {
-  width: 60vw
+  width: 60vw;
 }
 
 .section-3-image {
@@ -118,7 +117,7 @@ section h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color:  rgb(61 61 61 / 73%);
+  background-color: rgb(61 61 61 / 73%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +132,7 @@ section h1 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-} 
+}
 
 input[type="text"] {
   border: 1px solid;
@@ -142,6 +141,9 @@ input[type="text"] {
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 input[type="email"] {
@@ -151,15 +153,21 @@ input[type="email"] {
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 textarea {
+  font: inherit;
   border: 1px solid;
-  /* height: 2rem; */
   width: 100%;
   background-color: #d5dfe1;
   color: #505050;
   border-radius: 4px;
   resize: none;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 input[type="checkbox"] {
@@ -174,4 +182,34 @@ ul {
 
 main {
   padding: 5vh;
+}
+
+@media only screen and (min-width: 1800px) {
+  section h1 {
+    font-size: 2rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  section h1 {
+    font-size: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  section h1 {
+    font-size: 1.3rem;
+  }
+  section h2 {
+    font-size: 1rem;
+  }
 }

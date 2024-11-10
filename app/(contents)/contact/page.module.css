@@ -1,170 +1,57 @@
-.subHeader {
-    display: flex;
-  } 
-  .header {
-    color: aliceblue !important;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  
-  .heroHeader {
-    color: aliceblue;
-    /* position: absolute; */
-    display: flex;
-    align-items: center;
-    top: 0;
-    width: 100%;
-  }
-  .heroHeader a {
-    color: aliceblue;
-  }
-  
-  .heroHeader button {
-    color: aliceblue;
-  }
-  
-  .loginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 40%;
+}
+.form label {
+  font-size: large;
+}
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1 1 40%;
-  }
-  .form label {
-    font-size: large;
-  }
-  
-  .formItemContainer {
-    display: flex;
-    padding: 5px;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 40%;
-  }
-  
-  /* .formItemContainer label {
-    font-size: x-large;
-  } */
-  .formCheckboxContainer {
-    display: flex;
-    justify-content: space-around
-  }
-  
-  .pageWrapper {
-  
-    display: flex;
-    justify-content: center
-  }
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+}
 
-  .pageWrapper p{
-    width: 60vw;
-    line-height: 2rem;
-  }
+.pageWrapper p {
+  width: 60vw;
+  line-height: 2.5rem;
+}
 
-  
-  .formcontainer {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    /* position: relative;
-    width: 85vw;
-    box-shadow: 1px 1px 1px; */
-  }
+.formcontainer {
+  width: 30vw;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%; */
+}
+
+.letsTalk {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin-top: 10vh;
+  display: flex;
+}
+.wrapper span {
+  border-right: 1px solid black;
+}
+.phoneAndEmail {
+  margin-top: 12vh;
+}
+
+@media only screen and (max-width: 600px) {
   .logoIndigo {
-    height: 12rem;
+    height: 10rem;
     width: auto;
   }
-  .buttoncontainer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 5vh;
-  }
-  
-  .errorList {
-    list-style: none;
-    display: flex;
-  }
-  
-  .submitButton {
-    background: none;
-    color: inherit;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    border: none;
-  }
-  
   .submitButtonContainer {
     margin: 2vh;
     display: flex;
-    width: 200px;
-    height: 50px;
+    width: 100px;
+    height: 20px;
   }
-  
-.letsTalk {
-  flex: 1 1 40%;
 }
-  
-  
-  .heroWrapper {
-  position: relative;
-  width: 100vw;
-  }
-  
-  .imageWrapper {
-  position: relative;
-  z-index: -1;
-  background-color:rgb(10 10 10 / 83%);
-  }
-  
-  .imageHero {
-  color: transparent;
-  position: relative;
-  width: 100%;
-  inset: 0px;
-  opacity: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  
-  }
-  
-  .heroContent {
-  left: 0;
-  top: 0;
-  height: 100%;
-  /* position: absolute; */
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  }
-  
-  .wrapper {
-    margin-top: 10vh;
-    display: flex;
-    /* justify-content: space-around */
-  }
-  .wrapper span {
-    border-right: 1px solid black;
-  }
-  
-  
-  @media only screen and (max-width: 600px) {
-    .logoIndigo {
-      height: 10rem;
-      width: auto;
-    }
-    .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 20px;
-    }
-  }
-  

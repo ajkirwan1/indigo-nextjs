@@ -31,3 +31,29 @@
   text-decoration: none;
   color: #505050;
 }
+
+/* .linkWrapper {
+} */
+
+.linkWrapper a img,
+.linkWrapper a button {
+  transition: 0.3s;
+}
+.linkWrapper a:hover button + img {
+  transform: translateX(10px);
+}
+.linkWrapper a:hover button {
+  transform: translateX(-5px);
+}
+
+@media only screen and (min-width: 1800px) {
+  .button {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .button {
+    font-size: 0.7rem;
+  }
+}

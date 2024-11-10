@@ -1,143 +1,61 @@
-/* .section1 img {
-    max-width: 40%;
-  } */
-  
-  .image {
-    max-width: 100%;
-    height: auto;
-  }
-  .imageButton {
-    display: flex;
-    gap: 5vh;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  .icon {
-    height: 20vh;
-    margin-bottom: 8vh;
-    box-shadow: 0.5px 0.5px;
-    background-color: #5c663f14;
-  }
-  
-  .section3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: 2px;
-    line-height: 2rem;
-  }
-  
-  .section4 img {
-    max-width: 40%;
-    height: auto;
-  }
-  .sectionContainer {
-    display: flex;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-  }
+/* .image {
+  max-width: 100%;
+  height: auto;
+} */
+.imageButton {
+  display: flex;
+  gap: 5vh;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 
-  .sectionContainerReverse {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-  }
+.buttonParagraphWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .sectionContainer h2{
-font-weight: 400;
-  }
-  
-  .paragraphWrapper {
-    display: flex;
-    flex: 1 1 60%;
-    gap:4vh;
-    flex-direction: column;
-    text-align: start;
-    justify-content: space-evenly;
-    letter-spacing: 2px;
-    line-height: 2rem;
-    padding-right: 5vw;
-  }
+.sectionContainer {
+  display: flex;
+  margin-top: 18vh;
+  margin-bottom: 18vh;
+}
 
+.sectionContainerReverse {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
 
-  .paragraphWrapperReverse {
-    display: flex;
-    flex-direction: column;
-    text-align: end;
-    justify-content: space-evenly;
-    letter-spacing: 2px;
-    line-height: 2rem;
-    padding-left: 5vw;
-  }
-  
-  .paragraphWrapperRight {
-    display: flex;
-    flex-direction: column;
-    text-align: end;
-    justify-content: space-evenly;
-    align-items: flex-end;
-    letter-spacing: 2px;
-    line-height: 2rem;
-    padding-left: 5vw;
-  }
-  
-  .paragraphWrapperCentre {
-    display: flex;
-    /* margin-top: 5vh; */
-    flex-direction: column;
-    letter-spacing: 2px;
-    line-height: 2rem;
-    align-items: center;
-    gap: 2vh;
-    margin-top: 10vh;
-  }
-  
-  .paragraphWrapperCentre p {
-    flex: 33% 1 1;
-  }
-  
-  .WhatWeDoTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10vh;
-  }
-  
-  .TheIndigoAdvantageSection {
-    display: flex;
-    flex-direction: row;
-    gap: 10vh;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  
-  .leftArrowSvg {
-    height: 50px;
-  }
-  .dark {
-    color: #505050 !important;
-  }
-  
-  .dark button {
-    color: unset;
-  }
-  .dark a {
-    color: unset;
-  }
+.paragraphWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  gap: 2vh;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  padding-right: 5vw;
+}
 
-  .subHeader {
-    display: flex;
-  } 
-  
-  .buttonContainer {
-    display: flex;
-    justify-content: flex-start
-  }
-  .buttonContainer a img,
+.paragraphWrapperReverse {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  justify-content: space-evenly;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  padding-left: 5vw;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+/* .buttonContainer a img,
 .buttonContainer a button {
   transition: 0.3s;
 }
@@ -146,4 +64,29 @@ font-weight: 400;
 }
 .buttonContainer a:hover button {
   transform: translateX(-5px);
+} */
+
+.smallImage {
+  width: 500px;
+  height: auto;
+}
+
+@media only screen and (min-width: 1800px) {
+  .image {
+    max-width: 700px;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .image {
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .image {
+    max-width: 400px;
+    height: auto;
+  }
 }

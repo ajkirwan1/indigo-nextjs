@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "docker": "docker compose up",
-    "knex:init" : "npm run db:migrate && npm run db:seed",
+    "knex:init": "npm run db:migrate && npm run db:seed",
     "dev": "next dev",
     "init": "npm run knex:init && npm run dev",
     "build": "next build",
@@ -15,12 +15,12 @@
     "db:migrate:undo": "knex migrate:down",
     "db:seed": "knex seed:run seed_user",
     "db:migrate:make": "knex migrate:make",
-    "vercel-build": "next build"
+    "vercel-build": "npx prisma generate && npm run knex:init && next build"
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^4.0.1",
     "@node-rs/argon2": "^1.8.3",
-    "@prisma/client": "^5.21.0",
+    "@prisma/client": "^5.22.0",
     "@types/react": "^18.3.5",
     "dotenv": "^16.4.5",
     "file-loader": "^6.2.0",
@@ -29,6 +29,7 @@
     "lucia": "^3.2.0",
     "lucide-react": "^0.438.0",
     "next": "14.2.7",
+    "nodemailer": "^6.9.15",
     "pg": "^8.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -42,6 +43,6 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
-    "prisma": "^5.21.0"
+    "prisma": "^5.22.0"
   }
 }

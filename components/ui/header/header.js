@@ -19,9 +19,10 @@ export default function Header({ className }) {
     useContext(LayoutContext);
 
   const { user } = useSession();
+  // console.log("HEADER", user)
 
   useEffect(() => {
-    document.body.style.overflow = "scroll";
+    // document.body.style.overflow = "scroll";
     if (window.innerWidth > 767) {
       handleLayoutChange(false);
     } else if (window.innerWidth < 767) {
@@ -57,7 +58,7 @@ export default function Header({ className }) {
           </NavLink>
           {!showMobileNavMenu ? (
             <DesktopNav
-              data={user?.adminUser ? adminNavigationData : navigationData}
+              data={user?.adminaccess == 2 ? adminNavigationData : navigationData}
             ></DesktopNav>
           ) : (
             <MobileMenuIcon />

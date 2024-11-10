@@ -1,15 +1,16 @@
 .image {
-max-width: 40%;
-height: auto;
+  max-width: 700px;
+  height: auto;
+  /* padding-left: 40px; */
 }
 
 .sectionContainer {
-display: flex;
-justify-content: space-between;
-margin-top: 10vh;
-margin-bottom: 10vh;
-padding-left: 5vw;
-padding-right: 5vw;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .sectionContainerLeft {
@@ -20,49 +21,57 @@ padding-right: 5vw;
   margin-bottom: 10vh;
   padding-left: 5vw;
   padding-right: 5vw;
-  }
+}
 
-  .sectionContainerLeft .paragraphWrapper {
-    text-align: end;
-    padding-right: 0;
-  }
-
-  .sectionContainerLeft .image {
-    max-width: 30%;
-  }
-
+.sectionContainerLeft .paragraphWrapper {
+  text-align: end;
+  padding-right: 0;
+}
 
 .flexWrapper {
   display: flex;
 }
 
-
 .paragraphWrapper {
-display: flex;
-flex-direction: column;
-text-align: start;
-justify-content: space-evenly;
-letter-spacing: 2px;
-line-height: 2rem;
-padding-right: 5vw;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: space-evenly;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  padding-right: 5vw;
 }
 
-.paragraphWrapper a{
+.paragraphWrapper a {
   color: unset;
   font-size: 20px;
   text-decoration: none;
   font-weight: 300;
+}
+
+.paragraphWrapper h2::after {
+  content: "↗";
+  margin-left: 20px;
+  font-size: 25px;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.paragraphWrapper h2:hover:after {
+  transform: translateX(10px) translateY(-5px);
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .image {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .sectionContainer {
+    display: none;
   }
 
-  .paragraphWrapper h2::after{
-    content: "↗";
-    margin-left: 20px;
-    font-size: 25px;
-    transition: 0.3s;
-    display: inline-block;
-    }
-
-    .paragraphWrapper h2:hover:after{
-      transform: translateX(10px) translateY(-5px);
-      }
-
+  .sectionContainerLeft {
+    display: none;
+  }
+}
