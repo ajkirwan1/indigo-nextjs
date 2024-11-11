@@ -11,6 +11,7 @@
   border-radius: 5px;
   background-color: rgba(37, 36, 36, 0.022);
   cursor: pointer;
+  filter: drop-shadow(0 0 2rem rgba(174, 237, 237, 0.606));
 }
 
 .propertyItem:hover .messageContainer {
