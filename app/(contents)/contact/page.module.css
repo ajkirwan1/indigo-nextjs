@@ -47,7 +47,7 @@
 }
 .phoneAndEmail {
   margin-top: 12vh;
-  line-height: 2.5vw;
+  line-height: 2vw;
 }
 
 @media only screen and (max-width: 600px) {

@@ -21,6 +21,9 @@ html {
   padding: 0;
   --webkit-text-size-adjust: 12px;
 }
+/* input:focus {
+  background-color: aqua;
+} */
 
 h1,
 h2 {
@@ -138,7 +141,7 @@ input[type="text"] {
   border: 1px solid;
   height: 2rem;
   width: 100%;
-  background-color: #d5dfe1;
+  background-color: #ffffffc7;
   color: #505050;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -150,7 +153,7 @@ input[type="email"] {
   border: 1px solid;
   height: 2rem;
   width: 100%;
-  background-color: #d5dfe1;
+  background-color: #ffffffc7;
   color: #505050;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -161,7 +164,7 @@ textarea {
   font: inherit;
   border: 1px solid;
   width: 100%;
-  background-color: #d5dfe1;
+  background-color: #ffffffc7;
   color: #505050;
   border-radius: 4px;
   resize: none;

@@ -1,7 +1,9 @@
 .button {
   background: none;
   display: flex;
-  color: inherit;
+  border-radius: 10px;
+  background-color: #68a2aeb0;
+  color: aliceblue;
   padding: 0;
   font: inherit;
   cursor: pointer;
@@ -14,8 +16,8 @@
 }
 
 .button:hover {
-  border: 2px solid #505050;
-  background-color: #48474721;
+  border: 1px solid #505050;
+  background-color: #68a2ae;
 }
 
 .arrow {
