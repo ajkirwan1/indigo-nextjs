@@ -3,11 +3,13 @@
 import Header from "@/components/ui/header/header";
 import classes from "./hero-component.module.css";
 import Image from "next/image";
+import Footer from "../ui/footer";
 
 export default function HeroComponent({
   heroImage,
   altText,
   header,
+  footer,
   children,
 }) {
   return (
@@ -25,6 +27,11 @@ export default function HeroComponent({
         <div className={classes.formContainerOuterWrapper}>
           {header ? <Header className={classes.heroHeader} /> : null}
           {children}
+          {footer ? (
+            <div className={classes.footerWrapper}>
+              <Footer />
+            </div>
+          ) : null}
         </div>
       </div>
     </>

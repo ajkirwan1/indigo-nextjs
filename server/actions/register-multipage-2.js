@@ -9,86 +9,6 @@ import { redirect } from "next/navigation";
 
 import db from "@/modules/db";
 
-async function validateCredentials(userName, email, password, passwordConfirm) {
-  let errors = [];
-
-  const existingUuser = await db.user.findFirst({
-    where: { username: userName },
-  });
-
-  const existingEmail = await db.user.findFirst({
-    where: { email: email },
-  });
-
-  if (existingUuser) {
-    errors.push("Username already exists");
-  }
-
-  if (
-    typeof userName !== "string" ||
-    userName.length < 3 ||
-    userName.length > 31
-  ) {
-    errors.push("Invalid username");
-  }
-
-  if (password != passwordConfirm) {
-    errors.push("Passwords do not match");
-  }
-
-  if (
-    typeof password !== "string" ||
-    password.length < 6 ||
-    password.length > 255
-  ) {
-    errors.push("Invalid Password");
-  }
-
-  if (existingEmail) {
-    errors.push("Email already exists");
-  }
-
-  if (typeof email !== "string" || email.length < 6 || email.length > 255) {
-    errors.push("Invalid email address");
-  }
-
-  return { errors };
-}
-
-function validateRegistration(firstName, lastName, companyName, phoneNumber) {
-  let errors = [];
-  if (
-    typeof firstName !== "string" ||
-    firstName.length < 3 ||
-    firstName.length > 31
-  ) {
-    errors.push("Invalid first name");
-  }
-  if (
-    typeof lastName !== "string" ||
-    lastName.length < 3 ||
-    lastName.length > 31
-  ) {
-    errors.push("Invalid last name");
-  }
-  if (
-    typeof companyName !== "string" ||
-    companyName.length < 3 ||
-    companyName.length > 31
-  ) {
-    errors.push("Invalid company name");
-  }
-
-  if (
-    typeof phoneNumber !== "string" ||
-    phoneNumber.length < 3 ||
-    phoneNumber.length > 31
-  ) {
-    errors.push("Invalid phone number");
-  }
-
-  return { errors };
-}
 
 function getBuyerType(realEstateBuyer, privateBuyer) {
   let buyerType;
@@ -189,52 +109,33 @@ function getInvestmentHistory(yes, no) {
   return history;
 }
 
-export async function RegisterAction(_, formData) {
-  const userName = formData.get("userName");
-  const email = formData.get("email");
-  const password = formData.get("password");
-  const passwordConfirm = formData.get("passwordConfirm");
-  const firstName = formData.get("firstName");
-  const lastName = formData.get("lastName");
-  const companyName = formData.get("companyName");
-  const phoneNumber = formData.get("phoneNumber");
-  const privateBuyer = formData.get("privateBuyer");
-  const realEstateBuyer = formData.get("realEstateBuyer");
-  const locationGreece = formData.get("locationGreece");
-  const locationOther = formData.get("locationOther");
-  const sixMonths = formData.get("sixMonths");
-  const sixToTwelveMonths = formData.get("sixToTwelveMonths");
-  const twelveMonths = formData.get("twelveMonths");
-  const residential = formData.get("residential");
-  const commercial = formData.get("commercial");
-  const land = formData.get("land");
-  const small = formData.get("50");
-  const medium = formData.get("50-100");
-  const large = formData.get("100-150");
-  const xlarge = formData.get("150+");
-  const yes = formData.get("yes");
-  const no = formData.get("no");
+export async function NewRegisterAction2(initialState, formData) {
+  // const userName = initialState["userName"]
+  // const email = initialState["email"]
+  // const password = initialState["password"]
+  // const passwordConfirm = initialState["passwordConfirm"]
+  // const firstName = initialState["firstName"]
+  // const lastName = initialState["lastName"]
+  // const companyName = initialState["companyName"]
+  // const phoneNumber = initialState["phoneNumber"]
 
-  // const validatedCredentials = await validateCredentials(
-  //   userName,
-  //   email,
-  //   password,
-  //   passwordConfirm
-  // );
-  // if (validatedCredentials.errors.length > 0) {
-  //   return validatedCredentials;
-  // }
 
-  // const validatedRegistration = validateRegistration(
-  //   firstName,
-  //   lastName,
-  //   companyName,
-  //   phoneNumber
-  // );
-
-  // if (validatedRegistration.errors.length > 0) {
-  //   return validatedRegistration;
-  // }
+  // const privateBuyer = formData.get("privateBuyer");
+  // const realEstateBuyer = formData.get("realEstateBuyer");
+  // const locationGreece = formData.get("locationGreece");
+  // const locationOther = formData.get("locationOther");
+  // const sixMonths = formData.get("sixMonths");
+  // const sixToTwelveMonths = formData.get("sixToTwelveMonths");
+  // const twelveMonths = formData.get("twelveMonths");
+  // const residential = formData.get("residential");
+  // const commercial = formData.get("commercial");
+  // const land = formData.get("land");
+  // const small = formData.get("50");
+  // const medium = formData.get("50-100");
+  // const large = formData.get("100-150");
+  // const xlarge = formData.get("150+");
+  // const yes = formData.get("yes");
+  // const no = formData.get("no");
 
   // const buyerType = getBuyerType(realEstateBuyer, privateBuyer);
 
@@ -300,4 +201,6 @@ export async function RegisterAction(_, formData) {
   //   sessionCookie.attributes
   // );
   // return redirect("/register/pending-auth");
+
+  // return { confirmed: true };
 }

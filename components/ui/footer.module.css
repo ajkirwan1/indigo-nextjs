@@ -1,6 +1,7 @@
 .footer {
-  height: 15vh;
+  height: 10vh;
   background-color: #d5dfe1;
+  width: 100vw;
 }
 
 .footer ul {
