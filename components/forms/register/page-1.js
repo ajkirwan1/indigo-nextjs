@@ -33,8 +33,8 @@ export default function RegisterFormPage1({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image src={userIcon} alt="alt" />
-        <h2>1 of 4</h2>
+        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <h2>1/4</h2>
       </div>
       <form className={classes.registerForm1}>
         <div className={classes.formItemContainer}>
@@ -77,8 +77,7 @@ export default function RegisterFormPage1({
             onChange={handleChange}
           />
         </div>
-        <div className={classes.buttonContainer}>
-        </div>
+        <div className={classes.buttonContainer}></div>
       </form>
       <div className={classes.buttonWrapper}>
         <RegistrationButton
@@ -92,7 +91,7 @@ export default function RegisterFormPage1({
           }
           onClick={handleNext}
         >
-          Next
+          NEXT
         </RegistrationButton>
       </div>
       {errors && (

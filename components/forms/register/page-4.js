@@ -57,16 +57,15 @@ export default function RegisterFormPage4({
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    RegisterMultiPage(data) ;
-  }
-
+    RegisterMultiPage(data);
+  };
 
   return (
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image src={userIcon} alt="alt" />
-        <h2>4 of 4</h2>
+        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <h2>4/4</h2>
       </div>
       <form className={classes.registerForm3} action={formAction}>
         <label>Estimated investment interest - 1,000s €</label>
@@ -131,11 +130,14 @@ export default function RegisterFormPage4({
           </div>
         </div>
       </form>
-      <RegistrationButton onClick={handlePreviousTab}>
-        Previous
-      </RegistrationButton>
-      <RegistrationButton onClick={() => RegisterMultiPage(data)}>Submit</RegistrationButton>
-
+      <div className={classes.buttonWrapper}>
+        <RegistrationButton onClick={handlePreviousTab}>
+          PREVIOUS
+        </RegistrationButton>
+        <RegistrationButton onClick={() => RegisterMultiPage(data)}>
+          SUBMIT
+        </RegistrationButton>
+      </div>
       {/* <div className={classes.submitButtonContainer}>
           <FormSubmit />
         </div>
