@@ -1,27 +1,31 @@
 .admin {
-    width: 100%;
+  width: 100%;
+  margin-top: 8vh;
 }
 
 .admin thead {
-    font-size: 24px;
+  font-size: 24px;
+  background-color: rgba(89, 13, 104, 0.433);
 }
 
 .admin tbody {
-    font-size: 18px;
+  font-size: 15px;
 }
 
 .admin td {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid #505050;
+  /* font-size: 15px; */
+  font-weight: 300;
 }
 
 .admin tr {
-    height: 12vh;
+  height: 8vh;
 }
 
 .admin tbody tr:hover {
-    background-color: azure;
+  background-color: rgba(231, 236, 129, 0.639);
 }
 
 .admin .pending {
-    background-color: #f5cdb4;;
+  background-color: #f5cdb469;
 }
