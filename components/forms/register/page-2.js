@@ -24,9 +24,9 @@ export default function RegisterFormPage2({
       data.phoneNumber
     );
     if (result.errors.length > 0) {
-      setErrors([...result.errors])
+      setErrors([...result.errors]);
     } else {
-      handleNextTab()
+      handleNextTab();
     }
   };
 
@@ -34,8 +34,8 @@ export default function RegisterFormPage2({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image src={userIcon} alt="alt" />
-        <h2>2 of 4</h2>
+        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <h2>2/4</h2>
       </div>
       <form className={classes.registerForm1}>
         <div className={classes.formItemContainer}>
@@ -66,7 +66,7 @@ export default function RegisterFormPage2({
           />
         </div>
         <div className={classes.formItemContainer}>
-          <label>Phone number</label>
+          <label>Phone number:</label>
           <input
             type="text"
             name="phoneNumber"
@@ -90,9 +90,9 @@ export default function RegisterFormPage2({
       </form>
       <div className={classes.buttonWrapper}>
         <RegistrationButton onClick={handlePreviousTab}>
-          Previous
+          PREVIOUS
         </RegistrationButton>
-        <RegistrationButton onClick={handleNext}>Next</RegistrationButton>
+        <RegistrationButton onClick={handleNext}>NEXT</RegistrationButton>
       </div>
       {errors && (
         <ul>

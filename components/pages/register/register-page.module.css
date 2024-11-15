@@ -6,11 +6,11 @@
   border-radius: 10px;
   background-color: #ffffffcc;
   position: relative;
-  width: 40vw;
-  min-height: 50vh;
+  width: 25vw;
+  min-height: 40vh;
   box-shadow: 1px 1px 1px;
-  }
+}
 
 .large {
-  width: 70vw;
+  width: 50vw;
 }
