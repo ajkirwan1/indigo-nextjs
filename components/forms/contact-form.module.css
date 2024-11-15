@@ -148,8 +148,8 @@
 }
 .contactIcon {
   height: auto;
-  width: 50px;
-  opacity: 0.3;
+  width: 40px;
+  opacity: 0.2;
 }
 @media only screen and (max-width: 600px) {
   .logoIndigo {

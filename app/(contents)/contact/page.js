@@ -2,6 +2,8 @@
 import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
+import Image from "next/image";
+import phoneIcon from "/public/images/icons/phone.png";
 
 export default function ContactUsPage() {
   return (
@@ -23,6 +25,7 @@ export default function ContactUsPage() {
         <span></span>
         <div className={classes.letsTalk}>
           <h1>LET&apos;S TALK</h1>
+          <Image alt="icon" src={phoneIcon} className={classes.phoneIcon} />
           <div className={classes.phoneAndEmail}>
             <h1>T:+30 210 12 34 567</h1>
             <h1>E: INFO@INDIGO.GR</h1>

@@ -155,7 +155,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  height: 50vh;
+  height: 95vh;
 }
 
 .iconContainer {
@@ -168,9 +168,9 @@
 }
 
 .heroInnerContents h1 {
-  line-height: 6.5vh;
+  line-height: 7vh;
   margin: 5vh;
-  font-size: 3rem;
+  font-size: 3.5rem;
   opacity: 0.5;
   font-weight: 100;
 }
@@ -192,7 +192,7 @@
   bottom: 0;
 }
 .properties {
-  height: 8vh;
+  height: 6vh;
   width: auto;
 }
 

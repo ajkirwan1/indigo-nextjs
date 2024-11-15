@@ -5,13 +5,14 @@ import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
 import PrepareAdminClientData from "@/utils/admin-table-data";
 import { FindAllUsers } from "@/server/actions/find-all-users";
+import classes from "./page.module.css";
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
-  console.log("ADMIN USER", user)
+  console.log("ADMIN USER", user);
 
   if (!user) {
-    redirect("/")
+    redirect("/");
   }
   if (user?.adminaccess != 2) {
     redirect("/");
@@ -19,28 +20,26 @@ export default async function AdminPage() {
 
   let theadData, tbodyData;
 
-
   try {
     // const response = await fetch("http://localhost:3000/api/users");
     // const data = await response.json();
 
-    const resp = await FindAllUsers()
+    const resp = await FindAllUsers();
 
     // console.log("DATA", data)
-    console.log("RESPONSE", resp)
+    console.log("RESPONSE", resp);
 
-    const {headerData, bodyData} = PrepareAdminClientData(resp)
-    theadData = [...headerData]
-    tbodyData = [...bodyData]
-    
+    const { headerData, bodyData } = PrepareAdminClientData(resp);
+    theadData = [...headerData];
+    tbodyData = [...bodyData];
   } catch (error) {
-      throw new Error("Data collection failed", error)
+    throw new Error("Data collection failed", error);
   }
 
   return (
-    <>
-      <h1>List of registered users</h1>
+    <div className={classes.tableContainer}>
+      <h1>LIST OF REGISTERED USERS</h1>
       <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
-    </>
+    </div>
   );
 }

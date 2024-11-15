@@ -27,13 +27,20 @@ const container = {
       staggerChildren: 1,
       delayChildren: 0.5,
       delay: 0.5,
+      bounce: 0,
     },
   },
 };
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 0.7, y: 0 },
+  show: {
+    opacity: 0.7,
+    y: 0,
+    transition: {
+      bounce: 0,
+    },
+  },
 };
 
 const componentArray = [
@@ -63,18 +70,21 @@ const componentArray = [
     <HeroComponent heroImage={swimmingImage} altText="Alt text">
       <div className={classes.heroContents}>
         <motion.div
+          layout
           variants={container}
           initial="hidden"
           whileInView="show"
           className={classes.heroInnerContents}
         >
-          <motion.h1 variants={item}>OUR SERVICES</motion.h1>
+          <motion.h1 layout variants={item}>
+            OUR SERVICES
+          </motion.h1>
           <div>
-            <motion.div className={classes.separator} variants={item}>
+            <motion.div layout className={classes.separator} variants={item}>
               <h2>Development Consultancy</h2>
               <Image alt="icon" src={circle} className={classes.circleIcon} />
             </motion.div>
-            <motion.div className={classes.separator} variants={item}>
+            <motion.div layout className={classes.separator} variants={item}>
               <h2>Development Opportunities Sourcing</h2>
               <Image alt="icon" src={circle} className={classes.circleIcon} />
             </motion.div>

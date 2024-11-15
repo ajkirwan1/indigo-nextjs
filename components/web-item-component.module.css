@@ -21,6 +21,7 @@
   display: flex;
   margin-top: 18vh;
   margin-bottom: 18vh;
+  justify-content: space-between;
 }
 
 .sectionContainerReverse {
@@ -39,6 +40,7 @@
   letter-spacing: 2px;
   line-height: 2rem;
   padding-right: 5vw;
+  max-width: 1000px;
 }
 
 .paragraphWrapperReverse {
