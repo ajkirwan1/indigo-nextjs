@@ -21,14 +21,15 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background-color: #800020e2;
+  background-color: #7b0d1e;
   font-weight: 200;
 }
 
 .wrapper:hover {
   cursor: pointer;
-  background-color: #800020e2;
+  background-color: #da627d;
   color: rgb(40, 40, 40);
+  color: rgb(251, 253, 254);
 }
 .link {
   text-decoration: none;

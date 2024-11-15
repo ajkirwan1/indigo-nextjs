@@ -14,8 +14,9 @@
 }
 
 .pageWrapper p {
-  width: 40vw;
-  line-height: 2.5rem;
+  width: 35vw;
+  line-height: 3.5rem;
+  font-style: italic;
 }
 
 .phoneIcon {
@@ -48,6 +49,7 @@
 .phoneAndEmail {
   margin-top: 12vh;
   line-height: 2vw;
+  font-size: 10px;
 }
 
 @media only screen and (max-width: 600px) {
