@@ -2,11 +2,11 @@
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
 import { useSession } from "@/contexts/session-context";
+import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
-
-  const {user} = useSession()
+  const { user } = useSession();
 
   let data;
   if (user) {
@@ -17,6 +17,10 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
     data = submenus.filter((item) => {
       return item.title !== "Logout";
     });
+  }
+
+  const handleLogout = () => {
+    Logout();
   }
 
   return (
@@ -30,12 +34,16 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
           key={index}
           className={classes.menuItems}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}        
-          transition={{ duration: 1}}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          <NavLink href={submenu.url}>
-            {submenu.title}
-          </NavLink>
+          {
+            (submenu.title == "Logout" ? (
+              <button onClick={handleLogout}>Logout</button>
+            ) : (
+              <NavLink href={submenu.url}>{submenu.title}</NavLink>
+            ))
+          }
         </motion.li>
       ))}
     </ul>
