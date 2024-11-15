@@ -9,7 +9,7 @@ export default function AddProperty() {
   // const [state, formAction] = useFormState(_, { message: null });
   return (
     <>
-      <h1>Add a property</h1>
+      <h1>ADD PROPERTY</h1>
 
       <form className={classes.form}>
         <p>
@@ -40,8 +40,8 @@ export default function AddProperty() {
             required
           ></textarea>
         </p>
-         <ImagePicker label="Image" name="image" />
-           {/* {state.message && <p>{state.message}</p>} */}
+        <ImagePicker label="Image" name="image" />
+        {/* {state.message && <p>{state.message}</p>} */}
         <p className={classes.actions}>
           {/* <MealsFormSubmit /> */}
           {/* <button type="submit">Share Meal</button> */}
