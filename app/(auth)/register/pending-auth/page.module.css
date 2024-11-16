@@ -43,7 +43,6 @@
   display: flex;
 }
 
-
 .hero:after {
   content: "";
   position: absolute;
@@ -71,7 +70,7 @@
 .formcontainer {
   margin-top: 10vh;
   border-radius: 10px;
-  background-color:#ffffffcc;
+  background-color: #ffffffcc;
   position: relative;
   width: 50vw;
   line-height: 2rem;
@@ -108,43 +107,37 @@
   height: 50px;
 }
 
-
 .heroWrapper {
-position: relative;
-width: 100vw;
+  position: relative;
+  width: 100vw;
 }
 
 .imageWrapper {
-position: relative;
-z-index: -1;
-background-color:rgb(10 10 10 / 83%);
+  position: relative;
+  z-index: -1;
+  background-color: rgb(10 10 10 / 83%);
 }
 
 .imageHero {
-color: transparent;
-position: relative;
-height: 90vh;
-width: 100%;
-inset: 0px;
-opacity: 50%;
-background-size: cover;
-background-repeat: no-repeat;
-
+  color: transparent;
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  inset: 0px;
+  opacity: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .heroContent {
-left: 0;
-top: 0;
-height: 100%;
-/* position: absolute; */
-display: flex;
-/* flex-direction: column; */
-align-items: center;
+  left: 0;
+  top: 0;
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
 }
-
-
-
-
 
 @media only screen and (max-width: 600px) {
   .logoIndigo {
