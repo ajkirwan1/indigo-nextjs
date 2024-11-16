@@ -7,8 +7,10 @@ import { validateRequest } from "/auth/lucia";
 import { getProperties } from "@/server/actions/db/properties";
 import classes from "./page.module.css";
 import { headers } from "next/headers";
+import { Spinner } from "@nextui-org/spinner";
 
 async function Properties({ userId }) {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const properties = await getProperties(userId);
   return <PropertyList properties={properties} />;
 }
