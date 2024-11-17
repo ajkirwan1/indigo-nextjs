@@ -200,6 +200,8 @@ main {
   /* height: 100px;
   width: 100px; */
 }
+.skeleton {
+}
 
 @media only screen and (min-width: 1800px) {
   section h1 {

@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 import { useRouter } from "next/navigation";
-import classes from "./table.module.css"
+import classes from "./table.module.css";
 import React from "react";
 
 export default function TableRow({ data, id }) {

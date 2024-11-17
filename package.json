@@ -18,8 +18,13 @@
     "vercel-build": "npx prisma generate && npm run knex:init && next build"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@fontsource/roboto": "^5.1.0",
     "@lucia-auth/adapter-prisma": "^4.0.1",
+    "@mui/material": "^6.1.7",
     "@nextui-org/react": "^2.4.8",
+    "@nextui-org/skeleton": "^2.0.32",
     "@nextui-org/spinner": "^2.0.34",
     "@node-rs/argon2": "^1.8.3",
     "@prisma/client": "^5.22.0",

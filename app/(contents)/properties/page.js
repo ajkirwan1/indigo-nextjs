@@ -10,7 +10,7 @@ import { headers } from "next/headers";
 import { Spinner } from "@nextui-org/spinner";
 
 async function Properties({ userId }) {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const properties = await getProperties(userId);
   return <PropertyList properties={properties} />;
 }
