@@ -12,6 +12,7 @@ export default function NavigationItems({ items }) {
         {items.submenu ? (
           <>
             <button
+            className={classes.button}
               type="button"
               aria-haspopup="menu"
                 aria-expanded={dropdown ? "true" : "false"}

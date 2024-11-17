@@ -41,7 +41,8 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
             (submenu.title == "Logout" ? (
               <button onClick={handleLogout}>Logout</button>
             ) : (
-              <NavLink href={submenu.url}>{submenu.title}</NavLink>
+              <NavLink href={submenu.url}>
+                 {submenu.title}</NavLink>
             ))
           }
         </motion.li>
