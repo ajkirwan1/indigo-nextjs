@@ -16,20 +16,32 @@
 }
 
 .admin td {
-  /* font-size: 15px; */
   font-weight: 300;
+}
+.head td {
   padding-left: 12px;
 }
 
 .admin tr {
   height: 8vh;
 }
-
-.admin tbody tr:hover {
-  background-color: rgba(231, 236, 129, 0.397);
-  cursor: pointer;
-}
-
 .admin .pending {
   background-color: #f5cdb469;
+}
+.fallbackTr {
+  column-span: 5;
+  padding: 0;
+}
+.skeleton {
+  background-color: #80008074;
+  height: 3vh;
+  border-radius: 10px;
+  width: 98%;
+}
+
+.skeletonHead {
+  background-color: rgba(89, 13, 104, 0.801);
+  height: 4vh;
+  border-radius: 10px;
+  width: 100%;
 }

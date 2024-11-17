@@ -15,49 +15,78 @@ export default function TableFallback({ theadData, tbodyData, customClass }) {
   return (
     <>
       <table className={classes.admin}>
-        <thead>
+        <thead className={classes.head}>
           <tr>
-            <td title={1}>PENDING</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Property access</td>
+            <td>Consulting access</td>
+            <td>Date of request</td>
           </tr>
         </thead>
         <tbody>
-          {/* {tbodyData.map((item) => {
-            return (
-              <TableRow id={item.userId} key={item.userId} data={item.items} />
-            );
-          })} */}
           <tr>
-            <td>
-              {/* <Skeleton
-                // color={commonColors.black}
-                className="h-40 w-3/5 rounded-lg"
-              ></Skeleton> */}
+            <td colSpan={5} className={classes.fallbackTr} align="center">
               <Skeleton
-                sx={{ bgcolor: "grey.400" }}
-                animation="wave"
+                className={classes.skeleton}
+                animation="pulse"
                 variant="rectangular"
-                // width={700}
-                // height={400}
-              />
+              ></Skeleton>
             </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
           <tr>
-            <td>Pending</td>
+            <td colSpan={5} className={classes.fallbackTr} align="center">
+              <Skeleton
+                className={classes.skeleton}
+                animation="pulse"
+                variant="rectangular"
+              ></Skeleton>
+            </td>
           </tr>
         </tbody>
       </table>
