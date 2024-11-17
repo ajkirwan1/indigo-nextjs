@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
+
 #root {
   text-align: center;
   background-color: #faefe8;
@@ -187,6 +191,16 @@ main {
   padding: 5vh;
   padding-left: 4.5vw;
   padding-right: 4.5vw;
+}
+
+.properties-loading-layout {
+  min-height: 90vh;
+}
+.spinner {
+  /* height: 100px;
+  width: 100px; */
+}
+.skeleton {
 }
 
 @media only screen and (min-width: 1800px) {

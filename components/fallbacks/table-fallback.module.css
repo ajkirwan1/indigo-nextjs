@@ -1,0 +1,47 @@
+.admin {
+  width: 100%;
+  margin-top: 10vh;
+  box-shadow: 2px 2px 15px rgb(89 13 104 / 27%);
+}
+
+.admin thead {
+  font-size: 24px;
+  background-color: rgba(89, 13, 104, 0.433);
+  color: aliceblue;
+}
+
+.admin tbody {
+  font-size: 15px;
+  background-color: #80008014;
+}
+
+.admin td {
+  font-weight: 300;
+}
+.head td {
+  padding-left: 12px;
+}
+
+.admin tr {
+  height: 8vh;
+}
+.admin .pending {
+  background-color: #f5cdb469;
+}
+.fallbackTr {
+  column-span: 5;
+  padding: 0;
+}
+.skeleton {
+  background-color: #80008074;
+  height: 3vh;
+  border-radius: 10px;
+  width: 98%;
+}
+
+.skeletonHead {
+  background-color: rgba(89, 13, 104, 0.801);
+  height: 4vh;
+  border-radius: 10px;
+  width: 100%;
+}

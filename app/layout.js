@@ -1,7 +1,8 @@
 /** @format */
-import { Josefin_Sans } from 'next/font/google'
+import { Josefin_Sans } from "next/font/google";
 import { SessionProvider } from "@/contexts/session-context";
 import { LayoutProvider } from "@/contexts/layout-context";
+import { Providers } from "./providers.jsx";
 
 import "./globals.css";
 import { validateRequest } from "@/auth/lucia";
@@ -11,9 +12,9 @@ export const metadata = {
 };
 
 const inter = Josefin_Sans({
-  weight: ['100', '200', '300', '400'],
-  subsets: ['latin'],
-})
+  weight: ["100", "200", "300", "400"],
+  subsets: ["latin"],
+});
 
 export default async function RootLayout({ children }) {
   const session = await validateRequest();
@@ -21,7 +22,9 @@ export default async function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body>
         <LayoutProvider>
-          <SessionProvider value={session}>{children}</SessionProvider>
+          <SessionProvider value={session}>
+            <Providers>{children}</Providers>
+          </SessionProvider>
         </LayoutProvider>
       </body>
     </html>

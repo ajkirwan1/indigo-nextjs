@@ -16,7 +16,9 @@ export default function Table({ theadData, tbodyData, customClass }) {
         </thead>
         <tbody>
           {tbodyData.map((item) => {
-            return <TableRow id={item.userId} key={item.userId} data={item.items} />;
+            return (
+              <TableRow id={item.userId} key={item.userId} data={item.items} />
+            );
           })}
         </tbody>
       </table>
