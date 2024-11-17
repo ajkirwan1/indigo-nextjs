@@ -15,6 +15,7 @@ import HomepageCarousel from "@/components/homepage-carousel";
 import downArrow from "/public/images/pages/home/icons8-expand-arrow.png";
 import { motion } from "framer-motion";
 import NavLink from "@/components/nav-link";
+import Link from "next/link";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 
@@ -143,10 +144,11 @@ const componentArray = [
             YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
           </motion.h1>
           <motion.div className={classes.separator} variants={item}>
-            <NavLink href="/contact">
-              <motion.h2 variants={item}>LET&apos;S TALK</motion.h2>
+            {/* <NavLink href="/contact"> */}
+              <motion.h2 variants={item}>
+                LET&apos;S TALK</motion.h2>
+            {/* </NavLink > */}
               <Image alt="icon" src={envelope} className={classes.downArrow} />
-            </NavLink>
           </motion.div>
         </motion.div>
       </div>
