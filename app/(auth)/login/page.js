@@ -27,13 +27,12 @@ export default async function LoginPage() {
   return (
     <>
       <div className={classes.pageWrapper}>
-        <HeroComponent heroImage={heroImage} altText="Alt text" header>
+        <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
             <LoginForm redirection={redirection} action={Login}></LoginForm>
           </div>
         </HeroComponent>
       </div>
-      <Footer></Footer>
     </>
   );
 }

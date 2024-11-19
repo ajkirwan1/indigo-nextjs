@@ -2,6 +2,7 @@
 
 "use client";
 import { useFormState } from "react-dom";
+import { Spinner } from "@nextui-org/spinner";
 import { useState } from "react";
 import userIcon from "/public/images/icons/add-user.png";
 import Image from "next/image";
@@ -17,6 +18,7 @@ export default function RegisterFormPage4({
   handlePreviousInvest,
 }) {
   const [state, formAction] = useFormState(action, { data });
+  const [submitPending, setsubmitPending] = useState(false);
 
   const [investmentInterest, setinvestmentInterest] = useState([
     false,
@@ -55,11 +57,16 @@ export default function RegisterFormPage4({
     }
   };
 
-  const handleSubmitForm = (event) => {
-    event.preventDefault();
-    RegisterMultiPage(data);
+  const handleSubmitForm = () => {
+    setsubmitPending(true);
+    try {
+      RegisterMultiPage(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  let pending = false;
   return (
     <>
       <div className={classes.headerContainer}>
@@ -134,10 +141,16 @@ export default function RegisterFormPage4({
         <RegistrationButton onClick={handlePreviousTab}>
           PREVIOUS
         </RegistrationButton>
-        <RegistrationButton onClick={() => RegisterMultiPage(data)}>
+        <RegistrationButton onClick={() => handleSubmitForm()}>
           SUBMIT
         </RegistrationButton>
       </div>
+      {submitPending ? (
+        <div className={classes.spinner}>
+          <Spinner color="secondary" size="lg" />
+        </div>
+      ) : null}
+
       {/* <div className={classes.submitButtonContainer}>
           <FormSubmit />
         </div>

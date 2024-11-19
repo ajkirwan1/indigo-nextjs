@@ -15,7 +15,7 @@
 }
 
 .pageWrapper {
-  height: 85vh;
+  height: 100vh;
 }
 .heroHeader a {
   color: aliceblue;
@@ -86,12 +86,14 @@
 }
 
 .formcontainer {
-  /* margin-top: 10vh; */
   border-radius: 10px;
   background-color: #ffffffcc;
   position: relative;
   width: 600px;
   box-shadow: 1px 1px 1px;
+  margin: auto;
+  margin-top: 5vh;
+  letter-spacing: normal;
 }
 .logoIndigo {
   height: 12rem;

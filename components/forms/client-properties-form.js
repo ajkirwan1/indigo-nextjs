@@ -39,7 +39,6 @@ export default function ClientPropertiesForm({
     setClientState([...finalArray]);
   }, []);
 
-
   const handleUpdate = (event) => {
     setClientState(
       clientState.map((element) => {
