@@ -16,6 +16,9 @@ export async function Login(state, formData) {
   // console.log(passwords);
   // const sessions = await db.session.findMany();
   // console.log(sessions);
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const username = formData.get("username");
   const password = formData.get("password");
   let errors = [];
@@ -31,18 +34,19 @@ export async function Login(state, formData) {
     where: { userId: existingUser.id },
   });
   // console.log(userpasswords);
-  const validPassword = await new LegacyScrypt().verify(userpasswords.hashedPassword, password);
+  const validPassword = await new LegacyScrypt().verify(
+    userpasswords.hashedPassword,
+    password
+  );
   // console.log(validPassword)
   if (!validPassword) {
     errors.push("Invalid username or password");
     return { errors };
   }
   const userId = existingUser.id;
-  const session = await lucia.createSession(
-     userId
-  );
+  const session = await lucia.createSession(userId);
   const sessions = await db.session.findMany();
-  console.log(sessions)
+  console.log(sessions);
   const sessionCookie = lucia.createSessionCookie(session.id);
   console.log(sessionCookie.name, "Cookie name");
   cookies().set(
@@ -57,5 +61,4 @@ export async function Login(state, formData) {
     return redirect("/admin");
   }
   return redirect("/");
-
 }

@@ -7,6 +7,7 @@ import classes from "./page.module.css";
 import HeroComponent from "@/components/hero/hero-component";
 import { validateRequest } from "@/auth/lucia";
 import heroImage from "/public/images/croppednight.jpg";
+import Link from "next/link";
 
 export default async function RegisterPage() {
   const { user, session } = await validateRequest();
@@ -27,6 +28,7 @@ export default async function RegisterPage() {
               Your request to Indigo has been received, and we will contact you
               shortly via your email {userEmail}
             </p>
+            <Link href="/">Return to homepage</Link>
           </div>
         </HeroComponent>
       </div>

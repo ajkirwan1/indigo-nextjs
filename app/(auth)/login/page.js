@@ -8,6 +8,7 @@ import { headers } from "next/headers";
 import HeroComponent from "@/components/hero/hero-component";
 import heroImage from "/public/images/croppednight.jpg";
 import classes from "./page.module.css";
+import { Spinner } from "@nextui-org/spinner";
 
 export default async function LoginPage() {
   const headerList = headers();
@@ -30,6 +31,9 @@ export default async function LoginPage() {
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
             <LoginForm redirection={redirection} action={Login}></LoginForm>
+            {/* <div className={classes.spinner}>
+              <Spinner color="secondary" size="lg" />
+            </div> */}
           </div>
         </HeroComponent>
       </div>
