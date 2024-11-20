@@ -89,6 +89,10 @@
   border: none;
 }
 
+.spinner {
+  margin-bottom: 2vh;
+}
+
 .submitButtonContainer {
   margin: 5vh;
   display: flex;

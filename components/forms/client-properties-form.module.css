@@ -7,6 +7,7 @@
 }
 
 .userDetailsContainer {
+  padding: 18px;
   background-color: #80008014;
   border: 1px solid aliceblue;
   box-shadow: 2px 2px 15px rgb(89 13 104 / 27%);
@@ -16,11 +17,11 @@
 }
 
 .userDetailsContainer h1 {
-  font-weight: 400;
-  text-decoration: underline;
+  /* font-weight: 400;
+  text-decoration: underline; */
 }
 .userDetailsContainer h2 {
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 
 .listWrapper {
@@ -29,7 +30,8 @@
   /* gap: 5vw; */
 }
 .listWrapperinner {
-  flex: 1;
+  display: flex;
+  /* flex: 1; */
 }
 
 .listWrapper h2 {
@@ -41,14 +43,27 @@
 }
 
 .userDetailsContainer li {
-  line-height: 5vh;
+  /* line-height: 5vh; */
 }
 
 .userDetailsContainer {
   text-align: start;
   margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.userDetailsContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userDetailsContainer ul {
+  width: 100%;
+}
 .userDetailsContainer h1 {
   font-weight: 400;
   text-decoration: underline;
@@ -60,10 +75,10 @@
 .listWrapper {
   display: flex;
   align-items: center;
-  /* gap: 5vw; */
+  gap: 5vw;
 }
 .listWrapperinner {
-  flex: 1;
+  /* flex: 1; */
 }
 
 .listWrapper h2 {
@@ -75,7 +90,7 @@
 }
 
 .userDetailsContainer li {
-  line-height: 5vh;
+  /* line-height: 5vh; */
 }
 
 .checkboxContainer {

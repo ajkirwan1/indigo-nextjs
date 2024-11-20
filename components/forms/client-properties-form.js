@@ -97,10 +97,11 @@ export default function ClientPropertiesForm({
           </ul>
           <div className={classes.submitButtonContainer}>
             <FormSubmit />
-          </div>
-          <div className={classes.submitButtonContainer}>
             <button onClick={handleReset}>Reset</button>
           </div>
+          {/* <div className={classes.submitButtonContainer}> */}
+
+          {/* </div> */}
         </form>
       </div>
     </>

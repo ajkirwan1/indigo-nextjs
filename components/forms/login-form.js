@@ -2,20 +2,16 @@
 
 "use client";
 import { useFormState } from "react-dom";
-import indigoLogo from "/public/Indigo_Logo_Transparent.png";
+import { useFormStatus } from "react-dom";
 import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
-import Image from "next/image";
+import { Spinner } from "@nextui-org/spinner";
+import { useState } from "react";
 export default function LoginForm({ action, redirection, pending }) {
   const [state, formAction] = useFormState(action, { redirection });
 
   return (
     <>
-      {/* <Image
-        className={classes.logoIndigo}
-        src={indigoLogo}
-        alt="An image displayinging the logo for Indigo"
-      /> */}
       <h1>Login</h1>
       <form className={classes.loginForm} action={formAction}>
         <div className={classes.formItemContainer}>
@@ -29,6 +25,12 @@ export default function LoginForm({ action, redirection, pending }) {
         <div className={classes.submitButtonContainer}>
           <FormSubmit />
         </div>
+        {/* {loading ? (
+          <div className={classes.spinner}>
+            <Spinner color="secondary" size="lg" />
+          </div>
+        ) : null} */}
+
         {state.errors && (
           <ul>
             {state.errors.map((error) => (
