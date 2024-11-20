@@ -3,7 +3,7 @@ import { S3Client } from "@aws-sdk/client-s3";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 // import { v4 as uuidv4 } from "uuid";
 
-export async function uploadImageToS3(formData, payload) {
+export async function uploadPdfToS3(formData, payload) {
   console.log(formData);
   console.log(payload);
   const s3 = new S3Client({

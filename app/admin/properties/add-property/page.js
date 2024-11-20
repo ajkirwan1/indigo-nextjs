@@ -4,6 +4,7 @@
 import classes from "./page.module.css";
 import { useFormState } from "react-dom";
 import ImagePicker from "@/components/images/image-picker";
+import PdfPicker from "@/components/pdfs/pdf-picker";
 import { AddProperty } from "@/server/actions/db/admin/properties/add-property";
 
 export default function AddProperties() {
@@ -42,6 +43,8 @@ export default function AddProperties() {
           ></textarea>
         </p>
         <ImagePicker label="Image" name="image" />
+        <PdfPicker />
+
         {/* {state.message && <p>{state.message}</p>} */}
         <p className={classes.actions}>
           {/* <MealsFormSubmit /> */}
