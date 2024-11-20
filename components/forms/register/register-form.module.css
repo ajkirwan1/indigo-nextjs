@@ -214,6 +214,10 @@
   align-items: center;
 }
 
+.spinner {
+  margin-bottom: 5vh;
+}
+
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;

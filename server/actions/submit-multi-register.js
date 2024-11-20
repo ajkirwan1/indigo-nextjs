@@ -12,16 +12,16 @@ import { redirect } from "next/navigation";
 import db from "@/modules/db";
 
 export async function RegisterMultiPage(data) {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   console.log(data);
   const userid = generateIdFromEntropySize(10);
   const passwordHash = await new LegacyScrypt().hash(data.password);
-  let investmentInterestArray = []
+  let investmentInterestArray = [];
 
   for (const [key, value] of Object.entries(data.investmentInterest)) {
     if (value == true) {
-      investmentInterestArray.push(key)
+      investmentInterestArray.push(key);
     }
- 
   }
   console.log(investmentInterestArray);
 
@@ -59,9 +59,8 @@ export async function RegisterMultiPage(data) {
       },
     });
   } catch (error) {
-   console.log(error);
+    console.log(error);
   }
-
 
   const session = await lucia.createSession(userid, {});
   const sessionCookie = lucia.createSessionCookie(session.id);
@@ -71,5 +70,4 @@ export async function RegisterMultiPage(data) {
     sessionCookie.attributes
   );
   return redirect("/register/pending-auth");
-
 }

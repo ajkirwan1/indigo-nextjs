@@ -12,15 +12,15 @@ function RecordList({ properties }) {
         <>
           <li key={item.id} className={classes.listWrapper}>
             <div className={classes.listWrapperinner}>
-              <h2>Title:</h2>
+              <p>Title:&nbsp;&nbsp;</p>
               <p>{item.title}</p>
             </div>
             <div className={classes.listWrapperinner}>
-              <h2>Name:</h2>
+              <p>Name:&nbsp;&nbsp;</p>
               <p>{item.name}</p>
             </div>
           </li>
-          <hr />
+          <hr className={classes.horizontal} />
         </>
       ))}
     </ul>
@@ -30,7 +30,11 @@ function RecordList({ properties }) {
 export default async function AdminClientPropertyList({ properties }) {
   return (
     <>
-      {Object.keys(properties).length != 0 ? <RecordList properties={properties} /> : <NoProperties />}
+      {Object.keys(properties).length != 0 ? (
+        <RecordList properties={properties} />
+      ) : (
+        <NoProperties />
+      )}
     </>
   );
 }
