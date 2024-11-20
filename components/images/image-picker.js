@@ -34,13 +34,20 @@ export default function ImagePicker({ label, name }) {
       <div className={classes.controls}>
         <div className={classes.preview}>
           {!pickedImage && <p>No image picked yet</p>}
-          {pickedImage && <Image src={pickedImage} alt="An image picked by admin" height={960} width={1280} />}
+          {pickedImage && (
+            <Image
+              src={pickedImage}
+              alt="An image picked by admin"
+              height={960}
+              width={1280}
+            />
+          )}
         </div>
         <input
           className={classes.input}
           type="file"
           id={name}
-          accept="image/png, image.jpg"
+          accept="image/png, image/jpg"
           name={name}
           ref={imageInput}
           onChange={handleImageChange}
@@ -53,13 +60,13 @@ export default function ImagePicker({ label, name }) {
         >
           Pick an image
         </button>
-        <button
+        {/* <button
           className={classes.button}
           type="button"
           onClick={handlePickClick}
         >
           Preview
-        </button>
+        </button> */}
       </div>
     </div>
   );

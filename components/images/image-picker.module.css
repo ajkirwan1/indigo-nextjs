@@ -45,5 +45,6 @@
 }
 
 .preview img {
-  object-fit: cover;
+  height: 100%;
+  width: auto;
 }
