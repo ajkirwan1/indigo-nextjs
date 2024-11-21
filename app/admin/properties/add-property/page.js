@@ -2,14 +2,13 @@
 
 "use client";
 import classes from "./page.module.css";
-import { useFormState } from "react-dom";
-import ImagePicker from "@/components/images/image-picker";
-import PdfPicker from "@/components/pdfs/pdf-picker";
-import { AddProperty } from "@/server/actions/db/admin/properties/add-property";
 import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
-import AddPropertyImage from "@/components/forms/admin/properties/add-property-image";
+import GetPropertyInfo from "@/components/forms/admin/properties/get-property-image";
 import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
+import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+
 import { AddPropertyImageAction } from "@/server/actions/db/admin/properties/add-property-image-action";
+import SubmitButton from "@/components/ui/buttons/submit-button";
 import Link from "next/link";
 
 export default function AddProperties() {
@@ -31,8 +30,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD IMAGE</Link>
           </div>
         </div>
-
-        <AddPropertyImage action={AddPropertyImageAction} />
+        <GetPropertyInfo action={GetPropertyImageAction} />
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>
@@ -49,8 +47,15 @@ export default function AddProperties() {
         <AddPropertyPdf />
       </div>
       <div className={classes.itemWrapper}>
-        <h2>Step 3 - Provide property details</h2>
+        <div className={classes.infoContainer}>
+          <h2>Step 3 - Provide property details</h2>
+          <p>Please fill-in all fields</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
         <AddPropertyInfo />
+      </div>
+      <div className={classes.submitButtonContainer}>
+        <SubmitButton>Add Property</SubmitButton>
       </div>
     </>
   );

@@ -11,7 +11,6 @@ export default function AddPropertyInfo() {
   });
   return (
     <>
-      <h1>POPERTY DETAILS</h1>
       <form className={classes.form} action={formAction}>
         <p>
           <label htmlFor="title">Title</label>

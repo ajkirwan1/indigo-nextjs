@@ -11,13 +11,15 @@ function Loading() {
   return <p>Losdingksdfkl</p>;
 }
 
-export default function ImagePicker({ label, name }) {
+export default function ImageGetter({ label, name }) {
   const [pickedImage, setPickedImage] = useState();
+  const [imageList, setImageList] = useState();
   const status = useFormStatus();
   const imageInput = useRef();
 
   function handlePickClick() {
-    imageInput.current.click();
+    // imageInput.current.click();
+    console.log("JIMMY TRUMP");
   }
 
   function handleImageChange(event) {
@@ -50,18 +52,18 @@ export default function ImagePicker({ label, name }) {
             />
           )}
         </div>
-        <div className={classes.preview}>
-          {!pickedImage && <p>No image picked yet</p>}
-          {pickedImage && (
+        <div className={classes.imageItems}>
+          {!imageList && <p>Images not downloaded yet</p>}
+          {/* {pickedImage && (
             <Image
               src={pickedImage}
               alt="An image picked by admin"
               height={960}
               width={1280}
             />
-          )}
+          )} */}
         </div>
-        <input
+        {/* <input
           className={classes.input}
           type="file"
           id={name}
@@ -70,14 +72,14 @@ export default function ImagePicker({ label, name }) {
           ref={imageInput}
           onChange={handleImageChange}
           required
-        />
+        /> */}
         <div className={classes.buttonsContainer}>
           <button
             className={classes.button}
             type="button"
             onClick={handlePickClick}
           >
-            Pick an image
+            Find an image
           </button>
           <div className={classes.submitButtonContainer}>
             <SubmitButton>SUBMIT</SubmitButton>

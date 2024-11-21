@@ -79,3 +79,13 @@
   color: #979797;
   cursor: not-allowed;
 }
+
+.form p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.getProperty {
+  width: 100%;
+}
