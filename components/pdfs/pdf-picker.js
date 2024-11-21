@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import classes from "./pdf-picker.module.css";
 import Image from "next/image";
 import pdf from "/public/images/icons/icons8-pdf-100.png";
+import SubmitButton from "../ui/buttons/submit-button";
 
 export default function PdfPicker({ label, name }) {
   const [pickedPdf, setPickedPdf] = useState();
@@ -31,7 +32,6 @@ export default function PdfPicker({ label, name }) {
 
   return (
     <div className={classes.picker}>
-      <label htmlFor={name}>{label}</label>
       <div className={classes.controls}>
         <div className={classes.preview}>
           {!pickedPdf && <p>No pdf selected</p>}
@@ -49,13 +49,19 @@ export default function PdfPicker({ label, name }) {
           onChange={handleImageChange}
           required
         />
-        <button
-          className={classes.button}
-          type="button"
-          onClick={handlePickClick}
-        >
-          Pick a PDF
-        </button>
+        <div className={classes.buttonsContainer}>
+          <button
+            className={classes.button}
+            type="button"
+            onClick={handlePickClick}
+          >
+            Pick an image
+          </button>
+          <div className={classes.submitButtonContainer}>
+            <SubmitButton>SUBMIT</SubmitButton>
+          </div>
+        </div>
+
         {/* <button
           className={classes.button}
           type="button"

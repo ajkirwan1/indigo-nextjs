@@ -6,52 +6,52 @@ import { useFormState } from "react-dom";
 import ImagePicker from "@/components/images/image-picker";
 import PdfPicker from "@/components/pdfs/pdf-picker";
 import { AddProperty } from "@/server/actions/db/admin/properties/add-property";
+import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
+import AddPropertyImage from "@/components/forms/admin/properties/add-property-image";
+import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
+import { AddPropertyImageAction } from "@/server/actions/db/admin/properties/add-property-image-action";
+import Link from "next/link";
 
 export default function AddProperties() {
-  const [state, formAction] = useFormState(AddProperty, { message: null });
+  // const [state, formAction] = useFormState(AddProperty, { message: null });
   return (
     <>
-      <h1>ADD PROPERTY</h1>
-
-      <form className={classes.form} action={formAction}>
-        <p>
-          <label htmlFor="title">Title</label>
-          <input type="text" id="title" name="title" required />
-        </p>
-        {/* <p>
-          <label htmlFor="summary">Short Summary</label>
-          <input type="text" id="summary" name="summary" required />
-        </p> */}
-        <div className={classes.row}>
-          <p>
-            <label htmlFor="location">Location</label>
-            <input type="text" id="location" name="location" required />
-          </p>
-          <p>
-            <label htmlFor="price">Price</label>
-            <input type="text" id="price" name="price" required />
-          </p>
+      <div className={classes.subHeader}>
+        <h1>ADD A PROPERTY</h1>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Step 1 - Pick an image</h2>
+          <p>Search the database for an image that you have already uploaded</p>
+          <div className={classes.linkWrapper}>
+            <p>
+              If you have not yet uploaded the desired image to the database,
+              you can upload it here:
+            </p>
+            <Link href="/">UPLOAD IMAGE</Link>
+          </div>
         </div>
-        <p>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            name="description"
-            // @ts-ignore
-            rows="10"
-            required
-          ></textarea>
-        </p>
-        <ImagePicker label="Image" name="image" />
-        <PdfPicker />
 
-        {/* {state.message && <p>{state.message}</p>} */}
-        <p className={classes.actions}>
-          {/* <MealsFormSubmit /> */}
-          {/* <button type="submit">Share Meal</button> */}
-          <button>SUBMIT</button>
-        </p>
-      </form>
+        <AddPropertyImage action={AddPropertyImageAction} />
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Step 2 - Pick a pdf</h2>
+          <p>Search the database for a pdf that you have already uploaded</p>
+          <div className={classes.linkWrapper}>
+            <p>
+              If you have not yet uploaded the desired pdf to the database, you
+              can upload it here:
+            </p>
+            <Link href="/">UPLOAD PDF</Link>
+          </div>
+        </div>
+        <AddPropertyPdf />
+      </div>
+      <div className={classes.itemWrapper}>
+        <h2>Step 3 - Provide property details</h2>
+        <AddPropertyInfo />
+      </div>
     </>
   );
 }

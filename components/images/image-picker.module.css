@@ -48,3 +48,14 @@
   height: 100%;
   width: auto;
 }
+
+.submitButtonContainer {
+  height: 50px;
+  width: 100px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

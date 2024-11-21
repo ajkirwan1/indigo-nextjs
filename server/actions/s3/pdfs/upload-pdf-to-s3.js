@@ -17,7 +17,7 @@ export async function uploadPdfToS3(formData, payload) {
   const { bucket, key } = payload;
 
   try {
-    const files = formData.getAll("image");
+    const files = formData.getAll("pdf");
 
     const response = await Promise.all(
       files.map(async (file) => {
@@ -41,7 +41,7 @@ export async function uploadPdfToS3(formData, payload) {
     // revalidatePath("/");
     return response;
   } catch (error) {
-    console.error("Error uploading image to S3:", error);
-    throw new Error("Failed to upload image to S3.");
+    console.error("Error uploading pdf to S3:", error);
+    throw new Error("Failed to upload pdf to S3.");
   }
 }

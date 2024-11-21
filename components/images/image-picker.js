@@ -4,9 +4,16 @@
 import { useRef, useState } from "react";
 import classes from "./image-picker.module.css";
 import Image from "next/image";
+import SubmitButton from "@/components/ui/buttons/submit-button";
+import { useFormStatus } from "react-dom";
+
+function Loading() {
+  return <p>Losdingksdfkl</p>;
+}
 
 export default function ImagePicker({ label, name }) {
   const [pickedImage, setPickedImage] = useState();
+  const status = useFormStatus();
   const imageInput = useRef();
 
   function handlePickClick() {
@@ -30,7 +37,7 @@ export default function ImagePicker({ label, name }) {
 
   return (
     <div className={classes.picker}>
-      <label htmlFor={name}>{label}</label>
+      {/* <label htmlFor={name}>{label}</label> */}
       <div className={classes.controls}>
         <div className={classes.preview}>
           {!pickedImage && <p>No image picked yet</p>}
@@ -53,13 +60,20 @@ export default function ImagePicker({ label, name }) {
           onChange={handleImageChange}
           required
         />
-        <button
-          className={classes.button}
-          type="button"
-          onClick={handlePickClick}
-        >
-          Pick an image
-        </button>
+        <div className={classes.buttonsContainer}>
+          <button
+            className={classes.button}
+            type="button"
+            onClick={handlePickClick}
+          >
+            Pick an image
+          </button>
+          <div className={classes.submitButtonContainer}>
+            <SubmitButton>SUBMIT</SubmitButton>
+          </div>
+        </div>
+        {status.pending ? <Loading /> : null}
+
         {/* <button
           className={classes.button}
           type="button"
