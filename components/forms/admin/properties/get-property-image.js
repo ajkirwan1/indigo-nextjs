@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import classes from "./get-property-image.module.css";
 import Image from "next/image";
 import { Spinner } from "@nextui-org/spinner";
-import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-properties/get-property-image-action";
 
 function Loading() {
   return <Spinner />;

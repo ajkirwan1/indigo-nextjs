@@ -5,7 +5,7 @@ import classes from "./get-property-image.module.css";
 import Image from "next/image";
 import { Spinner } from "@nextui-org/spinner";
 import pdf from "/public/images/icons/icons8-pdf-100.png";
-import { GetPropertyPdfAction } from "@/server/actions/db/admin/properties/get-property-pdf-action";
+import { GetPropertyPdfAction } from "@/server/actions/db/admin/properties/get-properties/get-property-pdf-action";
 
 function Loading() {
   return <Spinner />;

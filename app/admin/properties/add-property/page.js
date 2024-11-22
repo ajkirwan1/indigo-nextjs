@@ -1,22 +1,37 @@
 /** @format */
 
 "use client";
-// "use server";
+
 import classes from "./page.module.css";
-import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+import { useState } from "react";
 import GetPropertyImage from "@/components/forms/admin/properties/get-property-image";
 import GetPropertyPdf from "@/components/forms/admin/properties/get-property-pdf";
 import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
-import GetPropertyInfo from "@/components/forms/admin/properties/get-property-image";
-import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
-// import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+import { SubmitPropertyAction } from "@/server/actions/db/admin/properties/submit/submit-property-action";
 
-import { AddPropertyImageAction } from "@/server/actions/db/admin/properties/add-property-image-action";
 import SubmitButton from "@/components/ui/buttons/submit-button";
 import Link from "next/link";
 
 export default function AddProperties() {
-  // const [state, formAction] = useFormState(AddProperty, { message: null });
+  const [data, setData] = useState({
+    title: "",
+    location: "",
+    price: "",
+    description: "",
+  });
+
+  const handleChange = (event) => {
+    console.log(data);
+    const { name, value } = event.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleSubmitProperty = () => {
+    SubmitPropertyAction(data);
+  };
 
   return (
     <>
@@ -57,11 +72,18 @@ export default function AddProperties() {
           <p>Please fill-in all fields</p>
           <div className={classes.linkWrapper}></div>
         </div>
-        {/* <AddPropertyInfo /> */}
+        <AddPropertyInfo data={data} handleChange={handleChange} />
       </div>
-      {/* <div className={classes.submitButtonContainer}>
-        <SubmitButton>Add Property</SubmitButton>
-      </div> */}
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Step 4 - Submit</h2>
+          <p>Submit the property to the database</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+        <div className={classes.submitButtonContainer}>
+          <button onClick={handleSubmitProperty}>Add Property</button>
+        </div>
+      </div>
     </>
   );
 }
