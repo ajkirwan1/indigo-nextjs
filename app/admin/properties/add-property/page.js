@@ -4,6 +4,7 @@
 // "use server";
 import classes from "./page.module.css";
 import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+import GetPropertyImage from "@/components/forms/admin/properties/get-property-image";
 import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
 import GetPropertyInfo from "@/components/forms/admin/properties/get-property-image";
 import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
@@ -15,11 +16,6 @@ import Link from "next/link";
 
 export default function AddProperties() {
   // const [state, formAction] = useFormState(AddProperty, { message: null });
-
-  // const handlePickClick = async () => {
-  //   const result = await GetPropertyImageAction();
-  //   console.log(result);
-  // };
 
   return (
     <>
@@ -39,7 +35,7 @@ export default function AddProperties() {
           </div>
         </div>
         {/* <GetPropertyInfo data={propertyImageData} /> */}
-        <GetPropertyInfo />
+        <GetPropertyImage />
         {/* <button onClick={handlePropertyDataClick}></button> */}
       </div>
       <div className={classes.itemWrapper}>
