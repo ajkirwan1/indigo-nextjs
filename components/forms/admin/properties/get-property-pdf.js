@@ -4,17 +4,18 @@ import { useState, useTransition } from "react";
 import classes from "./get-property-image.module.css";
 import Image from "next/image";
 import { Spinner } from "@nextui-org/spinner";
-import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+import pdf from "/public/images/icons/icons8-pdf-100.png";
+import { GetPropertyPdfAction } from "@/server/actions/db/admin/properties/get-property-pdf-action";
 
 function Loading() {
   return <Spinner />;
 }
 
-function ListOfImages({ imageList, checkboxticked, handleUpdateCheckbox }) {
+function ListOfPdfs({ pdfList, checkboxticked, handleUpdateCheckbox }) {
   return (
     <form>
       <ul>
-        {imageList.map((img, index) => (
+        {pdfList.map((img, index) => (
           <li>
             <div className={classes.tickRow}>
               <label>
@@ -36,16 +37,16 @@ function ListOfImages({ imageList, checkboxticked, handleUpdateCheckbox }) {
   );
 }
 
-export default function GetPropertyImage() {
-  const [pickedImage, setPickedImage] = useState();
-  const [imageList, setImageList] = useState([]);
+export default function GetPropertyPdf() {
+  const [pickedPdf, setPickedPdf] = useState();
+  const [pdfList, setPdfList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState();
   const [isPending, startTransition] = useTransition();
 
   const handlePickClick = async () => {
     startTransition(async () => {
-      const result = await GetPropertyImageAction();
-      setImageList([...result]);
+      const result = await GetPropertyPdfAction();
+      setPdfList([...result]);
     });
   };
 
@@ -53,35 +54,35 @@ export default function GetPropertyImage() {
     setCheckboxTicked(index);
   };
 
-  const selectImage = () => {
-    setPickedImage(imageList[checkboxticked].url);
+  const selectPdf = () => {
+    setPickedPdf(pdfList[checkboxticked].url);
   };
 
   return (
     <div className={classes.picker}>
       <div className={classes.controls}>
         <div className={classes.imageItems}>
-          {imageList.length == 0 && isPending == false ? (
-            <p>Images not downloaded yet</p>
-          ) : imageList.length == 0 && isPending == true ? (
+          {pdfList.length == 0 && isPending == false ? (
+            <p>Pdfs not downloaded yet</p>
+          ) : pdfList.length == 0 && isPending == true ? (
             <Loading />
           ) : (
-            <ListOfImages
-              imageList={imageList}
+            <ListOfPdfs
+              pdfList={pdfList}
               checkboxticked={checkboxticked}
               handleUpdateCheckbox={handleUpdateCheckbox}
             />
           )}
         </div>
-        <div className={classes.preview}>
-          {!pickedImage && <p>No image picked yet</p>}
-          {pickedImage && (
+        <div className={classes.pdfPreview}>
+          {!pickedPdf && <p>No pdf selected</p>}
+          {pickedPdf && (
             <Image
-              src={pickedImage}
-              alt="An image picked by admin"
-              height={960}
-              width={1280}
-              className={classes.image}
+              src={pdf}
+              alt="A pdf picked by admin"
+              height={100}
+              width={100}
+              //   className={classes.image}
             />
           )}
         </div>
@@ -91,12 +92,12 @@ export default function GetPropertyImage() {
             type="button"
             onClick={handlePickClick}
           >
-            Find an image
+            Find a pdf
           </button>
         </div>
         {checkboxticked >= 0 ? (
           <div className={classes.submitButtonContainer}>
-            <button onClick={selectImage}>Submit</button>
+            <button onClick={selectPdf}>Submit</button>
           </div>
         ) : null}
       </div>

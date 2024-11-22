@@ -5,6 +5,7 @@
 import classes from "./page.module.css";
 import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
 import GetPropertyImage from "@/components/forms/admin/properties/get-property-image";
+import GetPropertyPdf from "@/components/forms/admin/properties/get-property-pdf";
 import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
 import GetPropertyInfo from "@/components/forms/admin/properties/get-property-image";
 import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
@@ -34,9 +35,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD IMAGE</Link>
           </div>
         </div>
-        {/* <GetPropertyInfo data={propertyImageData} /> */}
         <GetPropertyImage />
-        {/* <button onClick={handlePropertyDataClick}></button> */}
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>
@@ -50,7 +49,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD PDF</Link>
           </div>
         </div>
-        {/* <AddPropertyPdf /> */}
+        <GetPropertyPdf />
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>

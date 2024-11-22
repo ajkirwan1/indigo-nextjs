@@ -33,7 +33,7 @@ export default function PdfPicker({ label, name }) {
   return (
     <div className={classes.picker}>
       <div className={classes.controls}>
-        <div className={classes.preview}>
+        <div className={classes.pdfPreview}>
           {!pickedPdf && <p>No pdf selected</p>}
           {pickedPdf && (
             <Image src={pdf} alt="A pdf icon" height={100} width={100} />
