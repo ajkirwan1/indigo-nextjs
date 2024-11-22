@@ -1,11 +1,13 @@
 /** @format */
 
 "use client";
+// "use server";
 import classes from "./page.module.css";
+import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
 import AddPropertyInfo from "@/components/forms/admin/properties/add-property-info";
 import GetPropertyInfo from "@/components/forms/admin/properties/get-property-image";
 import AddPropertyPdf from "@/components/forms/admin/properties/add-property-pdf";
-import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+// import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
 
 import { AddPropertyImageAction } from "@/server/actions/db/admin/properties/add-property-image-action";
 import SubmitButton from "@/components/ui/buttons/submit-button";
@@ -13,6 +15,12 @@ import Link from "next/link";
 
 export default function AddProperties() {
   // const [state, formAction] = useFormState(AddProperty, { message: null });
+
+  // const handlePickClick = async () => {
+  //   const result = await GetPropertyImageAction();
+  //   console.log(result);
+  // };
+
   return (
     <>
       <div className={classes.subHeader}>
@@ -30,7 +38,9 @@ export default function AddProperties() {
             <Link href="/">UPLOAD IMAGE</Link>
           </div>
         </div>
-        <GetPropertyInfo action={GetPropertyImageAction} />
+        {/* <GetPropertyInfo data={propertyImageData} /> */}
+        <GetPropertyInfo />
+        {/* <button onClick={handlePropertyDataClick}></button> */}
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>
@@ -44,7 +54,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD PDF</Link>
           </div>
         </div>
-        <AddPropertyPdf />
+        {/* <AddPropertyPdf /> */}
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>
@@ -52,11 +62,11 @@ export default function AddProperties() {
           <p>Please fill-in all fields</p>
           <div className={classes.linkWrapper}></div>
         </div>
-        <AddPropertyInfo />
+        {/* <AddPropertyInfo /> */}
       </div>
-      <div className={classes.submitButtonContainer}>
+      {/* <div className={classes.submitButtonContainer}>
         <SubmitButton>Add Property</SubmitButton>
-      </div>
+      </div> */}
     </>
   );
 }

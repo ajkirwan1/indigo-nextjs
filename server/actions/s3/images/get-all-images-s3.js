@@ -1,8 +1,10 @@
 import { GetObjectCommand } from "@aws-sdk/client-s3";
 import { ListObjectsV2Command } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { S3Client } from "@aws-sdk/client-s3";
 
-export async function getAllObjectsSignedUrls({ Bucket }) {
+export async function getAllObjectsSignedUrlsS3({ Bucket }) {
+  // console.log(Bucket);
   const s3 = new S3Client({
     region: process.env.AWS_REGION,
     credentials: {
@@ -14,6 +16,7 @@ export async function getAllObjectsSignedUrls({ Bucket }) {
   try {
     // List all objects in the bucket
     const listCommand = new ListObjectsV2Command({ Bucket });
+    // console.log(listCommand);
     const listObjectsOutput = await s3.send(listCommand);
 
     const signedUrls = await Promise.all(

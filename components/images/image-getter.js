@@ -1,10 +1,11 @@
 /** @format */
 "use client";
-
 import { useRef, useState } from "react";
 import classes from "./image-picker.module.css";
 import Image from "next/image";
 import SubmitButton from "@/components/ui/buttons/submit-button";
+import { GetPropertyImageAction } from "@/server/actions/db/admin/properties/get-property-image-action";
+
 import { useFormStatus } from "react-dom";
 
 function Loading() {
@@ -17,10 +18,11 @@ export default function ImageGetter({ label, name }) {
   const status = useFormStatus();
   const imageInput = useRef();
 
-  function handlePickClick() {
-    // imageInput.current.click();
-    console.log("JIMMY TRUMP");
-  }
+  const handlePickClick = async () => {
+    const imagesList = await GetPropertyImageAction();
+    console.log;
+    console.log(imagesList, "image");
+  };
 
   function handleImageChange(event) {
     const file = event.target.files[0];
@@ -54,6 +56,7 @@ export default function ImageGetter({ label, name }) {
         </div>
         <div className={classes.imageItems}>
           {!imageList && <p>Images not downloaded yet</p>}
+          {}
           {/* {pickedImage && (
             <Image
               src={pickedImage}
@@ -82,7 +85,8 @@ export default function ImageGetter({ label, name }) {
             Find an image
           </button>
           <div className={classes.submitButtonContainer}>
-            <SubmitButton>SUBMIT</SubmitButton>
+            {/* <SubmitButton>SUBMIT</SubmitButton> */}
+            {/* <button onClick={handlePickClick}></button> */}
           </div>
         </div>
         {status.pending ? <Loading /> : null}
