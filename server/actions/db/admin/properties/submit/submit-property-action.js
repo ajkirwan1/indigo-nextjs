@@ -20,7 +20,7 @@ export async function SubmitPropertyAction(data) {
       },
     });
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
   const result = await db.property2.findMany();
   console.log(result);

@@ -6,8 +6,18 @@ export const adminNavigationData = [
     url: "/admin",
   },
   {
-    title: "Add property",
-    url: "/admin/properties/add-property",
+    title: "Properties",
+    url: "properties",
+    submenu: [
+      {
+        title: "All properties",
+        url: "/admin/properties",
+      },
+      {
+        title: "Add properties",
+        url: "/admin/properties/add-property",
+      },
+    ],
   },
   // {
   //   title: "Add consulting",
