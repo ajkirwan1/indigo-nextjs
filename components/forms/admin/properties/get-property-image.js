@@ -36,7 +36,7 @@ function ListOfImages({ imageList, checkboxticked, handleUpdateCheckbox }) {
   );
 }
 
-export default function GetPropertyImage() {
+export default function GetPropertyImage({ handleImageUrl }) {
   const [pickedImage, setPickedImage] = useState();
   const [imageList, setImageList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState();
@@ -55,6 +55,7 @@ export default function GetPropertyImage() {
 
   const selectImage = () => {
     setPickedImage(imageList[checkboxticked].url);
+    handleImageUrl(imageList[checkboxticked].url);
   };
 
   return (

@@ -18,6 +18,8 @@ export default function AddProperties() {
     location: "",
     price: "",
     description: "",
+    pdfUrl: "",
+    imageUrl: "",
   });
 
   const handleChange = (event) => {
@@ -26,6 +28,20 @@ export default function AddProperties() {
     setData({
       ...data,
       [name]: value,
+    });
+  };
+
+  const handlePdfUrl = (Url) => {
+    setData({
+      ...data,
+      pdfUrl: Url,
+    });
+  };
+
+  const handleImageUrl = (Url) => {
+    setData({
+      ...data,
+      imageUrl: Url,
     });
   };
 
@@ -50,7 +66,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD IMAGE</Link>
           </div>
         </div>
-        <GetPropertyImage />
+        <GetPropertyImage handleImageUrl={handleImageUrl} />
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>
@@ -64,7 +80,7 @@ export default function AddProperties() {
             <Link href="/">UPLOAD PDF</Link>
           </div>
         </div>
-        <GetPropertyPdf />
+        <GetPropertyPdf handlePdfUrl={handlePdfUrl} />
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>

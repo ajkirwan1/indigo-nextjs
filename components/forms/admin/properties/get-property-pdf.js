@@ -37,7 +37,7 @@ function ListOfPdfs({ pdfList, checkboxticked, handleUpdateCheckbox }) {
   );
 }
 
-export default function GetPropertyPdf() {
+export default function GetPropertyPdf({ handlePdfUrl }) {
   const [pickedPdf, setPickedPdf] = useState();
   const [pdfList, setPdfList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState();
@@ -56,6 +56,7 @@ export default function GetPropertyPdf() {
 
   const selectPdf = () => {
     setPickedPdf(pdfList[checkboxticked].url);
+    handlePdfUrl(pdfList[checkboxticked].url);
   };
 
   return (
