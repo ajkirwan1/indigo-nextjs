@@ -10,7 +10,7 @@ import db from "@/modules/db";
 export async function Logout() {
   const sessions = await db.session.findMany();
   const { session } = await validateRequest();
-  console.log(session)
+  // console.log(session)
   if (!session) {
     return {
       error: "Unauthorized",

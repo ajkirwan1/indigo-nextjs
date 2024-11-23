@@ -46,7 +46,7 @@ export async function Login(state, formData) {
   const userId = existingUser.id;
   const session = await lucia.createSession(userId);
   const sessions = await db.session.findMany();
-  console.log(sessions);
+  // console.log(sessions);
   const sessionCookie = lucia.createSessionCookie(session.id);
   console.log(sessionCookie.name, "Cookie name");
   cookies().set(

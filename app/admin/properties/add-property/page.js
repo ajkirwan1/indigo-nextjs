@@ -23,7 +23,6 @@ export default function AddProperties() {
   });
 
   const handleChange = (event) => {
-    console.log(data);
     const { name, value } = event.target;
     setData({
       ...data,

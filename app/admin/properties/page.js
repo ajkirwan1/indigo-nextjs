@@ -14,7 +14,6 @@ import { FindAllProperties } from "@/server/actions/db/admin/properties/get-prop
 async function TableData() {
   await new Promise((resolve) => setTimeout(resolve, 4000));
   const resp = await FindAllProperties();
-  console.log(resp);
 
   const { headerData, bodyData } = PrepareAdminPropertyData(resp);
   const theadData = [...headerData];
@@ -27,8 +26,6 @@ async function TableData() {
 
 export default async function PropertyPage() {
   const { user } = await validateRequest();
-  console.log("ADMIN USER", user);
-
   if (!user) {
     redirect("/");
   }

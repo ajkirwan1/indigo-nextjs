@@ -35,7 +35,7 @@ export default async function AdminClientPage({ params }) {
   } = await getUser(params.id);
 
   const properties = await getProperties(params.id);
-  console.log(properties, "ADMIN");
+  // console.log(properties, "ADMIN");
 
   const PersonalDetails = () => {
     return (

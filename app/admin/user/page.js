@@ -24,7 +24,6 @@ async function TableData() {
 
 export default async function AdminPage() {
   const { user } = await validateRequest();
-  console.log("ADMIN USER", user);
 
   if (!user) {
     redirect("/");

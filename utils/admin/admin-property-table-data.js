@@ -5,27 +5,13 @@ export default function PrepareAdminPropertyData(data) {
   let bodyData = [];
 
   data.forEach((element, index) => {
-    console.log(element);
     let arr = {};
     let dataList = [];
 
     arr.id = element["id"];
-
-    // const fullName = joinName(element["firstname"], element["lastname"]);
     dataList.push(element["title"]);
-
     dataList.push(element["location"]);
-
-    // const propertyAccessString = convertAccessToString(
-    //   element["propertyaccess"]
-    // );
-
     dataList.push(element["price"]);
-
-    // const consultingAccessString = convertAccessToString(
-    //   element["consultingaccess"]
-    // );
-    // dataList.push(consultingAccessString);
 
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
