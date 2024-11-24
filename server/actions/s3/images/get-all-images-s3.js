@@ -23,7 +23,7 @@ export async function getAllObjectsSignedUrlsS3({ Bucket }) {
       (listObjectsOutput.Contents || []).map(async (object) => {
         if (object.Key) {
           const getObjectCommand = new GetObjectCommand({
-            Bucket: process.env.AWS_BUCKET_NAME_PDF,
+            Bucket: "next-js-image-bucket",
             Key: object.Key,
           });
           const url = await getSignedUrl(s3, getObjectCommand, {
