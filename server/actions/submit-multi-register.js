@@ -12,8 +12,7 @@ import { redirect } from "next/navigation";
 import db from "@/modules/db";
 
 export async function RegisterMultiPage(data) {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
-  console.log(data);
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   const userid = generateIdFromEntropySize(10);
   const passwordHash = await new LegacyScrypt().hash(data.password);
   let investmentInterestArray = [];
@@ -23,7 +22,6 @@ export async function RegisterMultiPage(data) {
       investmentInterestArray.push(key);
     }
   }
-  console.log(investmentInterestArray);
 
   try {
     const user = await db.user.create({

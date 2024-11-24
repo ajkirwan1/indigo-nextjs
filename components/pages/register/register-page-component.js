@@ -29,7 +29,7 @@ export default function RegisterPageComponent() {
     purchaseTimeline: "",
     investmentInterest: { residential: false, commercial: false, land: false },
     investmentValue: "",
-    previousInvestment: ""
+    previousInvestment: "",
   });
 
   const handleNextTab = () => {
@@ -160,9 +160,7 @@ export default function RegisterPageComponent() {
         previousInvestment: "no",
       });
     }
-    }
-
-
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -172,9 +170,7 @@ export default function RegisterPageComponent() {
     });
   };
 
-  const handleSubmit = () => {
-
-  }
+  const handleSubmit = () => {};
 
   const formElements = [
     <motion.div
@@ -248,26 +244,6 @@ export default function RegisterPageComponent() {
   return (
     <>
       <AnimatePresence mode="wait">{formElements[activeTab]}</AnimatePresence>
-
-      {/* <button
-            disabled={activeTab === 0 ? "disabled" : ""}
-            onClick={handlePreviousTab}
-          >
-            Previous
-          </button>
-          <button
-            disabled={
-              activeTab === formElements.length - 1 || !confirmed
-                ? "disabled"
-                : ""
-            }
-            onClick={handleNextTab}
-          >
-            Next
-          </button> */}
-      {/* {activeTab === formElements.length - 1 ? (
-            <button>Submit</button>
-          ) : null} */}
     </>
   );
 }

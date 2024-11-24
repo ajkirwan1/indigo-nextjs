@@ -1,44 +1,55 @@
 /** @format */
 
-import { validateRequest } from "@/auth/lucia";
-import Table from "@/components/layouts/table/table";
-import { redirect } from "next/navigation";
-import PrepareAdminClientData from "@/utils/admin-table-data";
-import { FindAllUsers } from "@/server/actions/find-all-users";
+"use client";
+
 import classes from "./page.module.css";
-import { Suspense } from "react";
-import TableFallback from "@/components/fallbacks/table-fallback";
+import Link from "next/link";
 
-async function TableData() {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
-  const resp = await FindAllUsers();
-
-  const { headerData, bodyData } = PrepareAdminClientData(resp);
-  const theadData = [...headerData];
-  const tbodyData = [...bodyData];
-
+export default function AddProperties() {
   return (
-    <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
-  );
-}
-
-export default async function AdminPage() {
-  const { user } = await validateRequest();
-  console.log("ADMIN USER", user);
-
-  if (!user) {
-    redirect("/");
-  }
-  if (user?.adminaccess != 2) {
-    redirect("/");
-  }
-
-  return (
-    <div className={classes.tableContainer}>
-      <h1>LIST OF REGISTERED USERS</h1>
-      <Suspense fallback={<TableFallback />}>
-        <TableData />
-      </Suspense>
-    </div>
+    <>
+      <div className={classes.subHeader}>
+        <h1>Admin Dashboard</h1>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Clients</h2>
+          <p>Links and information related to clients who have registered</p>
+          <div className={classes.linkWrapper}>
+            <Link href="/admin/user">All clients</Link>
+          </div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Properties</h2>
+          <p>Links and information related to your properties</p>
+          <div className={classes.linkWrapper}>
+            <Link href="/admin/properties">All properties</Link>
+          </div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Messages</h2>
+          <p>Links and information related to your messages</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Blogs</h2>
+          <p>Links and information related to your blogs</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Projects</h2>
+          <p>Links and information related to your Projects</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
+    </>
   );
 }

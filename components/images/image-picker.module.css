@@ -45,5 +45,30 @@
 }
 
 .preview img {
-  object-fit: cover;
+  height: 100%;
+  width: auto;
+}
+
+.submitButtonContainer {
+  height: 50px;
+  width: 100px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.imageItems {
+  width: 900px;
+  height: 375px;
+  border: 2px solid rgba(89, 13, 104, 0.433);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #a4abb9;
+  position: relative;
+  box-shadow: 2px 2px 10px rgb(89 13 104 / 27%);
 }
