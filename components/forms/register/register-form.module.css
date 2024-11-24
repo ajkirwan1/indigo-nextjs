@@ -83,6 +83,10 @@
   align-items: flex-start;
   /* width: 45%; */
 }
+
+.formItemContainer input {
+  padding: 10px;
+}
 /* .formtickContainer {
     display: flex;
     padding-top: 2vh;

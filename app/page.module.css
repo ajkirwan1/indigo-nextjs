@@ -155,7 +155,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  height: 95vh;
+  height: 42vh;
 }
 
 .iconContainer {
@@ -163,14 +163,16 @@
 }
 
 .circleIcon {
-  height: 4vh;
+  height: 24px;
   width: auto;
+  margin-top: 14px;
+  margin-left: 15px;
 }
 
 .heroInnerContents h1 {
-  line-height: 10vh;
-  margin: 5vh;
-  font-size: 3rem;
+  line-height: 1.7;
+  margin: 3vh;
+  font-size: 2rem;
   opacity: 0.5;
   font-weight: 100;
 }
@@ -196,6 +198,26 @@
   width: auto;
 }
 
+.sectionTitle {
+  font-size: 36px;
+  line-height: 1.7;
+}
+
+.service {
+  display: flex;
+  justify-content: center;
+}
+
+.service h3 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.envelope {
+  width: 36px;
+  height: auto;
+}
+
 .box {
   position: relative;
   padding: 10px;
@@ -203,10 +225,16 @@
   transition: color 0.5s, transform 0.2s;
 }
 
+.box h3 {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 /* .box:active {
   transform: translateY(3px)
 } */
 
+/* 
 .box::after {
   content: "";
   position: absolute;
@@ -258,7 +286,7 @@
 .box:hover::before {
   opacity: 0;
 }
-/* 
+
 .box::before {
   content: "";
   position: absolute;
@@ -297,3 +325,61 @@
   width: 100%;
   border-color: aliceblue;
 } */
+
+@media only screen and (max-width: 800px) {
+  .heroHeader {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .header_nav {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .heroContents {
+    width: calc(100% - 50px);
+  }
+  .heroContents .separator {
+    display: flex;
+    justify-content: center;
+  }
+  .heroContents h1 {
+    line-height: 1.6;
+  }
+  .downArrowContainer {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .service h3 {
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .service .circleIcon {
+    width: 26px;
+    height: 26px;
+    margin-top: 4px;
+    margin-left: 7px;
+  }
+  .box h3 {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .box .separator {
+    flex-direction: column;
+  }
+  .properties {
+    width: 40px;
+    height: auto;
+    margin: 0 auto;
+  }
+  .envelope {
+    width: 30px;
+    height: auto;
+  }
+}

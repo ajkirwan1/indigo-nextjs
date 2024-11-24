@@ -29,6 +29,7 @@
   flex-direction: row-reverse;
   margin-top: 10vh;
   margin-bottom: 10vh;
+  justify-content: space-between;
 }
 
 .paragraphWrapper {
@@ -51,6 +52,7 @@
   letter-spacing: 2px;
   line-height: 2rem;
   padding-left: 5vw;
+  max-width: 1000px;
 }
 
 .buttonContainer {
