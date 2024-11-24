@@ -38,7 +38,6 @@ export default function RegisterFormPage1({
       </div>
       <form className={classes.registerForm1}>
         <div className={classes.formItemContainer}>
-          <label>Username:</label>
           <input
             type="text"
             name="userName"
@@ -48,7 +47,6 @@ export default function RegisterFormPage1({
           />
         </div>
         <div className={classes.formItemContainer}>
-          <label>Email:</label>
           <input
             type="email"
             name="email"
@@ -58,7 +56,6 @@ export default function RegisterFormPage1({
           />
         </div>
         <div className={classes.formItemContainer}>
-          <label>Password</label>
           <input
             type="text"
             name="password"
@@ -68,11 +65,10 @@ export default function RegisterFormPage1({
           />
         </div>
         <div className={classes.formItemContainer}>
-          <label>Confirm password:</label>
           <input
             type="text"
             name="passwordConfirm"
-            placeholder="password"
+            placeholder="confirm password"
             value={data.passwordConfirm}
             onChange={handleChange}
           />

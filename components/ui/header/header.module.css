@@ -66,6 +66,7 @@
 .hamburgerMenu {
   cursor: pointer;
   z-index: 9999;
+  opacity: 0.5;
 }
 
 .hamburgerContainer {
@@ -121,13 +122,17 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .nav {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
   .hamburgerMenu {
     cursor: pointer;
     z-index: 9999;
     height: 50px;
   }
   .logoIndigo {
-    height: 4rem;
+    height: 3rem;
     width: auto;
   }
 }
