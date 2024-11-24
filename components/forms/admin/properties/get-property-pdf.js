@@ -16,7 +16,7 @@ function ListOfPdfs({ pdfList, checkboxticked, handleUpdateCheckbox }) {
     <form>
       <ul>
         {pdfList.map((img, index) => (
-          <li>
+          <li key={index}>
             <div className={classes.tickRow}>
               <label>
                 <a target="_blank" href={img.url}>

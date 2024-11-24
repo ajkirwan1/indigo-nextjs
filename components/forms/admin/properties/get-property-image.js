@@ -15,7 +15,7 @@ function ListOfImages({ imageList, checkboxticked, handleUpdateCheckbox }) {
     <form>
       <ul>
         {imageList.map((img, index) => (
-          <li>
+          <li key={index}>
             <div className={classes.tickRow}>
               <label>
                 <a target="_blank" href={img.url}>
