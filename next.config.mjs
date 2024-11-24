@@ -5,7 +5,7 @@
 
 const nextConfig = {
   experimental: {
-    serverComponentsExternalPackages: ["@node-rs/argon2"],
+    serverComponentsExternalPackages: ["@node-rs/argon2", '@aws-sdk/client-s3', '@aws-sdk/s3-request-presigner']
   },
   outputFileTracingIncludes: {
     "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
