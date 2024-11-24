@@ -3,12 +3,11 @@
 import classes from "./page.module.css";
 import Image from "next/image";
 import { GetSingleProperty } from "@/server/actions/db/admin/properties/get-properties/get-single-property";
-
+import pdf from "/public/images/icons/icons8-pdf-100.png";
 import Link from "next/link";
 
 export default async function GetPropertyById({ params }) {
   const result = await GetSingleProperty(parseInt(params.id));
-  console.log(result, "RESULT");
 
   return (
     <>
@@ -19,17 +18,25 @@ export default async function GetPropertyById({ params }) {
           <h2>{result.location}</h2>
           <h2>{result.price}</h2>
           <h2>{result.description}</h2>
-          <p>Search the database for an image that you have already uploaded</p>
           <div className={classes.linkWrapper}>
             <Image
               src={result.imageUrl}
               alt="An image picked by admin"
               height={960}
               width={1280}
-              className={classesć}
+              className={classes.image}
             />
-            {/* <Link href="/">UPLOAD IMAGE</Link> */}
           </div>
+          <Link href={result.pdfUrl}>
+            <Image
+              src={pdf}
+              alt="An image picked by admin"
+              height={100}
+              width={100}
+            />
+          </Link>
+
+          <Link href="#">Edit </Link>
         </div>
       </div>
     </>

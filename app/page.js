@@ -14,10 +14,10 @@ import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
 import downArrow from "/public/images/pages/home/icons8-expand-arrow.png";
 import { motion } from "framer-motion";
-import NavLink from "@/components/nav-link";
-import Link from "next/link";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
+import { useSession } from "@/contexts/session-context";
+import { redirect } from "next/navigation";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -144,11 +144,8 @@ const componentArray = [
             YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
           </motion.h1>
           <motion.div className={classes.separator} variants={item}>
-            {/* <NavLink href="/contact"> */}
-              <motion.h2 variants={item}>
-                LET&apos;S TALK</motion.h2>
-            {/* </NavLink > */}
-              <Image alt="icon" src={envelope} className={classes.downArrow} />
+            <motion.h2 variants={item}>LET&apos;S TALK</motion.h2>
+            <Image alt="icon" src={envelope} className={classes.downArrow} />
           </motion.div>
         </motion.div>
       </div>
@@ -157,6 +154,11 @@ const componentArray = [
 ];
 
 export default function Homepage() {
+  const { user } = useSession();
+  console.log(user);
+  if (user?.adminaccess) {
+    redirect("admin");
+  }
   return (
     <>
       <Header className={classes.heroHeader}></Header>

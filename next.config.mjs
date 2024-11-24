@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "next-js-image-bucket.s3.eu-central-1.amazonaws.com",
       },
+      {
+        protocol: "https",
+        hostname: "next-js-pdf-bucket.s3.eu-central-1.amazonaws.com",
+      },
     ],
   },
 };
