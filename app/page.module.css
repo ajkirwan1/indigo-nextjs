@@ -199,8 +199,9 @@
 }
 
 .sectionTitle {
-  font-size: 36px;
+  font-size: 38px;
   line-height: 1.7;
+  font-weight: 200;
 }
 
 .service {
@@ -209,7 +210,7 @@
 }
 
 .service h3 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 300;
 }
 
