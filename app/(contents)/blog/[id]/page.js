@@ -4,6 +4,7 @@ import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
+import shareIcon from "/public/images/icons/icons8-share.svg"
 
   
 export default function BlogPage({params}) {
@@ -46,12 +47,13 @@ const data = blogData[params.id - 1]
       <p>{data.primaryParagraph}</p>
     </section>
     <section>
-      <h2>SubHeading</h2>
-      <p>Content</p>
+      <h2>{data.secondaryHeader}</h2>
+      <p>{data.secondaryParagraph}</p>
     </section>
     <section className={classes.conclusion}>
       <p>CONCLUSION</p>
     </section>
+    <Image src={shareIcon} alt="alt" width={25} height={25} />
     </div>
   );
 }

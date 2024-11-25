@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-  }
-  .openingSection{
+}
+
+.openingSection{
     display: flex;
-    
 }
 
 .openingSection,
@@ -14,11 +14,9 @@
     margin-bottom: 5vh;
 }
 
-
 .openingSection p {
     padding: 20px;
     margin: 0;
-    
     max-width: 60vw;
 }
 
@@ -29,25 +27,27 @@
     line-height: 1.5rem;
 }
 
-
 .image {
     width: 400px;
     height: auto;
-}
-
-.secondSection h2 {
-    text-align: left;
 }
 
 .avatarAuthor {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
+}
 
-.blogPost p{
+.blogPost p,
+.blogPost h2 {
+    text-align: left;
+    letter-spacing: normal;
+    line-height: 1.5rem;
     text-align: left;
 }
-  .avatarAuthor p{
+
+.avatarAuthor p,
+.avatarAuthor h2{
     margin: 0;
-  }
+    text-align: left;
+}
