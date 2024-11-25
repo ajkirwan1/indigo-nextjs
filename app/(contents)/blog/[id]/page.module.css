@@ -1,0 +1,53 @@
+.subHeader {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  .openingSection{
+    display: flex;
+    
+}
+
+.openingSection,
+.secondSection {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+
+.openingSection p {
+    padding: 20px;
+    margin: 0;
+    
+    max-width: 60vw;
+}
+
+.openingSection p,
+.secondSection p {
+    text-align: left;
+    letter-spacing: normal;
+    line-height: 1.5rem;
+}
+
+
+.image {
+    width: 400px;
+    height: auto;
+}
+
+.secondSection h2 {
+    text-align: left;
+}
+
+.avatarAuthor {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+.blogPost p{
+    text-align: left;
+}
+  .avatarAuthor p{
+    margin: 0;
+  }

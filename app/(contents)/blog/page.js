@@ -12,7 +12,6 @@ function Blog({ blogData }) {
     <>
       <div className={classes.imageContainer}>
         <div>
-          {/* <h2>{blogData.title}</h2> */}
           <Image
             key={blogData.image}
             className={classes.image}
@@ -51,6 +50,7 @@ function Blog({ blogData }) {
 export default function BlogPage() {
   return (
     <>
+    <title>INDIGO Consulting Blog Page</title>
       <div className={classes.subHeader}>
         <h1>Blogs</h1>
       </div>
