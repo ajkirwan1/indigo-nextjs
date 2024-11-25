@@ -1,0 +1,26 @@
+.subHeader {
+  display: flex;
+}
+
+.blogPageContainer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3vh;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+.blogPageContainer li {
+  border: 1px solid black;
+}
+
+.image {
+  width: 500px;
+  height: auto;
+}
+
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vh;
+}

@@ -1,5 +1,5 @@
 /** @format */
-'use client'
+"use client";
 export const navigationData = [
   {
     title: "HOME",
@@ -36,6 +36,10 @@ export const navigationData = [
   {
     title: "CONTACT US",
     url: "/contact",
+  },
+  {
+    title: "BLOG",
+    url: "/blog",
   },
   {
     title: "ACCOUNT",
