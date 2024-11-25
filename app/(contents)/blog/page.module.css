@@ -11,7 +11,17 @@
 }
 
 .blogPageContainer li {
-  border: 1px solid black;
+  border: 1px solid transparent;
+}
+
+.blogPageContainer li:hover {
+  border: 1px solid rgba(0, 0, 0, 0.123);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.123);
+  cursor: pointer;
+}
+
+.blogPageContainer li:hover .hiddenContainer {
+  opacity: 1;
 }
 
 .image {
@@ -23,4 +33,35 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5vh;
+  letter-spacing: normal;
+  width: 500px;
+  padding: 20px;
+}
+
+.avatarAuthorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatarAuthor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.avatarAuthorContainer p {
+  margin: 0;
+}
+
+.hiddenContainer {
+  opacity: 0;
+}
+.hiddenContainer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hiddenContainer:hover {
+  text-decoration: underline;
 }

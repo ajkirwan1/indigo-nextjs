@@ -299,4 +299,41 @@ export async function seed(knex) {
       propertyId: 100000001,
     },
   ]);
+  await knex("usersonproperties").insert([
+    {
+      id: 100000001,
+      userId: userId3,
+      propertyId: 100000001,
+    },
+    {
+      id: 100000002,
+      userId: userId3,
+      propertyId: 100000002,
+    },
+    {
+      id: 100000003,
+      userId: userId3,
+      propertyId: 100000003,
+    },
+    {
+      id: 100000004,
+      userId: userId5,
+      propertyId: 100000001,
+    },
+    {
+      id: 100000005,
+      userId: userId5,
+      propertyId: 100000002,
+    },
+    {
+      id: 100000006,
+      userId: userId4,
+      propertyId: 100000003,
+    },
+    {
+      id: 100000007,
+      userId: userId5,
+      propertyId: 100000001,
+    },
+  ]);
 }
