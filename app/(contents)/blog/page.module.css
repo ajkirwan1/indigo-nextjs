@@ -15,9 +15,11 @@
 }
 
 .blogPageContainer li:hover {
-  border: 1px solid rgba(0, 0, 0, 0.123);
-  box-shadow: 1px  rgba(0, 0, 0, 0.123);
+  /* border: outset 1px #fffcfcc5; */
+  transform: translateY(-15px);
+  transition: transform 550ms;
   cursor: pointer;
+  background: linear-gradient(85deg, #4040402b 0%, #ffffff 100%);
 }
 
 .blogPageContainer li:hover .hiddenContainer {
@@ -33,9 +35,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5vh;
-  letter-spacing: normal;
+  letter-spacing: 0.05vw;
   width: 500px;
-  padding: 20px;
+  padding: 25px;
 }
 
 .avatarAuthorContainer {
@@ -52,6 +54,7 @@
 
 .avatarAuthorContainer p {
   margin: 0;
+  color: #034d8aad;
 }
 
 .hiddenContainer {
@@ -60,12 +63,14 @@
 .hiddenContainer a {
   text-decoration: none;
   color: inherit;
+  font-weight: 200;
 }
 
 .hiddenContainer:hover {
   text-decoration: underline;
+  font-weight: 200;
+  color: #0b0b0b;
 }
 
 .conclusion {
-  
 }

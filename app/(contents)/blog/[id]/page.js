@@ -12,7 +12,7 @@ export default function BlogPage({ params }) {
   return (
     <div className={classes.blogPost}>
       <title>{data.title}</title>
-      <div className={classes.subHeader}>
+      {/* <div className={classes.subHeader}>
         <h1>{data.title}</h1>
         <div className={classes.avatarAuthor}>
           <Avatar
@@ -27,7 +27,7 @@ export default function BlogPage({ params }) {
           <p>By {data.author}</p>
         </div>
       </div>
-      <p>{data.date}</p>
+      <p>{data.date}</p> */}
       <section className={classes.openingSection}>
         <Image
           key={data.image}
@@ -37,13 +37,30 @@ export default function BlogPage({ params }) {
           width={750}
           height={500}
         />
-        <p>{data.opening}</p>
+        <div className={classes.subHeader}>
+          <h1>{data.title}</h1>
+          <p>{data.date}</p>
+          <div className={classes.avatarAuthor}>
+            <Avatar
+              src="/images/pages/who-we-are/emanfinal.jpg"
+              color="default"
+              size="md"
+              // color="primary"
+              // radius="sm"
+              isBordered
+              // size="lg"
+            />
+            <p>By {data.author}</p>
+          </div>
+        </div>
+
+        {/* <p>{data.opening}</p> */}
       </section>
       <section className={classes.secondSection}>
         <h2>{data.primaryHeader}</h2>
         <p>{data.primaryParagraph}</p>
       </section>
-      <section>
+      <section className={classes.thirdSection}>
         <h2>{data.secondaryHeader}</h2>
         <p>{data.secondaryParagraph}</p>
       </section>

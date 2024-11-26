@@ -44,6 +44,14 @@
   max-width: 1000px;
 }
 
+.paragraphWrapper > h1 {
+  font-size: 36px;
+}
+
+.paragraphWrapper > p {
+  font-size: 22px;
+}
+
 .paragraphWrapperReverse {
   display: flex;
   flex-direction: column;

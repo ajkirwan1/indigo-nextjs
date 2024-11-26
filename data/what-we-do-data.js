@@ -2,7 +2,7 @@
 
 export const whatWeDoData = [
   {
-    title: "Development Opportunities Sourcing",
+    title: "DEVELOPMENT OPPORTUNITIES SOURCING",
     info: {
       paragraph: `Sourcing Development Opportunities focuses on empowering
         investors by sourcing and selecting prime real estate
@@ -12,7 +12,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/greece12.jpg",
   },
   {
-    title: "Development Consultancy",
+    title: "DEVELOPMENT CONSULTANCY",
     info: {
       paragraph: `Indigo offers expert guidance, insights from the knowledge
         economy, strategic planning, informed decision-making support,
@@ -21,7 +21,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/devcon.jpg",
   },
   {
-    title: "Development Project Management",
+    title: "DEVELOPMENT PROJECT MANAGEMENT",
     info: {
       paragraph: `Project Development Management offers customizable services
         tailored to the specific needs and goals of clients or
@@ -33,7 +33,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/construct.jpg",
   },
   {
-    title: "Market Analysis",
+    title: "MARKET ANALYSIS",
     info: {
       paragraph: `Integrated with our consultancy and project management services,
         we provide comprehensive support from inception to project
@@ -51,7 +51,7 @@ export const whatWeDoData = [
     },
   },
   {
-    title: "Redevelopment Development Projects",
+    title: "REDEVELOPMENT - DEVELOPMENT PROJECTS",
     info: {
       paragraph: `Indigo's founder, an experienced investor, has led visionary
         transformations in residential projects through previous
@@ -72,7 +72,7 @@ export const whatWeDoData = [
     },
   },
   {
-    title: "Property Management",
+    title: "PROPERTY MANAGEMENT",
     info: {
       paragraph: `Experience hassle-free property management tailored for your Greek
         properties. From maintenance to rental collection and payments,
@@ -85,7 +85,7 @@ export const whatWeDoData = [
     },
   },
   {
-    title: "Legal & Notarial Services",
+    title: "LEGAL & NOTARIAL SERVICES",
     info: {
       paragraph: `Access expert Legal & Notarial Services for your real estate
         needs through our trusted affiliates. Streamline transactions,
@@ -96,7 +96,7 @@ export const whatWeDoData = [
     image: "./images/pages/what-we-do/legal.jpg",
   },
   {
-    title: "Residency - Golden Visa",
+    title: "RESIDENCY - GOLDEN VISA",
     info: {
       paragraph: ` Unlock your path to residency in Greece with our Golden Visa
         Consulting services. Let us guide you through the intricacies
