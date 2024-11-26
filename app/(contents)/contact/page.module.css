@@ -16,7 +16,9 @@
 .pageWrapper p {
   width: 35vw;
   line-height: 3.5rem;
-  font-style: italic;
+}
+
+.pageWrapper p:hover {
 }
 
 .phoneIcon {
@@ -24,6 +26,15 @@
   width: 40px;
   opacity: 0.2;
 }
+.phoneIcon:hover {
+  animation: pop 0.3s linear 1;
+}
+@keyframes pop {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
 .formcontainer {
   width: 30vw;
   /* display: flex;

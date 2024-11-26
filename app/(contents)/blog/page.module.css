@@ -19,7 +19,7 @@
   transform: translateY(-15px);
   transition: transform 550ms;
   cursor: pointer;
-  background: linear-gradient(85deg, #4040402b 0%, #ffffff 100%);
+  background: linear-gradient(85deg, #40404015 0%, #ffffff 100%);
 }
 
 .blogPageContainer li:hover .hiddenContainer {

@@ -151,6 +151,15 @@
   width: 40px;
   opacity: 0.2;
 }
+.contactIcon:hover {
+  animation: pop 0.3s linear 1;
+}
+@keyframes pop {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;
