@@ -6,8 +6,27 @@ import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
 import image from "/public/images/pages/who-we-are/emanfinal.jpg";
 import Link from "next/link";
+import { createClient } from "contentful";
 
-function Blog({ blogData }) {
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+});
+
+const getBlogEntries = async () => {
+  const entries = await client.getEntries({ content_type: "blogPost" });
+  console.log("call");
+  return entries;
+};
+
+async function Blog({ blogData }) {
+  const blogEntries = await getBlogEntries();
+  console.log(blogEntries.items);
+  blogEntries.items.map((item) => {
+    const { title } = item.fields;
+    console.log(title);
+  });
+
   return (
     <>
       <div className={classes.imageContainer}>
@@ -42,6 +61,7 @@ function Blog({ blogData }) {
             </div>
           </div>
         </div>
+        {/* <button onClick={handleCall}></button> */}
       </div>
     </>
   );
@@ -50,7 +70,7 @@ function Blog({ blogData }) {
 export default function BlogPage() {
   return (
     <>
-    <title>INDIGO Consulting Blog Page</title>
+      <title>INDIGO Consulting Blog Page</title>
       <div className={classes.subHeader}>
         <h1>Blogs</h1>
       </div>
