@@ -15,17 +15,12 @@ const client = createClient({
 
 const getBlogEntries = async () => {
   const entries = await client.getEntries({ content_type: "blogPost" });
-  console.log("call");
   return entries;
 };
 
 async function Blog({ blogData }) {
-  const blogEntries = await getBlogEntries();
-  console.log(blogEntries.items);
-  blogEntries.items.map((item) => {
-    const { title } = item.fields;
-    console.log(title);
-  });
+  const { title, subTitle, publishDate, primaryImage, author } =
+    blogData.fields;
 
   return (
     <>
@@ -34,26 +29,23 @@ async function Blog({ blogData }) {
           <Image
             key={blogData.image}
             className={classes.image}
-            src={blogData.image}
+            src={`https:${primaryImage.fields.file.url}`}
             alt="alt"
             width={750}
             height={500}
           />
-          <h2>{blogData.title}</h2>
-          <p>{blogData.description}</p>
-          <p>{blogData.date}</p>
+          <h2>{title}</h2>
+          <p>{subTitle}</p>
+          <p>{publishDate}</p>
           <div className={classes.avatarAuthorContainer}>
             <div className={classes.avatarAuthor}>
               <Avatar
                 src="/images/pages/who-we-are/emanfinal.jpg"
                 color="default"
                 size="md"
-                // color="primary"
-                // radius="sm"
                 isBordered
-                // size="lg"
               />
-              <p>By {blogData.author}</p>
+              <p>By {author}</p>
             </div>
 
             <div className={classes.hiddenContainer}>
@@ -67,7 +59,13 @@ async function Blog({ blogData }) {
   );
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const blogEntries = await getBlogEntries();
+  // console.log(blogEntries.items);
+  blogEntries.items.map((item) => {
+    const { primaryImage } = item.fields;
+    console.log(primaryImage, "IMAGE");
+  });
   return (
     <>
       <title>INDIGO Consulting Blog Page</title>
@@ -76,7 +74,7 @@ export default function BlogPage() {
       </div>
       <div className={classes.blogPageContainer}>
         <ul>
-          {blogData.map((element) => (
+          {blogEntries.items.map((element) => (
             <li key={element.title}>
               <Blog blogData={element} />
             </li>
