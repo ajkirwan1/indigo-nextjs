@@ -9,7 +9,7 @@ export default function LoadingProperties() {
       </div>
       <p>Please wait while we find your properties</p>
 
-      <Spinner color="secondary" size="lg" className="spinner" />
+      <Spinner color="default" size="lg" className="spinner" />
 
       {/* <Loading /> */}
     </>

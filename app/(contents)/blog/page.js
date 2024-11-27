@@ -70,9 +70,9 @@ async function Blog({ blogData }) {
 export default function BlogPage() {
   return (
     <>
-      <title>INDIGO Consulting Blog Page</title>
+      <title>INDIGO Consulting NEWS Page</title>
       <div className={classes.subHeader}>
-        <h1>Blogs</h1>
+        <h1> INDIGO'S NEWS</h1>
       </div>
       <div className={classes.blogPageContainer}>
         <ul>

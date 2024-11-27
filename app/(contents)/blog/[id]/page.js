@@ -4,7 +4,7 @@ import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
-import shareIcon from "/public/images/icons/icons8-share.svg";
+import shareIcon from "/public/images/icons/shareIcon.svg";
 
 export default function BlogPage({ params }) {
   const data = blogData[params.id - 1];

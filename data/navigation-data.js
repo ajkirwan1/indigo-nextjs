@@ -38,7 +38,7 @@ export const navigationData = [
     url: "/contact",
   },
   {
-    title: "BLOG",
+    title: "NEWS",
     url: "/blog",
   },
   {
