@@ -21,14 +21,14 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background-color: #0d3112;
+  background-color: #003a4d;
   font-weight: 200;
   margin-top: 40px;
 }
 
 .wrapper:hover {
   cursor: pointer;
-  background-color: #164f1e;
+  background-color: #003a4dc7;
   color: rgb(40, 40, 40);
   color: rgb(251, 253, 254);
 }
