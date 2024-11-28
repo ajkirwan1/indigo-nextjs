@@ -1,7 +1,7 @@
 /** @format */
 
 import Image from "next/image";
-import { blogData } from "@/data/blog-data";
+// import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
 import image from "/public/images/pages/who-we-are/emanfinal.jpg";
@@ -19,7 +19,7 @@ const getBlogEntries = async () => {
 };
 
 async function Blog({ blogData }) {
-  const { title, subTitle, publishDate, primaryImage, author } =
+  const { title, subTitle, publishDate, primaryImage, author, slug } =
     blogData.fields;
 
   return (
@@ -47,13 +47,11 @@ async function Blog({ blogData }) {
               />
               <p>By {author}</p>
             </div>
-
             <div className={classes.hiddenContainer}>
-              <Link href={`blog/${blogData.id}`}>Read more</Link>
+              <Link href={`blog/${slug}`}>Read more</Link>
             </div>
           </div>
         </div>
-        {/* <button onClick={handleCall}></button> */}
       </div>
     </>
   );
@@ -61,11 +59,6 @@ async function Blog({ blogData }) {
 
 export default async function BlogPage() {
   const blogEntries = await getBlogEntries();
-  // console.log(blogEntries.items);
-  blogEntries.items.map((item) => {
-    const { primaryImage } = item.fields;
-    console.log(primaryImage, "IMAGE");
-  });
   return (
     <>
       <title>INDIGO Consulting Blog Page</title>
@@ -84,3 +77,14 @@ export default async function BlogPage() {
     </>
   );
 }
+
+// export async function generateStaticParams() {
+//   const queryOptions = {
+//     content_type: "blogPost",
+//     select: "fields.slug",
+//   };
+//   const articles = await client.getEntries(queryOptions);
+//   return articles.items.map((article) => ({
+//     slug: article.fields.slug,
+//   }));
+// }
