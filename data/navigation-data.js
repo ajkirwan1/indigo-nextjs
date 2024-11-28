@@ -4,6 +4,16 @@ export const navigationData = [
   {
     title: "HOME",
     url: "/",
+    submenu: [
+      {
+        title: "NEWS",
+        url: "/blogs",
+      },
+      {
+        title: "PROJECTS",
+        url: "/projects",
+      },
+    ],
   },
   {
     title: "ABOUT US",

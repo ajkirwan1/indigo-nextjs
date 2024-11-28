@@ -1,10 +1,8 @@
 /** @format */
 
 import Image from "next/image";
-// import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
-import image from "/public/images/pages/who-we-are/emanfinal.jpg";
 import Link from "next/link";
 import { createClient } from "contentful";
 
@@ -18,12 +16,11 @@ const getBlogEntries = async () => {
   return entries;
 };
 
-async function Blog({ blogData }) {
+async function BlogItem({ blogData }) {
   const { title, subTitle, publishDate, primaryImage, author, slug } =
     blogData.fields;
 
   return (
-    <>
       <div className={classes.imageContainer}>
         <div>
           <Image
@@ -53,7 +50,6 @@ async function Blog({ blogData }) {
           </div>
         </div>
       </div>
-    </>
   );
 }
 
@@ -69,7 +65,7 @@ export default async function BlogPage() {
         <ul>
           {blogEntries.items.map((element) => (
             <li key={element.title}>
-              <Blog blogData={element} />
+              <BlogItem blogData={element} />
             </li>
           ))}
         </ul>
