@@ -1,5 +1,5 @@
 .footer {
-  height: 8vh;
+  height: 12vh;
   background-color: #4d0013;
   width: 100vw;
 }
@@ -23,8 +23,9 @@
 }
 
 .aklogo {
-  height: 5rem;
+  height: 3rem;
   width: auto;
+  filter: brightness(100) grayscale(1);
 }
 .flexlist {
   display: flex;
