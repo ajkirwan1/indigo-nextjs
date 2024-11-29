@@ -1,7 +1,10 @@
 .subHeader {
   display: flex;
 }
-
+.blogPageContainer a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
 .blogPageContainer ul {
   display: flex;
   flex-wrap: wrap;
@@ -15,11 +18,11 @@
 }
 
 .blogPageContainer li:hover {
-  /* border: outset 1px #fffcfcc5; */
   transform: translateY(-15px);
   transition: transform 550ms;
   cursor: pointer;
-  background: linear-gradient(85deg, #40404015 0%, #ffffff 100%);
+  /* background: linear-gradient(85deg, #40404015 0%, #ffffff 100%); */
+  border: outset 1px #fffcfcc5;
 }
 
 .blogPageContainer li:hover .hiddenContainer {

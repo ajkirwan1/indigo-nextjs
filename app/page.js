@@ -190,9 +190,9 @@ const componentArray = [
 export default function Homepage() {
   const { user } = useSession();
   console.log(user);
-  if (user?.adminaccess) {
-    redirect("admin");
-  }
+  // if (user?.adminaccess) {
+  //   redirect("admin");
+  // }
   return (
     <>
       <Header className={classes.heroHeader}></Header>

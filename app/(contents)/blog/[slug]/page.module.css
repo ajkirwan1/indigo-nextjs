@@ -13,12 +13,9 @@
 }
 
 .openingSection,
-.secondSection,
-.thirdSection,
-.conclusion {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  max-width: 1200px;
+.secondSection {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
 }
 
 /* .openingSection p {
