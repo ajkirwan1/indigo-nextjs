@@ -4,7 +4,7 @@ import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
-import shareIcon from "/public/images/icons/icons8-share.svg";
+import shareIcon from "/public/images/icons/shareIcon.svg";
 import { createClient } from "contentful";
 import { projectsData } from "@/data/projects-data";
 import Carousel from "@/components/carousel";

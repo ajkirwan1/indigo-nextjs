@@ -25,6 +25,7 @@
   justify-items: center;
   letter-spacing: 0;
   row-gap: 35px;
+  font-weight: 300;
 }
 
 .registerForm3 {
@@ -39,6 +40,7 @@
     min-height: 70vh;
     flex-direction: column;
     align-items: center; */
+  font-weight: 300;
 }
 .inputWrapper input {
   margin-left: 15px;

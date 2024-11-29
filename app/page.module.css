@@ -201,6 +201,7 @@
 .sectionTitle {
   font-size: 36px;
   line-height: 1.7;
+  font-weight: 200;
 }
 
 .service {
@@ -210,12 +211,13 @@
 
 .service h3 {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .envelope {
   width: 36px;
   height: auto;
+  font-weight: 200;
 }
 
 .box {

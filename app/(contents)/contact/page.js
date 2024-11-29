@@ -30,7 +30,7 @@ export default function ContactUsPage() {
           <Image alt="icon" src={phoneIcon} className={classes.phoneIcon} />
 
           <div className={classes.phoneAndEmail}>
-            <h1>PHONE: +307564646343</h1>
+            <h1>PHONE: +30 697 333 5888</h1>
 
             <h1>E-MAIL: EP@INDIGO-CONSULTING.GR</h1>
           </div>

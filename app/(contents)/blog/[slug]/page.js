@@ -4,9 +4,9 @@ import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
-import shareIcon from "/public/images/icons/icons8-share.svg";
+import shareIcon from "/public/images/icons/shareIcon.svg";
 import { createClient } from "contentful";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -27,9 +27,16 @@ const fetchBlogPost = async (slug) => {
 export default async function BlogPage(props) {
   const { params } = props;
   const { slug } = params;
-  const {fields} = await fetchBlogPost(slug)
-  const {title, subTitle, publishDate,author, location, primaryImage,mainParagraph } = fields 
-
+  const { fields } = await fetchBlogPost(slug);
+  const {
+    title,
+    subTitle,
+    publishDate,
+    author,
+    location,
+    primaryImage,
+    mainParagraph,
+  } = fields;
 
   return (
     <div className={classes.blogPost}>
