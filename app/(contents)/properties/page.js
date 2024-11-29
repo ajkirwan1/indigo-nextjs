@@ -40,7 +40,6 @@ async function PropertiesPage() {
           affiliated with our consultancy.
         </p>
       </div>
-
       <Properties userId={userId} />
     </>
   );

@@ -5,12 +5,17 @@
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
-.blogPageContainer ul {
+.blogPageContainer ul,
+.blogPageContainerLoading ul {
   display: flex;
   flex-wrap: wrap;
   gap: 3vh;
   justify-content: space-evenly;
   text-align: left;
+}
+
+.skeletonParagraph {
+  width: 100%;
 }
 
 .blogPageContainer li {

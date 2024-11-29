@@ -8,10 +8,7 @@ export default function LoadingProperties() {
         <h1>PROPERTIES FOR SALE</h1>
       </div>
       <p>Please wait while we find your properties</p>
-
       <Spinner color="secondary" size="lg" className="spinner" />
-
-      {/* <Loading /> */}
     </>
   );
 }
