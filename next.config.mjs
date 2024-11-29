@@ -32,15 +32,15 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/admin/:slug*',
-        destination: process.env.NEXT_PUBLIC_BASE_URL, // Matched parameters can be used in the destination
-        permanent: false,
-      },
-    ]
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/admin/:slug*',
+  //       destination: process.env.NEXT_PUBLIC_BASE_URL, // Matched parameters can be used in the destination
+  //       permanent: false,
+  //     },
+  //   ]
+  // },
 };
 
 export default nextConfig;

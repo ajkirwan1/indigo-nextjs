@@ -9,6 +9,7 @@ import { createClient } from "contentful";
 import { projectsData } from "@/data/projects-data";
 import Carousel from "@/components/carousel";
 import { propertyData } from "@/public/data/data";
+import Link from "next/link";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const client = createClient({
@@ -41,14 +42,17 @@ export default async function Project({ params }) {
     <div className={classes.blogPost}>
       <title>{data.title}</title>
       <section className={classes.openingSection}>
-        <Image
-          // key={data.image}
-          className={classes.image}
-          src={data.image}
-          alt="alt"
-          width={750}
-          height={500}
-        />
+        <Link href={`${data.id}/images`}>
+          <Image
+            // key={data.image}
+            className={classes.image}
+            src={data.image}
+            alt="alt"
+            width={750}
+            height={500}
+          />
+        </Link>
+
         <div className={classes.subHeader}>
           <h1>{data.title}</h1>
           <p>
