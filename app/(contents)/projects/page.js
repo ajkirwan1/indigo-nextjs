@@ -3,15 +3,14 @@
 import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function ProjectItem({ data }) {
   // const imageArray = images.images;
   return (
+    <Link href={`projects/${data.id}`}>
       <div className={classes.imageContainer}>
         <div>
-        <h2>{data.title}</h2>
-          <p>Location - {data.location}</p>
-          <p>Investment return - {data.investmentReturn}</p>
           <Image
             // key={blogData.image}
             className={classes.image}
@@ -20,6 +19,9 @@ function ProjectItem({ data }) {
             width={750}
             height={500}
           />
+          <h2>{data.title}</h2>
+          <p>Location - {data.location}</p>
+          <p>Investment return - {data.investmentReturn}</p>
           <p>{data.opening}</p>
           {/* <div className={classes.avatarAuthorContainer}>
             <div className={classes.avatarAuthor}>
@@ -31,6 +33,7 @@ function ProjectItem({ data }) {
           </div> */}
         </div>
       </div>
+    </Link>
   );
 }
 

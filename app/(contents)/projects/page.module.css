@@ -2,6 +2,11 @@
   display: flex;
 }
 
+.blogPageContainer a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 .blogPageContainer p {
   letter-spacing: normal;
 }
@@ -22,7 +27,8 @@
   transform: translateY(-15px);
   transition: transform 550ms;
   cursor: pointer;
-  background: linear-gradient(85deg, #40404015 0%, #ffffff 100%);
+  border: outset 1px #fffcfcc5;
+  /* background: linear-gradient(85deg, #40404015 0%, #ffffff 100%); */
 }
 
 .blogPageContainer li:hover .hiddenContainer {
@@ -39,7 +45,7 @@
   flex-wrap: wrap;
   gap: 5vh;
   letter-spacing: 0.05vw;
-  width: 500px;
+  width: 400px;
   /* padding: 25px; */
 }
 
