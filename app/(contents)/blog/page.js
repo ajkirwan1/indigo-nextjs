@@ -5,6 +5,7 @@ import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import { createClient } from "contentful";
+import NewsItemFallback from "@/components/fallbacks/news/news-item-fallback";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -22,7 +23,7 @@ async function BlogItem({ blogData }) {
 
   return (
     <div className={classes.imageContainer}>
-      <Link href={`blog/${slug}`}>
+      {/* <Link href={`blog/${slug}`}>
         <div>
           <Image
             key={blogData.image}
@@ -50,7 +51,8 @@ async function BlogItem({ blogData }) {
             </div>
           </div>
         </div>
-      </Link>
+      </Link> */}
+      <NewsItemFallback />
     </div>
   );
 }
