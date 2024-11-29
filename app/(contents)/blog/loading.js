@@ -1,7 +1,7 @@
 import NewsItemFallback from "@/components/fallbacks/news/news-item-fallback";
 import classes from "./page.module.css";
 
-export default function LoadingProjects() {
+export default function LoadingNews() {
   return (
     <>
       <title>INDIGO Consulting Blog Page</title>

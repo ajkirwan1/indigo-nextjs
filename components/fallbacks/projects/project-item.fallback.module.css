@@ -37,7 +37,7 @@
 
 .image {
   width: 500px;
-  height: auto;
+  height: 375px;
 }
 
 .imageContainer {
@@ -45,8 +45,8 @@
   flex-wrap: wrap;
   gap: 5vh;
   letter-spacing: 0.05vw;
-  width: 500px;
-  padding: 25px;
+  width: 400px;
+  /* padding: 25px; */
 }
 
 .avatarAuthorContainer {
