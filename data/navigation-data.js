@@ -6,11 +6,11 @@ export const navigationData = [
     url: "/",
     submenu: [
       {
-        title: "NEWS",
-        url: "/blogs",
+        title: "News",
+        url: "/blog",
       },
       {
-        title: "PROJECTS",
+        title: "Projects",
         url: "/projects",
       },
     ],
@@ -47,10 +47,10 @@ export const navigationData = [
     title: "CONTACT US",
     url: "/contact",
   },
-  {
-    title: "BLOG",
-    url: "/blog",
-  },
+  // {
+  //   title: "BLOG",
+  //   url: "/blog",
+  // },
   {
     title: "ACCOUNT",
     url: "/contact",

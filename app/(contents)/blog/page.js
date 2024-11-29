@@ -21,7 +21,8 @@ async function BlogItem({ blogData }) {
     blogData.fields;
 
   return (
-      <div className={classes.imageContainer}>
+    <div className={classes.imageContainer}>
+      <Link href={`blog/${slug}`}>
         <div>
           <Image
             key={blogData.image}
@@ -49,7 +50,8 @@ async function BlogItem({ blogData }) {
             </div>
           </div>
         </div>
-      </div>
+      </Link>
+    </div>
   );
 }
 
