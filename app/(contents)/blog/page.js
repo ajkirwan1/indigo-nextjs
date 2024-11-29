@@ -12,7 +12,7 @@ const client = createClient({
 });
 
 const getBlogEntries = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 1000));
   const entries = await client.getEntries({ content_type: "blogPost" });
   return entries;
 };

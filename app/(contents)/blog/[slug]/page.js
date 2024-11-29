@@ -42,14 +42,17 @@ export default async function BlogPage(props) {
     <div className={classes.blogPost}>
       <title>{title}</title>
       <section className={classes.openingSection}>
-        <Image
-          // key={data.image}
-          className={classes.image}
-          src={`https:${primaryImage.fields.file.url}`}
-          alt="alt"
-          width={750}
-          height={500}
-        />
+        <div className={classes.imageContainer}>
+          <Image
+            // key={data.image}
+            className={classes.image}
+            src={`https:${primaryImage.fields.file.url}`}
+            alt="alt"
+            width={750}
+            height={500}
+          />
+        </div>
+
         <div className={classes.subHeader}>
           <h1>{title}</h1>
           <p>{publishDate}</p>
@@ -72,11 +75,10 @@ export default async function BlogPage(props) {
         <h2>{subTitle}</h2>
         <span>{documentToReactComponents(mainParagraph)}</span>
       </section>
-      <section className={classes.conclusion}>
+      {/* <section className={classes.conclusion}>
         <h2>{subTitle}</h2>
         <span>{documentToReactComponents(mainParagraph)}</span>
-      </section>
-      <Image src={shareIcon} alt="alt" width={25} height={25} />
+      </section> */}
     </div>
   );
 }
