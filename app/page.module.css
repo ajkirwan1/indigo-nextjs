@@ -328,6 +328,20 @@
   border-color: aliceblue;
 } */
 
+@media only screen and (min-width: 1800px) {
+  .sectionTitle {
+    font-size: 55px;
+  }
+  .service h3 {
+    font-size: 22px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+}
+
 @media only screen and (max-width: 800px) {
   .heroHeader {
     background: rgba(255, 255, 255, 0.8);

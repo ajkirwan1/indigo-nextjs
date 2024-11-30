@@ -18,9 +18,6 @@ export default function LoadingProjects() {
           <li key={3}>
             <ProjectItemFallback />
           </li>
-          <li key={4}>
-            <ProjectItemFallback />
-          </li>
         </ul>
       </div>
     </>

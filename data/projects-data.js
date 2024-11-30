@@ -1,15 +1,13 @@
 /** @format */
 
 export const projectsData = [
-
   {
     id: 1,
     title: "Anagnostopoulo",
     image: "/images/pages/projects/test.jpg",
     dateStart: "25/11/2022",
     dateCompleted: "25/11/2024",
-    description:
-      "Building a 2 story villa in Anagnostopoulo",
+    description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
     // author: "Emmanuel Petrakis",
@@ -21,8 +19,7 @@ export const projectsData = [
     image: "/images/pages/projects/test.jpg",
     dateStart: "25/11/2022",
     dateCompleted: "25/11/2024",
-    description:
-      "Building a 2 story villa in Anagnostopoulo",
+    description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
     // author: "Emmanuel Petrakis",
@@ -34,8 +31,7 @@ export const projectsData = [
     image: "/images/pages/projects/test.jpg",
     dateStart: "25/11/2022",
     dateCompleted: "25/11/2024",
-    description:
-      "Building a 2 story villa in Anagnostopoulo",
+    description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
     // author: "Emmanuel Petrakis",
@@ -47,8 +43,7 @@ export const projectsData = [
     image: "/images/pages/projects/test.jpg",
     dateStart: "25/11/2022",
     dateCompleted: "25/11/2024",
-    description:
-      "Building a 2 story villa in Anagnostopoulo",
+    description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
     // author: "Emmanuel Petrakis",

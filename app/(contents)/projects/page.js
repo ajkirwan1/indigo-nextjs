@@ -4,6 +4,7 @@ import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
 function ProjectItem({ data }) {
   return (
@@ -27,7 +28,7 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
@@ -41,6 +42,9 @@ export default async function ProjectsPage() {
               <ProjectItem data={element} />
             </li>
           ))}
+          {/* <li className={classes.skeletonList}>
+            <ProjectItemFallback />
+          </li> */}
         </ul>
       </div>
     </>

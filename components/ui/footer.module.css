@@ -1,5 +1,5 @@
 .footer {
-  height: 12vh;
+  height: 10vh;
   background-color: #4d0013;
   width: 100vw;
 }
@@ -13,7 +13,7 @@
   gap: 1.5rem;
   font-size: 1.25rem;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   color: aliceblue;
   font-weight: 200;
   flex-wrap: wrap;
@@ -26,9 +26,49 @@
   height: 3rem;
   width: auto;
   filter: brightness(100) grayscale(1);
+  margin-right: 150px;
 }
 .flexlist {
   display: flex;
   align-items: center;
   gap: 2vh;
+}
+@media only screen and (min-width: 1800px) {
+  .aklogo {
+    height: 4rem;
+  }
+  .footer ul {
+    font-size: 1.25rem;
+  }
+  .shareIcon {
+    height: 30px;
+    width: auto;
+    margin-left: 80px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .aklogo {
+    height: 3.5rem;
+  }
+  .shareIcon {
+    height: 2rem;
+    width: auto;
+  }
+  .footer ul {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .aklogo {
+    height: 3rem;
+  }
+  .footer ul {
+    font-size: 0.95rem;
+  }
+  .shareIcon {
+    height: 1.5rem;
+    width: auto;
+  }
 }
