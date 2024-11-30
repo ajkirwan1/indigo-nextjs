@@ -70,6 +70,16 @@
   font-size: 28px;
 }
 
+.shareIconContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 3vh;
+  gap: 1vw
+}
+.shareIconContainer p{
+margin: 0;
+}
+
 /* .thirdSection > h2 {
   font-size: 100px;
 } */

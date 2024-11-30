@@ -60,7 +60,13 @@ export default async function BlogPage(props) {
               size="md"
               isBordered
             />
-            <p>By {author}</p>
+            <div>
+              <p>By {author}</p>
+            </div>
+          </div>
+          <div className={classes.shareIconContainer}>
+            <p>Share</p>
+            <Image src={shareIcon} alt="alt" width={30} height={30} />
           </div>
         </div>
       </section>
@@ -76,7 +82,6 @@ export default async function BlogPage(props) {
         <h2>{subTitle}</h2>
         <span>{documentToReactComponents(mainParagraph)}</span>
       </section>
-      <Image src={shareIcon} alt="alt" width={25} height={25} />
     </div>
   );
 }
