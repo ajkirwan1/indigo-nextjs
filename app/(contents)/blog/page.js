@@ -24,13 +24,16 @@ async function BlogItem({ blogData }) {
   return (
     <Link href={`blog/${slug}`}>
       <div>
-        <Image
-          className={classes.image}
-          src={`https:${primaryImage.fields.file.url}`}
-          alt="alt"
-          width={750}
-          height={500}
-        />
+        <div className={classes.imageContainer}>
+          <Image
+            className={classes.image}
+            src={`https:${primaryImage.fields.file.url}`}
+            alt="alt"
+            width={750}
+            height={500}
+          />
+        </div>
+
         <h2>{title}</h2>
         <p>{subTitle}</p>
         <p>{publishDate}</p>

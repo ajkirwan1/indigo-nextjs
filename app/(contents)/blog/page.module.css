@@ -35,7 +35,7 @@
 }
 
 .blogPageContainer li:hover {
-  transform: translateY(-15px);
+  /* transform: translateY(-15px); */
   transition: transform 550ms;
   cursor: pointer;
   border: outset 1px #fffcfcc5;
@@ -48,15 +48,18 @@
 .image {
   width: 100%;
   height: auto;
+  transition: transform 0.5s ease;
 }
 
 .imageContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5vh;
-  /* letter-spacing: 0.05vw; */
-  width: 500px;
-  /* padding: 25px; */
+  /* height: 500px;
+  width: auto; */
+  overflow: hidden;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .avatarAuthorContainer {
