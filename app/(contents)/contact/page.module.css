@@ -19,8 +19,8 @@
   font-size: 16px;
 }
 
-.pageWrapper p:hover {
-}
+/* .pageWrapper p:hover {
+} */
 
 .phoneIcon {
   height: auto;
@@ -64,7 +64,7 @@
   display: flex;
 }
 .wrapper span {
-  border-right: 2px solid rgba(0, 0, 0, 0.563);
+  border-right: 1px solid rgba(0, 0, 0, 0.563);
 }
 .phoneAndEmail {
   margin-top: 12vh;

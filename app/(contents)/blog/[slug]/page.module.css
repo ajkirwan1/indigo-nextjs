@@ -81,6 +81,10 @@
   max-width: 700px;
 }
 
+.newsLetterSection h2 {
+  margin-left: 48px;
+}
+
 .avatarAuthor p,
 .avatarAuthor h2 {
   margin: 0;
@@ -138,7 +142,7 @@
 .formContainer {
   display: flex;
   justify-content: flex-end;
-  gap: 0.5vw;
+  gap: 10px;
   width: 100%;
 }
 
@@ -146,6 +150,7 @@
   border: none;
   border-bottom: 2px solid black;
   border-radius: 0;
+  padding: 0;
   /* border-bottom: 2px solid black; */
   height: 3rem;
   width: 150%;
