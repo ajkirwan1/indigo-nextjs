@@ -19,16 +19,14 @@ export default function ContactUsPage() {
       </div>
       <div className={classes.wrapper}>
         <div className={classes.form}>
-          <div className={classes.formcontainer}>
+          <div className={`${classes.formcontainer} ${classes.fadeInLeft}`}>
             <ContactForm action={ContactUs}></ContactForm>
           </div>
         </div>
         <span></span>
         <div className={classes.letsTalk}>
           <h1>LET&apos;S TALK</h1>
-
           <Image alt="icon" src={phoneIcon} className={classes.phoneIcon} />
-
           <div className={classes.phoneAndEmail}>
             <h1>PHONE: +30 697 333 5888</h1>
 
