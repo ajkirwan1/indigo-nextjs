@@ -19,7 +19,7 @@ export default function ContactUsPage() {
       </div>
       <div className={classes.wrapper}>
         <div className={classes.form}>
-          <div className={`${classes.formcontainer} ${classes.fadeInLeft}`}>
+          <div className={classes.formcontainer}>
             <ContactForm action={ContactUs}></ContactForm>
           </div>
         </div>
