@@ -33,11 +33,15 @@
 }
 
 .blogPageContainer li:hover {
-  transform: translateY(-15px);
+  /* transform: translateY(-15px); */
   transition: transform 550ms;
   cursor: pointer;
   border: outset 1px #fffcfcc5;
-  /* background: linear-gradient(85deg, #40404015 0%, #ffffff 100%); */
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .blogPageContainer li:hover .hiddenContainer {
@@ -47,14 +51,16 @@
 .image {
   width: 100%;
   height: auto;
+  transition: transform 0.5s ease;
 }
 
 .imageContainer {
-  display: flex;
+  overflow: hidden;
+  /* display: flex;
   flex-wrap: wrap;
-  gap: 5vh;
+  gap: 5vh; */
   /* letter-spacing: 0.05vw; */
-  width: 500px;
+  /* width: 500px; */
   /* padding: 25px; */
 }
 

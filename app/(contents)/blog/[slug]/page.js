@@ -15,12 +15,12 @@ const client = createClient({
 });
 
 const fetchBlogPost = async (slug) => {
+  // await new Promise((resolve) => setTimeout(resolve, 40000));
   const queryOptions = {
     content_type: "blogPost",
     "fields.slug[match]": slug,
   };
   const queryResult = await client.getEntries(queryOptions);
-
   // console.log(queryResult.items[0], "MLD:DL:DS:LDS");
   return queryResult.items[0];
 };
@@ -46,7 +46,6 @@ export default async function BlogPage(props) {
         <h1>NEWS</h1>
         <hr />
       </div>
-
       <div className={classes.blogPost}>
         <div className={classes.column1}>
           <section className={classes.openingSection}>

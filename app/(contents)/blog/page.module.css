@@ -31,6 +31,7 @@
 .blogPageContainerSkeleton li {
   border: 1px solid transparent;
   /* flex: 1; */
+  max-width: 500px;
   width: 100%;
 }
 
@@ -48,6 +49,7 @@
 .image {
   width: 100%;
   height: auto;
+  /* max-width: 500px; */
   transition: transform 0.5s ease;
 }
 

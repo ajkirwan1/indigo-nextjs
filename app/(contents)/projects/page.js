@@ -10,13 +10,16 @@ function ProjectItem({ data }) {
   return (
     <Link href={`projects/${data.id}`}>
       <div>
-        <Image
-          className={classes.image}
-          src={data.image}
-          alt="alt"
-          width={750}
-          height={500}
-        />
+        <div className={classes.imageContainer}>
+          <Image
+            className={classes.image}
+            src={data.image}
+            alt="alt"
+            width={750}
+            height={500}
+          />
+        </div>
+
         <h2>{data.title}</h2>
         <p>Location - {data.location}</p>
         <p>Investment return - {data.investmentReturn}</p>
