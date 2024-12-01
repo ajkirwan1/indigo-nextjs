@@ -22,8 +22,13 @@
 
 .newsLetterSection {
   display: flex;
-  align-items: flex-end;
   flex-direction: column;
+  width: 70%;
+  margin-left: 5vw;
+}
+
+.newsLetterSection form {
+  width: 70%;
 }
 
 .openingSection,
@@ -134,6 +139,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 0.5vw;
+  width: 100%;
 }
 
 .blogPost input[type="email"] {
@@ -142,7 +148,7 @@
   border-radius: 0;
   /* border-bottom: 2px solid black; */
   height: 3rem;
-  width: 50%;
+  width: 150%;
   background-color: #ffffff00;
   color: #505050;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */

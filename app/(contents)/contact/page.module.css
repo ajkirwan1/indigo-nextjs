@@ -44,6 +44,10 @@
   width: 50%; */
 }
 
+.formcontainer h1 {
+  font-size: 40px;
+}
+
 .letsTalk {
   flex: 1 1 40%;
   display: flex;
@@ -51,12 +55,16 @@
   align-items: center;
 }
 
+.letsTalk > h1 {
+  font-size: 40px;
+}
+
 .wrapper {
   margin-top: 10vh;
   display: flex;
 }
 .wrapper span {
-  border-right: 2px solid rgba(11, 123, 123, 0.209);
+  border-right: 2px solid rgba(0, 0, 0, 0.563);
 }
 .phoneAndEmail {
   margin-top: 12vh;
