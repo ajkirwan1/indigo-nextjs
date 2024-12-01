@@ -5,7 +5,7 @@ import { useFormState } from "react-dom";
 import FormSubmit from "./formsubmit";
 import classes from "./contact-form.module.css";
 import Image from "next/image";
-import contactIcon from "/public/images/contact.png";
+import contactIcon from "/public/images/icons/envelope.png";
 export default function ContactForm({ action, redirection }) {
   const [state, formAction] = useFormState(action, { redirection });
 

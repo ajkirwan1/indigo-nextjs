@@ -1,10 +1,11 @@
 .header {
   text-align: left;
   margin-top: 5vh;
+  margin-bottom: 6vh;
 }
 
 .header h1 {
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .subHeader {
@@ -14,6 +15,7 @@
   max-width: 550px;
   line-height: 4rem;
   margin-left: 60px;
+  gap: 2vh;
 }
 
 .openingSection {
@@ -23,8 +25,7 @@
 .newsLetterSection {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin-left: 5vw;
+  align-items: flex-end;
 }
 
 .newsLetterSection form {
@@ -34,7 +35,7 @@
 .openingSection,
 .secondSection,
 .newsLetterSection {
-  margin-top: 5vh;
+  /* margin-top: 10vh; */
   margin-bottom: 5vh;
 }
 
@@ -79,10 +80,12 @@
   font-weight: 300;
   line-height: 2.5rem;
   max-width: 700px;
+  margin-bottom: 3vh;
 }
 
 .newsLetterSection h2 {
   margin-left: 48px;
+  font-weight: 500;
 }
 
 .avatarAuthor p,
@@ -95,19 +98,19 @@
   font-weight: 600;
   color: #505050;
   line-height: 4.2rem;
-  margin-top: 0;
+  margin: 0;
 }
 
 .subHeader > p {
   font-size: 28px;
 }
 
-.shareIconContainer {
+/* .shareIconContainer {
   display: flex;
   align-items: center;
   margin-top: 3vh;
   gap: 1vw;
-}
+} */
 .shareIconContainer p {
   margin: 0;
 }

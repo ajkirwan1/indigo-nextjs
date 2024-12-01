@@ -4,7 +4,7 @@ import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import phoneIcon from "/public/images/icons/phone.png";
+import phoneIcon from "/public/images/icons/phoneblue.png";
 
 export default function ContactUsPage() {
   return (

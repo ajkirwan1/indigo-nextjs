@@ -61,8 +61,9 @@ export default async function BlogPage() {
   return (
     <>
       <title>INDIGO Consulting NEWS Page</title>
-      <div className={classes.subHeader}>
-        <h1> INDIGO'S NEWS</h1>
+      <div className={classes.header}>
+        <h1>NEWS</h1>
+        <hr />
       </div>
       <div className={classes.blogPageContainer}>
         <ul>

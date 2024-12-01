@@ -28,7 +28,7 @@
 
 .blogPageContainer li {
   border: 1px solid transparent;
-  /* flex: 1; */
+  max-width: 500px;
   width: 100%;
 }
 
@@ -56,12 +56,6 @@
 
 .imageContainer {
   overflow: hidden;
-  /* display: flex;
-  flex-wrap: wrap;
-  gap: 5vh; */
-  /* letter-spacing: 0.05vw; */
-  /* width: 500px; */
-  /* padding: 25px; */
 }
 
 .avatarAuthorContainer {

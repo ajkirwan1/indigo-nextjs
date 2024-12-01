@@ -5,8 +5,9 @@ export default function LoadingNews() {
   return (
     <>
       <title>INDIGO Consulting Blog Loading Page</title>
-      <div className={classes.subHeader}>
-        <h1>Blogs</h1>
+      <div className={classes.header}>
+        <h1>NEWS</h1>
+        <hr />
       </div>
       <div className={classes.blogPageContainerSkeleton}>
         <ul>

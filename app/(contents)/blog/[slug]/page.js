@@ -74,7 +74,6 @@ export default async function BlogPage(props) {
                 </div>
               </div>
               <div className={classes.shareIconContainer}>
-                <p>Share</p>
                 <Image src={shareIcon} alt="alt" width={30} height={30} />
               </div>
             </div>

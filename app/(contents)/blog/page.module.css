@@ -1,7 +1,11 @@
 .subHeader {
   display: flex;
 }
-
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
@@ -66,6 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1vh;
 }
 
 .avatarAuthor {

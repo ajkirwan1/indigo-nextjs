@@ -149,7 +149,6 @@
 .contactIcon {
   height: auto;
   width: 40px;
-  opacity: 0.2;
 }
 .contactIcon:hover {
   animation: pop 0.3s linear 1;
