@@ -4,8 +4,9 @@ import classes from "./page.module.css";
 export default function LoadingProperties() {
   return (
     <>
-      <div className={classes.subHeader}>
+      <div className={classes.header}>
         <h1>PROPERTIES FOR SALE</h1>
+        <hr />
       </div>
       <p>Please wait while we find your properties</p>
 
