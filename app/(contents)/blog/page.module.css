@@ -65,6 +65,9 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+.avatar {
+  border: 1px solid black;
+}
 
 .avatarAuthorContainer {
   display: flex;

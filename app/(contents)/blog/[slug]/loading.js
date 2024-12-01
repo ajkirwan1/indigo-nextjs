@@ -29,15 +29,18 @@ export default function LoadingBlogPage(props) {
                 />
               </Skeleton>
             </div>
-            <div className={classes.subHeader}>
-              <Skeleton>
-                <h1>HEADER</h1>
+            <div className={classes.subHeaderSkeleton}>
+              <Skeleton variant="rectangular" width="100%" height={70}>
+                <p>DATE</p>
               </Skeleton>
-              <Skeleton>
+              <Skeleton variant="rectangular" width="100%" height={70}>
+                <p>DATE</p>
+              </Skeleton>
+              <Skeleton variant="rectangular" width="100%" height={40}>
                 <p>DATE</p>
               </Skeleton>
               <div className={classes.avatarAuthor}>
-                <Skeleton>
+                <Skeleton variant="circular">
                   <Avatar
                     src="/images/pages/who-we-are/emanfinal.jpg"
                     color="default"

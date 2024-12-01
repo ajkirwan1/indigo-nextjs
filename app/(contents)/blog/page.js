@@ -12,7 +12,7 @@ const client = createClient({
 });
 
 const getBlogEntries = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const entries = await client.getEntries({ content_type: "blogPost" });
   return entries;
 };
@@ -43,6 +43,7 @@ async function BlogItem({ blogData }) {
               src="/images/pages/who-we-are/emanfinal.jpg"
               color="default"
               size="md"
+              className={classes.avatar}
               isBordered
             />
             <p>By {author}</p>

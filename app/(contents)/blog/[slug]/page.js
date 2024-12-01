@@ -15,7 +15,7 @@ const client = createClient({
 });
 
 const fetchBlogPost = async (slug) => {
-  // await new Promise((resolve) => setTimeout(resolve, 40000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const queryOptions = {
     content_type: "blogPost",
     "fields.slug[match]": slug,
@@ -68,6 +68,7 @@ export default async function BlogPage(props) {
                   color="default"
                   size="md"
                   isBordered
+                  className={classes.avatar}
                 />
                 <div>
                   <p>By {author}</p>

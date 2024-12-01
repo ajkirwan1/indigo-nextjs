@@ -18,6 +18,16 @@
   gap: 2vh;
 }
 
+.subHeaderSkeleton {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 500px;
+  line-height: 4rem;
+  margin-left: 60px;
+  gap: 2vh;
+}
+
 .openingSection {
   display: flex;
 }
@@ -47,9 +57,13 @@
 }
 
 .image {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
   transition: transform 0.5s ease;
+}
+
+.avatar {
+  border: 1px solid black;
 }
 
 .avatarAuthor {
@@ -120,8 +134,10 @@
 }
 
 .imageContainer {
-  height: 500px;
-  width: auto;
+  min-width: 500px;
+  width: 600px;
+  /* height: 500px;
+  width: auto; */
   overflow: hidden;
 }
 
