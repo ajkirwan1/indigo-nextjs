@@ -1,3 +1,12 @@
+.header {
+  text-align: left;
+  margin-top: 5vh;
+}
+
+.header h1 {
+  font-weight: 400;
+}
+
 .subHeader {
   display: flex;
   flex-direction: column;
@@ -13,11 +22,13 @@
 
 .newsLetterSection {
   display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 .openingSection,
 .secondSection,
-.newsletterSection {
+.newsLetterSection {
   margin-top: 5vh;
   margin-bottom: 5vh;
 }
@@ -110,7 +121,7 @@
 }
 
 .column1 {
-  border-right: 1px solid black;
+  /* border-right: 1px solid black; */
   padding-right: 20px;
 }
 
@@ -121,6 +132,22 @@
 
 .formContainer {
   display: flex;
+  justify-content: flex-end;
+  gap: 0.5vw;
+}
+
+.blogPost input[type="email"] {
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 0;
+  /* border-bottom: 2px solid black; */
+  height: 3rem;
+  width: 50%;
+  background-color: #ffffff00;
+  color: #505050;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 }
 
 @media only screen and (min-width: 1800px) {

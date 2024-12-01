@@ -4,6 +4,7 @@ import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
 import shareIcon from "/public/images/icons/shareIcon.svg";
+import imageIcon from "/public/images/icons/icons8-plus.svg";
 import { createClient } from "contentful";
 import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -41,6 +42,11 @@ export default async function BlogPage(props) {
   return (
     <>
       <title>{title}</title>
+      <div className={classes.header}>
+        <h1>NEWS</h1>
+        <hr />
+      </div>
+
       <div className={classes.blogPost}>
         <div className={classes.column1}>
           <section className={classes.openingSection}>
@@ -84,28 +90,29 @@ export default async function BlogPage(props) {
           </section>
         </div>
         <div className={classes.column2}>
-          <section className={classes.newsletterSection}>
-            <h2>Indigo's News Letter</h2>
+          <section className={classes.newsLetterSection}>
+            <h2>NEWSLETTER</h2>
 
             <form>
               <div className={classes.formContainer}>
-                <p>
+                {/* <p>
                   Stay up to date with the latest news and developments from
                   Indigo Consulting
-                </p>
+                </p> */}
+                <Image src={imageIcon} alt="alt" width={40} height={40} />
                 <input
-                  type="text"
+                  type="email"
                   name="username"
                   placeholder="Email Address"
                 />
               </div>
             </form>
           </section>
-          <hr></hr>
-          <section>
+          {/* <hr></hr> */}
+          {/* <section>
             <h2>More News</h2>
             <NewsItemVerticalList />
-          </section>
+          </section> */}
         </div>
       </div>
     </>
