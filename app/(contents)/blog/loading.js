@@ -8,7 +8,7 @@ export default function LoadingNews() {
       <div className={classes.subHeader}>
         <h1>Blogs</h1>
       </div>
-      <div className={classes.blogPageContainer}>
+      <div className={classes.blogPageContainerSkeleton}>
         <ul>
           <li key={1}>
             <NewsItemFallback />

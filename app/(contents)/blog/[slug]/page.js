@@ -1,11 +1,11 @@
 /** @format */
 
-import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
 import shareIcon from "/public/images/icons/shareIcon.svg";
 import { createClient } from "contentful";
+import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const client = createClient({
@@ -39,52 +39,75 @@ export default async function BlogPage(props) {
   } = fields;
 
   return (
-    <div className={classes.blogPost}>
+    <>
       <title>{title}</title>
-      <section className={classes.openingSection}>
-        <div className={classes.imageContainer}>
-          <Image
-            // key={data.image}
-            className={classes.image}
-            src={`https:${primaryImage.fields.file.url}`}
-            alt="alt"
-            width={750}
-            height={500}
-          />
-        </div>
-
-        <div className={classes.subHeader}>
-          <h1>{title}</h1>
-          <p>{publishDate}</p>
-          <div className={classes.avatarAuthor}>
-            <Avatar
-              src="/images/pages/who-we-are/emanfinal.jpg"
-              color="default"
-              size="md"
-              isBordered
-            />
-            <div>
-              <p>By {author}</p>
+      <div className={classes.blogPost}>
+        <div className={classes.column1}>
+          <section className={classes.openingSection}>
+            <div className={classes.imageContainer}>
+              <Image
+                // key={data.image}
+                className={classes.image}
+                src={`https:${primaryImage.fields.file.url}`}
+                alt="alt"
+                width={750}
+                height={500}
+              />
             </div>
-          </div>
-          <div className={classes.shareIconContainer}>
-            <p>Share</p>
-            <Image src={shareIcon} alt="alt" width={30} height={30} />
-          </div>
+            <div className={classes.subHeader}>
+              <h1>{title}</h1>
+              <p>{publishDate}</p>
+              <div className={classes.avatarAuthor}>
+                <Avatar
+                  src="/images/pages/who-we-are/emanfinal.jpg"
+                  color="default"
+                  size="md"
+                  isBordered
+                />
+                <div>
+                  <p>By {author}</p>
+                </div>
+              </div>
+              <div className={classes.shareIconContainer}>
+                <p>Share</p>
+                <Image src={shareIcon} alt="alt" width={30} height={30} />
+              </div>
+            </div>
+          </section>
+          <section className={classes.secondSection}>
+            <h2>{subTitle}</h2>
+            <span>{documentToReactComponents(mainParagraph)}</span>
+          </section>
+          <section className={classes.thirdSection}>
+            <h2>{subTitle}</h2>
+            <span>{documentToReactComponents(mainParagraph)}</span>
+          </section>
         </div>
-      </section>
-      <section className={classes.secondSection}>
-        <h2>{subTitle}</h2>
-        <span>{documentToReactComponents(mainParagraph)}</span>
-      </section>
-      <section className={classes.thirdSection}>
-        <h2>{subTitle}</h2>
-        <span>{documentToReactComponents(mainParagraph)}</span>
-      </section>
-      {/* <section className={classes.conclusion}>
-        <h2>{subTitle}</h2>
-        <span>{documentToReactComponents(mainParagraph)}</span>
-      </section> */}
-    </div>
+        <div className={classes.column2}>
+          <section className={classes.newsletterSection}>
+            <h2>Indigo's News Letter</h2>
+
+            <form>
+              <div className={classes.formContainer}>
+                <p>
+                  Stay up to date with the latest news and developments from
+                  Indigo Consulting
+                </p>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Email Address"
+                />
+              </div>
+            </form>
+          </section>
+          <hr></hr>
+          <section>
+            <h2>More News</h2>
+            <NewsItemVerticalList />
+          </section>
+        </div>
+      </div>
+    </>
   );
 }
