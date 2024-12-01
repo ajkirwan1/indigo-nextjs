@@ -11,31 +11,23 @@ import classes from "./project-item.fallback.module.css";
 export default function ProjectItemFallback() {
   return (
     <div>
-      <Skeleton
-        variant="rectangular"
-        width="100%"
-        // width={500}
-        // height={375}
-      >
+      <Skeleton variant="rectangular" width="100%">
         <Image width={750} height={500} className={classes.image} />
       </Skeleton>
       <Skeleton>
-        <h1>TITLE----</h1>
+        <h1>TITLE----------------------------------------</h1>
       </Skeleton>
       <Skeleton>
-        <p>LOCATION----------------</p>
+        <p>LOCATION-------------------------------------</p>
       </Skeleton>
       <Skeleton>
-        <p>INVESTMENT RETURN----------</p>
+        <p>INVESTMENT RETURN----------------------------</p>
       </Skeleton>
       <Skeleton>
-        <p>--------------------------</p>
+        <p>----------------------------------------------</p>
       </Skeleton>
       <Skeleton>
-        <p>--------------------------</p>
-      </Skeleton>
-      <Skeleton>
-        <p>--------------------------</p>
+        <p>----------------------------------------------</p>
       </Skeleton>
     </div>
   );

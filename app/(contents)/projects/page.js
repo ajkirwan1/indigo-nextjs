@@ -11,7 +11,6 @@ function ProjectItem({ data }) {
     <Link href={`projects/${data.id}`}>
       <div>
         <Image
-          // key={blogData.image}
           className={classes.image}
           src={data.image}
           alt="alt"
@@ -42,9 +41,6 @@ export default async function ProjectsPage() {
               <ProjectItem data={element} />
             </li>
           ))}
-          {/* <li className={classes.skeletonList}>
-            <ProjectItemFallback />
-          </li> */}
         </ul>
       </div>
     </>
