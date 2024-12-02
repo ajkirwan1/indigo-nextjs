@@ -41,6 +41,10 @@ export default async function Project({ params }) {
   return (
     <div className={classes.blogPost}>
       <title>{data.title}</title>
+      <div className={classes.header}>
+        <h1>OUR PROJECTS</h1>
+        <hr />
+      </div>
       <section className={classes.openingSection}>
         <Link href={`${data.id}/images`}>
           <Image

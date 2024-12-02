@@ -5,10 +5,11 @@ export default function LoadingProjects() {
   return (
     <>
       <title>INDIGO Consulting Projects Loading Page</title>
-      <div className={classes.subHeader}>
-        <h1>Completed projects</h1>
+      <div className={classes.header}>
+        <h1>OUR PROJECTS</h1>
+        <hr />
       </div>
-      <div className={classes.blogPageContainer}>
+      <div className={classes.blogPageContainerSkeleton}>
         <ul>
           <li key={1}>
             <ProjectItemFallback />

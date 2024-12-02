@@ -1,85 +1,91 @@
 .subHeader {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    max-width: 550px;
-    line-height: 4rem;
-    margin-left: 60px;
-  }
-  
-  .openingSection {
-    display: flex;
-    height: 400px;
-  }
-  
-  .openingSection,
-  .secondSection {
-    margin-top: 15vh;
-    margin-bottom: 15vh;
-  }
-  
-  /* .openingSection p {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 550px;
+  line-height: 4rem;
+  margin-left: 60px;
+}
+
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
+
+.openingSection {
+  display: flex;
+  height: 400px;
+}
+
+.openingSection,
+.secondSection {
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+}
+
+/* .openingSection p {
     padding: 20px;
     margin: 0;
     max-width: 60vw;
   } */
-  
-  .openingSection p,
-  .secondSection p {
-    text-align: left;
-    letter-spacing: normal;
-    line-height: 1.5rem;
-  }
-  
-  .image {
-    width: auto;
-    height: 100%;
-  }
-  
-  .avatarAuthor {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
 
-  .blogPost {
-    text-align: left;
-    letter-spacing: normal;
-  }
-  
-  .blogPost p,
-  .blogPost h2 {
-    text-align: left;
-    letter-spacing: normal;
-    line-height: 1.5rem;
-    text-align: left;
-  }
-  
-  .blogPost h2 {
-    font-size: 30px;
-    font-weight: 100;
-  }
-  
-  .avatarAuthor p,
-  .avatarAuthor h2 {
-    margin: 0;
-    text-align: left;
-  }
-  .subHeader > h1 {
-    font-size: 46px;
-    font-weight: 100;
-    letter-spacing: 0.1rem;
-  }
-  
-  .subHeader > p {
-    font-size: 28px;
-  }
-  
-  /* .thirdSection > h2 {
+.openingSection p,
+.secondSection p {
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.5rem;
+}
+
+.image {
+  width: auto;
+  height: 100%;
+}
+
+.avatarAuthor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blogPost {
+  text-align: left;
+  letter-spacing: normal;
+}
+
+.blogPost p,
+.blogPost h2 {
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.5rem;
+  text-align: left;
+}
+
+.blogPost h2 {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.avatarAuthor p,
+.avatarAuthor h2 {
+  margin: 0;
+  text-align: left;
+}
+.subHeader > h1 {
+  font-size: 46px;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+
+.subHeader > p {
+  font-size: 28px;
+}
+
+/* .thirdSection > h2 {
     font-size: 100px;
   } */
-  
-  .carouselContainer {
-    width: 60vw;
-    margin: auto;
-  }
+
+.carouselContainer {
+  width: 60vw;
+  margin: auto;
+}

@@ -25,16 +25,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  /* flex-wrap: wrap; */
   gap: 3vh;
-  /* justify-content: space-evenly; */
   text-align: left;
 }
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
   border: 1px solid transparent;
-  /* flex: 1; */
   max-width: 500px;
   width: 100%;
 }

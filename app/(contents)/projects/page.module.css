@@ -1,7 +1,11 @@
 .subHeader {
   display: flex;
 }
-
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
@@ -16,17 +20,17 @@
   letter-spacing: normal;
 }
 
-.blogPageContainer ul {
+.blogPageContainer ul,
+.blogPageContainerSkeleton ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  /* flex-wrap: wrap; */
   gap: 3vh;
-  /* justify-content: space-evenly; */
   text-align: left;
 }
 
-.blogPageContainer li {
+.blogPageContainer li,
+.blogPageContainerSkeleton li {
   border: 1px solid transparent;
   max-width: 500px;
   width: 100%;

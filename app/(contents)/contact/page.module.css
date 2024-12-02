@@ -4,6 +4,13 @@
   align-items: center;
   flex: 1 1 40%;
 }
+
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
+
 .form label {
   font-size: large;
 }
@@ -14,11 +21,9 @@
 }
 
 .pageWrapper p {
-  width: 35vw;
   line-height: 2.5rem;
   font-size: 20px;
   letter-spacing: 0.2rem;
-  max-width: 900px;
 }
 
 /* .pageWrapper p:hover {
@@ -81,18 +86,9 @@
   }
 }
 
-/* .fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
-} */
-
 .formcontainer {
   width: 30vw;
   animation: fadeInLeft 2s;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%; */
 }
 
 .formcontainer h1 {
@@ -112,7 +108,6 @@
 }
 
 .wrapper {
-  margin-top: 10vh;
   display: flex;
 }
 .wrapper span {

@@ -19,7 +19,6 @@ function ProjectItem({ data }) {
             height={500}
           />
         </div>
-
         <h2>{data.title}</h2>
         <p>Location - {data.location}</p>
         <p>Investment return - {data.investmentReturn}</p>
@@ -34,8 +33,9 @@ export default async function ProjectsPage() {
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
-      <div className={classes.subHeader}>
-        <h1>Completed projects</h1>
+      <div className={classes.header}>
+        <h1>OUR PROJECTS</h1>
+        <hr />
       </div>
       <div className={classes.blogPageContainer}>
         <ul>

@@ -9,6 +9,11 @@ import phoneIcon from "/public/images/icons/phoneblue.png";
 export default function ContactUsPage() {
   return (
     <>
+      <title>INDIGO CONSULTING CONTACT US PAGE</title>
+      <div className={classes.header}>
+        <h1>CONTACT US</h1>
+        <hr />
+      </div>
       <div className={classes.pageWrapper}>
         <p>
           Feel free to fill out the contact form below and one of our team
