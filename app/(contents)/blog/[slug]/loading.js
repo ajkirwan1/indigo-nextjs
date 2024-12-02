@@ -20,7 +20,7 @@ export default function LoadingBlogPage(props) {
         <div className={classes.column1}>
           <section className={classes.openingSection}>
             <div className={classes.imageContainer}>
-              <Skeleton variant="rectangular" width="100%">
+              <Skeleton variant="rectangular" width="100%" height="100%">
                 <Image
                   // key={data.image}
                   className={classes.image}
@@ -30,13 +30,13 @@ export default function LoadingBlogPage(props) {
               </Skeleton>
             </div>
             <div className={classes.subHeaderSkeleton}>
-              <Skeleton variant="rectangular" width="100%" height={70}>
+              <Skeleton variant="rectangular" width="80%" height={70}>
                 <p>DATE</p>
               </Skeleton>
-              <Skeleton variant="rectangular" width="100%" height={70}>
+              <Skeleton variant="rectangular" width="80%" height={70}>
                 <p>DATE</p>
               </Skeleton>
-              <Skeleton variant="rectangular" width="100%" height={40}>
+              <Skeleton variant="rectangular" width="30%" height={40}>
                 <p>DATE</p>
               </Skeleton>
               <div className={classes.avatarAuthor}>
@@ -49,7 +49,7 @@ export default function LoadingBlogPage(props) {
                   />
                 </Skeleton>
                 <div>
-                  <Skeleton>
+                  <Skeleton variant="rectangular" width="60%" height={40}>
                     <p>By author</p>
                   </Skeleton>
                 </div>
@@ -61,20 +61,26 @@ export default function LoadingBlogPage(props) {
               </div>
             </div>
           </section>
-
           <section className={classes.secondSection}>
-            <Skeleton>
+            <Skeleton variant="rectangular" width="60%">
               <h2>Subtitle</h2>
             </Skeleton>
-            <Skeleton>
+            <Skeleton variant="text" width="80%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
-          </section>
-          <section className={classes.thirdSection}>
-            <Skeleton>
-              <h2>Subtitle</h2>
+            <Skeleton variant="text" width="80%" height={40}>
+              <p>Subtitle</p>
             </Skeleton>
-            <Skeleton>
+            <Skeleton variant="text" width="80%" height={40}>
+              <p>Subtitle</p>
+            </Skeleton>
+            <Skeleton variant="text" width="80%" height={40}>
+              <p>Subtitle</p>
+            </Skeleton>
+            <Skeleton variant="text" width="80%" height={40}>
+              <p>Subtitle</p>
+            </Skeleton>
+            <Skeleton variant="text" width="80%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
           </section>
