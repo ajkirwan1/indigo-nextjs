@@ -29,7 +29,7 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
