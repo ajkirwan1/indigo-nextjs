@@ -1,8 +1,12 @@
 .img {
   width: auto;
   height: 350px;
+  transition: all 0.3s ease-in-out;
 }
 
+.img:hover {
+  transform: scale(0.978);
+}
 .icon {
   width: 1vw;
   height: auto;
@@ -64,6 +68,15 @@
   width: auto;
   opacity: 0.5;
   /* margin-left: 20px; */
+}
+
+.messageIcon:hover {
+  animation: pop 0.3s linear 1;
+}
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .messageContainer {

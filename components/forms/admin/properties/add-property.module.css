@@ -37,7 +37,7 @@
 
 .form input:focus,
 .form textarea:focus {
-  outline-color: rgba(89, 13, 104, 0.433);
+  outline-color: rgba(13, 104, 31, 0.433);
   /* background-color: #1f252d; */
 }
 

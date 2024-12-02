@@ -2,76 +2,51 @@
 
 export const projectsData = [
   {
+    id: 1,
     title: "Anagnostopoulo",
-    images: [
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-    ],
+    image: "/images/pages/projects/test.jpg",
+    dateStart: "25/11/2022",
+    dateCompleted: "25/11/2024",
+    description: "Building a 2 story villa in Anagnostopoulo",
+    investmentReturn: "250,000",
+    location: "Anagnostopoulo",
+    // author: "Emmanuel Petrakis",
+    opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
   {
+    id: 2,
     title: "Hoida",
-    images: [
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-    ],
+    image: "/images/pages/projects/test.jpg",
+    dateStart: "25/11/2022",
+    dateCompleted: "25/11/2024",
+    description: "Building a 2 story villa in Anagnostopoulo",
+    investmentReturn: "250,000",
+    location: "Anagnostopoulo",
+    // author: "Emmanuel Petrakis",
+    opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
   {
-    title: "Jordan",
-    images: [
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-    ],
-  },
-  {
+    id: 4,
     title: "Kavouri",
-    images: [
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-    ],
+    image: "/images/pages/projects/test.jpg",
+    dateStart: "25/11/2022",
+    dateCompleted: "25/11/2024",
+    description: "Building a 2 story villa in Anagnostopoulo",
+    investmentReturn: "250,000",
+    location: "Anagnostopoulo",
+    // author: "Emmanuel Petrakis",
+    opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
   {
+    id: 5,
     title: "Souidias",
-    images: [
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-      {
-        url: "/images/pages/projects/test.jpg",
-      },
-    ],
+    image: "/images/pages/projects/test.jpg",
+    dateStart: "25/11/2022",
+    dateCompleted: "25/11/2024",
+    description: "Building a 2 story villa in Anagnostopoulo",
+    investmentReturn: "250,000",
+    location: "Anagnostopoulo",
+    // author: "Emmanuel Petrakis",
+    opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
 ];

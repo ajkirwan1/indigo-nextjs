@@ -2,7 +2,7 @@
   background: none;
   display: flex;
   border-radius: 4px;
-  background-color: #7b0d1e;
+  background-color: #003a4d;
   color: aliceblue;
   padding: 0;
   font: inherit;
@@ -17,7 +17,7 @@
 
 .button:hover {
   border: 1px solid #505050;
-  background-color: #9f2042;
+  background-color: #003a4dc7;
 }
 
 .arrow {

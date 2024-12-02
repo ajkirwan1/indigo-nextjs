@@ -27,8 +27,9 @@ async function PropertiesPage() {
 
   return (
     <>
-      <div className={classes.subHeader}>
+      <div className={classes.header}>
         <h1>PROPERTIES FOR SALE</h1>
+        <hr />
       </div>
       <div className={classes.subSubHeader}>
         <p>
@@ -40,7 +41,6 @@ async function PropertiesPage() {
           affiliated with our consultancy.
         </p>
       </div>
-
       <Properties userId={userId} />
     </>
   );

@@ -194,13 +194,14 @@
   bottom: 0;
 }
 .properties {
-  height: 6vh;
+  height: 5vh;
   width: auto;
 }
 
 .sectionTitle {
   font-size: 36px;
   line-height: 1.7;
+  font-weight: 200;
 }
 
 .service {
@@ -209,13 +210,14 @@
 }
 
 .service h3 {
-  font-size: 16px;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 200;
 }
 
 .envelope {
   width: 36px;
   height: auto;
+  font-weight: 200;
 }
 
 .box {
@@ -325,6 +327,20 @@
   width: 100%;
   border-color: aliceblue;
 } */
+
+@media only screen and (min-width: 1800px) {
+  .sectionTitle {
+    font-size: 55px;
+  }
+  .service h3 {
+    font-size: 22px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+}
 
 @media only screen and (max-width: 800px) {
   .heroHeader {
