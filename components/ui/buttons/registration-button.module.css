@@ -34,13 +34,13 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  background-color: #68a2aeb0;
-  font-weight: 200;
+  background-color: #003a4d;
+  font-weight: 500;
 }
 
 .wrapper:hover {
   cursor: pointer;
-  background-color: #50505028;
+  background-color: #003a4dc7;
 }
 .link {
   text-decoration: none;

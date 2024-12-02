@@ -1,44 +1,47 @@
 /** @format */
 
-import Image from "next/image";
 import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
-function ImageList(images) {
-  const imageArray = images.images;
+function ProjectItem({ data }) {
   return (
-    <>
-      <div className={classes.imageContainer}>
-        {imageArray.map((element) => (
+    <Link href={`projects/${data.id}`}>
+      <div>
+        <div className={classes.imageContainer}>
           <Image
-            key={element.url}
             className={classes.image}
-            src={element.url}
+            src={data.image}
             alt="alt"
             width={750}
             height={500}
           />
-        ))}
+        </div>
+        <h2>{data.title}</h2>
+        <p>Location - {data.location}</p>
+        <p>Investment return - {data.investmentReturn}</p>
+        <p>{data.opening}</p>
       </div>
-    </>
+    </Link>
   );
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return (
     <>
-      <div className={classes.subHeader}>
-        <h1>Completed projects</h1>
+      <title>INDIGO Consulting Projects Page</title>
+      <div className={classes.header}>
+        <h1>OUR PROJECTS</h1>
+        <hr />
       </div>
-
-      <div>
+      <div className={classes.blogPageContainer}>
         <ul>
           {projectsData.map((element) => (
-            <li key={element.title}>
-              <div className={classes.subHeader}>
-                <h1>{element.title}</h1>
-              </div>
-              <ImageList images={element.images} />
+            <li key={element.id}>
+              <ProjectItem data={element} />
             </li>
           ))}
         </ul>

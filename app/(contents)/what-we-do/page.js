@@ -34,8 +34,10 @@ export default function WhatWeDoPage() {
 
   return (
     <>
-      <div className={classes.subHeader}>
+      <title>INDIGO CONSULTING WHAT WE DO</title>
+      <div className={classes.header}>
         <h1>WHAT WE DO</h1>
+        <hr />
       </div>
       {viewport == "large" ? (
         <WebItemComponent

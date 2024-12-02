@@ -7,7 +7,6 @@
 
 .heroHeader {
   color: aliceblue;
-  /* position: absolute; */
   display: flex;
   align-items: center;
   top: 0;
@@ -43,24 +42,10 @@
   width: 40%;
 }
 
-/* .formItemContainer label {
-  font-size: x-large;
-} */
 .formCheckboxContainer {
   display: flex;
 }
 
-/* .hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../../../public/images/authbackground.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height:200vh;
-} */
 .hero:after {
   content: "";
   position: absolute;

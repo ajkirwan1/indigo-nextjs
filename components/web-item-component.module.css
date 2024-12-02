@@ -44,6 +44,14 @@
   max-width: 1000px;
 }
 
+.paragraphWrapper > h1 {
+  font-size: 26px;
+}
+
+.paragraphWrapper > p {
+  font-size: 16px;
+}
+
 .paragraphWrapperReverse {
   display: flex;
   flex-direction: column;
@@ -76,9 +84,41 @@
 }
 
 @media only screen and (min-width: 1800px) {
+  .paragraphWrapper {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+  .paragraphWrapper h1 {
+    font-size: 42px;
+    line-height: 3.5rem;
+  }
+  .paragraphWrapper p {
+    font-size: 21px;
+  }
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0.2;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
   .image {
     max-width: 700px;
     height: auto;
+  }
+  .image {
+    animation: fadeIn 2.5s;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {

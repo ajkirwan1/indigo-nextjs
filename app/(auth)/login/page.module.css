@@ -91,10 +91,10 @@
 .formcontainer {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  background-color: #ffffffcc;
+  border-radius: 4px;
+  background-color: #ffffff81;
   position: relative;
-  width: 600px;
+  width: 500px;
   box-shadow: 1px 1px 1px;
   margin: auto;
   margin-top: 5vh;
