@@ -6,6 +6,7 @@ import { Avatar } from "@nextui-org/react";
 import shareIcon from "/public/images/icons/shareIcon.svg";
 import imageIcon from "/public/images/icons/icons8-plus.svg";
 import { createClient } from "contentful";
+import Link from "next/link";
 import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -49,16 +50,18 @@ export default async function BlogPage(props) {
       <div className={classes.blogPost}>
         <div className={classes.column1}>
           <section className={classes.openingSection}>
-            <div className={classes.imageContainer}>
-              <Image
-                // key={data.image}
-                className={classes.image}
-                src={`https:${primaryImage.fields.file.url}`}
-                alt="alt"
-                width={750}
-                height={500}
-              />
-            </div>
+            <Link href={`${slug}/images`}>
+              <div className={classes.imageContainer}>
+                <Image
+                  className={classes.image}
+                  src={`https:${primaryImage.fields.file.url}`}
+                  alt="alt"
+                  width={750}
+                  height={500}
+                />
+              </div>
+            </Link>
+
             <div className={classes.subHeader}>
               <h1>{title}</h1>
               <p>{publishDate}</p>

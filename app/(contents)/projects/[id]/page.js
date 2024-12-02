@@ -48,7 +48,6 @@ export default async function Project({ params }) {
       <section className={classes.openingSection}>
         <Link href={`${data.id}/images`}>
           <Image
-            // key={data.image}
             className={classes.image}
             src={data.image}
             alt="alt"
@@ -56,7 +55,6 @@ export default async function Project({ params }) {
             height={500}
           />
         </Link>
-
         <div className={classes.subHeader}>
           <h1>{data.title}</h1>
           <p>
@@ -76,7 +74,6 @@ export default async function Project({ params }) {
           <Carousel images={propertyData} />
         </div>
       </section>
-      <Image src={shareIcon} alt="alt" width={25} height={25} />
     </div>
   );
 }
