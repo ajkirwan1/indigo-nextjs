@@ -12,7 +12,6 @@ export default function ContactUsPage() {
       <title>INDIGO CONSULTING CONTACT US PAGE</title>
       <div className={classes.header}>
         <h1>CONTACT US</h1>
-        <hr />
       </div>
       <div className={classes.pageWrapper}>
         <p>

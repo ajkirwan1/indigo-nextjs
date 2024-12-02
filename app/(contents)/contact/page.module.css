@@ -118,7 +118,34 @@
   line-height: 2vw;
   font-size: 10px;
 }
+@media only screen and (min-width: 1800px) {
+}
 
+@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+}
+.pageWrapper p {
+  line-height: 2rem;
+  font-size: 14px;
+  letter-spacing: 0.2rem;
+  max-width: 650px;
+}
+.phoneIcon {
+  height: auto;
+  width: 25px;
+}
+.contactIcon {
+  height: auto;
+  width: 25px;
+}
+.phoneAndEmail {
+  margin-top: 12vh;
+  line-height: 3vw;
+  letter-spacing: 0.4vh;
+  font-size: 9px;
+}
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;
