@@ -34,8 +34,10 @@ export default function WhoWeArePage() {
 
   return (
     <>
-      <div className={classes.subHeader}>
+      <title>INDIGO CONSULTING WHO WE ARE</title>
+      <div className={classes.header}>
         <h1>WHO WE ARE</h1>
+        <hr />
       </div>
       <section className={classes.section1}>
         {viewport == "large" ? (

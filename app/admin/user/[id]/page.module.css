@@ -1,44 +1,50 @@
-.userDetailsContainer {
-    text-align: start;
-    margin-bottom: 10vh;
+.subHeader {
+  display: flex;
 }
 
-.userDetailsContainer h1{
-    font-weight: 400;
-    text-decoration: underline;
- }
-.userDetailsContainer h2{
-   font-weight: 400;
+.userDetailsContainer h1 {
+  font-weight: 100;
+}
+.userDetailsContainer p {
+  font-size: 16px;
+}
+
+.userDetailsContainer hr {
+  border-top: 1px solid aliceblue;
+}
+.userDetailsContainer h2 {
+  font-weight: 200;
+  font-size: 18px;
 }
 
 .listWrapper {
-    display: flex;
-    align-items: center;
-    /* gap: 5vw; */
+  display: flex;
+  align-items: center;
+  /* gap: 5vw; */
 }
 .listWrapperinner {
-    flex: 1;
+  flex: 1;
 }
 
 .listWrapper h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .listWrapper p {
-    margin: 0;
+  margin: 0;
 }
 
 .userDetailsContainer li {
-    line-height: 5vh;
+  line-height: 5vh;
 }
 
 .buttonContainer {
-    margin-top: 5vh;
-    display: flex;
-    justify-content: center
-  }
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+}
 
-  .buttonContainer a img,
+.buttonContainer a img,
 .buttonContainer a button {
   transition: 0.3s;
 }
@@ -47,4 +53,21 @@
 }
 .buttonContainer a:hover button {
   transform: translateX(-5px);
+}
+
+.text {
+  line-height: normal;
+  letter-spacing: normal;
+  padding: 18px;
+  /* height: 900px; */
+}
+.row {
+  display: flex;
+}
+
+.text p {
+  font-size: unset;
+}
+.row p:nth-child(2) {
+  font-weight: 400;
 }

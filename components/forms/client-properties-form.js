@@ -39,7 +39,6 @@ export default function ClientPropertiesForm({
     setClientState([...finalArray]);
   }, []);
 
-
   const handleUpdate = (event) => {
     setClientState(
       clientState.map((element) => {
@@ -98,10 +97,11 @@ export default function ClientPropertiesForm({
           </ul>
           <div className={classes.submitButtonContainer}>
             <FormSubmit />
-          </div>
-          <div className={classes.submitButtonContainer}>
             <button onClick={handleReset}>Reset</button>
           </div>
+          {/* <div className={classes.submitButtonContainer}> */}
+
+          {/* </div> */}
         </form>
       </div>
     </>

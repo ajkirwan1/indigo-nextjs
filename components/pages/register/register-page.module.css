@@ -1,0 +1,17 @@
+.formcontainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #ffffff81;
+  position: relative;
+  width: 25vw;
+  min-height: 35vh;
+  box-shadow: 1px 1px 1px;
+  margin-top: 5vh;
+}
+
+.large {
+  width: 50vw;
+}

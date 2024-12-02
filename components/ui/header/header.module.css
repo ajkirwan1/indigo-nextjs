@@ -9,6 +9,7 @@
 
 .nav ul {
   list-style: none;
+  flex: 1;
   margin: 0;
   padding: 0;
   display: flex;
@@ -65,6 +66,7 @@
 .hamburgerMenu {
   cursor: pointer;
   z-index: 9999;
+  opacity: 0.5;
 }
 
 .hamburgerContainer {
@@ -114,19 +116,25 @@
 
 @media only screen and (min-width: 1800px) {
   .logoIndigo {
-    height: 5.25rem;
+    height: 4rem;
     width: auto;
+    padding-left: 30px;
   }
 }
 
 @media only screen and (max-width: 800px) {
+  .nav {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
   .hamburgerMenu {
     cursor: pointer;
     z-index: 9999;
     height: 50px;
   }
   .logoIndigo {
-    height: 4rem;
+    height: 3rem;
     width: auto;
+    padding-left: 30px;
   }
 }

@@ -1,14 +1,17 @@
 /** @format */
 "use client";
 import { useRouter } from "next/navigation";
-import classes from "./table.module.css"
+import { usePathname } from "next/navigation";
+import classes from "./table.module.css";
 import React from "react";
 
 export default function TableRow({ data, id }) {
+  const pathName = usePathname();
+
   const router = useRouter();
   const requestStatus = data[2];
   const handleClick = () => {
-    router.push(`/admin/user/${id}`);
+    router.push(`${pathName}/${id}`);
   };
 
   return (

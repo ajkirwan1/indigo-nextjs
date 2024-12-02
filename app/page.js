@@ -14,9 +14,10 @@ import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
 import downArrow from "/public/images/pages/home/icons8-expand-arrow.png";
 import { motion } from "framer-motion";
-import NavLink from "@/components/nav-link";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
+import { useSession } from "@/contexts/session-context";
+import { redirect } from "next/navigation";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -27,13 +28,20 @@ const container = {
       staggerChildren: 1,
       delayChildren: 0.5,
       delay: 0.5,
+      bounce: 0,
     },
   },
 };
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 0.7, y: 0 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      bounce: 0,
+    },
+  },
 };
 
 const componentArray = [
@@ -63,24 +71,57 @@ const componentArray = [
     <HeroComponent heroImage={swimmingImage} altText="Alt text">
       <div className={classes.heroContents}>
         <motion.div
+          layout
           variants={container}
           initial="hidden"
           whileInView="show"
           className={classes.heroInnerContents}
         >
-          <motion.h1 variants={item}>OUR SERVICES</motion.h1>
+          <motion.h2 layout className={classes.sectionTitle} variants={item}>
+            OUR SERVICES
+          </motion.h2>
           <div>
-            <motion.div className={classes.separator} variants={item}>
-              <h2>Development Consultancy</h2>
-              <Image alt="icon" src={circle} className={classes.circleIcon} />
+            <motion.div layout className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Development Consultancy</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
+            </motion.div>
+            <motion.div layout className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Development Opportunities Sourcing</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
-              <h2>Development Opportunities Sourcing</h2>
-              <Image alt="icon" src={circle} className={classes.circleIcon} />
+              <div className={classes.service}>
+                <h3>Development Project Management</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
-              <h2>Development Project Management</h2>
-              <Image alt="icon" src={circle} className={classes.circleIcon} />
+              <div className={classes.service}>
+                <h3>Market Analysis</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Property Management</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Redevelopment Development Projects</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Residency - Golden Visa</h3>
+                <Image alt="icon" src={circle} className={classes.circleIcon} />
+              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -105,10 +146,12 @@ const componentArray = [
           whileInView="show"
           className={classes.heroInnerContents}
         >
-          <motion.h1 variants={item}>PROPERTIES</motion.h1>
+          <motion.h2 className={classes.sectionTitle} variants={item}>
+            PROPERTIES
+          </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
-              <h2>CHECK OUR PROPERTIES</h2>
+              <h3>CHECK OUR PROPERTIES</h3>
               <Image
                 alt="icon"
                 src={properties}
@@ -129,14 +172,14 @@ const componentArray = [
           whileInView="show"
           className={classes.heroInnerContents}
         >
-          <motion.h1 variants={item}>
+          <motion.h2 className={classes.sectionTitle} variants={item}>
             YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
-          </motion.h1>
+          </motion.h2>
           <motion.div className={classes.separator} variants={item}>
-            <NavLink href="/contact">
-              <motion.h2 variants={item}>LET&apos;S TALK</motion.h2>
-              <Image alt="icon" src={envelope} className={classes.downArrow} />
-            </NavLink>
+            {/* <NavLink href="/contact"> */}
+            <motion.h3 variants={item}>LET&apos;S TALK</motion.h3>
+            {/* </NavLink > */}
+            <Image alt="icon" src={envelope} className={classes.envelope} />
           </motion.div>
         </motion.div>
       </div>
@@ -145,6 +188,11 @@ const componentArray = [
 ];
 
 export default function Homepage() {
+  const { user } = useSession();
+  console.log(user);
+  // if (user?.adminaccess) {
+  //   redirect("admin");
+  // }
   return (
     <>
       <Header className={classes.heroHeader}></Header>

@@ -4,6 +4,7 @@
 import IndigoLogo from "/public/Indigo_Logo_Transparent.png";
 import classes from "./header.module.css";
 import NavLink from "@/components/nav-link";
+import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
 import MobileMenuIcon from "./mobile-menu-icon";
 import MobileNavbar from "./mobile-nav";
@@ -48,14 +49,14 @@ export default function Header({ className }) {
     <>
       <header className={className}>
         <nav className={classes.nav}>
-          <NavLink href="/">
+          <Link href="/">
             <Image
               priority
               src={IndigoLogo}
               alt="The logo for indigo"
               className={classes.logoIndigo}
             />
-          </NavLink>
+          </Link>
           {!showMobileNavMenu ? (
             <DesktopNav
               data={user?.adminaccess == 2 ? adminNavigationData : navigationData}

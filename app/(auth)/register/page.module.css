@@ -1,9 +1,20 @@
+.header {
+  color: aliceblue !important;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 .heroHeader {
   color: aliceblue;
   display: flex;
   align-items: center;
   top: 0;
   width: 100%;
+}
+
+.pageWrapper {
+  height: 100vh;
 }
 .heroHeader a {
   color: aliceblue;
@@ -13,7 +24,42 @@
   color: aliceblue;
 }
 
-/* .formContainerOuterWrapper {
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form label {
+  font-size: large;
+}
+
+.formItemContainer {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}
+
+.formCheckboxContainer {
+  display: flex;
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.378);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.formContainerOuterWrapper {
   position: absolute;
   display: flex;
   align-items: center;
@@ -22,24 +68,63 @@
   left: 0;
   justify-content: center;
   flex-direction: column;
-} */
+}
 
 .formcontainer {
-  margin-top: 10vh;
   border-radius: 10px;
   background-color: #ffffffcc;
   position: relative;
-  width: 85vw;
+  width: 600px;
   box-shadow: 1px 1px 1px;
+  margin: auto;
+  margin-top: 5vh;
+  letter-spacing: normal;
 }
+.logoIndigo {
+  height: 12rem;
+  width: auto;
+}
+.buttoncontainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5vh;
+}
+
+.errorList {
+  list-style: none;
+  display: flex;
+}
+
+.submitButton {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.submitButtonContainer {
+  margin: 2vh;
+  display: flex;
+  width: 200px;
+  height: 50px;
+}
+
+/* .registerPageContainer {
+  min-height: 100vh;
+} */
 
 .heroWrapper {
   position: relative;
   width: 100vw;
+
+  /* height: 2000px */
 }
 
 .imageWrapper {
   position: relative;
+  height: 85vh;
   z-index: -1;
   background-color: rgb(10 10 10 / 83%);
 }
@@ -47,15 +132,22 @@
 .imageHero {
   color: transparent;
   position: relative;
-  height: 1600px;
+  height: 100%;
   width: 100%;
   inset: 0px;
   opacity: 50%;
   background-size: cover;
   background-repeat: no-repeat;
 }
-.pageWrapper {
-  height: 1800px;
+
+.heroContent {
+  left: 0;
+  top: 0;
+  height: 100%;
+  /* position: absolute; */
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {

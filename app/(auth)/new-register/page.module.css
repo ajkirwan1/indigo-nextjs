@@ -1,0 +1,85 @@
+.heroHeader {
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  top: 0;
+  width: 100%;
+}
+.heroHeader a {
+  color: aliceblue;
+}
+
+.heroHeader button {
+  color: aliceblue;
+}
+
+/* .formContainerOuterWrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  flex-direction: column;
+} */
+
+/* .formcontainer {
+  border-radius: 10px;
+  background-color: #ffffffcc;
+  position: relative;
+  width: 85vw;
+  box-shadow: 1px 1px 1px;
+} */
+
+.heroWrapper {
+  position: relative;
+  width: 100vw;
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: -1;
+  background-color: rgb(10 10 10 / 83%);
+}
+
+.imageHero {
+  color: transparent;
+  position: relative;
+  height: 1600px;
+  width: 100%;
+  inset: 0px;
+  opacity: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.pageWrapper {
+  height: 100vh;
+}
+
+.pageWrapper ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pageWrapper li {
+  flex: 1;
+}
+
+.pageWrapper p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 600px) {
+  .logoIndigo {
+    height: 10rem;
+    width: auto;
+  }
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+    width: 100px;
+    height: 20px;
+  }
+}

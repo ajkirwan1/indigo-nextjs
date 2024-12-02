@@ -1,8 +1,12 @@
 .img {
   width: auto;
   height: 350px;
+  transition: all 0.3s ease-in-out;
 }
 
+.img:hover {
+  transform: scale(0.978);
+}
 .icon {
   width: 1vw;
   height: auto;
@@ -11,7 +15,7 @@
 
 .propertyItemContainer {
   display: flex;
-  padding: 20px;
+  padding: 60px;
   height: 350px;
 }
 
@@ -29,6 +33,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-left: 20px;
   text-align: left;
   /* gap: 100px; */
@@ -63,6 +68,15 @@
   width: auto;
   opacity: 0.5;
   /* margin-left: 20px; */
+}
+
+.messageIcon:hover {
+  animation: pop 0.3s linear 1;
+}
+@keyframes pop {
+  50% {
+    transform: scale(1.2);
+  }
 }
 
 .messageContainer {

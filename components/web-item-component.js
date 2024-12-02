@@ -1,6 +1,7 @@
 /** @format */
 
 import classes from "./web-item-component.module.css";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "./ui/button";
 
@@ -14,6 +15,18 @@ export default function WebItemComponent(props) {
       }
     >
       <div className={classes.buttonParagraphWrapper}>
+        {/* <motion.div
+          initial={{
+            x: -70,
+            opacity: 0,
+          }}
+          viewport={{ once: true }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+            transition: { duration: 0.5, delay: 0.5 },
+          }}
+        > */}
         <div
           className={
             props.className == "reverse"
@@ -33,9 +46,22 @@ export default function WebItemComponent(props) {
             <Button href={props.buttonPath}>{props.buttonText}</Button>
           </div>
         )}
+        {/* </motion.div> */}
       </div>
 
       <div className={classes.imageButton}>
+        {/* <motion.div
+          initial={{
+            scale: 0.92,
+            opacity: 0,
+          }}
+          viewport={{ once: true }}
+          whileInView={{
+            scale: 1,
+            opacity: 1,
+            transition: { duration: 0.6, delay: 1 },
+          }}
+        > */}
         <Image
           className={
             props.imageClassName == "smallImage"
@@ -52,6 +78,7 @@ export default function WebItemComponent(props) {
             <Button href={props.buttonPath}>{props.buttonText}</Button>
           </div>
         )}
+        {/* </motion.div> */}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 /** @format */
+'use client'
 
 import { useState, useEffect, useRef } from "react";
 import classes from "./homepage-carousel.module.css";

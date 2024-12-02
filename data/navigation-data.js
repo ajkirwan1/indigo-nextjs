@@ -1,9 +1,19 @@
 /** @format */
-'use client'
+"use client";
 export const navigationData = [
   {
     title: "HOME",
     url: "/",
+    submenu: [
+      {
+        title: "News",
+        url: "/blog",
+      },
+      {
+        title: "Projects",
+        url: "/projects",
+      },
+    ],
   },
   {
     title: "ABOUT US",
@@ -37,6 +47,10 @@ export const navigationData = [
     title: "CONTACT US",
     url: "/contact",
   },
+  // {
+  //   title: "BLOG",
+  //   url: "/blog",
+  // },
   {
     title: "ACCOUNT",
     url: "/contact",

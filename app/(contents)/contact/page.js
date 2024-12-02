@@ -2,10 +2,17 @@
 import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import phoneIcon from "/public/images/icons/phoneblue.png";
 
 export default function ContactUsPage() {
   return (
     <>
+      <title>INDIGO CONSULTING CONTACT US PAGE</title>
+      <div className={classes.header}>
+        <h1>CONTACT US</h1>
+      </div>
       <div className={classes.pageWrapper}>
         <p>
           Feel free to fill out the contact form below and one of our team
@@ -23,9 +30,10 @@ export default function ContactUsPage() {
         <span></span>
         <div className={classes.letsTalk}>
           <h1>LET&apos;S TALK</h1>
+          <Image alt="icon" src={phoneIcon} className={classes.phoneIcon} />
           <div className={classes.phoneAndEmail}>
-            <h1>T:+30 210 12 34 567</h1>
-            <h1>E: INFO@INDIGO.GR</h1>
+            <h1>PHONE: +30 697 333 5888</h1>
+            <h1>E-MAIL: EP@INDIGO-CONSULTING.GR</h1>
           </div>
         </div>
       </div>

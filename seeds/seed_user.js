@@ -17,7 +17,9 @@ export async function seed(knex) {
   await knex("passwords").del();
   await knex("users").del();
   await knex("properties").del();
+  await knex("properties2").del();
   await knex("usersonproperties").del();
+  await knex("usersonproperties2").del();
   await knex("users").insert([
     {
       id: userId1,
@@ -184,6 +186,48 @@ export async function seed(knex) {
       pdfid: "jngv6mweml560ml",
     },
   ]);
+  await knex("properties2").insert([
+    {
+      id: 100000001,
+      title: "Φ-19",
+      location: "Glyfada",
+      price: "150,000 €",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+      suscipit lacinia massa, in eleifend dui tristique at. Nulla id
+      diam eget tortor congue vestibulum.`,
+      imageUrl:
+        "https://next-js-image-bucket.s3.eu-central-1.amazonaws.com/entrance.jpg",
+      pdfUrl:
+        "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf",
+    },
+    {
+      id: 100000002,
+      title: "β-7",
+      location: "Kavouri",
+      price: "200,000 €",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+      suscipit lacinia massa, in eleifend dui tristique at. Nulla id
+      diam eget tortor congue vestibulum.`,
+      imageUrl:
+        "https://next-js-image-bucket.s3.eu-central-1.amazonaws.com/final.jpg",
+      pdfUrl:
+        "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf",
+    },
+
+    {
+      id: 100000003,
+      title: "Σ-1954",
+      location: "Voula",
+      price: "300,000 €",
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+      suscipit lacinia massa, in eleifend dui tristique at. Nulla id
+      diam eget tortor congue vestibulum.`,
+      imageUrl:
+        "https://next-js-image-bucket.s3.eu-central-1.amazonaws.com/pool.jpg",
+      pdfUrl:
+        "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf",
+    },
+  ]);
 
   await knex("investmentinterests").insert([
     {
@@ -218,6 +262,43 @@ export async function seed(knex) {
       userId: userId4,
     },
   ]);
+  await knex("usersonproperties2").insert([
+    {
+      id: 100000001,
+      userId: userId3,
+      propertyId: 100000001,
+    },
+    {
+      id: 100000002,
+      userId: userId3,
+      propertyId: 100000002,
+    },
+    {
+      id: 100000003,
+      userId: userId3,
+      propertyId: 100000003,
+    },
+    {
+      id: 100000004,
+      userId: userId2,
+      propertyId: 100000001,
+    },
+    {
+      id: 100000005,
+      userId: userId2,
+      propertyId: 100000002,
+    },
+    {
+      id: 100000006,
+      userId: userId4,
+      propertyId: 100000003,
+    },
+    {
+      id: 100000007,
+      userId: userId5,
+      propertyId: 100000001,
+    },
+  ]);
   await knex("usersonproperties").insert([
     {
       id: 100000001,
@@ -236,24 +317,23 @@ export async function seed(knex) {
     },
     {
       id: 100000004,
-      userId: userId3,
-      propertyId: 100000004,
+      userId: userId5,
+      propertyId: 100000001,
     },
     {
       id: 100000005,
-      userId: userId3,
-      propertyId: 100000005,
+      userId: userId5,
+      propertyId: 100000002,
     },
     {
       id: 100000006,
-      userId: userId3,
-      propertyId: 100000006,
+      userId: userId4,
+      propertyId: 100000003,
     },
     {
       id: 100000007,
       userId: userId5,
       propertyId: 100000001,
-    }
+    },
   ]);
 }
-

@@ -148,9 +148,17 @@
 }
 .contactIcon {
   height: auto;
-  width: 50px;
-  opacity: 0.3;
+  width: 40px;
 }
+.contactIcon:hover {
+  animation: pop 0.3s linear 1;
+}
+@keyframes pop {
+  50% {
+    transform: scale(1.4);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;

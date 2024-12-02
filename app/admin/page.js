@@ -1,46 +1,55 @@
 /** @format */
 
-import { validateRequest } from "@/auth/lucia";
-import Table from "@/components/layouts/table/table";
-import { redirect } from "next/navigation";
-import PrepareAdminClientData from "@/utils/admin-table-data";
-import { FindAllUsers } from "@/server/actions/find-all-users";
+"use client";
 
-export default async function AdminPage() {
-  const { user } = await validateRequest();
-  console.log("ADMIN USER", user)
+import classes from "./page.module.css";
+import Link from "next/link";
 
-  if (!user) {
-    redirect("/")
-  }
-  if (user?.adminaccess != 2) {
-    redirect("/");
-  }
-
-  let theadData, tbodyData;
-
-
-  try {
-    // const response = await fetch("http://localhost:3000/api/users");
-    // const data = await response.json();
-
-    const resp = await FindAllUsers()
-
-    // console.log("DATA", data)
-    console.log("RESPONSE", resp)
-
-    const {headerData, bodyData} = PrepareAdminClientData(resp)
-    theadData = [...headerData]
-    tbodyData = [...bodyData]
-    
-  } catch (error) {
-      throw new Error("Data collection failed", error)
-  }
-
+export default function AddProperties() {
   return (
     <>
-      <h1>List of registered users</h1>
-      <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
+      <div className={classes.subHeader}>
+        <h1>Admin Dashboard</h1>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Clients</h2>
+          <p>Links and information related to clients who have registered</p>
+          <div className={classes.linkWrapper}>
+            <Link href="/admin/user">All clients</Link>
+          </div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Properties</h2>
+          <p>Links and information related to your properties</p>
+          <div className={classes.linkWrapper}>
+            <Link href="/admin/properties">All properties</Link>
+          </div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Messages</h2>
+          <p>Links and information related to your messages</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Blogs</h2>
+          <p>Links and information related to your blogs</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
+      <div className={classes.itemWrapper}>
+        <div className={classes.infoContainer}>
+          <h2>Projects</h2>
+          <p>Links and information related to your Projects</p>
+          <div className={classes.linkWrapper}></div>
+        </div>
+      </div>
     </>
   );
 }

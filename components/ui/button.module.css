@@ -13,19 +13,24 @@
 
 .wrapper {
   border: 1px solid #505050;
+  color: rgb(251, 253, 254);
+
   width: 200px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  background-color: #50505014;
+  gap: 6px;
+  background-color: #003a4d;
   font-weight: 200;
+  margin-top: 40px;
 }
 
 .wrapper:hover {
   cursor: pointer;
-  background-color: #50505028;
+  background-color: #003a4dc7;
+  color: rgb(40, 40, 40);
+  color: rgb(251, 253, 254);
 }
 .link {
   text-decoration: none;
