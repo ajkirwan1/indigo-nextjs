@@ -11,7 +11,7 @@ export default function ContactForm({ action, redirection }) {
 
   return (
     <>
-      <h1>CONTACT</h1>
+      <h2>MESSAGE</h2>
       <Image alt="icon" src={contactIcon} className={classes.contactIcon} />
       <form className={classes.loginForm} action={formAction}>
         <div className={classes.formItemContainer}>
@@ -31,10 +31,9 @@ export default function ContactForm({ action, redirection }) {
           <input type="email" name="email" placeholder="Email" />
         </div>
         <div className={`${classes.formItemContainer} ${classes.input}`}>
-          {/* <label>Message:</label> */}
           <textarea
             type="textArea"
-            rows="10"
+            rows="5"
             cols="50"
             name="message"
             placeholder="Message"

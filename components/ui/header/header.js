@@ -3,7 +3,6 @@
 
 import IndigoLogo from "/public/Indigo_Logo_Transparent.png";
 import classes from "./header.module.css";
-import NavLink from "@/components/nav-link";
 import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
 import MobileMenuIcon from "./mobile-menu-icon";
@@ -20,10 +19,8 @@ export default function Header({ className }) {
     useContext(LayoutContext);
 
   const { user } = useSession();
-  // console.log("HEADER", user)
 
   useEffect(() => {
-    // document.body.style.overflow = "scroll";
     if (window.innerWidth > 767) {
       handleLayoutChange(false);
     } else if (window.innerWidth < 767) {

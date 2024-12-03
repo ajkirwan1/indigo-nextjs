@@ -1,3 +1,10 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70vh;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -5,29 +12,17 @@
   flex: 1 1 40%;
 }
 
-.header {
-  text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 6vh;
-}
-
-.form label {
-  font-size: large;
-}
-
-.pageWrapper {
-  display: flex;
-  justify-content: center;
-}
-
 .pageWrapper p {
   line-height: 2.5rem;
   font-size: 20px;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  animation: fadeIn 2s;
 }
 
-/* .pageWrapper p:hover {
-} */
+.pageWrapper h2 {
+font-weight: 300;
+}
 
 .phoneIcon {
   height: auto;
@@ -36,9 +31,52 @@
 .phoneIcon:hover {
   animation: pop 0.3s linear 1;
 }
+
+.formcontainer {
+  animation: fadeInLeft 1s;
+}
+
+.letsTalk {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeInRight 1s;
+}
+
+.wrapper {
+  display: flex;
+}
+.wrapper span {
+  border-right: 1px solid rgba(0, 0, 0, 0.563);
+}
+.phoneAndEmail {
+  margin-top: 12vh;
+  line-height: 2vw;
+  font-size: 10px;
+}
+
 @keyframes pop {
   50% {
     transform: scale(1.4);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -86,66 +124,61 @@
   }
 }
 
-.formcontainer {
-  width: 30vw;
-  animation: fadeInLeft 2s;
-}
 
-.formcontainer h1 {
-  font-size: 40px;
-}
-
-.letsTalk {
-  flex: 1 1 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: fadeInRight 2s;
-}
-
-.letsTalk > h1 {
-  font-size: 40px;
-}
-
-.wrapper {
-  display: flex;
-}
-.wrapper span {
-  border-right: 1px solid rgba(0, 0, 0, 0.563);
-}
-.phoneAndEmail {
-  margin-top: 12vh;
-  line-height: 2vw;
-  font-size: 10px;
-}
 @media only screen and (min-width: 1800px) {
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
+  .phoneIcon {
+    height: auto;
+    width: 30px;
+  }
+
+  .contactIcon {
+    height: auto;
+    width: 30px;
+  }
+
+  .pageWrapper p {
+    line-height: 2rem;
+    font-size: 14px;
+    /* letter-spacing: 0.2rem; */
+  }
+
+  .phoneAndEmail {
+    margin-top: 12vh;
+    line-height: 3vw;
+    letter-spacing: 0.4vh;
+    font-size: 9px;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .phoneIcon {
+    height: auto;
+    width: 25px;
+  }
+
+  .contactIcon {
+    height: auto;
+    width: 25px;
+  }
+
+  .pageWrapper p {
+    line-height: 2rem;
+    font-size: 14px;
+    /* letter-spacing: 0.2rem; */
+  }
+  .phoneAndEmail {
+    margin-top: 12vh;
+    line-height: 3vw;
+    letter-spacing: 0.4vh;
+    font-size: 9px;
+  }
 }
-.pageWrapper p {
-  line-height: 2rem;
-  font-size: 14px;
-  letter-spacing: 0.2rem;
-  max-width: 650px;
-}
-.phoneIcon {
-  height: auto;
-  width: 25px;
-}
-.contactIcon {
-  height: auto;
-  width: 25px;
-}
-.phoneAndEmail {
-  margin-top: 12vh;
-  line-height: 3vw;
-  letter-spacing: 0.4vh;
-  font-size: 9px;
-}
+
+
+
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;
