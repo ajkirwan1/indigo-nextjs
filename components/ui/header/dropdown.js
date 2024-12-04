@@ -21,7 +21,7 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
 
   const handleLogout = () => {
     Logout();
-  }
+  };
 
   return (
     <ul
@@ -37,14 +37,13 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {
-            (submenu.title == "Logout" ? (
-              <button onClick={handleLogout}>Logout</button>
-            ) : (
-              <NavLink href={submenu.url}>
-                 {submenu.title}</NavLink>
-            ))
-          }
+          {submenu.title == "Logout" ? (
+            <button className={classes.logoutButton} onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <NavLink href={submenu.url}>{submenu.title}</NavLink>
+          )}
         </motion.li>
       ))}
     </ul>

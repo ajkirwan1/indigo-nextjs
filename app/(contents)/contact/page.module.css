@@ -126,7 +126,7 @@
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
 }
-.pageWrapper p {
+/* .pageWrapper p {
   line-height: 2rem;
   font-size: 14px;
   letter-spacing: 0.2rem;
@@ -145,7 +145,7 @@
   line-height: 3vw;
   letter-spacing: 0.4vh;
   font-size: 9px;
-}
+} */
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;
