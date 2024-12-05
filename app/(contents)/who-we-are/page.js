@@ -33,13 +33,13 @@ function LargeSection() {
       </div>
       <div className={classes.imageWrapper}>
         <div className={classes.imageOuterWrapper}>
-          <Image
+          {/* <Image
             className={classes.image}
             src={emmanImage}
             alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
             width={2048}
             height={1400}
-          />
+          /> */}
           <div className={classes.paragraphWrapperRight}>
             <h2>EMMANUEL PETRAKIS</h2>
             <h3>Director and founder</h3>
@@ -54,6 +54,13 @@ function LargeSection() {
               I bring a wealth of knowledge and experience to the table.
             </p>
           </div>
+          <Image
+            className={classes.image}
+            src={emmanImage}
+            alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
+            width={2048}
+            height={1400}
+          />
         </div>
       </div>
     </div>

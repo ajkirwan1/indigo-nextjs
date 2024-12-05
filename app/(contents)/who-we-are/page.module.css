@@ -5,7 +5,7 @@
 .header {
   text-align: left;
   border-bottom: 1px solid black;
-  height: 8vh;
+  height: 10vh;
   /* padding-top: 3vh; */
   /* margin-bottom: 4vh; */
 }
@@ -55,9 +55,9 @@
 
 .sectionContainer {
   display: flex;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  height: 58vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  height: 50vh;
 }
 
 .flexCol {
@@ -107,16 +107,16 @@
 
 .paragraphWrapper p,
 .paragraphWrapperRight p {
-  max-width: 40vw;
+  max-width: 35vw;
   /* margin: 0; */
 }
 
 .paragraphWrapperRight {
   display: flex;
   flex-direction: column;
-  text-align: right;
+  text-align: left;
   justify-content: space-around;
-  align-items: flex-end;
+  align-items: flex-start;
   /* justify-content: space-evenly;
   align-items: flex-end; */
   letter-spacing: 2px;
