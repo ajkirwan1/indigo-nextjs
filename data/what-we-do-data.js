@@ -9,7 +9,7 @@ export const whatWeDoData = [
         opportunities based on specific criteria.`,
       paragraph2: `Through meticulous analysis, strategic planning, and seamless execution of real estate projects, Indigo aims to tailor propositions based on investor profile as portfolio, budgets, lock up period, etc. ensuring reliable project plans aligned with market demands and trends.`,
     },
-    image: "./images/pages/what-we-do/greece12.jpg",
+    image: "/images/pages/what-we-do/greece12.jpg",
   },
   {
     title: "DEVELOPMENT CONSULTANCY",
@@ -18,7 +18,7 @@ export const whatWeDoData = [
         economy, strategic planning, informed decision-making support,
         and aims to be a trusted development partner.`,
     },
-    image: "./images/pages/what-we-do/devcon.jpg",
+    image: "/images/pages/what-we-do/devcon.jpg",
   },
   {
     title: "DEVELOPMENT PROJECT MANAGEMENT",
@@ -30,7 +30,7 @@ export const whatWeDoData = [
         services, ensuring effectiveness in development management
         proposals.`,
     },
-    image: "./images/pages/what-we-do/construct.jpg",
+    image: "/images/pages/what-we-do/construct.jpg",
   },
   {
     title: "MARKET ANALYSIS",
@@ -44,7 +44,7 @@ export const whatWeDoData = [
       paragraph3: `Our company conducts comprehensive market analyses, providing
         invaluable insights into residential development trends.`,
     },
-    image: "./images/pages/what-we-do/market.jpg",
+    image: "/images/pages/what-we-do/market.jpg",
     button: {
       text: "CONTACT US",
       href: "/contact",
@@ -56,8 +56,7 @@ export const whatWeDoData = [
       paragraph: `Indigo's founder, an experienced investor, has led visionary
         transformations in residential projects through previous
         companies, focusing on flipping properties for substantial
-        returns on investment.  These endeavors illustrate a history of
-        successful ventures and innovative strategies in real estate.`,
+        returns on investment.`,
       paragraph2: ` Committed to revitalizing urban spaces, we've transformed
         ordinary properties into luxurious minimalist havens,
         specializing primarily in residential properties with ventures
@@ -65,7 +64,7 @@ export const whatWeDoData = [
         beyond, meticulously crafted for resale to showcase our
         commitment to excellence and financial success.`,
     },
-    image: "./images/pages/what-we-do/eliniko.jpg",
+    image: "/images/pages/what-we-do/eliniko.jpg",
     button: {
       text: "SAMPLE PROJECTS",
       href: "/login",
@@ -78,7 +77,7 @@ export const whatWeDoData = [
         properties. From maintenance to rental collection and payments,
         entrust us with the care and oversight of your investments.`,
     },
-    image: "./images/pages/what-we-do/redev.jpg",
+    image: "/images/pages/what-we-do/redev.jpg",
     button: {
       text: "PROPERTIES",
       href: "/properties",
@@ -88,12 +87,9 @@ export const whatWeDoData = [
     title: "LEGAL & NOTARIAL SERVICES",
     info: {
       paragraph: `Access expert Legal & Notarial Services for your real estate
-        needs through our trusted affiliates. Streamline transactions,
-        contracts, and legal documentation with precision and
-        confidence, ensuring seamless real estate processes from start
-        to finish.`,
+        needs through our trusted affiliates.`,
     },
-    image: "./images/pages/what-we-do/legal.jpg",
+    image: "/images/pages/what-we-do/legal.jpg",
   },
   {
     title: "RESIDENCY - GOLDEN VISA",
@@ -101,9 +97,8 @@ export const whatWeDoData = [
       paragraph: ` Unlock your path to residency in Greece with our Golden Visa
         Consulting services. Let us guide you through the intricacies
         of obtaining a residential visa, ensuring a smooth and
-        efficient process.  Contact us today for personalized
-        assistance and expert advice.`,
+        efficient process.`,
     },
-    image: "./images/pages/what-we-do/visa.jpg",
+    image: "/images/pages/what-we-do/visa.jpg",
   },
 ];

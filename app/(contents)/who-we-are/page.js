@@ -137,7 +137,6 @@ export default function WhoWeArePage() {
       <div className={classes.pageWrapper}>
         <div className={classes.header}>
           <h1>WHO WE ARE</h1>
-          {/* <hr /> */}
         </div>
 
         {viewport == "large" ? <LargeSection /> : <SmallSection />}
