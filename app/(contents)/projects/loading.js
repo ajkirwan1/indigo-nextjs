@@ -6,7 +6,7 @@ export default function LoadingProjects() {
     <>
       <title>INDIGO Consulting Projects Loading Page</title>
       <div className={classes.header}>
-        <h1>OUR PROJECTS</h1>
+        <h1>SAMPLES OF PROJECTS</h1>
         <hr />
       </div>
       <div className={classes.blogPageContainerSkeleton}>

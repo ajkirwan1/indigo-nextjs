@@ -1,6 +1,7 @@
 .subHeader {
   display: flex;
 }
+
 .header {
   text-align: left;
   margin-top: 5vh;
@@ -18,6 +19,8 @@
 
 .blogPageContainer p {
   letter-spacing: normal;
+  font-size: 18px;
+  font-weight: 200;
 }
 
 .blogPageContainer ul,

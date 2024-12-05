@@ -10,6 +10,7 @@ function LargeSection() {
   return (
     <div className={classes.sectionContainer}>
       <div className={classes.paragraphWrapper}>
+        <h2>INDIGO</h2>
         <p>
           INDIGO was established in 2021 by Emmanuel Petrakis. Stands as a
           bespoke real estate consulting firm capitalizing on strategic
@@ -31,15 +32,9 @@ function LargeSection() {
           projects in Greece.
         </p>
       </div>
-      <div className={classes.imageWrapper}>
+      <span></span>
+      <div className={classes.top}>
         <div className={classes.imageOuterWrapper}>
-          {/* <Image
-            className={classes.image}
-            src={emmanImage}
-            alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
-            width={2048}
-            height={1400}
-          /> */}
           <div className={classes.paragraphWrapperRight}>
             <h2>EMMANUEL PETRAKIS</h2>
             <h3>Director and founder</h3>
@@ -62,6 +57,12 @@ function LargeSection() {
             height={1400}
           />
         </div>
+
+        {/* <p>
+          Over the last 18 years my focus has extended to encompass real estate.
+          Having served as CEO within this quarter-century timeframe I bring a
+          wealth of knowledge and experience to the table.
+        </p> */}
       </div>
     </div>
   );
