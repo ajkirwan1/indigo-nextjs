@@ -34,7 +34,7 @@ export default async function ProjectsPage() {
     <>
       <title>INDIGO Consulting Projects Page</title>
       <div className={classes.header}>
-        <h1>OUR PROJECTS</h1>
+        <h1>SAMPLES OF PROJECTS</h1>
         <hr />
       </div>
       <div className={classes.blogPageContainer}>

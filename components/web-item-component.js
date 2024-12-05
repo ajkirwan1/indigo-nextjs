@@ -34,8 +34,8 @@ export default function WebItemComponent(props) {
               : classes.paragraphWrapper
           }
         >
-          {props.title && <h1>{props.title}</h1>}
-          {props.subtitle && <h2>{props.subtitle}</h2>}
+          {props.title && <h2>{props.title}</h2>}
+          {props.subtitle && <h3>{props.subtitle}</h3>}
           <p>{props.paragraph1}</p>
           {props.paragraph2 && <p>{props.paragraph2}</p>}
           {props.paragraph3 && <p>{props.paragraph3}</p>}
