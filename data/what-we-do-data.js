@@ -56,7 +56,7 @@ export const whatWeDoData = [
   },
   {
     id: 5,
-    title: "REDEVELOPMENT - DEVELOPMENT PROJECTS",
+    title: "REDEVELOPMENT/DEVELOPMENT PROJECTS",
     info: {
       paragraph: `Indigo's founder, an experienced investor, has led visionary
         transformations in residential projects through previous
@@ -100,7 +100,7 @@ export const whatWeDoData = [
   },
   {
     id: 8,
-    title: "RESIDENCY - GOLDEN VISA",
+    title: "RESIDENCY/GOLDEN VISA",
     info: {
       paragraph: ` Unlock your path to residency in Greece with our Golden Visa
         Consulting services. Let us guide you through the intricacies

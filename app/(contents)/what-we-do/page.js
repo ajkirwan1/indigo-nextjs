@@ -8,20 +8,48 @@ import Image from "next/image";
 import Link from "next/link";
 import Overlay from "@/components/overlay";
 import circle from "/public/images/pages/home/circledwh.png";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.5,
+      delayChildren: 0.5,
+      // delay: 0.5,
+      bounce: 0,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      bounce: 0,
+    },
+  },
+};
 
 function Modal({ handleModal, modalIndex }) {
   console.log(modalIndex);
   return (
     <div className="modal-backdrop" onClick={handleModal}>
-      <Overlay>
-        <div className={classes.modalInfoWrapper}>
-          <Image src={circle} />
-          <h2>{whatWeDoData[modalIndex].title}</h2>
-          <p>{whatWeDoData[modalIndex].info.paragraph}</p>
-          <p>{whatWeDoData[modalIndex].info.paragraph2}</p>
-          <p>{whatWeDoData[modalIndex].info.paragraph3}</p>
-        </div>
-      </Overlay>
+      <div className={classes.overlayWrapper}>
+        <Overlay>
+          <div className={classes.modalInfoWrapper}>
+            <Image src={circle} />
+            <h2>{whatWeDoData[modalIndex].title}</h2>
+            <p>{whatWeDoData[modalIndex].info.paragraph}</p>
+            <p>{whatWeDoData[modalIndex].info.paragraph2}</p>
+            <p>{whatWeDoData[modalIndex].info.paragraph3}</p>
+          </div>
+        </Overlay>
+      </div>
     </div>
   );
 }
@@ -48,7 +76,7 @@ function ServiceItem({ data, handleModal }) {
           <h2>{data.title}</h2>
           <p>{data.info.paragraph}</p>
           <p className={classes.link}>
-            <Link href="">More</Link>
+            <Link href="">MORE</Link>
           </p>
         </div>
       </div>
@@ -98,17 +126,23 @@ export default function ServicePage() {
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
-      <section className={classes.page}>
+      <motion.section
+        className={classes.page}
+        layout
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+      >
         {whatWeDoData.map((element) => (
-          <div>
+          <motion.div variants={item}>
             {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
             <ServiceItem
               data={element}
               handleModal={() => handleModal(element.id)}
             />
-          </div>
+          </motion.div>
         ))}
-      </section>
+      </motion.section>
     </>
   );
 }

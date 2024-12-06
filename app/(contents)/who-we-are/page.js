@@ -12,10 +12,9 @@ function LargeSection() {
       <div className={classes.paragraphWrapper}>
         <h2>INDIGO</h2>
         <p>
-          INDIGO was established in 2021 by Emmanuel Petrakis. Stands as a
-          bespoke real estate consulting firm capitalizing on strategic
-          investment opportunities. Boasting 25 years of experience and local
-          knowledge.
+          Established in 2021 by Emmanuel Petrakis. Stands as a bespoke real
+          estate consulting firm capitalizing on strategic investment
+          opportunities. Boasting 25 years of experience and local knowledge.
         </p>
         <p>
           Indigo serves as a trusted service company to investors, providing
@@ -74,10 +73,9 @@ function SmallSection() {
       <div className={classes.sectionContainerSmall}>
         <div className={classes.paragraphWrapperSmall}>
           <p>
-            INDIGO was established in 2021 by Emmanuel Petrakis. Stands as a
-            bespoke real estate consulting firm capitalizing on strategic
-            investment opportunities. Boasting 25 years of experience and local
-            knowledge.
+            Established in 2021 by Emmanuel Petrakis. Stands as a bespoke real
+            estate consulting firm capitalizing on strategic investment
+            opportunities. Boasting 25 years of experience and local knowledge.
           </p>
           <p>
             Indigo serves as a trusted service company to investors, providing

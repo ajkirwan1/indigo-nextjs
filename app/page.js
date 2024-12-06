@@ -25,9 +25,10 @@ const container = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 1,
-      delayChildren: 0.5,
-      delay: 0.5,
+      duration: 10,
+      staggerChildren: 2,
+      delayChildren: 1,
+      delay: 1,
       bounce: 0,
     },
   },
@@ -40,6 +41,7 @@ const item = {
     y: 0,
     transition: {
       bounce: 0,
+      duration: 10,
     },
   },
 };
