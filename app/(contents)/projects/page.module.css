@@ -1,101 +1,66 @@
-.subHeader {
+.header {
+  text-align: left;
+  border-bottom: 1px solid black;
+  height: 10vh;
+}
+.header h1 {
+  height: 4vh;
+  padding-top: 4vh;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.upperContainer {
   display: flex;
 }
 
-.header {
+.upperContainer h2 {
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.infoContainer {
   text-align: left;
-  margin-top: 5vh;
-  margin-bottom: 6vh;
-}
-.blogPageContainer {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
+  display: flex;
+  flex-direction: column;
+  margin-left: 2vw;
 }
 
-.blogPageContainer a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
-}
-
-.blogPageContainer p {
+.lowerContainer {
+  display: flex;
+  text-align: left;
   letter-spacing: normal;
-  font-size: 18px;
-  font-weight: 200;
+  margin-top: 2vh;
 }
 
-.blogPageContainer ul,
-.blogPageContainerSkeleton ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  gap: 3vh;
-  text-align: left;
+.lowerContainer ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  line-height: 2.4em;
+}
+.lowerContainerLeft {
+  margin: auto;
 }
 
-.blogPageContainer li,
-.blogPageContainerSkeleton li {
-  border: 1px solid transparent;
-  max-width: 500px;
-  width: 100%;
+.lowerContainerLeft li {
+  font-size: 28px;
+  font-weight: 100;
 }
 
-.blogPageContainer li:hover {
-  /* transform: translateY(-15px); */
-  transition: transform 550ms;
-  cursor: pointer;
-  border: outset 1px #fffcfcc5;
+.lowerContainerRight {
+  flex: 2;
 }
-
-.imageContainer:hover .image {
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-.blogPageContainer li:hover .hiddenContainer {
-  opacity: 1;
+.carousel {
+  height: 400px;
+  width: 800px;
+  margin: auto;
 }
 
 .image {
-  width: 100%;
+  width: 500px;
   height: auto;
-  transition: transform 0.5s ease;
-}
-
-.imageContainer {
-  overflow: hidden;
-}
-
-.avatarAuthorContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.avatarAuthor {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.avatarAuthorContainer p {
-  margin: 0;
-  color: #034d8aad;
-}
-
-.hiddenContainer {
-  opacity: 0;
-}
-.hiddenContainer a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 200;
-}
-
-.hiddenContainer:hover {
-  text-decoration: underline;
-  font-weight: 200;
-  color: #0b0b0b;
-}
-
-.conclusion {
 }

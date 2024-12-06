@@ -2,18 +2,38 @@
 "use client";
 
 import classes from "./page.module.css";
-import WebItemComponent from "@/components/web-item-component";
-import WebItemComponentSmall from "@/components/web-item-component-small";
 import { whatWeDoData } from "@/data/what-we-do-data";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Overlay from "@/components/overlay";
+import circle from "/public/images/pages/home/circledwh.png";
 
-function ServiceItem({ data }) {
+function Modal({ handleModal, modalIndex }) {
+  console.log(modalIndex);
+  return (
+    <div className="modal-backdrop" onClick={handleModal}>
+      <Overlay>
+        <div className={classes.modalInfoWrapper}>
+          <Image src={circle} />
+          <h2>{whatWeDoData[modalIndex].title}</h2>
+          <p>{whatWeDoData[modalIndex].info.paragraph}</p>
+          <p>{whatWeDoData[modalIndex].info.paragraph2}</p>
+          <p>{whatWeDoData[modalIndex].info.paragraph3}</p>
+        </div>
+      </Overlay>
+    </div>
+  );
+}
+
+function ServiceItem({ data, handleModal }) {
   return (
     // <Link href={`projects/${data.id}`}>
-    <>
-      <div className={classes.itemContainer}>
+    <div key={data.id}>
+      <div
+        className={classes.itemContainer}
+        onClick={() => handleModal(data.id)}
+      >
         <div className={classes.imageContainer}>
           <Image
             className={classes.image}
@@ -32,12 +52,14 @@ function ServiceItem({ data }) {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 export default function ServicePage() {
   const [viewport, setViewport] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalIndex, setModalIndex] = useState(0);
 
   useEffect(() => {
     if (window.innerWidth > 1000) {
@@ -61,16 +83,29 @@ export default function ServicePage() {
     };
   });
 
+  const handleModal = (id) => {
+    console.log(id, "IDDD");
+    setModalIndex(id - 1);
+    setModalOpen((val) => !val);
+  };
+
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
+      {modalOpen ? (
+        <Modal handleModal={handleModal} modalIndex={modalIndex} />
+      ) : null}
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
       <section className={classes.page}>
         {whatWeDoData.map((element) => (
-          <div key={element.id}>
-            <ServiceItem data={element} />
+          <div>
+            {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
+            <ServiceItem
+              data={element}
+              handleModal={() => handleModal(element.id)}
+            />
           </div>
         ))}
       </section>

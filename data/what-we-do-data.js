@@ -2,6 +2,7 @@
 
 export const whatWeDoData = [
   {
+    id: 1,
     title: "DEVELOPMENT OPPORTUNITIES SOURCING",
     info: {
       paragraph: `Sourcing Development Opportunities focuses on empowering
@@ -12,6 +13,7 @@ export const whatWeDoData = [
     image: "/images/pages/what-we-do/greece12.jpg",
   },
   {
+    id: 2,
     title: "DEVELOPMENT CONSULTANCY",
     info: {
       paragraph: `Indigo offers expert guidance, insights from the knowledge
@@ -21,6 +23,7 @@ export const whatWeDoData = [
     image: "/images/pages/what-we-do/devcon.jpg",
   },
   {
+    id: 3,
     title: "DEVELOPMENT PROJECT MANAGEMENT",
     info: {
       paragraph: `Project Development Management offers customizable services
@@ -33,6 +36,7 @@ export const whatWeDoData = [
     image: "/images/pages/what-we-do/construct.jpg",
   },
   {
+    id: 4,
     title: "MARKET ANALYSIS",
     info: {
       paragraph: `Integrated with our consultancy and project management services,
@@ -51,6 +55,7 @@ export const whatWeDoData = [
     },
   },
   {
+    id: 5,
     title: "REDEVELOPMENT - DEVELOPMENT PROJECTS",
     info: {
       paragraph: `Indigo's founder, an experienced investor, has led visionary
@@ -71,6 +76,7 @@ export const whatWeDoData = [
     },
   },
   {
+    id: 6,
     title: "PROPERTY MANAGEMENT",
     info: {
       paragraph: `Experience hassle-free property management tailored for your Greek
@@ -84,6 +90,7 @@ export const whatWeDoData = [
     },
   },
   {
+    id: 7,
     title: "LEGAL & NOTARIAL SERVICES",
     info: {
       paragraph: `Access expert Legal & Notarial Services for your real estate
@@ -92,6 +99,7 @@ export const whatWeDoData = [
     image: "/images/pages/what-we-do/legal.jpg",
   },
   {
+    id: 8,
     title: "RESIDENCY - GOLDEN VISA",
     info: {
       paragraph: ` Unlock your path to residency in Greece with our Golden Visa

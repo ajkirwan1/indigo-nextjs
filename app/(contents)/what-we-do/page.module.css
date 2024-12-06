@@ -96,3 +96,7 @@
   color: #4d0013;
   letter-spacing: normal;
 }
+
+.modalInfoWrapper {
+  max-width: 60vw;
+}
