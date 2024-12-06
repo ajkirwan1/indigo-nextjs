@@ -11,6 +11,9 @@ const nextConfig = {
       "@aws-sdk/s3-request-presigner",
     ],
   },
+  env: {CONTENTFUL_SPACE_ID:process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN:process.env.CONTENTFUL_ACCESS_TOKEN
+  },
   outputFileTracingIncludes: {
     "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
   },
