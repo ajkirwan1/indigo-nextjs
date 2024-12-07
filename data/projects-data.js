@@ -3,8 +3,8 @@
 export const projectsData = [
   {
     id: 1,
-    title: "Anagnostopoulo",
-    image: "/images/pages/projects/test.jpg",
+    title: "ANAGNOSTOPOULO",
+    image: "/images/pages/projects/heros/cap.jpg",
     dateStart: "25/11/2022",
     dateCompleted: "25/11/2024",
     description: "Building a 2 story villa in Anagnostopoulo",

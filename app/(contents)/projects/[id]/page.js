@@ -2,15 +2,10 @@
 
 import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
-import Image from "next/image";
-import { Avatar } from "@nextui-org/react";
-import shareIcon from "/public/images/icons/shareIcon.svg";
 import { createClient } from "contentful";
 import { projectsData } from "@/data/projects-data";
-import Carousel from "@/components/carousel";
+import ProjectCarousel from "@/components/pages/projects/project-carousel";
 import { propertyData } from "@/public/data/data";
-import Link from "next/link";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -24,7 +19,6 @@ const fetchBlogPost = async (slug) => {
   };
   const queryResult = await client.getEntries(queryOptions);
 
-  // console.log(queryResult.items[0], "MLD:DL:DS:LDS");
   return queryResult.items[0];
 };
 
@@ -39,41 +33,61 @@ export default async function Project({ params }) {
   // const {title, subTitle, publishDate,author, location, primaryImage,mainParagraph } = fields
 
   return (
-    <div className={classes.blogPost}>
-      <title>{data.title}</title>
-      <div className={classes.header}>
-        <h1>OUR PROJECTS</h1>
-        <hr />
-      </div>
-      <section className={classes.openingSection}>
-        <Link href={`${data.id}/images`}>
-          <Image
-            className={classes.image}
-            src={data.image}
-            alt="alt"
-            width={750}
-            height={500}
-          />
-        </Link>
-        <div className={classes.subHeader}>
+    <div className={classes.heroWrapper}>
+      <ProjectCarousel images={propertyData}>
+        <div className={classes.titleHeader}>
           <h1>{data.title}</h1>
-          <p>
-            {data.dateStart} - {data.dateCompleted}
-          </p>
-          <div className={classes.avatarAuthor}>
-            <Avatar src={data.image} color="default" size="md" isBordered />
-          </div>
+          <p>{data.description}</p>
         </div>
-      </section>
-      <section className={classes.secondSection}>
-        <h2>{data.description}</h2>
-        <span>{data.opening}</span>
-      </section>
-      <section>
-        <div className={classes.carouselContainer}>
-          <Carousel images={propertyData} />
+        <div className={classes.propertyInfo}>
+          <h2>KEY FEATURES</h2>
+          <ul>
+            <li>
+              <p>The most desirable location in the Athens Riviera</p>
+            </li>
+            <li>
+              <p>High quality finish </p>
+            </li>
+            <li>
+              <p>Panoramic view</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li>
+              <p>Heated marble flooring</p>
+            </li>
+            <li></li>
+          </ul>
         </div>
-      </section>
+      </ProjectCarousel>
+      {/* <HeroProjects heroImage={data.image}>
+        <div className={classes.titleHeader}>
+          <h1>{data.title}</h1>
+          <p>{data.description}</p>
+        </div>
+        <div className={classes.propertyInfo}>
+          <h2>KEY FEATURES</h2>
+          <ul>
+            <li>
+              <p>Amtico acoustically treated LVT flooring</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li></li>
+          </ul>
+        </div>
+      </HeroProjects> */}
     </div>
   );
 }
