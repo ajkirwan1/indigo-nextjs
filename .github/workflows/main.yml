@@ -29,6 +29,7 @@ jobs:
         env:
           CONTENTFUL_SPACE_ID: ${{ vars.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_TOKEN: ${{ vars.CONTENTFUL_ACCESS_TOKEN }}
+          POSTGRES_PRISMA_URL: ${{ vars.POSTGRES_PRISMA_URL }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
