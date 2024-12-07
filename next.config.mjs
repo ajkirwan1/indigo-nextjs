@@ -4,6 +4,7 @@
  */
 
 const nextConfig = {
+  output: 'export',
   experimental: {
     serverComponentsExternalPackages: [
       "@node-rs/argon2",
