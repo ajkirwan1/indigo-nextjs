@@ -56,8 +56,8 @@ export default async function BlogPage(props) {
                   className={classes.image}
                   src={`https:${primaryImage.fields.file.url}`}
                   alt="alt"
-                  width={750}
-                  height={500}
+                  width={1000}
+                  height={750}
                 />
               </div>
             </Link>
@@ -78,7 +78,13 @@ export default async function BlogPage(props) {
                 </div>
               </div>
               <div className={classes.shareIconContainer}>
-                <Image src={shareIcon} alt="alt" width={30} height={30} />
+                <Image
+                  className={classes.shareIcon}
+                  src={shareIcon}
+                  alt="alt"
+                  width={30}
+                  height={30}
+                />
               </div>
             </div>
           </section>

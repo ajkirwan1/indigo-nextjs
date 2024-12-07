@@ -16,8 +16,12 @@
   line-height: 2.5rem;
   font-size: 20px;
   letter-spacing: 0.1rem;
-  font-weight: 400;
+  font-weight: 300;
   animation: fadeIn 2s;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .pageWrapper h2 {
@@ -34,6 +38,7 @@
 
 .formcontainer {
   animation: fadeInLeft 1s;
+  width: 550px;
 }
 
 .letsTalk {
@@ -51,8 +56,9 @@
   border-right: 1px solid rgba(0, 0, 0, 0.563);
 }
 .phoneAndEmail {
-  margin-top: 12vh;
-  line-height: 2vw;
+  margin-top: 4vh;
+  line-height: 1.5vw;
+  letter-spacing: 0.2rem;
   font-size: 10px;
 }
 
@@ -126,7 +132,10 @@
 
 @media only screen and (min-width: 1800px) {
   .pageWrapper h2 {
-    font-size: 36px;
+    font-size: 40px;
+  }
+  .formContainer {
+    width: 550px;
   }
 }
 

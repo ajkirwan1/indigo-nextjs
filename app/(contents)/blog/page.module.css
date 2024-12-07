@@ -18,6 +18,11 @@
 
 .blogPageContainer p {
   letter-spacing: normal;
+  font-size: 16px;
+}
+.blogPageContainer h2 {
+  font-size: 20px;
+  line-height: 2rem;
 }
 
 .blogPageContainer ul,
@@ -31,7 +36,7 @@
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
   max-width: 500px;
   width: 100%;
 }
@@ -40,7 +45,7 @@
   /* transform: translateY(-15px); */
   transition: transform 550ms;
   cursor: pointer;
-  border: outset 1px #fffcfcc5;
+  /* border: outset 1px #fffcfcc5; */
 }
 
 .blogPageContainer li:hover .hiddenContainer {
@@ -63,7 +68,8 @@
   cursor: pointer;
 }
 .avatar {
-  border: 1px solid black;
+  border: 1px solid white;
+  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5));
 }
 
 .avatarAuthorContainer {
@@ -81,7 +87,7 @@
 
 .avatarAuthorContainer p {
   margin: 0;
-  color: #034d8aad;
+  color: black;
 }
 
 .hiddenContainer {

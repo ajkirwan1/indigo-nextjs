@@ -16,7 +16,7 @@
   max-width: 550px;
   line-height: 4rem;
   margin-left: 60px;
-  gap: 2vh;
+  gap: 2.5vh;
 }
 
 .subHeaderSkeleton {
@@ -65,13 +65,14 @@
 }
 
 .avatar {
-  border: 1px solid black;
+  border: 1px solid white;
+  filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5));
 }
 
 .avatarAuthor {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
 }
 
 .blogPost {
@@ -92,11 +93,12 @@
 }
 
 .blogPost h2 {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 300;
   line-height: 2.5rem;
   max-width: 700px;
   margin-bottom: 3vh;
+  font-weight: 200;
 }
 
 .newsLetterSection h2 {
@@ -130,6 +132,9 @@
 } */
 .shareIconContainer p {
   margin: 0;
+}
+.shareIcon {
+  filter: opacity(0.5);
 }
 .thirdSection {
   margin-bottom: 5vh;
@@ -185,16 +190,18 @@
 
 @media only screen and (min-width: 1800px) {
   .subHeader > h1 {
-    font-size: 52px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 3.5rem;
   }
   .blogPost h2 {
-    font-size: 28px;
+    font-size: 32px;
     line-height: 2.5rem;
     max-width: 1000px;
     margin-bottom: 3vh;
   }
   .subHeader > p {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 
