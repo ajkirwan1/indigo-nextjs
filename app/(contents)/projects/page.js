@@ -9,27 +9,29 @@ import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fa
 function ProjectItem({ data }) {
   return (
     <Link href={`projects/${data.id}`}>
-      <div>
+      <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
             className={classes.image}
-            src={data.imageHero}
+            src={data.image}
             alt="alt"
-            width={750}
-            height={500}
+            width={800}
+            height={600}
           />
         </div>
-        <h2>{data.title}</h2>
-        <p>Location - {data.location}</p>
-        <p>Investment return - {data.investmentReturn}</p>
-        <p>{data.opening}</p>
+        <div className={classes.infoWrapper}>
+          <h2>{data.title}</h2>
+          <p>LOCATION - {data.location}</p>
+          <p>INVESTMENT RETURN - {data.investmentReturn}</p>
+          <p>{data.opening}</p>
+        </div>
       </div>
     </Link>
   );
 }
 
 export default async function ProjectsPage() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>

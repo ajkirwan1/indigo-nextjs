@@ -82,7 +82,7 @@
 .avatarAuthor {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 12px;
 }
 
 .avatarAuthorContainer p {

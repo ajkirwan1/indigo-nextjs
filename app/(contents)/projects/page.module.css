@@ -25,25 +25,24 @@
 
 .blogPageContainer ul,
 .blogPageContainerSkeleton ul {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  gap: 3vh;
+  gap: 3vh; */
   text-align: left;
 }
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
-  border: 1px solid transparent;
-  max-width: 500px;
-  width: 100%;
+  /* border: 1px solid transparent; */
+  /* max-width: 500px;
+  width: 100%; */
 }
 
 .blogPageContainer li:hover {
   /* transform: translateY(-15px); */
   transition: transform 550ms;
   cursor: pointer;
-  border: outset 1px #fffcfcc5;
 }
 
 .imageContainer:hover .image {
@@ -56,8 +55,10 @@
 }
 
 .image {
-  width: 100%;
-  height: auto;
+  /* width: 100%;
+  height: auto; */
+  height: 100%;
+  width: auto;
   transition: transform 0.5s ease;
 }
 
@@ -98,4 +99,48 @@
 }
 
 .conclusion {
+}
+.ProjectItemWrapper {
+  height: 250px;
+  display: flex;
+  margin-bottom: 7vh;
+}
+.infoWrapper {
+  margin-left: 2vw;
+}
+.infoWrapper h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 3.5vh;
+  overflow: hidden;
+}
+
+.infoWrapper h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.infoWrapper h2:hover::after,
+.infoWrapper h2:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+  transform: scale(1);
+}
+
+.infoWrapper p {
+  font-size: 18px;
+  max-width: 35vw;
 }
