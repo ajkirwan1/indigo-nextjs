@@ -146,7 +146,7 @@
   position: absolute;
   bottom: 5vh;
   left: 5vw;
-  width: 12vw;
+  width: 5vw;
   height: 5vh;
   display: flex;
   justify-content: center;
@@ -154,7 +154,7 @@
 }
 .linkContainer a {
   font-weight: 100;
-  font-size: 30px;
+  font-size: 20px;
   color: aliceblue;
   text-decoration: inherit; /* no underline */
 }

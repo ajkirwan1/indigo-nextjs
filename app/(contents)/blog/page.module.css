@@ -97,7 +97,7 @@
 .hiddenContainer {
   opacity: 0;
 }
-.hiddenContainer a {
+.hiddenContainer {
   text-decoration: none;
   color: inherit;
   font-weight: 200;
