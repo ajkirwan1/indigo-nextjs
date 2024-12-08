@@ -48,9 +48,7 @@ async function BlogItem({ blogData }) {
             />
             <p>By {author}</p>
           </div>
-          <div className={classes.hiddenContainer}>
-            <Link href={`blog/${slug}`}>Read more</Link>
-          </div>
+          <div className={classes.hiddenContainer}>Read more</div>
         </div>
       </div>
     </Link>

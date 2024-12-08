@@ -28,16 +28,16 @@
 .blogPageContainer ul,
 .blogPageContainerSkeleton ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
-  gap: 3vh;
+  gap: 5vw;
   text-align: left;
 }
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
   /* border: 1px solid transparent; */
-  max-width: 500px;
+  /* max-width: 500px; */
   width: 100%;
 }
 
@@ -56,10 +56,14 @@
   width: 100%;
   height: auto;
   /* max-width: 500px; */
+  /* height: 100%;
+  width: auto; */
   transition: transform 0.5s ease;
 }
 
 .imageContainer {
+  /* max-height: 320px; */
+  font-size: 0;
   overflow: hidden;
 }
 

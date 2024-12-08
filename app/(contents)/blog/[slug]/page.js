@@ -9,6 +9,7 @@ import { createClient } from "contentful";
 import Link from "next/link";
 import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { redirect } from "next/navigation";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -16,7 +17,7 @@ const client = createClient({
 });
 
 const fetchBlogPost = async (slug) => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
   const queryOptions = {
     content_type: "blogPost",
     "fields.slug[match]": slug,

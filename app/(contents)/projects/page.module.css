@@ -133,14 +133,21 @@
   transform-origin: center;
 }
 
-.infoWrapper h2:hover::after,
+/* .infoWrapper h2:hover::after,
 .infoWrapper h2:focus::after {
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
   transform: scale(1);
-}
+} */
 
 .infoWrapper p {
   font-size: 18px;
   max-width: 35vw;
+}
+
+.blogPageContainer li:hover h2::after,
+.blogPageContainer li:focus h2::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+  transform: scale(1);
 }

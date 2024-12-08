@@ -125,7 +125,7 @@
   flex-direction: column;
   margin-left: 5vw;
   margin-top: 5vh;
-  background-color: rgba(240, 248, 255, 0.533);
+  /* background-color: rgba(240, 248, 255, 0.533); */
   background-color: rgba(40, 40, 40, 0.456);
   backdrop-filter: blur(5px);
 }
@@ -138,4 +138,28 @@
   padding-bottom: 2vh;
   background-color: rgba(40, 40, 40, 0.456);
   backdrop-filter: blur(5px);
+}
+
+.linkContainer {
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  width: 12vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.linkContainer a {
+  font-weight: 100;
+  font-size: 30px;
+  color: aliceblue;
+  text-decoration: inherit; /* no underline */
+}
+
+.linkContainer a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }

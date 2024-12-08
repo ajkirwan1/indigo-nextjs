@@ -143,6 +143,7 @@
 .imageContainer {
   min-width: 500px;
   width: 600px;
+  font-size: 0;
   /* height: 500px;
   width: auto; */
   overflow: hidden;

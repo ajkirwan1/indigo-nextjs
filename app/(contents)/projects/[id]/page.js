@@ -1,11 +1,12 @@
 /** @format */
-
 import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import { createClient } from "contentful";
 import { projectsData } from "@/data/projects-data";
 import ProjectCarousel from "@/components/pages/projects/project-carousel";
 import { propertyData } from "@/public/data/data";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -57,37 +58,12 @@ export default async function Project({ params }) {
             <li>
               <p>Heated marble flooring</p>
             </li>
-            <li></li>
           </ul>
+        </div>
+        <div className={classes.linkContainer}>
+          <Link href="/projects">Back</Link>
         </div>
       </ProjectCarousel>
-      {/* <HeroProjects heroImage={data.image}>
-        <div className={classes.titleHeader}>
-          <h1>{data.title}</h1>
-          <p>{data.description}</p>
-        </div>
-        <div className={classes.propertyInfo}>
-          <h2>KEY FEATURES</h2>
-          <ul>
-            <li>
-              <p>Amtico acoustically treated LVT flooring</p>
-            </li>
-            <li>
-              <p>Stain-proof carpets in bedrooms</p>
-            </li>
-            <li>
-              <p>Stain-proof carpets in bedrooms</p>
-            </li>
-            <li>
-              <p>Stain-proof carpets in bedrooms</p>
-            </li>
-            <li>
-              <p>Stain-proof carpets in bedrooms</p>
-            </li>
-            <li></li>
-          </ul>
-        </div>
-      </HeroProjects> */}
     </div>
   );
 }
