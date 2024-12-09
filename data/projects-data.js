@@ -10,7 +10,6 @@ export const projectsData = [
     description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
-    // author: "Emmanuel Petrakis",
     opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
   {
@@ -22,7 +21,6 @@ export const projectsData = [
     description: "Building a 2 story villa in Anagnostopoulo",
     investmentReturn: "250,000",
     location: "Anagnostopoulo",
-    // author: "Emmanuel Petrakis",
     opening: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ipsum turpis, viverra porttitor nunc eget, efficitur sollicitudin nunc. Proin a augue dolor. Aenean maximus mi ac felis vestibulum, ac interdum velit pellentesque.`,
   },
 ];

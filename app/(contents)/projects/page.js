@@ -4,26 +4,50 @@ import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { createClient } from "contentful";
 import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
+const client = createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+});
+
+const getNewsEntries = async () => {
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+  const newsEntries = await client.getEntries({ content_type: "project" });
+  return newsEntries.items;
+  // console.log(entries.items);
+};
+
 function ProjectItem({ data }) {
+  const {
+    title,
+    thumbnailImage,
+    location,
+    investmentReturn,
+    description,
+    slug,
+  } = data.fields;
+
+  // console.log(data.fields);
+
   return (
-    <Link href={`projects/${data.id}`}>
+    <Link href={`projects/${slug}`}>
       <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
             className={classes.image}
-            src={data.image}
+            src={`https:${thumbnailImage.fields.file.url}`}
             alt="alt"
             width={800}
             height={600}
           />
         </div>
         <div className={classes.infoWrapper}>
-          <h2>{data.title}</h2>
-          <p>LOCATION - {data.location}</p>
-          <p>INVESTMENT RETURN - {data.investmentReturn}</p>
-          <p>{data.opening}</p>
+          <h2>{title}</h2>
+          {/* <p>LOCATION - {location.location}</p> */}
+          <p>INVESTMENT RETURN - {investmentReturn}</p>
+          <p>{description}</p>
         </div>
       </div>
     </Link>
@@ -31,6 +55,7 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
+  const newsEntries = await getNewsEntries();
   // await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
@@ -41,7 +66,7 @@ export default async function ProjectsPage() {
       </div>
       <div className={classes.blogPageContainer}>
         <ul>
-          {projectsData.map((element) => (
+          {newsEntries.map((element) => (
             <li key={element.id}>
               <ProjectItem data={element} />
             </li>

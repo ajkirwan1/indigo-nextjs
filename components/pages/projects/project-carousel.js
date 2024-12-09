@@ -28,12 +28,12 @@ export default function ProjectCarousel({ images, children }) {
         <div className={classes.innerContainer}>
           {images.map((img) => (
             <Image
-              key={img.id}
+              key={img}
               className={classes.carouselImage}
               style={{ translate: `${-100 * currentIndex}%` }}
               width={1920}
               height={960}
-              src={img.image}
+              src={`https:${img}`}
               alt="alt"
               priority={true}
             />

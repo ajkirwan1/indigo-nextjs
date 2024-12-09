@@ -13,9 +13,9 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
-const fetchBlogPost = async (slug) => {
+const fetchProjectPost = async (slug) => {
   const queryOptions = {
-    content_type: "blogPost",
+    content_type: "project",
     "fields.slug[match]": slug,
   };
   const queryResult = await client.getEntries(queryOptions);
@@ -23,10 +23,35 @@ const fetchBlogPost = async (slug) => {
   return queryResult.items[0];
 };
 
-export default async function Project({ params }) {
+export default async function Project(props) {
+  const { params } = props;
+  const { slug } = params;
+  const { fields } = await fetchProjectPost(slug);
+
+  const {
+    title,
+    thumbnailImage,
+    secondaryImages,
+    location,
+    investmentReturn,
+    description,
+  } = fields;
+  // console.log(thumbnailImage, "primary");
+
+  let carouselImagesUrls = [];
+
+  console.log(secondaryImages[0].fields.file.url, "secondary");
+
+  Object.entries(secondaryImages).map((entry) => {
+    carouselImagesUrls.push(entry[1].fields.file.url);
+    // console.log(entry[1].fields.file.url);
+  });
+
+  console.log(carouselImagesUrls);
+
   // console.log(params)
-  const data = projectsData[params.id - 1];
-  console.log(data);
+  // const data = projectsData[params.id - 1];
+  // console.log(data);
 
   // const { params } = props;
   // const { slug } = params;
@@ -35,10 +60,10 @@ export default async function Project({ params }) {
 
   return (
     <div className={classes.heroWrapper}>
-      <ProjectCarousel images={propertyData}>
+      <ProjectCarousel images={carouselImagesUrls}>
         <div className={classes.titleHeader}>
-          <h1>{data.title}</h1>
-          <p>{data.description}</p>
+          <h1>{title}</h1>
+          <p>{description}</p>
         </div>
         <div className={classes.propertyInfo}>
           <h2>KEY FEATURES</h2>
