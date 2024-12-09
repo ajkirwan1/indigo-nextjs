@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Overlay from "@/components/overlay";
 import circle from "/public/images/pages/home/circledwh.png";
+import WhatWeDoCarousel from "@/components/pages/what-we-do/what-we-do-carousel";
+import { propertyData } from "@/public/data/data";
 import { motion } from "framer-motion";
 
 const container = {
@@ -70,14 +72,17 @@ function ServiceItem({ data, handleModal }) {
             width={750}
             height={500}
           />
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
         </div>
 
         <div className={classes.infoWrapper}>
           <h2>{data.title}</h2>
-          <p>{data.info.paragraph}</p>
-          <p className={classes.link}>
+          {/* <p>{data.info.paragraph}</p> */}
+          {/* <p className={classes.link}>
             <Link href="">MORE</Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
@@ -117,26 +122,6 @@ export default function ServicePage() {
     setModalOpen((val) => !val);
   };
 
-  function removed() {
-    <section
-      className={classes.page}
-      layout
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-    >
-      {whatWeDoData.map((element) => (
-        <div variants={item} key={item}>
-          {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
-          <ServiceItem
-            data={element}
-            handleModal={() => handleModal(element.id)}
-          />
-        </div>
-      ))}
-    </section>;
-  }
-
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
@@ -146,7 +131,24 @@ export default function ServicePage() {
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
-      <div className={classes.container}>
+      <section
+        className={classes.page}
+        layout
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+      >
+        {whatWeDoData.map((element) => (
+          <div variants={item} key={item}>
+            {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
+            <ServiceItem
+              data={element}
+              handleModal={() => handleModal(element.id)}
+            />
+          </div>
+        ))}
+      </section>
+      {/* <div className={classes.container}>
         <div className={classes.imageContainer}>
           <Image
             src="/images/pages/what-we-do/greece12.jpg"
@@ -157,7 +159,6 @@ export default function ServicePage() {
           />
           <div className={classes.detailsContainer}>
           <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
-          
           </div>
           <div className={classes.moreContainer}>
             <p>More</p>
@@ -193,7 +194,87 @@ export default function ServicePage() {
             <p>More</p>
           </div>
         </div>
-      </div>
+      </div> */}
+      {/* <div className={classes.containerMiddle}>
+        <div className={classes.imageContainer2}>
+          <Image
+            src="/images/pages/what-we-do/greece12.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+        <div className={classes.imageContainer2}>
+          <Image
+            src="/images/pages/what-we-do/devcon.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT CONSULTANCY</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+      </div> */}
+      {/* <div className={classes.container}>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/greece12.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/devcon.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT CONSULTANCY</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/construct.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT PROJECT MANAGEMENT</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+      </div> */}
+      {/* <WhatWeDoCarousel images={propertyData}/> */}
     </>
   );
 }

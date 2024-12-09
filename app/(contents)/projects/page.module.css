@@ -63,6 +63,7 @@
 }
 
 .imageContainer {
+  font-size: 0;
   overflow: hidden;
 }
 
