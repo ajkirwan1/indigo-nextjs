@@ -62,7 +62,6 @@ export default async function BlogPage(props) {
                 />
               </div>
             </Link>
-
             <div className={classes.subHeader}>
               <h1>{title}</h1>
               <p>{publishDate}</p>

@@ -117,6 +117,26 @@ export default function ServicePage() {
     setModalOpen((val) => !val);
   };
 
+  function removed() {
+    <section
+      className={classes.page}
+      layout
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+    >
+      {whatWeDoData.map((element) => (
+        <div variants={item} key={item}>
+          {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
+          <ServiceItem
+            data={element}
+            handleModal={() => handleModal(element.id)}
+          />
+        </div>
+      ))}
+    </section>;
+  }
+
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
@@ -126,23 +146,54 @@ export default function ServicePage() {
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
-      <motion.section
-        className={classes.page}
-        layout
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-      >
-        {whatWeDoData.map((element) => (
-          <motion.div variants={item}>
-            {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
-            <ServiceItem
-              data={element}
-              handleModal={() => handleModal(element.id)}
-            />
-          </motion.div>
-        ))}
-      </motion.section>
+      <div className={classes.container}>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/greece12.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
+          
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/devcon.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT CONSULTANCY</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+        <div className={classes.imageContainer}>
+          <Image
+            src="/images/pages/what-we-do/construct.jpg"
+            alt="alt"
+            width={750}
+            height={500}
+            className={classes.image}
+          />
+          <div className={classes.detailsContainer}>
+          <h2>DEVELOPMENT PROJECT MANAGEMENT</h2>
+          </div>
+          <div className={classes.moreContainer}>
+            <p>More</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

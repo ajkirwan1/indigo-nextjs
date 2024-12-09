@@ -127,7 +127,7 @@
   margin-top: 5vh;
   /* background-color: rgba(240, 248, 255, 0.533); */
   background-color: rgba(40, 40, 40, 0.456);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
 }
 .propertyInfo p {
   font-size: 20px;
@@ -137,12 +137,12 @@
   padding-top: 5vh;
   padding-bottom: 2vh;
   background-color: rgba(40, 40, 40, 0.456);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
 }
 
 .linkContainer {
   background-color: rgba(40, 40, 40, 0.456);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
   position: absolute;
   bottom: 5vh;
   left: 5vw;
