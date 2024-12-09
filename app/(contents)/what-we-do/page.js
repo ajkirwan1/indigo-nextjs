@@ -69,21 +69,24 @@ function ServiceItem({ data, handleModal }) {
             className={classes.image}
             src={data.image}
             alt="alt"
-            width={750}
-            height={500}
+            width={1000}
+            height={1250}
           />
+          <div className={classes.detailsContainer}>
+            <h2>{data.title}</h2>
+          </div>
           <div className={classes.moreContainer}>
             <p>More</p>
           </div>
         </div>
 
-        <div className={classes.infoWrapper}>
-          <h2>{data.title}</h2>
-          {/* <p>{data.info.paragraph}</p> */}
-          {/* <p className={classes.link}>
+        {/* <div className={classes.infoWrapper}>
+          <h2>{data.title}</h2> */}
+        {/* <p>{data.info.paragraph}</p> */}
+        {/* <p className={classes.link}>
             <Link href="">MORE</Link>
           </p> */}
-        </div>
+        {/* </div> */}
       </div>
     </div>
   );
