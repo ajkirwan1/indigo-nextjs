@@ -72,10 +72,13 @@ function ServiceItem({ data, handleModal }) {
             width={1000}
             height={1250}
           />
-          <div className={classes.detailsContainer}>
+          {/* <div className={classes.detailsContainer}>
+            <h2>{data.title}</h2>
+          </div> */}
+          <div className={classes.moreContainer}>
             <h2>{data.title}</h2>
           </div>
-          <div className={classes.moreContainer}>
+          <div className={classes.infoWrapper}>
             <p>More</p>
           </div>
         </div>
