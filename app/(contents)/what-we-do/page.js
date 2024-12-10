@@ -56,12 +56,15 @@ function Modal({ handleModal, modalIndex }) {
   );
 }
 
-function ServiceItem({ data, handleModal, infoActive }) {
+function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
   return (
     <div key={data.id}>
       <div
-        className={classes.itemContainer}
-        // onClick={() => handleModal(data.id)}
+        className={
+          !(infoActive && data.id == modalIndex)
+            ? `${classes.itemContainer}`
+            : null
+        }
       >
         <div className={classes.imageContainer}>
           <Image
@@ -72,16 +75,32 @@ function ServiceItem({ data, handleModal, infoActive }) {
             height={1250}
           />
           <div className={classes.moreContainer}>
-            <h2>{data.title}</h2>
+            {infoActive && data.id == modalIndex ? null : <h2>{data.title}</h2>}
           </div>
           <div
             className={
-              !infoActive
-                ? `${classes.infoWrapper}`
-                : `${classes.infoWrapper} ${classes.infoWrapperActive}`
+              infoActive && data.id == modalIndex
+                ? `${classes.infoWrapper} ${classes.infoWrapperActive}`
+                : `${classes.infoWrapper} `
             }
           >
-            <p onClick={handleModal}>More</p>
+            {!(infoActive && data.id == modalIndex) ? (
+              <div className={classes.popupContainerClosed}>
+                <p onClick={() => handleModal(data.id)}>More</p>
+              </div>
+            ) : (
+              <div className={classes.popupContainerOpen}>
+                <div>
+                  <h2>{whatWeDoData[modalIndex].title}</h2>
+                  <p>{whatWeDoData[modalIndex].info.paragraph}</p>
+                  <p>{whatWeDoData[modalIndex].info.paragraph2}</p>
+                  <p>{whatWeDoData[modalIndex].info.paragraph3}</p>
+                </div>
+                <div className={classes.lessContainer}>
+                  <p onClick={() => handleModal(data.id)}>Less</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -92,7 +111,7 @@ function ServiceItem({ data, handleModal, infoActive }) {
 export default function ServicePage() {
   const [viewport, setViewport] = useState();
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalIndex, setModalIndex] = useState(0);
+  const [modalIndex, setModalIndex] = useState(null);
   const [infoActive, setInfoActive] = useState(false);
 
   useEffect(() => {
@@ -118,11 +137,9 @@ export default function ServicePage() {
   });
 
   const handleModal = (id) => {
-    console.log("CLICKED");
     setInfoActive((val) => !val);
-    // console.log(id, "IDDD");
-    // setModalIndex(id - 1);
-    // setModalOpen((val) => !val);
+    setModalIndex(id);
+    // console.log(modalIndex);
   };
 
   return (
@@ -146,8 +163,8 @@ export default function ServicePage() {
             {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
             <ServiceItem
               data={element}
-              // handleModal={() => handleModal(element.id)}
               handleModal={handleModal}
+              modalIndex={modalIndex}
               infoActive={infoActive}
             />
           </div>

@@ -93,7 +93,7 @@
 }
 
 .infoWrapper p:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .infoWrapperActive {
@@ -207,6 +207,49 @@
   font-weight: 300;
 }
 
+.popupContainerClosed:hover p {
+  text-decoration: underline;
+}
+
+.popupContainerOpen {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.popupContainerOpen h2 {
+  font-size: 26px;
+  color: aliceblue;
+}
+
+/* .popupContainerOpen p:nth-child(2):hover {
+  cursor: pointer;
+  text-decoration: underline;
+} */
+
+/* .popupContainerOpen > p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+} */
+
+.lessContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-color: #00000076;
+  display: flex;
+  transition: 0.3s ease;
+}
+
+.lessContainer p {
+  cursor: pointer;
+  text-decoration: underline;
+}
 /* @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
