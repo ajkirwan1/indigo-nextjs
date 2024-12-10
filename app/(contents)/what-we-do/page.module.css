@@ -56,9 +56,9 @@
   /* animation: fadeInUp 1s; */
 }
 
-.itemContainer:hover {
+/* .itemContainer:hover {
   cursor: pointer;
-}
+} */
 
 .itemContainer:hover .image {
   -webkit-backdrop-filter: blur(1px);
@@ -82,6 +82,7 @@
   transition: 0.3s ease;
 }
 .itemContainer:hover .infoWrapper {
+  cursor: pointer;
   transition: 0.3s ease;
   display: flex;
   height: 5vh;
@@ -89,6 +90,14 @@
 
 .infoWrapper p {
   margin: 0;
+}
+
+.infoWrapper p:hover {
+  text-decoration: underline;
+}
+
+.infoWrapperActive {
+  height: 100%;
 }
 
 .overlayWrapper {

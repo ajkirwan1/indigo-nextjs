@@ -56,13 +56,12 @@ function Modal({ handleModal, modalIndex }) {
   );
 }
 
-function ServiceItem({ data, handleModal }) {
+function ServiceItem({ data, handleModal, infoActive }) {
   return (
-    // <Link href={`projects/${data.id}`}>
     <div key={data.id}>
       <div
         className={classes.itemContainer}
-        onClick={() => handleModal(data.id)}
+        // onClick={() => handleModal(data.id)}
       >
         <div className={classes.imageContainer}>
           <Image
@@ -72,24 +71,19 @@ function ServiceItem({ data, handleModal }) {
             width={1000}
             height={1250}
           />
-          {/* <div className={classes.detailsContainer}>
-            <h2>{data.title}</h2>
-          </div> */}
           <div className={classes.moreContainer}>
             <h2>{data.title}</h2>
           </div>
-          <div className={classes.infoWrapper}>
-            <p>More</p>
+          <div
+            className={
+              !infoActive
+                ? `${classes.infoWrapper}`
+                : `${classes.infoWrapper} ${classes.infoWrapperActive}`
+            }
+          >
+            <p onClick={handleModal}>More</p>
           </div>
         </div>
-
-        {/* <div className={classes.infoWrapper}>
-          <h2>{data.title}</h2> */}
-        {/* <p>{data.info.paragraph}</p> */}
-        {/* <p className={classes.link}>
-            <Link href="">MORE</Link>
-          </p> */}
-        {/* </div> */}
       </div>
     </div>
   );
@@ -99,6 +93,7 @@ export default function ServicePage() {
   const [viewport, setViewport] = useState();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
+  const [infoActive, setInfoActive] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth > 1000) {
@@ -123,17 +118,19 @@ export default function ServicePage() {
   });
 
   const handleModal = (id) => {
-    console.log(id, "IDDD");
-    setModalIndex(id - 1);
-    setModalOpen((val) => !val);
+    console.log("CLICKED");
+    setInfoActive((val) => !val);
+    // console.log(id, "IDDD");
+    // setModalIndex(id - 1);
+    // setModalOpen((val) => !val);
   };
 
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
-      {modalOpen ? (
+      {/* {modalOpen ? (
         <Modal handleModal={handleModal} modalIndex={modalIndex} />
-      ) : null}
+      ) : null} */}
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
@@ -149,138 +146,13 @@ export default function ServicePage() {
             {/* {modalOpen ? <Modal handleModal={handleModal} /> : null} */}
             <ServiceItem
               data={element}
-              handleModal={() => handleModal(element.id)}
+              // handleModal={() => handleModal(element.id)}
+              handleModal={handleModal}
+              infoActive={infoActive}
             />
           </div>
         ))}
       </section>
-      {/* <div className={classes.container}>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/greece12.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/devcon.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT CONSULTANCY</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/construct.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT PROJECT MANAGEMENT</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className={classes.containerMiddle}>
-        <div className={classes.imageContainer2}>
-          <Image
-            src="/images/pages/what-we-do/greece12.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-        <div className={classes.imageContainer2}>
-          <Image
-            src="/images/pages/what-we-do/devcon.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT CONSULTANCY</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className={classes.container}>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/greece12.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT OPPORTUNITIES SOURCING</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/devcon.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT CONSULTANCY</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-        <div className={classes.imageContainer}>
-          <Image
-            src="/images/pages/what-we-do/construct.jpg"
-            alt="alt"
-            width={750}
-            height={500}
-            className={classes.image}
-          />
-          <div className={classes.detailsContainer}>
-          <h2>DEVELOPMENT PROJECT MANAGEMENT</h2>
-          </div>
-          <div className={classes.moreContainer}>
-            <p>More</p>
-          </div>
-        </div>
-      </div> */}
-      {/* <WhatWeDoCarousel images={propertyData}/> */}
     </>
   );
 }
