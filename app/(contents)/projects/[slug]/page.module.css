@@ -113,9 +113,10 @@
 }
 
 .heroWrapper p {
-  font-size: 26px;
+  font-size: 22px;
   color: aliceblue;
   font-weight: 100;
+  letter-spacing: normal;
 }
 
 .propertyInfo {

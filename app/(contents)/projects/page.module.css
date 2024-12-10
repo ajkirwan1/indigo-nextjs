@@ -13,8 +13,10 @@
 }
 
 .blogPageContainer a {
+  display: inherit;
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+  height: 100%;
 }
 
 .blogPageContainer p {
@@ -27,14 +29,15 @@
 .blogPageContainerSkeleton ul {
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  grid-template-rows: auto;
+  grid-auto-rows: 300px;
   column-gap: 2vw;
-  row-gap: 4vw;
+  row-gap: 2vh;
   text-align: left;
 }
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
+  height: 100%;
 }
 
 .blogPageContainer li:hover {
@@ -52,10 +55,8 @@
 }
 
 .image {
-  width: 100%;
-  height: auto;
-  /* height: 100%;
-  width: auto; */
+  height: 100%;
+  width: auto;
   transition: transform 0.5s ease;
 }
 
@@ -102,12 +103,13 @@
 .conclusion {
 }
 .ProjectItemWrapper {
-  height: 250px;
+  height: 100%;
   display: flex;
   /* margin-bottom: 7vh; */
 }
 .infoWrapper {
   margin-left: 2vw;
+  max-width: 40%;
 }
 .infoWrapper h2 {
   letter-spacing: normal;

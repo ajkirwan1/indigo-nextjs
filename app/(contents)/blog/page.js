@@ -18,8 +18,7 @@ const getBlogEntries = async () => {
 };
 
 async function BlogItem({ blogData }) {
-  const { title, subTitle, publishDate, primaryImage, author, slug } =
-    blogData.fields;
+  const { title, publishDate, primaryImage, author, slug } = blogData.fields;
 
   return (
     <Link href={`blog/${slug}`}>
@@ -34,9 +33,7 @@ async function BlogItem({ blogData }) {
           />
           <div className={classes.backdropHover} />
         </div>
-
         <h2>{title}</h2>
-        {/* <p>{subTitle}</p> */}
         <p>{publishDate}</p>
         <div className={classes.avatarAuthorContainer}>
           <div className={classes.avatarAuthor}>
@@ -49,7 +46,6 @@ async function BlogItem({ blogData }) {
             />
             <p>By {author}</p>
           </div>
-          {/* <div className={classes.hiddenContainer}>Read more</div> */}
         </div>
       </div>
     </Link>
