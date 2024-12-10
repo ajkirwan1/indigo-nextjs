@@ -38,13 +38,15 @@
 .sectionContainer {
   display: flex;
   /* align-items: center; */
-  padding-top: 5vh;
+  padding-top: 10vh;
   padding-bottom: 5vh;
-  min-height: 50vh;
+  /* min-height: 50vh; */
 }
 
 .sectionContainer span {
   border-right: 1px solid rgba(0, 0, 0, 0.563);
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .flexCol {
@@ -64,8 +66,7 @@
   justify-content: flex-start;
   letter-spacing: 2px;
   line-height: 2rem;
-  padding-right: 5vw;
-  /* padding-right: 5vw; */
+  animation: fadeInLeft 1s;
 }
 
 .pageWrapper h2 {
@@ -97,11 +98,12 @@
 
 .paragraphWrapper,
 .imageOuterWrapper {
-  padding-top: 5vh;
+  /* padding-top: 5vh; */
 }
 
 .paragraphWrapper p,
 .paragraphWrapperRight p {
+  letter-spacing: normal;
   font-size: 20px;
 }
 
@@ -113,14 +115,16 @@
   letter-spacing: 2px;
   line-height: 2rem;
   max-width: 30vw;
-  padding-left: 5vw;
+  /* padding-left: 5vw; */
   padding-right: 4vw;
+  /* animation: fadeInRight 1s; */
 }
 
 .top {
   display: flex;
   flex-direction: column;
   flex: 1 1 40%;
+  animation: fadeInRight 1s;
 }
 
 .imageButton {
@@ -152,26 +156,56 @@
   height: auto;
 }
 
-@keyframes fadeInAnimation {
+@-webkit-keyframes fadeInLeft {
   0% {
-    opacity: 0.2;
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
   }
-
   100% {
     opacity: 1;
+    -webkit-transform: translateX(0);
   }
 }
 
-.image {
-  animation: fadeIn 2.5s;
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media only screen and (min-width: 1800px) {
-  .paragraphWrapper {
+  /* .paragraphWrapper {
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: both;
-  }
+  } */
 
   .sectionContainer {
   }

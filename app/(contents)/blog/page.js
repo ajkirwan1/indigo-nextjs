@@ -32,10 +32,11 @@ async function BlogItem({ blogData }) {
             width={750}
             height={500}
           />
+          <div className={classes.backdropHover} />
         </div>
 
         <h2>{title}</h2>
-        <p>{subTitle}</p>
+        {/* <p>{subTitle}</p> */}
         <p>{publishDate}</p>
         <div className={classes.avatarAuthorContainer}>
           <div className={classes.avatarAuthor}>
@@ -48,7 +49,7 @@ async function BlogItem({ blogData }) {
             />
             <p>By {author}</p>
           </div>
-          <div className={classes.hiddenContainer}>Read more</div>
+          {/* <div className={classes.hiddenContainer}>Read more</div> */}
         </div>
       </div>
     </Link>

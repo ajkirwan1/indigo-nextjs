@@ -98,7 +98,6 @@
   line-height: 2.5rem;
   max-width: 700px;
   margin-bottom: 3vh;
-  font-weight: 200;
 }
 
 .newsLetterSection h2 {
@@ -114,6 +113,7 @@
 }
 .subHeader > h1 {
   font-size: 46px;
+  letter-spacing: normal;
   font-weight: 600;
   color: #505050;
   line-height: 4.2rem;

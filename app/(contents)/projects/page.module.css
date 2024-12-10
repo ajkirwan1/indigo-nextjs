@@ -25,6 +25,10 @@
 
 .blogPageContainer ul,
 .blogPageContainerSkeleton ul {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: auto;
+  column-gap: 2vw;
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
@@ -55,14 +59,17 @@
 }
 
 .image {
-  /* width: 100%;
-  height: auto; */
-  height: 100%;
-  width: auto;
+  width: 100%;
+  height: auto;
+  /* height: 100%;
+  width: auto; */
   transition: transform 0.5s ease;
 }
 
 .imageContainer {
+  /* flex: 1 1 40%; */
+  width: 40%;
+  min-width: 300px;
   font-size: 0;
   overflow: hidden;
 }

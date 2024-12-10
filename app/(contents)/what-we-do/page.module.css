@@ -12,13 +12,14 @@
   display: grid;
   grid-template-columns: repeat(3, 33%);
   grid-template-rows: auto;
-  /* grid-template-rows: repeat(4, 600px); */
-  column-gap: 1vw;
-  row-gap: 1vh;
-  /* align-items: center; */
+  -moz-column-gap: 1vw;
+  column-gap: 2vw;
+  row-gap: 2vh;
   text-align: left;
-  padding-top: 10vh;
+  padding-top: 5vh;
   padding-bottom: 10vh;
+  width: 80%;
+  margin: auto;
 }
 .page hr {
   margin-top: 10vh;

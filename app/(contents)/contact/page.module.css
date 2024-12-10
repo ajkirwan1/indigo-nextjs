@@ -14,8 +14,7 @@
 
 .pageWrapper p {
   line-height: 2.5rem;
-  font-size: 20px;
-  letter-spacing: 0.1rem;
+  font-size: 18px;
   font-weight: 300;
   animation: fadeIn 2s;
   max-width: 800px;
