@@ -18,16 +18,22 @@ export default function ContactUsPage() {
 
   return (
     <>
-      {modalOpen && (
-        <div
-          className={classes.ModalBackdropWrapper}
-          onClick={handleModalToggle}
-        >
-          <ModalBackdrop>
-            <h2>asdasdasd</h2>
-          </ModalBackdrop>
+      <div
+        className={
+          !modalOpen
+            ? `${classes.ModalBackdropWrapper}`
+            : `${classes.ModalBackdropWrapperOpen}`
+        }
+        onClick={handleModalToggle}
+      >
+        {/* <ModalBackdrop> */}
+        <div className={classes.form}>
+          <div className={classes.formcontainer}>
+            <ContactForm action={ContactUs}></ContactForm>
+          </div>
         </div>
-      )}
+        {/* </ModalBackdrop> */}
+      </div>
 
       <div>
         <title>INDIGO CONSULTING CONTACT US PAGE</title>
