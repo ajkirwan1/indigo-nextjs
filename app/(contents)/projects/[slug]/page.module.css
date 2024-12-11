@@ -126,7 +126,6 @@
   flex-direction: column;
   margin-left: 5vw;
   margin-top: 5vh;
-  /* background-color: rgba(240, 248, 255, 0.533); */
   background-color: rgba(40, 40, 40, 0.456);
   backdrop-filter: blur(1px);
 }
@@ -163,4 +162,36 @@
 .linkContainer a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
+}
+@media only screen and (max-width: 600px) {
+  .titleHeader h1 {
+    font-size: 32px;
+  }
+
+  .titleHeader h2 {
+    font-size: 16px;
+  }
+
+  .propertyInfo {
+    width: unset;
+    margin-left: unset;
+    width: 60%;
+    margin: auto;
+    margin-top: 5vh;
+  }
+  .heroWrapper h2 {
+    font-size: 20px;
+  }
+
+  .heroWrapper p {
+    font-size: 16px;
+  }
+  .linkContainer {
+    bottom: 12vh;
+    width: 15vw;
+    left: 2vw;
+  }
+  .linkContainer a {
+    font-size: 16px;
+  }
 }
