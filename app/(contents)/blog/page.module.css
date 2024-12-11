@@ -141,8 +141,24 @@
 }
 
 @media only screen and (max-width: 1200px) {
+  .header h1 {
+    font-size: 24px;
+  }
+  .blogPageContainer h2 {
+    font-size: 14px;
+    margin-right: 2px;
+  }
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.5vw;
+  }
+
+  .blogPageContainer p {
+    font-size: 16px;
+  }
+
+  .avatarAuthorContainer p {
+    font-size: 12px;
   }
 }

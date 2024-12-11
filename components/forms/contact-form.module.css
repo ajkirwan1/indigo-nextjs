@@ -62,7 +62,7 @@
 
 .contactIcon {
   height: auto;
-  width: 40px;
+  width: 35px;
 }
 .contactIcon:hover {
   animation: pop 0.3s linear 1;
@@ -95,11 +95,25 @@
   .submitButtonContainer {
     margin: 2vh;
     display: flex;
-    width: 100px;
-    height: 20px;
+    width: 120px;
+    height: 35px;
+  }
+
+  .submitButtonContainer button {
+    font-size: 12px;
   }
 
   .loginForm {
-    display: unset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formItemContainer {
+    width: 70%;
+  }
+
+  .formItemContainer input,
+  .formItemContainer textarea {
+    background-color: rgba(128, 128, 128, 0.259);
   }
 }

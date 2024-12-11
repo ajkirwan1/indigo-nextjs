@@ -26,13 +26,11 @@ export default function ContactUsPage() {
         }
         onClick={handleModalToggle}
       >
-        {/* <ModalBackdrop> */}
         <div className={classes.form}>
           <div className={classes.formcontainer}>
             <ContactForm action={ContactUs}></ContactForm>
           </div>
         </div>
-        {/* </ModalBackdrop> */}
       </div>
 
       <div>
@@ -76,7 +74,10 @@ export default function ContactUsPage() {
                 className={classes.phoneIcon}
               />
             </div>
-            <div className={classes.mobileMessageContainer}>
+            <div
+              className={classes.mobileMessageContainer}
+              onClick={handleModalToggle}
+            >
               <h2>Let&apos;s talk</h2>
               <Image
                 alt="An icon showing a phone"
