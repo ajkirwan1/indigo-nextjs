@@ -3,7 +3,7 @@
 
 import classes from "./page.module.css";
 import { whatWeDoData } from "@/data/what-we-do-data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
@@ -58,31 +58,31 @@ function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
 }
 
 export default function ServicePage() {
-  const [viewport, setViewport] = useState();
+  // const [viewport, setViewport] = useState();
   const [modalIndex, setModalIndex] = useState(null);
   const [infoActive, setInfoActive] = useState(false);
 
-  useEffect(() => {
-    if (window.innerWidth > 1000) {
-      setViewport("large");
-    } else if (window.innerWidth < 1000) {
-      setViewport("small");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.innerWidth > 1000) {
+  //     setViewport("large");
+  //   } else if (window.innerWidth < 1000) {
+  //     setViewport("small");
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1000) {
-        setViewport("large");
-      } else if (window.innerWidth < 1000) {
-        setViewport("small");
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth > 1000) {
+  //       setViewport("large");
+  //     } else if (window.innerWidth < 1000) {
+  //       setViewport("small");
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // });
 
   const handleModal = (id) => {
     setInfoActive((val) => !val);
@@ -95,14 +95,6 @@ export default function ServicePage() {
       <div className={classes.header}>
         <h1>SERVICES</h1>
       </div>
-      {/* <section>
-        <Image
-          src={"/images/pages/what-we-do/16:9/hands.jpg"}
-          alt="asdsa"
-          height={500}
-          width={1000}
-        />
-      </section> */}
       <section className={classes.page}>
         {whatWeDoData.map((element) => (
           <ServiceItem

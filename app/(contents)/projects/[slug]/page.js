@@ -1,12 +1,8 @@
 /** @format */
-import { blogData } from "@/data/blog-data";
 import classes from "./page.module.css";
 import { createClient } from "contentful";
-import { projectsData } from "@/data/projects-data";
 import ProjectCarousel from "@/components/pages/projects/project-carousel";
-import { propertyData } from "@/public/data/data";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -28,35 +24,13 @@ export default async function Project(props) {
   const { slug } = params;
   const { fields } = await fetchProjectPost(slug);
 
-  const {
-    title,
-    thumbnailImage,
-    secondaryImages,
-    location,
-    investmentReturn,
-    description,
-  } = fields;
-  // console.log(thumbnailImage, "primary");
+  const { title, secondaryImages, description } = fields;
 
   let carouselImagesUrls = [];
 
-  console.log(secondaryImages[0].fields.file.url, "secondary");
-
   Object.entries(secondaryImages).map((entry) => {
     carouselImagesUrls.push(entry[1].fields.file.url);
-    // console.log(entry[1].fields.file.url);
   });
-
-  console.log(carouselImagesUrls);
-
-  // console.log(params)
-  // const data = projectsData[params.id - 1];
-  // console.log(data);
-
-  // const { params } = props;
-  // const { slug } = params;
-  // const {fields} = await fetchBlogPost(slug)
-  // const {title, subTitle, publishDate,author, location, primaryImage,mainParagraph } = fields
 
   return (
     <div className={classes.heroWrapper}>

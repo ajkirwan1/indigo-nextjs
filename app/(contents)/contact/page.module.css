@@ -66,6 +66,10 @@
   display: none;
 }
 
+.ModalBackdropWrapper {
+  color: aliceblue;
+}
+
 @keyframes pop {
   50% {
     transform: scale(1.4);
