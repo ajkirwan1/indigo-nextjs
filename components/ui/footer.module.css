@@ -72,3 +72,26 @@
     width: auto;
   }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .aklogo {
+    height: 3rem;
+  }
+  .footer ul {
+    font-size: 0.95rem;
+  }
+  .shareIcon {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    height: unset;
+  }
+
+  .footer li {
+    font-size: 18px;
+  }
+}

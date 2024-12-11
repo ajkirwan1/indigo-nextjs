@@ -51,6 +51,7 @@
 .wrapper {
   display: flex;
 }
+
 .wrapper span {
   border-right: 1px solid rgba(0, 0, 0, 0.563);
 }
@@ -59,6 +60,10 @@
   line-height: 1.5vw;
   letter-spacing: 0.2rem;
   font-size: 10px;
+}
+
+.mobileWrapper {
+  display: none;
 }
 
 @keyframes pop {
@@ -200,5 +205,51 @@
     display: flex;
     width: 100px;
     height: 20px;
+  }
+
+  .pageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: unset;
+    margin-top: 5vh;
+  }
+
+  .pageWrapper p {
+    line-height: 1.5rem;
+    font-size: 14px;
+    font-weight: 300;
+    animation: fadeIn 2s;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .pageWrapper h2 {
+    font-size: 20px;
+  }
+
+  .formcontainer {
+    animation: fadeInLeft 1s;
+    width: 80%;
+  }
+
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .phoneAndEmail {
+    margin-top: 4vh;
+    line-height: 4vh;
+    letter-spacing: 0.2rem;
+  }
+
+  .wrapperViewport {
+    display: none;
+  }
+
+  .mobileWrapper {
+    display: flex;
   }
 }

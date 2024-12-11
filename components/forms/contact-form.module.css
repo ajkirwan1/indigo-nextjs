@@ -17,7 +17,7 @@
 }
 
 .formItemContainer {
-padding: 1vh;
+  padding: 1vh;
 }
 
 .formCheckboxContainer {
@@ -97,5 +97,9 @@ padding: 1vh;
     display: flex;
     width: 100px;
     height: 20px;
+  }
+
+  .loginForm {
+    display: unset;
   }
 }
