@@ -251,5 +251,9 @@
 
   .mobileWrapper {
     display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 30vh;
+    justify-content: space-around;
   }
 }

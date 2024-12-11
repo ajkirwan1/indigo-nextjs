@@ -4,6 +4,7 @@ import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
 import Image from "next/image";
 import phoneIcon from "/public/images/icons/phoneblue.png";
+import contactIcon from "/public/images/icons/envelope.png";
 
 export default function ContactUsPage() {
   return (
@@ -37,7 +38,24 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        <div className={`${classes.mobileWrapper}`}>HELLOW</div>
+        <div className={`${classes.mobileWrapper}`}>
+          <div className={classes.mobileMessageContainer}>
+            <h2>Message</h2>
+            <Image
+              alt="An icon showing a phone"
+              src={contactIcon}
+              className={classes.phoneIcon}
+            />
+          </div>
+          <div className={classes.mobileMessageContainer}>
+            <h2>Let&apos;s talk</h2>
+            <Image
+              alt="An icon showing a phone"
+              src={phoneIcon}
+              className={classes.phoneIcon}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
