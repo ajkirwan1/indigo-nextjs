@@ -4,9 +4,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import WhiteArrow from "/public/images/icons/arrowwhite.png";
-
 import classes from "./project-carousel.module.css";
-import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 
 export default function ProjectCarousel({ images, children }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,16 +41,13 @@ export default function ProjectCarousel({ images, children }) {
           onClick={handlePrevious}
           className={`${classes.imageSliderBtn} ${classes.left}`}
         >
-          {" "}
           <Image height={100} width={100} src={WhiteArrow} />
-          {/* <ArrowBigLeft /> */}
         </button>
         <button
           onClick={handleNext}
           className={`${classes.imageSliderBtn} ${classes.right}`}
         >
           <Image height={100} width={100} src={WhiteArrow} />
-          {/* <ArrowBigRight /> */}
         </button>
       </div>
       <div>{children}</div>

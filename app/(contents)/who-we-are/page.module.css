@@ -37,10 +37,8 @@
 
 .sectionContainer {
   display: flex;
-  /* align-items: center; */
   padding-top: 10vh;
   padding-bottom: 5vh;
-  /* min-height: 50vh; */
 }
 
 .sectionContainer span {
@@ -115,9 +113,7 @@
   letter-spacing: 2px;
   line-height: 2rem;
   max-width: 30vw;
-  /* padding-left: 5vw; */
   padding-right: 4vw;
-  /* animation: fadeInRight 1s; */
 }
 
 .top {
@@ -228,5 +224,40 @@
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
   .header h1 {
     font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .sectionContainer {
+    flex-direction: column;
+  }
+
+  .sectionContainer p {
+    font-size: 16px;
+  }
+
+  .image {
+    float: left;
+    margin-right: 20px;
+    height: 25vh;
+  }
+
+  .top {
+    all: unset;
+  }
+
+  .imageOuterWrapper {
+    display: unset;
+  }
+
+  .paragraphWrapperRight {
+    display: unset;
+    max-width: unset;
+    padding-right: unset;
+  }
+
+  .paragraphWrapperRight h2,
+  .paragraphWrapperRight h3 {
+    font-size: 18px;
   }
 }

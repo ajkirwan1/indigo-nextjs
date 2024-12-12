@@ -35,6 +35,14 @@ function LargeSection() {
         <span></span>
         <div className={classes.top}>
           <div className={classes.imageOuterWrapper}>
+            <Image
+              className={classes.image}
+              src={emmanImage}
+              alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
+              width={2048}
+              height={1400}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            />
             <div className={classes.paragraphWrapperRight}>
               <h2>EMMANUEL PETRAKIS</h2>
               <h3>Director and founder</h3>
@@ -50,13 +58,6 @@ function LargeSection() {
                 table.
               </p>
             </div>
-            <Image
-              className={classes.image}
-              src={emmanImage}
-              alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
-              width={2048}
-              height={1400}
-            />
           </div>
         </div>
       </div>
@@ -64,67 +65,67 @@ function LargeSection() {
   );
 }
 
-function SmallSection() {
-  return (
-    <div className={classes.flexCol}>
-      <div className={classes.sectionContainerSmall}>
-        <div className={classes.paragraphWrapperSmall}>
-          <p>
-            Established in 2021 by Emmanuel Petrakis. Stands as a bespoke real
-            estate consulting firm capitalizing on strategic investment
-            opportunities. Boasting 25 years of experience and local knowledge.
-          </p>
-          <p>
-            Indigo serves as a trusted service company to investors, providing
-            expertise consulting in residential development. The company’s
-            multi-disciplinary team, comprised of investment, finance and realty
-            professionals, collaborates with reputable firms such as developers,
-            architects, lawyers, notaries and more.
-          </p>
-        </div>
-        <Image
-          className={classes.imageSmall}
-          src={emmanImage}
-          alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
-          width={2048}
-          height={1400}
-        />
-      </div>
-      <p>
-        The clientele includes private investors and investment funds, both
-        local and foreign, seeking tailored solutions for various real estate
-        ventures. Indigo emphasizes in transparency, low-risk strategies, and a
-        commitment to guide clients through every step of their investment
-        projects in Greece.
-      </p>
-    </div>
-  );
-}
+// function SmallSection() {
+//   return (
+//     <div className={classes.flexCol}>
+//       <div className={classes.sectionContainerSmall}>
+//         <div className={classes.paragraphWrapperSmall}>
+//           <p>
+//             Established in 2021 by Emmanuel Petrakis. Stands as a bespoke real
+//             estate consulting firm capitalizing on strategic investment
+//             opportunities. Boasting 25 years of experience and local knowledge.
+//           </p>
+//           <p>
+//             Indigo serves as a trusted service company to investors, providing
+//             expertise consulting in residential development. The company’s
+//             multi-disciplinary team, comprised of investment, finance and realty
+//             professionals, collaborates with reputable firms such as developers,
+//             architects, lawyers, notaries and more.
+//           </p>
+//         </div>
+//         <Image
+//           className={classes.imageSmall}
+//           src={emmanImage}
+//           alt="An image showing Emmanuel Petrakis, wearing a hard-hat and high vis vest, while working on a building site"
+//           width={2048}
+//           height={1400}
+//         />
+//       </div>
+//       <p>
+//         The clientele includes private investors and investment funds, both
+//         local and foreign, seeking tailored solutions for various real estate
+//         ventures. Indigo emphasizes in transparency, low-risk strategies, and a
+//         commitment to guide clients through every step of their investment
+//         projects in Greece.
+//       </p>
+//     </div>
+//   );
+// }
 
 export default function WhoWeArePage() {
-  const [viewport, setViewport] = useState();
+  // const [viewport, setViewport] = useState();
 
-  useEffect(() => {
-    if (window.innerWidth > 1400) {
-      setViewport("large");
-    } else if (window.innerWidth < 1200) {
-      setViewport("small");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.innerWidth > 1400) {
+  //     setViewport("large");
+  //   } else if (window.innerWidth < 1200) {
+  //     setViewport("small");
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1400) {
-        setViewport("large");
-      } else if (window.innerWidth < 1200) {
-        setViewport("small");
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth > 1400) {
+  //       setViewport("large");
+  //     } else if (window.innerWidth < 1200) {
+  //       setViewport("small");
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // });
 
   return (
     <>
