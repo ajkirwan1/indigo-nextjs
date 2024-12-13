@@ -254,6 +254,19 @@
   .page {
   }
 }
+/* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .moreContainer h2 {
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .shareIcon {
+    height: 20px;
+    width: auto;
+    margin-left: 80px;
+  }
+}
 
 @media only screen and (min-width: 200px) and (max-width: 800px) {
   .page {

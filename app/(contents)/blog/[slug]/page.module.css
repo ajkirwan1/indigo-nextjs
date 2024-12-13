@@ -206,23 +206,32 @@
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+@media only screen and (min-width: 1600px) and (max-width: 1799px) {
   .subHeader > h1 {
     font-size: 40px;
   }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
   .subHeader > h1 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 400;
-    line-height: 1rem;
+    line-height: 3rem;
     letter-spacing: 0.1rem;
     margin: 0;
   }
-  .newsLetterSection h2 {
-    margin-left: 48px;
-    letter-spacing: 0.1vh;
-    font-size: 20px;
+  .subHeader > p {
+    font-size: 22px;
   }
+}
+.avatarAuthorContainer p {
+  font-size: 8px;
+}
+.newsLetterSection h2 {
+  margin-left: 48px;
+  letter-spacing: 0.1vh;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 800px) {
 }

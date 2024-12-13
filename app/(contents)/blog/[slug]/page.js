@@ -103,10 +103,7 @@ export default async function BlogPage(props) {
 
             <form>
               <div className={classes.formContainer}>
-                {/* <p>
-                  Stay up to date with the latest news and developments from
-                  Indigo Consulting
-                </p> */}
+                <p>Stay up to date</p>
                 <Image src={imageIcon} alt="alt" width={40} height={40} />
                 <input
                   type="email"
