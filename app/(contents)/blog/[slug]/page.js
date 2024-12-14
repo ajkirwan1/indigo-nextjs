@@ -51,6 +51,7 @@ export default async function BlogPage(props) {
       <div className={classes.blogPost}>
         <div className={classes.column1}>
           <section className={classes.openingSection}>
+            <h1>{title}</h1>
             <Link href={`${slug}/images`}>
               <div className={classes.imageContainer}>
                 <Image
@@ -103,7 +104,7 @@ export default async function BlogPage(props) {
 
             <form>
               <div className={classes.formContainer}>
-                <p>Stay up to date</p>
+                {/* <p>Stay up to date</p> */}
                 <Image src={imageIcon} alt="alt" width={40} height={40} />
                 <input
                   type="email"
