@@ -70,8 +70,9 @@ export default function WhoWeArePage() {
     <>
       <title>INDIGO CONSULTING WHO WE ARE</title>
       <div className={classes.pageWrapper}>
-        <div className={classes.header}>
+        <div className="header">
           <h1>WHO WE ARE</h1>
+          <hr />
         </div>
         <LargeSection />
       </div>

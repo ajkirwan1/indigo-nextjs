@@ -49,7 +49,7 @@ html:has(.modal) {
 .header {
   text-align: left;
   margin-top: 5vh;
-  margin-bottom: 6vh;
+  margin-bottom: 5vh;
 }
 
 .modal {
