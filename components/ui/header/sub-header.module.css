@@ -12,10 +12,6 @@
   right: 0;
   left: auto;
 }
-.menuItems {
-  /* width: 10vw; */
-  /* display: flex; */
-}
 
 .desktopNav .menuItems {
   position: relative;
@@ -79,21 +75,19 @@
   height: 100%;
 }
 
-.desktopNav a {
-  /* display: block;
-    position: relative;
-    padding: 0.2em 0; */
-}
 .mobileNavContainer ul {
   list-style: none;
 }
 
-/* .desktopNav button:hover {
-  text-decoration: underline;
-} */
+
+@media only screen and (min-width: 2200px) {
+  .desktopNav {
+    font-size: 1.3rem;
+  }
+}
 
 @media only screen and (min-width: 1800px) {
   .desktopNav {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }

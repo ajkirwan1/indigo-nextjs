@@ -9,7 +9,6 @@ import Image from "next/image";
 function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
   return (
     <div
-      key={data.id}
       className={
         !(infoActive && data.id == modalIndex)
           ? `${classes.itemContainer}`
@@ -41,10 +40,10 @@ function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
           ) : (
             <div className={classes.popupContainerOpen}>
               <div>
-                <h2>{whatWeDoData[modalIndex].title}</h2>
-                <p>{whatWeDoData[modalIndex].info.paragraph}</p>
-                <p>{whatWeDoData[modalIndex].info.paragraph2}</p>
-                <p>{whatWeDoData[modalIndex].info.paragraph3}</p>
+                <h2>{whatWeDoData[modalIndex - 1].title}</h2>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph}</p>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph2}</p>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph3}</p>
               </div>
               <div className={classes.lessContainer}>
                 <p onClick={() => handleModal(data.id)}>Less</p>
@@ -58,31 +57,8 @@ function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
 }
 
 export default function ServicePage() {
-  // const [viewport, setViewport] = useState();
   const [modalIndex, setModalIndex] = useState(null);
   const [infoActive, setInfoActive] = useState(false);
-
-  // useEffect(() => {
-  //   if (window.innerWidth > 1000) {
-  //     setViewport("large");
-  //   } else if (window.innerWidth < 1000) {
-  //     setViewport("small");
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (window.innerWidth > 1000) {
-  //       setViewport("large");
-  //     } else if (window.innerWidth < 1000) {
-  //       setViewport("small");
-  //     }
-  //   };
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // });
 
   const handleModal = (id) => {
     setInfoActive((val) => !val);
@@ -92,12 +68,14 @@ export default function ServicePage() {
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>SERVICES</h1>
+        <hr />
       </div>
       <section className={classes.page}>
         {whatWeDoData.map((element) => (
           <ServiceItem
+            key={element.id}
             data={element}
             handleModal={handleModal}
             modalIndex={modalIndex}

@@ -10,6 +10,7 @@
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+  margin-bottom: 5vh;
 }
 
 .blogPageContainer a {
@@ -61,8 +62,6 @@
 }
 
 .imageContainer {
-  /* flex: 1 1 40%; */
-  /* width: 40%; */
   min-width: 300px;
   font-size: 0;
   overflow: hidden;
@@ -100,8 +99,6 @@
   color: #0b0b0b;
 }
 
-.conclusion {
-}
 .ProjectItemWrapper {
   height: 100%;
   display: flex;
@@ -109,7 +106,6 @@
 
 .infoWrapper {
   margin-left: 2vw;
-  /* max-width: 40%; */
 }
 .infoWrapper h2 {
   letter-spacing: normal;
@@ -134,13 +130,6 @@
   transform: scale(0);
   transform-origin: center;
 }
-
-/* .infoWrapper h2:hover::after,
-.infoWrapper h2:focus::after {
-  opacity: 1;
-  transform: translate3d(0, 0.2em, 0);
-  transform: scale(1);
-} */
 
 .infoWrapper p {
   font-size: 18px;
@@ -168,18 +157,8 @@
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
-  /* .blogPageContainer ul,
-  .blogPageContainerSkeleton ul {
-    grid-template-columns: 1fr 1fr 1fr;
-  } */
-}
 
-/* @media only screen and (max-width: 1200px) {
-  .ProjectItemWrapper {
-    height: 100%;
-    display: flex;
-  }
-} */
+}
 
 @media only screen and (max-width: 800px) {
   .header {
