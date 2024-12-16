@@ -3,7 +3,7 @@
 export const whatWeDoData = [
   {
     id: 1,
-    title: "Deelopment opportunities sourcing",
+    title: "Development opportunities sourcing",
     info: {
       paragraph: `Sourcing Development Opportunities focuses on empowering
         investors by sourcing and selecting prime real estate
