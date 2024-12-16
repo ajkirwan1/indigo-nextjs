@@ -40,11 +40,6 @@
   .footer ul {
     font-size: 1.25rem;
   }
-  .shareIcon {
-    height: 30px;
-    width: auto;
-    margin-left: 80px;
-  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {

@@ -34,6 +34,10 @@
   display: flex;
 }
 
+.openingSection > h1 {
+  display: none;
+}
+
 .newsLetterSection {
   display: flex;
   flex-direction: column;
@@ -206,23 +210,126 @@
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+@media only screen and (min-width: 1600px) and (max-width: 1799px) {
   .subHeader > h1 {
     font-size: 40px;
   }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .subHeader {
+    margin-left: 2vw;
+  }
   .subHeader > h1 {
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1rem;
-    letter-spacing: 0.1rem;
-    margin: 0;
+    font-size: 24px;
+    line-height: 2rem;
+  }
+  .subHeader > p {
+    font-size: 22px;
+  }
+
+  .subHeader p {
+    line-height: normal;
+  }
+
+  .blogPost p,
+  .blogPost h2 {
+    max-width: unset;
+    line-height: 1.5rem;
+  }
+
+  .avatarAuthorContainer p {
+    font-size: 8px;
   }
   .newsLetterSection h2 {
     margin-left: 48px;
     letter-spacing: 0.1vh;
     font-size: 20px;
+  }
+
+  .imageContainer {
+    min-width: 400px;
+    width: unset;
+  }
+
+  .image {
+    max-width: 400px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    margin-bottom: 2vh;
+  }
+
+  .openingSection {
+    flex-direction: column;
+    margin-bottom: 4vh;
+  }
+
+  .openingSection h1 {
+    line-height: 2rem;
+  }
+
+  .blogPost {
+    grid-template-columns: 1fr;
+    margin-bottom: 5vh;
+  }
+
+  .blogPost p,
+  .blogPost h2 {
+    max-width: unset;
+    line-height: 2rem;
+  }
+
+  .subHeader {
+    margin-left: 0;
+    line-height: unset;
+    gap: 1vh;
+  }
+
+  .openingSection > h1 {
+    text-align: left;
+    display: flex;
+    font-weight: 600;
+  }
+
+  .subHeader > h1 {
+    display: none;
+  }
+
+  .subHeader > p {
+    font-size: 20px;
+  }
+
+  .column1 {
+    /* border-right: 1px solid black; */
+    padding-right: 0;
+  }
+  .column2 {
+    /* border-right: 1px solid black; */
+    padding-left: 0;
+  }
+
+  .imageContainer {
+    min-width: unset;
+    width: unset;
+    margin-bottom: 2vh;
+  }
+
+  .newsLetterSection {
+    align-items: flex-start;
+  }
+
+  .newsLetterSection h2 {
+    margin-left: 0;
+  }
+
+  .formContainer {
+    justify-content: flex-start;
+  }
+
+  .blogPost input[type="email"] {
+    width: 100%;
   }
 }
