@@ -180,8 +180,8 @@
 .heroContents a {
   color: #f0f8ff;
 }
-.separator {
-  /* padding-top: 3vh; */
+.separator h3 {
+  font-weight: 200;
 }
 
 .downArrow {

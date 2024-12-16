@@ -128,7 +128,7 @@
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 3.5vw;
+    column-gap: 5vw;
   }
 
   .blogPageContainer p {

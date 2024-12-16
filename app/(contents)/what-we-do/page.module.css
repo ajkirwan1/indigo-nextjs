@@ -250,10 +250,6 @@
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
-  .page {
-  }
-}
 /* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .moreContainer h2 {
@@ -266,20 +262,31 @@
     width: auto;
     margin-left: 80px;
   }
-}
 
-@media only screen and (min-width: 200px) and (max-width: 800px) {
-  .page {
-    grid-template-columns: 1fr;
+  .popupContainerOpen p {
+    font-size: 16px;
+  }
+
+  .popupContainerClosed p,
+  .lessContainer p {
+    font-size: 16px;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .header h1 {
     font-size: 24px;
   }
 
   .moreContainer h2 {
     max-width: 50%;
+  }
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .popupContainerClosed p,
+  .lessContainer p {
+    font-size: 16px;
   }
 }

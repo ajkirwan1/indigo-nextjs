@@ -69,6 +69,7 @@
 
 .pageWrapper h2 {
   font-weight: 300;
+  margin-top: 0;
 }
 
 .pageWrapper h3 {
@@ -227,13 +228,12 @@
   }
 
   .sectionContainer p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.4rem;
   }
   .image {
-    float: left;
-    margin-right: 20px;
-    /* height: 25vh; */
+    float: right;
+    margin-left: 30px;
   }
 
   .imageOuterWrapper {
@@ -257,7 +257,7 @@
   }
 
   .image {
-    float: left;
+    float: right;
     margin-right: 20px;
     height: 25vh;
   }
