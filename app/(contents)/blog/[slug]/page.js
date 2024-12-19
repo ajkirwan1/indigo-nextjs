@@ -44,7 +44,7 @@ export default async function BlogPage(props) {
   return (
     <>
       <title>{title}</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>NEWS</h1>
         <hr />
       </div>

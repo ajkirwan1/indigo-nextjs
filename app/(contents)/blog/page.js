@@ -57,7 +57,7 @@ export default async function BlogPage() {
   return (
     <>
       <title>INDIGO Consulting NEWS Page</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>NEWS</h1>
         <hr />
       </div>
