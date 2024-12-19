@@ -67,6 +67,15 @@
   transform: translate(-50%, -50%);
 }
 
+.heroContents a {
+  all: unset;
+}
+
+.heroContents a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .imageContainer {
   display: flex;
   justify-content: space-evenly;
