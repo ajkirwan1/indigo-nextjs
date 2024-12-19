@@ -22,7 +22,6 @@ function ProjectItem({ data }) {
   const {
     title,
     thumbnailImage,
-    location,
     investmentReturn,
     description,
     slug,

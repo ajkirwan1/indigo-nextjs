@@ -34,6 +34,8 @@ export default function ProjectCarousel({ images, children }) {
               src={`https:${img}`}
               alt="alt"
               priority={true}
+              // placeholder="blur"
+              // blurDataURL="/public/picture-2.jpg"
             />
           ))}
         </div>
@@ -41,13 +43,13 @@ export default function ProjectCarousel({ images, children }) {
           onClick={handlePrevious}
           className={`${classes.imageSliderBtn} ${classes.left}`}
         >
-          <Image height={100} width={100} src={WhiteArrow} />
+          <Image height={100} width={100} alt="An image of an arrow pointing to the left" src={WhiteArrow} />
         </button>
         <button
           onClick={handleNext}
           className={`${classes.imageSliderBtn} ${classes.right}`}
         >
-          <Image height={100} width={100} src={WhiteArrow} />
+          <Image height={100} width={100} alt="An image of an arrow pointing to the right" src={WhiteArrow} />
         </button>
       </div>
       <div>{children}</div>

@@ -11,9 +11,9 @@ const nextConfig = {
       "@aws-sdk/s3-request-presigner",
     ],
   },
-  outputFileTracingIncludes: {
-    "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
-  },
+  // outputFileTracingIncludes: {
+  //   "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
+  // },
   images: {
     remotePatterns: [
       {

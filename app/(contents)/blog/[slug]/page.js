@@ -7,9 +7,7 @@ import shareIcon from "/public/images/icons/shareIcon.svg";
 import imageIcon from "/public/images/icons/icons8-plus.svg";
 import { createClient } from "contentful";
 import Link from "next/link";
-import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { redirect } from "next/navigation";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -23,13 +21,27 @@ const fetchBlogPost = async (slug) => {
     "fields.slug[match]": slug,
   };
   const queryResult = await client.getEntries(queryOptions);
-  // console.log(queryResult.items[0], "MLD:DL:DS:LDS");
   return queryResult.items[0];
 };
 
-export default async function BlogPage(props) {
-  const { params } = props;
-  const { slug } = params;
+const getBlogEntries = async () => {
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+  const entries = await client.getEntries({ content_type: "blogPost" });
+  return entries;
+};
+
+
+export async function generateStaticParams() {
+  const blogs = await getBlogEntries();
+  return blogs.items.map((blog) => ({
+    slug: blog.slug
+  }))
+}
+
+
+export default async function Page({params}) {
+  // const { params } = props;
+  const { slug } = await params;
   const { fields } = await fetchBlogPost(slug);
   const {
     title,
