@@ -22,6 +22,16 @@
   padding-inline-start: 0;
 }
 
+.footer a {
+  all: unset;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-thickness: 1px;
+}
+
 .aklogo {
   height: 3rem;
   width: auto;
