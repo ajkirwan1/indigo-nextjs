@@ -1,6 +1,6 @@
-.subHeader {
+/* .subHeader {
   display: flex;
-}
+} */
 .header {
   text-align: left;
   margin-top: 5vh;
@@ -9,6 +9,7 @@
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
+  margin-bottom: 5vh;
 }
 
 .blogPageContainer a {
@@ -37,16 +38,12 @@
 
 .blogPageContainer li,
 .blogPageContainerSkeleton li {
-  /* border: 1px solid transparent; */
-  /* max-width: 500px; */
   width: 100%;
 }
 
 .blogPageContainer li:hover {
-  /* transform: translateY(-15px); */
   transition: transform 550ms;
   cursor: pointer;
-  /* border: outset 1px #fffcfcc5; */
 }
 
 .blogPageContainer li:hover .hiddenContainer {
@@ -56,15 +53,11 @@
 .image {
   width: 100%;
   height: auto;
-  /* max-width: 500px; */
-  /* height: 100%;
-  width: auto; */
   transition: transform 0.5s ease;
 }
 
 .imageContainer {
   position: relative;
-  /* max-height: 320px; */
   font-size: 0;
   overflow: hidden;
 }
@@ -114,7 +107,7 @@
   color: #0b0b0b;
 }
 
-@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
@@ -127,7 +120,7 @@
   }
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 5vw;
   }
 

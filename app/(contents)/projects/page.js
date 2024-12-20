@@ -16,20 +16,16 @@ const getNewsEntries = async () => {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
   const newsEntries = await client.getEntries({ content_type: "project" });
   return newsEntries.items;
-  // console.log(entries.items);
 };
 
 function ProjectItem({ data }) {
   const {
     title,
     thumbnailImage,
-    location,
     investmentReturn,
     description,
     slug,
   } = data.fields;
-
-  // console.log(data.fields);
 
   return (
     <Link href={`projects/${slug}`}>
@@ -45,7 +41,6 @@ function ProjectItem({ data }) {
         </div>
         <div className={classes.infoWrapper}>
           <h2>{title}</h2>
-          {/* <p>LOCATION - {location.location}</p> */}
           <p>INVESTMENT RETURN - {investmentReturn}</p>
           <p>{description}</p>
         </div>
@@ -60,7 +55,7 @@ export default async function ProjectsPage() {
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>SAMPLES OF PROJECTS</h1>
         <hr />
       </div>

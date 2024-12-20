@@ -1,15 +1,16 @@
 /** @format */
 
+
+
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
 import shareIcon from "/public/images/icons/shareIcon.svg";
-import imageIcon from "/public/images/icons/icons8-plus.svg";
+import { NewsletterFormAction } from "@/server/actions/forms/newsletter-form-action";
 import { createClient } from "contentful";
 import Link from "next/link";
-import NewsItemVerticalList from "@/components/pages/news/news-item-vertical-list";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { redirect } from "next/navigation";
+import NewsletterForm from "@/components/forms/news/newsletter-form";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -23,13 +24,25 @@ const fetchBlogPost = async (slug) => {
     "fields.slug[match]": slug,
   };
   const queryResult = await client.getEntries(queryOptions);
-  // console.log(queryResult.items[0], "MLD:DL:DS:LDS");
   return queryResult.items[0];
 };
 
-export default async function BlogPage(props) {
-  const { params } = props;
-  const { slug } = params;
+const getBlogEntries = async () => {
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+  const entries = await client.getEntries({ content_type: "blogPost" });
+  return entries;
+};
+
+export async function generateStaticParams() {
+  const blogs = await getBlogEntries();
+  return blogs.items.map((blog) => ({
+    slug: blog.fields.slug,
+  }));
+}
+
+export default async function Page({ params }) {
+  // const { params } = props;
+  const { slug } = await params;
   const { fields } = await fetchBlogPost(slug);
   const {
     title,
@@ -44,7 +57,7 @@ export default async function BlogPage(props) {
   return (
     <>
       <title>{title}</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>NEWS</h1>
         <hr />
       </div>
@@ -101,24 +114,8 @@ export default async function BlogPage(props) {
         <div className={classes.column2}>
           <section className={classes.newsLetterSection}>
             <h2>NEWSLETTER</h2>
-
-            <form>
-              <div className={classes.formContainer}>
-                {/* <p>Stay up to date</p> */}
-                <Image src={imageIcon} alt="alt" width={40} height={40} />
-                <input
-                  type="email"
-                  name="username"
-                  placeholder="Email Address"
-                />
-              </div>
-            </form>
+            <NewsletterForm action={NewsletterFormAction}/>
           </section>
-          {/* <hr></hr> */}
-          {/* <section>
-            <h2>More News</h2>
-            <NewsItemVerticalList />
-          </section> */}
         </div>
       </div>
     </>

@@ -24,7 +24,6 @@
   flex-direction: column;
   flex: 1;
   text-align: left;
-  /* width: 100%; */
   line-height: 4rem;
   margin-left: 60px;
   gap: 2vh;
@@ -51,7 +50,6 @@
 .openingSection,
 .secondSection,
 .newsLetterSection {
-  /* margin-top: 10vh; */
   margin-bottom: 5vh;
 }
 
@@ -128,12 +126,20 @@
   font-size: 28px;
 }
 
-/* .shareIconContainer {
+.newsLetterSection h2 {
+  margin: unset;
+}
+.submitButtonContainer {
+  margin-top: 2vh;
   display: flex;
-  align-items: center;
-  margin-top: 3vh;
-  gap: 1vw;
-} */
+  width: 150px;
+  height: 40px;
+}
+
+.submitButtonOuterContainer {
+  display: flex;
+  justify-content: flex-end
+}
 .shareIconContainer p {
   margin: 0;
 }
@@ -148,34 +154,20 @@
   min-width: 500px;
   width: 600px;
   font-size: 0;
-  /* height: 500px;
-  width: auto; */
   overflow: hidden;
 }
 
-.formContainer p {
-  flex: 2;
-}
 .imageContainer:hover .image {
   transform: scale(1.05);
   cursor: pointer;
 }
 
 .column1 {
-  /* border-right: 1px solid black; */
   padding-right: 20px;
 }
 
 .column2 {
-  /* padding: 20px; */
   padding-left: 20px;
-}
-
-.formContainer {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  width: 100%;
 }
 
 .blogPost input[type="email"] {
@@ -183,7 +175,6 @@
   border-bottom: 2px solid black;
   border-radius: 0;
   padding: 0;
-  /* border-bottom: 2px solid black; */
   height: 3rem;
   width: 50%;
   background-color: #ffffff00;
@@ -210,9 +201,47 @@
   }
 }
 
+@media only screen and (max-width: 2000px) {
+  .subHeader > h1 {
+    font-size: 36px;
+  }
+  .imageContainer {
+    min-width: 350px;
+    width: 400px;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .plusIcon {
+    height: 25px;
+    width: auto;
+  }
+
+  .image {
+    max-width: 400px;
+  }
+}
+
 @media only screen and (min-width: 1600px) and (max-width: 1799px) {
   .subHeader > h1 {
-    font-size: 40px;
+    font-size: 36px;
+  }
+
+  .submitButtonContainer {
+    display: flex;
+    width: 100px;
+    height: 35px;
+  }
+
+  .imageContainer {
+    min-width: 350px;
+    width: 400px;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .image {
+    max-width: 400px;
   }
 }
 
@@ -259,7 +288,18 @@
   .secondSection p {
     font-size: 16px;
   }
+
+  .plusIcon {
+    height: 20px;
+    width: auto;
+  }
+  .submitButtonContainer {
+    display: flex;
+    width: 100px;
+    height: 35px;
+  }
 }
+
 @media only screen and (max-width: 1100px) {
   .subHeader {
     gap: 1vh;
@@ -320,11 +360,9 @@
   }
 
   .column1 {
-    /* border-right: 1px solid black; */
     padding-right: 0;
   }
   .column2 {
-    /* border-right: 1px solid black; */
     padding-left: 0;
   }
 
@@ -344,10 +382,6 @@
 
   .newsLetterSection h2 {
     margin-left: 0;
-  }
-
-  .formContainer {
-    justify-content: flex-start;
   }
 
   .blogPost input[type="email"] {

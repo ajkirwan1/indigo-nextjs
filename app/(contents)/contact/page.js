@@ -7,7 +7,6 @@ import { useState } from "react";
 import Image from "next/image";
 import phoneIcon from "/public/images/icons/phoneblue.png";
 import contactIcon from "/public/images/icons/envelope.png";
-import ModalBackdrop from "@/components/modal-backdrop";
 
 export default function ContactUsPage() {
   const [modalOpen, setModalOpen] = useState(false);

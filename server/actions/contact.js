@@ -23,7 +23,7 @@ export async function ContactUs(_, formData) {
     text: message
   })
 
-  const sessions = await db.session.findMany();
+  // const sessions = await db.session.findMany();
 
 //   const sessions = await db.session.findMany();
 //   console.log(sessions);

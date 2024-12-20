@@ -15,6 +15,10 @@
   gap: 5px;
 }
 
+.disabled {
+  display: none;
+}
+
 .button:hover {
   border: 1px solid #505050;
   background-color: #003a4dc7;

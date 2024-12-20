@@ -46,6 +46,12 @@ html:has(.modal) {
   overflow: hidden;
 }
 
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
 .modal {
   position: absolute;
   top: 10vh;
@@ -61,10 +67,6 @@ html:has(.modal) {
 .not-found {
   height: 100vh;
 }
-
-/* section h1 {
-  font-size: 2em;
-} */
 
 #background-image {
   width: 100%;
@@ -188,7 +190,6 @@ ul {
 }
 
 main {
-  /* padding: 5vh; */
   padding-left: 4.5vw;
   padding-right: 4.5vw;
 }
@@ -200,6 +201,7 @@ main {
   /* height: 100px;
   width: 100px; */
 }
+
 .skeleton {
 }
 
@@ -207,7 +209,28 @@ main {
   min-height: calc(100vh - 10vh);
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  .header h1 {
+    font-size: 26px;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .header h1 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header h1 {
+    font-size: 20px;
+  }
+}
+
+
+
+
+/* @media only screen and (min-width: 1800px) {
   section h1 {
     font-size: 2rem;
   }
@@ -235,4 +258,4 @@ main {
   section h2 {
     font-size: 1rem;
   }
-}
+} */

@@ -6,6 +6,10 @@ import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import { createClient } from "contentful";
 
+
+console.log(process.env.CONTENTFUL_SPACE_ID)
+console.log(process.env.CONTENTFUL_ACCESS_TOKEN)
+
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -57,7 +61,7 @@ export default async function BlogPage() {
   return (
     <>
       <title>INDIGO Consulting NEWS Page</title>
-      <div className={classes.header}>
+      <div className="header">
         <h1>NEWS</h1>
         <hr />
       </div>

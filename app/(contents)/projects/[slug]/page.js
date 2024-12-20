@@ -15,13 +15,25 @@ const fetchProjectPost = async (slug) => {
     "fields.slug[match]": slug,
   };
   const queryResult = await client.getEntries(queryOptions);
-
   return queryResult.items[0];
 };
 
-export default async function Project(props) {
-  const { params } = props;
-  const { slug } = params;
+const getNewsEntries = async () => {
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
+  const newsEntries = await client.getEntries({ content_type: "project" });
+  return newsEntries.items;
+};
+
+export async function generateStaticParams() {
+  const posts = await getNewsEntries();
+  return posts.map((post) => ({
+    slug: post.fields.slug
+  }))
+}
+
+export default async function Page({params}) {
+  // const { params } = props;
+  const { slug } = await params;
   const { fields } = await fetchProjectPost(slug);
 
   const { title, secondaryImages, description } = fields;
