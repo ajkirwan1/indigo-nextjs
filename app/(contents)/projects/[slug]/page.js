@@ -27,7 +27,7 @@ const getNewsEntries = async () => {
 export async function generateStaticParams() {
   const posts = await getNewsEntries();
   return posts.map((post) => ({
-    slug: post.slug
+    slug: post.fields.slug
   }))
 }
 

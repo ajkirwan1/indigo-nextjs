@@ -34,7 +34,7 @@ const getBlogEntries = async () => {
 export async function generateStaticParams() {
   const blogs = await getBlogEntries();
   return blogs.items.map((blog) => ({
-    slug: blog.slug
+    slug: blog.fields.slug
   }))
 }
 

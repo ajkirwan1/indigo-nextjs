@@ -4,12 +4,21 @@
  */
 
 const nextConfig = {
+  // output: 'export',
+
+//   images: {
+//     unoptimized: true
+// },
   experimental: {
     serverComponentsExternalPackages: [
       "@node-rs/argon2",
       "@aws-sdk/client-s3",
       "@aws-sdk/s3-request-presigner",
     ],
+  },
+
+  env: {CONTENTFUL_SPACE_ID:process.env.CONTENTFUL_SPACE_ID,
+    CONTENTFUL_ACCESS_TOKEN:process.env.CONTENTFUL_ACCESS_TOKEN
   },
   // outputFileTracingIncludes: {
   //   "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
@@ -31,6 +40,8 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    unoptimized: true
+
   },
   // async redirects() {
   //   return [
