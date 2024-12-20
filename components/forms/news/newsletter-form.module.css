@@ -27,6 +27,17 @@ justify-content: flex-end
     height: 40px;
 }
 
+@media only screen and (max-width: 2000px) {
+
+.formContainer input {
+    font-size: 18px;
+    }
+.plusIcon {
+    height: 30px;
+    width: auto;
+    }
+}
+
 
 @media only screen and (min-width: 1600px) and (max-width: 1799px) {
     .formContainer input {

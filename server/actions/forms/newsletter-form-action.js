@@ -3,7 +3,9 @@
 "use server";
 
 export async function NewsletterFormAction(_, formData) {
+  console.log("LKDALKDAMLKD")
   const email = formData.get("email");
+  console.log(email)
 
   let errors = [];
 

@@ -114,7 +114,6 @@ export default function RegisterFormPage4({
             ></input>
           </div>
         </div>
-
         <label>Have you previously invested in Greek real estate?</label>
         <div className={classes.tickRow}>
           <div>
