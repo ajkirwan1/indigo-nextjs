@@ -1,12 +1,11 @@
 /** @format */
 
 import classes from "./submit-button.module.css";
-export default function SubmitButton({ children, id }) {
+export default function SubmitButton({ children, disabled }) {
   return (
     <>
-      <button className={classes.button} type="submit">
+      <button className={disabled ? `${classes.button} ${classes.disabled}` : `${classes.button}`} type="submit" disabled={true} >
         {children}
-        {/* <img className={classes.arrow} src="/images/arrow-right.png"></img> */}
       </button>
     </>
   );

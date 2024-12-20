@@ -133,19 +133,13 @@
 .submitButtonContainer {
   margin: 2vh;
   display: flex;
-  /* width: 200px; */
-  /* height: 50px; */
 }
 
-/* .registerPageContainer {
-  min-height: 100vh;
-} */
 
 .heroWrapper {
   position: relative;
   width: 100vw;
 
-  /* height: 2000px */
 }
 
 .imageWrapper {
