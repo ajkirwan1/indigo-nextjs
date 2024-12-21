@@ -1,16 +1,14 @@
 /** @format */
 
-
-
 import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
-import shareIcon from "/public/images/icons/shareIcon.svg";
 import { NewsletterFormAction } from "@/server/actions/forms/newsletter-form-action";
 import { createClient } from "contentful";
 import Link from "next/link";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import NewsletterForm from "@/components/forms/news/newsletter-form";
+import ShareComponent from "@/components/share/share-component";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -92,13 +90,7 @@ export default async function Page({ params }) {
                 </div>
               </div>
               <div className={classes.shareIconContainer}>
-                <Image
-                  className={classes.shareIcon}
-                  src={shareIcon}
-                  alt="alt"
-                  width={30}
-                  height={30}
-                />
+                <ShareComponent text={"TEST"} url={"TEST"} title={title}/>
               </div>
             </div>
           </section>
@@ -114,7 +106,7 @@ export default async function Page({ params }) {
         <div className={classes.column2}>
           <section className={classes.newsLetterSection}>
             <h2>NEWSLETTER</h2>
-            <NewsletterForm action={NewsletterFormAction}/>
+            <NewsletterForm action={NewsletterFormAction} />
           </section>
         </div>
       </div>
