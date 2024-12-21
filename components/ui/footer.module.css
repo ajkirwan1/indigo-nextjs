@@ -2,6 +2,7 @@
   height: 10vh;
   background-color: #4d0013;
   width: 100vw;
+  padding: 0 60px;
 }
 
 .footer ul {
@@ -54,10 +55,10 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
   .aklogo {
-    height: 3.5rem;
+    height: 2.8rem;
   }
   .shareIcon {
-    height: 2rem;
+    height: 1.6rem;
     width: auto;
   }
   .footer ul {
