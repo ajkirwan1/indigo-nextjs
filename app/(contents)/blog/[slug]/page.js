@@ -10,6 +10,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import NewsletterForm from "@/components/forms/news/newsletter-form";
 import ShareComponent from "@/components/share/share-component";
 
+
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,

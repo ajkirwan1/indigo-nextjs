@@ -2,11 +2,9 @@
 
 "use client";
 import { useFormState } from "react-dom";
-import { useFormStatus } from "react-dom";
 import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
 import { Spinner } from "@nextui-org/spinner";
-import { useState } from "react";
 export default function LoginForm({ action, redirection, pending }) {
   const [state, formAction] = useFormState(action, { redirection });
 
