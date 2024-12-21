@@ -83,7 +83,7 @@
     height: 3rem;
   }
   .footer ul {
-    font-size: 0.95rem;
+    font-size: 0.7rem;
   }
   .shareIcon {
     height: 1.5rem;
@@ -97,6 +97,27 @@
     left: 0;
     bottom: 0;
     height: unset;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .footer ul {
+      list-style: none;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      color: aliceblue;
+      font-weight: 200;
+      flex-wrap: wrap;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+      flex-direction: column;
+    }
   }
 
   .footer li {

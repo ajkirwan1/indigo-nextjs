@@ -353,7 +353,7 @@
 
 @media only screen and (max-width: 800px) {
   .heroHeader {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgb(255 255 255 / 16%);
   }
   .header_nav {
     margin-top: 20px;

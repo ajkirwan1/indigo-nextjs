@@ -2,7 +2,6 @@
   width: 40%;
 }
 
-
 .pageWrapper {
   /* min-height: 70vh; */
 }
@@ -65,6 +64,7 @@
 
 .pageWrapper h3 {
   font-weight: 400;
+  font-size: 16px;
 }
 
 .paragraphWrapperSmall {
@@ -211,16 +211,15 @@
   }
 }
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
-
   .paragraphWrapper,
   .paragraphWrapperRight {
-line-height: 1.8rem;
+    line-height: 1.8rem;
   }
   .paragraphWrapper p,
-.paragraphWrapperRight p {
-  letter-spacing: normal;
-  font-size: 18px;
-}
+  .paragraphWrapperRight p {
+    letter-spacing: normal;
+    font-size: 18px;
+  }
 
   .imageOuterWrapper {
     display: unset;
@@ -257,11 +256,7 @@ line-height: 1.8rem;
   }
 }
 
-
-
-
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
-
   .sectionContainer p {
     font-size: 16px;
     line-height: 1.4rem;
