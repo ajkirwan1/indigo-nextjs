@@ -78,19 +78,21 @@ export default async function Page({ params }) {
               <h1>{title}</h1>
               <p>{publishDate}</p>
               <div className={classes.avatarAuthor}>
-                <Avatar
-                  src="/images/pages/who-we-are/emanfinal.jpg"
-                  color="default"
-                  size="md"
-                  isBordered
-                  className={classes.avatar}
-                />
-                <div>
-                  <p>By {author}</p>
-                </div>
+                <Link href={`/who-we-are`}>
+                  <Avatar
+                    src="/images/pages/who-we-are/emanfinal.jpg"
+                    color="default"
+                    size="md"
+                    isBordered
+                    className={classes.avatar}
+                  />
+                  <div>
+                    <p>By {author}</p>
+                  </div>
+                </Link>
               </div>
               <div className={classes.shareIconContainer}>
-                <ShareComponent text={"TEST"} url={"TEST"} title={title}/>
+                <ShareComponent text={"TEST"} url={"TEST"} title={title} />
               </div>
             </div>
           </section>
