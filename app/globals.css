@@ -141,6 +141,7 @@ html:has(.modal) {
 }
 
 input[type="text"] {
+  font: inherit;
   border: 1px solid;
   height: 2rem;
   width: 100%;
@@ -153,6 +154,7 @@ input[type="text"] {
 }
 
 input[type="email"] {
+  font: inherit;
   border: 1px solid;
   height: 2rem;
   width: 100%;
