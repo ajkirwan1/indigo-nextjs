@@ -32,10 +32,18 @@ function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
               ? `${classes.infoWrapper} ${classes.infoWrapperActive}`
               : `${classes.infoWrapper} `
           }
+          onClick={
+            infoActive && data.id == modalIndex
+              ? null
+              : () => handleModal(data.id)
+          }
         >
           {!(infoActive && data.id == modalIndex) ? (
-            <div className={classes.popupContainerClosed}>
-              <p onClick={() => handleModal(data.id)}>More</p>
+            <div
+              className={classes.popupContainerClosed}
+              // onClick={() => handleModal(data.id)}
+            >
+              <p>More</p>
             </div>
           ) : (
             <div className={classes.popupContainerOpen}>
@@ -45,8 +53,11 @@ function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
                 <p>{whatWeDoData[modalIndex - 1].info.paragraph2}</p>
                 <p>{whatWeDoData[modalIndex - 1].info.paragraph3}</p>
               </div>
-              <div className={classes.lessContainer}>
-                <p onClick={() => handleModal(data.id)}>Less</p>
+              <div
+                className={classes.lessContainer}
+                onClick={() => handleModal(data.id)}
+              >
+                <p>Less</p>
               </div>
             </div>
           )}
@@ -61,7 +72,13 @@ export default function ServicePage() {
   const [infoActive, setInfoActive] = useState(false);
 
   const handleModal = (id) => {
-    setInfoActive((val) => !val);
+    console.log("CLICK");
+    if (modalIndex == id) {
+      setInfoActive((val) => !val);
+    }
+    if (modalIndex != id) {
+      setInfoActive(true);
+    }
     setModalIndex(id);
   };
 

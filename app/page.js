@@ -12,7 +12,6 @@ import swimmingImage from "/public/images/pages/home/swimming.jpg";
 import buildingImage from "/public/images//pages/home/building.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
-import downArrow from "/public/images/pages/home/icons8-expand-arrow.png";
 import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
@@ -56,15 +55,6 @@ const componentArray = [
           </div>
         </Overlay>
       </div>
-      {/* <motion.div
-        className={classes.downArrowContainer}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 1 }}
-        viewport={{ once: true }}
-      >
-        <Image alt="icon" src={downArrow} className={classes.downArrow} />
-      </motion.div> */}
     </HeroComponent>
   </div>,
   <div key={2} className={classes.heroWrapper}>
@@ -126,15 +116,6 @@ const componentArray = [
           </div>
         </motion.div>
       </div>
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 4.5 }}
-        viewport={{ once: true }}
-        className={classes.downArrowContainer}
-      >
-        <Image alt="icon" src={downArrow} className={classes.downArrow} />
-      </motion.div> */}
     </HeroComponent>
   </div>,
   <div key={3} className={classes.heroWrapper}>
@@ -152,7 +133,7 @@ const componentArray = [
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/projects">
-                <h3>PROJECT'S SAMPLES</h3>
+                <h3>SAMPLE OUR PROJECTS</h3>
                 <Image
                   alt="icon"
                   src={properties}
@@ -191,7 +172,6 @@ const componentArray = [
 
 export default function Homepage() {
   const { user } = useSession();
-  console.log(user);
   // if (user?.adminaccess) {
   //   redirect("admin");
   // }
