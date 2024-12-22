@@ -13,17 +13,19 @@
   letter-spacing: normal;
 }
 
-.loginForm p{
-line-height: normal;
-color: #4d0013;
+.loginForm p {
+  line-height: normal;
+  color: #4d0013;
 }
 
 .loginForm input,
 .loginForm textarea {
-font-size: 14px;
-/* font-weight: 200;
+  font-size: 14px;
+  font-weight: 300;
+
+  /* font-weight: 200;
 color: black; */
-  }
+}
 
 .form label {
   font-size: large;
@@ -161,14 +163,13 @@ color: black; */
   color: #4d0013;
 }
 
-.modalInnerWrapper h2{
+.modalInnerWrapper h2 {
   color: aliceblue;
   font-weight: 200 !important;
   font-size: 30px !important;
 }
 
-
-.modalInnerWrapper p{
+.modalInnerWrapper p {
   color: aliceblue;
   font-weight: 200 !important;
   font-size: 24px !important;

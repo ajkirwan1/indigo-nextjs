@@ -1,18 +1,18 @@
 /** @format */
 "use client";
 
-import classes from "./page.module.css"
+import classes from "./page.module.css";
 
 export default function PrivacyPage() {
   return (
     <>
       <title>INDIGO CONSULTING PRIVACY PAGE</title>
-     
-        <div className="header">
-          <h1>INDIGO PRIVACY POLICY</h1>
-          <hr />
-        </div>
-        <div className={classes.pageWrapper}>
+
+      <div className="header">
+        <h1>INDIGO'S PRIVACY POLICY</h1>
+        <hr />
+      </div>
+      <div className={classes.pageWrapper}>
         <p>Last updated: December 20, 2024</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
             href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
             target="_blank"
           >
-             Free Privacy Policy Generator
+            Free Privacy Policy Generator
           </a>
           .
         </p>
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
           visit our Service or when You access the Service by or through a
           mobile device.
         </p>
-        <h3>Use of Your Personal Data</h3>
+        <h3>Use of your Personal Data</h3>
         <p>The Company may use Personal Data for the following purposes:</p>
         <ul>
           <li>
@@ -192,7 +192,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <p>
-              <strong>To contact You:</strong> To contact You by email,
+              <strong>To contact you:</strong> To contact You by email,
               telephone calls, SMS, or other equivalent forms of electronic
               communication, such as a mobile application's push notifications
               regarding updates or informative communications related to the
@@ -203,7 +203,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <p>
-              <strong>To provide You</strong> with news, special offers and
+              <strong>To provide you</strong> with news, special offers and
               general information about other goods, services and events which
               we offer that are similar to those that you have already purchased
               or enquired about unless You have opted not to receive such
