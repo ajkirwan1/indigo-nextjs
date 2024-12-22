@@ -17,7 +17,7 @@ async function BlogItem({ blogData }) {
             <Image
               className={classes.image}
               src={`https:${primaryImage.fields.file.url}`}
-              alt="alt"
+              alt={title}
               width={750}
               height={500}
             />
