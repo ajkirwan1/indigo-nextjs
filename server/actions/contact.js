@@ -1,46 +1,74 @@
 /** @format */
 "use server";
 
-import { validateRequest } from "@/auth/lucia";
-import { cookies } from "next/headers";
-import { lucia } from "@/auth/lucia";
-import { redirect } from "next/navigation";
-import db from "@/modules/db";
 import { sendMail } from "@/lib/send-mail";
-
-
 
 export async function ContactUs(_, formData) {
   const message = formData.get("message");
-  const email = formData.get("password");
-  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
   const contactNumber = formData.get("contactNumber");
 
-  const response = await sendMail({
-    email: "ajkirwan1gmail.com",
-    subject: "A test email",
-    message: "Hello Jimmy",
-    text: message
-  })
+  let errors = [];
 
-  // const sessions = await db.session.findMany();
+  if (
+    typeof message !== "string" ||
+    message.length < 6 ||
+    message.length > 255
+  ) {
+    errors.push({ errorType: "message", message: "Invalid message" });
+  }
 
-//   const sessions = await db.session.findMany();
-//   console.log(sessions);
-//   const { session } = await validateRequest();
-//   if (!session) {
-//     return {
-//       error: "Unauthorized",
-//     };
-//   }
+  if (
+    typeof email !== "string" ||
+    email.length < 6 ||
+    email.length > 25 ||
+    !email.includes("@") ||
+    !email.includes(".")
+  ) {
+    errors.push({ errorType: "email", message: "Invalid email" });
+  }
 
-//   await lucia.invalidateSession(session.id);
+  if (
+    typeof firstName !== "string" ||
+    firstName.length < 6 ||
+    firstName.length > 30
+  ) {
+    errors.push({ errorType: "firstName", message: "Invalid first name" });
+  }
 
-//   const sessionCookie = lucia.createBlankSessionCookie();
-//   cookies().set(
-//     sessionCookie.name,
-//     sessionCookie.value,
-//     sessionCookie.attributes
-//   );
+  if (
+    typeof lastName !== "string" ||
+    lastName.length < 6 ||
+    lastName.length > 30
+  ) {
+    errors.push({ errorType: "lastName", message: "Invalid last name" });
+  }
+
+  if (
+    typeof contactNumber !== "string" ||
+    contactNumber.length < 6 ||
+    contactNumber.length > 30
+  ) {
+    errors.push({
+      errorType: "contactNumber",
+      message: "Invalid contact number",
+    });
+  }
+
+  if (errors.length > 0) {
+    return { errors };
+  }
+  const submitted = true;
+  return { submitted };
+
+  // const response = await sendMail({
+  //   email: "ajkirwan1gmail.com",
+  //   subject: "A test email",
+  //   message: "Hello Jimmy",
+  //   text: message
+  // })
+
   // return redirect("/");
 }

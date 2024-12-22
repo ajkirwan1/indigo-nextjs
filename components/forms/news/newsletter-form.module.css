@@ -27,6 +27,24 @@ justify-content: flex-end
     height: 40px;
 }
 
+/* .modalInnerWrapper {
+    border: 1px solid aliceblue;
+} */
+
+.modalInnerWrapper h2{
+    color: aliceblue;
+    font-weight: 200 !important;
+    font-size: 30px !important;
+}
+
+.modalHeader {
+    all: unset;
+    font-weight: unset;
+    color: aliceblue;
+    font-weight: 200;
+}
+
+
 @media only screen and (max-width: 2000px) {
 
 .formContainer input {
@@ -52,6 +70,7 @@ justify-content: flex-end
         height: 25px;
         width: auto;
       }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {

@@ -6,10 +6,6 @@ import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import { createClient } from "contentful";
 
-
-console.log(process.env.CONTENTFUL_SPACE_ID)
-console.log(process.env.CONTENTFUL_ACCESS_TOKEN)
-
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -25,6 +21,7 @@ async function BlogItem({ blogData }) {
   const { title, publishDate, primaryImage, author, slug } = blogData.fields;
 
   return (
+    <li >
     <Link href={`blog/${slug}`}>
       <div>
         <div className={classes.imageContainer}>
@@ -53,6 +50,7 @@ async function BlogItem({ blogData }) {
         </div>
       </div>
     </Link>
+    </li>
   );
 }
 
@@ -68,23 +66,10 @@ export default async function BlogPage() {
       <div className={classes.blogPageContainer}>
         <ul>
           {blogEntries.items.map((element) => (
-            <li key={element.title}>
-              <BlogItem blogData={element} />
-            </li>
+              <BlogItem blogData={element} key={element.title}/>
           ))}
         </ul>
       </div>
     </>
   );
 }
-
-// export async function generateStaticParams() {
-//   const queryOptions = {
-//     content_type: "blogPost",
-//     select: "fields.slug",
-//   };
-//   const articles = await client.getEntries(queryOptions);
-//   return articles.items.map((article) => ({
-//     slug: article.fields.slug,
-//   }));
-// }

@@ -1,7 +1,7 @@
 .footer {
   height: 10vh;
   background-color: #4d0013;
-  width: 100vw;
+  /* width: 100vw; */
   padding: 0 60px;
 }
 
@@ -14,7 +14,7 @@
   gap: 1.5rem;
   font-size: 1.25rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   color: aliceblue;
   font-weight: 200;
   flex-wrap: wrap;
@@ -37,7 +37,7 @@
   height: 3rem;
   width: auto;
   filter: brightness(100) grayscale(1);
-  margin-right: 150px;
+  /* margin-right: 150px; */
 }
 .flexlist {
   display: flex;

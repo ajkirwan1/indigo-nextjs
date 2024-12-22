@@ -2,7 +2,6 @@
 "use client";
 
 import classes from "./page.module.css";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import emmanImage from "/public/images/pages/who-we-are/eman.jpg";
 

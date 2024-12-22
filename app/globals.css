@@ -25,9 +25,6 @@ html {
   padding: 0;
   --webkit-text-size-adjust: 12px;
 }
-/* input:focus {
-  background-color: aqua;
-} */
 
 h1,
 h2 {
@@ -144,6 +141,7 @@ html:has(.modal) {
 }
 
 input[type="text"] {
+  font: inherit;
   border: 1px solid;
   height: 2rem;
   width: 100%;
@@ -156,6 +154,7 @@ input[type="text"] {
 }
 
 input[type="email"] {
+  font: inherit;
   border: 1px solid;
   height: 2rem;
   width: 100%;
@@ -203,6 +202,22 @@ main {
 }
 
 .skeleton {
+}
+
+.share-icon {
+  height: 25px;
+  width: auto;
+  filter: opacity(0.5);
+}
+
+.share-icon-white {
+  height: 25px;
+  width: auto;
+}
+
+.share-icon:hover,
+.share-icon-white:hover {
+cursor: pointer;
 }
 
 .admin-page-wrapper {
