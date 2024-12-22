@@ -10,7 +10,7 @@ export const whatWeDoData = [
         opportunities based on specific criteria.`,
       paragraph2: `Through meticulous analysis, strategic planning, and seamless execution of real estate projects, Indigo aims to tailor propositions based on investor profile as portfolio, budgets, lock up period, etc. ensuring reliable project plans aligned with market demands and trends.`,
     },
-    image: "/images/pages/what-we-do/portrait/img1.jpg",
+    image: "/images/pages/what-we-do/portrait/img2.jpg",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ export const whatWeDoData = [
         economy, strategic planning, informed decision-making support,
         and aims to be a trusted development partner.`,
     },
-    image: "/images/pages/what-we-do/portrait/img2.jpg",
+    image: "/images/pages/what-we-do/portrait/img3.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const whatWeDoData = [
         services, ensuring effectiveness in development management
         proposals.`,
     },
-    image: "/images/pages/what-we-do/portrait/img3.jpg",
+    image: "/images/pages/what-we-do/portrait/img6.jpg",
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ export const whatWeDoData = [
         beyond, meticulously crafted for resale to showcase our
         commitment to excellence and financial success.`,
     },
-    image: "/images/pages/what-we-do/portrait/img5.jpg",
+    image: "/images/pages/what-we-do/portrait/img1.jpg",
     button: {
       text: "SAMPLE PROJECTS",
       href: "/login",
@@ -83,7 +83,7 @@ export const whatWeDoData = [
         properties. From maintenance to rental collection and payments,
         entrust us with the care and oversight of your investments.`,
     },
-    image: "/images/pages/what-we-do/portrait/img6.jpg",
+    image: "/images/pages/what-we-do/portrait/img7.jpg",
     button: {
       text: "PROPERTIES",
       href: "/properties",
@@ -96,7 +96,7 @@ export const whatWeDoData = [
       paragraph: `Access expert Legal & Notarial Services for your real estate
         needs through our trusted affiliates.`,
     },
-    image: "/images/pages/what-we-do/portrait/img7.jpg",
+    image: "/images/pages/what-we-do/portrait/img3.jpg",
   },
   {
     id: 8,
@@ -107,6 +107,6 @@ export const whatWeDoData = [
         of obtaining a residential visa, ensuring a smooth and
         efficient process.`,
     },
-    image: "/images/pages/what-we-do/portrait/img7.jpg",
+    image: "/images/pages/what-we-do/portrait/img5.jpg",
   },
 ];
