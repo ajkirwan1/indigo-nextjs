@@ -10,7 +10,20 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   align-items: center;
+  letter-spacing: normal;
 }
+
+.loginForm p{
+line-height: normal;
+color: #4d0013;
+}
+
+.loginForm input,
+.loginForm textarea {
+font-size: 14px;
+/* font-weight: 200;
+color: black; */
+  }
 
 .form label {
   font-size: large;
@@ -67,6 +80,87 @@
 .contactIcon:hover {
   animation: pop 0.3s linear 1;
 }
+
+.ItemA {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.errorA {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.ItemB {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.errorB {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.ItemC {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.errorC {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.ItemD {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.errorD {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.ItemE {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.errorE {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+.ItemF {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.error {
+  color: #4d0013;
+}
+
 @keyframes pop {
   50% {
     transform: scale(1.4);
@@ -106,6 +200,7 @@
   .loginForm {
     display: flex;
     flex-direction: column;
+    /* letter-spacing: normal; */
   }
 
   .formItemContainer {
