@@ -161,6 +161,19 @@ color: black; */
   color: #4d0013;
 }
 
+.modalInnerWrapper h2{
+  color: aliceblue;
+  font-weight: 200 !important;
+  font-size: 30px !important;
+}
+
+
+.modalInnerWrapper p{
+  color: aliceblue;
+  font-weight: 200 !important;
+  font-size: 24px !important;
+}
+
 @keyframes pop {
   50% {
     transform: scale(1.4);
