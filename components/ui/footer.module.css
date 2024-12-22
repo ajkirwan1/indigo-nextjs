@@ -37,8 +37,8 @@
   height: 3rem;
   width: auto;
   filter: brightness(100) grayscale(1);
-  /* margin-right: 150px; */
 }
+
 .flexlist {
   display: flex;
   align-items: center;

@@ -107,6 +107,10 @@
   color: #0b0b0b;
 }
 
+.error {
+  letter-spacing: normal;
+}
+
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
 }
 
