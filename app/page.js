@@ -152,14 +152,13 @@ const componentArray = [
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/projects">
-              <h3>SAMPLE OUR PROJECTS</h3>
-              <Image
-                alt="icon"
-                src={properties}
-                className={classes.properties}
-              />
+                <h3>PROJECT'S SAMPLES</h3>
+                <Image
+                  alt="icon"
+                  src={properties}
+                  className={classes.properties}
+                />
               </Link>
-
             </motion.div>
           </div>
         </motion.div>
@@ -180,8 +179,8 @@ const componentArray = [
           </motion.h2>
           <motion.div className={classes.separator} variants={item}>
             <Link href="/contact">
-            <motion.h3 variants={item}>LET&apos;S TALK</motion.h3>
-            <Image alt="icon" src={envelope} className={classes.envelope} />
+              <motion.h3 variants={item}>LET&apos;S TALK</motion.h3>
+              <Image alt="icon" src={envelope} className={classes.envelope} />
             </Link>
           </motion.div>
         </motion.div>
