@@ -5,19 +5,6 @@ import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import { getAllBlogs } from "@/server/actions/contentful/get-all-blogs-action";
-// import { createClient } from "contentful";
-
-// const client = createClient({
-//   space: process.env.CONTENTFUL_SPACE_ID,
-//   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-// });
-
-// const getBlogEntries = async () => {
-//   // await new Promise((resolve) => setTimeout(resolve, 2000));
-//   const entries = await client.getEntries({ content_type: "blogPost" });
-
-//   return entries;
-// };
 
 async function BlogItem({ blogData }) {
   const { title, publishDate, primaryImage, author, slug } = blogData.fields;

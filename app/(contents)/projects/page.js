@@ -4,28 +4,24 @@ import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 import { createClient } from "contentful";
 import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-});
+// const client = createClient({
+//   space: process.env.CONTENTFUL_SPACE_ID,
+//   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+// });
 
-const getNewsEntries = async () => {
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
-  const newsEntries = await client.getEntries({ content_type: "project" });
-  return newsEntries.items;
-};
+// const getNewsEntries = async () => {
+//   // await new Promise((resolve) => setTimeout(resolve, 2000));
+//   const newsEntries = await client.getEntries({ content_type: "project" });
+//   return newsEntries.items;
+// };
 
 function ProjectItem({ data }) {
-  const {
-    title,
-    thumbnailImage,
-    investmentReturn,
-    description,
-    slug,
-  } = data.fields;
+  const { title, thumbnailImage, investmentReturn, description, slug } =
+    data.fields;
 
   return (
     <Link href={`projects/${slug}`}>
@@ -50,7 +46,12 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  const newsEntries = await getNewsEntries();
+  const result = await getAllProjects();
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
+
   // await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
@@ -61,7 +62,7 @@ export default async function ProjectsPage() {
       </div>
       <div className={classes.blogPageContainer}>
         <ul>
-          {newsEntries.map((element) => (
+          {result.map((element) => (
             <li key={element.id}>
               <ProjectItem data={element} />
             </li>
