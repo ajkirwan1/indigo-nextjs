@@ -9,7 +9,7 @@ export default function PrivacyPage() {
       <title>INDIGO CONSULTING PRIVACY PAGE</title>
 
       <div className="header">
-        <h1>INDIGO'S PRIVACY POLICY</h1>
+        <h1>INDIGO&apos;S PRIVACY POLICY</h1>
         <hr />
       </div>
       <div className={classes.pageWrapper}>
