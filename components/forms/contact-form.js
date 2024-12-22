@@ -51,7 +51,7 @@ export default function ContactForm({ action, redirection }) {
       {modalState.submitted && (
         <ModalBackdrop handleModal={handleModal}>
           <div className={classes.modalInnerWrapper}>
-            <h2 className={classes.modalHeader}>Thanks for your message !</h2>
+            <h2 className={classes.modalHeader}>THANK YOU FOR YOUR MESSAGE!</h2>
             <p>
               One of our team members will respond to your message as soon as
               possible

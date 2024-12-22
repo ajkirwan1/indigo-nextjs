@@ -55,7 +55,7 @@
   width: auto;
 }
 .mobileNavContainer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
   transform: translate(0%, 0%);
   width: 100vw;
   height: 100vh;
-  background-color: #d5dfe1;
+  background-color: #4d0013;
   z-index: 20;
   transition-duration: 0.3s;
 }
@@ -112,7 +112,9 @@
   background-color: transparent;
   font: inherit;
   cursor: pointer;
+  color: white;
 }
+
 .mobileNavMenuActive button:hover {
   text-decoration: underline;
 }

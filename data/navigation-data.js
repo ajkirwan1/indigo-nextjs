@@ -2,8 +2,9 @@
 "use client";
 export const navigationData = [
   {
-    title: "HOME",
+    //title: "HOME",
     url: "/",
+    /*
     submenu: [
       {
         title: "News",
@@ -14,7 +15,21 @@ export const navigationData = [
         url: "/projects",
       },
     ],
+    */
   },
+  {
+    title: "NEWS",
+    url: "/blog",
+  },
+  {
+    title: "PROJECTS",
+    url: "/projects",
+  },
+  {
+    title: "ABOUT US",
+    url: "/about-us",
+  },
+  /*
   {
     title: "ABOUT US",
     url: "/about-us",
@@ -29,6 +44,7 @@ export const navigationData = [
       },
     ],
   },
+  */
   {
     title: "SERVICES",
     url: "/what-we-do",
@@ -42,7 +58,6 @@ export const navigationData = [
     //     url: "/properties",
     //   },
     // ],
-
   },
   {
     title: "CONTACT US",

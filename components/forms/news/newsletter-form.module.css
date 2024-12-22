@@ -1,100 +1,95 @@
 .formContainer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
 .formContainer p {
-    flex: 2;
+  flex: 2;
 }
 
 .formContainer input:focus {
-outline: none;
-border: none;
+  outline: none;
+  border: none;
 }
 
 .submitButtonOuterContainer {
-display: flex;
-justify-content: flex-end
+  display: flex;
+  justify-content: flex-end;
 }
 
 .submitButtonContainer {
-    margin-top: 2vh;
-    display: flex;
-    width: 150px;
-    height: 40px;
+  margin-top: 2vh;
+  display: flex;
+  width: 150px;
+  height: 40px;
 }
 
 /* .modalInnerWrapper {
     border: 1px solid aliceblue;
 } */
 
-.modalInnerWrapper h2{
-    color: aliceblue;
-    font-weight: 200 !important;
-    font-size: 30px !important;
+.modalInnerWrapper h2 {
+  color: aliceblue;
+  font-weight: 200 !important;
+  font-size: 30px !important;
 }
 
 .modalHeader {
-    all: unset;
-    font-weight: unset;
-    color: aliceblue;
-    font-weight: 200;
+  all: unset;
+  font-weight: unset;
+  color: aliceblue;
+  font-weight: 200;
 }
-
 
 @media only screen and (max-width: 2000px) {
-
-.formContainer input {
+  .formContainer input {
     font-size: 18px;
-    }
-.plusIcon {
+  }
+  .plusIcon {
     height: 30px;
     width: auto;
-    }
+  }
 }
 
-
 @media only screen and (min-width: 1600px) and (max-width: 1799px) {
-    .formContainer input {
+  .formContainer input {
     font-size: 18px;
-    }
-    .submitButtonContainer {
-        display: flex;
-        width: 100px;
-        height: 35px;
-    }
-    .plusIcon {
-        height: 25px;
-        width: auto;
-      }
-
+  }
+  .submitButtonContainer {
+    display: flex;
+    width: 100px;
+    height: 35px;
+  }
+  .plusIcon {
+    height: 25px;
+    width: auto;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
-    .submitButtonContainer {
-        display: flex;
-        width: 100px;
-        height: 35px;
-    }
-    .plusIcon {
-        height: 20px;
-        width: auto;
-      }
-      .formContainer input {
-        font-size: 18px;
-         }
+  .submitButtonContainer {
+    display: flex;
+    width: 100px;
+    height: 35px;
+  }
+  .plusIcon {
+    height: 20px;
+    width: auto;
+  }
+  .formContainer input {
+    font-size: 18px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
+  .formContainer {
+    justify-content: flex-start;
+  }
 
-    .formContainer {
-        justify-content: flex-start;
-    }
-
-    .blogPost input[type="email"] {
-        width: 100%;
-    }
+  .blogPost input[type="email"] {
+    width: 100%;
+  }
 }
