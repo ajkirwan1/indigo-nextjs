@@ -164,6 +164,15 @@
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
+
+.footer_aklogo__attRr {
+  display: none;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: "Josefin_Sans" !important;
+}
+
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
@@ -192,6 +201,17 @@
     backdrop-filter: blur(1px);
     font-size: 14px;
     line-height: 2vh;
+    position: absolute;
+    right: calc(5vw + 50px);
+    bottom: 5vh;
+    padding: 20px 10px;
+    width: 20vw;
+    min-width: 300px;
+  }
+  .propertyInfo p {
+    font-size: 16px;
+    line-height: 1.1;
+    margin-bottom: 10px;
   }
 }
 @media only screen and (max-width: 600px) {
