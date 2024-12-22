@@ -12,7 +12,6 @@ export async function getAllProjects() {
     // await new Promise((resolve) => setTimeout(resolve, 2000));
     const newsEntries = await client.getEntries({ content_type: "project" });
 
-    throw Error;
     return newsEntries.items;
   } catch (error) {
     return { error: { message: "An error occured fetching the project data" } };
