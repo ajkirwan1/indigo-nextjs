@@ -26,8 +26,8 @@ export default function ContactForm({ action, redirection }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(data)
-    console.log(value)
+    console.log(data);
+    console.log(value);
 
     setData({
       ...data,
@@ -51,8 +51,11 @@ export default function ContactForm({ action, redirection }) {
       {modalState.submitted && (
         <ModalBackdrop handleModal={handleModal}>
           <div className={classes.modalInnerWrapper}>
-            <h2 className={classes.modalHeader}>Thanks for your message!</h2>
-            <p>One of team will respond to your message as soon as possible</p>
+            <h2 className={classes.modalHeader}>Thanks for your message !</h2>
+            <p>
+              One of our team members will respond to your message as soon as
+              possible
+            </p>
           </div>
         </ModalBackdrop>
       )}

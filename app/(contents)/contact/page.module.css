@@ -182,7 +182,6 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
-
   .phoneIcon {
     height: auto;
     width: 30px;
@@ -208,6 +207,10 @@
 
 /* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .pageWrapper {
+    padding-bottom: 40px;
+  }
+
   .formContainer {
     width: unset;
     width: 80%;
@@ -229,11 +232,8 @@
     /* letter-spacing: 0.2rem; */
   }
   .phoneAndEmail {
-    margin-top: 12vh;
-    line-height: 3vw;
-    letter-spacing: 0.2vh;
+    letter-spacing: 0.1vw;
     font-size: 14px;
-    font-weight: 100;
   }
 }
 
