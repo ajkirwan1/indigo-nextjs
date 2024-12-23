@@ -163,6 +163,29 @@ color: black; */
   color: #4d0013;
 }
 
+.errorLayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+.errorLayout p{
+  letter-spacing: normal;
+}
+
+.errorLayout a {
+  all: unset;
+}
+
+.errorLayout a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+
+
 .modalInnerWrapper h2 {
   color: aliceblue;
   font-weight: 200 !important;

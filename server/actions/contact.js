@@ -4,8 +4,7 @@
 import { sendMail } from "@/lib/send-mail";
 
 export async function ContactUs(_, formData) {
-
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const message = formData.get("message");
   const email = formData.get("email");
   const firstName = formData.get("firstName");
@@ -59,20 +58,38 @@ export async function ContactUs(_, formData) {
     });
   }
 
-  if (errors.length > 0) {
-    return { errors };
-  }
-  const submitted = true;
-  return { submitted };
+  // if (errors.length > 0) {
+  //   return { errors, errorMessage: "", submitted: false };
+  // }
+  // const submitted = true;
+  // return { submitted };
 
   const response = await sendMail({
     email: "ajkirwan1gmail.com",
     subject: "A test email",
     message: "Hello Jimmy",
-    text: message
-  })
+    text: message,
+  });
 
-  console.log(response, "response")
+  if (response.accepted?.length == 0) {
+    return {
+      errors: [],
+      errorMessage: "Message was not delivered",
+      submitted: false,
+    };
+  }
 
-  // return redirect("/");
+  if (response.message) {
+    return {
+      errors: [],
+      errorMessage: response.message,
+      submitted: false,
+    };
+  }
+
+  return {
+    errors: [],
+    errorMessage: "",
+    submitted: true,
+  }
 }

@@ -8,57 +8,14 @@ import classes from "./contact-form.module.css";
 import Image from "next/image";
 import contactIcon from "/public/images/icons/envelope.png";
 import ModalBackdrop from "@/components/modal-backdrop";
+import Link from "next/link";
+import Button from "../ui/button";
 
 const initialState = { errorMessage: "", errors: [], submitted: false };
 
-export default function ContactForm({ action }) {
-  const [state, formAction] = useFormState(action, initialState);
-  const [data, setData] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    contactNumber: "",
-    message: "",
-  });
-  // const [modalState, setModalState] = useState( {...initialState} );
-
-  useEffect(() => {
-    // setModalState({ ...initialState });
-  }, [state]);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const handleModal = () => {
-    state.submitted = false;
-    setData({
-      email: "",
-      firstName: "",
-      lastName: "",
-      contactNumber: "",
-      message: "",
-    });
-  };
-
+function MessageForm({ formAction, data, handleChange, state }) {
   return (
     <>
-      {state.submitted && (
-        <ModalBackdrop handleModal={handleModal}>
-          <div className={classes.modalInnerWrapper}>
-            <h2 className={classes.modalHeader}>Thanks for your message !</h2>
-            <p>
-              One of our team members will respond to your message as soon as
-              possible
-            </p>
-          </div>
-        </ModalBackdrop>
-      )}
       <h2>MESSAGE</h2>
       <Image alt="icon" src={contactIcon} className={classes.contactIcon} />
       <form className={classes.loginForm} action={formAction}>
@@ -130,6 +87,87 @@ export default function ContactForm({ action }) {
           <FormSubmit />
         </div>
       </form>
+    </>
+  );
+}
+
+export default function ContactForm({ action }) {
+  const [state, formAction] = useFormState(action, initialState);
+  const [data, setData] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    contactNumber: "",
+    message: "",
+  });
+  // const [modalState, setModalState] = useState( {...initialState} );
+
+  // useEffect(() => {
+  //   setModalState({ ...initialState });
+  // }, [state]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleModal = () => {
+    state.submitted = false;
+    setData({
+      email: "",
+      firstName: "",
+      lastName: "",
+      contactNumber: "",
+      message: "",
+    });
+  };
+
+  const handleReset = () => {
+    state.errorMessage = "";
+    setData({
+      email: "",
+      firstName: "",
+      lastName: "",
+      contactNumber: "",
+      message: "",
+    });
+  };
+
+  return (
+    <>
+      {state.submitted && (
+        <ModalBackdrop handleModal={handleModal}>
+          <div className={classes.modalInnerWrapper}>
+            <h2 className={classes.modalHeader}>Thanks for your message !</h2>
+            <p>
+              One of our team members will respond to your message as soon as
+              possible
+            </p>
+          </div>
+        </ModalBackdrop>
+      )}
+      {!state.errorMessage ? (
+        <MessageForm
+          formAction={formAction}
+          handleChange={handleChange}
+          data={data}
+          state={state}
+        />
+      ) : (
+        <div className={classes.errorLayout}>
+          <h2>SOMETHING WENT WRONG!</h2>
+          <p>{state.errorMessage}</p>
+          <div className={classes.submitButtonContainer}>
+            <Button onClick={handleReset}>Try again</Button>
+          </div>
+
+          <Link href="/">Return to home page</Link>
+        </div>
+      )}
     </>
   );
 }
