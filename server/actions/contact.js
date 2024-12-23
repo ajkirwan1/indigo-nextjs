@@ -71,13 +71,13 @@ export async function ContactUs(_, formData) {
     text: message,
   });
 
-  if (response.accepted?.length == 0) {
-    return {
-      errors: [],
-      errorMessage: "Message was not delivered",
-      submitted: false,
-    };
-  }
+  // if (response.accepted?.length == 0) {
+  //   return {
+  //     errors: [],
+  //     errorMessage: "Message was not delivered",
+  //     submitted: false,
+  //   };
+  // }
 
   if (response.message) {
     return {

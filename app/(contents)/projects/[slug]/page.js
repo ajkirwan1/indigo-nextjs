@@ -3,38 +3,22 @@ import classes from "./page.module.css";
 import { createClient } from "contentful";
 import ProjectCarousel from "@/components/pages/projects/project-carousel";
 import Link from "next/link";
-
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-});
-
-const fetchProjectPost = async (slug) => {
-  const queryOptions = {
-    content_type: "project",
-    "fields.slug[match]": slug,
-  };
-  const queryResult = await client.getEntries(queryOptions);
-  return queryResult.items[0];
-};
-
-const getNewsEntries = async () => {
-  // await new Promise((resolve) => setTimeout(resolve, 2000));
-  const newsEntries = await client.getEntries({ content_type: "project" });
-  return newsEntries.items;
-};
+import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
+import { getSingleProject } from "@/server/actions/contentful/get-single-project-action";
 
 export async function generateStaticParams() {
-  const posts = await getNewsEntries();
+  const posts = await getAllProjects();
   return posts.map((post) => ({
-    slug: post.fields.slug
-  }))
+    slug: post.fields.slug,
+  }));
 }
 
-export default async function Page({params}) {
+export default async function Page({ params }) {
   // const { params } = props;
   const { slug } = await params;
-  const { fields } = await fetchProjectPost(slug);
+  const result = await getSingleProject(slug);
+
+  const { fields } = result;
 
   const { title, secondaryImages, description } = fields;
 

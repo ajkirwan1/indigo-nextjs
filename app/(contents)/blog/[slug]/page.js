@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 function Success({ result }) {
-  console.log(result);
+  // console.log(result);
   const { fields } = result;
   const {
     title,

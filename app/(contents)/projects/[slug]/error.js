@@ -14,11 +14,14 @@ export default function Error({ error, reset }) {
   }, [error]);
 
   return (
-    <div className={classes.error}>
-      <h2>Something went wrong!</h2>
+    <div className="error-boundary">
+      <h2>Something went wrong finding the project item!</h2>
       <p>{error.message}</p>
-      <button onClick={() => reset()}>Try again</button>
-      <Button href="/" onClick={() => reset()}>Try again</Button>
+      <div className="submit-button-container">
+        <Button href="/" onClick={() => reset()}>
+          Try again
+        </Button>
+      </div>
       <div>
         <Link href="/">Return to homepage</Link>
       </div>
