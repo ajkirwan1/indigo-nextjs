@@ -9,7 +9,7 @@ import Image from "next/image";
 import contactIcon from "/public/images/icons/envelope.png";
 import ModalBackdrop from "@/components/modal-backdrop";
 
-const initialState = { message: "", errors: {}, submitted: false };
+const initialState = { errorMessage: "", errors: [], submitted: false };
 
 export default function ContactForm({ action }) {
   const [state, formAction] = useFormState(action, initialState);
@@ -20,16 +20,14 @@ export default function ContactForm({ action }) {
     contactNumber: "",
     message: "",
   });
-  const [modalState, setModalState] = useState({ ...state });
+  // const [modalState, setModalState] = useState( {...initialState} );
 
   useEffect(() => {
-    setModalState({ ...state });
+    // setModalState({ ...initialState });
   }, [state]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // console.log(data);
-    // console.log(value);
 
     setData({
       ...data,
@@ -38,7 +36,7 @@ export default function ContactForm({ action }) {
   };
 
   const handleModal = () => {
-    setModalState(false);
+    state.submitted = false;
     setData({
       email: "",
       firstName: "",
@@ -50,7 +48,7 @@ export default function ContactForm({ action }) {
 
   return (
     <>
-      {modalState.submitted && (
+      {state.submitted && (
         <ModalBackdrop handleModal={handleModal}>
           <div className={classes.modalInnerWrapper}>
             <h2 className={classes.modalHeader}>Thanks for your message !</h2>
@@ -110,7 +108,7 @@ export default function ContactForm({ action }) {
           />
         </div>
         {state.errors?.find((item) => item.errorType == "email") && (
-          <p className={classes.errorD}>Invalid email address number</p>
+          <p className={classes.errorD}>Invalid email address</p>
         )}
         <div
           className={`${classes.formItemContainer} ${classes.input} ${classes.ItemE}`}

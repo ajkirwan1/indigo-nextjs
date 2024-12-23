@@ -189,7 +189,7 @@ color: black; */
 
   .submitButtonContainer {
     margin: 2vh;
-    display: flex;
+    /* display: flex; */
     width: 150px;
     height: 40px;
   }
@@ -202,7 +202,7 @@ color: black; */
   }
   .submitButtonContainer {
     margin: 2vh;
-    display: flex;
+    /* display: flex; */
     width: 120px;
     height: 35px;
   }
