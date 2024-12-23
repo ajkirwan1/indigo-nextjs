@@ -58,9 +58,9 @@ export async function ContactUs(_, formData) {
     });
   }
 
-  // if (errors.length > 0) {
-  //   return { errors, errorMessage: "", submitted: false };
-  // }
+  if (errors.length > 0) {
+    return { errors, errorMessage: "", submitted: false };
+  }
   // const submitted = true;
   // return { submitted };
 

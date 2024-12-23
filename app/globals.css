@@ -45,7 +45,9 @@ html:has(.modal) {
   text-align: left;
   margin-top: 5vh;
   margin-bottom: 5vh;
+  /* letter-spacing: normal; */
 }
+
 
 /* .modal {
   position: absolute;

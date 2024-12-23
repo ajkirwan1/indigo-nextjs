@@ -12,7 +12,7 @@ export default function FormSubmit({ disabled }) {
     <>
       {status.pending ? (
         // <PendingButton>Please wait....</PendingButton>
-        <Spinner />
+        <Spinner color="default" size="lg"/>
       ) : (
         <SubmitButton disabled={disabled}>Submit</SubmitButton>
       )}

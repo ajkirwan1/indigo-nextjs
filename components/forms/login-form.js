@@ -28,7 +28,6 @@ export default function LoginForm({ action, redirection, pending }) {
             <Spinner color="secondary" size="lg" />
           </div>
         ) : null} */}
-
         {state.errors && (
           <ul>
             {state.errors.map((error) => (
