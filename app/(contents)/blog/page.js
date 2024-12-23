@@ -30,7 +30,7 @@ async function BlogItem({ blogData }) {
               <Avatar
                 src="/images/pages/who-we-are/emanfinal.jpg"
                 color="default"
-                size="md"
+                // size="md"
                 className={classes.avatar}
                 isBordered
               />
