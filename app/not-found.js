@@ -1,7 +1,5 @@
 /** @format */
 
-import Header from "@/components/ui/header/header";
-import Footer from "@/components/ui/footer";
 import { Josefin_Sans } from "next/font/google";
 import Link from "next/link";
 import HeroComponent from "@/components/hero/hero-component";
@@ -32,15 +30,6 @@ export default function NotFound() {
           </div>
         </HeroComponent>
       </div>
-
-      {/* <Header></Header>
-      <main className="not-found">
-        <h1>Page not found!</h1>
-        <div>
-          <Link href="/">Return to homepage</Link>
-        </div>
-      </main> */}
-
     </>
   );
 }
