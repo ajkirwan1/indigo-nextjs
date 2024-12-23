@@ -9,8 +9,10 @@ import Image from "next/image";
 import contactIcon from "/public/images/icons/envelope.png";
 import ModalBackdrop from "@/components/modal-backdrop";
 
-export default function ContactForm({ action, redirection }) {
-  const [state, formAction] = useFormState(action, { redirection });
+const initialState = { message: "", errors: {}, submitted: false };
+
+export default function ContactForm({ action }) {
+  const [state, formAction] = useFormState(action, initialState);
   const [data, setData] = useState({
     email: "",
     firstName: "",
@@ -26,8 +28,8 @@ export default function ContactForm({ action, redirection }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(data);
-    console.log(value);
+    // console.log(data);
+    // console.log(value);
 
     setData({
       ...data,

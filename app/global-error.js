@@ -22,19 +22,17 @@ export default function GlobalError({ error, reset }) {
     // global-error must include html and body tags
     <html lang="en" className={inter.className}>
       <body>
-        <LayoutProvider>
-          <div className="properties-loading-layout">
-            {/* <Header className="non-hero"></Header> */}
-            <main>
-              <h2>Global Error - something went wrong!</h2>
-              <button onClick={() => reset()}>Try again</button>
-              <div>
-                <Link href="/">Return to homepage</Link>
-              </div>
-            </main>
-          </div>
-          {/* <Footer></Footer> */}
-        </LayoutProvider>
+        <div className="properties-loading-layout">
+          {/* <Header className="non-hero"></Header> */}
+          <main>
+            <h2>Global Error - something went wrong!</h2>
+            <button onClick={() => reset()}>Try again</button>
+            <div>
+              <Link href="/">Return to homepage</Link>
+            </div>
+          </main>
+        </div>
+        {/* <Footer></Footer> */}
       </body>
     </html>
   );
