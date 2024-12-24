@@ -4,15 +4,8 @@ import { RxCross2 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
 import { useState } from "react";
-import { useContext } from "react";
-import LayoutContext from "@/contexts/layout-context";
 
-function Hamburger() {
-  const { handleBurger } = useContext(LayoutContext);
-
-  const handleClick = () => {
-    handleBurger(true);
-  };
+function Hamburger({handleMobileIcon}) {
 
   return (
     <div className={classes.hamburgerContainer}>
@@ -20,22 +13,13 @@ function Hamburger() {
         className={classes.hamburgerMenu}
         size="80px"
         color="black"
-        onClick={handleClick}
+        onClick={handleMobileIcon}
       />
     </div>
   );
 }
 
-function Cross() {
-  const {
-    handleLayoutChange,
-    showMobileNavMenu,
-    mobileMenuOpen,
-    handleBurger,
-  } = useContext(LayoutContext);
-  const handleClick = () => {
-    handleBurger(false);
-  };
+function Cross({handleMobileIcon}) {
 
   return (
     <div className={classes.hamburgerContainer}>
@@ -43,19 +27,27 @@ function Cross() {
         className={classes.hamburgerMenu}
         size="80px"
         color="black"
-        onClick={handleClick}
+        onClick={handleMobileIcon}
       />
     </div>
   );
 }
 
 export default function MobileMenuIcon() {
-  const {
-    handleLayoutChange,
-    showMobileNavMenu,
-    mobileMenuOpen,
-    handleBurger,
-  } = useContext(LayoutContext);
 
-  return <>{!mobileMenuOpen ? <Hamburger /> : <Cross />}</>;
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleMobileIcon = () => {
+    setMobileMenuOpen(val => !val)
+  }
+
+  return (
+    <>
+      {mobileMenuOpen ? (
+        <Hamburger handleMobileIcon={handleMobileIcon} />
+      ) : (
+        <Cross handleMobileIcon={handleMobileIcon} />
+      )}
+    </>
+  );
 }
