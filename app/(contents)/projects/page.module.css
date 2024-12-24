@@ -209,4 +209,7 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .imageContainer {
+    min-width: auto;
+  }
 }

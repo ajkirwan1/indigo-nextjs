@@ -135,7 +135,7 @@
   font-weight: 200;
 }
 .titleHeader {
-  padding-top: vh;
+  padding-top: 5vh;
   padding-bottom: 2vh;
   background-color: rgba(40, 40, 40, 0.456);
   backdrop-filter: blur(1px);
