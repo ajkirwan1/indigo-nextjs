@@ -19,16 +19,16 @@
   text-decoration: none;
 }
 
-.desktopNav .dropdown.show {
+/* .desktopNav .dropdown.show {
   display: flex;
   white-space: nowrap;
   width: 100%;
   justify-content: center;
-}
+} */
 
-.desktopNav .dropdown {
+/* .desktopNav .dropdown {
   display: none;
-}
+} */
 
 .menus {
   height: 100%;
