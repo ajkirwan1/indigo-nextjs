@@ -135,7 +135,7 @@
   font-weight: 200;
 }
 .titleHeader {
-  padding-top: 5vh;
+  padding-top: vh;
   padding-bottom: 2vh;
   background-color: rgba(40, 40, 40, 0.456);
   backdrop-filter: blur(1px);
@@ -215,30 +215,53 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .titleHeader {
+    margin-top: 175px;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    background: transparent;
+  }
+  .titleHeader p {
+    color: black;
+  }
+
   .titleHeader h1 {
     font-size: 32px;
+    color: black;
   }
 
   .titleHeader h2 {
     font-size: 16px;
+    color: black;
   }
-
   .propertyInfo {
     width: unset;
     margin-left: unset;
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-top: 5vh;
+    position: absolute;
+    bottom: 109px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
   }
-  .heroWrapper h2 {
-    font-size: 20px;
+
+  .heroWrapper {
+    position: absolute;
   }
 
   .heroWrapper p {
     font-size: 16px;
+    margin-bottom: 7px;
+    color: black;
+  }
+
+  .heroWrapper h2 {
+    font-size: 20px;
+    color: black;
   }
   .linkContainer {
-    bottom: 12vh;
+    bottom: 40px;
     width: 15vw;
     left: 2vw;
   }

@@ -18,7 +18,6 @@
 }
 
 .carouselImage {
-  object-fit: cover;
   width: 100%;
   height: 100%;
   display: block;
@@ -71,5 +70,10 @@
   .imageSliderBtn img {
     width: 30px;
     height: auto;
+  }
+  .carouselImage {
+    margin-top: 320px;
+    object-fit: contain;
+    object-position: top;
   }
 }

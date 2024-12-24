@@ -2,8 +2,8 @@
   height: 10vh;
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 4.5vw;
+  padding-right: 4.5vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
   width: 100%;
@@ -51,7 +51,7 @@
 }
 
 .logoIndigo {
-  height: 4rem;
+  height: 3.5rem;
   width: auto;
 }
 .mobileNavContainer {
@@ -64,6 +64,7 @@
   transition-duration: 0.3s;
   width: 100vw;
   height: 100vh;
+  font-size: small;
 }
 
 .hamburgerMenu {

@@ -30,6 +30,7 @@
 .phoneIcon {
   height: auto;
   width: 40px;
+  margin: 20px;
 }
 .phoneIcon:hover {
   animation: pop 0.3s linear 1;

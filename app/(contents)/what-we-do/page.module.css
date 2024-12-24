@@ -69,9 +69,9 @@
   transition: 0.3s ease;
 }
 
-.infoWrapper:hover .popupContainerClosed p{
-text-decoration: underline;
-text-decoration-thickness: 1px;
+.infoWrapper:hover .popupContainerClosed p {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .itemContainer:hover .infoWrapper {
   cursor: pointer;
@@ -233,7 +233,7 @@ text-decoration-thickness: 1px;
   cursor: pointer;
 }
 
-.lessContainer:hover p{
+.lessContainer:hover p {
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
@@ -296,6 +296,7 @@ text-decoration-thickness: 1px;
 
   .moreContainer h2 {
     max-width: 50%;
+    text-align: center;
   }
   .page {
     grid-template-columns: 1fr;
