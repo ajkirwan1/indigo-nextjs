@@ -36,18 +36,23 @@ function Cross({ handleMobileIcon }) {
 export default function MobileMenuIcon() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-
-
   const handleMobileIcon = () => {
+    if (!mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "scroll";
+    }
     setMobileMenuOpen((val) => !val);
   };
 
   return (
     <>
       {mobileMenuOpen ? (
-        <Hamburger handleMobileIcon={handleMobileIcon} />
-      ) : (
         <Cross handleMobileIcon={handleMobileIcon} />
+      ) : (
+        <Hamburger handleMobileIcon={handleMobileIcon} />
       )}
       {/* {mobileMenuOpen && <MobileNavbar data={navigationData} />} */}
       <MobileNavbar mobileMenuOpen={mobileMenuOpen} data={navigationData} />
