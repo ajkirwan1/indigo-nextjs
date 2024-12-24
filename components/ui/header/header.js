@@ -15,9 +15,6 @@ export default function Header({ className }) {
 
   const { user } = useSession();
 
-
-
-
   return (
     <>
       <header className={className}>

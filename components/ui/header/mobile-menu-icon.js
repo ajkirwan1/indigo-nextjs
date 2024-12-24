@@ -3,10 +3,11 @@
 import { RxCross2 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MobileNavbar from "./mobile-nav";
+import { navigationData } from "@/data/navigation-data";
 
-function Hamburger({handleMobileIcon}) {
-
+function Hamburger({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
       <IoMenuOutline
@@ -19,8 +20,7 @@ function Hamburger({handleMobileIcon}) {
   );
 }
 
-function Cross({handleMobileIcon}) {
-
+function Cross({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
       <RxCross2
@@ -34,12 +34,13 @@ function Cross({handleMobileIcon}) {
 }
 
 export default function MobileMenuIcon() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
 
   const handleMobileIcon = () => {
-    setMobileMenuOpen(val => !val)
-  }
+    setMobileMenuOpen((val) => !val);
+  };
 
   return (
     <>
@@ -48,6 +49,8 @@ export default function MobileMenuIcon() {
       ) : (
         <Cross handleMobileIcon={handleMobileIcon} />
       )}
+      {/* {mobileMenuOpen && <MobileNavbar data={navigationData} />} */}
+      <MobileNavbar mobileMenuOpen={mobileMenuOpen} data={navigationData} />
     </>
   );
 }
