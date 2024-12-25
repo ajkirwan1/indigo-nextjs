@@ -20,7 +20,8 @@
   padding: 5px;
   flex-direction: column;
   align-items: flex-start;
-  width: 40%;
+  margin-bottom: 1vh;
+  /* width: 40%; */
 }
 
 
@@ -92,7 +93,7 @@
 }
 
 .submitButtonContainer {
-  margin: 5vh;
+  margin: 3vh;
   /* display: flex; */
   width: 200px;
   height: 50px;
@@ -132,6 +133,17 @@ height: 0;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+}
+
+
+.errorA {
+  margin-top: 1vh;
+  font-weight: 400;
+  color:#4d0013;
+}
+
+.inputError {
+  border: 1px solid #4d0013 !important;
 }
 
 @media only screen and (max-width: 600px) {

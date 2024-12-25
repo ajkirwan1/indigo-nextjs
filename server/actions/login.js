@@ -67,7 +67,7 @@ export async function Login(state, formData) {
     // return Error(error.message)
     return {
       errors: [],
-      errorMessage: error.message,
+      errorMessage: " An error occured fetching your information",
       submitted: false,
     };
   }
