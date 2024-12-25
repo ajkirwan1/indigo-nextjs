@@ -121,7 +121,6 @@ export default function RegisterFormPage3({
               type="checkbox"
               name="privateBuyer"
               checked={buyerType[0]}
-              // checked={handleChange}
               onChange={handleBuyerType}
             ></input>
           </div>

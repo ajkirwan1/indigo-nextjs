@@ -35,11 +35,7 @@ export default function PropertyItem({ id, image, title, name }) {
           </div>
           <div className={classes.subItemContainer}>
             <h4>Description:</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-              suscipit lacinia massa, in eleifend dui tristique at. Nulla id
-              diam eget tortor congue vestibulum.
-            </p>
+            <p> Nulla id diam eget tortor congue vestibulum.</p>
           </div>
           <div className={classes.subItemContainer}>
             <h4>Price:</h4>

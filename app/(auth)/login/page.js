@@ -1,7 +1,6 @@
 /** @format */
 import { Login } from "@/server/actions/login";
 import { validateRequest } from "@/auth/lucia";
-import Footer from "@/components/ui/footer";
 import LoginForm from "@/components/forms/login-form";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";

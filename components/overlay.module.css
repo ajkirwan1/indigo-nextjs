@@ -36,7 +36,6 @@
     font-size: 1.2rem;
   }
   .overlay {
-    width: 80vw;
     padding: 50px;
     padding-left: 80px;
     padding-right: 80px;
@@ -54,7 +53,8 @@
     /* width: 100%; */
   }
   .overlay h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 200;
+    padding: 0.85vh;
   }
 }

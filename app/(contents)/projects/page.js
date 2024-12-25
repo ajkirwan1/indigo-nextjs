@@ -1,45 +1,55 @@
 /** @format */
 
-import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
+import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
+
 
 function ProjectItem({ data }) {
+  const { title, thumbnailImage, investmentReturn, description, slug } =
+    data.fields;
+
   return (
-    <Link href={`projects/${data.id}`}>
-      <div>
+    <Link href={`projects/${slug}`}>
+      <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
             className={classes.image}
-            src={data.image}
+            src={`https:${thumbnailImage.fields.file.url}`}
             alt="alt"
-            width={750}
-            height={500}
+            width={800}
+            height={600}
           />
         </div>
-        <h2>{data.title}</h2>
-        <p>Location - {data.location}</p>
-        <p>Investment return - {data.investmentReturn}</p>
-        <p>{data.opening}</p>
+        <div className={classes.infoWrapper}>
+          <h2>{title}</h2>
+          <p>INVESTMENT RETURN - {investmentReturn}</p>
+          <p>{description}</p>
+        </div>
       </div>
     </Link>
   );
 }
 
 export default async function ProjectsPage() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  const result = await getAllProjects();
+
+  if (result.error) {
+    throw new Error(result.error.message);
+  }
+
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
-      <div className={classes.header}>
-        <h1>OUR PROJECTS</h1>
+      <div className="header">
+        <h1>SAMPLES OF PROJECTS</h1>
         <hr />
       </div>
       <div className={classes.blogPageContainer}>
         <ul>
-          {projectsData.map((element) => (
+          {result.map((element) => (
             <li key={element.id}>
               <ProjectItem data={element} />
             </li>

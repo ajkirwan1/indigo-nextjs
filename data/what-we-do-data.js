@@ -2,26 +2,29 @@
 
 export const whatWeDoData = [
   {
-    title: "DEVELOPMENT OPPORTUNITIES SOURCING",
+    id: 1,
+    title: "Development opportunities sourcing",
     info: {
       paragraph: `Sourcing Development Opportunities focuses on empowering
         investors by sourcing and selecting prime real estate
         opportunities based on specific criteria.`,
       paragraph2: `Through meticulous analysis, strategic planning, and seamless execution of real estate projects, Indigo aims to tailor propositions based on investor profile as portfolio, budgets, lock up period, etc. ensuring reliable project plans aligned with market demands and trends.`,
     },
-    image: "./images/pages/what-we-do/greece12.jpg",
+    image: "/images/pages/what-we-do/portrait/img2.jpg",
   },
   {
-    title: "DEVELOPMENT CONSULTANCY",
+    id: 2,
+    title: "Development consultancy",
     info: {
       paragraph: `Indigo offers expert guidance, insights from the knowledge
         economy, strategic planning, informed decision-making support,
         and aims to be a trusted development partner.`,
     },
-    image: "./images/pages/what-we-do/devcon.jpg",
+    image: "/images/pages/what-we-do/portrait/img3.jpg",
   },
   {
-    title: "DEVELOPMENT PROJECT MANAGEMENT",
+    id: 3,
+    title: "Development project management",
     info: {
       paragraph: `Project Development Management offers customizable services
         tailored to the specific needs and goals of clients or
@@ -30,10 +33,11 @@ export const whatWeDoData = [
         services, ensuring effectiveness in development management
         proposals.`,
     },
-    image: "./images/pages/what-we-do/construct.jpg",
+    image: "/images/pages/what-we-do/portrait/img6.jpg",
   },
   {
-    title: "MARKET ANALYSIS",
+    id: 4,
+    title: "Market analysis",
     info: {
       paragraph: `Integrated with our consultancy and project management services,
         we provide comprehensive support from inception to project
@@ -44,20 +48,20 @@ export const whatWeDoData = [
       paragraph3: `Our company conducts comprehensive market analyses, providing
         invaluable insights into residential development trends.`,
     },
-    image: "./images/pages/what-we-do/market.jpg",
+    image: "/images/pages/what-we-do/portrait/img4.jpg",
     button: {
       text: "CONTACT US",
       href: "/contact",
     },
   },
   {
-    title: "REDEVELOPMENT - DEVELOPMENT PROJECTS",
+    id: 5,
+    title: "Redevelopment/development projects",
     info: {
       paragraph: `Indigo's founder, an experienced investor, has led visionary
         transformations in residential projects through previous
         companies, focusing on flipping properties for substantial
-        returns on investment.  These endeavors illustrate a history of
-        successful ventures and innovative strategies in real estate.`,
+        returns on investment.`,
       paragraph2: ` Committed to revitalizing urban spaces, we've transformed
         ordinary properties into luxurious minimalist havens,
         specializing primarily in residential properties with ventures
@@ -65,45 +69,44 @@ export const whatWeDoData = [
         beyond, meticulously crafted for resale to showcase our
         commitment to excellence and financial success.`,
     },
-    image: "./images/pages/what-we-do/eliniko.jpg",
+    image: "/images/pages/what-we-do/portrait/img1.jpg",
     button: {
       text: "SAMPLE PROJECTS",
       href: "/login",
     },
   },
   {
-    title: "PROPERTY MANAGEMENT",
+    id: 6,
+    title: "Property management",
     info: {
       paragraph: `Experience hassle-free property management tailored for your Greek
         properties. From maintenance to rental collection and payments,
         entrust us with the care and oversight of your investments.`,
     },
-    image: "./images/pages/what-we-do/redev.jpg",
+    image: "/images/pages/what-we-do/portrait/img7.jpg",
     button: {
       text: "PROPERTIES",
       href: "/properties",
     },
   },
   {
-    title: "LEGAL & NOTARIAL SERVICES",
+    id: 7,
+    title: "Legal & notarial services",
     info: {
       paragraph: `Access expert Legal & Notarial Services for your real estate
-        needs through our trusted affiliates. Streamline transactions,
-        contracts, and legal documentation with precision and
-        confidence, ensuring seamless real estate processes from start
-        to finish.`,
+        needs through our trusted affiliates.`,
     },
-    image: "./images/pages/what-we-do/legal.jpg",
+    image: "/images/pages/what-we-do/portrait/img3.jpg",
   },
   {
-    title: "RESIDENCY - GOLDEN VISA",
+    id: 8,
+    title: "Residency/golden visa",
     info: {
       paragraph: ` Unlock your path to residency in Greece with our Golden Visa
         Consulting services. Let us guide you through the intricacies
         of obtaining a residential visa, ensuring a smooth and
-        efficient process.  Contact us today for personalized
-        assistance and expert advice.`,
+        efficient process.`,
     },
-    image: "./images/pages/what-we-do/visa.jpg",
+    image: "/images/pages/what-we-do/portrait/img5.jpg",
   },
 ];

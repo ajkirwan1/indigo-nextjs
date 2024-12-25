@@ -1,46 +1,95 @@
 /** @format */
 "use server";
 
-import { validateRequest } from "@/auth/lucia";
-import { cookies } from "next/headers";
-import { lucia } from "@/auth/lucia";
-import { redirect } from "next/navigation";
-import db from "@/modules/db";
 import { sendMail } from "@/lib/send-mail";
 
-
-
 export async function ContactUs(_, formData) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const message = formData.get("message");
-  const email = formData.get("password");
-  const fullName = formData.get("fullName");
+  const email = formData.get("email");
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
   const contactNumber = formData.get("contactNumber");
+
+  let errors = [];
+
+  if (
+    typeof message !== "string" ||
+    message.length < 1 ||
+    message.length > 255
+  ) {
+    errors.push({ errorType: "message", message: "Invalid message" });
+  }
+
+  if (
+    typeof email !== "string" ||
+    email.length < 6 ||
+    email.length > 25 ||
+    !email.includes("@") ||
+    !email.includes(".")
+  ) {
+    errors.push({ errorType: "email", message: "Invalid email" });
+  }
+
+  if (
+    typeof firstName !== "string" ||
+    firstName.length < 1 ||
+    firstName.length > 30
+  ) {
+    errors.push({ errorType: "firstName", message: "Invalid first name" });
+  }
+
+  if (
+    typeof lastName !== "string" ||
+    lastName.length < 1 ||
+    lastName.length > 30
+  ) {
+    errors.push({ errorType: "lastName", message: "Invalid last name" });
+  }
+
+  if (
+    typeof contactNumber !== "string" ||
+    contactNumber.length < 2 ||
+    contactNumber.length > 30
+  ) {
+    errors.push({
+      errorType: "contactNumber",
+      message: "Invalid contact number",
+    });
+  }
+
+  if (errors.length > 0) {
+    return { errors, errorMessage: "", submitted: false };
+  }
+  // const submitted = true;
+  // return { submitted };
 
   const response = await sendMail({
     email: "ajkirwan1gmail.com",
     subject: "A test email",
     message: "Hello Jimmy",
-    text: message
-  })
+    text: message,
+  });
 
-  const sessions = await db.session.findMany();
+  // if (response.accepted?.length == 0) {
+  //   return {
+  //     errors: [],
+  //     errorMessage: "Message was not delivered",
+  //     submitted: false,
+  //   };
+  // }
 
-//   const sessions = await db.session.findMany();
-//   console.log(sessions);
-//   const { session } = await validateRequest();
-//   if (!session) {
-//     return {
-//       error: "Unauthorized",
-//     };
-//   }
+  if (response.message) {
+    return {
+      errors: [],
+      errorMessage: response.message,
+      submitted: false,
+    };
+  }
 
-//   await lucia.invalidateSession(session.id);
-
-//   const sessionCookie = lucia.createBlankSessionCookie();
-//   cookies().set(
-//     sessionCookie.name,
-//     sessionCookie.value,
-//     sessionCookie.attributes
-//   );
-  // return redirect("/");
+  return {
+    errors: [],
+    errorMessage: "",
+    submitted: true,
+  }
 }

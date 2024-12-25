@@ -2,46 +2,46 @@
 "use client";
 export const navigationData = [
   {
-    title: "HOME",
-    url: "/",
-    submenu: [
-      {
-        title: "News",
-        url: "/blog",
-      },
-      {
-        title: "Projects",
-        url: "/projects",
-      },
-    ],
+    title: "NEWS",
+    url: "/blog",
   },
   {
+    title: "PROJECTS",
+    url: "/projects",
+  },
+  {
+    title: "WHO WE ARE",
+    url: "/who-we-are",
+  },
+  /*
+  {
     title: "ABOUT US",
-    url: "/about-us",
+    url: "/who-we-are",
     submenu: [
-      {
-        title: "What we do",
-        url: "/what-we-do",
-      },
+      // {
+      //   title: "What we do",
+      //   url: "/what-we-do",
+      // },
       {
         title: "Who we are",
         url: "/who-we-are",
       },
     ],
   },
+  */
   {
     title: "SERVICES",
-    url: "/services",
-    submenu: [
-      {
-        title: "Indigo consulting",
-        url: "/consulting",
-      },
-      {
-        title: "Indigo properties",
-        url: "/properties",
-      },
-    ],
+    url: "/what-we-do",
+    // submenu: [
+    //   {
+    //     title: "Indigo consulting",
+    //     url: "/consulting",
+    //   },
+    //   {
+    //     title: "Indigo properties",
+    //     url: "/properties",
+    //   },
+    // ],
   },
   {
     title: "CONTACT US",
@@ -51,22 +51,22 @@ export const navigationData = [
   //   title: "BLOG",
   //   url: "/blog",
   // },
-  {
-    title: "ACCOUNT",
-    url: "/contact",
-    submenu: [
-      {
-        title: "Login",
-        url: "/login",
-      },
-      {
-        title: "Logout",
-        url: "/logout",
-      },
-      {
-        title: "Register",
-        url: "/register",
-      },
-    ],
-  },
+  // {
+  //   title: "ACCOUNT",
+  //   url: "/contact",
+  //   submenu: [
+  //     {
+  //       title: "Login",
+  //       url: "/login",
+  //     },
+  //     {
+  //       title: "Logout",
+  //       url: "/logout",
+  //     },
+  //     {
+  //       title: "Register",
+  //       url: "/register",
+  //     },
+  //   ],
+  // },
 ];

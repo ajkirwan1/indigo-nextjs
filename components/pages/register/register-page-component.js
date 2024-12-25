@@ -1,11 +1,9 @@
 /** @format */
 "use client";
-// import { NewRegisterAction } from "@/server/actions/register-multipage";
-import { CheckUserCredentials } from "@/server/actions/check-user-credentials";
+
 import { useState } from "react";
 import classes from "./register-page.module.css";
 import { AnimatePresence, motion } from "framer-motion";
-
 import RegisterFormPage1 from "@/components/forms/register/page-1";
 import RegisterFormPage2 from "@/components/forms/register/page-2";
 import RegisterFormPage3 from "@/components/forms/register/page-3";
@@ -33,12 +31,10 @@ export default function RegisterPageComponent() {
   });
 
   const handleNextTab = () => {
-    console.log(activeTab);
     setActiveTab((prev) => prev + 1);
   };
 
   const handlePreviousTab = () => {
-    console.log(activeTab);
     setActiveTab((prev) => prev - 1);
   };
 
@@ -169,8 +165,6 @@ export default function RegisterPageComponent() {
       [name]: value,
     });
   };
-
-  const handleSubmit = () => {};
 
   const formElements = [
     <motion.div

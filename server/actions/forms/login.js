@@ -19,6 +19,4 @@ export async function LoginAction(prevState, formData) {
   if (errors.length > 0) {
     return { errors };
   }
-
-  // console.log("login")
 }

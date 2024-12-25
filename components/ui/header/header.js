@@ -3,47 +3,17 @@
 
 import IndigoLogo from "/public/Indigo_Logo_Transparent.png";
 import classes from "./header.module.css";
-import NavLink from "@/components/nav-link";
 import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
 import MobileMenuIcon from "./mobile-menu-icon";
-import MobileNavbar from "./mobile-nav";
 import DesktopNav from "./desktop-nav";
-import LayoutContext from "@/contexts/layout-context";
 import { navigationData } from "@/data/navigation-data";
-import { useContext, useEffect } from "react";
 import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
 
 export default function Header({ className }) {
-  const { handleLayoutChange, showMobileNavMenu, mobileMenuOpen } =
-    useContext(LayoutContext);
 
   const { user } = useSession();
-  // console.log("HEADER", user)
-
-  useEffect(() => {
-    // document.body.style.overflow = "scroll";
-    if (window.innerWidth > 767) {
-      handleLayoutChange(false);
-    } else if (window.innerWidth < 767) {
-      handleLayoutChange(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 767) {
-        handleLayoutChange(false);
-      } else if (window.innerWidth < 767) {
-        handleLayoutChange(true);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
 
   return (
     <>
@@ -57,16 +27,14 @@ export default function Header({ className }) {
               className={classes.logoIndigo}
             />
           </Link>
-          {!showMobileNavMenu ? (
-            <DesktopNav
-              data={user?.adminaccess == 2 ? adminNavigationData : navigationData}
-            ></DesktopNav>
-          ) : (
+          <DesktopNav
+            data={user?.adminaccess == 2 ? adminNavigationData : navigationData}
+          />
+          <div className={classes.mobileIconContainer}>
             <MobileMenuIcon />
-          )}
+          </div>
         </nav>
       </header>
-      {mobileMenuOpen && <MobileNavbar data={navigationData} />}
     </>
   );
 }

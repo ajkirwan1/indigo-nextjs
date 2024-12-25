@@ -1,0 +1,328 @@
+.subHeader {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 550px;
+  line-height: 4rem;
+  margin-left: 60px;
+}
+
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
+
+.openingSection {
+  display: flex;
+  height: 400px;
+}
+
+.openingSection,
+.secondSection {
+  /* margin-top: 15vh; */
+  margin-bottom: 5vh;
+}
+
+/* .openingSection p {
+      padding: 20px;
+      margin: 0;
+      max-width: 60vw;
+    } */
+
+.openingSection p,
+.secondSection p {
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.5rem;
+}
+
+.image {
+  width: auto;
+  height: 100%;
+}
+
+.avatarAuthor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blogPost {
+  text-align: left;
+  letter-spacing: normal;
+}
+
+.blogPost p,
+.blogPost h2 {
+  text-align: left;
+  letter-spacing: normal;
+  line-height: 1.5rem;
+  text-align: left;
+}
+
+.blogPost h2 {
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.avatarAuthor p,
+.avatarAuthor h2 {
+  margin: 0;
+  text-align: left;
+}
+.subHeader > h1 {
+  font-size: 46px;
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+}
+
+.subHeader > p {
+  font-size: 28px;
+}
+
+/* .thirdSection > h2 {
+      font-size: 100px;
+    } */
+
+.carouselContainer {
+  width: 60vw;
+  margin: auto;
+}
+
+.heroWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+.heroWrapper h1 {
+  margin-top: 0;
+  font-size: 55px;
+  color: aliceblue;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.heroWrapper h2 {
+  margin-top: 0;
+  font-size: 30px;
+  color: aliceblue;
+  font-weight: 300;
+}
+
+.heroWrapper p {
+  font-size: 22px;
+  color: aliceblue;
+  font-weight: 100;
+  letter-spacing: normal;
+}
+/* .heroHeader {
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  top: 0;
+  width: 100%;
+} */
+/* .propertyInfo {
+  padding: 1.5vh;
+  width: 12vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(1px);
+} */
+
+.propertyInfo {
+  padding: 2vh;
+  width: 14vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8vw;
+  margin-top: 5vh;
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(1px);
+  font-size: 14px;
+  line-height: 2vh;
+  position: absolute;
+  right: calc(5vw + 50px);
+  bottom: 5vh;
+  padding: 20px 10px;
+  width: 20vw;
+  min-width: 300px;
+}
+
+.errorInfo {
+  margin: auto;
+  margin-top: 20vh;
+  max-width: 50vw;
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(1px);
+}
+
+.errorInfo h2 {
+  font-weight: 200;
+}
+
+.errorInfo a {
+  all: unset;
+  color: aliceblue;
+}
+
+.errorInfo a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  cursor: pointer;;
+}
+
+
+.headerContainer {
+  backdrop-filter: blur(1px);
+}
+
+.propertyInfo p {
+  font-size: 20px;
+  font-weight: 200;
+}
+.titleHeader {
+  padding-top: 5vh;
+  padding-bottom: 2vh;
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(1px);
+}
+
+.linkContainer {
+  background-color: rgba(40, 40, 40, 0.456);
+  backdrop-filter: blur(1px);
+  position: absolute;
+  bottom: 5vh;
+  left: 5vw;
+  width: 5vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.linkContainer a {
+  font-weight: 100;
+  font-size: 20px;
+  color: aliceblue;
+  text-decoration: inherit; /* no underline */
+}
+
+.linkContainer a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.footer_aklogo__attRr {
+  display: none;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: "Josefin_Sans" !important;
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .heroWrapper h1 {
+    margin-top: 0;
+    font-size: 40px;
+    color: aliceblue;
+    font-weight: 200;
+    text-transform: uppercase;
+  }
+  .heroWrapper h2 {
+    font-size: 20px;
+  }
+  .heroWrapper p {
+    font-size: 18px;
+  }
+  .linkContainer a {
+    font-size: 15px;
+  }
+  .propertyInfo {
+    padding: 2vh;
+    width: 14vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    background-color: rgba(40, 40, 40, 0.456);
+    backdrop-filter: blur(1px);
+    font-size: 14px;
+    line-height: 2vh;
+    position: absolute;
+    right: calc(5vw + 50px);
+    bottom: 5vh;
+    padding: 20px 10px;
+    width: 20vw;
+    min-width: 300px;
+  }
+  .propertyInfo p {
+    font-size: 16px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .titleHeader {
+    margin-top: 175px;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    background: transparent;
+  }
+  .titleHeader p {
+    color: black;
+  }
+
+  .titleHeader h1 {
+    font-size: 32px;
+    color: black;
+  }
+
+  .titleHeader h2 {
+    font-size: 16px;
+    color: black;
+  }
+  .propertyInfo {
+    width: unset;
+    margin-left: unset;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    bottom: 109px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
+  }
+
+  .heroWrapper {
+    position: absolute;
+  }
+
+  .heroWrapper p {
+    font-size: 16px;
+    margin-bottom: 7px;
+    color: black;
+  }
+
+  .heroWrapper h2 {
+    font-size: 20px;
+    color: black;
+  }
+  .linkContainer {
+    bottom: 40px;
+    width: 15vw;
+    left: 2vw;
+  }
+  .linkContainer a {
+    font-size: 16px;
+  }
+}

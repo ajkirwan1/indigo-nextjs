@@ -4,12 +4,12 @@ export const propertyData = [
   {
     id: 1,
     title: "A",
-    image: "/carousel-images/entrance.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 2,
     title: "A",
-    image: "/carousel-images/dinning.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 3,
@@ -24,27 +24,27 @@ export const propertyData = [
   {
     id: 5,
     title: "A",
-    image: "/carousel-images/pool.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 6,
     title: "A",
-    image: "/carousel-images/csm-pool.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 7,
     title: "A",
-    image: "/carousel-images/living-final.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 8,
     title: "A",
-    image: "/carousel-images/living.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
   {
     id: 9,
     title: "A",
-    image: "/carousel-images/kitchen-final.jpg",
+    image: "/carousel-images/bedroom.jpg",
   },
 ];
 
