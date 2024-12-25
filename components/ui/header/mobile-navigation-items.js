@@ -3,6 +3,7 @@ import { useState } from "react";
 import Dropdown from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./header.module.css";
+import NavLinkMobile from "@/components/nav-link-mobile";
 
 export default function MobileNavigationItems({ items,handleMobileIcon }) {
   const [dropdown, setDropdown] = useState(false);
@@ -27,9 +28,9 @@ export default function MobileNavigationItems({ items,handleMobileIcon }) {
           <Dropdown submenus={items.submenu} dropdown={dropdown} />
         </>
       ) : (
-        <NavLink href={items.url}>
+        <NavLinkMobile href={items.url}>
           <h1>{items.title}</h1>
-        </NavLink>
+        </NavLinkMobile>
       )}
     </li>
   );
