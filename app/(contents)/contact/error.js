@@ -9,6 +9,7 @@ import Button from "@/components/ui/button";
 
 export default function Error({ error, reset }) {
   useEffect(() => {
+    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
@@ -17,9 +18,9 @@ export default function Error({ error, reset }) {
       <h2>Something went wrong!</h2>
       <p>{error.message}</p>
       <button onClick={() => reset()}>Try again</button>
+      <Button href="/" onClick={() => reset()}>Try again</Button>
       <div>
         <Link href="/">Return to homepage</Link>
-        <Button>Return to homepage</Button>
       </div>
     </div>
   );

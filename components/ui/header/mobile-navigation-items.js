@@ -4,9 +4,16 @@ import Dropdown from "./dropdown";
 import { motion } from "framer-motion";
 import NavLink from "@/components/nav-link";
 import classes from "./header.module.css";
+import NavLinkMobile from "@/components/nav-link-mobile";
 
-export default function MobileNavigationItems({ items }) {
+export default function MobileNavigationItems({ items,handleMobileIcon }) {
   const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => {
+    
+    console.log("CLICK")
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,16 +28,16 @@ export default function MobileNavigationItems({ items }) {
               type="button"
               aria-haspopup="menu"
               aria-expanded={dropdown ? "true" : "false"}
-              onClick={() => setDropdown(true)}
+              onClick={handleMobileIcon}
             >
               <h1>{items.title} </h1>
             </button>
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>
         ) : (
-          <NavLink href={items.url}>
+          <NavLinkMobile href={items.url}>
             <h1>{items.title}</h1>
-          </NavLink>
+          </NavLinkMobile>
         )}
       </li>
     </motion.div>

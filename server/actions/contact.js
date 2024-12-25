@@ -4,6 +4,7 @@
 import { sendMail } from "@/lib/send-mail";
 
 export async function ContactUs(_, formData) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const message = formData.get("message");
   const email = formData.get("email");
   const firstName = formData.get("firstName");
@@ -14,7 +15,7 @@ export async function ContactUs(_, formData) {
 
   if (
     typeof message !== "string" ||
-    message.length < 6 ||
+    message.length < 1 ||
     message.length > 255
   ) {
     errors.push({ errorType: "message", message: "Invalid message" });
@@ -32,7 +33,7 @@ export async function ContactUs(_, formData) {
 
   if (
     typeof firstName !== "string" ||
-    firstName.length < 6 ||
+    firstName.length < 1 ||
     firstName.length > 30
   ) {
     errors.push({ errorType: "firstName", message: "Invalid first name" });
@@ -40,7 +41,7 @@ export async function ContactUs(_, formData) {
 
   if (
     typeof lastName !== "string" ||
-    lastName.length < 6 ||
+    lastName.length < 1 ||
     lastName.length > 30
   ) {
     errors.push({ errorType: "lastName", message: "Invalid last name" });
@@ -48,7 +49,7 @@ export async function ContactUs(_, formData) {
 
   if (
     typeof contactNumber !== "string" ||
-    contactNumber.length < 6 ||
+    contactNumber.length < 2 ||
     contactNumber.length > 30
   ) {
     errors.push({
@@ -58,17 +59,37 @@ export async function ContactUs(_, formData) {
   }
 
   if (errors.length > 0) {
-    return { errors };
+    return { errors, errorMessage: "", submitted: false };
   }
-  const submitted = true;
-  return { submitted };
+  // const submitted = true;
+  // return { submitted };
 
-  // const response = await sendMail({
-  //   email: "ajkirwan1gmail.com",
-  //   subject: "A test email",
-  //   message: "Hello Jimmy",
-  //   text: message
-  // })
+  const response = await sendMail({
+    email: "ajkirwan1gmail.com",
+    subject: "A test email",
+    message: "Hello Jimmy",
+    text: message,
+  });
 
-  // return redirect("/");
+  // if (response.accepted?.length == 0) {
+  //   return {
+  //     errors: [],
+  //     errorMessage: "Message was not delivered",
+  //     submitted: false,
+  //   };
+  // }
+
+  if (response.message) {
+    return {
+      errors: [],
+      errorMessage: response.message,
+      submitted: false,
+    };
+  }
+
+  return {
+    errors: [],
+    errorMessage: "",
+    submitted: true,
+  }
 }

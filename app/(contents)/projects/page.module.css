@@ -185,6 +185,7 @@
   }
 
   .imageContainer {
+    min-width: unset;
   }
 
   .image {

@@ -3,59 +3,62 @@
 import { RxCross2 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
-import { useState } from "react";
-import { useContext } from "react";
-import LayoutContext from "@/contexts/layout-context";
+import { useState, useEffect } from "react";
+import MobileNavbar from "./mobile-nav";
+import { navigationData } from "@/data/navigation-data";
 
-function Hamburger() {
-  const { handleBurger } = useContext(LayoutContext);
-
-  const handleClick = () => {
-    handleBurger(true);
-  };
-
+function Hamburger({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
       <IoMenuOutline
         className={classes.hamburgerMenu}
         size="80px"
         color="black"
-        onClick={handleClick}
+        onClick={handleMobileIcon}
       />
     </div>
   );
 }
 
-function Cross() {
-  const {
-    handleLayoutChange,
-    showMobileNavMenu,
-    mobileMenuOpen,
-    handleBurger,
-  } = useContext(LayoutContext);
-  const handleClick = () => {
-    handleBurger(false);
-  };
-
+function Cross({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
       <RxCross2
         className={classes.hamburgerMenu}
         size="80px"
         color="black"
-        onClick={handleClick}
+        onClick={handleMobileIcon}
       />
     </div>
   );
 }
 
 export default function MobileMenuIcon() {
-  const {
-    handleLayoutChange,
-    showMobileNavMenu,
-    mobileMenuOpen,
-    handleBurger,
-  } = useContext(LayoutContext);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return <>{!mobileMenuOpen ? <Hamburger /> : <Cross />}</>;
+  const handleMobileIcon = () => {
+    if (!mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+    }
+    setMobileMenuOpen((val) => !val);
+  };
+
+  return (
+    <>
+      {mobileMenuOpen ? (
+        <Cross handleMobileIcon={handleMobileIcon} />
+      ) : (
+        <Hamburger handleMobileIcon={handleMobileIcon} />
+      )}
+      <MobileNavbar
+        handleMobileIcon={handleMobileIcon}
+        mobileMenuOpen={mobileMenuOpen}
+        data={navigationData}
+      />
+    </>
+  );
 }

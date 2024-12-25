@@ -4,6 +4,7 @@ import classes from "./sub-header.module.css";
 import { useSession } from "@/contexts/session-context";
 import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
+import NavLinkMobile from "@/components/nav-link-mobile";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
   const { user } = useSession();
@@ -21,13 +22,14 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
 
   const handleLogout = () => {
     Logout();
-  }
+  };
 
   return (
     <ul
       className={
         dropdown ? `${classes.show} ${classes.dropdown}` : `${classes.dropdown}`
       }
+      // onClick={setDropdown}
     >
       {data.map((submenu, index) => (
         <motion.li
@@ -37,14 +39,11 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {
-            (submenu.title == "Logout" ? (
-              <button onClick={handleLogout}>Logout</button>
-            ) : (
-              <NavLink href={submenu.url}>
-                 {submenu.title}</NavLink>
-            ))
-          }
+          {submenu.title == "Logout" ? (
+            <button onClick={handleLogout}>Logout</button>
+          ) : (
+            <NavLinkMobile href={submenu.url}>{submenu.title}</NavLinkMobile>
+          )}
         </motion.li>
       ))}
     </ul>

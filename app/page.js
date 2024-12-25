@@ -169,9 +169,9 @@ const componentArray = [
     </HeroComponent>
   </div>,
 ];
-
 export default function Homepage() {
-  const { user } = useSession();
+
+  // const { user } = useSession();
   // if (user?.adminaccess) {
   //   redirect("admin");
   // }

@@ -71,6 +71,8 @@
 .avatar {
   border: 1px solid white;
   filter: drop-shadow(0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.5));
+  height: 40px;
+  width: 40px;
 }
 
 .avatarAuthorContainer {
@@ -112,6 +114,10 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  .avatar {
+    height: 35px;
+    width: 35px;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
@@ -135,6 +141,10 @@
   .avatarAuthorContainer p {
     font-size: 12px;
   }
+  .avatar {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -157,5 +167,10 @@
   .blogPageContainerSkeleton ul {
     grid-template-columns: 1fr 1fr;
     column-gap: 10vw;
+  }
+
+  .avatar {
+    height: 25px;
+    width: 25px;
   }
 }

@@ -1,23 +1,10 @@
 /** @format */
 
-import { projectsData } from "@/data/projects-data";
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
-import { createClient } from "contentful";
-import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
-// const client = createClient({
-//   space: process.env.CONTENTFUL_SPACE_ID,
-//   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-// });
-
-// const getNewsEntries = async () => {
-//   // await new Promise((resolve) => setTimeout(resolve, 2000));
-//   const newsEntries = await client.getEntries({ content_type: "project" });
-//   return newsEntries.items;
-// };
 
 function ProjectItem({ data }) {
   const { title, thumbnailImage, investmentReturn, description, slug } =

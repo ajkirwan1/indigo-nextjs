@@ -10,13 +10,11 @@
 body {
   font-optical-sizing: auto;
   font-style: normal;
-  /* font-weight: 200; */
   color: #505050;
   margin: 0;
   letter-spacing: 0.16em;
   text-align: center;
   background-color: #faefe8;
-  /* overflow: hidden; */
 }
 
 body,
@@ -47,9 +45,11 @@ html:has(.modal) {
   text-align: left;
   margin-top: 5vh;
   margin-bottom: 5vh;
+  /* letter-spacing: normal; */
 }
 
-.modal {
+
+/* .modal {
   position: absolute;
   top: 10vh;
   display: flex;
@@ -59,26 +59,26 @@ html:has(.modal) {
   border: none;
   background: none;
   z-index: 2;
-}
+} */
 
 .not-found {
-  height: 100vh;
+  height: 70vh;
 }
 
-#background-image {
+/* #background-image {
   width: 100%;
-}
+} */
 
-#section-1 {
+/* #section-1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   min-height: 65vh;
   padding: 20px;
-}
+} */
 
-#section-2 {
+/* #section-2 {
   background-color: #d5dfe1;
   display: flex;
   flex-wrap: wrap;
@@ -86,7 +86,7 @@ html:has(.modal) {
   align-items: center;
   min-height: 65vh;
   padding: 20px;
-}
+} */
 
 .hero {
   display: flex;
@@ -99,13 +99,13 @@ html:has(.modal) {
   height: 100vh;
 }
 
-.non-hero {
+/* .non-hero {
   justify-content: space-between;
   display: flex;
   align-items: center;
-}
+} */
 
-.section-1-image {
+/* .section-1-image {
   height: 50vh;
 }
 
@@ -115,7 +115,7 @@ html:has(.modal) {
 
 .section-3-image {
   height: 30vh;
-}
+} */
 
 .modal-backdrop {
   position: fixed;
@@ -225,6 +225,32 @@ main {
 .admin-page-wrapper {
   min-height: calc(100vh - 10vh);
 }
+
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: normal;
+  gap: 2vh;
+}
+
+.error-boundary a {
+  all: unset;
+}
+
+.error-boundary a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-thickness: 1px;
+}
+
+
+.submit-button-container {
+  width: 200px;
+  height: 50px;
+  justify-self: center;
+}
+
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
   .header h1 {
