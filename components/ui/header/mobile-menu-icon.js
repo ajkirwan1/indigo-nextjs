@@ -25,8 +25,8 @@ function Cross({ handleMobileIcon }) {
     <div className={classes.hamburgerContainer}>
       <RxCross2
         className={classes.hamburgerMenu}
-        size="80px"
-        color="black"
+        size="70px"
+        color="white"
         onClick={handleMobileIcon}
       />
     </div>

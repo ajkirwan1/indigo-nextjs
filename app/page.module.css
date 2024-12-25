@@ -252,7 +252,7 @@
   border-radius: 4px;
   background-color: #ffffff81;
   position: relative;
-  width:50vw;
+  width: 50vw;
   height: 30vh;
   box-shadow: 1px 1px 1px;
   margin: auto;
@@ -344,4 +344,23 @@
     width: 30px;
     height: auto;
   }
+}
+
+@media only screen and (max-width: 600px) {
+}
+.sectionTitle {
+  font-size: 17px;
+  line-height: 2;
+}
+
+.separator h3 {
+  font-size: 15px;
+}
+.service .circleIcon {
+  width: 20px;
+  height: 20px;
+}
+.heroContents h1 {
+  line-height: 1.6;
+  font-weight: 300;
 }

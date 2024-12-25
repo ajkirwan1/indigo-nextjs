@@ -48,7 +48,6 @@ html:has(.modal) {
   /* letter-spacing: normal; */
 }
 
-
 /* .modal {
   position: absolute;
   top: 10vh;
@@ -244,13 +243,11 @@ main {
   text-decoration-thickness: 1px;
 }
 
-
 .submit-button-container {
   width: 200px;
   height: 50px;
   justify-self: center;
 }
-
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
   .header h1 {

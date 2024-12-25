@@ -304,3 +304,8 @@
     font-size: 16px;
   }
 }
+@media only screen and (max-width: 600px) {
+  .moreContainer h2 {
+    line-height: 1.3;
+  }
+}
