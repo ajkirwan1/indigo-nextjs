@@ -1,11 +1,17 @@
 /** @format */
 import { useState } from "react";
-import  Dropdown  from "./dropdown";
+import Dropdown from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./header.module.css";
 
-export default function MobileNavigationItems({ items }) {
+export default function MobileNavigationItems({ items,handleMobileIcon }) {
   const [dropdown, setDropdown] = useState(false);
+
+  const handleClick = () => {
+    
+    console.log("CLICK")
+  };
+
   return (
     <li className={classes.menuItems}>
       {items.submenu ? (
@@ -14,7 +20,7 @@ export default function MobileNavigationItems({ items }) {
             type="button"
             aria-haspopup="menu"
             aria-expanded={dropdown ? "true" : "false"}
-            onClick={() => setDropdown(true)}
+            onClick={handleMobileIcon}
           >
             <h1>{items.title} </h1>
           </button>

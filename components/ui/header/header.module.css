@@ -8,7 +8,7 @@
   padding-right: 20px;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  /* width: 100%; */
+  width: 100%;
   font-weight: 300;
 }
 
@@ -63,9 +63,10 @@
   justify-content: center;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 0;
+  height: 100vh;
   transition-duration: 0.3s;
-  height: 0;
+  height: 100wv;
   overflow: hidden;
 }
 
@@ -89,7 +90,7 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
   background-color: #d5dfe1;
   z-index: 20;
@@ -127,7 +128,16 @@
   background-color: transparent;
   font: inherit;
   cursor: pointer;
+  color: black !important;
 }
+
+.mobileNavContainer a,
+.mobileNavMenuActive a {
+
+  color: black !important;
+}
+
+
 .mobileNavMenuActive button:hover {
   text-decoration: underline;
 }

@@ -42,7 +42,7 @@ export default function MobileMenuIcon() {
       document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
-      document.documentElement.style.overflow = "scroll";
+      document.documentElement.style.overflow = "unset";
     }
     setMobileMenuOpen((val) => !val);
   };
@@ -54,8 +54,11 @@ export default function MobileMenuIcon() {
       ) : (
         <Hamburger handleMobileIcon={handleMobileIcon} />
       )}
-      {/* {mobileMenuOpen && <MobileNavbar data={navigationData} />} */}
-      <MobileNavbar mobileMenuOpen={mobileMenuOpen} data={navigationData} />
+      <MobileNavbar
+        handleMobileIcon={handleMobileIcon}
+        mobileMenuOpen={mobileMenuOpen}
+        data={navigationData}
+      />
     </>
   );
 }
