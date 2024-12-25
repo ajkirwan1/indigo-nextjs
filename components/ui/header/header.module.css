@@ -136,7 +136,7 @@
   .hamburgerMenu {
     cursor: pointer;
     z-index: 9999;
-    height: 50px;
+    height: 45px;
   }
   .logoIndigo {
     height: 3rem;

@@ -315,3 +315,19 @@
     font-size: 18px;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .image {
+    float: none;
+    margin-right: 20px;
+    height: auto;
+    width: 100%;
+  }
+  .pageWrapper h2 {
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  .pageWrapper h3 {
+    margin-bottom: 35px;
+  }
+}

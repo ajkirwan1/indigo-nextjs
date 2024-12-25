@@ -133,7 +133,7 @@ const componentArray = [
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/projects">
-                <h3>SAMPLE OUR PROJECTS</h3>
+                <h3>SAMPLES OF PROJECTS</h3>
                 <Image
                   alt="icon"
                   src={properties}
