@@ -71,7 +71,7 @@ export default function RegisterFormPage4({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <Image className={classes.iconRegister} src={userIcon} alt="An image of icon which depicts registration" />
         <h2>4/4</h2>
       </div>
       <form className={classes.registerForm3} action={formAction}>
@@ -114,7 +114,6 @@ export default function RegisterFormPage4({
             ></input>
           </div>
         </div>
-
         <label>Have you previously invested in Greek real estate?</label>
         <div className={classes.tickRow}>
           <div>

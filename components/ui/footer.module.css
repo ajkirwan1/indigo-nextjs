@@ -2,6 +2,8 @@
   height: 10vh;
   background-color: #4d0013;
   width: 100vw;
+  /* padding: 0 60px;
+} */
 }
 
 .footer ul {
@@ -13,7 +15,7 @@
   gap: 1.5rem;
   font-size: 1.25rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   color: aliceblue;
   font-weight: 200;
   flex-wrap: wrap;
@@ -22,12 +24,22 @@
   padding-inline-start: 0;
 }
 
+.footer a {
+  all: unset;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-thickness: 1px;
+}
+
 .aklogo {
   height: 3rem;
   width: auto;
   filter: brightness(100) grayscale(1);
-  margin-right: 150px;
 }
+
 .flexlist {
   display: flex;
   align-items: center;
@@ -40,19 +52,14 @@
   .footer ul {
     font-size: 1.25rem;
   }
-  .shareIcon {
-    height: 30px;
-    width: auto;
-    margin-left: 80px;
-  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
   .aklogo {
-    height: 3.5rem;
+    height: 2.8rem;
   }
   .shareIcon {
-    height: 2rem;
+    height: 1.6rem;
     width: auto;
   }
   .footer ul {
@@ -70,5 +77,61 @@
   .shareIcon {
     height: 1.5rem;
     width: auto;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .aklogo {
+    height: 3rem;
+  }
+  .footer ul {
+    font-size: 0.7rem;
+  }
+  .shareIcon {
+    height: 1.5rem;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    height: unset;
+  }
+  .aklogo {
+    height: 2rem;
+  }
+
+  .flexlist {
+    gap: 5px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .footer ul {
+      list-style: none;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 1.25rem;
+      align-items: center;
+      justify-content: center;
+      color: aliceblue;
+      font-weight: 200;
+      flex-wrap: wrap;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+      flex-direction: column;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+  }
+
+  .footer li {
+    font-size: 12px;
   }
 }

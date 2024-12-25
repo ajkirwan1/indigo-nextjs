@@ -2,25 +2,19 @@
 
 "use client";
 import { useFormStatus } from "react-dom";
-import { useState } from "react";
 import SubmitButton from "../ui/buttons/submit-button";
 import PendingButton from "../ui/buttons/pending-button";
+import { Spinner } from "@nextui-org/spinner";
 
-export default function FormSubmit({ handleLoading }) {
+export default function FormSubmit({ disabled }) {
   const status = useFormStatus();
-  // const [loading, handleLoading] = useState(false);
-
-  // if (status.pending == true) {
-  //   handleLoading(true);
-  // } else {
-  //   handleLoading(false);
-  // }
   return (
     <>
       {status.pending ? (
-        <PendingButton>PENDING.....</PendingButton>
+        // <PendingButton>Please wait....</PendingButton>
+        <Spinner color="default" size="lg"/>
       ) : (
-        <SubmitButton>SUBMIT</SubmitButton>
+        <SubmitButton disabled={disabled}>Submit</SubmitButton>
       )}
     </>
   );

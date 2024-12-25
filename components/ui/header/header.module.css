@@ -1,6 +1,11 @@
+/** @format */
+
 .nav {
+  height: 10vh;
   display: flex;
-  padding: 20px;
+  align-items: center;
+  padding-left: 4.5vw;
+  padding-right: 4.5vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
   width: 100%;
@@ -48,19 +53,22 @@
 }
 
 .logoIndigo {
-  height: 4rem;
+  height: 3.5rem;
   width: auto;
 }
 .mobileNavContainer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   top: 0;
-  transform: translateX(-100%);
-  transition-duration: 0.3s;
-  width: 100vw;
+  left: 0;
+  width: 0;
   height: 100vh;
+  transition-duration: 0.3s;
+  height: 100wv;
+  overflow: hidden;
+  font-size: small;
 }
 
 .hamburgerMenu {
@@ -77,24 +85,28 @@
 }
 .mobileNavMenuActive {
   display: flex;
+  top: 0;
+  left: 0;
+  position: absolute;
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transform: translate(0%, 0%);
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
-  background-color: #d5dfe1;
+  background-color: #4d0013;
   z-index: 20;
   transition-duration: 0.3s;
 }
 
+.mobileNavContainer nav,
 .mobileNavMenuActive nav {
-  width: 100%;
+  /* width: 100%; */
 }
+.mobileNavContainer li,
 .mobileNavMenuActive li {
   width: 100%;
 }
-
+.mobileNavContainer ul,
 .mobileNavMenuActive ul {
   list-style: none;
   padding: 0;
@@ -103,15 +115,40 @@
   align-items: center;
 }
 
+.mobileNavMenuActive nav h1,
+.mobileNavMenuActive nav li {
+  margin-top: 0.5vh;
+  margin-bottom: 0.5vh;
+}
+
+
+.mobileNavContainer button,
 .mobileNavMenuActive button {
   border: none;
   font-size: inherit;
   background-color: transparent;
   font: inherit;
   cursor: pointer;
+  color: black !important;
 }
+
+.mobileNavContainer a,
+.mobileNavMenuActive a {
+
+  color: black !important;
+}
+
+
 .mobileNavMenuActive button:hover {
   text-decoration: underline;
+}
+
+.mobileIconContainer {
+  display: none;
+}
+
+.hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -123,14 +160,18 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .mobileIconContainer {
+    display: unset;
+    margin-left: auto;
+  }
   .nav {
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
     margin-bottom: 1vh;
   }
   .hamburgerMenu {
     cursor: pointer;
     z-index: 9999;
-    height: 50px;
+    height: 45px;
   }
   .logoIndigo {
     height: 3rem;

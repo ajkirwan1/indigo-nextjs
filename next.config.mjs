@@ -4,7 +4,11 @@
  */
 
 const nextConfig = {
-  output: 'export',
+  // output: 'export',
+
+//   images: {
+//     unoptimized: true
+// },
   experimental: {
     serverComponentsExternalPackages: [
       "@node-rs/argon2",
@@ -12,12 +16,13 @@ const nextConfig = {
       "@aws-sdk/s3-request-presigner",
     ],
   },
+
   env: {CONTENTFUL_SPACE_ID:process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN:process.env.CONTENTFUL_ACCESS_TOKEN
   },
-  outputFileTracingIncludes: {
-    "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
-  },
+  // outputFileTracingIncludes: {
+  //   "/": ["../../node_modules/argon2/prebuilds/linux-x64/*"],
+  // },
   images: {
     remotePatterns: [
       {
@@ -35,6 +40,8 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    unoptimized: true
+
   },
   // async redirects() {
   //   return [

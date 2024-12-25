@@ -1,4 +1,5 @@
-.button {
+.button,
+.pendingButton {
   background: none;
   display: flex;
   border-radius: 4px;
@@ -14,6 +15,13 @@
   height: 100%;
   gap: 5px;
 }
+.pendingButton {
+  background-color: #4d0013;
+}
+
+.disabled {
+  display: none;
+}
 
 .button:hover {
   border: 1px solid #505050;
@@ -28,7 +36,7 @@
   height: 10px;
 }
 
-.pendingButton {
+/* .pendingButton {
   background: none;
   background-color: rgb(151, 151, 151);
   display: flex;
@@ -42,9 +50,7 @@
   width: 100%;
   height: 100%;
   gap: 5px;
-  /* width: 200px;
-  height: 50px; */
-}
+} */
 
 .wrapper {
   border: 1px solid #505050;
@@ -58,17 +64,6 @@
   font-weight: 200;
 }
 
-/* .wrapper img,
-.wrapper button {
-  transition: 0.3s;
-}
-
-.wrapper button + img {
-  transform: translateX(10px);
-}
-.wrapper button {
-  transform: translateX(-5px);
-} */
 
 .wrapper {
   cursor: pointer;

@@ -2,114 +2,104 @@
 "use client";
 
 import classes from "./page.module.css";
-import WebItemComponent from "@/components/web-item-component";
-import WebItemComponentSmall from "@/components/web-item-component-small";
 import { whatWeDoData } from "@/data/what-we-do-data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Image from "next/image";
 
-export default function WhatWeDoPage() {
-  const [viewport, setViewport] = useState();
-
-  useEffect(() => {
-    if (window.innerWidth > 1000) {
-      setViewport("large");
-    } else if (window.innerWidth < 1000) {
-      setViewport("small");
-    }
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 1000) {
-        setViewport("large");
-      } else if (window.innerWidth < 1000) {
-        setViewport("small");
+function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
+  return (
+    <div
+      className={
+        !(infoActive && data.id == modalIndex)
+          ? `${classes.itemContainer}`
+          : null
       }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+    >
+      <div className={classes.imageContainer}>
+        <Image
+          className={classes.image}
+          src={data.image}
+          alt="alt"
+          width={1000}
+          height={1250}
+        />
+        <div className={classes.moreContainer}>
+          {infoActive && data.id == modalIndex ? null : <h2>{data.title}</h2>}
+        </div>
+        <div
+          className={
+            infoActive && data.id == modalIndex
+              ? `${classes.infoWrapper} ${classes.infoWrapperActive}`
+              : `${classes.infoWrapper} `
+          }
+          onClick={
+            infoActive && data.id == modalIndex
+              ? null
+              : () => handleModal(data.id)
+          }
+        >
+          {!(infoActive && data.id == modalIndex) ? (
+            <div
+              className={classes.popupContainerClosed}
+              // onClick={() => handleModal(data.id)}
+            >
+              <p>More</p>
+            </div>
+          ) : (
+            <div className={classes.popupContainerOpen}>
+              <div>
+                <h2>{whatWeDoData[modalIndex - 1].title}</h2>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph}</p>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph2}</p>
+                <p>{whatWeDoData[modalIndex - 1].info.paragraph3}</p>
+              </div>
+              <div
+                className={classes.lessContainer}
+                onClick={() => handleModal(data.id)}
+              >
+                <p>Less</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function ServicePage() {
+  const [modalIndex, setModalIndex] = useState(null);
+  const [infoActive, setInfoActive] = useState(false);
+
+  const handleModal = (id) => {
+    console.log("CLICK");
+    if (modalIndex == id) {
+      setInfoActive((val) => !val);
+    }
+    if (modalIndex != id) {
+      setInfoActive(true);
+    }
+    setModalIndex(id);
+  };
 
   return (
     <>
       <title>INDIGO CONSULTING WHAT WE DO</title>
-      <div className={classes.header}>
-        <h1>WHAT WE DO</h1>
+      <div className="header">
+        <h1>SERVICES</h1>
         <hr />
       </div>
-      {viewport == "large" ? (
-        <WebItemComponent
-          title={whatWeDoData[0]["title"]}
-          paragraph1={whatWeDoData[0]["info"]["paragraph"]}
-          paragraph2={whatWeDoData[0]["info"]["paragraph2"]}
-          image={whatWeDoData[0]["image"]}
-        />
-      ) : (
-        <WebItemComponentSmall
-          title={whatWeDoData[0]["title"]}
-          paragraph1={whatWeDoData[0]["info"]["paragraph"]}
-          paragraph3={whatWeDoData[0]["info"]["paragraph2"]}
-          image={whatWeDoData[0]["image"]}
-        />
-      )}
-      <WebItemComponent
-        title={whatWeDoData[1]["title"]}
-        paragraph1={whatWeDoData[1]["info"]["paragraph"]}
-        image={whatWeDoData[1]["image"]}
-      />
-      {viewport == "large" ? (
-        <WebItemComponent
-          title={whatWeDoData[2]["title"]}
-          paragraph1={whatWeDoData[2]["info"]["paragraph"]}
-          paragraph2={whatWeDoData[2]["info"]["paragraph2"]}
-          image={whatWeDoData[2]["image"]}
-        />
-      ) : (
-        <WebItemComponentSmall
-          title={whatWeDoData[2]["title"]}
-          paragraph1={whatWeDoData[2]["info"]["paragraph"]}
-          paragraph3={whatWeDoData[2]["info"]["paragraph2"]}
-          image={whatWeDoData[2]["image"]}
-        />
-      )}
-      <WebItemComponent
-        buttonPosition="left"
-        title={whatWeDoData[3]["title"]}
-        paragraph1={whatWeDoData[3]["info"]["paragraph"]}
-        paragraph2={whatWeDoData[3]["info"]["paragraph2"]}
-        image={whatWeDoData[3]["image"]}
-        buttonText={whatWeDoData[3]["button"]["text"]}
-        buttonPath={whatWeDoData[3]["button"]["href"]}
-      />
-      <WebItemComponent
-        buttonPosition="left"
-        title={whatWeDoData[4]["title"]}
-        paragraph1={whatWeDoData[4]["info"]["paragraph"]}
-        paragraph2={whatWeDoData[4]["info"]["paragraph2"]}
-        image={whatWeDoData[4]["image"]}
-        buttonText={whatWeDoData[4]["button"]["text"]}
-        buttonPath={whatWeDoData[4]["button"]["href"]}
-      />
-      <WebItemComponent
-        buttonPosition="left"
-        title={whatWeDoData[5]["title"]}
-        paragraph1={whatWeDoData[5]["info"]["paragraph"]}
-        image={whatWeDoData[5]["image"]}
-        buttonText={whatWeDoData[5]["button"]["text"]}
-        buttonPath={whatWeDoData[5]["button"]["href"]}
-      />
-      <WebItemComponent
-        title={whatWeDoData[6]["title"]}
-        paragraph1={whatWeDoData[6]["info"]["paragraph"]}
-        image={whatWeDoData[6]["image"]}
-      />
-      <WebItemComponent
-        title={whatWeDoData[7]["title"]}
-        paragraph1={whatWeDoData[7]["info"]["paragraph"]}
-        image={whatWeDoData[7]["image"]}
-      />
+      <section className={classes.page}>
+        {whatWeDoData.map((element) => (
+          <ServiceItem
+            key={element.id}
+            data={element}
+            handleModal={handleModal}
+            modalIndex={modalIndex}
+            infoActive={infoActive}
+          />
+        ))}
+      </section>
     </>
   );
 }
