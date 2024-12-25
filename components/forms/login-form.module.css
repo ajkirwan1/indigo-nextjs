@@ -23,9 +23,7 @@
   width: 40%;
 }
 
-/* .formItemContainer label {
-    font-size: x-large;
-  } */
+
 .formCheckboxContainer {
   display: flex;
 }
@@ -95,11 +93,16 @@
 
 .submitButtonContainer {
   margin: 5vh;
-  display: flex;
+  /* display: flex; */
   width: 200px;
   height: 50px;
-  /* margin-bottom: 200px; */
 }
+
+.submitButtonContainerClosed {
+height: 0;
+}
+
+
 
 .registerPageContainer {
   height: 100vh;

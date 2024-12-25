@@ -74,7 +74,7 @@
 .hamburgerMenu {
   cursor: pointer;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .hamburgerContainer {

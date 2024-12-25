@@ -89,6 +89,7 @@ function Success({ result }) {
 }
 
 export default async function Page({ params }) {
+  throw Error;
   // const { params } = props;
   const { slug } = await params;
   const result = await getSingleBlog(slug);

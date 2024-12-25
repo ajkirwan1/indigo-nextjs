@@ -1,27 +1,47 @@
 /** @format */
 "use client";
 export const navigationData = [
+  // {
+  //   title: "NEWS",
+  //   url: "/blog",
+  // },
+  // {
+  //   title: "PROJECTS",
+  //   url: "/projects",
+  // },
+  // {
+  //   title: "WHO WE ARE",
+  //   url: "/who-we-are",
+  // },
+
   {
-    title: "NEWS",
-    url: "/blog",
-  },
-  {
-    title: "PROJECTS",
-    url: "/projects",
-  },
-  {
-    title: "WHO WE ARE",
+    title: "INDIGO",
     url: "/who-we-are",
+    submenu: [
+      {
+        title: "About us",
+        url: "/who-we-are",
+      },
+      {
+        title: "Projects",
+        url: "/projects",
+      },
+      {
+        title: "News",
+        url: "/blog",
+      },
+    ],
   },
+
   /*
   {
     title: "ABOUT US",
     url: "/who-we-are",
     submenu: [
-      // {
-      //   title: "What we do",
-      //   url: "/what-we-do",
-      // },
+      {
+        title: "What we do",
+        url: "/what-we-do",
+      },
       {
         title: "Who we are",
         url: "/who-we-are",
@@ -32,16 +52,20 @@ export const navigationData = [
   {
     title: "SERVICES",
     url: "/what-we-do",
-    // submenu: [
-    //   {
-    //     title: "Indigo consulting",
-    //     url: "/consulting",
-    //   },
-    //   {
-    //     title: "Indigo properties",
-    //     url: "/properties",
-    //   },
-    // ],
+    submenu: [
+      {
+        title: "What we do",
+        url: "/what-we-do",
+      },
+      {
+        title: "Indigo consulting",
+        url: "/consulting",
+      },
+      {
+        title: "Indigo properties",
+        url: "/properties",
+      },
+    ],
   },
   {
     title: "CONTACT US",
@@ -51,22 +75,22 @@ export const navigationData = [
   //   title: "BLOG",
   //   url: "/blog",
   // },
-  // {
-  //   title: "ACCOUNT",
-  //   url: "/contact",
-  //   submenu: [
-  //     {
-  //       title: "Login",
-  //       url: "/login",
-  //     },
-  //     {
-  //       title: "Logout",
-  //       url: "/logout",
-  //     },
-  //     {
-  //       title: "Register",
-  //       url: "/register",
-  //     },
-  //   ],
-  // },
+  {
+    title: "ACCOUNT",
+    url: "/contact",
+    submenu: [
+      {
+        title: "Login",
+        url: "/login",
+      },
+      {
+        title: "Logout",
+        url: "/logout",
+      },
+      {
+        title: "Register",
+        url: "/register",
+      },
+    ],
+  },
 ];
