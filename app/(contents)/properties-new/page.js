@@ -7,11 +7,14 @@ import { headers } from "next/headers";
 import { getAllProperties } from "@/server/actions/contentful/get-user-properties";
 import Link from "next/link";
 import Image from "next/image";
+import pdfImage from "/public/images/icons/icons8-pdf-100.png";
+import locationIcon from "/public/images/icons/icons8-location-pin-100.png";
+import messageIcon from "/public/images/contact.png";
 
 function PropertyItem({ data }) {
-  const { title, primaryImage, information } = data.fields;
+  const { title, primaryImage, information, pdf, location } = data.fields;
 
-  console.log(primaryImage)
+  // console.log(location);
 
   return (
     <>
@@ -25,11 +28,35 @@ function PropertyItem({ data }) {
             height={600}
           />
         </div>
-        <div className={classes.infoWrapper}>
-          <h2>{title}</h2>
-        </div>
-        <div className={classes.subItemContainer}>
-          <p>{information}</p>
+        <div className={classes.infoContainer}>
+          <div className={classes.infoWrapper}>
+            <h2>{title}</h2>
+          </div>
+          <div className={classes.subItemContainer}>
+            <p>{information}</p>
+          </div>
+
+          <div className={classes.messageContainer}>
+            <Image
+              className={classes.messageIcon}
+              src={messageIcon}
+              alt="An icon image of an envelope representing a message"
+            />
+            <Link href="/contact">
+              <p>Contact</p>
+            </Link>
+          </div>
+
+          <div className={classes.iconContainer}>
+            <Image
+              className={classes.icon}
+              src={pdfImage}
+              alt={pdf.fields.title}
+            />
+            <Link href={`https:${pdf.fields.file.url}`} download>
+              <p>Download pdf</p>
+            </Link>
+          </div>
         </div>
       </div>
     </>
@@ -41,14 +68,12 @@ export default async function PropertiesPage() {
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
 
-
   const results = await getAllProperties();
-  console.log(results);
+  // console.log(results);
   if (results.errorMessage) {
     // throw new Error(result.error.message);
-    console.log(results.errorMessage)
+    console.log(results.errorMessage);
   }
-
 
   if (!user) {
     redirect(`/login?next=${pathname}`);
