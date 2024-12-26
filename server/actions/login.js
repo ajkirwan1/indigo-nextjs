@@ -17,7 +17,7 @@ export async function Login(state, formData) {
   // const sessions = await db.session.findMany();
   // console.log(sessions);
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const username = formData.get("username");
   const password = formData.get("password");
@@ -27,6 +27,8 @@ export async function Login(state, formData) {
     const existingUser = await db.user.findFirst({
       where: { username: username },
     });
+
+    console.log(existingUser);
 
     if (!existingUser) {
       errors.push({ errorType: "username", message: "Invalid username" });
@@ -42,7 +44,7 @@ export async function Login(state, formData) {
     );
 
     if (!validPassword) {
-      errors.push({ errorType: "username", message: "Invalid username" });
+      errors.push({ errorType: "password", message: "Invalid password" });
       return { errors, errorMessage: "", submitted: false };
     }
     const userId = existingUser.id;
@@ -62,13 +64,12 @@ export async function Login(state, formData) {
     if (existingUser.adminaccess == 2) {
       return redirect("/admin");
     }
-    return redirect("/");
   } catch (error) {
-    // return Error(error.message)
     return {
       errors: [],
       errorMessage: " An error occured fetching your information",
       submitted: false,
     };
   }
+  return redirect("/login/success");
 }

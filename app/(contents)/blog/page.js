@@ -44,7 +44,7 @@ async function BlogItem({ blogData }) {
 }
 
 export default async function BlogPage() {
-  throw Error;
+
   const result = await getAllBlogs();
   if (result.error) {
     throw new Error(result.error.message);

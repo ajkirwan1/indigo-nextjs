@@ -1,96 +1,75 @@
 /** @format */
 "use client";
-export const navigationData = [
-  // {
-  //   title: "NEWS",
-  //   url: "/blog",
-  // },
-  // {
-  //   title: "PROJECTS",
-  //   url: "/projects",
-  // },
-  // {
-  //   title: "WHO WE ARE",
-  //   url: "/who-we-are",
-  // },
+import User from "@/components/layouts/user";
+import { useSession } from "@/contexts/session-context";
 
-  {
-    title: "INDIGO",
-    url: "/who-we-are",
-    submenu: [
-      {
-        title: "About us",
-        url: "/who-we-are",
-      },
-      {
-        title: "Projects",
-        url: "/projects",
-      },
-      {
-        title: "News",
-        url: "/blog",
-      },
-    ],
-  },
+export default function GetNavData() {
+  const { user } = useSession();
 
-  /*
-  {
-    title: "ABOUT US",
-    url: "/who-we-are",
-    submenu: [
-      {
-        title: "What we do",
-        url: "/what-we-do",
-      },
-      {
-        title: "Who we are",
-        url: "/who-we-are",
-      },
-    ],
-  },
-  */
-  {
-    title: "SERVICES",
-    url: "/what-we-do",
-    submenu: [
-      {
-        title: "What we do",
-        url: "/what-we-do",
-      },
-      {
-        title: "Indigo consulting",
-        url: "/consulting",
-      },
-      {
-        title: "Indigo properties",
-        url: "/properties",
-      },
-    ],
-  },
-  {
-    title: "CONTACT US",
-    url: "/contact",
-  },
-  // {
-  //   title: "BLOG",
-  //   url: "/blog",
-  // },
-  {
-    title: "ACCOUNT",
-    url: "/contact",
-    submenu: [
-      {
-        title: "Login",
-        url: "/login",
-      },
-      {
-        title: "Logout",
-        url: "/logout",
-      },
-      {
-        title: "Register",
-        url: "/register",
-      },
-    ],
-  },
-];
+  console.log(user);
+
+  const navigationData = [
+    {
+      title: "INDIGO",
+      url: "/who-we-are",
+      submenu: [
+        {
+          title: "About us",
+          url: "/who-we-are",
+        },
+        {
+          title: "Projects",
+          url: "/projects",
+        },
+        {
+          title: "News",
+          url: "/blog",
+        },
+      ],
+    },
+
+    {
+      title: "SERVICES",
+      url: "/what-we-do",
+      submenu: [
+        {
+          title: "What we do",
+          url: "/what-we-do",
+        },
+        {
+          title: "Indigo consulting",
+          url: "/consulting",
+        },
+        {
+          title: "Indigo properties",
+          url: "/properties",
+        },
+      ],
+    },
+    {
+      title: "CONTACT US",
+      url: "/contact",
+    },
+    {
+      title: user ? "ACCOUNT_LOGGED_IN" : "ACCOUNT",
+      accountIcon: true,
+      url: "/contact",
+      submenu: [
+        user
+          ? { title: user.username.toUpperCase(), url: "" }
+          : { title: "Register", url: "/register" },
+        user
+          ? {
+              title: "Logout",
+              url: "/logout",
+            }
+          : {
+              title: "Login",
+              url: "/login",
+            },
+      ],
+    },
+  ];
+
+  return navigationData;
+}

@@ -5,7 +5,8 @@ import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
 import { useState, useEffect } from "react";
 import MobileNavbar from "./mobile-nav";
-import { navigationData } from "@/data/navigation-data";
+// import { navigationData } from "@/data/navigation-data";
+import GetNavData from "@/data/navigation-data";
 
 function Hamburger({ handleMobileIcon }) {
   return (
@@ -46,6 +47,9 @@ export default function MobileMenuIcon() {
     }
     setMobileMenuOpen((val) => !val);
   };
+
+
+  const navigationData = GetNavData()
 
   return (
     <>

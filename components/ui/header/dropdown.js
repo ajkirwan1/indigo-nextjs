@@ -7,18 +7,18 @@ import { motion } from "framer-motion";
 import NavLinkMobile from "@/components/nav-link-mobile";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
-  const { user } = useSession();
+  // const { user } = useSession();
 
-  let data;
-  if (user) {
-    data = submenus.filter((item) => {
-      return item.title !== "Login";
-    });
-  } else {
-    data = submenus.filter((item) => {
-      return item.title !== "Logout";
-    });
-  }
+  // let data;
+  // if (user) {
+  //   data = submenus.filter((item) => {
+  //     return item.title !== "Login";
+  //   });
+  // } else {
+  //   data = submenus.filter((item) => {
+  //     return item.title !== "Logout";
+  //   });
+  // }
 
   const handleLogout = () => {
     Logout();
@@ -31,7 +31,7 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
       }
       // onClick={setDropdown}
     >
-      {data.map((submenu, index) => (
+      {submenus.map((submenu, index) => (
         <motion.li
           key={index}
           className={classes.menuItems}
