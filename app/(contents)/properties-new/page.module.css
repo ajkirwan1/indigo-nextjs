@@ -29,6 +29,7 @@
 }
 
 .ProjectItemWrapper {
+  display: flex;
   height: 100%;
 }
 

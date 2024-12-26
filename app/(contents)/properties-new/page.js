@@ -2,52 +2,37 @@
 "use server";
 import { redirect } from "next/navigation";
 import { validateRequest } from "/auth/lucia";
-import { getProperties } from "@/server/actions/db/properties";
 import classes from "./page.module.css";
 import { headers } from "next/headers";
+import { getAllProperties } from "@/server/actions/contentful/get-user-properties";
 import Link from "next/link";
 import Image from "next/image";
 
-// async function Properties({ userId }) {
-//   await new Promise((resolve) => setTimeout(resolve, 3000));
-//   const properties = await getProperties(userId);
-//   return <PropertyList properties={properties} />;
-// }
-
 function PropertyItem({ data }) {
-  const { title, image } = data;
+  const { title, primaryImage, information } = data.fields;
+
+  console.log(primaryImage)
 
   return (
-    // <Link href={`projects/${slug}`}>
     <>
       <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
             className={classes.image}
-            src={`/images/pages/properties/${image}`}
-            alt="alt"
+            src={`https:${primaryImage.fields.file.url}`}
+            alt={primaryImage.fields.description}
             width={800}
             height={600}
           />
         </div>
         <div className={classes.infoWrapper}>
           <h2>{title}</h2>
-          {/* <p>INVESTMENT RETURN - {investmentReturn}</p> */}
-          {/* <p>{description}</p> */}
         </div>
         <div className={classes.subItemContainer}>
-          <h4>Description:</h4>
-          <p> Nulla id diam eget tortor congue vestibulum.</p>
-        </div>
-        <div className={classes.subItemContainer}>
-          <h4>Price:</h4>
-          <p>200,000 €</p>
+          <p>{information}</p>
         </div>
       </div>
     </>
-
-    // </Link>
-    // <div>asdasdasd</div>
   );
 }
 
@@ -56,13 +41,18 @@ export default async function PropertiesPage() {
   const headerList = headers();
   const pathname = headerList.get("x-current-path");
 
+
+  const results = await getAllProperties();
+  console.log(results);
+  if (results.errorMessage) {
+    // throw new Error(result.error.message);
+    console.log(results.errorMessage)
+  }
+
+
   if (!user) {
     redirect(`/login?next=${pathname}`);
   }
-  const userId = user.id;
-
-  const result = await getProperties(userId);
-  console.log(result);
 
   return (
     <>
@@ -82,7 +72,7 @@ export default async function PropertiesPage() {
         </p>
       </div>
       <div className={classes.blogPageContainer}>
-        {result.map((element) => (
+        {results.map((element) => (
           <PropertyItem key={element} data={element} />
         ))}
       </div>
