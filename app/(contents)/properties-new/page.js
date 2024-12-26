@@ -69,9 +69,8 @@ export default async function PropertiesPage() {
   const pathname = headerList.get("x-current-path");
 
   const results = await getAllProperties();
-  // console.log(results);
+
   if (results.errorMessage) {
-    // throw new Error(result.error.message);
     console.log(results.errorMessage);
   }
 

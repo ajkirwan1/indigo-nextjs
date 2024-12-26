@@ -22,6 +22,7 @@ export async function Login(state, formData) {
   const username = formData.get("username");
   const password = formData.get("password");
   let errors = [];
+  let userType;
 
   try {
     const existingUser = await db.user.findFirst({
@@ -62,7 +63,8 @@ export async function Login(state, formData) {
       redirect(`/${state.redirection}`);
     }
     if (existingUser.adminaccess == 2) {
-      return redirect("/admin");
+      userType = "admin"
+      // return redirect("/admin");
     }
   } catch (error) {
     return {
@@ -70,6 +72,10 @@ export async function Login(state, formData) {
       errorMessage: " An error occured fetching your information",
       submitted: false,
     };
+  }
+
+  if (userType == "admin") {
+    return redirect("/admin");
   }
   return redirect("/login/success");
 }
