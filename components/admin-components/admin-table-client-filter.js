@@ -2,11 +2,15 @@
 "use client";
 import { useState } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import classes from "./admin-client-table.module.css";
+import Image from "next/image";
+import classes from "./admin-table-client-filter.module.css";
+import expandIcon from "/public/images/icons/icons8-expand-arrow-50.png";
 
 export default function AdminTableFilter() {
   const [bulkFilter, setBulkFilter] = useState([false, false, false]);
   const [data, setData] = useState({ name: "", email: "" });
+  const [filterOpen, setFilterOpen] = useState(false);
+
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -60,57 +64,92 @@ export default function AdminTableFilter() {
   };
 
   return (
-    <div>
-      <h2>Filter options:</h2>
-      <form className={classes.registerForm3}>
-        <div className={classes.tickRow}>
-          <div>
-            <label>Pending registration</label>
-            <input
-              type="checkbox"
-              name="pending"
-              checked={bulkFilter[0]}
-              onChange={(event) => handleClick(event)}
-            ></input>
-          </div>
-          <div>
-            <label>Recently joined - last 7 days</label>
-            <input
-              type="checkbox"
-              name="recent"
-              checked={bulkFilter[1]}
-              onChange={(event) => handleClick(event)}
-            ></input>
-          </div>
-          <div>
-            <label>All users</label>
-            <input
-              type="checkbox"
-              name="all"
-              checked={bulkFilter[2]}
-              onChange={(event) => handleClick(event)}
-            ></input>
-          </div>
-          <div>
-            <label>Name</label>
-            <input
-              type="text"
-              name="name"
-              value={data.name}
-              onChange={(event) => handleSearch(event)}
-            ></input>
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              value={data.email}
-              onChange={(event) => handleSearch(event)}
-            ></input>
-          </div>
+    <div className={classes.filterContainer}>
+      <div className={classes.filterHeaderWrapper}>
+        <div>
+          <h2>Filter options:&nbsp;</h2>
         </div>
-      </form>
+        <div
+          className={classes.filterHeaderInnerWrapper}
+          onClick={() => setFilterOpen((val) => !val)}
+        >
+          {filterOpen ? (
+            <>
+              <h2>Hide</h2>
+              <Image
+                src={expandIcon}
+                style={{ transform: "rotate(180deg)" }}
+                alt="An icon representing hiding filter information"
+                width={100}
+                height={100}
+              />
+            </>
+          ) : (
+            <>
+              <h2>Show</h2>
+              <Image
+                src={expandIcon}
+                alt="An icon representing revealing filter information"
+                width={100}
+                height={100}
+              />
+            </>
+          )}
+        </div>
+      </div>
+      {filterOpen ? (
+        <form className={classes.filterForm}>
+          <div className={classes.checkboxContainer}>
+            <div>
+              <label>Pending registration</label>
+              <input
+                type="checkbox"
+                name="pending"
+                checked={bulkFilter[0]}
+                onChange={(event) => handleClick(event)}
+              ></input>
+            </div>
+            <div>
+              <label>Recently joined - last 7 days</label>
+              <input
+                type="checkbox"
+                name="recent"
+                checked={bulkFilter[1]}
+                onChange={(event) => handleClick(event)}
+              ></input>
+            </div>
+            <div>
+              <label>All users</label>
+              <input
+                type="checkbox"
+                name="all"
+                checked={bulkFilter[2]}
+                onChange={(event) => handleClick(event)}
+              ></input>
+            </div>
+          </div>
+          <div className={classes.infoContainer}>
+            <div>
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                value={data.name}
+                onChange={(event) => handleSearch(event)}
+              ></input>
+            </div>
+            <div>
+              <label>Email</label>
+              <input
+                type="text"
+                name="email"
+                value={data.email}
+                onChange={(event) => handleSearch(event)}
+              ></input>
+            </div>
+          </div>
+        </form>
+      ) : null}
     </div>
   );
 }

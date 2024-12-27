@@ -6,7 +6,7 @@ import { useSession } from "@/contexts/session-context";
 export default function GetNavData() {
   const { user } = useSession();
 
-  console.log(user);
+  // console.log(user);
 
   const navigationData = [
     {

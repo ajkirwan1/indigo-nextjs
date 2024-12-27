@@ -1,0 +1,56 @@
+.filterForm {
+    display: flex;
+    height: 20vh;
+    /* border: 1px solid black; */
+    padding: 10px;
+}
+
+.filterContainer {
+    text-align: left;
+  }
+  
+  .filterHeaderWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .filterHeaderWrapper img {
+    height: 20px;
+    width: auto;
+  }
+
+
+  .filterHeaderInnerWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .filterHeaderInnerWrapper:hover {
+    cursor: pointer;
+  }
+
+  .filterHeaderInnerWrapper:hover h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+.checkboxContainer {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.infoContainer {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.checkboxContainer > div {
+    display: flex;
+    gap: 1vw;
+    align-items: center
+}

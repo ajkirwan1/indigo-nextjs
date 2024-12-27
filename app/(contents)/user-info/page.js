@@ -6,7 +6,7 @@ export default async function UserInfo() {
 
   const {username, firstname } = user
 
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <title>INDIGO CONSULTING Logged-in User Information</title>

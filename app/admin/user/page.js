@@ -27,12 +27,11 @@ async function TableData({ query, name, email }) {
     resp = await FindAllUsers();
   }
 
+  resp = resp.filter(
+    (user) => user.firstname.includes(name) || user.lastname.includes(name)
+  );
 
-
-  resp = resp.filter(user => user.firstname.includes(name) || user.lastname.includes(name))
-
-  resp = resp.filter(user => user.email.includes(email))
-
+  resp = resp.filter((user) => user.email.includes(email));
 
   const { headerData, bodyData } = PrepareAdminClientData(resp);
   const theadData = [...headerData];
@@ -65,10 +64,12 @@ export default async function AdminPage(props) {
         <h1>REGISTERED USERS</h1>
         <hr />
       </div>
-      <AdminTableFilter />
+      <div className={classes.filterContainer}>
+        <AdminTableFilter />
+      </div>
       <div className={classes.tableContainer}>
         <Suspense fallback={<TableFallback />}>
-          <TableData query={query} name={name} email={email}/>
+          <TableData query={query} name={name} email={email} />
         </Suspense>
       </div>
     </>
