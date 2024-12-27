@@ -1,15 +1,15 @@
 /** @format */
 
-
-
 import classes from "./admin-client-homepage.module.css";
 import Link from "next/link";
 import { GetNewUsers } from "@/server/actions/db/admin/get-new-users";
+import { GetPendingUsers } from "@/server/actions/db/admin/get-pending-users";
 
 export default async function AdminClientHomepage() {
-
-  const newUsersLastSevenDays = await GetNewUsers()
-  const numberOfNewUsers = newUsersLastSevenDays.length
+  const newUsersLastSevenDays = await GetNewUsers();
+  const numberOfNewUsers = newUsersLastSevenDays.length;
+  const pendingUsers = await GetPendingUsers();
+  const numberOfPendingUsers = pendingUsers.length;
 
   return (
     <>
@@ -23,7 +23,7 @@ export default async function AdminClientHomepage() {
           </div>
           <div>
             <h3>Pending registration</h3>
-            <span>5</span>
+            <span>{numberOfPendingUsers}</span>
           </div>
         </div>
         <Link href="/admin/user">All users</Link>
