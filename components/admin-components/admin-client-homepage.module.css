@@ -1,16 +1,4 @@
-.itemWrapper {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    margin-top: 5vh;
-    border-radius: 5px;
-    margin-bottom: 5vh;
-    padding: 40px;
-    padding-left: 80px;
-    letter-spacing: normal;
-  }
-  
-  .linkWrapper {
+   .linkWrapper {
     display: flex;
   }
   
@@ -50,4 +38,18 @@
     color: #4d0013;
     text-decoration: underline;
     text-decoration-thickness: 1px;
+  }
+
+  @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+
+  }
+  
+  @media only screen and (min-width: 800px) and (max-width: 1600px) {
+
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .dataWrapper  {
+      flex-direction: column;
+    }
   }

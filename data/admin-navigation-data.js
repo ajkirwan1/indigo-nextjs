@@ -7,7 +7,7 @@ export const adminNavigationData = [
   },
   {
     title: "Clients",
-    url: "/admin",
+    url: "/admin/user",
   },
   {
     title: "Properties",

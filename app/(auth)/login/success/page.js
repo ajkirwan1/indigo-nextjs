@@ -24,8 +24,10 @@ export default async function RegisterPage() {
             <Link href="/properties">
               <p>You have 4 properties to view</p>
             </Link>
-
             <Link href="/">Return to homepage</Link>
+            <div>
+              <Link href="/user-info">Your details</Link>
+            </div>
           </div>
         </HeroComponent>
       </div>
