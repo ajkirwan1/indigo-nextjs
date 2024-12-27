@@ -12,7 +12,7 @@ import { Suspense } from "react";
 import TableFallback from "@/components/fallbacks/table-fallback";
 import AdminTableFilter from "@/components/admin-components/admin-table-client-filter";
 
-async function TableData({ query }) {
+async function TableData({ query, name, email }) {
   // await new Promise((resolve) => setTimeout(resolve, 4000));
 
   let resp;
@@ -27,11 +27,12 @@ async function TableData({ query }) {
     resp = await FindAllUsers();
   }
 
-  console.log(resp);
 
-  // const filteredVal = resp.filter(val => val.username.includes("prop"))
 
-  // console.log(filteredVal, "FIL")
+  resp = resp.filter(user => user.firstname.includes(name) || user.lastname.includes(name))
+
+  resp = resp.filter(user => user.email.includes(email))
+
 
   const { headerData, bodyData } = PrepareAdminClientData(resp);
   const theadData = [...headerData];
@@ -45,8 +46,8 @@ async function TableData({ query }) {
 export default async function AdminPage(props) {
   const searchParams = await props.searchParams;
   const query = searchParams?.query || "";
-
-  console.log(query);
+  const name = searchParams?.name || "";
+  const email = searchParams?.email || "";
 
   const { user } = await validateRequest();
 
@@ -67,7 +68,7 @@ export default async function AdminPage(props) {
       <AdminTableFilter />
       <div className={classes.tableContainer}>
         <Suspense fallback={<TableFallback />}>
-          <TableData query={query} />
+          <TableData query={query} name={name} email={email}/>
         </Suspense>
       </div>
     </>
