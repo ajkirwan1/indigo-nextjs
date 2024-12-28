@@ -45,21 +45,11 @@ export default function PrepareAdminClientData(data) {
 
     dataArr.consultingAccess = propertyAccessString;
 
-    // console.log(element["accessrequestdate"].toJSON().slice(0, 10), "DATEEEEEEEEEEE")
-    // console.log(typeof element["accessrequestdate"])
-
     dataList.push(element["accessrequestdate"].toLocaleDateString('en-GB'));
 
     dataArr.dateOfRequest = element["accessrequestdate"].toLocaleDateString('en-GB');
-    // dataList2.push(dataArr)
 
     arr.items = dataList;
-    // arr2.items = dataArr
-
-
-    console.log(arr2, "Arr2222")
-
-
 
     bodyData.push(arr);
     bodyData2.push(dataArr)
