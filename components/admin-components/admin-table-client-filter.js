@@ -86,7 +86,7 @@ export default function AdminTableFilter() {
   const handleReset = (event) => {
     event.preventDefault();
     const params = new URLSearchParams(searchParams);
-    console.log(params.toString())
+    // console.log(params.toString())
     setBulkFilter([false, false, false]);
     setData({ name: "", email: "" });
     params.delete('name');

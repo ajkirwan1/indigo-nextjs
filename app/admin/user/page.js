@@ -35,6 +35,11 @@ async function TableData({ query, name, email }) {
   resp = resp.filter((user) => user.email.includes(email));
 
   const { headerData, bodyData } = PrepareAdminClientData(resp);
+
+
+  
+
+
   const theadData = [...headerData];
   const tbodyData = [...bodyData];
 

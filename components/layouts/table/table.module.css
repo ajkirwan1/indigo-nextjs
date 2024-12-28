@@ -21,6 +21,25 @@
   padding-left: 12px;
 }
 
+.tdContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 12px;
+}
+
+.tdContainer:hover img,
+.tdContainer:hover span {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-thickness: 1px;
+}
+
+.admin td img {
+  height: 30px;
+  width: auto;
+}
+
 .admin tr {
   height: 6vh;
 }
