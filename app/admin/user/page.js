@@ -27,6 +27,7 @@ async function TableData({ query, name, email }) {
     resp = await FindAllUsers();
   }
 
+  
   resp = resp.filter(
     (user) => user.firstname.includes(name) || user.lastname.includes(name)
   );

@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import classes from "./admin-table-client-filter.module.css";
@@ -14,6 +14,21 @@ export default function AdminTableFilter() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  useEffect(() => {
+
+    const params = new URLSearchParams(searchParams);
+    console.log(searchParams);
+
+    params.delete("query");
+    params.delete("name");
+    params.delete("email");
+    replace(`${pathname}?${params.toString()}`);
+
+
+
+    console.log(window.history);
+  }, []);
 
   const handleClick = (event) => {
     const eventSource = event.target.name;
@@ -63,6 +78,18 @@ export default function AdminTableFilter() {
     // replace(`${pathname}?${params.toString()}`);
   };
 
+  const handleReset = (event) => {
+    event.preventDefault();
+    const params = new URLSearchParams(searchParams);
+    console.log(params.toString())
+    setBulkFilter([false, false, false]);
+    setData({ name: "", email: "" });
+    params.delete('name');
+    params.delete("email");
+    params.delete("query");
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className={classes.filterContainer}>
       <div className={classes.filterHeaderWrapper}>
@@ -98,7 +125,7 @@ export default function AdminTableFilter() {
         </div>
       </div>
       {filterOpen ? (
-        <form className={classes.filterForm}>
+        <form className={classes.filterForm} onSubmit={handleReset}>
           <div className={classes.checkboxContainer}>
             <div>
               <label>Pending registration</label>
@@ -148,6 +175,7 @@ export default function AdminTableFilter() {
               ></input>
             </div>
           </div>
+          <button type="submit">Reset</button>
         </form>
       ) : null}
     </div>
