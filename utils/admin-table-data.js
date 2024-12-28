@@ -31,7 +31,10 @@ export default function PrepareAdminClientData(data) {
     );
     dataList.push(consultingAccessString);
 
-    dataList.push(JSON.stringify(element["accessrequestdate"]));
+    // console.log(element["accessrequestdate"].toJSON().slice(0, 10), "DATEEEEEEEEEEE")
+    // console.log(typeof element["accessrequestdate"])
+
+    dataList.push(element["accessrequestdate"].toLocaleDateString('en-GB'));
 
     arr.items = dataList;
 
