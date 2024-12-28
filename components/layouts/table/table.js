@@ -5,17 +5,29 @@ import TableHeadItem from "./table-head-item";
 import TableRow from "./table-row";
 import classes from "./table.module.css";
 
-export default function Table({ theadData, tbodyData, customClass }) {
+export default function Table({
+  theadData,
+  tbodyData,
+  bodyData2,
+  customClass,
+}) {
   const [bodyData, setBodyData] = useState([...tbodyData]);
   const [ascending, setAscending] = useState({
     columnName: "Date of request",
     ascending: true,
   });
 
+
+  const sorted = [...bodyData2].sort((a, b) => b.name.localeCompare(a.name));
+  const sorted2 = [...bodyData2].sort((a, b) => a.name.localeCompare(b.name));
+
+  // const [first, ...rest] = sorted
+  // console.log(rest)
+
   const handleSort = (headerItem) => {
-    console.log(headerItem);
+    // console.log(headerItem);
     // console.log(tbodyData)
-    console.log(bodyData);
+    // console.log(bodyData);
 
     if (headerItem == ascending.columnName) {
       setAscending({ columnName: headerItem, ascending: !ascending.ascending });
@@ -46,8 +58,6 @@ export default function Table({ theadData, tbodyData, customClass }) {
         });
       }
     }
-
-    console.log(ascending);
   };
 
   return (
@@ -68,12 +78,21 @@ export default function Table({ theadData, tbodyData, customClass }) {
           </tr>
         </thead>
         <tbody>
-          {tbodyData.map((item) => {
+          {/* {tbodyData.map((item, index) => {
             return (
               <TableRow
                 id={item.userId ?? item.id}
-                key={item.userId ?? item.id}
+                key={index}
                 data={item.items}
+              />
+            );
+          })} */}
+          {sorted2.map((item, index) => {
+            return (
+              <TableRow
+                id={item.userId}
+                key={index}
+                data={item}
               />
             );
           })}

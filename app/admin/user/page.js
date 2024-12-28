@@ -34,17 +34,18 @@ async function TableData({ query, name, email }) {
 
   resp = resp.filter((user) => user.email.includes(email));
 
-  const { headerData, bodyData } = PrepareAdminClientData(resp);
+  const { headerData, bodyData, bodyData2 } = PrepareAdminClientData(resp);
 
 
-  
+  // console.log(bodyData2, "HERE")
+
 
 
   const theadData = [...headerData];
   const tbodyData = [...bodyData];
 
   return (
-    <Table theadData={theadData} tbodyData={tbodyData} customClass="admin" />
+    <Table theadData={theadData} tbodyData={tbodyData} bodyData2={bodyData2} customClass="admin" />
   );
 }
 

@@ -9,39 +9,67 @@ export default function PrepareAdminClientData(data) {
     "Date of request",
   ];
   let bodyData = [];
+  let bodyData2 = []
 
   data.forEach((element, index) => {
     let arr = {};
+    let arr2 = {};
     let dataList = [];
+    let dataArr = {}
+    let dataList2 = [];
 
     arr.userId = element["id"];
+    dataArr.userId = element["id"];
 
     const fullName = joinName(element["firstname"], element["lastname"]);
     dataList.push(fullName);
 
+    dataArr.name = fullName;
+
     dataList.push(element["email"]);
+
+    dataArr.email = element["email"];
 
     const propertyAccessString = convertAccessToString(
       element["propertyaccess"]
     );
     dataList.push(propertyAccessString);
 
+    dataArr.propertyAccess = propertyAccessString;
+
+
     const consultingAccessString = convertAccessToString(
       element["consultingaccess"]
     );
     dataList.push(consultingAccessString);
+
+    dataArr.consultingAccess = propertyAccessString;
 
     // console.log(element["accessrequestdate"].toJSON().slice(0, 10), "DATEEEEEEEEEEE")
     // console.log(typeof element["accessrequestdate"])
 
     dataList.push(element["accessrequestdate"].toLocaleDateString('en-GB'));
 
+    dataArr.dateOfRequest = element["accessrequestdate"].toLocaleDateString('en-GB');
+    // dataList2.push(dataArr)
+
     arr.items = dataList;
+    // arr2.items = dataArr
+
+
+    console.log(arr2, "Arr2222")
+
+
 
     bodyData.push(arr);
+    bodyData2.push(dataArr)
   });
 
-  return { headerData, bodyData };
+
+
+
+
+  return { headerData, bodyData, bodyData2 };
 }
 
 function joinName(firstName, lastName) {
