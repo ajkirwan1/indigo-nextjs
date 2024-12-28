@@ -18,16 +18,21 @@ export default function AdminTableFilter() {
   useEffect(() => {
 
     const params = new URLSearchParams(searchParams);
-    console.log(searchParams);
-
+    console.log(searchParams.toString());
+    if (params.get("firstnav"))
+    {
+      console.log("First Nav IS TRUE")
+      params.delete("firstnav");
+      replace(`${pathname}?${params.toString()}`);
+      return;
+     
+    }
     params.delete("query");
     params.delete("name");
     params.delete("email");
+    params.delete("firstNav");
     replace(`${pathname}?${params.toString()}`);
 
-
-
-    console.log(window.history);
   }, []);
 
   const handleClick = (event) => {

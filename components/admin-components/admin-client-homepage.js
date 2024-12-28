@@ -18,13 +18,13 @@ export default async function AdminClientHomepage() {
         <p>Links and information related to clients who have registered</p>
         <div className={classes.dataWrapper}>
           <div>
-            <Link href="admin/user?query=recent">
+            <Link href="admin/user?query=recent&firstnav=true">
               <h3>Recently joined</h3>
               <span>{numberOfNewUsers}</span>
             </Link>
           </div>
           <div>
-            <Link href="admin/user?query=pending">
+            <Link href="admin/user?query=pending&firstnav=true">
               <h3>Pending registration</h3>
               <span>{numberOfPendingUsers}</span>
             </Link>
