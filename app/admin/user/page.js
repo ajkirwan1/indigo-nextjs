@@ -13,7 +13,7 @@ import TableFallback from "@/components/fallbacks/table-fallback";
 import AdminTableFilter from "@/components/admin-components/admin-table-client-filter";
 
 async function TableData({ query, name, email }) {
-  // await new Promise((resolve) => setTimeout(resolve, 4000));
+  await new Promise((resolve) => setTimeout(resolve, 40000));
 
   let resp;
 
@@ -25,6 +25,10 @@ async function TableData({ query, name, email }) {
     resp = await FindAllUsers();
   } else {
     resp = await FindAllUsers();
+  }
+
+  if (resp.message) {
+    return (<h2>An error occured fetching the data</h2>)
   }
 
   resp = resp.filter(

@@ -3,19 +3,21 @@
 import db from "@/modules/db";
 
 export async function GetNewUsers() {
-  let date = new Date();
+  try {
+    let date = new Date();
 
-  date.setDate(date.getDate() - 7);
+    date.setDate(date.getDate() - 7);
 
-  const recentUsers = await db.user.findMany(
-    {
+    const recentUsers = await db.user.findMany({
       where: {
         accessrequestdate: {
           gte: new Date(date),
         },
       },
-    }
-  );
-
-  return recentUsers;
+    });
+    // throw Error
+    return recentUsers;
+  } catch (error) {
+    return { message: "Database Error: Failed to retrieve data" };
+  }
 }

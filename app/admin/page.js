@@ -1,9 +1,7 @@
 /** @format */
 
 import classes from "./page.module.css";
-import Link from "next/link";
 import AdminClientHomepage from "@/components/admin-components/admin-client-homepage";
-import AdminMessageHomepage from "@/components/admin-components/admin-messages-homepage";
 
 export default function AddProperties() {
   return (
@@ -15,9 +13,6 @@ export default function AddProperties() {
       </div>
       <div className={classes.itemWrapper}>
         <AdminClientHomepage />
-      </div>
-      <div className={classes.itemWrapper}>
-        <AdminMessageHomepage />
       </div>
       <div className={classes.itemWrapper}>
         <div className={classes.infoContainer}>

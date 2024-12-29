@@ -2,14 +2,13 @@
 
 import classes from "./admin-client-homepage.module.css";
 import Link from "next/link";
-import { GetNewUsers } from "@/server/actions/db/admin/get-new-users";
-import { GetPendingUsers } from "@/server/actions/db/admin/get-pending-users";
+import NewUsers from "./dashboard/recently-joined";
+import { Suspense } from "react";
+import PendingUsers from "./dashboard/pending-registration";
+import { Spinner } from "@nextui-org/spinner";
+import AllUsers from "./dashboard/all-users";
 
 export default async function AdminClientHomepage() {
-  const newUsersLastSevenDays = await GetNewUsers();
-  const numberOfNewUsers = newUsersLastSevenDays.length;
-  const pendingUsers = await GetPendingUsers();
-  const numberOfPendingUsers = pendingUsers.length;
 
   return (
     <>
@@ -20,17 +19,41 @@ export default async function AdminClientHomepage() {
           <div>
             <Link href="admin/user?query=recent&firstnav=true">
               <h3>Recently joined</h3>
-              <span>{numberOfNewUsers}</span>
+              <Suspense
+                fallback={
+                  <Spinner color="default" size="lg" className="spinner" />
+                }
+              >
+                <NewUsers />
+              </Suspense>
             </Link>
           </div>
           <div>
             <Link href="admin/user?query=pending&firstnav=true">
               <h3>Pending registration</h3>
-              <span>{numberOfPendingUsers}</span>
+              <Suspense
+                fallback={
+                  <Spinner color="default" size="lg" className="spinner" />
+                }
+              >
+                <PendingUsers />
+              </Suspense>
+            </Link>
+          </div>
+          <div>
+            <Link href="admin/user?query=pending&firstnav=true">
+              <h3>Total users</h3>
+              <Suspense
+                fallback={
+                  <Spinner color="default" size="lg" className="spinner" />
+                }
+              >
+                <AllUsers />
+              </Suspense>
             </Link>
           </div>
         </div>
-        <Link href="/admin/user">All users</Link>
+        {/* <Link href="/admin/user">All users</Link> */}
       </div>
     </>
   );
