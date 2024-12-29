@@ -217,10 +217,15 @@
 }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
   .contactIcon {
     height: auto;
     width: 35px;
+  }
+
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 16px;
   }
 
   .submitButtonContainer {
