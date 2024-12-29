@@ -14,10 +14,10 @@
 
 .pageWrapper p {
   line-height: 2.5rem;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 300;
   animation: fadeIn 2s;
-  max-width: 800px;
+  max-width: 1200px;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -25,6 +25,7 @@
 
 .pageWrapper h2 {
   font-weight: 300;
+  font-size: 30px;
 }
 
 .phoneIcon {
@@ -32,14 +33,22 @@
   width: 50px;
   margin: 20px;
 }
-.phoneIcon:hover {
+/* .phoneIcon:hover {
   animation: pop 0.3s linear 1;
-}
+} */
 
 .formcontainer {
   animation: fadeInLeft 1s;
   width: 550px;
 }
+
+/* .formcontainer input[type="text"],
+.formcontainer input[type="email"],
+.formcontainer textarea
+
+{
+font-size: 24px;
+} */
 
 .letsTalk {
   flex: 1 1 40%;
@@ -65,6 +74,7 @@
 
 .phoneAndEmail h3 {
   font-weight: 300;
+  font-size: 26px;
 }
 
 .mobileWrapper {
@@ -98,11 +108,11 @@
   transition: 0.3s ease;
 }
 
-@keyframes pop {
+/* @keyframes pop {
   50% {
     transform: scale(1.4);
   }
-}
+} */
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -181,16 +191,16 @@
   }
 
   .pageWrapper p {
-    line-height: 1.8rem;
-    font-size: 14px;
+    /* line-height: 1.8rem; */
+    font-size: 22px;
   }
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
-  .phoneIcon {
+  /* .phoneIcon {
     height: auto;
     width: 30px;
-  }
+  } */
 
   .mobileWrapper .contactIcon {
     height: auto;
@@ -198,22 +208,26 @@
   }
 
   .pageWrapper p {
-    line-height: 1.6rem;
-    font-size: 14px;
+    /* line-height: 1.8rem; */
+    font-size: 20px;
   }
 
   .phoneAndEmail {
-    margin-top: 12vh;
+    /* margin-top: 12vh; */
     line-height: 3vw;
     letter-spacing: 0.4vh;
     font-size: 9px;
+  }
+
+  .phoneAndEmail h3 {
+    font-size: 22px;
   }
 }
 
 /* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .pageWrapper {
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
   }
 
   .formContainer {
@@ -222,7 +236,7 @@
   }
   .phoneIcon {
     height: auto;
-    width: 25px;
+    width: 35px;
   }
 
   .mobileWrapper .contactIcon {
@@ -231,14 +245,19 @@
   }
 
   .pageWrapper p {
-    line-height: 2rem;
-    font-size: 14px;
-    max-width: 600px;
+    /* line-height: 2rem;
+    font-size: 14px; */
+    /* max-width: 600px; */
+    font-size: 20px;
     /* letter-spacing: 0.2rem; */
   }
-  .phoneAndEmail {
+  /* .phoneAndEmail {
     letter-spacing: 0.1vw;
     font-size: 14px;
+  } */
+
+  .phoneAndEmail h3 {
+    font-size: 20px;
   }
 }
 

@@ -20,11 +20,8 @@
 
 .loginForm input,
 .loginForm textarea {
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 300;
-
-  /* font-weight: 200;
-color: black; */
 }
 
 .form label {
@@ -204,17 +201,33 @@ color: black; */
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
+  .loginForm input,
+.loginForm textarea {
+  font-size: 20px;
+}
+
+
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .loginForm input,
+.loginForm textarea {
+  font-size: 18px;
+}
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .contactIcon {
     height: auto;
-    width: 30px;
+    width: 35px;
   }
 
   .submitButtonContainer {
-    margin: 2vh;
-    /* display: flex; */
+    /* margin: 2vh;
+    display: flex;
     width: 150px;
-    height: 40px;
+    height: 40px; */
   }
 }
 
