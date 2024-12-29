@@ -27,25 +27,25 @@ async function TableData({ query, name, email }) {
     resp = await FindAllUsers();
   }
 
-  
   resp = resp.filter(
     (user) => user.firstname.includes(name) || user.lastname.includes(name)
   );
 
   resp = resp.filter((user) => user.email.includes(email));
 
-  const { headerData, bodyData, bodyData2 } = PrepareAdminClientData(resp);
+  console.log(resp, "RESPONSE")
 
-
-  // console.log(bodyData2, "HERE")
-
-
+  const { headerData,  bodyData2 } = PrepareAdminClientData(resp);
 
   const theadData = [...headerData];
-  const tbodyData = [...bodyData];
+  const tbodyData = [...bodyData2];
 
   return (
-    <Table theadData={theadData} tbodyData={tbodyData} bodyData2={bodyData2} customClass="admin" />
+    <Table
+      theadData={theadData}
+      tbodyData={tbodyData}
+     customClass="admin"
+    />
   );
 }
 
@@ -54,6 +54,8 @@ export default async function AdminPage(props) {
   const query = searchParams?.query || "";
   const name = searchParams?.name || "";
   const email = searchParams?.email || "";
+
+  console.log(query);
 
   const { user } = await validateRequest();
 

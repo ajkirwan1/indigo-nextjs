@@ -6,6 +6,7 @@ import classes from "./table.module.css";
 import React from "react";
 
 export default function TableRow({ data, id }) {
+
   const pathName = usePathname();
   const router = useRouter();
 

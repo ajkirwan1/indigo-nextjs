@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TableHeadItem from "./table-head-item";
 import TableRow from "./table-row";
 import classes from "./table.module.css";
@@ -10,60 +10,67 @@ import SortStringDescending from "@/utils/admin/table-sort/string-sort-descendin
 export default function Table({
   theadData,
   tbodyData,
-  bodyData2,
   customClass,
 }) {
-  const [bodyData, setBodyData] = useState([...bodyData2]);
+  const [bodyData, setBodyData] = useState([...tbodyData]);
   const [ascending, setAscending] = useState({
     columnName: "Date of request",
-    ascending: true,
+    ascending: false,
   });
 
-  // const sorted = [...bodyData2].sort((a, b) => b.name.localeCompare(a.name));
-  // const sorted2 = [...bodyData2].sort((a, b) => a.name.localeCompare(b.name));
+useEffect(() => {
+  setBodyData([...tbodyData])
+}, [tbodyData])
+
+  const headerNameMapper = new Map([
+    ["Name", "name"],
+    ["Email", "email"],
+    ["Property access", "propertyAccess"],
+    ["Consulting access", "consultingAccess"],
+    ["Date of request", "dateOfRequest"],
+  ]);
 
   const handleSort = (headerItem) => {
-    console.log(headerItem);
-    console.log(bodyData);
-    let tableData;
+    const filterItem = headerNameMapper.get(headerItem);
 
     if (headerItem == ascending.columnName) {
       setAscending({ columnName: headerItem, ascending: !ascending.ascending });
       if (ascending.ascending) {
-        setBodyData(SortStringAscending(bodyData2, "name"));
+        setBodyData(SortStringDescending(tbodyData, filterItem));
       } else {
-        setBodyData(SortStringDescending(bodyData2, "name"));
+        setBodyData(SortStringAscending(tbodyData, filterItem));
       }
     } else {
       if (headerItem == "Name") {
-        setAscending({ columnName: "Name", ascending: true });
-        setBodyData(SortStringAscending(bodyData2, "name"));
+        setAscending({ columnName: "Name", ascending: false });
+        setBodyData(SortStringDescending(tbodyData, filterItem));
       } else if (headerItem == "Email") {
         setAscending({ columnName: "Email", ascending: true });
+        setBodyData(SortStringDescending(tbodyData, filterItem));
       } else if (headerItem == "Property access") {
         setAscending({
           columnName: "Property access",
-          ascending: true,
+          ascending: false,
         });
+        setBodyData(SortStringDescending(tbodyData, filterItem));
       } else if (headerItem == "Consulting access") {
         setAscending({
           columnName: "Consulting access",
-          ascending: true,
+          ascending: false,
         });
+        setBodyData(SortStringDescending(tbodyData, filterItem));
       } else if (headerItem == "Date of request") {
         setAscending({
           columnName: "Date of request",
-          ascending: true,
+          ascending: false,
         });
       } else {
         setAscending({
           columnName: "Date of request",
-          ascending: true,
+          ascending: false,
         });
       }
     }
-
-    // setBodyData([...tableData])
   };
 
   return (
@@ -84,15 +91,6 @@ export default function Table({
           </tr>
         </thead>
         <tbody>
-          {/* {tbodyData.map((item, index) => {
-            return (
-              <TableRow
-                id={item.userId ?? item.id}
-                key={index}
-                data={item.items}
-              />
-            );
-          })} */}
           {bodyData.map((item, index) => {
             return <TableRow id={item.userId} key={index} data={item} />;
           })}

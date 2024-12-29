@@ -21,7 +21,7 @@ export default function AdminTableFilter() {
     console.log(searchParams.toString());
     if (params.get("firstnav"))
     {
-      console.log("First Nav IS TRUE")
+      // console.log("First Nav IS TRUE")
       params.delete("firstnav");
       replace(`${pathname}?${params.toString()}`);
       return;
