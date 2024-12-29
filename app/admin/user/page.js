@@ -33,8 +33,6 @@ async function TableData({ query, name, email }) {
 
   resp = resp.filter((user) => user.email.includes(email));
 
-  console.log(resp, "RESPONSE")
-
   const { headerData,  bodyData2 } = PrepareAdminClientData(resp);
 
   const theadData = [...headerData];
@@ -54,8 +52,6 @@ export default async function AdminPage(props) {
   const query = searchParams?.query || "";
   const name = searchParams?.name || "";
   const email = searchParams?.email || "";
-
-  console.log(query);
 
   const { user } = await validateRequest();
 

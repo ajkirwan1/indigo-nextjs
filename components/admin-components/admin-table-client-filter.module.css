@@ -1,12 +1,17 @@
 .filterForm {
     display: flex;
-    height: 20vh;
-    /* border: 1px solid black; */
+    flex: 1;
+    /* height: 20vh; */
     padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .filterContainer {
     text-align: left;
+    display: flex;
+    height: 15vh;
+    margin-bottom: 2vh;
   }
   
   .filterHeaderWrapper {
@@ -37,7 +42,7 @@
   }
 
 .checkboxContainer {
-    flex-basis: 40%;
+    /* flex-basis: 40%; */
     display: flex;
     flex-direction: column;
     gap: 2vh;
@@ -53,4 +58,11 @@
     display: flex;
     gap: 1vw;
     align-items: center
+}
+
+.submitButtonContainer {
+  /* margin-top: 2vh; */
+  display: flex;
+  width: 150px;
+  height: 40px;
 }

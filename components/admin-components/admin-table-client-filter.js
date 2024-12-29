@@ -5,6 +5,7 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import classes from "./admin-table-client-filter.module.css";
 import expandIcon from "/public/images/icons/icons8-expand-arrow-50.png";
+import SubmitButton from "../ui/buttons/submit-button";
 
 export default function AdminTableFilter() {
   const [bulkFilter, setBulkFilter] = useState([false, false, false]);
@@ -16,23 +17,19 @@ export default function AdminTableFilter() {
   const { replace } = useRouter();
 
   useEffect(() => {
-
     const params = new URLSearchParams(searchParams);
     console.log(searchParams.toString());
-    if (params.get("firstnav"))
-    {
+    if (params.get("firstnav")) {
       // console.log("First Nav IS TRUE")
       params.delete("firstnav");
       replace(`${pathname}?${params.toString()}`);
       return;
-     
     }
     params.delete("query");
     params.delete("name");
     params.delete("email");
     params.delete("firstNav");
     replace(`${pathname}?${params.toString()}`);
-
   }, []);
 
   const handleClick = (event) => {
@@ -86,10 +83,9 @@ export default function AdminTableFilter() {
   const handleReset = (event) => {
     event.preventDefault();
     const params = new URLSearchParams(searchParams);
-    // console.log(params.toString())
     setBulkFilter([false, false, false]);
     setData({ name: "", email: "" });
-    params.delete('name');
+    params.delete("name");
     params.delete("email");
     params.delete("query");
     replace(`${pathname}?${params.toString()}`);
@@ -110,7 +106,7 @@ export default function AdminTableFilter() {
               <h2>Hide</h2>
               <Image
                 src={expandIcon}
-                style={{ transform: "rotate(180deg)" }}
+                style={{ transform: "rotate(90deg)" }}
                 alt="An icon representing hiding filter information"
                 width={100}
                 height={100}
@@ -121,6 +117,7 @@ export default function AdminTableFilter() {
               <h2>Show</h2>
               <Image
                 src={expandIcon}
+                style={{ transform: "rotate(270deg)" }}
                 alt="An icon representing revealing filter information"
                 width={100}
                 height={100}
@@ -180,7 +177,9 @@ export default function AdminTableFilter() {
               ></input>
             </div>
           </div>
-          <button type="submit">Reset</button>
+          <div className={classes.submitButtonContainer}>
+            <SubmitButton>Reset</SubmitButton>
+          </div>
         </form>
       ) : null}
     </div>
