@@ -29,7 +29,7 @@
 
 .phoneIcon {
   height: auto;
-  width: 40px;
+  width: 50px;
   margin: 20px;
 }
 .phoneIcon:hover {
@@ -166,16 +166,16 @@
   }
 }
 
-@media only screen and (min-width: 1800px) {
+/* @media only screen and (min-width: 1800px) {
   .pageWrapper h2 {
     font-size: 40px;
   }
   .formContainer {
     width: 550px;
   }
-}
+} */
 
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .pageWrapper h2 {
     font-size: 28px;
   }
@@ -192,7 +192,7 @@
     width: 30px;
   }
 
-  .contactIcon {
+  .mobileWrapper .contactIcon {
     height: auto;
     width: 30px;
   }
@@ -225,7 +225,7 @@
     width: 25px;
   }
 
-  .contactIcon {
+  .mobileWrapper .contactIcon {
     height: auto;
     width: 20px;
   }

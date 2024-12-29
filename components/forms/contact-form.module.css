@@ -77,7 +77,7 @@ color: black; */
 
 .contactIcon {
   height: auto;
-  width: 35px;
+  width: 50px;
 }
 .contactIcon:hover {
   animation: pop 0.3s linear 1;
