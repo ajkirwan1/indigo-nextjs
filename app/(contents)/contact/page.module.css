@@ -38,7 +38,7 @@
 
 .formcontainer {
   animation: fadeInLeft 1s;
-  /* width: 550px; */
+  width: 550px;
 }
 
 .letsTalk {
