@@ -49,5 +49,11 @@
 }
 
 .admin .pending {
-  background-color: #f5cdb469;
+  background-color: #ed9527;
+}
+
+.toolTip {
+  min-height: 7vh;
+  min-width: 10vw;
+  color: aliceblue;
 }

@@ -13,7 +13,7 @@ import TableFallback from "@/components/fallbacks/table-fallback";
 import AdminTableFilter from "@/components/admin-components/admin-table-client-filter";
 
 async function TableData({ query, name, email }) {
-  await new Promise((resolve) => setTimeout(resolve, 40000));
+  await new Promise((resolve) => setTimeout(resolve, 4000));
 
   let resp;
 
