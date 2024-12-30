@@ -243,23 +243,31 @@
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
   .moreContainer h2 {
-    font-size: 18px;
+    font-size: 24px;
   }
-  .popupContainerOpen p {
-    font-size: 18px;
-  }
+  .popupContainerOpen p,
   .popupContainerClosed p,
-  .lessContainer p {
-    font-size: 16px;
+  .lessContainer p 
+   {
+    font-size: 22px;
   }
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen  and (max-width: 1920px) {
   .page {
     grid-template-columns: repeat(2, 49%);
   }
-  .popupContainerOpen p {
-    font-size: 16px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .moreContainer h2 {
+    font-size: 24px;
+  }
+
+  .popupContainerOpen p,
+  .popupContainerClosed p,
+  .lessContainer p {
+    font-size: 22px;
   }
 }
 
@@ -267,7 +275,6 @@
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .moreContainer h2 {
     color: aliceblue;
-    font-size: 18px;
     font-weight: 300;
   }
   .shareIcon {
@@ -276,15 +283,19 @@
     margin-left: 80px;
   }
 
-  .popupContainerOpen p {
+  /* .popupContainerOpen p {
     font-size: 16px;
-  }
+  } */
 
-  .popupContainerClosed p,
-  .lessContainer p {
-    font-size: 16px;
+
+}
+
+@media only screen and (max-width: 1400px) {
+  .page {
+    grid-template-columns: 1fr;
   }
 }
+
 
 @media only screen and (max-width: 800px) {
   .header h1 {
@@ -296,7 +307,8 @@
     text-align: center;
   }
   .page {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
+    width: unset;
   }
 
   .popupContainerClosed p,
