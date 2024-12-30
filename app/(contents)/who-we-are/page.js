@@ -11,9 +11,9 @@ function LargeSection() {
         <div className={classes.paragraphWrapper}>
           <h2>INDIGO</h2>
           <p>
-            Established in 2021 by Emmanuel Petrakis. Stands as a bespoke real
+            Established in 2021 by Emmanuel Petrakis, Indigo Consulting stands as a bespoke real
             estate consulting firm capitalizing on strategic investment
-            opportunities. Boasting 25 years of experience and local knowledge.
+            opportunities, boasting 25 years of experience and local knowledge.
           </p>
           <p>
             Indigo serves as a trusted service company to investors, providing

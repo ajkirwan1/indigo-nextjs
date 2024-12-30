@@ -311,9 +311,11 @@
     width: unset;
   }
 
+  .popupContainerOpen p,
   .popupContainerClosed p,
   .lessContainer p {
     font-size: 16px;
+    line-height: 1.2rem;
   }
 }
 @media only screen and (max-width: 600px) {
