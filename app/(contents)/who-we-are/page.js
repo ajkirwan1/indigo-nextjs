@@ -7,7 +7,6 @@ import emmanImage from "/public/images/pages/who-we-are/eman.jpg";
 
 function LargeSection() {
   return (
-    <div>
       <div className={classes.sectionContainer}>
         <div className={classes.paragraphWrapper}>
           <h2>INDIGO</h2>
@@ -60,7 +59,6 @@ function LargeSection() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 
