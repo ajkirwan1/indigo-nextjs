@@ -297,6 +297,12 @@
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
   }
+  .paragraphWrapper p:nth-child(4){
+    animation: fadeInLeft 1s;
+    animation-delay: .8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
   .paragraphWrapperRight {
     max-width: unset;
   }
