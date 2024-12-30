@@ -6,13 +6,13 @@ import NavLink from "@/components/nav-link";
 import classes from "./header.module.css";
 import NavLinkMobile from "@/components/nav-link-mobile";
 
-export default function MobileNavigationItems({ items,handleMobileIcon }) {
+export default function MobileNavigationItems({ items, handleMobileIcon }) {
   const [dropdown, setDropdown] = useState(false);
 
-  const handleClick = () => {
+  // const handleClick = () => {
     
-    console.log("CLICK")
-  };
+  //   console.log("CLICK")
+  // };
 
   return (
     <motion.div
@@ -35,7 +35,7 @@ export default function MobileNavigationItems({ items,handleMobileIcon }) {
             <Dropdown submenus={items.submenu} dropdown={dropdown} />
           </>
         ) : (
-          <NavLinkMobile href={items.url}>
+          <NavLinkMobile href={items.url} handleMobileIcon={handleMobileIcon}>
             <h1>{items.title}</h1>
           </NavLinkMobile>
         )}

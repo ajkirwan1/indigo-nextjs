@@ -17,6 +17,7 @@ const container = {
       // bounce: 0,
     },
   },
+  remove: { backgroundColor: "#ffff", duration: 500 },
 };
 
 export default function MobileNavbar({
@@ -42,13 +43,18 @@ export default function MobileNavbar({
           variants={container}
           initial="hidden"
           whileInView="show"
+          // animate={mobileMenuOpen ? "remove" : null}
           className={
             mobileMenuOpen
               ? `${classes.desktopNav}`
               : `${classes.desktopNav} ${classes.hidden}`
           }
         >
-          <ul className={classes.menus}>
+          <ul
+            className={classes.menus}
+            variants={container}
+            // animate={mobileMenuOpen ? "remove" : null}
+          >
             {data.map((menu, index) => {
               return (
                 <MobileNavigationItems
