@@ -30,7 +30,7 @@
 .blogPageContainer ul,
 .blogPageContainerSkeleton ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   column-gap: 1.5vw;
   text-align: left;
@@ -114,12 +114,31 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2vw;
+  }
   .avatar {
     height: 35px;
     width: 35px;
   }
 }
 
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
@@ -130,8 +149,7 @@
   }
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 5vw;
+    column-gap: 2vw;
   }
 
   .blogPageContainer p {
@@ -146,6 +164,7 @@
     width: 30px;
   }
 }
+
 
 @media only screen and (max-width: 800px) {
   .header h1 {
