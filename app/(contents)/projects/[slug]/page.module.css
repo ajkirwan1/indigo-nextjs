@@ -20,15 +20,8 @@
 
 .openingSection,
 .secondSection {
-  /* margin-top: 15vh; */
   margin-bottom: 5vh;
 }
-
-/* .openingSection p {
-      padding: 20px;
-      margin: 0;
-      max-width: 60vw;
-    } */
 
 .openingSection p,
 .secondSection p {
@@ -80,11 +73,6 @@
 .subHeader > p {
   font-size: 28px;
 }
-
-/* .thirdSection > h2 {
-      font-size: 100px;
-    } */
-
 .carouselContainer {
   width: 60vw;
   margin: auto;
@@ -119,23 +107,6 @@
   font-weight: 100;
   letter-spacing: normal;
 }
-/* .heroHeader {
-  color: aliceblue;
-  display: flex;
-  align-items: center;
-  top: 0;
-  width: 100%;
-} */
-/* .propertyInfo {
-  padding: 1.5vh;
-  width: 12vw;
-  display: flex;
-  flex-direction: column;
-  margin-left: 5vw;
-  margin-top: 5vh;
-  background-color: rgba(40, 40, 40, 0.456);
-  backdrop-filter: blur(1px);
-} */
 
 .propertyInfo {
   padding: 2vh;

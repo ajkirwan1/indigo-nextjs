@@ -39,22 +39,9 @@
   width: 50px;
   margin: 20px;
 }
-/* .phoneIcon:hover {
-  animation: pop 0.3s linear 1;
-} */
-
 .formcontainer {
   animation: fadeInLeft 1s;
-  width: 550px;
 }
-
-/* .formcontainer input[type="text"],
-.formcontainer input[type="email"],
-.formcontainer textarea
-
-{
-font-size: 24px;
-} */
 
 .letsTalk {
   flex: 1 1 40%;
@@ -113,12 +100,6 @@ font-size: 24px;
   align-items: center;
   transition: 0.3s ease;
 }
-
-/* @keyframes pop {
-  50% {
-    transform: scale(1.4);
-  }
-} */
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -182,44 +163,27 @@ font-size: 24px;
   }
 }
 
-/* @media only screen and (min-width: 1800px) {
-  .pageWrapper h2 {
-    font-size: 40px;
-  }
-  .formContainer {
-    width: 550px;
-  }
-} */
-
 @media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .pageWrapper h2 {
     font-size: 28px;
   }
 
   .pageWrapper p {
-    /* line-height: 1.8rem; */
     font-size: 22px;
   }
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
-  /* .phoneIcon {
-    height: auto;
-    width: 30px;
-  } */
-
   .mobileWrapper .contactIcon {
     height: auto;
     width: 30px;
   }
 
   .pageWrapper p {
-    /* line-height: 1.8rem; */
     font-size: 20px;
   }
 
   .phoneAndEmail {
-    /* margin-top: 12vh; */
     line-height: 3vw;
     letter-spacing: 0.4vh;
     font-size: 9px;
@@ -232,10 +196,6 @@ font-size: 24px;
 
 /* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
-  .pageWrapper {
-    /* padding-bottom: 40px; */
-  }
-
   .formContainer {
     width: unset;
     width: 80%;
@@ -251,19 +211,11 @@ font-size: 24px;
   }
 
   .pageWrapper p {
-    /* line-height: 2rem;
-    font-size: 14px; */
-    /* max-width: 600px; */
     font-size: 20px;
-    /* letter-spacing: 0.2rem; */
   }
-  /* .phoneAndEmail {
-    letter-spacing: 0.1vw;
-    font-size: 14px;
-  } */
-
   .phoneAndEmail h3 {
     font-size: 20px;
+    line-height: 2rem;
   }
 }
 
@@ -307,10 +259,10 @@ font-size: 24px;
 
   .pageWrapper p {
     line-height: 1.5rem;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 300;
     animation: fadeIn 2s;
-    max-width: 300px;
+    max-width: 70vw;
     margin: auto;
     margin-top: 0;
     margin-bottom: 0;
