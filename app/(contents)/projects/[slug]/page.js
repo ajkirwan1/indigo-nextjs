@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 import { getSingleProject } from "@/server/actions/contentful/get-single-project-action";
 import Header from "@/components/ui/header/header";
+import SwiperComponent from "@/components/pages/projects/swiper";
 
 export async function generateStaticParams() {
   const posts = await getAllProjects();
@@ -23,8 +24,9 @@ function Success({ result }) {
     carouselImagesUrls.push(entry[1].fields.file.url);
   });
   return (
-    <div className={classes.heroWrapper}>
-      <ProjectCarousel images={carouselImagesUrls}>
+    <>
+      <div className={classes.heroWrapper}>
+        {/* <ProjectCarousel images={carouselImagesUrls}>
         <div className={classes.titleHeader}>
           <h1>{title}</h1>
           <p>{description}</p>
@@ -52,8 +54,12 @@ function Success({ result }) {
         <div className={classes.linkContainer}>
           <Link href="/projects">Back</Link>
         </div>
-      </ProjectCarousel>
-    </div>
+      </ProjectCarousel> */}
+      </div>
+      <div className={classes.swiperContainer}>
+        <SwiperComponent images={carouselImagesUrls} />
+      </div>
+    </>
   );
 }
 

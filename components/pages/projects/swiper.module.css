@@ -1,0 +1,16 @@
+/** @format */
+
+.imgWrapper {
+  height: 100%;
+}
+.swiperSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+}
