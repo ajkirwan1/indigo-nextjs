@@ -195,6 +195,29 @@
   font-size: 24px !important;
 }
 
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 @keyframes pop {
   50% {
     transform: scale(1.4);
@@ -256,6 +279,41 @@
     display: flex;
     flex-direction: column;
     /* letter-spacing: normal; */
+  }
+
+  .loginForm div:nth-of-type(1) {
+    animation: fadeInLeft 1s;
+    animation-delay: 1.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(2) {
+    animation: fadeInLeft 1s;
+    animation-delay: 1.8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(3) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.0s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(4) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(5) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
   }
 
   .formItemContainer {

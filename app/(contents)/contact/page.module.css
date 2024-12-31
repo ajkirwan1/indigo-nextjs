@@ -133,7 +133,7 @@
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-10px);
   }
   100% {
     opacity: 1;
@@ -263,13 +263,62 @@
     font-weight: 300;
     animation: fadeIn 2s;
     max-width: 70vw;
-    margin: auto;
+    /* margin: auto;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0; */
   }
 
-  .pageWrapper h2 {
-    font-size: 20px;
+  .pageWrapper p:nth-child(1) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: .2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .letsTalk {
+    animation: unset;
+  }
+
+  .letsTalk h2{
+    animation: fadeInLeft 0.5s;
+    animation-delay: .4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+  .letsTalk img{
+    animation: fadeInLeft 0.5s;
+    animation-delay: .6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .letsTalk img{
+    animation: fadeInLeft 0.5s;
+    animation-delay: .6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+
+
+  .phoneAndEmail {
+    margin-top: 0;
+    line-height: 4vh;
+    letter-spacing: 0.1rem;
+  }
+
+  .phoneAndEmail h3:nth-child(1) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: .8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .phoneAndEmail h3:nth-child(2) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
   }
 
   .formcontainer {
@@ -277,15 +326,43 @@
     width: 80%;
   }
 
+  /* .formcontainer .loginForm {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 10s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  } */
+
+  .formcontainer h2 {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .formcontainer img {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1.4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+
+  .pageWrapper h2 {
+    font-size: 20px;
+  }
+
+
+
   .wrapper {
     flex-direction: column;
   }
 
-  .phoneAndEmail {
+  /* .phoneAndEmail {
     margin-top: 0;
     line-height: 4vh;
     letter-spacing: 0.1rem;
-  }
+  } */
 
   .phoneAndEmail h3 {
     font-weight: 300;

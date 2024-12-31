@@ -3,10 +3,8 @@
 import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
-import { useState } from "react";
 import Image from "next/image";
 import phoneIcon from "/public/images/icons/phoneblue.png";
-import contactIcon from "/public/images/icons/envelope.png";
 
 export default function ContactUsPage() {
   return (
