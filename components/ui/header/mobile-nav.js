@@ -1,5 +1,5 @@
 /** @format */
-
+'use client'
 import MobileNavigationItems from "./mobile-navigation-items";
 import ModalBackdrop from "@/components/modal-backdrop";
 import classes from "./header.module.css";
@@ -18,9 +18,24 @@ const container = {
   remove: { backgroundColor: "#ffff", duration: 500 },
 };
 
+const removeContainer = {
+  start: { opacity: 1 },
+  finish: {
+    opacity: 0,
+    // transition: {
+    //   duration: 30,
+    // },
+  },
+};
+
 const item = {
   hidden: { opacity: 0, x: -5 },
   show: { opacity: 1, x: 0, transition: { ease: "easeIn" } },
+};
+
+const removeItem = {
+  start: { opacity: 1 },
+  finish: { opacity: 0 },
 };
 
 export default function MobileNavbar({
@@ -39,14 +54,6 @@ export default function MobileNavbar({
         }
       >
         <nav
-          // initial={{ opacity:0 }}
-          // whileInView={{ opacity:1 }}
-          // transition={{ duration: 0.1, delay: 0.3 }}
-          // layout
-          // variants={container}
-          // initial="hidden"
-          // whileInView="show"
-          // animate={mobileMenuOpen ? "remove" : null}
           className={
             mobileMenuOpen
               ? `${classes.desktopNav}`
@@ -55,7 +62,7 @@ export default function MobileNavbar({
         >
           <motion.ul
             className={classes.menus}
-            variants={container}
+            variants={mobileMenuOpen ? container  : removeContainer}
             initial="hidden"
             whileInView="show"
             // animate={mobileMenuOpen ? "remove" : null}

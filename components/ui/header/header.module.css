@@ -67,6 +67,7 @@
   width: 0;
   height: 100vh;
   transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   height: 100wv;
   overflow: hidden;
   z-index: 20;
@@ -98,6 +99,7 @@
   background-color: #4d0013;
   z-index: 20;
   transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
 .mobileNavContainer nav,
