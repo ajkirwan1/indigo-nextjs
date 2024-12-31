@@ -76,9 +76,9 @@
   height: auto;
   width: 50px;
 }
-.contactIcon:hover {
+/* .contactIcon:hover {
   animation: pop 0.3s linear 1;
-}
+} */
 
 .ItemA {
   grid-column-start: 1;
@@ -218,11 +218,11 @@
 }
 
 
-@keyframes pop {
+/* @keyframes pop {
   50% {
     transform: scale(1.4);
   }
-}
+} */
 
 @media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .loginForm input,

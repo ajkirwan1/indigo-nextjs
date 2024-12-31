@@ -3,7 +3,7 @@
 import { RxCross2 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MobileNavbar from "./mobile-nav";
 import { navigationData } from "@/data/navigation-data";
 
