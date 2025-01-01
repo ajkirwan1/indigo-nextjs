@@ -4,7 +4,7 @@ import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
-
+import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 
 function ProjectItem({ data }) {
   const { title, thumbnailImage, investmentReturn, description, slug } =
@@ -33,14 +33,13 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getAllProjects();
 
   if (result.error) {
     throw new Error(result.error.message);
   }
 
-  
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
