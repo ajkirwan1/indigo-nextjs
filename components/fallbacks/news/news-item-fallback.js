@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 
 /** @format */
@@ -12,7 +14,12 @@ export default function NewsItemFallback() {
   return (
     <div>
       <Skeleton variant="rectangular" width="100%">
-        <Image width={750} height={500} className={classes.image} />
+        <Image
+          width={750}
+          height={500}
+          className={classes.image}
+          alt="A placeholder image for a loading skeleton"
+        />
       </Skeleton>
       <Typography variant="h1">
         <Skeleton></Skeleton>

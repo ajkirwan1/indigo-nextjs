@@ -33,13 +33,14 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
+  await new Promise((resolve) => setTimeout(resolve, 10000));
   const result = await getAllProjects();
 
   if (result.error) {
     throw new Error(result.error.message);
   }
 
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  
   return (
     <>
       <title>INDIGO Consulting Projects Page</title>
