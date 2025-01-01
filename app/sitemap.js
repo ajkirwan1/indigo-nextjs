@@ -1,19 +1,19 @@
 export default function sitemap() {
     return [
       {
-        url: 'https://Indigo-consulting.com',
+        url: 'https://indigo-consulting.com',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 1,
       },
       {
-        url: 'https://Indigo-consulting.com/blog',
+        url: 'https://indigo-consulting.com/blog',
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
       },
       {
-        url: 'https://Indigo-consulting.com/contact',
+        url: 'https://indigo-consulting.com/contact',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.5,
