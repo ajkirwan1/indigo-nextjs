@@ -1,5 +1,5 @@
 /** @format */
-
+"use client";
 import ProjectItemFallback from "@/components/fallbacks/projects/project-item-fallback";
 import classes from "./page.module.css";
 import Skeleton from "@mui/material/Skeleton";
