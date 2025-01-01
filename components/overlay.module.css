@@ -14,27 +14,27 @@
   filter: invert(1);
 }
 
-.overlay h1 {
-  font-size: 1rem;
+/* .overlay h1 {
+  font-size: 1.6rem;
   line-height: 1.6;
   font-weight: 300;
-}
+} */
 
 @media only screen and (min-width: 1800px) {
-  .overlay h1 {
+  /* .overlay h1 {
     font-size: 1.6rem;
-  }
+  } */
 }
 @media only screen and (min-width: 1200px) and (max-width: 1799px) {
-  .overlay h1 {
+  /* .overlay h1 {
     font-size: 1.5rem;
-  }
+  } */
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
-  .overlay h1 {
+  /* .overlay h1 {
     font-size: 1.2rem;
-  }
+  } */
   .overlay {
     padding: 50px;
     padding-left: 80px;
@@ -52,9 +52,9 @@
     padding-right: 0;
     /* width: 100%; */
   }
-  .overlay h1 {
+  /* .overlay h1 {
     font-size: 1.1rem;
     font-weight: 200;
     padding: 0.85vh;
-  }
+  } */
 }

@@ -67,6 +67,12 @@
   transform: translate(-50%, -50%);
 }
 
+.heroContents h1 {
+    font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
 .heroContents a {
   all: unset;
 }
@@ -276,15 +282,27 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
   .service h3 {
     font-size: 15px;
   }
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -303,8 +321,10 @@
     justify-content: center;
   }
   .heroContents h1 {
-    line-height: 1.6;
+      font-size: 1.2rem;
+    line-height: 1.5;
   }
+
   .downArrowContainer {
     left: 50%;
     transform: translate(-50%, 0);
@@ -361,8 +381,9 @@
   width: 20px;
   height: 20px;
 }
-.heroContents h1 {
-  line-height: 1.6;
-  font-weight: 300;
-}
+  .heroContents h1 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 0.85vh;
+  }
 }

@@ -46,14 +46,20 @@ const item = {
 const componentArray = [
   <div key={1} className={classes.heroWrapper}>
     <HeroComponent heroImage={heroImage} altText="Alt text">
-      <div className={classes.heroContents}>
+      <motion.div
+        className={classes.heroContents}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      >
         <Overlay>
           <div>
             <h1>GUIDING VISIONS, MANAGING REALITIES</h1>
             <h1>YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT</h1>
           </div>
         </Overlay>
-      </div>
+      </motion.div>
     </HeroComponent>
   </div>,
   <div key={2} className={classes.heroWrapper}>
