@@ -205,6 +205,8 @@
   height: 40vh;
 }
 
+
+
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
@@ -279,7 +281,7 @@
   }
 
   .heroWrapper {
-    position: absolute;
+    display: none;
   }
 
   .heroWrapper p {

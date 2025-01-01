@@ -249,6 +249,11 @@ main {
   justify-self: center;
 }
 
+.swiper-button-prev {
+  color: aliceblue;
+}
+
+
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
   .header h1 {
     font-size: 26px;

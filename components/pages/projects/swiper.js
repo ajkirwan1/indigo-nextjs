@@ -1,25 +1,33 @@
 /** @format */
 
 "use client";
-import { Navigation, Pagination} from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import classes from "./swiper.module.css";
 
 // Import Swiper styles
 import "swiper/css";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 export default function SwiperComponent({ images }) {
+  const swiperRef = useRef(null);
+
+  // useEffect(() => {
+
+  // })
+
   return (
     <Swiper
       className={classes.imgWrapper}
       modules={[Navigation, Pagination]}
       spaceBetween={20}
-    //   slidesPerView={1}
       navigation={true}
-    //   onSlideChange={() => console.log("slide change")}
-    //   onSwiper={(swiper) => console.log(swiper)}
+      style={{
+        "--swiper-navigation-color": "#000",
+        "--swiper-navigation-size": "25px",
+      }}
     >
       {images.map((img) => (
         <SwiperSlide key={img} className={classes.swiperSlide}>
@@ -32,8 +40,7 @@ export default function SwiperComponent({ images }) {
             priority={true}
           />
         </SwiperSlide>
-      ))}{" "}
-      ...
+      ))}
     </Swiper>
   );
 }

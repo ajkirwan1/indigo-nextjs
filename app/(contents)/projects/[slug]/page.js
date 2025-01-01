@@ -26,7 +26,7 @@ function Success({ result }) {
   return (
     <>
       <div className={classes.heroWrapper}>
-        {/* <ProjectCarousel images={carouselImagesUrls}>
+        <ProjectCarousel images={carouselImagesUrls}>
         <div className={classes.titleHeader}>
           <h1>{title}</h1>
           <p>{description}</p>
@@ -54,7 +54,7 @@ function Success({ result }) {
         <div className={classes.linkContainer}>
           <Link href="/projects">Back</Link>
         </div>
-      </ProjectCarousel> */}
+      </ProjectCarousel>
       </div>
       <div className={classes.swiperContainer}>
         <SwiperComponent images={carouselImagesUrls} />
