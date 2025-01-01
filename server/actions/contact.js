@@ -64,6 +64,7 @@ export async function ContactUs(_, formData) {
   // const submitted = true;
   // return { submitted };
 
+  return
   const response = await sendMail({
     email: "ajkirwan1gmail.com",
     subject: "A test email",
