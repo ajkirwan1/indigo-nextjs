@@ -82,7 +82,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  
 }
 
 .avatarAuthor:hover {
@@ -91,7 +90,6 @@
 
 .avatarAuthor:hover p {
   text-decoration: underline;
-  
 }
 
 .blogPost {
@@ -156,6 +154,9 @@
 .submitButtonOuterContainer {
   display: flex;
   justify-content: flex-end;
+}
+.shareIconContainer {
+  line-height: 4rem;
 }
 .shareIconContainer p {
   margin: 0;
@@ -234,9 +235,9 @@
     width: auto;
   }
 
-  .image {
+  /* .image {
     max-width: 400px;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1799px) {

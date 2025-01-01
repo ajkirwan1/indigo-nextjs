@@ -29,7 +29,7 @@ export default function ProjectCarousel({ images, children, backup }) {
           {images.map((img) => (
             <Image
               key={img}
-              className={classes.carouselImage}
+              className={backup? classes.carouselImage : `${classes.carouselImage} ${classes.carouselImageSmall}`}
               style={{ translate: `${-100 * currentIndex}%` }}
               width={1920}
               height={960}

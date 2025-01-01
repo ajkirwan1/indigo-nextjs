@@ -35,7 +35,7 @@ export default function NewsletterForm({ action }) {
 
   const handleModal = () => {
     setModalState(false);
-    setData({email: ""})
+    setData({ email: "" });
   };
 
   return (
@@ -43,7 +43,9 @@ export default function NewsletterForm({ action }) {
       {modalState.submitted && (
         <ModalBackdrop handleModal={handleModal}>
           <div className={classes.modalInnerWrapper}>
-            <h2 className={classes.modalHeader}>Thanks for joining our news letter!</h2>
+            <h2 className={classes.modalHeader}>
+              THANK YOU FOR JOINING OUR NEWSLETTER
+            </h2>
           </div>
         </ModalBackdrop>
       )}

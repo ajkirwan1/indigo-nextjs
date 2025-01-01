@@ -201,10 +201,20 @@
 
   .infoWrapper {
     margin: unset;
+    margin-top: 25px;
   }
 
+  .infoWrapper p {
+    margin-top: 25px;
+  }
   .infoWrapper h2 {
     font-size: 26px;
     margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .imageContainer {
+    min-width: auto;
   }
 }

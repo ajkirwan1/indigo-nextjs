@@ -4,12 +4,13 @@
   height: 10vh;
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 4.5vw;
+  padding-right: 4.5vw;
   margin-top: 5vh;
   margin-bottom: 5vh;
   width: 100%;
   font-weight: 300;
+  box-sizing: border-box;
 }
 
 .nav ul {
@@ -53,11 +54,11 @@
 }
 
 .logoIndigo {
-  height: 4rem;
+  height: 3.5rem;
   width: auto;
 }
 .mobileNavContainer {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,14 +67,17 @@
   width: 0;
   height: 100vh;
   transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   height: 100wv;
   overflow: hidden;
+  z-index: 20;
+  font-size: small;
 }
 
 .hamburgerMenu {
   cursor: pointer;
   z-index: 9999;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .hamburgerContainer {
@@ -90,11 +94,12 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
-  background-color: #d5dfe1;
+  background-color: #4d0013;
   z-index: 20;
   transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 
 .mobileNavContainer nav,
@@ -118,8 +123,10 @@
 .mobileNavMenuActive nav li {
   margin-top: 0.5vh;
   margin-bottom: 0.5vh;
+  color: white;
+  font-weight: 300;
+  line-height: 5vh;
 }
-
 
 .mobileNavContainer button,
 .mobileNavMenuActive button {
@@ -133,10 +140,8 @@
 
 .mobileNavContainer a,
 .mobileNavMenuActive a {
-
   color: black !important;
 }
-
 
 .mobileNavMenuActive button:hover {
   text-decoration: underline;
@@ -170,11 +175,18 @@
   .hamburgerMenu {
     cursor: pointer;
     z-index: 9999;
-    height: 50px;
+    height: 45px;
+    padding-right: 0;
   }
   .logoIndigo {
     height: 3rem;
     width: auto;
-    padding-left: 30px;
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hamburgerMenu {
+    padding-right: 0;
+    padding-bottom: 0px;
   }
 }

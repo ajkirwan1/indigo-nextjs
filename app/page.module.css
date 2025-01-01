@@ -6,12 +6,12 @@
 .buttonContainer a button {
   transition: 0.3s;
 }
-.buttonContainer a:hover button + img {
+/* .buttonContainer a:hover button + img {
   transform: translateX(10px);
 }
 .buttonContainer a:hover button {
   transform: translateX(-5px);
-}
+} */
 
 .heroWrapper {
   position: relative;
@@ -74,6 +74,7 @@
 .heroContents a:hover {
   text-decoration: underline;
   cursor: pointer;
+  text-decoration-thickness: 1px;
 }
 
 .imageContainer {
@@ -208,7 +209,7 @@
 }
 
 .sectionTitle {
-  font-size: 36px;
+  font-size: 30px;
   line-height: 1.7;
   font-weight: 200;
 }
@@ -252,7 +253,7 @@
   border-radius: 4px;
   background-color: #ffffff81;
   position: relative;
-  width:50vw;
+  width: 50vw;
   height: 30vh;
   box-shadow: 1px 1px 1px;
   margin: auto;
@@ -272,20 +273,21 @@
 }
 
 @media only screen and (min-width: 1800px) {
-  .sectionTitle {
-    font-size: 55px;
-  }
-  .service h3 {
-    font-size: 22px;
-  }
 }
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
+  .service h3 {
+    font-size: 15px;
+  }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 600px) and (max-width: 800px) {
   .heroHeader {
     background: rgb(255 255 255 / 16%);
   }
@@ -315,7 +317,7 @@
 
   .service h3 {
     font-size: 14px;
-    font-weight: 400;
+    /* font-weight: 400; */
     white-space: nowrap;
   }
   .service .circleIcon {
@@ -341,4 +343,26 @@
     width: 30px;
     height: auto;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .heroHeader {
+    background: rgb(255 255 255 / 16%);
+  }
+.sectionTitle {
+  font-size: 17px;
+  line-height: 2;
+}
+
+.separator h3 {
+  font-size: 15px;
+}
+.service .circleIcon {
+  width: 20px;
+  height: 20px;
+}
+.heroContents h1 {
+  line-height: 1.6;
+  font-weight: 300;
+}
 }

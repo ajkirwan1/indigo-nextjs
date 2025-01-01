@@ -20,15 +20,8 @@
 
 .openingSection,
 .secondSection {
-  /* margin-top: 15vh; */
   margin-bottom: 5vh;
 }
-
-/* .openingSection p {
-      padding: 20px;
-      margin: 0;
-      max-width: 60vw;
-    } */
 
 .openingSection p,
 .secondSection p {
@@ -80,11 +73,6 @@
 .subHeader > p {
   font-size: 28px;
 }
-
-/* .thirdSection > h2 {
-      font-size: 100px;
-    } */
-
 .carouselContainer {
   width: 60vw;
   margin: auto;
@@ -119,23 +107,6 @@
   font-weight: 100;
   letter-spacing: normal;
 }
-/* .heroHeader {
-  color: aliceblue;
-  display: flex;
-  align-items: center;
-  top: 0;
-  width: 100%;
-} */
-/* .propertyInfo {
-  padding: 1.5vh;
-  width: 12vw;
-  display: flex;
-  flex-direction: column;
-  margin-left: 5vw;
-  margin-top: 5vh;
-  background-color: rgba(40, 40, 40, 0.456);
-  backdrop-filter: blur(1px);
-} */
 
 .propertyInfo {
   padding: 2vh;
@@ -230,6 +201,17 @@
   font-family: "Josefin_Sans" !important;
 }
 
+.mobileContainer {
+  display: none;
+  height: 100%;
+}
+
+.swiperContainer {
+  height: 40vh;
+}
+
+
+
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
@@ -272,34 +254,66 @@
   }
 }
 @media only screen and (max-width: 600px) {
+  .titleHeader {
+    /* margin-top: 175px; */
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    background: transparent;
+  }
+  .titleHeader p {
+    color: black;
+  }
+
   .titleHeader h1 {
     font-size: 32px;
+    color: black;
   }
 
   .titleHeader h2 {
     font-size: 16px;
+    color: black;
   }
-
   .propertyInfo {
     width: unset;
     margin-left: unset;
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-top: 5vh;
+    position: absolute;
+    bottom: 109px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: transparent;
   }
-  .heroWrapper h2 {
-    font-size: 20px;
+
+  .heroWrapper {
+    display: none;
   }
 
   .heroWrapper p {
     font-size: 16px;
+    margin-bottom: 7px;
+    color: black;
+  }
+
+  .heroWrapper h2 {
+    font-size: 20px;
+    color: black;
   }
   .linkContainer {
-    bottom: 12vh;
+    bottom: 40px;
     width: 15vw;
     left: 2vw;
   }
   .linkContainer a {
     font-size: 16px;
   }
+
+  .mobileContainer {
+    display: unset;
+  }
+
+  .propertyInfo {
+    all: unset;
+  }
+
 }
