@@ -4,8 +4,6 @@ import classes from "./page.module.css";
 import Image from "next/image";
 import { Avatar } from "@nextui-org/react";
 import shareIcon from "/public/images/icons/shareIcon.svg";
-import imageIcon from "/public/images/icons/icons8-plus.svg";
-import Typography, { TypographyProps } from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
 
 export default function LoadingBlogPage(props) {
@@ -19,7 +17,7 @@ export default function LoadingBlogPage(props) {
       <div className={classes.blogPost}>
         <div className={classes.column1}>
           <section className={classes.openingSection}>
-            <Skeleton variant="rectangular" width="60%" height={50}>
+            <Skeleton variant="rectangular" width="60%" height={50} className={classes.tobeHiddenSkeleton}>
               <h1>TITLE</h1>
             </Skeleton>
 
@@ -37,11 +35,11 @@ export default function LoadingBlogPage(props) {
               </Skeleton>
             </div>
             <div className={classes.subHeaderSkeleton}>
-              <Skeleton variant="rectangular" width="60%" height={50}>
+              <Skeleton variant="rectangular" width="60%" height={50} className={classes.tobeHiddenSkeleton2}>
                 <p>DATE</p>
               </Skeleton>
-              <Skeleton variant="rectangular" width="60%" height={50}>
-                <p>DATE</p>
+              <Skeleton  variant="rectangular" width="40%" height={50}>
+                <p>DATE</p> 
               </Skeleton>
               <div
                 className={`${classes.avatarAuthor} ${classes.avatarAuthorSkeleton}`}
@@ -71,19 +69,19 @@ export default function LoadingBlogPage(props) {
             <Skeleton variant="rectangular" width="60%">
               <h2>Subtitle</h2>
             </Skeleton>
-            <Skeleton variant="text" width="80%" height={40}>
+            <Skeleton variant="text" width="75%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
             <Skeleton variant="text" width="80%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
-            <Skeleton variant="text" width="80%" height={40}>
+            <Skeleton variant="text" width="70%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
             <Skeleton variant="text" width="80%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
-            <Skeleton variant="text" width="80%" height={40}>
+            <Skeleton variant="text" width="75%" height={40}>
               <p>Subtitle</p>
             </Skeleton>
             <Skeleton variant="text" width="80%" height={40}>

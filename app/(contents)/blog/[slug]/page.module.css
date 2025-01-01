@@ -333,6 +333,14 @@
     line-height: 1.4rem;
   }
 }
+
+@media only screen and (min-width: 800px) {  
+  .tobeHiddenSkeleton {
+  display: none;
+}
+}
+
+
 @media only screen and (max-width: 800px) {
   .header {
     margin-bottom: 2vh;
@@ -378,6 +386,10 @@
     font-size: 20px;
   }
 
+  .tobeHiddenSkeleton2 {
+    display: none;
+  }
+
   .column1 {
     padding-right: 0;
   }
@@ -392,7 +404,7 @@
   }
 
   .imageContainerSkeleton {
-    height: 40vh;
+    height: 35vh;
     margin-top: 2vh;
   }
 
