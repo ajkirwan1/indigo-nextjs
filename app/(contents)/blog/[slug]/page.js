@@ -18,6 +18,23 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }, parent) {
+  // read route params
+  const { slug } = await params;
+  const result = await getSingleBlog(slug);
+  const { fields } = result;
+  const {
+    title,
+  } = fields;
+ 
+ 
+  return {
+    title: title,
+  }
+}
+
+
+
 function Success({ result }) {
   // console.log(result);
   const { fields } = result;
@@ -96,7 +113,6 @@ await new Promise((resolve) => setTimeout(resolve, 5000));
 
   return (
     <>
-      <title>Indigo Consulting News Item</title>
       <div className="header">
         <h1>NEWS</h1>
         <hr />

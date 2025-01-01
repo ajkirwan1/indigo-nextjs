@@ -1,15 +1,32 @@
 /** @format */
-"use client";
+// "use client";
 import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
 import Image from "next/image";
 import phoneIcon from "/public/images/icons/phoneblue.png";
 
+export const metadata = {
+  title: "Conact Us",
+  keywords: [
+    "Greece",
+    "Development",
+    "Consulting",
+    "Luxury",
+    "Redevelopment",
+    "Golden visa",
+    "Market Analysis",
+    "Email",
+    "Conact",
+    "Phone number",
+  ],
+  description:
+    "Indigo consulting web application contact page. Vistors can find Indigo Consulting's contact information and address, and email directly",
+};
+
 export default function ContactUsPage() {
   return (
     <>
-      <title>INDIGO CONSULTING CONTACT US PAGE</title>
       <div className={classes.pageWrapper}>
         <p>
           Feel free to fill out the contact form below and one of our team

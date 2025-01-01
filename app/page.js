@@ -17,6 +17,7 @@ import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
 import Link from "next/link";
+import Head from "next/head";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -181,6 +182,10 @@ export default function Homepage() {
   // }
   return (
     <>
+      <Head>
+        <title>Indigo Consulting landing page</title>
+        <meta name="description" content="Meta data"/>
+      </Head>
       <Header className={classes.heroHeader}></Header>
       <HomepageCarousel components={componentArray} />
     </>
