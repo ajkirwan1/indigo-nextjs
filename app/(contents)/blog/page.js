@@ -44,6 +44,7 @@ async function BlogItem({ blogData }) {
 }
 
 export default async function BlogPage() {
+  // await new Promise((resolve) => setTimeout(resolve, 4000));
   const result = await getAllBlogs();
   if (result.error) {
     throw new Error(result.error.message);

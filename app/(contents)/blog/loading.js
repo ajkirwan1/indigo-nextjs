@@ -17,7 +17,16 @@ export default function LoadingNews() {
           <li key={2}>
             <NewsItemFallback />
           </li>
-          {/* <li key={3}>
+          <li key={3}>
+            <NewsItemFallback />
+          </li>
+          <li key={4}>
+            <NewsItemFallback />
+          </li>
+          {/* <li key={5}>
+            <NewsItemFallback />
+          </li>
+          <li key={6}>
             <NewsItemFallback />
           </li> */}
         </ul>

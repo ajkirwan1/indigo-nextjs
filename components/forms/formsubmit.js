@@ -17,8 +17,8 @@ export default function FormSubmit({ disabled }) {
         <div className={classes.spinnerWrapper}>
           <Spinner
             classNames={{
-              circle1: `border-b-red-${[commonColors.pink[100]]}`,
-              circle2: "border-b-red-500",
+              circle1: `border-2 border-b-rose-950`,
+              circle2: "border-2 border-b-rose-950",
             }}
             size="lg"
           />

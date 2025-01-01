@@ -77,7 +77,8 @@
   gap: 12px;
 } */
 
-.avatarAuthor a {
+.avatarAuthor a,
+.avatarAuthorSkeleton {
   all: unset;
   display: flex;
   align-items: center;
@@ -389,6 +390,12 @@
     width: unset;
     margin-bottom: 2vh;
   }
+
+  .imageContainerSkeleton {
+    height: 40vh;
+    margin-top: 2vh;
+  }
+
   .shareIcon {
     height: 18px;
     width: auto;
@@ -404,5 +411,9 @@
 
   .blogPost input[type="email"] {
     width: 100%;
+  }
+
+  .subHeaderSkeleton {
+    margin-left: 0;
   }
 }

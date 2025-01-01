@@ -6,7 +6,8 @@
   margin-top: 5vh;
   margin-bottom: 6vh;
 }
-.blogPageContainer {
+.blogPageContainer,
+.blogPageContainerSkeleton {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
   margin-bottom: 5vh;
@@ -33,6 +34,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   column-gap: 1.5vw;
+  row-gap: 3vh;
   text-align: left;
 }
 
@@ -185,7 +187,7 @@
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
     grid-template-columns: 1fr 1fr;
-    column-gap: 10vw;
+    column-gap: 5vw;
   }
 
   .avatar {

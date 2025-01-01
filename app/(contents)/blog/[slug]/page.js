@@ -36,7 +36,7 @@ function Success({ result }) {
       <div className={classes.column1}>
         <section className={classes.openingSection}>
           <h1>{title}</h1>
-          <Link href={`${slug}/images`}>
+          {/* <Link href={`${slug}/images`}> */}
             <div className={classes.imageContainer}>
               <Image
                 className={classes.image}
@@ -46,7 +46,7 @@ function Success({ result }) {
                 height={750}
               />
             </div>
-          </Link>
+          {/* </Link> */}
           <div className={classes.subHeader}>
             <h1>{title}</h1>
             <p>{publishDate}</p>
@@ -89,6 +89,7 @@ function Success({ result }) {
 }
 
 export default async function Page({ params }) {
+await new Promise((resolve) => setTimeout(resolve, 5000));
   // const { params } = props;
   const { slug } = await params;
   const result = await getSingleBlog(slug);

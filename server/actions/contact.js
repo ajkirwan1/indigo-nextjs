@@ -4,7 +4,7 @@
 import { sendMail } from "@/lib/send-mail";
 
 export async function ContactUs(_, formData) {
-  await new Promise((resolve) => setTimeout(resolve, 20000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const message = formData.get("message");
   const email = formData.get("email");
   const firstName = formData.get("firstName");
