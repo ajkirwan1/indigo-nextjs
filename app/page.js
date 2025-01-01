@@ -24,7 +24,7 @@ const container = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 1,
+      staggerChildren: 0.8,
       delayChildren: 0.5,
       delay: 0.5,
       bounce: 0,
@@ -50,8 +50,7 @@ const componentArray = [
         <Overlay>
           <div>
             <h1>GUIDING VISIONS, MANAGING REALITIES</h1>
-            <h1>YOUR PARTNER IN DEVELOPMENT</h1>
-            <h1>CONSULTING & MANAGEMENT</h1>
+            <h1>YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT</h1>
           </div>
         </Overlay>
       </div>
@@ -170,7 +169,6 @@ const componentArray = [
   </div>,
 ];
 export default function Homepage() {
-
   // const { user } = useSession();
   // if (user?.adminaccess) {
   //   redirect("admin");

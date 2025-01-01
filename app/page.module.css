@@ -6,12 +6,12 @@
 .buttonContainer a button {
   transition: 0.3s;
 }
-.buttonContainer a:hover button + img {
+/* .buttonContainer a:hover button + img {
   transform: translateX(10px);
 }
 .buttonContainer a:hover button {
   transform: translateX(-5px);
-}
+} */
 
 .heroWrapper {
   position: relative;
@@ -74,6 +74,7 @@
 .heroContents a:hover {
   text-decoration: underline;
   cursor: pointer;
+  text-decoration-thickness: 1px;
 }
 
 .imageContainer {
@@ -272,14 +273,12 @@
 }
 
 @media only screen and (min-width: 1800px) {
-  .sectionTitle {
-    font-size: 55px;
-  }
-  .service h3 {
-    font-size: 22px;
-  }
 }
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
@@ -318,7 +317,7 @@
 
   .service h3 {
     font-size: 14px;
-    font-weight: 400;
+    /* font-weight: 400; */
     white-space: nowrap;
   }
   .service .circleIcon {
