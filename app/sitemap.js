@@ -18,5 +18,29 @@ export default function sitemap() {
         changeFrequency: 'yearly',
         priority: 0.5,
       },
+      {
+        url: 'https://indigo-consulting.com/privacy',
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.5,
+      },
+      {
+        url: 'https://indigo-consulting.com/project',
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.5,
+      },
+      {
+        url: 'https://indigo-consulting.com/what-we-do',
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.5,
+      },
+      {
+        url: 'https://indigo-consulting.com/who-we-are',
+        lastModified: new Date(),
+        changeFrequency: 'yearly',
+        priority: 0.5,
+      },
     ]
   }

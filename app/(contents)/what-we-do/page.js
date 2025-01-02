@@ -6,6 +6,26 @@ import { whatWeDoData } from "@/data/what-we-do-data";
 import { useState } from "react";
 import Image from "next/image";
 
+
+export const metadata = {
+  title: "Services",
+  keywords: [
+    "Greece",
+    "Development",
+    "Consulting",
+    "Luxury",
+    "Redevelopment",
+    "Golden visa",
+    "Market Analysis",
+    "Email",
+    "Conact",
+    "Phone number",
+  ],
+  description:
+    "Indigo consulting web application services page. Vistors can read about the services provided by Indigo Consulting",
+};
+
+
 function ServiceItem({ data, handleModal, infoActive, modalIndex }) {
   return (
     <div
@@ -84,7 +104,7 @@ export default function ServicePage() {
 
   return (
     <>
-      <title>INDIGO CONSULTING WHAT WE DO</title>
+
       <div className="header">
         <h1>SERVICES</h1>
         <hr />
