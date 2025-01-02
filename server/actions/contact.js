@@ -5,6 +5,7 @@ import { sendMail } from "@/lib/send-mail";
 
 export async function ContactUs(_, formData) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
+  throw Error("PROBLEM")
   const message = formData.get("message");
   const email = formData.get("email");
   const firstName = formData.get("firstName");
@@ -64,13 +65,19 @@ export async function ContactUs(_, formData) {
   // const submitted = true;
   // return { submitted };
 
-  return
-  const response = await sendMail({
-    email: "ajkirwan1gmail.com",
-    subject: "A test email",
-    message: "Hello Jimmy",
-    text: message,
-  });
+  
+  // const response = await sendMail({
+  //   email: "ajkirwan1gmail.com",
+  //   subject: "A test email",
+  //   message: "Hello Jimmy",
+  //   text: message,
+  // });
+
+    return {
+      errors: [],
+      errorMessage: "Message was not delivered",
+      submitted: false,
+    };
 
   // if (response.accepted?.length == 0) {
   //   return {
