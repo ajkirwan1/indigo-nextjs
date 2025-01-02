@@ -159,7 +159,7 @@ export default function ContactForm({ action }) {
         />
       ) : (
         <div className={classes.errorLayout}>
-          <h2>SOMETHING WENT WRONG!</h2>
+          {/* <h2>Your message was not sent</h2> */}
           <p>{state.errorMessage}</p>
           <div className={classes.submitButtonContainer}>
             <Button onClick={handleReset}>Try again</Button>
