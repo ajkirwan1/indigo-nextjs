@@ -113,7 +113,6 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <title>Indigo Consulting Project Item</title>
       {result.message ? (
         <div className={classes.heroWrapper}>
           <ProjectCarousel backup={true} images={backupImage}>

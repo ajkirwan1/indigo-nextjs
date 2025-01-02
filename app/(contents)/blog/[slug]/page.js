@@ -53,7 +53,6 @@ function Success({ result }) {
       <div className={classes.column1}>
         <section className={classes.openingSection}>
           <h1>{title}</h1>
-          {/* <Link href={`${slug}/images`}> */}
             <div className={classes.imageContainer}>
               <Image
                 className={classes.image}
@@ -63,7 +62,6 @@ function Success({ result }) {
                 height={750}
               />
             </div>
-          {/* </Link> */}
           <div className={classes.subHeader}>
             <h1>{title}</h1>
             <p>{publishDate}</p>
@@ -106,7 +104,7 @@ function Success({ result }) {
 }
 
 export default async function Page({ params }) {
-await new Promise((resolve) => setTimeout(resolve, 5000));
+// await new Promise((resolve) => setTimeout(resolve, 5000));
   // const { params } = props;
   const { slug } = await params;
   const result = await getSingleBlog(slug);
@@ -118,7 +116,7 @@ await new Promise((resolve) => setTimeout(resolve, 5000));
         <hr />
       </div>
       {result.message ? (
-        <>
+        <div className={classes.errorWrapper}>
           <h2>Something went wrong!</h2>
           <div>
             <p>{result.message}</p>
@@ -129,7 +127,7 @@ await new Promise((resolve) => setTimeout(resolve, 5000));
           <p>
             <Link href="/">Return to home page</Link>
           </p>
-        </>
+        </div>
       ) : (
         <Success result={result} />
       )}

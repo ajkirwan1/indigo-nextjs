@@ -203,6 +203,23 @@
   box-sizing: border-box; /* Opera/IE 8+ */
 }
 
+.errorWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15vh;
+}
+
+.errorWrapper a {
+  all: unset;
+}
+
+
+.errorWrapper a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 1800px) {
   .subHeader > h1 {
     font-size: 40px;
@@ -286,9 +303,7 @@
     line-height: 1.5rem;
   }
 
-  /* .avatarAuthorContainer p {
-    font-size: 8px;
-  } */
+
   .newsLetterSection > h2 {
     margin-left: 48px;
     letter-spacing: 0.1vh;

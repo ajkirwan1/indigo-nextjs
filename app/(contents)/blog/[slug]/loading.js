@@ -9,7 +9,6 @@ import Skeleton from "@mui/material/Skeleton";
 export default function LoadingBlogPage(props) {
   return (
     <>
-      <title>Loding screen for a blog post</title>
       <div className="header">
         <h1>NEWS</h1>
         <hr />

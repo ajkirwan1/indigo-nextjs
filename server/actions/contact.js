@@ -13,11 +13,11 @@ export async function ContactUs(_, formData) {
 
   let errors = [];
 
-  return {
-    errors: [],
-    errorMessage: "Message was not delivered",
-    submitted: false,
-  };
+  // return {
+  //   errors: [],
+  //   errorMessage: "Message was not delivered",
+  //   submitted: false,
+  // };
 
   if (
     typeof message !== "string" ||

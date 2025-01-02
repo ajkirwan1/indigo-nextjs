@@ -14,9 +14,6 @@ export const metadata = {
 
 async function BlogItem({ blogData }) {
   const { title, publishDate, primaryImage, author, slug } = blogData.fields;
-
-
-
   
   return (
     <li>
@@ -53,6 +50,7 @@ async function BlogItem({ blogData }) {
 }
 
 export default async function BlogPage() {
+
   // await new Promise((resolve) => setTimeout(resolve, 4000));
   const result = await getAllBlogs();
   if (result.error) {
