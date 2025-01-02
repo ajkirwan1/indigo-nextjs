@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }, parent) {
   // read route params
   const { slug } = await params;
-  const result = await getSingleBlog(slug);
+  const result = await getSingleProject(slug);
   const { fields } = result;
   const {
     title,
