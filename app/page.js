@@ -75,7 +75,7 @@ const componentArray = [
           <motion.h2 layout className={classes.sectionTitle} variants={item}>
             OUR SERVICES
           </motion.h2>
-          <div>
+          <div className={classes.listContainer}>
             <motion.div layout className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Development Consultancy</h3>

@@ -383,9 +383,19 @@
   width: 20px;
   height: 20px;
 }
+
+.heroContents {
+  width:80vw
+}
   .heroContents h1 {
     font-size: 1.1rem;
     font-weight: 300;
     padding: 0.85vh;
+  }
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 }
