@@ -7,23 +7,23 @@ import { useState } from "react";
 import Image from "next/image";
 
 
-export const metadata = {
-  title: "Services",
-  keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Email",
-    "Conact",
-    "Phone number",
-  ],
-  description:
-    "Indigo consulting web application services page. Vistors can read about the services provided by Indigo Consulting",
-};
+// export const metadata = {
+//   title: "Services",
+//   keywords: [
+//     "Greece",
+//     "Development",
+//     "Consulting",
+//     "Luxury",
+//     "Redevelopment",
+//     "Golden visa",
+//     "Market Analysis",
+//     "Email",
+//     "Conact",
+//     "Phone number",
+//   ],
+//   description:
+//     "Indigo consulting web application services page. Vistors can read about the services provided by Indigo Consulting",
+// };
 
 
 function ServiceItem({ data, handleModal, infoActive, modalIndex }) {

@@ -5,7 +5,7 @@ import { LayoutProvider } from "@/contexts/layout-context";
 import { Providers } from "./providers.jsx";
 
 import "./globals.css";
-import { validateRequest } from "@/auth/lucia";
+// import { validateRequest } from "@/auth/lucia";
 export const metadata = {
   title: {
     template: "Indigo Consulting %s",
@@ -31,14 +31,14 @@ const inter = Josefin_Sans({
 });
 
 export default async function RootLayout({ children }) {
-  const session = await validateRequest();
+  // const session = await validateRequest();
   return (
     <html lang="en" className={inter.className}>
       <body>
         <LayoutProvider>
-          <SessionProvider value={session}>
+          {/* <SessionProvider value={session}> */}
             <Providers>{children}</Providers>
-          </SessionProvider>
+          {/* </SessionProvider> */}
         </LayoutProvider>
       </body>
     </html>

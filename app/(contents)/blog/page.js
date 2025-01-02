@@ -5,7 +5,6 @@ import classes from "./page.module.css";
 import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import { getAllBlogs } from "@/server/actions/contentful/get-all-blogs-action";
-import Head from "next/head";
 
 export const metadata = {
   title: "News",

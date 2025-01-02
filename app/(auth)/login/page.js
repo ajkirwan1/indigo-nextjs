@@ -7,7 +7,6 @@ import { headers } from "next/headers";
 import HeroComponent from "@/components/hero/hero-component";
 import heroImage from "/public/images/croppednight.jpg";
 import classes from "./page.module.css";
-import { Spinner } from "@nextui-org/spinner";
 
 export default async function LoginPage() {
   const headerList = headers();
