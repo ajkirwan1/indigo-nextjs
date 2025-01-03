@@ -18,19 +18,19 @@ export default function WhatWeDoMobileSwiper() {
   const [modalIndex, setModalIndex] = useState(null);
   const [infoActive, setInfoActive] = useState(false);
 
-  const swiper = useSwiper();
+  // const swiper = useSwiper();
 
   const handleModal = (id) => {
     console.log("CLICK");
     if (modalIndex == id) {
       setInfoActive((val) => !val);
-      swiper.pause()
+      // swiper.pause()
     }
     if (modalIndex != id) {
       setInfoActive(true);
     }
     setModalIndex(id);
-    swiper.pause()
+    // swiper.pause()
   };
 
   return (
@@ -47,10 +47,10 @@ export default function WhatWeDoMobileSwiper() {
             onSwiper={(swiper) => console.log(swiper)}
             modules={[Navigation, Pagination, Autoplay]}
             navigation={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
           >
             {whatWeDoData.map((element, index) => (
               <SwiperSlide key={index} className={classes.swiperSlide} >
