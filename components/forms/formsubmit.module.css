@@ -30,3 +30,8 @@
 .linkWrapper a:hover button {
   transform: translateX(-5px);
 }
+
+.spinnerWrapper,
+.spinnerWrapper div:nth-of-type(1) {
+  animation: unset !important;
+}

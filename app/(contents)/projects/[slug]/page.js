@@ -15,6 +15,22 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }, parent) {
+  // read route params
+  const { slug } = await params;
+  const result = await getSingleProject(slug);
+  const { fields } = result;
+  const {
+    title,
+  } = fields;
+ 
+ 
+  return {
+    title: title,
+  }
+}
+
+
 function Success({ result }) {
   const { fields } = result;
   const { title, secondaryImages, description } = fields;
@@ -97,7 +113,6 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <title>Indigo Consulting Project Item</title>
       {result.message ? (
         <div className={classes.heroWrapper}>
           <ProjectCarousel backup={true} images={backupImage}>

@@ -1,9 +1,9 @@
 /** @format */
-"use client";
+// "use client";
 import Header from "@/components/ui/header/header";
 import classes from "./hero-component.module.css";
 import Image from "next/image";
-import Footer from "../ui/footer";
+import HeroFooter from "../ui/footer/hero-footer";
 
 export default function HeroComponent({
   heroImage,
@@ -29,7 +29,7 @@ export default function HeroComponent({
           {children}
           {footer ? (
             <div className={classes.footerWrapper}>
-              <Footer />
+              <HeroFooter />
             </div>
           ) : null}
         </div>

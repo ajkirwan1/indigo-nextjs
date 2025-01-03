@@ -13,6 +13,12 @@ export async function ContactUs(_, formData) {
 
   let errors = [];
 
+  // return {
+  //   errors: [],
+  //   errorMessage: "Message was not delivered",
+  //   submitted: false,
+  // };
+
   if (
     typeof message !== "string" ||
     message.length < 1 ||
@@ -64,12 +70,15 @@ export async function ContactUs(_, formData) {
   // const submitted = true;
   // return { submitted };
 
-  const response = await sendMail({
-    email: "ajkirwan1gmail.com",
-    subject: "A test email",
-    message: "Hello Jimmy",
-    text: message,
-  });
+  
+  // const response = await sendMail({
+  //   email: "ajkirwan1gmail.com",
+  //   subject: "A test email",
+  //   message: "Hello Jimmy",
+  //   text: message,
+  // });
+
+
 
   // if (response.accepted?.length == 0) {
   //   return {

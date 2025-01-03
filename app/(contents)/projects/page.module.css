@@ -153,6 +153,10 @@
   margin-top: 60px;
 }
 
+/* .imageSkeleton {
+  height: 35vh;
+} */
+
 @media only screen and (max-width: 1800px) {
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {

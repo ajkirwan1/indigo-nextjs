@@ -8,6 +8,8 @@ import {
 
 const config = {
   content: [
+
+    './components/forms/formsubmit.js',
     // ...
     // make sure it's pointing to the ROOT node_module
     // "./app/**/*.{js,ts,jsx,tsx,mdx}",

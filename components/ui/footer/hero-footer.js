@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import aklogo from "/public//images/aklogo.png";
-import ShareComponent from "../share/share-component";
-import classes from "./footer.module.css";
+import ShareComponent from "@/components/share/share-component";
+import classes from "./hero-footer.module.css";
 import Link from "next/link";
 
-export default function Footer() {
+export default function HeroFooter() {
   return (
     <footer className={classes.footer}>
       <ul>

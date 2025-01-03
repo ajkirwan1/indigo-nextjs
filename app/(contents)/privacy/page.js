@@ -1,13 +1,31 @@
 /** @format */
-"use client";
+// "use client";
 
 import classes from "./page.module.css";
+
+
+export const metadata = {
+  title: "Privacy",
+  keywords: [
+    "Greece",
+    "Development",
+    "Consulting",
+    "Luxury",
+    "Redevelopment",
+    "Golden visa",
+    "Market Analysis",
+    "Privacy",
+  ],
+  description:
+    "Indigo consulting web application privacy page. Vistors can read Indigo Consulting's privacy policy",
+};
+
+
+
 
 export default function PrivacyPage() {
   return (
     <>
-      <title>INDIGO CONSULTING PRIVACY PAGE</title>
-
       <div className="header">
         <h1>INDIGO&apos;S PRIVACY POLICY</h1>
         <hr />

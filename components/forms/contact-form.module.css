@@ -320,6 +320,13 @@
     animation-timing-function: ease-out;
   }
 
+  .loginForm div:nth-of-type(6) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
   .formItemContainer {
     width: 70%;
   }

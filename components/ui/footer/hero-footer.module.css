@@ -1,7 +1,7 @@
 .footer {
   height: 10vh;
   background-color: #4d0013;
-  /* width: 100vw; */
+  width: 100vw;
   /* padding: 0 60px;
 } */
 }
@@ -68,7 +68,7 @@
 }
 
 
-@media only screen and (min-width: 800px) and (max-width: 1200px) {
+@media only screen and (min-width: 800px) and (max-width: 1199px) {
   .aklogo {
     height: 2.5rem;
   }
@@ -80,14 +80,6 @@
     width: auto;
   }
 }
-
-
-@media only screen and (min-width: 600px) and (max-width: 800px) {
-  .aklogo {
-    height: 2.2rem;
-  }
-}
-
 
 @media only screen and (max-width: 600px) {
   .footer {

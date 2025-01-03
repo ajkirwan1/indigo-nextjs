@@ -77,7 +77,8 @@
   gap: 12px;
 } */
 
-.avatarAuthor a {
+.avatarAuthor a,
+.avatarAuthorSkeleton {
   all: unset;
   display: flex;
   align-items: center;
@@ -202,6 +203,23 @@
   box-sizing: border-box; /* Opera/IE 8+ */
 }
 
+.errorWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15vh;
+}
+
+.errorWrapper a {
+  all: unset;
+}
+
+
+.errorWrapper a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 1800px) {
   .subHeader > h1 {
     font-size: 40px;
@@ -285,9 +303,7 @@
     line-height: 1.5rem;
   }
 
-  /* .avatarAuthorContainer p {
-    font-size: 8px;
-  } */
+
   .newsLetterSection > h2 {
     margin-left: 48px;
     letter-spacing: 0.1vh;
@@ -332,6 +348,14 @@
     line-height: 1.4rem;
   }
 }
+
+@media only screen and (min-width: 800px) {  
+  .tobeHiddenSkeleton {
+  display: none;
+}
+}
+
+
 @media only screen and (max-width: 800px) {
   .header {
     margin-bottom: 2vh;
@@ -377,6 +401,10 @@
     font-size: 20px;
   }
 
+  .tobeHiddenSkeleton2 {
+    display: none;
+  }
+
   .column1 {
     padding-right: 0;
   }
@@ -389,6 +417,12 @@
     width: unset;
     margin-bottom: 2vh;
   }
+
+  .imageContainerSkeleton {
+    height: 35vh;
+    margin-top: 2vh;
+  }
+
   .shareIcon {
     height: 18px;
     width: auto;
@@ -404,5 +438,9 @@
 
   .blogPost input[type="email"] {
     width: 100%;
+  }
+
+  .subHeaderSkeleton {
+    margin-left: 0;
   }
 }

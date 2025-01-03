@@ -21,6 +21,7 @@
 }
 
 .submitButtonContainer {
+  justify-content: center;
   margin-top: 2vh;
   display: flex;
   width: 150px;

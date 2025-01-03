@@ -67,6 +67,12 @@
   transform: translate(-50%, -50%);
 }
 
+.heroContents h1 {
+    font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
 .heroContents a {
   all: unset;
 }
@@ -249,6 +255,7 @@
 .formcontainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   border-radius: 4px;
   background-color: #ffffff81;
@@ -257,13 +264,14 @@
   height: 30vh;
   box-shadow: 1px 1px 1px;
   margin: auto;
-  /* margin-top: 5vh; */
+  margin-top: 10vh;
   letter-spacing: normal;
 }
 
 .formcontainer a {
   all: unset;
   color: aliceblue;
+  font-weight: 200;
 }
 
 .formcontainer a:hover {
@@ -276,15 +284,27 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
   .service h3 {
     font-size: 15px;
   }
+  .heroContents h1 {
+    font-size: 1.4rem;
+  line-height: 1.5;
+}
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -303,8 +323,10 @@
     justify-content: center;
   }
   .heroContents h1 {
-    line-height: 1.6;
+      font-size: 1.2rem;
+    line-height: 1.5;
   }
+
   .downArrowContainer {
     left: 50%;
     transform: translate(-50%, 0);
@@ -361,8 +383,19 @@
   width: 20px;
   height: 20px;
 }
-.heroContents h1 {
-  line-height: 1.6;
-  font-weight: 300;
+
+.heroContents {
+  width:80vw
 }
+  .heroContents h1 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 0.85vh;
+  }
+
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
