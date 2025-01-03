@@ -31,6 +31,25 @@
   /* line-height: 3rem; */
 }
 
+.swiperContainer {
+  height: 40vh;
+}
+
+.swiperSlide {
+  height: 100%;
+  background-color: blue;
+}
+
+/* .swiperContainer .swiperSlide {
+  background-color: blue;
+} */
+
+.swiperInnerContainer {
+  height: 100%;
+
+}
+
+
 .page section {
 }
 

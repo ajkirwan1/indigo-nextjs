@@ -5,6 +5,7 @@ import classes from "./page.module.css";
 import { whatWeDoData } from "@/data/what-we-do-data";
 import { useState } from "react";
 import Image from "next/image";
+import WhatWeDoMobileSwiper from "@/components/pages/what-we-do/what-we-do-swiper-mobile";
 
 
 // export const metadata = {
@@ -119,6 +120,7 @@ export default function ServicePage() {
             infoActive={infoActive}
           />
         ))}
+        <WhatWeDoMobileSwiper />
       </section>
     </>
   );
