@@ -1,5 +1,5 @@
 /** @format */
-import { Josefin_Sans } from "next/font/google";
+import { Lato } from "next/font/google";
 import { SessionProvider } from "@/contexts/session-context";
 import { LayoutProvider } from "@/contexts/layout-context";
 import { Providers } from "./providers.jsx";
@@ -25,8 +25,8 @@ export const metadata = {
   creator: "Kasia Kruk",
   publisher: "Kasia Kruk",
 };
-const inter = Josefin_Sans({
-  weight: ["100", "200", "300", "400"],
+const inter = Lato({
+  weight: ["100", "300", "400"],
   subsets: ["latin"],
 });
 
@@ -37,7 +37,7 @@ export default async function RootLayout({ children }) {
       <body>
         <LayoutProvider>
           {/* <SessionProvider value={session}> */}
-            <Providers>{children}</Providers>
+          <Providers>{children}</Providers>
           {/* </SessionProvider> */}
         </LayoutProvider>
       </body>

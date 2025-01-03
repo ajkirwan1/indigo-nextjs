@@ -90,7 +90,7 @@
   margin-top: 0;
   font-size: 55px;
   color: aliceblue;
-  font-weight: 200;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
@@ -139,7 +139,7 @@
 }
 
 .errorInfo h2 {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .errorInfo a {
@@ -150,9 +150,8 @@
 .errorInfo a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  cursor: pointer;;
+  cursor: pointer;
 }
-
 
 .headerContainer {
   backdrop-filter: blur(1px);
@@ -160,7 +159,7 @@
 
 .propertyInfo p {
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 300;
 }
 .titleHeader {
   padding-top: 5vh;
@@ -198,7 +197,7 @@
 }
 .contact-form input,
 .contact-form textarea {
-  font-family: "Josefin_Sans" !important;
+  font-family: "Lato" !important;
 }
 
 .mobileContainer {
@@ -210,14 +209,12 @@
   height: 40vh;
 }
 
-
-
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
     font-size: 40px;
     color: aliceblue;
-    font-weight: 200;
+    font-weight: 300;
     text-transform: uppercase;
   }
   .heroWrapper h2 {
@@ -315,5 +312,4 @@
   .propertyInfo {
     all: unset;
   }
-
 }

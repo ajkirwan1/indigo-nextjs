@@ -32,7 +32,7 @@ h2 {
 
 p,
 button {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 18px;
   margin-top: 0;
 }
@@ -47,8 +47,6 @@ html:has(.modal) {
   margin-bottom: 5vh;
   /* letter-spacing: normal; */
 }
-
-
 
 .not-found {
   height: 70vh;
@@ -208,11 +206,10 @@ main {
   width: 100px;
   height: 30px;
 }
-.error-button-container p{
+.error-button-container p {
   margin: 0;
   font-size: 16px;
 }
-
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
   .header h1 {
@@ -225,13 +222,10 @@ main {
     font-size: 24px;
   }
 
-
-  .error-button-container p{
+  .error-button-container p {
     margin: 0;
     font-size: 14px;
   }
-
-
 }
 
 @media only screen and (max-width: 800px) {
@@ -239,7 +233,7 @@ main {
     font-size: 20px;
   }
 
-  .error-button-container p{
+  .error-button-container p {
     margin: 0;
     font-size: 12px;
   }

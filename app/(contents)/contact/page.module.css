@@ -180,7 +180,6 @@
     height: 30px;
     width: auto;
   }
-
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
@@ -246,7 +245,22 @@
   .phoneIcon {
     width: 3rem;
   }
+  .pageWrapper p {
+    line-height: 1.5rem;
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+
+  .phoneAndEmail {
+    margin-top: 2;
+    line-height: 6vh;
+    letter-spacing: normal;
+  }
+  .formItemContainer input::placeholder {
+    font-size: 14px;
+  }
 }
+
 @media only screen and (max-width: 800px) {
   .formMobile {
     display: flex;
@@ -291,7 +305,7 @@
 
   .pageWrapper p:nth-child(1) {
     animation: fadeInLeft 0.5s;
-    animation-delay: .2s;
+    animation-delay: 0.2s;
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
   }
@@ -300,37 +314,34 @@
     animation: unset;
   }
 
-  .letsTalk h2{
+  .letsTalk h2 {
     animation: fadeInLeft 0.5s;
-    animation-delay: .4s;
+    animation-delay: 0.4s;
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
   }
-  .letsTalk img{
+  .letsTalk img {
     animation: fadeInLeft 0.5s;
-    animation-delay: .6s;
-    animation-fill-mode: backwards;
-    animation-timing-function: ease-out;
-  }
-
-  .letsTalk img{
-    animation: fadeInLeft 0.5s;
-    animation-delay: .6s;
+    animation-delay: 0.6s;
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
   }
 
-
+  .letsTalk img {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
 
   .phoneAndEmail {
     margin-top: 0;
-    line-height: 4vh;
-    letter-spacing: 0.1rem;
+    line-height: 6vh;
   }
 
   .phoneAndEmail h3:nth-child(1) {
     animation: fadeInLeft 0.5s;
-    animation-delay: .8s;
+    animation-delay: 0.8s;
     animation-fill-mode: backwards;
     animation-timing-function: ease-out;
   }
@@ -361,12 +372,9 @@
     animation-timing-function: ease-out;
   }
 
-
   .pageWrapper h2 {
     font-size: 20px;
   }
-
-
 
   .wrapper {
     flex-direction: column;

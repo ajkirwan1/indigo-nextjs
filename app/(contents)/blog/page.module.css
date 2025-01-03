@@ -102,12 +102,12 @@
 .hiddenContainer {
   text-decoration: none;
   color: inherit;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .hiddenContainer:hover {
   text-decoration: underline;
-  font-weight: 200;
+  font-weight: 300;
   color: #0b0b0b;
 }
 
@@ -126,7 +126,6 @@
     width: 35px;
   }
 }
-
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .blogPageContainer ul,
@@ -166,7 +165,6 @@
     width: 30px;
   }
 }
-
 
 @media only screen and (max-width: 800px) {
   .header h1 {

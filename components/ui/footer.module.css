@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-around;
   color: aliceblue;
-  font-weight: 200;
+  font-weight: 300;
   flex-wrap: wrap;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -67,7 +67,6 @@
   }
 }
 
-
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .aklogo {
     height: 2.5rem;
@@ -81,13 +80,11 @@
   }
 }
 
-
 @media only screen and (min-width: 600px) and (max-width: 800px) {
   .aklogo {
     height: 2.2rem;
   }
 }
-
 
 @media only screen and (max-width: 600px) {
   .footer {
@@ -116,7 +113,7 @@
       align-items: center;
       justify-content: center;
       color: aliceblue;
-      font-weight: 200;
+      font-weight: 300;
       flex-wrap: wrap;
       margin-block-start: 0;
       margin-block-end: 0;

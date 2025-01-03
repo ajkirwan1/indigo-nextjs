@@ -68,7 +68,7 @@
 }
 
 .heroContents h1 {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
   line-height: 1.6;
   font-weight: 300;
 }
@@ -197,7 +197,7 @@
   color: #f0f8ff;
 }
 .separator h3 {
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .downArrow {
@@ -217,7 +217,7 @@
 .sectionTitle {
   font-size: 30px;
   line-height: 1.7;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .service {
@@ -227,13 +227,13 @@
 
 .service h3 {
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .envelope {
   width: 36px;
   height: auto;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .box {
@@ -271,7 +271,7 @@
 .formcontainer a {
   all: unset;
   color: aliceblue;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .formcontainer a:hover {
@@ -286,15 +286,15 @@
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
   .heroContents h1 {
     font-size: 1.4rem;
-  line-height: 1.5;
-}
+    line-height: 1.5;
+  }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .heroContents h1 {
     font-size: 1.4rem;
-  line-height: 1.5;
-}
+    line-height: 1.5;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
@@ -303,8 +303,8 @@
   }
   .heroContents h1 {
     font-size: 1.4rem;
-  line-height: 1.5;
-}
+    line-height: 1.5;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -323,7 +323,7 @@
     justify-content: center;
   }
   .heroContents h1 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
     line-height: 1.5;
   }
 
@@ -371,22 +371,22 @@
   .heroHeader {
     background: rgb(255 255 255 / 16%);
   }
-.sectionTitle {
-  font-size: 17px;
-  line-height: 2;
-}
+  .sectionTitle {
+    font-size: 17px;
+    line-height: 2;
+  }
 
-.separator h3 {
-  font-size: 15px;
-}
-.service .circleIcon {
-  width: 20px;
-  height: 20px;
-}
+  .separator h3 {
+    font-size: 15px;
+  }
+  .service .circleIcon {
+    width: 20px;
+    height: 20px;
+  }
 
-.heroContents {
-  width:80vw
-}
+  .heroContents {
+    width: 80vw;
+  }
   .heroContents h1 {
     font-size: 1.1rem;
     font-weight: 300;

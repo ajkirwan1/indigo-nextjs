@@ -7,12 +7,11 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ServiceItem from "./service-item";
-import { useSwiper } from 'swiper/react';
+import { useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
 
 export default function WhatWeDoMobileSwiper() {
   const [modalIndex, setModalIndex] = useState(null);
@@ -24,48 +23,48 @@ export default function WhatWeDoMobileSwiper() {
     console.log("CLICK");
     if (modalIndex == id) {
       setInfoActive((val) => !val);
-      swiper.pause()
+      swiper.pause();
     }
     if (modalIndex != id) {
       setInfoActive(true);
     }
     setModalIndex(id);
-    swiper.pause()
+    swiper.pause();
   };
 
   return (
     <>
-        <div className={classes.swiperContainer}>
-          <Swiper
-           style={{
+      <div className={classes.swiperContainer}>
+        <Swiper
+          style={{
             "--swiper-navigation-color": "#000",
             "--swiper-navigation-size": "25px",
           }}
-            className={classes.swiperInnerContainer}
-            spaceBetween={5}
-            // onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-            modules={[Navigation, Pagination, Autoplay]}
-            navigation={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-          >
-            {whatWeDoData.map((element, index) => (
-              <SwiperSlide key={index} className={classes.swiperSlide} >
-                <ServiceItem
-                  key={element.id}
-                  data={element}
-                  handleModal={handleModal}
-                  modalIndex={modalIndex}
-                  infoActive={infoActive}
-                  className="mobile-swiper"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+          className={classes.swiperInnerContainer}
+          spaceBetween={5}
+          // onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+        >
+          {whatWeDoData.map((element, index) => (
+            <SwiperSlide key={index} className={classes.swiperSlide}>
+              <ServiceItem
+                key={element.id}
+                data={element}
+                handleModal={handleModal}
+                modalIndex={modalIndex}
+                infoActive={infoActive}
+                className="mobile-swiper"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }
