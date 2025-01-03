@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ServiceItem from "./service-item";
+import { useSwiper } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -17,15 +18,19 @@ export default function WhatWeDoMobileSwiper() {
   const [modalIndex, setModalIndex] = useState(null);
   const [infoActive, setInfoActive] = useState(false);
 
+  const swiper = useSwiper();
+
   const handleModal = (id) => {
     console.log("CLICK");
     if (modalIndex == id) {
       setInfoActive((val) => !val);
+      swiper.pause()
     }
     if (modalIndex != id) {
       setInfoActive(true);
     }
     setModalIndex(id);
+    swiper.pause()
   };
 
   return (
@@ -38,7 +43,7 @@ export default function WhatWeDoMobileSwiper() {
           }}
             className={classes.swiperInnerContainer}
             spaceBetween={5}
-            onSlideChange={() => console.log("slide change")}
+            // onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
             modules={[Navigation, Pagination, Autoplay]}
             navigation={true}
