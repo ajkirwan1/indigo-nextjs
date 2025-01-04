@@ -42,7 +42,7 @@
   all: unset;
   font-weight: unset;
   color: aliceblue;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 2000px) {

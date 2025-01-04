@@ -7,12 +7,11 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import ServiceItem from "./service-item";
-import { useSwiper } from 'swiper/react';
+import { useSwiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-
 
 export default function WhatWeDoMobileSwiper() {
   const [modalIndex, setModalIndex] = useState(null);
@@ -35,9 +34,9 @@ export default function WhatWeDoMobileSwiper() {
 
   return (
     <>
-        <div className={classes.swiperContainer}>
-          <Swiper
-           style={{
+      <div className={classes.swiperContainer}>
+        <Swiper
+          style={{
             "--swiper-navigation-color": "#000",
             "--swiper-navigation-size": "25px",
           }}

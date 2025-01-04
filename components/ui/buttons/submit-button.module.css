@@ -44,9 +44,8 @@
   justify-content: center;
   gap: 5px;
   background-color: #50505014;
-  font-weight: 200;
+  font-weight: 300;
 }
-
 
 .wrapper {
   cursor: pointer;
@@ -57,21 +56,17 @@
   color: #505050;
 }
 
-
-
 @media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .button {
     font-size: 0.9rem;
   }
 }
 
-
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
   .button {
     font-size: 0.8rem;
   }
 }
-
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .button {

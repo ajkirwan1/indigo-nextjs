@@ -241,7 +241,6 @@
     height: auto;
     width: 35px;
   }
-
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
@@ -261,7 +260,8 @@
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 800px) { }
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+}
 
 @media only screen and (max-width: 600px) {
   .logoIndigo {
@@ -277,6 +277,12 @@
 
   .submitButtonContainer button {
     font-size: 12px;
+  }
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 15px;
+    font-weight: 300;
+    background-color: #fff;
   }
 
   .loginForm {
