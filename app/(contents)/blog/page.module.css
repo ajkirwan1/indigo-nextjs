@@ -186,6 +186,10 @@
   .blogPageContainerSkeleton ul {
     grid-template-columns: 1fr 1fr;
     column-gap: 5vw;
+    display: block;
+  }
+  .blogPageContainer li {
+    margin-bottom: 40px;
   }
 
   .avatar {
