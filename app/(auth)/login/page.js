@@ -19,9 +19,9 @@ export default async function LoginPage() {
   }
   const { user } = await validateRequest();
 
-  if (user) {
-    redirect("/logout");
-  }
+  // if (user) {
+  //   redirect("/logout");
+  // }
 
   return (
     <>

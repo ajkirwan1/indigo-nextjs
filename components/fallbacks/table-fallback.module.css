@@ -1,47 +1,53 @@
 .admin {
   width: 100%;
-  margin-top: 10vh;
-  box-shadow: 2px 2px 15px rgb(89 13 104 / 27%);
+  /* margin-top: 10vh; */
+  box-shadow: 2px 2px 15px #4d0013;
 }
 
 .admin thead {
   font-size: 24px;
-  background-color: rgba(89, 13, 104, 0.433);
+  background-color: #4d0013;
   color: aliceblue;
 }
 
 .admin tbody {
   font-size: 15px;
-  background-color: #80008014;
+  background-color: #4d001336;
 }
 
 .admin td {
   font-weight: 300;
-}
-.head td {
   padding-left: 12px;
+}
+
+.tdContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 12px;
+}
+
+.tdContainer:hover img,
+.tdContainer:hover span {
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-thickness: 1px;
+}
+
+.admin td img {
+  height: 30px;
+  width: auto;
 }
 
 .admin tr {
   height: 6vh;
 }
-.admin .pending {
-  background-color: #f5cdb469;
-}
-.fallbackTr {
-  column-span: 5;
-  padding: 0;
-}
-.skeleton {
-  background-color: #80008074;
-  height: 3vh;
-  border-radius: 10px;
-  width: 98%;
+
+.admin tbody tr:hover {
+  background-color: rgba(231, 236, 129, 0.397);
+  cursor: pointer;
 }
 
-.skeletonHead {
-  background-color: rgba(89, 13, 104, 0.801);
-  height: 4vh;
-  border-radius: 10px;
-  width: 100%;
+.admin .pending {
+  background-color: #f5cdb469;
 }

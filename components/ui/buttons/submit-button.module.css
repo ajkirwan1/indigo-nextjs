@@ -1,3 +1,5 @@
+/** @format */
+
 .button,
 .pendingButton {
   background: none;
@@ -68,7 +70,7 @@
   }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1600px) {
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
   .button {
     font-size: 0.7rem;
   }
@@ -76,3 +78,30 @@
     font-size: 0.7rem;
   }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    font-size: 0.6rem;
+  }
+
+}
+

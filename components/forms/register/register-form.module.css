@@ -1,3 +1,5 @@
+/** @format */
+
 .header {
   color: aliceblue !important;
   position: absolute;
@@ -82,22 +84,13 @@
 .formItemContainer {
   display: flex;
   padding: 10px;
-  /* padding-top: 2vh; */
   flex-direction: column;
   align-items: flex-start;
-  /* width: 45%; */
 }
 
 .formItemContainer input {
   padding: 10px;
 }
-/* .formtickContainer {
-    display: flex;
-    padding-top: 2vh;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  } */
 .formRow {
   display: flex;
   justify-content: space-between;
@@ -111,17 +104,7 @@
 .formCheckboxContainer {
   display: flex;
 }
-/* .hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-      url("../../public//images/authbackground.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 90%;
-  } */
+
 .hero:after {
   content: "";
   position: absolute;
@@ -226,7 +209,25 @@
   margin-bottom: 5vh;
 }
 
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+}
+
 @media only screen and (max-width: 600px) {
+  .registerForm1 {
+    display: flex;
+    flex-direction: column;
+    row-gap: unset;
+  }
+
   .logoIndigo {
     height: 10rem;
     width: auto;
@@ -237,4 +238,31 @@
     width: 100px;
     height: 20px;
   }
+
+  .headerContainer h1 {
+    font-size: 22px;
+  }
+
+  .headerContainer h2 {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .headerContainer img {
+    height: 25px;
+    margin-top: 0;
+  }
+
+  .formItemContainer label {
+    font-size: 14px;
+  }
+
+  .formItemContainer input[type="text"],
+  .formItemContainer input[type="email"],
+  .formItemContainer input[type="password"] {
+    font-size: 14px;
+  }
+
+
+
 }

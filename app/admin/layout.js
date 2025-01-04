@@ -12,7 +12,6 @@ export default function AdminLayout({ children }) {
           <Header className="non-hero"></Header>
           <main>{children}</main>
         </div>
-
         <Footer></Footer>
       </AdminProvider>
     </div>
