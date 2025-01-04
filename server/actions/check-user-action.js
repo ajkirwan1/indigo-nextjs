@@ -4,7 +4,7 @@ import db from "@/modules/db";
 import { user } from "@nextui-org/theme";
 
 async function validateCredentials(userName, email, password, passwordConfirm) {
-  console.log(userName)
+  console.log(userName);
   let errors = [];
 
   if (
@@ -45,30 +45,35 @@ async function validateCredentials(userName, email, password, passwordConfirm) {
   }
 
   try {
-    throw Error;
-    const existingUuser = await db.user.findFirst({
-      where: { username: userName },
-    });
+    // const existingUuser = await db.user.findFirst({
+    //   where: { username: userName },
+    // });
 
-    const existingEmail = await db.user.findFirst({
-      where: { email: email },
-    });
+    const existingUuser = ""
 
     if (existingUuser) {
       errors.push({
-        errorType: "username",
+        errorType: "usernameExists",
         message: "Username already exists",
       });
-      // return { errors, errorMessage: "" };
+      return { errors };
     }
+
+    // const existingEmail = await db.user.findFirst({
+    //   where: { email: email },
+    // });
+
+
+    const existingEmail = ""
 
     if (existingEmail) {
-      errors.push({ errorType: "email", message: "Email already exists" });
+      errors.push({
+        errorType: "emailExists",
+        message: "Email already exists",
+      });
+      return { errors };
     }
 
-    if (errors.length > 0) {
-      return errors;
-    }
   } catch (error) {
     return {
       dbErrorMessage: " An error occured accessing the database",

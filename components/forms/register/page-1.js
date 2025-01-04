@@ -16,7 +16,7 @@ export default function RegisterFormPage1({
   handleNextTab,
 }) {
   const [errors, setErrors] = useState([]);
-  console.warn(errors);
+  // console.warn(errors);
 
   const handleNext = async () => {
     const result = await CheckUserAction(
@@ -26,11 +26,11 @@ export default function RegisterFormPage1({
       data.passwordConfirm
     );
 
-    if (result.errors) {
+    if (result?.errors) {
       setErrors([...result.errors]);
-    } else if (result.dbErrorMessage) {
+    } else if (result?.dbErrorMessage) {
       setErrors([{ ...result }]);
-      console.log(errors[0]);
+      // console.log(errors[0]);
     } else {
       handleNextTab();
     }
@@ -81,6 +81,8 @@ export default function RegisterFormPage1({
             </div>
             {errors?.find((item) => item.errorType == "username") ? (
               <p className={classes.errorA}>Invalid user name</p>
+            ) : errors?.find((item) => item.errorType == "usernameExists") ? (
+              <p className={classes.errorA}>Username already exists</p>
             ) : null}
             <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
               <label>Email:</label>
@@ -94,6 +96,8 @@ export default function RegisterFormPage1({
             </div>
             {errors?.find((item) => item.errorType == "email") ? (
               <p className={classes.errorB}>Invalid email</p>
+            ) : errors?.find((item) => item.errorType == "emailExists") ? (
+              <p className={classes.errorB}>Email already exists</p>
             ) : null}
             <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
               <label>Password:</label>
