@@ -198,6 +198,7 @@
 }
 .separator h3 {
   font-weight: 300;
+  flex: 1 40%;
 }
 
 .downArrow {
@@ -337,6 +338,8 @@
     line-height: 1.7;
   }
 
+
+
   .service h3 {
     font-size: 14px;
     /* font-weight: 400; */
@@ -379,6 +382,10 @@
   .separator h3 {
     font-size: 15px;
   }
+
+  .service {
+    align-items: center;
+     }
   .service .circleIcon {
     width: 20px;
     height: 20px;
@@ -396,6 +403,11 @@
   .listContainer {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    /* align-items: flex-end; */
+  }
+
+  .circleIcon {
+    margin-top: 0;
+    margin-left: 0;
   }
 }
