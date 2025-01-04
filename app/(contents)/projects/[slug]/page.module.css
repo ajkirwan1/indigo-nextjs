@@ -309,7 +309,20 @@
     display: unset;
   }
 
+  .propertyInfo h2 {
+    font-size: 18px;
+  }
   .propertyInfo {
     all: unset;
+  }
+  .propertyInfo p {
+    font-size: 14px;
+  }
+  .swiperContainer {
+    height: 56vw;
+  }
+  .propertyInfo {
+    display: block;
+    margin: 50px 0 60px;
   }
 }

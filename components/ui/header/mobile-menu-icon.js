@@ -1,6 +1,6 @@
 /** @format */
 
-import { RxCross2 } from "react-icons/rx";
+import { RxCross1 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
 import { useState } from "react";
@@ -23,7 +23,7 @@ function Hamburger({ handleMobileIcon }) {
 function Cross({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
-      <RxCross2
+      <RxCross1
         className={classes.hamburgerMenu}
         size="70px"
         color="white"

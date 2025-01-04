@@ -37,34 +37,34 @@ export default function WhatWeDoMobileSwiper() {
       <div className={classes.swiperContainer}>
         <Swiper
           style={{
-            "--swiper-navigation-color": "#000",
+            "--swiper-navigation-color": "#4d0013",
             "--swiper-navigation-size": "25px",
           }}
-            className={classes.swiperInnerContainer}
-            spaceBetween={5}
-            // onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-            modules={[Navigation, Pagination, Autoplay]}
-            navigation={true}
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            // }}
-          >
-            {whatWeDoData.map((element, index) => (
-              <SwiperSlide key={index} className={classes.swiperSlide} >
-                <ServiceItem
-                  key={element.id}
-                  data={element}
-                  handleModal={handleModal}
-                  modalIndex={modalIndex}
-                  infoActive={infoActive}
-                  className="mobile-swiper"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+          className={classes.swiperInnerContainer}
+          spaceBetween={5}
+          // onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation={true}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
+        >
+          {whatWeDoData.map((element, index) => (
+            <SwiperSlide key={index} className={classes.swiperSlide}>
+              <ServiceItem
+                key={element.id}
+                data={element}
+                handleModal={handleModal}
+                modalIndex={modalIndex}
+                infoActive={infoActive}
+                className="mobile-swiper"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 }
