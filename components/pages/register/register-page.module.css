@@ -35,5 +35,6 @@
 @media only screen and (max-width: 600px) {
   .formcontainer {
     width: 70vw;
+    margin-top: 0;
   }
 }

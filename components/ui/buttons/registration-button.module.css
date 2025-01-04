@@ -47,14 +47,50 @@
   color: #505050;
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .button {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .button {
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
   .button {
     font-size: 0.7rem;
   }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    font-size: 0.6rem;
+  }
+
+}
+

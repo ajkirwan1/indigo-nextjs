@@ -1,51 +1,79 @@
 /** @format */
 "use server";
 import db from "@/modules/db";
+import { user } from "@nextui-org/theme";
 
 async function validateCredentials(userName, email, password, passwordConfirm) {
+  console.log(userName)
   let errors = [];
-
-  const existingUuser = await db.user.findFirst({
-    where: { username: userName },
-  });
-
-  const existingEmail = await db.user.findFirst({
-    where: { email: email },
-  });
-
-  if (existingUuser) {
-    errors.push("Username already exists");
-  }
 
   if (
     typeof userName !== "string" ||
-    userName.length < 3 ||
+    userName.length < 6 ||
     userName.length > 31
   ) {
-    errors.push("Invalid username");
-  }
-
-  if (password != passwordConfirm) {
-    errors.push("Passwords do not match");
+    errors.push({ errorType: "username", message: "Invalid username" });
   }
 
   if (
     typeof password !== "string" ||
     password.length < 6 ||
-    password.length > 255
+    password.length > 31
   ) {
-    errors.push("Invalid Password");
+    errors.push({ errorType: "password", message: "Invalid password" });
   }
 
-  if (existingEmail) {
-    errors.push("Email already exists");
+  if (password != passwordConfirm) {
+    errors.push({
+      errorType: "passwordConfirm",
+      message: "Passwords do not match",
+    });
   }
 
-  if (typeof email !== "string" || email.length < 6 || email.length > 255) {
-    errors.push("Invalid email address");
+  if (
+    typeof email !== "string" ||
+    email.length < 6 ||
+    email.length > 25 ||
+    !email.includes("@") ||
+    !email.includes(".")
+  ) {
+    errors.push({ errorType: "email", message: "Invalid email" });
   }
 
-  return { errors };
+  if (errors.length > 0) {
+    return { errors };
+  }
+
+  try {
+    throw Error;
+    const existingUuser = await db.user.findFirst({
+      where: { username: userName },
+    });
+
+    const existingEmail = await db.user.findFirst({
+      where: { email: email },
+    });
+
+    if (existingUuser) {
+      errors.push({
+        errorType: "username",
+        message: "Username already exists",
+      });
+      // return { errors, errorMessage: "" };
+    }
+
+    if (existingEmail) {
+      errors.push({ errorType: "email", message: "Email already exists" });
+    }
+
+    if (errors.length > 0) {
+      return errors;
+    }
+  } catch (error) {
+    return {
+      dbErrorMessage: " An error occured accessing the database",
+    };
+  }
 }
 
 export async function CheckUserAction(
