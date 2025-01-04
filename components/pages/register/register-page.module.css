@@ -34,7 +34,13 @@
 
 @media only screen and (max-width: 600px) {
   .formcontainer {
-    width: 70vw;
+    width: 85vw;
     margin-top: 0;
   }
+
+
+  .formcontainer p{
+    font-size: 12px;
+  }
+
 }

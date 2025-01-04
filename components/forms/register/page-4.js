@@ -19,12 +19,13 @@ export default function RegisterFormPage4({
 }) {
   const [state, formAction] = useFormState(action, { data });
   const [submitPending, setsubmitPending] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const [investmentInterest, setinvestmentInterest] = useState([
     false,
     false,
     false,
-    false,
+    // false,
   ]);
   const [previousInvestment, setpreviousInvestment] = useState([false, false]);
 
@@ -41,9 +42,9 @@ export default function RegisterFormPage4({
     if (eventSource == "100-150") {
       setinvestmentInterest([false, false, true, false]);
     }
-    if (eventSource == "150+") {
-      setinvestmentInterest([false, false, false, true]);
-    }
+    // if (eventSource == "150+") {
+    //   setinvestmentInterest([false, false, false, true]);
+    // }
   };
 
   const handlePreviousInvestment = (e) => {
@@ -58,12 +59,25 @@ export default function RegisterFormPage4({
   };
 
   const handleSubmitForm = () => {
-    setsubmitPending(true);
-    try {
-      RegisterMultiPage(data);
-    } catch (error) {
-      console.log(error);
+    if (
+      !investmentInterest.includes(true) ||
+      !previousInvestment.includes(true)
+    ) {
+      setErrors([
+        {
+          errorType: "incompleteForm",
+          message: "Please complete all sections",
+        },
+      ]);
     }
+
+    // setsubmitPending(true);
+
+    // try {
+    //   RegisterMultiPage(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   let pending = false;
@@ -71,13 +85,17 @@ export default function RegisterFormPage4({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image className={classes.iconRegister} src={userIcon} alt="An image of icon which depicts registration" />
+        <Image
+          className={classes.iconRegister}
+          src={userIcon}
+          alt="An image of icon which depicts registration"
+        />
         <h2>4/4</h2>
       </div>
       <form className={classes.registerForm3} action={formAction}>
         <label>Estimated investment interest - 1,000s €</label>
         <div className={classes.tickRow}>
-          <div>
+          <div className={classes.inputWrapper}>
             <label>Up to 50</label>
             <input
               type="checkbox"
@@ -86,7 +104,7 @@ export default function RegisterFormPage4({
               onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
-          <div>
+          <div className={classes.inputWrapper}>
             <label>50 - 100</label>
             <input
               type="checkbox"
@@ -95,7 +113,7 @@ export default function RegisterFormPage4({
               onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
-          <div>
+          <div className={classes.inputWrapper}>
             <label>100 - 150</label>
             <input
               type="checkbox"
@@ -104,7 +122,7 @@ export default function RegisterFormPage4({
               onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
-          <div>
+          {/* <div className={classes.inputWrapper}>
             <label>More than 150</label>
             <input
               type="checkbox"
@@ -112,11 +130,11 @@ export default function RegisterFormPage4({
               checked={investmentInterest[3]}
               onChange={(event) => handleInvestmentInterest(event)}
             ></input>
-          </div>
+          </div> */}
         </div>
         <label>Have you previously invested in Greek real estate?</label>
         <div className={classes.tickRow}>
-          <div>
+          <div className={classes.inputWrapper}>
             <label>Yes</label>
             <input
               type="checkbox"
@@ -125,7 +143,7 @@ export default function RegisterFormPage4({
               onChange={(event) => handlePreviousInvestment(event)}
             ></input>
           </div>
-          <div>
+          <div className={classes.inputWrapper}>
             <label>No</label>
             <input
               type="checkbox"
@@ -136,12 +154,15 @@ export default function RegisterFormPage4({
           </div>
         </div>
       </form>
+      {errors[0]?.errorType && (
+        <p className={classes.errorParagraph}>{errors[0]?.message}</p>
+      )}
       <div className={classes.buttonWrapper}>
         <RegistrationButton onClick={handlePreviousTab}>
-          PREVIOUS
+          Previous
         </RegistrationButton>
         <RegistrationButton onClick={() => handleSubmitForm()}>
-          SUBMIT
+          Submit
         </RegistrationButton>
       </div>
       {submitPending ? (

@@ -61,12 +61,9 @@
   font-weight: 300;
   margin-bottom: 5vh;
   width: 90%;
-  /* display: flex;
-    min-height: 70vh;
-    flex-direction: column;
-    align-items: center; */
   font-weight: 300;
 }
+
 .inputWrapper input {
   margin-left: 15px;
 }
@@ -299,6 +296,11 @@
   
 }
 
+.errorParagraph {
+  letter-spacing: normal;
+  font-weight: 400;
+  color: #4d0013;
+}
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
 
@@ -346,6 +348,16 @@
     font-size: 12px;
     
   }
+
+  .registerForm3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+    margin-bottom: unset;
+    width: unset;
+  }
+
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
@@ -378,6 +390,17 @@
     font-size: 12px;
     
   }
+
+  .registerForm3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+    margin-bottom: unset;
+    width: unset;
+    row-gap: unset;
+  }
+
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
@@ -409,6 +432,17 @@
     font-size: 12px;
   }
 
+  .registerForm3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+    margin-bottom: unset;
+    width: unset;
+    row-gap: unset;
+  }
+
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -419,6 +453,13 @@
     display: flex;
     flex-direction: column;
     row-gap: unset;
+    margin-bottom: 2vh;
+  }
+
+  .registerForm1 p {
+    font-size: 12px;
+    font-weight: 300;
+
   }
 
   .logoIndigo {
@@ -446,6 +487,11 @@
     margin-top: 0;
   }
 
+
+  .formcontainer {
+    max-width: 85vw;
+  }
+
   .formItemContainer label {
     font-size: 14px;
   }
@@ -468,5 +514,24 @@
     font-size: 12px;
   }
 
+  .registerForm3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: unset;
+    margin-bottom: unset;
+    width: unset;
+    row-gap: 12px;
+    margin-bottom: 2vh;
+  }
+
+
+  .registerForm3 label{
+    font-size: 12px;
+  }
+
+  .errorParagraph {
+    font-size: 14px;
+  }
 
 }
