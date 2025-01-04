@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
+import isoImage from "/public/images/pages/home/istockphoto-2.jpg"
 import Link from "next/link";
 
 const container = {
@@ -152,7 +153,7 @@ const componentArray = [
     </HeroComponent>
   </div>,
   <div key={4} className={classes.heroWrapper}>
-    <HeroComponent heroImage={poshImage} altText="Alt text">
+    <HeroComponent heroImage={isoImage} altText="Alt text">
       <div className={classes.heroContents}>
         <motion.div
           variants={container}
