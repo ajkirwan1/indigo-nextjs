@@ -1,7 +1,7 @@
 .footer {
   height: 10vh;
   background-color: #4d0013;
-  width: 100vw;
+  /* width: 100vw; */
   /* padding: 0 60px;
 } */
 }
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-around;
   color: aliceblue;
-  font-weight: 200;
+  font-weight: 300;
   flex-wrap: wrap;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -67,22 +67,9 @@
   }
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
   .aklogo {
-    height: 3rem;
-  }
-  .footer ul {
-    font-size: 0.95rem;
-  }
-  .shareIcon {
-    height: 1.5rem;
-    width: auto;
-  }
-}
-
-@media only screen and (min-width: 800px) and (max-width: 1199px) {
-  .aklogo {
-    height: 3rem;
+    height: 2.5rem;
   }
   .footer ul {
     font-size: 0.7rem;
@@ -90,6 +77,12 @@
   .shareIcon {
     height: 1.5rem;
     width: auto;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .aklogo {
+    height: 2.2rem;
   }
 }
 
@@ -120,7 +113,7 @@
       align-items: center;
       justify-content: center;
       color: aliceblue;
-      font-weight: 200;
+      font-weight: 300;
       flex-wrap: wrap;
       margin-block-start: 0;
       margin-block-end: 0;

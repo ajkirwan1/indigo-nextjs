@@ -1,5 +1,5 @@
 /** @format */
-
+'use client'
 import MobileNavigationItems from "./mobile-navigation-items";
 import ModalBackdrop from "@/components/modal-backdrop";
 import classes from "./header.module.css";
@@ -10,13 +10,32 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 1,
-      duration: 1,
-      // delayChildren: 0.5,
-      // delay: 0.3,
-      // bounce: 0,
+      staggerChildren: 0.1,
+      duration: 2,
+      delay: 0.1,
     },
   },
+  remove: { backgroundColor: "#ffff", duration: 500 },
+};
+
+const removeContainer = {
+  start: { opacity: 1 },
+  finish: {
+    opacity: 0,
+    // transition: {
+    //   duration: 30,
+    // },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, x: -5 },
+  show: { opacity: 1, x: 0, transition: { ease: "easeIn" } },
+};
+
+const removeItem = {
+  start: { opacity: 1 },
+  finish: { opacity: 0 },
 };
 
 export default function MobileNavbar({
@@ -34,32 +53,32 @@ export default function MobileNavbar({
             : `${classes.mobileNavContainer}`
         }
       >
-        <motion.nav
-          // initial={{ opacity:0 }}
-          // whileInView={{ opacity:1 }}
-          // transition={{ duration: 0.1, delay: 0.3 }}
-          // layout
-          variants={container}
-          initial="hidden"
-          whileInView="show"
+        <nav
           className={
             mobileMenuOpen
               ? `${classes.desktopNav}`
               : `${classes.desktopNav} ${classes.hidden}`
           }
         >
-          <ul className={classes.menus}>
+          <motion.ul
+            className={classes.menus}
+            variants={mobileMenuOpen ? container  : removeContainer}
+            initial="hidden"
+            whileInView="show"
+            // animate={mobileMenuOpen ? "remove" : null}
+          >
             {data.map((menu, index) => {
               return (
-                <MobileNavigationItems
-                  handleMobileIcon={handleMobileIcon}
-                  items={menu}
-                  key={index}
-                />
+                <motion.li key={index} variants={item}>
+                  <MobileNavigationItems
+                    handleMobileIcon={handleMobileIcon}
+                    items={menu}
+                  />
+                </motion.li>
               );
             })}
-          </ul>
-        </motion.nav>
+          </motion.ul>
+        </nav>
       </div>
     </>
   );

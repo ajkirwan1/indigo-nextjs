@@ -25,6 +25,7 @@
   flex-grow: 0;
   transition: translate 300ms ease-in-out;
   margin-bottom: 50px;
+  object-fit: cover;
 }
 
 .imageSliderBtn {
@@ -71,9 +72,10 @@
     width: 30px;
     height: auto;
   }
-  .carouselImage {
+  .carouselImageSmall {
     margin-top: 320px;
     object-fit: contain;
     object-position: top;
   }
+
 }

@@ -1,35 +1,22 @@
 .image {
-  width: 40%;
+  height: 30vh;
+  width: auto;
+  float: right;
 }
 
-.pageWrapper {
-  /* min-height: 70vh; */
-}
 .pageWrapper h1 {
   margin: 0;
-}
-.imageWrapper {
-  display: flex;
-  align-items: flex-end;
-}
-
-.imageOuterWrapper {
-  display: flex;
-}
-
-.paragraphContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .sectionContainer {
   display: flex;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 7vh;
 }
+
+.sectionContainer h2 {
+  font-size: 30px;
+}
+
 
 .sectionContainer span {
   border-right: 1px solid rgba(0, 0, 0, 0.563);
@@ -37,15 +24,6 @@
   margin-right: 5vw;
 }
 
-.flexCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.sectionContainerSmall {
-  display: flex;
-  margin-bottom: 1vh;
-}
 .paragraphWrapper {
   display: flex;
   flex: 1 1 40%;
@@ -64,37 +42,13 @@
 
 .pageWrapper h3 {
   font-weight: 400;
-  font-size: 16px;
-}
-
-.paragraphWrapperSmall {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  justify-content: space-evenly;
-  letter-spacing: 2px;
-  line-height: 2rem;
-  padding-right: 5vw;
-}
-
-.flexCol {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  justify-content: space-evenly;
-  letter-spacing: 2px;
-  line-height: 2rem;
-}
-
-.paragraphWrapper,
-.imageOuterWrapper {
-  /* padding-top: 5vh; */
+  font-size: 28px;
 }
 
 .paragraphWrapper p,
 .paragraphWrapperRight p {
   letter-spacing: normal;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .paragraphWrapperRight {
@@ -113,35 +67,6 @@
   flex-direction: column;
   flex: 1 1 40%;
   animation: fadeInRight 1s;
-}
-
-.imageButton {
-  display: flex;
-  gap: 5vh;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.image {
-  width: auto;
-  height: 35vh;
-}
-
-.imageSmall {
-  width: auto;
-  height: 25vh;
-}
-
-.smallImage {
-  width: 500px;
-  height: auto;
 }
 
 @-webkit-keyframes fadeInLeft {
@@ -188,20 +113,6 @@
   }
 }
 
-@media only screen and (min-width: 1800px) {
-  /* .paragraphWrapper {
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  } */
-
-  .sectionContainer {
-  }
-  .paragraphWrapper p,
-  .paragraphWrapperRight p {
-    font-size: 18px;
-  }
-}
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -211,6 +122,14 @@
   }
 }
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+
+  .sectionContainer h2 {
+    font-size: 26px;
+  }
+
+  .pageWrapper h3 {
+    font-size: 26px;
+  }
   .paragraphWrapper,
   .paragraphWrapperRight {
     line-height: 1.8rem;
@@ -218,7 +137,7 @@
   .paragraphWrapper p,
   .paragraphWrapperRight p {
     letter-spacing: normal;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .imageOuterWrapper {
@@ -236,10 +155,15 @@
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
-  .sectionContainer p {
-    font-size: 16px;
-    line-height: 1.4rem;
+
+  .sectionContainer {
+    padding-top: 5vh;
   }
+
+  .sectionContainer h2 {
+    font-size: 26px;
+  }
+
   .image {
     float: right;
     margin-left: 30px;
@@ -257,9 +181,15 @@
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
+
+  .sectionContainer h2,
+  .pageWrapper h3 {
+    font-size: 24px;
+  }
+
   .sectionContainer p {
-    font-size: 16px;
-    line-height: 1.4rem;
+    font-size: 22px;
+    line-height: 1.8rem;
   }
   .image {
     float: right;
@@ -280,15 +210,32 @@
   }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1400px) {
   .sectionContainer {
     flex-direction: column;
     padding-top: 0;
   }
+  .imageOuterWrapper {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+}
+
+
+@media only screen and (max-width: 800px) {
 
   .sectionContainer p {
-    font-size: 16px;
+    font-size: 20px;
   }
+
+  .sectionContainer h2 {
+    font-size: 20px;
+  }
+
+ }
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
 
   .image {
     float: right;
@@ -298,10 +245,6 @@
 
   .top {
     all: unset;
-  }
-
-  .imageOuterWrapper {
-    display: unset;
   }
 
   .paragraphWrapperRight {
@@ -329,5 +272,38 @@
   }
   .pageWrapper h3 {
     margin-bottom: 35px;
+  }
+  .paragraphWrapper {
+    margin-bottom: 35px;
+    animation: unset;
+  }
+
+  .paragraphWrapper h2{
+    animation: fadeInLeft 1s;
+    animation-delay:  0.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .paragraphWrapper p:nth-child(2) {
+    animation: fadeInLeft 1s;
+    animation-delay: .4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+  .paragraphWrapper p:nth-child(3){
+    animation: fadeInLeft 1s;
+    animation-delay: .6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+  .paragraphWrapper p:nth-child(4){
+    animation: fadeInLeft 1s;
+    animation-delay: .8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+  .paragraphWrapperRight {
+    max-width: unset;
   }
 }

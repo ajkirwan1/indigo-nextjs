@@ -8,9 +8,11 @@ import classes from "./newsletter-form.module.css";
 import Image from "next/image";
 import imageIcon from "/public/images/icons/icons8-plus.svg";
 import ModalBackdrop from "@/components/modal-backdrop";
+import Button from "@/components/ui/button";
 
 export default function NewsletterForm({ action }) {
-  const [state, formAction] = useFormState(action, {});
+  const initialState = { errorMessage: "", submitted: false };
+  const [state, formAction] = useFormState(action, initialState);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [data, setData] = useState({ email: "" });
   const [modalState, setModalState] = useState({ ...state });
@@ -33,6 +35,12 @@ export default function NewsletterForm({ action }) {
     });
   };
 
+  const handleReset = () => {
+    state.errorMessage = "";
+    setIsButtonDisabled(true);
+    setData({ email: "" });
+  };
+
   const handleModal = () => {
     setModalState(false);
     setData({ email: "" });
@@ -49,30 +57,41 @@ export default function NewsletterForm({ action }) {
           </div>
         </ModalBackdrop>
       )}
-      <form action={formAction}>
-        <div className={classes.formContainer}>
-          <Image
-            src={imageIcon}
-            alt="alt"
-            width={40}
-            height={40}
-            className={classes.plusIcon}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            autoComplete="off"
-            value={data.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className={classes.submitButtonOuterContainer}>
-          <div className={classes.submitButtonContainer}>
-            <FormSubmit disabled={isButtonDisabled} />
+      {!state.errorMessage ? (
+        <form action={formAction}>
+          <div className={classes.formContainer}>
+            <Image
+              src={imageIcon}
+              alt="alt"
+              width={40}
+              height={40}
+              className={classes.plusIcon}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              autoComplete="off"
+              value={data.email}
+              onChange={handleChange}
+            />
           </div>
-        </div>
-      </form>
+          <div className={classes.submitButtonOuterContainer}>
+            <div className={classes.submitButtonContainer}>
+              <FormSubmit disabled={isButtonDisabled} />
+            </div>
+          </div>
+        </form>
+      ) : (
+        <>
+          <p>{state.errorMessage}</p>
+          <div className={classes.submitButtonContainer}>
+            <Button onClick={handleReset}>
+              <p>Reset</p>
+            </Button>
+          </div>
+        </>
+      )}
     </>
   );
 }

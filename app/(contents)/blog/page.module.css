@@ -6,7 +6,8 @@
   margin-top: 5vh;
   margin-bottom: 6vh;
 }
-.blogPageContainer {
+.blogPageContainer,
+.blogPageContainerSkeleton {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
   margin-bottom: 5vh;
@@ -30,9 +31,10 @@
 .blogPageContainer ul,
 .blogPageContainerSkeleton ul {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
   column-gap: 1.5vw;
+  row-gap: 3vh;
   text-align: left;
 }
 
@@ -100,12 +102,12 @@
 .hiddenContainer {
   text-decoration: none;
   color: inherit;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .hiddenContainer:hover {
   text-decoration: underline;
-  font-weight: 200;
+  font-weight: 300;
   color: #0b0b0b;
 }
 
@@ -114,12 +116,30 @@
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2vw;
+  }
   .avatar {
     height: 35px;
     width: 35px;
   }
 }
 
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .blogPageContainer ul,
+  .blogPageContainerSkeleton ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
@@ -130,8 +150,7 @@
   }
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 5vw;
+    column-gap: 2vw;
   }
 
   .blogPageContainer p {
@@ -166,7 +185,7 @@
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
     grid-template-columns: 1fr 1fr;
-    column-gap: 10vw;
+    column-gap: 5vw;
   }
 
   .avatar {

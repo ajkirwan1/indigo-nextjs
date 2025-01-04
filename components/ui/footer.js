@@ -5,7 +5,6 @@ import aklogo from "/public//images/aklogo.png";
 import ShareComponent from "../share/share-component";
 import classes from "./footer.module.css";
 import Link from "next/link";
-import { ShareIcon } from "lucide-react";
 
 export default function Footer() {
   return (
