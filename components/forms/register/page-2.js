@@ -23,6 +23,7 @@ export default function RegisterFormPage2({
       data.companyName,
       data.phoneNumber
     );
+
     if (result.errors.length > 0) {
       setErrors([...result.errors]);
     } else {
@@ -38,7 +39,7 @@ export default function RegisterFormPage2({
         <h2>2/4</h2>
       </div>
       <form className={classes.registerForm1}>
-        <div className={classes.formItemContainer}>
+        <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
           <label>First name:</label>
           <input
             type="text"
@@ -47,7 +48,10 @@ export default function RegisterFormPage2({
             value={data.firstName}
           />
         </div>
-        <div className={classes.formItemContainer}>
+        {errors?.find((item) => item.errorType == "firstName") ? (
+          <p className={classes.errorA}>Invalid first name</p>
+        ) : null}
+        <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
           <label>Last name:</label>
           <input
             type="text"
@@ -56,7 +60,10 @@ export default function RegisterFormPage2({
             value={data.lastName}
           />
         </div>
-        <div className={classes.formItemContainer}>
+        {errors?.find((item) => item.errorType == "lastName") ? (
+          <p className={classes.errorB}>Invalid last name</p>
+        ) : null}
+        <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
           <label>Comapany name:</label>
           <input
             type="text"
@@ -65,7 +72,10 @@ export default function RegisterFormPage2({
             value={data.companyName}
           />
         </div>
-        <div className={classes.formItemContainer}>
+        {errors?.find((item) => item.errorType == "companyName") ? (
+          <p className={classes.errorC}>Invalid company name</p>
+        ) : null}
+        <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
           <label>Phone number:</label>
           <input
             type="text"
@@ -74,6 +84,9 @@ export default function RegisterFormPage2({
             value={data.phoneNumber}
           />
         </div>
+        {errors?.find((item) => item.errorType == "phoneNumber") ? (
+          <p className={classes.errorD}>Invalid phone number</p>
+        ) : null}
 
         {/* <RegistrationButton
           disabled={
@@ -90,11 +103,11 @@ export default function RegisterFormPage2({
       </form>
       <div className={classes.buttonWrapper}>
         <RegistrationButton onClick={handlePreviousTab}>
-          PREVIOUS
+          Previous
         </RegistrationButton>
-        <RegistrationButton onClick={handleNext}>NEXT</RegistrationButton>
+        <RegistrationButton onClick={handleNext}>Next</RegistrationButton>
       </div>
-      {errors && (
+      {/* {errors && (
         <ul>
           {errors.map((error) => (
             <li key={error}>
@@ -102,7 +115,7 @@ export default function RegisterFormPage2({
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </>
   );
 }
