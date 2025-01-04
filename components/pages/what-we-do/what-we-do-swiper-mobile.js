@@ -46,10 +46,10 @@ export default function WhatWeDoMobileSwiper() {
           onSwiper={(swiper) => console.log(swiper)}
           modules={[Navigation, Pagination, Autoplay]}
           navigation={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
         >
           {whatWeDoData.map((element, index) => (
             <SwiperSlide key={index} className={classes.swiperSlide}>
