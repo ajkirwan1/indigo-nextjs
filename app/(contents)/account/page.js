@@ -4,6 +4,7 @@ import { validateRequest } from "@/auth/lucia";
 import classes from "./page.module.css";
 import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Account",
@@ -41,7 +42,10 @@ export default async function UserInfo() {
         />
       </div>
       <div className={classes.itemWrapper}>
-        <ClientRegistrationDetails id={id} />
+        <Suspense fallback={<p>Pending.....</p>}>
+           <ClientRegistrationDetails id={id} />
+        </Suspense>
+     
       </div>
       <div className={classes.itemWrapper}>
         <h2>{firstname}</h2>
