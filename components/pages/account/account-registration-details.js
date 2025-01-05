@@ -6,10 +6,11 @@ import ClientRegistrationDetailsForm from "@/components/forms/account/client-reg
 import classes from "./account-registration-details.module.css";
 
 export default async function ClientRegistrationDetails({ id }) {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   const user = await getUser(id);
 
-  console.log(user, "USER HERE")
+  // console.log(user, "USER HERE")
 
   return (
     <div className={classes.outerWrapper}>
