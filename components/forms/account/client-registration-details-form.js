@@ -26,9 +26,16 @@ export default function ClientRegistrationDetailsForm({ user }) {
   ]);
   const [submitPending, setsubmitPending] = useState(false);
 
+  const [investmentInterestValue, setinvestmentInterestValue] = useState([
+    false,
+    false,
+    false,
+    // false,
+  ]);
+
   const [previousInvestment, setpreviousInvestment] = useState([false, false]);
 
-  useEffect(() => {
+  const handleInitialise = () => {
     if (user.buyertype.includes("agent")) {
       setBuyerType([false, true]);
     } else setBuyerType([true, false]);
@@ -44,6 +51,25 @@ export default function ClientRegistrationDetailsForm({ user }) {
     if (user.previousinvestment.includes("yes")) {
       setpreviousInvestment([true, false]);
     } else setpreviousInvestment([false, true]);
+  }
+
+  useEffect(() => {
+    handleInitialise();
+    // if (user.buyertype.includes("agent")) {
+    //   setBuyerType([false, true]);
+    // } else setBuyerType([true, false]);
+    // if (user.location.includes("greece")) {
+    //   setLocation([true, false]);
+    // } else setLocation([false, true]);
+    // if (user.purchasetimeline.includes("6 - 12 months")) {
+    //   setpurchaseTimeline([false, true, false]);
+    // } else setpurchaseTimeline([true, false, false]);
+    // if (user.estinvestmentinterest.includes("100,000€ - 150,000€")) {
+    //   setInvestmentInterst([false, false, true]);
+    // } else setInvestmentInterst([true, false, false]);
+    // if (user.previousinvestment.includes("yes")) {
+    //   setpreviousInvestment([true, false]);
+    // } else setpreviousInvestment([false, true]);
   }, []);
 
   const handleBuyerType = (e) => {
@@ -61,50 +87,96 @@ export default function ClientRegistrationDetailsForm({ user }) {
   };
 
   const handleLocaleChange = (e) => {
-    handleLocale(e);
-    const eventSource = e.target.name;
-    if (eventSource == "locationOther") {
-      setLocation([false, true]);
-    }
-    if (eventSource == "locationGreece") {
-      setLocation([true, false]);
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+      if (eventSource == "locationOther") {
+        setLocation([false, true]);
+      }
+      if (eventSource == "locationGreece") {
+        setLocation([true, false]);
+      }
     }
   };
 
   const handlePurchaseTimeline = (e) => {
-    handleTimeLine(e);
-    const eventSource = e.target.name;
-    if (eventSource == "sixMonths") {
-      setpurchaseTimeline([true, false, false]);
-    }
-    if (eventSource == "sixToTwelveMonths") {
-      setpurchaseTimeline([false, true, false]);
-    }
-    if (eventSource == "twelveMonths") {
-      setpurchaseTimeline([false, false, true]);
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+      if (eventSource == "sixMonths") {
+        setpurchaseTimeline([true, false, false]);
+      }
+      if (eventSource == "sixToTwelveMonths") {
+        setpurchaseTimeline([false, true, false]);
+      }
+      if (eventSource == "twelveMonths") {
+        setpurchaseTimeline([false, false, true]);
+      }
     }
   };
 
   const handleInvestmentInterest = (e) => {
-    handleInvestment(e);
-    const eventSource = e.target.name;
-    if (eventSource == "residential") {
-      setInvestmentInterst([
-        ...investmentInterest,
-        (investmentInterest[0] = !investmentInterest[0]),
-      ]);
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+      // console.log(eventSource);
+      if (eventSource == "residential") {
+        setInvestmentInterst([
+          (investmentInterest[0] = !investmentInterest[0]),
+          (investmentInterest[1] = investmentInterest[1]),
+          (investmentInterest[2] = investmentInterest[2]),
+        ]);
+      }
+      if (eventSource == "commercial") {
+        setInvestmentInterst([
+          (investmentInterest[0] = investmentInterest[0]),
+          (investmentInterest[1] = !investmentInterest[1]),
+          (investmentInterest[2] = investmentInterest[2]),
+        ]);
+      }
+      if (eventSource == "land") {
+        setInvestmentInterst([
+          (investmentInterest[0] = investmentInterest[0]),
+          (investmentInterest[1] = investmentInterest[1]),
+          (investmentInterest[2] = !investmentInterest[2]),
+        ]);
+      }
     }
-    if (eventSource == "commercial") {
-      setInvestmentInterst([
-        ...investmentInterest,
-        (investmentInterest[1] = !investmentInterest[1]),
-      ]);
+    // console.log(investmentInterest);
+  };
+
+  const handleInvestmentInterestValue = (e) => {
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+
+      if (eventSource == "50") {
+        setinvestmentInterestValue([true, false, false]);
+      }
+      if (eventSource == "50-100") {
+        setinvestmentInterestValue([false, true, false]);
+      }
+      if (eventSource == "100-150") {
+        setinvestmentInterestValue([false, false, true]);
+      }
     }
-    if (eventSource == "land") {
-      setInvestmentInterst([
-        ...investmentInterest,
-        (investmentInterest[2] = !investmentInterest[2]),
-      ]);
+  };
+
+  const handlePreviousInvestment = (e) => {
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+      if (eventSource == "yes") {
+        setpreviousInvestment([true, false]);
+      }
+      if (eventSource == "no") {
+        setpreviousInvestment([false, true]);
+      }
     }
   };
 
@@ -114,12 +186,7 @@ export default function ClientRegistrationDetailsForm({ user }) {
   };
 
   const handleReset = () => {
-    setData({
-      userName: "",
-      email: "",
-      firstName: "",
-      lastName: "",
-    });
+    handleInitialise();
     setFormDisabled(true);
   };
 
@@ -210,7 +277,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="residential"
-              onChange={handleInvestmentInterest}
+              checked={investmentInterest[0]}
+              onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
           <div className={classes.inputWrapper}>
@@ -218,7 +286,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="commercial"
-              onChange={handleInvestmentInterest}
+              checked={investmentInterest[1]}
+              onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
           <div className={classes.inputWrapper}>
@@ -226,7 +295,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="land"
-              onChange={handleInvestmentInterest}
+              checked={investmentInterest[2]}
+              onChange={(event) => handleInvestmentInterest(event)}
             ></input>
           </div>
         </div>
@@ -237,8 +307,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="50"
-              checked={investmentInterest[0]}
-              onChange={(event) => handleInvestmentInterest(event)}
+              checked={investmentInterestValue[0]}
+              onChange={(event) => handleInvestmentInterestValue(event)}
             ></input>
           </div>
           <div className={classes.inputWrapper}>
@@ -246,8 +316,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="50-100"
-              checked={investmentInterest[1]}
-              onChange={(event) => handleInvestmentInterest(event)}
+              checked={investmentInterestValue[1]}
+              onChange={(event) => handleInvestmentInterestValue(event)}
             ></input>
           </div>
           <div className={classes.inputWrapper}>
@@ -255,8 +325,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
             <input
               type="checkbox"
               name="100-150"
-              checked={investmentInterest[2]}
-              onChange={(event) => handleInvestmentInterest(event)}
+              checked={investmentInterestValue[2]}
+              onChange={(event) => handleInvestmentInterestValue(event)}
             ></input>
           </div>
         </div>
