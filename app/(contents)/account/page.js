@@ -16,7 +16,8 @@ export const metadata = {
 export default async function UserInfo() {
   const { user } = await validateRequest();
 
-  const { username, firstname, lastname, email, companyname, phonenumber, id } = user;
+  const { username, firstname, lastname, email, companyname, phonenumber, id } =
+    user;
 
   console.log(user);
   return (
@@ -45,14 +46,12 @@ export default async function UserInfo() {
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<p>Pending.....</p>}>
-           <ClientRegistrationDetails id={id} />
+          <ClientRegistrationDetails id={id} />
         </Suspense>
-     
       </div>
       <div className={classes.itemWrapper}>
         <h2>{firstname}</h2>
       </div>
-
       <div className={classes.itemWrapper}>
         <h2>Update credentials</h2>
       </div>
