@@ -4,6 +4,8 @@
 import classes from "./account-personal-details.module.css";
 import { useFormState } from "react-dom";
 import { useState } from "react";
+import ValidatePersonalDetails from "@/utils/validate-personal-details";
+import SubmitButton from "@/components/ui/buttons/submit-button";
 import FormSubmit from "@/components/forms/formsubmit";
 import Link from "next/link";
 
@@ -27,11 +29,8 @@ export default function ClientAccountPersonalDetails({
   });
 
   const [formDisabled, setFormDisabled] = useState(true);
-  const [errors, setErrors] = useState(false);
+  const [errors, setErrors] = useState([]);
 
-  // const [state, formAction] = useFormState(action, initialState, {
-  //   redirection,
-  // });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,10 +42,8 @@ export default function ClientAccountPersonalDetails({
         firstName: "",
         lastName: "",
       });
-      setErrors(true);
-      console.log("DISABLED");
+      setErrors([{disabledError: true}]);
     } else {
-      console.log(name);
       setData({
         ...data,
         [name]: value,
@@ -56,9 +53,8 @@ export default function ClientAccountPersonalDetails({
 
   const handleEnable = () => {
     setFormDisabled(false);
-    setErrors(false);
+    setErrors([{disabledError: false}]);
   };
-
 
   const handleReset = () => {
     setData({
@@ -68,14 +64,20 @@ export default function ClientAccountPersonalDetails({
       lastName: "",
     });
     setFormDisabled(true);
-
   };
 
+  const handleSubmit = () => {
+    const result = ValidatePersonalDetails(data);
+    console.log(result);
+    // if (result.errors) {
+    //   console.log(result.errors);
+    //   setErrors([...result.errors]);
+    // }
+  };
 
   return (
-    <>
+    <div className={classes.outerWrapper}>
       <h2>Personal details</h2>
-      {/* <form className={classes.loginForm} action={formAction}> */}
       <form
         className={
           formDisabled
@@ -106,7 +108,6 @@ export default function ClientAccountPersonalDetails({
         <div className={classes.formItemContainer}>
           <label>Last name:</label>
           <input
-            // className={classes.enabled}
             type="text"
             name="lastName"
             placeholder={lastname}
@@ -126,20 +127,27 @@ export default function ClientAccountPersonalDetails({
         </div>
       </form>
       <div className={classes.buttonWrapper}>
-        {errors ? (
+        {errors[0]?.disabledError ? (
           <p>
             Form is disbaled for editting. To update you details, please click
             enable
           </p>
         ) : null}
-        <div className="submit-button-container">
-          {formDisabled ? (
+        {formDisabled ? (
+          <div className="submit-button-container">
             <Button onClick={handleEnable}>Enable update</Button>
-          ) : (
-            <Button onClick={handleReset}>Reset</Button>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className={classes.doubleButtonWrapper}>
+            <div className="submit-button-container">
+              <Button onClick={handleReset}>Reset</Button>
+            </div>
+            <div className="submit-button-container">
+              <Button onClick={handleSubmit}>Update</Button>
+            </div>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }

@@ -1,3 +1,8 @@
+.outerWrapper h2{
+display: flex;
+padding-left: 10px;
+}
+
 .personalDetailsForm {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -30,10 +35,10 @@
     margin-bottom: 0;
     margin-right: 2vw;
   }
-  /* .enabled {
-    background-color: unset;
-    background-color: 
-  } */
+  .doubleButtonWrapper {
+    display: flex;
+    gap: 2vw;
+  }
 
 .enabled input[type="text"],
 .enabled input[type="email"],
