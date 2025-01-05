@@ -19,7 +19,6 @@ export default async function UserInfo() {
   const { username, firstname, lastname, email, companyname, phonenumber, id } =
     user;
 
-  console.log(user);
   return (
     <>
       <div className="header">
