@@ -13,7 +13,6 @@ import { Spinner } from "@nextui-org/spinner";
 
 import Button from "@/components/ui/button";
 
-
 export default function ClientAccountPersonalDetails({
   username,
   firstname,
@@ -28,7 +27,7 @@ export default function ClientAccountPersonalDetails({
   });
 
   const [formDisabled, setFormDisabled] = useState(true);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState(false);
 
   // const [state, formAction] = useFormState(action, initialState, {
   //   redirection,
@@ -44,21 +43,51 @@ export default function ClientAccountPersonalDetails({
         firstName: "",
         lastName: "",
       });
-      setErrors({ formDisabled: true });
+      setErrors(true);
       console.log("DISABLED");
+    } else {
+      console.log(name);
+      setData({
+        ...data,
+        [name]: value,
+      });
     }
   };
+
+  const handleEnable = () => {
+    setFormDisabled(false);
+    setErrors(false);
+  };
+
+
+  const handleReset = () => {
+    setData({
+      userName: "",
+      email: "",
+      firstName: "",
+      lastName: "",
+    });
+    setFormDisabled(true);
+
+  };
+
 
   return (
     <>
       <h2>Personal details</h2>
       {/* <form className={classes.loginForm} action={formAction}> */}
-      <form className={classes.personalDetailsForm}>
+      <form
+        className={
+          formDisabled
+            ? `${classes.personalDetailsForm}`
+            : `${classes.personalDetailsForm} ${classes.enabled}`
+        }
+      >
         <div className={classes.formItemContainer}>
           <label>User name:</label>
           <input
             type="text"
-            name="username"
+            name="userName"
             placeholder={username}
             value={data.userName}
             onChange={handleChange}
@@ -68,7 +97,7 @@ export default function ClientAccountPersonalDetails({
           <label>First name:</label>
           <input
             type="text"
-            name="firstname"
+            name="firstName"
             placeholder={firstname}
             value={data.firstName}
             onChange={handleChange}
@@ -77,11 +106,11 @@ export default function ClientAccountPersonalDetails({
         <div className={classes.formItemContainer}>
           <label>Last name:</label>
           <input
+            // className={classes.enabled}
             type="text"
-            name="lastname"
+            name="lastName"
             placeholder={lastname}
             value={data.lastName}
-            disabled
             onChange={handleChange}
           />
         </div>
@@ -96,13 +125,19 @@ export default function ClientAccountPersonalDetails({
           />
         </div>
       </form>
-      <div>
-        <p>
-          Form is disbaled for editting. To update you details, please click
-          enable
-        </p>
+      <div className={classes.buttonWrapper}>
+        {errors ? (
+          <p>
+            Form is disbaled for editting. To update you details, please click
+            enable
+          </p>
+        ) : null}
         <div className="submit-button-container">
-          <Button>Enable update</Button>
+          {formDisabled ? (
+            <Button onClick={handleEnable}>Enable update</Button>
+          ) : (
+            <Button onClick={handleReset}>Reset</Button>
+          )}
         </div>
       </div>
     </>
