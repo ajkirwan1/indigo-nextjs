@@ -1,5 +1,9 @@
-/* @tailwind base;
-@tailwind components; */
+/**
+ * @format
+ * @tailwind base;
+ * @tailwind components;
+ */
+
 @tailwind utilities;
 
 #root {
@@ -112,7 +116,6 @@ input[type="email"] {
   box-sizing: border-box; 
 } */
 
-
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -127,7 +130,6 @@ input[type="password"] {
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box; /* Opera/IE 8+ */
 }
-
 
 textarea {
   font: inherit;
@@ -229,15 +231,36 @@ main {
   font-size: 16px;
 }
 
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .header h1 {
     font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
+  }
+
+  .submit-button-container {
+    width: 130px;
+    height: 40px;
   }
 
   .error-button-container p {
@@ -254,5 +277,9 @@ main {
   .error-button-container p {
     margin: 0;
     font-size: 12px;
+  }
+  .submit-button-container {
+    width: 120px;
+    height: 35px;
   }
 }
