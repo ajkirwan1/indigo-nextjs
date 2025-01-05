@@ -7,7 +7,7 @@ import classes from "./client-registration-details-form.module.css";
 import Button from "@/components/ui/button";
 
 export default function ClientRegistrationDetailsForm({ user }) {
-//   const { buyertype } = user;
+  //   const { buyertype } = user;
 
   const [errors, setErrors] = useState([]);
   const [formDisabled, setFormDisabled] = useState(true);
@@ -29,33 +29,34 @@ export default function ClientRegistrationDetailsForm({ user }) {
   const [previousInvestment, setpreviousInvestment] = useState([false, false]);
 
   useEffect(() => {
-
     if (user.buyertype.includes("agent")) {
       setBuyerType([false, true]);
     } else setBuyerType([true, false]);
     if (user.location.includes("greece")) {
-        setLocation([true, false]);
-      } else setLocation([false, true]);
-      if (user.purchasetimeline.includes("6 - 12 months")) {
-        setpurchaseTimeline([false, true, false]);
-      } else setpurchaseTimeline([true, false, false]);
-      if (user.estinvestmentinterest.includes("100,000€ - 150,000€")) {
-        setInvestmentInterst([false, false, true]);
-      } else setInvestmentInterst([true, false, false]);
-      if (user.previousinvestment.includes("yes")) {
-        setpreviousInvestment([true, false]);
-      } else setpreviousInvestment([false, true]);
-
+      setLocation([true, false]);
+    } else setLocation([false, true]);
+    if (user.purchasetimeline.includes("6 - 12 months")) {
+      setpurchaseTimeline([false, true, false]);
+    } else setpurchaseTimeline([true, false, false]);
+    if (user.estinvestmentinterest.includes("100,000€ - 150,000€")) {
+      setInvestmentInterst([false, false, true]);
+    } else setInvestmentInterst([true, false, false]);
+    if (user.previousinvestment.includes("yes")) {
+      setpreviousInvestment([true, false]);
+    } else setpreviousInvestment([false, true]);
   }, []);
 
   const handleBuyerType = (e) => {
-    handleBuyer(e);
-    const eventSource = e.target.name;
-    if (eventSource == "privateBuyer") {
-      setBuyerType([true, false]);
-    }
-    if (eventSource == "realEstateBuyer") {
-      setBuyerType([false, true]);
+    if (formDisabled) {
+      setErrors([{ disabledError: true }]);
+    } else {
+      const eventSource = e.target.name;
+      if (eventSource == "privateBuyer") {
+        setBuyerType([true, false]);
+      }
+      if (eventSource == "realEstateBuyer") {
+        setBuyerType([false, true]);
+      }
     }
   };
 
