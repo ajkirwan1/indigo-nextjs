@@ -7,8 +7,8 @@ import WhiteArrow from "/public/images/icons/arrowwhite.png";
 import classes from "./project-carousel.module.css";
 
 export default function ProjectCarousel({ images, children, backup }) {
-  console.log(backup);
-  console.log(images);
+  // console.log(backup);
+  // console.log(images);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {

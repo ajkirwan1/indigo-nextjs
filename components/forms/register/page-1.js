@@ -16,7 +16,6 @@ export default function RegisterFormPage1({
   handleNextTab,
 }) {
   const [errors, setErrors] = useState([]);
-  // console.warn(errors);
 
   const handleNext = async () => {
     const result = await CheckUserAction(

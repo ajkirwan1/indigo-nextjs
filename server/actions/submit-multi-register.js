@@ -67,10 +67,14 @@ export async function RegisterMultiPage(data) {
     );
 
     console.log(user);
-    return redirect("/register/pending-auth");
+    // return redirect("/register/pending-auth");
   } catch (error) {
     return {
       dbErrorMessage: " An error occured accessing the database",
     };
   }
+
+  return redirect("/register/pending-auth");
+
+
 }

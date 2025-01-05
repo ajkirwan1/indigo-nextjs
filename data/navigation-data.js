@@ -56,7 +56,7 @@ export default function GetNavData() {
       url: "/contact",
       submenu: [
         user
-          ? { title: user.username.toUpperCase(), url: "" }
+          ? { title: user.username.toUpperCase(), url: "/account" }
           : { title: "Register", url: "/register" },
         user
           ? {

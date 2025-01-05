@@ -71,7 +71,7 @@ export default async function PropertiesPage() {
   const results = await getAllProperties();
 
   if (results.errorMessage) {
-    console.log(results.errorMessage);
+    // console.log(results.errorMessage);
   }
 
   if (!user) {

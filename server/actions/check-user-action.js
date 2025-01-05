@@ -4,7 +4,7 @@ import db from "@/modules/db";
 import { user } from "@nextui-org/theme";
 
 async function validateCredentials(userName, email, password, passwordConfirm) {
-  console.log(userName);
+  // console.log(userName);
   let errors = [];
 
   if (
