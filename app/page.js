@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
-import isoImage from "/public/images/pages/home/4picture.jpg";
+import isoImage from "/public/images/pages/home/5picture.jpg";
 import Link from "next/link";
 
 const container = {
@@ -25,7 +25,7 @@ const container = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.8,
+      staggerChildren: 0.5,
       delayChildren: 0.5,
       delay: 0.5,
       bounce: 0,
@@ -57,8 +57,9 @@ const componentArray = [
         <Overlay>
           <div>
             <h1>
-              GUIDING VISIONS, MANAGING REALITIES YOUR PARTNER IN DEVELOPMENT
-              CONSULTING & MANAGEMENT
+              GUIDING VISIONS, MANAGING REALITIES
+              <br />
+              YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT
             </h1>
           </div>
         </Overlay>

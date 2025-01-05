@@ -126,7 +126,7 @@
   }
 
   .pageWrapper h3 {
-    font-size: 26px;
+    font-size: 22px;
   }
   .paragraphWrapper,
   .paragraphWrapperRight {
@@ -156,10 +156,14 @@
 
   .sectionContainer h2 {
     font-size: 22px;
+    letter-spacing: 0.05rem;
   }
   .paragraphWrapper p,
   .paragraphWrapperRight p {
     font-size: 18px;
+  }
+  .paragraphWrapper h3 {
+    font-size: 17px;
   }
 
   .image {
@@ -183,7 +187,7 @@
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
   .sectionContainer h2,
   .pageWrapper h3 {
-    font-size: 22px;
+    font-size: 17px;
   }
 
   .sectionContainer p {
@@ -219,6 +223,14 @@
   .imageOuterWrapper {
     margin-top: 5vh;
     margin-bottom: 5vh;
+  }
+  .paragraphWrapper h3 {
+    font-size: 17px;
+  }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .pageWrapper h3 {
+    font-size: 16px;
   }
 }
 

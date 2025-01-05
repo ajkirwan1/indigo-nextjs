@@ -334,7 +334,7 @@
   }
   .heroContents h1 {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
   .downArrowContainer {
@@ -413,6 +413,7 @@
     font-size: 1.1rem;
     font-weight: 300;
     padding: 0.85vh;
+    line-height: 1.8;
   }
 
   .listContainer {

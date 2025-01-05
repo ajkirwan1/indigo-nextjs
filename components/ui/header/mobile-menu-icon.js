@@ -1,7 +1,7 @@
 /** @format */
 
 import { RxCross1 } from "react-icons/rx";
-import { IoMenuOutline } from "react-icons/io5";
+import { VscMenu } from "react-icons/vsc";
 import classes from "./header.module.css";
 import { useState } from "react";
 import MobileNavbar from "./mobile-nav";
@@ -10,9 +10,9 @@ import { navigationData } from "@/data/navigation-data";
 function Hamburger({ handleMobileIcon }) {
   return (
     <div className={classes.hamburgerContainer}>
-      <IoMenuOutline
+      <VscMenu
         className={classes.hamburgerMenu}
-        size="80px"
+        size="44px"
         color="black"
         onClick={handleMobileIcon}
       />

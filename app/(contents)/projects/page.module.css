@@ -65,6 +65,7 @@
   min-width: 390px;
   font-size: 0;
   overflow: hidden;
+  flex: 0 1;
 }
 
 .avatarAuthorContainer {
@@ -190,6 +191,7 @@
 
   .imageContainer {
     min-width: unset;
+    flex: 1 1;
   }
 
   .image {
