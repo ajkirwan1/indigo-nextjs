@@ -186,7 +186,14 @@
 }
 @media only screen and (max-width: 600px) {
   .hamburgerMenu {
-    padding-right: 0;
-    /* padding-bottom: 90px; */
+    margin-top: -35px;
+    margin-right: 0;
+    height: 35px;
+  }
+  .nav {
+    margin-top: 35px;
+  }
+  .logoIndigo {
+    margin-top: -50px;
   }
 }

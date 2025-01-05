@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
-import isoImage from "/public/images/pages/home/istockphoto-2.jpg"
+import isoImage from "/public/images/pages/home/5picture.jpg";
 import Link from "next/link";
 
 const container = {
@@ -25,7 +25,7 @@ const container = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 0.8,
+      staggerChildren: 0.5,
       delayChildren: 0.5,
       delay: 0.5,
       bounce: 0,
@@ -56,8 +56,11 @@ const componentArray = [
       >
         <Overlay>
           <div>
-            <h1>GUIDING VISIONS, MANAGING REALITIES</h1>
-            <h1>YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT</h1>
+            <h1>
+              GUIDING VISIONS, MANAGING REALITIES
+              <br />
+              YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT
+            </h1>
           </div>
         </Overlay>
       </motion.div>
@@ -80,43 +83,43 @@ const componentArray = [
             <motion.div layout className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Development Consultancy</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div layout className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Development Opportunities Sourcing</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Development Project Management</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Market Analysis</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Property Management</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Redevelopment Development Projects</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
             <motion.div className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Residency - Golden Visa</h3>
-                <Image alt="icon" src={circle} className={classes.circleIcon} />
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
             </motion.div>
           </div>

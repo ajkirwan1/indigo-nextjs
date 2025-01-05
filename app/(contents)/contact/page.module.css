@@ -59,9 +59,9 @@
   border-right: 1px solid rgba(0, 0, 0, 0.563);
 }
 .phoneAndEmail {
-  margin-top: 4vh;
+  margin-top: 1vh;
   line-height: 1.5vw;
-  letter-spacing: 0.2rem;
+
   font-size: 10px;
 }
 
@@ -197,7 +197,7 @@
 
   .phoneAndEmail {
     line-height: 3vw;
-    letter-spacing: 0.4vh;
+    /* letter-spacing: 0.4vh; */
     font-size: 9px;
   }
 
@@ -219,6 +219,7 @@
   .phoneIcon {
     height: auto;
     width: 35px;
+    margin-top: 0;
   }
 
   .mobileWrapper .contactIcon {
@@ -229,6 +230,8 @@
   .pageWrapper p {
     font-size: 16px;
     line-height: 1.6rem;
+    max-width: 550px;
+    letter-spacing: 0.05rem;
   }
 
   .pageWrapper h2 {
@@ -258,6 +261,9 @@
   }
   .formItemContainer input::placeholder {
     font-size: 14px;
+  }
+  .loginForm textarea {
+    background-color: #fff;
   }
 }
 

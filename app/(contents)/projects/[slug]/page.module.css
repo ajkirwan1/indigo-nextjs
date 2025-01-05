@@ -84,6 +84,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
+  z-index: 1;
 }
 
 .heroWrapper h1 {
@@ -209,6 +210,13 @@
   height: 40vh;
 }
 
+.blogPageContainer ul {
+  grid-template-columns: 100%;
+}
+.imageContainer {
+  flex: 0 1;
+}
+
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
@@ -218,7 +226,7 @@
     text-transform: uppercase;
   }
   .heroWrapper h2 {
-    font-size: 20px;
+    font-size: 24px;
   }
   .heroWrapper p {
     font-size: 18px;
@@ -246,8 +254,28 @@
   }
   .propertyInfo p {
     font-size: 16px;
-    line-height: 1.1;
+    line-height: 1.7;
     margin-bottom: 10px;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .imageContainer {
+    flex: 1 1;
+  }
+  .propertyInfo h2 {
+    font-size: 21px;
+    font-weight: 300;
+  }
+  .propertyInfo p {
+    margin-bottom: 23px;
+  }
+  .propertyInfo ul {
+    max-width: 280px;
+    margin: 0 auto;
+    margin-top: 30px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -259,6 +287,11 @@
   }
   .titleHeader p {
     color: black;
+  }
+  .propertyInfo ul {
+    max-width: 280px;
+    margin: 0 auto;
+    margin-top: 30px;
   }
 
   .titleHeader h1 {
@@ -309,7 +342,23 @@
     display: unset;
   }
 
+  .propertyInfo h2 {
+    font-size: 21px;
+    color: #4d0013;
+    font-weight: 300;
+  }
   .propertyInfo {
     all: unset;
+  }
+  .propertyInfo p {
+    font-size: 14px;
+    margin-bottom: 23px;
+  }
+  .swiperContainer {
+    height: 56vw;
+  }
+  .propertyInfo {
+    display: block;
+    margin: 50px 0 60px;
   }
 }

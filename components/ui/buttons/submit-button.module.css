@@ -70,7 +70,7 @@
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .button {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
   .pendingButton {
     font-size: 0.7rem;
