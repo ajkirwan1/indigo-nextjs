@@ -3,6 +3,7 @@
 import { validateRequest } from "@/auth/lucia";
 import classes from "./page.module.css";
 import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
+import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 
 export const metadata = {
   title: "Account",
@@ -14,7 +15,7 @@ export const metadata = {
 export default async function UserInfo() {
   const { user } = await validateRequest();
 
-  const { username, firstname, lastname, email } = user;
+  const { username, firstname, lastname, email, id } = user;
 
   console.log(user);
   return (
@@ -25,6 +26,13 @@ export default async function UserInfo() {
         <hr />
       </div>
       <div className={classes.itemWrapper}>
+        <h2>You registration is currently pending</h2>
+        <p>
+          Once accepted, you will recieve an email, and this page will be
+          updated
+        </p>
+      </div>
+      <div className={classes.itemWrapper}>
         <ClientAccountPersonalDetails
           username={username}
           firstname={firstname}
@@ -33,7 +41,7 @@ export default async function UserInfo() {
         />
       </div>
       <div className={classes.itemWrapper}>
-        <h2>{username}</h2>
+        <ClientRegistrationDetails id={id} />
       </div>
       <div className={classes.itemWrapper}>
         <h2>{firstname}</h2>
@@ -41,9 +49,6 @@ export default async function UserInfo() {
 
       <div className={classes.itemWrapper}>
         <h2>Update credentials</h2>
-      </div>
-      <div className={classes.itemWrapper}>
-        <h2>Properties to view</h2>
       </div>
     </>
   );

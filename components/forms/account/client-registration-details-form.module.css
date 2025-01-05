@@ -1,0 +1,480 @@
+/** @format */
+
+  .registerForm {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vh;
+  }
+  
+  
+  .inputWrapper  {
+    flex-basis: 30%;
+  }
+
+  .inputWrapper input {
+    margin-left: 15px;
+  }
+  
+  /* .registerForm3 label {
+    justify-self: baseline;
+    max-width: 300px;
+    letter-spacing: 0;
+  } */
+  
+  /* .buttonContainer {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    justify-self: center;
+  } */
+  
+  .registerForm label {
+    font-weight: 600;
+    margin-bottom: 1vh;
+  }
+  .registerForm h1 {
+    display: flex;
+  }
+  
+  .headerContainer h1 {
+    display: flex;
+    margin-top: 5vh;
+  }
+  .registerFormSection {
+    padding: 20px;
+    width: 90%;
+  }
+  
+  .formItemContainer {
+    display: flex;
+    padding: 10px;
+    padding-bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .formItemContainer input {
+    padding: 10px;
+  }
+  .formRow {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tickRow {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    gap: 3vw;
+  }
+  
+  .formCheckboxContainer {
+    display: flex;
+  }
+  
+
+  .buttonWrapper {
+    display: flex;
+    justify-content: end;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    padding-right: 10px;
+  }
+
+  
+  .formcontainer {
+    border-radius: 10px;
+    background-color: #ffffffcc;
+    width: 800px;
+    min-height: 60%;
+    max-width: 70vw;
+    position: absolute;
+    top: 35vh;
+    box-shadow: 1px 1px 1px;
+  }
+  
+
+  .buttoncontainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+  }
+  /* .buttonWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5vh;
+    gap: 30px;
+    margin-top: 30px;
+  } */
+  
+  .errorList {
+    list-style: none;
+    display: flex;
+  }
+  
+  .submitButton {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .submitButtonContainer {
+    margin: 5vh;
+    display: flex;
+    width: 200px;
+    height: 50px;
+  }
+  
+  .registerPageContainer {
+    height: 100vh;
+  }
+  
+  .darkBG {
+    background-color: rgba(0, 0, 0, 0.644);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  /* .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #d9d9d9b2;
+    width: 800px;
+    min-height: 60%;
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  } */
+  
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .spinner {
+    margin-bottom: 5vh;
+  }
+  
+  .ItemA {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  
+  .errorA {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  
+  .ItemB {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .errorB {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+  
+  .ItemC {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  
+  .errorC {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+  }
+  
+  .ItemD {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+  }
+  
+  .errorD {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
+  }
+  
+  .submitButtonContainer {
+    margin: 2vh;
+    /* display: flex; */
+    width: 120px;
+    height: 35px;
+  }
+  
+  .submitButtonContainer button {
+    font-size: 12px;
+    font-weight: 300;
+    
+  }
+  
+  .errorParagraph {
+    letter-spacing: normal;
+    font-weight: 400;
+    color: #4d0013;
+  }
+  
+  @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  
+    .submitButtonContainer {
+      margin: 2vh;
+      /* display: flex; */
+      width: 120px;
+      height: 35px;
+    }
+  
+    .submitButtonContainer button {
+      font-size: 12px;
+      
+    }
+  }
+  
+  @media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  
+    .buttonWrapper {
+      /* margin-top: 0; */
+    }
+  
+    .headerContainer h1 {
+      font-size: 22px;
+    }
+  
+    .headerContainer h2 {
+      font-size: 20px;
+      margin-top: 5px;
+    }
+  
+    .headerContainer img {
+      height: 25px;
+      margin-top: 0;
+    }
+  
+    .submitButtonContainer {
+      margin: 2vh;
+      /* display: flex; */
+      width: 120px;
+      height: 35px;
+    }
+  
+    .submitButtonContainer button {
+      font-size: 12px;
+      
+    }
+  
+    .registerForm3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+      margin-bottom: unset;
+      width: unset;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 800px) and (max-width: 1400px) {
+  
+    .buttonWrapper {
+      /* margin-top: 0; */
+    }
+    .headerContainer h1 {
+      font-size: 22px;
+    }
+  
+    .headerContainer h2 {
+      font-size: 20px;
+      margin-top: 5px;
+    }
+  
+    .headerContainer img {
+      height: 25px;
+      margin-top: 0;
+    }
+  
+    .submitButtonContainer {
+      margin: 2vh;
+      /* display: flex; */
+      width: 120px;
+      height: 35px;
+    }
+  
+    .submitButtonContainer button {
+      font-size: 12px;
+      
+    }
+  
+    .registerForm3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+      margin-bottom: unset;
+      width: unset;
+      row-gap: unset;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
+    .buttonWrapper {
+      /* margin-top: 0; */
+    }
+    .headerContainer h1 {
+      font-size: 22px;
+    }
+  
+    .headerContainer h2 {
+      font-size: 20px;
+      margin-top: 5px;
+    }
+  
+    .headerContainer img {
+      height: 25px;
+      margin-top: 0;
+    }
+  
+    .submitButtonContainer {
+      margin: 2vh;
+      /* display: flex; */
+      width: 120px;
+      height: 35px;
+    }
+  
+    .submitButtonContainer button {
+      font-size: 12px;
+    }
+  
+    /* .registerForm3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+      margin-bottom: unset;
+      width: unset;
+      row-gap: unset;
+    } */
+  
+  
+  }
+  
+  @media only screen and (max-width: 600px) {
+    /* .buttonWrapper {
+      margin-top: 10px;
+    } */
+    .registerForm1 {
+      display: flex;
+      flex-direction: column;
+      row-gap: unset;
+      margin-bottom: 2vh;
+    }
+  
+    .registerForm1 p {
+      font-size: 12px;
+      font-weight: 300;
+  
+    }
+  
+    .logoIndigo {
+      height: 10rem;
+      width: auto;
+    }
+    .submitButtonContainer {
+      margin: 2vh;
+      display: flex;
+      width: 100px;
+      height: 20px;
+    }
+  
+    .headerContainer h1 {
+      font-size: 18px;
+      /* margin-top: 0; */
+    }
+  
+    .headerContainer h2 {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+  
+    .headerContainer img {
+      height: 25px;
+      margin-top: 0;
+    }
+  
+  
+  
+  
+    .formItemContainer label {
+      font-size: 14px;
+    }
+  
+    .formItemContainer input[type="text"],
+    .formItemContainer input[type="email"],
+    .formItemContainer input[type="password"] {
+      font-size: 12px;
+      height: 1.8rem;
+    }
+  
+    .submitButtonContainer {
+      margin: 2vh;
+      /* display: flex; */
+      width: 120px;
+      height: 35px;
+    }
+  
+    .submitButtonContainer button {
+      font-size: 12px;
+    }
+  
+    /* .registerForm3 {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+      margin-bottom: unset;
+      width: unset;
+      row-gap: 12px;
+      margin-bottom: 2vh;
+    }
+  
+  
+    .registerForm3 label{
+      font-size: 12px;
+    } */
+  
+    .errorParagraph {
+      font-size: 14px;
+    }
+  
+  }
+  

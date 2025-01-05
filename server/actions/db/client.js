@@ -3,8 +3,12 @@
 import db from "@/modules/db";
 
 export async function getUser(id) {
-  const existingUser = await db.user.findFirst({
-    where: { id: id },
-  });
-  return existingUser;
+  try {
+    const existingUser = await db.user.findFirst({
+      where: { id: id },
+    });
+    return existingUser;
+  } catch (error) {
+    return { dbFetchError: "An error occured fetching the user information." };
+  }
 }

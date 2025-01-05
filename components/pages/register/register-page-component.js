@@ -11,7 +11,7 @@ import RegisterFormPage4 from "@/components/forms/register/page-4";
 
 export default function RegisterPageComponent() {
   const [activeTab, setActiveTab] = useState(0);
-  const [confirmed, setConfirmed] = useState(false);
+  // const [confirmed, setConfirmed] = useState(false);
 
   const [data, setData] = useState({
     userName: "",

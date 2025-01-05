@@ -45,9 +45,6 @@ export default function RegisterFormPage4({
     if (eventSource == "100-150") {
       setinvestmentInterest([false, false, true, false]);
     }
-    // if (eventSource == "150+") {
-    //   setinvestmentInterest([false, false, false, true]);
-    // }
   };
 
   const handlePreviousInvestment = (e) => {
@@ -85,11 +82,6 @@ export default function RegisterFormPage4({
       setErrors([{ ...submitResult }]);
       setsubmitPending(false);
     }
-    // try {
-    //   RegisterMultiPage(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   const handleReset = () => {
@@ -97,7 +89,7 @@ export default function RegisterFormPage4({
     setsubmitPending(false);
   };
 
-  let pending = false;
+  // let pending = false;
   return (
     <>
       {errors[0]?.dbErrorMessage ? (
