@@ -12,18 +12,19 @@ import { redirect } from "next/navigation";
 import db from "@/modules/db";
 
 export async function RegisterMultiPage(data) {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
-  const userid = generateIdFromEntropySize(10);
-  const passwordHash = await new LegacyScrypt().hash(data.password);
-  let investmentInterestArray = [];
-
-  for (const [key, value] of Object.entries(data.investmentInterest)) {
-    if (value == true) {
-      investmentInterestArray.push(key);
-    }
-  }
-
   try {
+    // throw Error
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+    const userid = generateIdFromEntropySize(10);
+    const passwordHash = await new LegacyScrypt().hash(data.password);
+    let investmentInterestArray = [];
+
+    for (const [key, value] of Object.entries(data.investmentInterest)) {
+      if (value == true) {
+        investmentInterestArray.push(key);
+      }
+    }
+
     const user = await db.user.create({
       data: {
         id: userid,
@@ -56,16 +57,20 @@ export async function RegisterMultiPage(data) {
         },
       },
     });
-  } catch (error) {
-    console.log(error);
-  }
 
-  const session = await lucia.createSession(userid, {});
-  const sessionCookie = lucia.createSessionCookie(session.id);
-  cookies().set(
-    sessionCookie.name,
-    sessionCookie.value,
-    sessionCookie.attributes
-  );
-  return redirect("/register/pending-auth");
+    const session = await lucia.createSession(userid, {});
+    const sessionCookie = lucia.createSessionCookie(session.id);
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+
+    console.log(user);
+    return redirect("/register/pending-auth");
+  } catch (error) {
+    return {
+      dbErrorMessage: " An error occured accessing the database",
+    };
+  }
 }
