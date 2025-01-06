@@ -35,6 +35,8 @@ export default function ClientPersonalDetailsForm({
         email: "",
         firstName: "",
         lastName: "",
+        companyname: "",
+        phonenumber: "",
       });
       setErrors([{ disabledError: true }]);
     } else {
@@ -56,6 +58,10 @@ export default function ClientPersonalDetailsForm({
       email: "",
       firstName: "",
       lastName: "",
+      firstName: "",
+      lastName: "",
+      companyname: "",
+      phonenumber: "",
     });
     setFormDisabled(true);
   };
@@ -89,7 +95,7 @@ export default function ClientPersonalDetailsForm({
           />
         </div>
         {errors?.find((item) => item.errorType == "username") ? (
-          <p className={classes.errorA}>Invalid first name</p>
+          <p className={classes.errorA}>Invalid user name</p>
         ) : null}
         <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
           <label>First name:</label>
@@ -140,8 +146,8 @@ export default function ClientPersonalDetailsForm({
             onChange={handleChange}
           />
         </div>
-        {errors?.find((item) => item.errorType == "lastname") ? (
-          <p className={classes.errorE}>Invalid first name</p>
+        {errors?.find((item) => item.errorType == "companyname") ? (
+          <p className={classes.errorE}>Invalid company name</p>
         ) : null}
         <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
           <label>Phone number:</label>
@@ -153,8 +159,8 @@ export default function ClientPersonalDetailsForm({
             onChange={handleChange}
           />
         </div>
-        {errors?.find((item) => item.errorType == "email") ? (
-          <p className={classes.errorF}>Invalid first name</p>
+        {errors?.find((item) => item.errorType == "phonenumber") ? (
+          <p className={classes.errorF}>Invalid phone number</p>
         ) : null}
       </form>
       <div className={classes.buttonWrapper}>

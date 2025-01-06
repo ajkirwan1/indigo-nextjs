@@ -1,7 +1,7 @@
 /** @format */
 
 export default function ValidatePersonalDetails(data) {
-  const { userName, firstName, lastName, email } = data;
+  const { userName, firstName, lastName, email, companyname, phonenumber  } = data;
 
   let errors = [];
 
@@ -37,6 +37,22 @@ export default function ValidatePersonalDetails(data) {
     !email.includes(".")
   ) {
     errors.push({ errorType: "email", message: "Invalid email" });
+  }
+
+  if (
+    typeof companyname !== "string" ||
+    companyname.length < 1 ||
+    companyname.length > 31
+  ) {
+    errors.push({ errorType: "companyname", message: "Invalid company name" });
+  }
+
+  if (
+    typeof phonenumber !== "string" ||
+    phonenumber.length < 6 ||
+    phonenumber.length > 31
+  ) {
+    errors.push({ errorType: "phonenumber", message: "Invalid phone number" });
   }
 
   if (errors.length > 0) {
