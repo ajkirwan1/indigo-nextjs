@@ -349,7 +349,7 @@ export default function ClientRegistrationDetailsForm({ user, action, id }) {
             </div>
           </div>
           <div className={classes.buttonWrapper}>
-            {errors[0]?.dbError ? (
+            {errors[0]?.disabledError ? (
               <p>
                 Form is disbaled for editting. To update you details, please
                 click enable
