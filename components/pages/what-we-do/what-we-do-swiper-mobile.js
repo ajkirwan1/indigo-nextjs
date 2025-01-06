@@ -37,7 +37,7 @@ export default function WhatWeDoMobileSwiper() {
       <div className={classes.swiperContainer}>
         <Swiper
           style={{
-            "--swiper-navigation-color": "#4d0013",
+            "--swiper-navigation-color": "#fff",
             "--swiper-navigation-size": "25px",
           }}
           className={classes.swiperInnerContainer}

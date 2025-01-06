@@ -58,14 +58,14 @@ export const whatWeDoData = [
     id: 5,
     title: "Redevelopment/development projects",
     info: {
-      paragraph: `Indigo's founder, an experienced investor, has led visionary
+      paragraph: `Indigo's founder, an experienced investor has led visionary
         transformations in residential projects through previous
         companies, focusing on flipping properties for substantial
         returns on investment.`,
       paragraph2: ` Committed to revitalizing urban spaces, we've transformed
         ordinary properties into luxurious minimalist havens,
         specializing primarily in residential properties with ventures
-        into commercial projects.  Our proven portfolio spans Greece and
+        into commercial projects. Our proven portfolio spans Greece and
         beyond, meticulously crafted for resale to showcase our
         commitment to excellence and financial success.`,
     },
