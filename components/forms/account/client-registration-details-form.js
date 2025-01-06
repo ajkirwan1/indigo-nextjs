@@ -3,13 +3,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useFormState } from "react-dom";
 import classes from "./client-registration-details-form.module.css";
 import Button from "@/components/ui/button";
 import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-registration-update";
+import SubmitButton from "@/components/ui/buttons/submit-button";
+import FormSubmit from "../formsubmit";
+import { IdentityStore } from "aws-sdk";
 
-export default function ClientRegistrationDetailsForm({ user }) {
+export default function ClientRegistrationDetailsForm({ user, action, id }) {
   //   const { buyertype } = user;
-
+  const initialState = {id}
+  const [state, formAction] = useFormState(action, initialState);
   const [errors, setErrors] = useState([]);
   const [formDisabled, setFormDisabled] = useState(true);
 
@@ -188,7 +193,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
   return (
     <>
       {!errors.dbError ? (
-        <form className={classes.registerForm}>
+        // <form className={classes.registerForm}>
+          <form className={classes.registerForm} action={formAction}>
           <label>Private buyer or real estate agent:</label>
           <div className={classes.tickRow}>
             <div className={classes.inputWrapper}>
@@ -359,7 +365,8 @@ export default function ClientRegistrationDetailsForm({ user }) {
                   <Button onClick={handleReset}>Reset</Button>
                 </div>
                 <div className="submit-button-container">
-                  <Button onClick={handleSubmit}>Update</Button>
+                  {/* <Button onClick={handleSubmit}>Update</Button> */}
+                  <FormSubmit>Submit</FormSubmit>
                 </div>
               </div>
             )}
