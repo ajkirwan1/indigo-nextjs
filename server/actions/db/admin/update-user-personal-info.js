@@ -4,6 +4,7 @@ import db from "@/modules/db";
 
 export async function UpdateUserPersonalInfo(data, id) {
   try {
+    throw Error;
     const pendingPropertyUsers = await db.user.update({
       where: {
         id: id,

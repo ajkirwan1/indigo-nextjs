@@ -15,7 +15,7 @@ export default function ValidatePersonalDetails(data) {
 
   if (
     typeof firstName !== "string" ||
-    firstName.length < 6 ||
+    firstName.length < 1 ||
     firstName.length > 31
   ) {
     errors.push({ errorType: "firstname", message: "Invalid firstname" });
@@ -23,7 +23,7 @@ export default function ValidatePersonalDetails(data) {
 
   if (
     typeof lastName !== "string" ||
-    lastName.length < 6 ||
+    lastName.length < 1 ||
     lastName.length > 31
   ) {
     errors.push({ errorType: "lastname", message: "Invalid lastname" });
