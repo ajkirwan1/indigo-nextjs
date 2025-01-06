@@ -126,7 +126,7 @@
 
 .imageContainer p {
   letter-spacing: 0;
-  font-weight: 100;
+  font-weight: 300;
   color: aliceblue;
 }
 
@@ -297,16 +297,23 @@
   }
   .popupContainerOpen p {
     line-height: 1.4;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
   }
   .popupContainerOpen h2 {
     font-weight: 300;
+    font-size: 20px;
   }
   .shareIcon {
     height: 20px;
     width: auto;
     margin-left: 80px;
+  }
+  .popupContainerOpen {
+    padding-top: 0;
+  }
+  .imageContainer p {
+    font-weight: 300;
   }
 
   /* .popupContainerOpen p {
@@ -321,6 +328,13 @@
   }
   .popupContainerOpen h2 {
     font-size: 20px;
+  }
+  .popupContainerOpen p {
+    line-height: 1.4;
+    font-size: 15px;
+  }
+  .imageContainer p {
+    font-weight: 300;
   }
 }
 
@@ -375,5 +389,8 @@
   .popupContainerOpen h2 {
     font-weight: 400;
     color: #ffffff;
+  }
+  .imageContainer p {
+    font-weight: 300;
   }
 }

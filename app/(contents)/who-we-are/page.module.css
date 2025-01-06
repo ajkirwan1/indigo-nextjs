@@ -25,7 +25,7 @@
 
 .paragraphWrapper {
   display: flex;
-  flex: 1 1 40%;
+  flex: 1 1 30%;
   flex-direction: column;
   text-align: start;
   justify-content: flex-start;
@@ -160,7 +160,8 @@
   }
   .paragraphWrapper p,
   .paragraphWrapperRight p {
-    font-size: 18px;
+    font-size: 17px;
+    padding-top: 5px;
   }
   .paragraphWrapper h3 {
     font-size: 17px;
@@ -213,6 +214,9 @@
   .sectionContainer {
     padding-top: 0;
   }
+  .paragraphWrapper {
+    flex: 1 1 30%;
+  }
 }
 
 @media only screen and (max-width: 1400px) {
@@ -227,10 +231,19 @@
   .paragraphWrapper h3 {
     font-size: 17px;
   }
+  .image {
+    height: 25vw;
+  }
 }
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
   .pageWrapper h3 {
     font-size: 16px;
+  }
+  .paragraphWrapper {
+    flex: 1 1 30%;
+  }
+  .image {
+    height: 26vw;
   }
 }
 
