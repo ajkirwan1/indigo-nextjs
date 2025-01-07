@@ -74,10 +74,19 @@ export default function ClientPersonalDetailsForm({
     const submitResult = await UpdateUserPersonalInfo(data, id);
 
     if (submitResult?.dbError) {
-      console.log(submitResult);
       setErrors([{ ...submitResult }]);
+    } else {
+      setData({
+        userName: submitResult.username,
+        email: submitResult.email,
+        firstName: submitResult.firstname,
+        lastName: submitResult.lastname,
+        companyName: submitResult.companyname,
+        phoneNumber: submitResult.phonenumber,
+      });
+      setErrors([]);
+      setFormDisabled(true);
     }
-    console.log(errors);
   };
 
   const handleRetry = () => {
