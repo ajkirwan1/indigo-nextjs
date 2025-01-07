@@ -44,7 +44,7 @@ export default async function UserInfo() {
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
-        <h2>Update credentials</h2>
+        <h2>Update password or delete account</h2>
       </div>
     </>
   );

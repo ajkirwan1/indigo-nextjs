@@ -6,7 +6,7 @@ import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-
 import { getUser } from "@/server/actions/db/client";
 
 export default async function ClientAccountPersonalDetails({ id }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   const result = await getUser(id);
 
   // if (!result.dbFetchError) {

@@ -7,7 +7,7 @@ import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-re
 import classes from "./account-registration-details.module.css";
 
 export default async function ClientRegistrationDetails({ id }) {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getUser(id);
 
   return (

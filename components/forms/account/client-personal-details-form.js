@@ -105,102 +105,12 @@ export default function ClientPersonalDetailsForm({
     <>
       {errors[0]?.dbError ? (
         <div>
-          <form
-            className={
-              formDisabled
-                ? `${classes.personalDetailsForm}`
-                : `${classes.personalDetailsForm} ${classes.enabled}`
-            }
-          >
-            <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
-              <label>User name:</label>
-              <input
-                type="text"
-                name="userName"
-                placeholder={username}
-                value={data.userName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "username") ? (
-              <p className={classes.errorA}>Invalid user name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-              <label>First name:</label>
-              <input
-                type="text"
-                name="firstName"
-                placeholder={firstname}
-                value={data.firstName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "firstname") ? (
-              <p className={classes.errorB}>Invalid first name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-              <label>Last name:</label>
-              <input
-                type="text"
-                name="lastName"
-                placeholder={lastname}
-                value={data.lastName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "lastname") ? (
-              <p className={classes.errorC}>Invalid last name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
-              <label>Email:</label>
-              <input
-                type="text"
-                name="email"
-                placeholder={email}
-                value={data.email}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "lastname") ? (
-              <p className={classes.errorD}>Invalid email</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemE}`}>
-              <label>Company name:</label>
-              <input
-                type="text"
-                name="companyName"
-                placeholder={companyname}
-                value={data.companyName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "companyname") ? (
-              <p className={classes.errorE}>Invalid company name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
-              <label>Phone number:</label>
-              <input
-                type="text"
-                name="phoneNumber"
-                placeholder={phonenumber}
-                value={data.phoneNumber}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "phonenumber") ? (
-              <p className={classes.errorF}>Invalid phone number</p>
-            ) : null}
-          </form>
-          <div className={classes.buttonWrapper}>
-            <div className={classes.retryWrapper}>
-              <p>
-                An error occured submitting your update. Our records have not
-                been updated
-              </p>
-              <div className="submit-button-container">
-                <Button onClick={handleRetry}>Retry</Button>
-              </div>
-            </div>
+          <p>
+            An error occured submitting your update. Our records have not been
+            updated
+          </p>
+          <div className="submit-button-container">
+            <Button onClick={handleRetry}>Try again</Button>
           </div>
         </div>
       ) : (

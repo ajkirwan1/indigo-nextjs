@@ -377,7 +377,8 @@ export default function ClientRegistrationDetailsForm({ user, action, id }) {
         </form>
       ) : (
         <>
-          <p>An error occured updating the database</p>
+          <p>An error occured submitting your update. Our records have not been
+          updated</p>
           <div className="submit-button-container">
             <Button onClick={handleReset}>Try again</Button>
           </div>
