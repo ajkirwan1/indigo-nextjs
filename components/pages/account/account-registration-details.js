@@ -19,7 +19,7 @@ export default async function ClientRegistrationDetails({ id }) {
           <h2>Registration information</h2>
           <ClientRegistrationDetailsForm
             id={id}
-            user={user}
+            user={result}
             action={UpdateUserAccountRegisrationInfo}
           />
         </div>

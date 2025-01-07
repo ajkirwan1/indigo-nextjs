@@ -22,12 +22,12 @@ export default async function ClientAccountPersonalDetails({ id }) {
         <div className={classes.outerWrapper}>
           <h2>Personal details</h2>
           <ClientPersonalDetailsForm
-            username={user.username}
-            firstname={user.firstname}
-            lastname={user.lastname}
-            email={user.email}
-            companyname={user.companyname}
-            phonenumber={user.phonenumber}
+            username={result.username}
+            firstname={result.firstname}
+            lastname={result.lastname}
+            email={result.email}
+            companyname={result.companyname}
+            phonenumber={result.phonenumber}
             id={id}
           />
         </div>

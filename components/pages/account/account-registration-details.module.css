@@ -1,3 +1,7 @@
+.outerWrapper {
+    margin-bottom: 2vh;
+}
+
 .outerWrapper h2{
     display: flex;
     padding-left: 10px;
