@@ -22,8 +22,8 @@ export default function ClientPersonalDetailsForm({
     email,
     firstName: firstname,
     lastName: lastname,
-    companyname,
-    phonenumber,
+    companyName :companyname,
+    phoneNumber : phonenumber
   });
 
   const [formDisabled, setFormDisabled] = useState(true);
@@ -34,14 +34,14 @@ export default function ClientPersonalDetailsForm({
     const { name, value } = event.target;
 
     if (formDisabled) {
-      setData({
-        userName: "",
-        email: "",
-        firstName: "",
-        lastName: "",
-        companyname: "",
-        phonenumber: "",
-      });
+      // setData({
+      //   userName: "",
+      //   email: "",
+      //   firstName: "",
+      //   lastName: "",
+      //   companyName: "",
+      //   phonenumber: "",
+      // });
       setErrors([{ disabledError: true }]);
     } else {
       setData({
@@ -58,13 +58,14 @@ export default function ClientPersonalDetailsForm({
 
   const handleReset = () => {
     setData({
-      userName: "",
-      email: "",
-      firstName: "",
-      lastName: "",
-      companyname: "",
-      phonenumber: "",
+      userName: username,
+      email,
+      firstName: firstname,
+      lastName: lastname,
+      companyName :companyname,
+      phoneNumber : phonenumber
     });
+    setErrors([]);
     setFormDisabled(true);
   };
 
@@ -81,124 +82,237 @@ export default function ClientPersonalDetailsForm({
 
     if (submitResult?.dbError) {
       console.log(submitResult);
-      setErrors([{...submitResult}])
+      setErrors([{ ...submitResult }]);
     }
-    console.log(errors)
+    console.log(errors);
+  };
+
+  const handleRetry = () => {
+    setData({
+      userName: username,
+      email,
+      firstName: firstname,
+      lastName: lastname,
+      companyName :companyname,
+      phoneNumber : phonenumber
+    });
+    setErrors([]);
   };
 
   return (
     <>
-    {errors[0]?.dbError ? <p>asdasdasdasdasdasdasdsadasdasdsa</p> : null}
-      <div>
-        <form
-          className={
-            formDisabled
-              ? `${classes.personalDetailsForm}`
-              : `${classes.personalDetailsForm} ${classes.enabled}`
-          }
-        >
-          <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
-            <label>User name:</label>
-            <input
-              type="text"
-              name="userName"
-              placeholder={username}
-              value={data.userName}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "username") ? (
-            <p className={classes.errorA}>Invalid user name</p>
-          ) : null}
-          <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-            <label>First name:</label>
-            <input
-              type="text"
-              name="firstName"
-              placeholder={firstname}
-              value={data.firstName}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "firstname") ? (
-            <p className={classes.errorB}>Invalid first name</p>
-          ) : null}
-          <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-            <label>Last name:</label>
-            <input
-              type="text"
-              name="lastName"
-              placeholder={lastname}
-              value={data.lastName}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "lastname") ? (
-            <p className={classes.errorC}>Invalid last name</p>
-          ) : null}
-          <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
-            <label>Email:</label>
-            <input
-              type="text"
-              name="email"
-              placeholder={email}
-              value={data.email}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "lastname") ? (
-            <p className={classes.errorD}>Invalid email</p>
-          ) : null}
-          <div className={`${classes.formItemContainer} ${classes.ItemE}`}>
-            <label>Company name:</label>
-            <input
-              type="text"
-              name="companyName"
-              placeholder={companyname}
-              value={data.companyname}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "companyname") ? (
-            <p className={classes.errorE}>Invalid company name</p>
-          ) : null}
-          <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
-            <label>Phone number:</label>
-            <input
-              type="text"
-              name="phonenNumber"
-              placeholder={phonenumber}
-              value={data.phonenumber}
-              onChange={handleChange}
-            />
-          </div>
-          {errors?.find((item) => item.errorType == "phonenumber") ? (
-            <p className={classes.errorF}>Invalid phone number</p>
-          ) : null}
-        </form>
-        <div className={classes.buttonWrapper}>
-          {errors[0]?.disabledError ? (
-            <p>
-              Form is disbaled for editting. To update you details, please click
-              enable
-            </p>
-          ) : null}
-          {formDisabled ? (
-            <div className="submit-button-container">
-              <Button onClick={handleEnable}>Enable update</Button>
+      {errors[0]?.dbError ? (
+        <div>
+          <form
+            className={
+              formDisabled
+                ? `${classes.personalDetailsForm}`
+                : `${classes.personalDetailsForm} ${classes.enabled}`
+            }
+          >
+            <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
+              <label>User name:</label>
+              <input
+                type="text"
+                name="userName"
+                placeholder={username}
+                value={data.userName}
+                onChange={handleChange}
+              />
             </div>
-          ) : (
-            <div className={classes.doubleButtonWrapper}>
+            {errors?.find((item) => item.errorType == "username") ? (
+              <p className={classes.errorA}>Invalid user name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
+              <label>First name:</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder={firstname}
+                value={data.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "firstname") ? (
+              <p className={classes.errorB}>Invalid first name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
+              <label>Last name:</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder={lastname}
+                value={data.lastName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "lastname") ? (
+              <p className={classes.errorC}>Invalid last name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
+              <label>Email:</label>
+              <input
+                type="text"
+                name="email"
+                placeholder={email}
+                value={data.email}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "lastname") ? (
+              <p className={classes.errorD}>Invalid email</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemE}`}>
+              <label>Company name:</label>
+              <input
+                type="text"
+                name="companyName"
+                placeholder={companyname}
+                value={data.companyName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "companyname") ? (
+              <p className={classes.errorE}>Invalid company name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
+              <label>Phone number:</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                placeholder={phonenumber}
+                value={data.phoneNumber}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "phonenumber") ? (
+              <p className={classes.errorF}>Invalid phone number</p>
+            ) : null}
+          </form>
+          <div className={classes.buttonWrapper}>
+            <div className={classes.retryWrapper}>
+              <p>
+                An error occured submitting your update. Our records have not
+                been updated
+              </p>
               <div className="submit-button-container">
-                <Button onClick={handleReset}>Reset</Button>
-              </div>
-              <div className="submit-button-container">
-                <Button onClick={handleSubmit}>Update</Button>
+                <Button onClick={handleRetry}>Retry</Button>
               </div>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div>
+          <form
+            className={
+              formDisabled
+                ? `${classes.personalDetailsForm}`
+                : `${classes.personalDetailsForm} ${classes.enabled}`
+            }
+          >
+            <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
+              <label>User name:</label>
+              <input
+                type="text"
+                name="userName"
+                placeholder={username}
+                value={data.userName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "username") ? (
+              <p className={classes.errorA}>Invalid user name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
+              <label>First name:</label>
+              <input
+                type="text"
+                name="firstName"
+                placeholder={firstname}
+                value={data.firstName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "firstname") ? (
+              <p className={classes.errorB}>Invalid first name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
+              <label>Last name:</label>
+              <input
+                type="text"
+                name="lastName"
+                placeholder={lastname}
+                value={data.lastName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "lastname") ? (
+              <p className={classes.errorC}>Invalid last name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
+              <label>Email:</label>
+              <input
+                type="text"
+                name="email"
+                placeholder={email}
+                value={data.email}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "lastname") ? (
+              <p className={classes.errorD}>Invalid email</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemE}`}>
+              <label>Company name:</label>
+              <input
+                type="text"
+                name="companyName"
+                placeholder={companyname}
+                value={data.companyName}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "companyname") ? (
+              <p className={classes.errorE}>Invalid company name</p>
+            ) : null}
+            <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
+              <label>Phone number:</label>
+              <input
+                type="text"
+                name="phoneNumber"
+                placeholder={phonenumber}
+                value={data.phoneNumber}
+                onChange={handleChange}
+              />
+            </div>
+            {errors?.find((item) => item.errorType == "phonenumber") ? (
+              <p className={classes.errorF}>Invalid phone number</p>
+            ) : null}
+          </form>
+          <div className={classes.buttonWrapper}>
+            {errors[0]?.disabledError ? (
+              <p>
+                Form is disbaled for editting. To update you details, please
+                click enable
+              </p>
+            ) : null}
+            {formDisabled ? (
+              <div className="submit-button-container">
+                <Button onClick={handleEnable}>Enable update</Button>
+              </div>
+            ) : (
+              <div className={classes.doubleButtonWrapper}>
+                <div className="submit-button-container">
+                  <Button onClick={handleReset}>Reset</Button>
+                </div>
+                <div className="submit-button-container">
+                  <Button onClick={handleSubmit}>Update</Button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
