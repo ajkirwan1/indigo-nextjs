@@ -5,6 +5,7 @@ import classes from "./page.module.css";
 import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 import { Suspense } from "react";
+import { Spinner } from "@nextui-org/spinner";
 
 export const metadata = {
   title: "Account",
@@ -33,12 +34,12 @@ export default async function UserInfo() {
         </p>
       </div>
       <div className={classes.itemWrapper}>
-        <Suspense fallback={<p>Pending.....</p>}>
+        <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
           <ClientAccountPersonalDetails id={id} />
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
-        <Suspense fallback={<p>Pending.....</p>}>
+        <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
           <ClientRegistrationDetails id={id} />
         </Suspense>
       </div>

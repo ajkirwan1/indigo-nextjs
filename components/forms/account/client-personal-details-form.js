@@ -6,7 +6,7 @@ import { useState } from "react";
 import ValidatePersonalDetails from "@/utils/validate-personal-details";
 import Button from "@/components/ui/button";
 import { UpdateUserPersonalInfo } from "@/server/actions/db/admin/update-user-personal-info";
-import { Suspense } from "react";
+import { Spinner } from "@nextui-org/spinner";
 
 export default function ClientPersonalDetailsForm({
   username,
@@ -22,8 +22,8 @@ export default function ClientPersonalDetailsForm({
     email,
     firstName: firstname,
     lastName: lastname,
-    companyName :companyname,
-    phoneNumber : phonenumber
+    companyName: companyname,
+    phoneNumber: phonenumber,
   });
 
   const [formDisabled, setFormDisabled] = useState(true);
@@ -34,14 +34,6 @@ export default function ClientPersonalDetailsForm({
     const { name, value } = event.target;
 
     if (formDisabled) {
-      // setData({
-      //   userName: "",
-      //   email: "",
-      //   firstName: "",
-      //   lastName: "",
-      //   companyName: "",
-      //   phonenumber: "",
-      // });
       setErrors([{ disabledError: true }]);
     } else {
       setData({
@@ -62,17 +54,18 @@ export default function ClientPersonalDetailsForm({
       email,
       firstName: firstname,
       lastName: lastname,
-      companyName :companyname,
-      phoneNumber : phonenumber
+      companyName: companyname,
+      phoneNumber: phonenumber,
     });
     setErrors([]);
     setFormDisabled(true);
   };
 
   const handleSubmit = async () => {
-    // await new Promise((resolve) => setTimeout(resolve, 4000));
+    setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 4000));
     const validateResult = ValidatePersonalDetails(data);
-
+    setLoading(false);
     if (validateResult?.errors) {
       setErrors([...validateResult.errors]);
       return;
@@ -93,8 +86,8 @@ export default function ClientPersonalDetailsForm({
       email,
       firstName: firstname,
       lastName: lastname,
-      companyName :companyname,
-      phoneNumber : phonenumber
+      companyName: companyname,
+      phoneNumber: phonenumber,
     });
     setErrors([]);
   };
@@ -306,7 +299,11 @@ export default function ClientPersonalDetailsForm({
                   <Button onClick={handleReset}>Reset</Button>
                 </div>
                 <div className="submit-button-container">
-                  <Button onClick={handleSubmit}>Update</Button>
+                  {loading ? (
+                    <Spinner size="lg" />
+                  ) : (
+                    <Button onClick={handleSubmit}>Update</Button>
+                  )}
                 </div>
               </div>
             )}
