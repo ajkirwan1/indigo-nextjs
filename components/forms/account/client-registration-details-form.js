@@ -7,13 +7,11 @@ import { useFormState } from "react-dom";
 import classes from "./client-registration-details-form.module.css";
 import Button from "@/components/ui/button";
 import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-registration-update";
-import SubmitButton from "@/components/ui/buttons/submit-button";
 import FormSubmit from "../formsubmit";
-import { IdentityStore } from "aws-sdk";
 
 export default function ClientRegistrationDetailsForm({ user, action, id }) {
   //   const { buyertype } = user;
-  const initialState = {id}
+  const initialState = { dbError: "", id };
   const [state, formAction] = useFormState(action, initialState);
   const [errors, setErrors] = useState([]);
   const [formDisabled, setFormDisabled] = useState(true);
@@ -177,24 +175,29 @@ export default function ClientRegistrationDetailsForm({ user, action, id }) {
   };
 
   const handleReset = () => {
+    console.log(state?.dbError)
     handleInitialise();
     setFormDisabled(true);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const result = await UpdateUserAccountRegisrationInfo();
-
-    if (result.dbError) {
-      console.log(result.dbError);
+    if (state?.dbError) {
+      state.dbError = "";
+      state.id = id;
     }
   };
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   const result = await UpdateUserAccountRegisrationInfo();
+
+  //   if (result.dbError) {
+  //     console.log(result.dbError);
+  //   }
+  // };
+
   return (
     <>
-      {!errors.dbError ? (
+      {!state?.dbError ? (
         // <form className={classes.registerForm}>
-          <form className={classes.registerForm} action={formAction}>
+        <form className={classes.registerForm} action={formAction}>
           <label>Private buyer or real estate agent:</label>
           <div className={classes.tickRow}>
             <div className={classes.inputWrapper}>
@@ -376,7 +379,7 @@ export default function ClientRegistrationDetailsForm({ user, action, id }) {
         <>
           <p>An error occured updating the database</p>
           <div className="submit-button-container">
-            <Button>Try again</Button>
+            <Button onClick={handleReset}>Try again</Button>
           </div>
         </>
       )}

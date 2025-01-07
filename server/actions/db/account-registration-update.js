@@ -79,70 +79,11 @@ export async function UpdateUserAccountRegisrationInfo(state, formData, id) {
       previous = "no";
     }
 
-    console.log(buyer);
-    console.log(location);
-    console.log(time);
-    console.log(investmentInterestArray);
-    console.log(capital);
-    console.log(previous);
+    throw Error
 
-    // console.log(state)
-    // console.log(privateBuyer);
-    // console.log(realEstateBuyer);
-    // console.log(id);
-
-    // for (const [key, value] of Object.entries(data.investmentInterest)) {
-    //   if (value == true) {
-    //     investmentInterestArray.push(key);
-    //   }
-    // }
-
-    // const user = await db.user.create({
-    //   data: {
-    //     id: userId,
-    //     username: data.userName,
-    //     firstname: data.firstName,
-    //     lastname: data.lastName,
-    //     email: data.email,
-    //     companyname: data.companyName,
-    //     phonenumber: data.phoneNumber,
-    //     buyertype: data.buyerType,
-    //     location: data.location,
-    //     purchasetimeline: data.timeFrame,
-    //     estinvestmentinterest: data.investmentValue,
-    //     previousinvestment: data.investmentHistory,
-    //     adminaccess: 0,
-    //     consultingaccess: 0,
-    //     propertyaccess: 0,
-    //     accessrequestdate: new Date(),
-    //     passwords: {
-    //       create: {
-    //         hashedPassword: passwordHash,
-    //       },
-    //     },
-    //     investmentinterests: {
-    //       createMany: {
-    //         data: investmentInterestArray.map((el) => ({
-    //           interesttype: el,
-    //         })),
-    //       },
-    //     },
-    //   },
-    // });
   } catch (error) {
     return {
       dbError: "Error occured submiting to the database",
     };
   }
-
-  // try {
-  //   throw Error;
-  //   const allProperties = await db.property.findMany({});
-
-  //   return allProperties;
-  // } catch (error) {
-  //   return {
-  //     dbError: "Error occured submiting to the database",
-  //   };
-  // }
 }
