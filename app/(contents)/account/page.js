@@ -6,6 +6,7 @@ import ClientAccountPersonalDetails from "@/components/pages/account/account-per
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/spinner";
+import AccountPropertiesDetails from "@/components/pages/account/account-properties-details";
 import Overlay from "@/components/overlay";
 import ModalBackdrop from "@/components/modal-backdrop";
 
@@ -35,11 +36,9 @@ export default async function UserInfo(props) {
         <hr />
       </div>
       <div className={classes.itemWrapper}>
-        <h2>You registration is currently pending</h2>
-        <p>
-          Once accepted, you will recieve an email, and this page will be
-          updated
-        </p>
+      <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
+          <AccountPropertiesDetails id={id} />
+        </Suspense>
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
