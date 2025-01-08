@@ -1,0 +1,68 @@
+.filterForm {
+    display: flex;
+    flex: 1;
+    /* height: 20vh; */
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.filterContainer {
+    text-align: left;
+    display: flex;
+    height: 15vh;
+    margin-bottom: 2vh;
+  }
+  
+  .filterHeaderWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .filterHeaderWrapper img {
+    height: 20px;
+    width: auto;
+  }
+
+
+  .filterHeaderInnerWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .filterHeaderInnerWrapper:hover {
+    cursor: pointer;
+  }
+
+  .filterHeaderInnerWrapper:hover h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+
+.checkboxContainer {
+    /* flex-basis: 40%; */
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.infoContainer {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.checkboxContainer > div {
+    display: flex;
+    gap: 1vw;
+    align-items: center
+}
+
+.submitButtonContainer {
+  /* margin-top: 2vh; */
+  display: flex;
+  width: 150px;
+  height: 40px;
+}

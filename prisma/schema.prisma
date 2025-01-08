@@ -33,6 +33,7 @@ model User {
     buyertype String?
     location String?
     purchasetimeline String?
+    purchasetype String?
     estinvestmentinterest String?
     previousinvestment String?
     adminaccess Int

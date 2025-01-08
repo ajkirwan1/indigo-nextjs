@@ -15,23 +15,32 @@ export default function RegisterFormPage3({
   handlePreviousTab,
   handleNextTab,
 }) {
-  // const handleNext = async () => {
-  //   const result = await CheckUserCredentials(
-  //     data.firstName,
-  //     data.lastName,
-  //     data.companyName,
-  //     data.phoneNumber
-  //   );
-  //   if (result.errors.length > 0) {
-  //     setErrors([...result.errors])
-  //   } else {
-  //     handleNextTab()
-  //   }
-  // };
+  const [errors, setErrors] = useState([]);
 
-  const handleNext = async () => {
-    handleNextTab();
+  const handleNext = () => {
+    if (
+      !buyerType.includes(true) ||
+      !location.includes(true) ||
+      !purchaseTimeline.includes(true) ||
+      !investmentInterst.includes(true)
+    ) {
+      setErrors([{ errorType: "incompleteForm", message: "Please complete all sections" }]);
+    }
+    else {
+      setErrors([]);
+      handleNextTab();
+    }
+
+    // if (result.errors.length > 0) {
+    //   setErrors([...result.errors]);
+    // } else {
+    //   handleNextTab();
+    // }
   };
+
+  // const handleNext = async () => {
+  //   handleNextTab();
+  // };
 
   const [buyerType, setBuyerType] = useState([false, false]);
   const [location, setLocation] = useState([false, false]);
@@ -109,7 +118,7 @@ export default function RegisterFormPage3({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <Image className={classes.iconRegister} src={userIcon} alt="An image of icon which depicts registration" />
         <h2>3/4</h2>
       </div>
       <form className={classes.registerForm3}>
@@ -134,7 +143,6 @@ export default function RegisterFormPage3({
             ></input>
           </div>
         </div>
-
         <label>Location:</label>
         <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
@@ -156,7 +164,6 @@ export default function RegisterFormPage3({
             ></input>
           </div>
         </div>
-
         <label>Prefered purchase timeline (months):</label>
         <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
@@ -187,7 +194,6 @@ export default function RegisterFormPage3({
             ></input>
           </div>
         </div>
-
         <label>Investment interest:</label>
         <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
@@ -216,21 +222,15 @@ export default function RegisterFormPage3({
           </div>
         </div>
       </form>
+      {errors[0]?.errorType && (
+              <p className={classes.errorParagraph}>{errors[0]?.message}</p>
+        )}
       <div className={classes.buttonWrapper}>
         <RegistrationButton onClick={handlePreviousTab}>
-          PREVIOUS
+          Previous
         </RegistrationButton>
-        <RegistrationButton onClick={handleNext}>NEXT</RegistrationButton>
+        <RegistrationButton onClick={handleNext}>Next</RegistrationButton>
       </div>
-      {/* {state.errors && (
-          <ul>
-            {state.errors.map((error) => (
-              <li key={error}>
-                <p>{error}</p>
-              </li>
-            ))}
-          </ul>
-        )} */}
     </>
   );
 }

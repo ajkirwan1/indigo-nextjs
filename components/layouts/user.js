@@ -4,7 +4,7 @@ import NavLink from "../nav-link";
 import classes from "./user.module.css";
 
 export default function User({ id, username, first_name, last_name }) {
-  console.log(id);
+  // console.log(id);
   return (
     <div className={classes.img}>
       {/* <NavLink href={`/user/${id}`}> */}

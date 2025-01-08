@@ -6,7 +6,7 @@
   border-radius: 4px;
   background-color: #ffffff81;
   position: relative;
-  width: 25vw;
+  width: 800px;
   min-height: 35vh;
   box-shadow: 1px 1px 1px;
   margin-top: 5vh;
@@ -14,4 +14,33 @@
 
 .large {
   width: 50vw;
+}
+
+
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .formcontainer {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .formcontainer {
+    width: 85vw;
+    margin-top: 0;
+  }
+
+
+  .formcontainer p{
+    font-size: 12px;
+  }
+
 }

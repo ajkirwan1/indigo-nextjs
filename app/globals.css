@@ -1,5 +1,9 @@
-/* @tailwind base;
-@tailwind components; */
+/**
+ * @format
+ * @tailwind base;
+ * @tailwind components;
+ */
+
 @tailwind utilities;
 
 #root {
@@ -86,7 +90,35 @@ html:has(.modal) {
   object-fit: contain;
 }
 
-input[type="text"] {
+/* input[type="text"] {
+  font: inherit;
+  border: 1px solid;
+  height: 2rem;
+  width: 100%;
+  background-color: #ffffffc7;
+  color: #505050;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+input[type="email"] {
+  font: inherit;
+  border: 1px solid;
+  height: 2rem;
+  width: 100%;
+  background-color: #ffffffc7;
+  color: #505050;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+} */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   font: inherit;
   border: 1px solid;
   height: 2rem;
@@ -99,18 +131,6 @@ input[type="text"] {
   box-sizing: border-box; /* Opera/IE 8+ */
 }
 
-input[type="email"] {
-  font: inherit;
-  border: 1px solid;
-  height: 2rem;
-  width: 100%;
-  background-color: #ffffffc7;
-  color: #505050;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
-}
 textarea {
   font: inherit;
   border: 1px solid;
@@ -211,15 +231,36 @@ main {
   font-size: 16px;
 }
 
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .header h1 {
     font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
+  }
+
+  .submit-button-container {
+    width: 130px;
+    height: 40px;
   }
 
   .error-button-container p {
@@ -236,5 +277,9 @@ main {
   .error-button-container p {
     margin: 0;
     font-size: 12px;
+  }
+  .submit-button-container {
+    width: 120px;
+    height: 35px;
   }
 }
