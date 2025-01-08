@@ -19,9 +19,9 @@ export const metadata = {
 
 export default async function UserInfo(props) {
 
-  const searchParams = await props.searchParams;
-  const query = searchParams?.query || "";
-  const initial = searchParams?.initial || "";
+  // const searchParams = await props.searchParams;
+
+  // let initial = searchParams?.initial || "";
 
   const { user } = await validateRequest();
 
@@ -29,7 +29,6 @@ export default async function UserInfo(props) {
 
   return (
     <>
-    {/* {initial && <ModalBackdrop></ModalBackdrop>} */}
       <div className="header">
         <h1>Your Details</h1>
         <p>You are signed-in</p>

@@ -13,7 +13,6 @@ import db from "@/modules/db";
 
 export async function RegisterMultiPage(data) {
   try {
-    // throw Error
     await new Promise((resolve) => setTimeout(resolve, 4000));
     const userid = generateIdFromEntropySize(10);
     const passwordHash = await new LegacyScrypt().hash(data.password);
@@ -66,13 +65,6 @@ export async function RegisterMultiPage(data) {
       sessionCookie.attributes
     );
 
-    // console.log(user, "USEEEERR");
-
-    // const properties = await db.investmentinterest.findMany({
-    //   where: {
-    //     userId: userid,
-    //   },
-    // });
   } catch (error) {
     return {
       dbErrorMessage: " An error occured accessing the database",

@@ -6,7 +6,6 @@ import AdminClientHomepage from "@/components/admin-components/admin-client-home
 export default function AddProperties() {
   return (
     <>
-      <title>Indigo Consulting Admin Dashboard</title>
       <div className="header">
         <h1>ADMIN DASHBOARD</h1>
         <hr />

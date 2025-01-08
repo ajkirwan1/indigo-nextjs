@@ -23,7 +23,10 @@ export default async function ClientProperties({ params }) {
 
   return (
     <>
-      <p>Back</p>
+      <div className="header">
+        <h1>Client details</h1>
+        <hr />
+      </div>
       <ClientPropertiesForm
         id={params.id}
         action={UpdatePropertiesAction}
