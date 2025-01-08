@@ -19,13 +19,8 @@ export const metadata = {
 export default async function UserInfo(props) {
 
   const searchParams = await props.searchParams;
-  console.log(searchParams)
   const query = searchParams?.query || "";
   const initial = searchParams?.initial || "";
-
-  console.log(query, "QQQQ")
-  console.log(initial, "IIIII")
-
 
   const { user } = await validateRequest();
 

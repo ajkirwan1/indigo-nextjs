@@ -9,7 +9,13 @@ import Button from "@/components/ui/button";
 import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-registration-update";
 import FormSubmit from "../formsubmit";
 
-export default function ClientRegistrationDetailsForm({ user, action, id }) {
+export default function ClientRegistrationDetailsForm({
+  clientInfo,
+  action,
+  id,
+}) {
+  const user = clientInfo[0];
+  const interestType = clientInfo[1];
   //   const { buyertype } = user;
   const initialState = { dbError: "", id };
   const [state, formAction] = useFormState(action, initialState);
@@ -44,35 +50,46 @@ export default function ClientRegistrationDetailsForm({ user, action, id }) {
       setBuyerType([true, false]);
     } else setBuyerType([false, true]);
 
-
     if (user.location.includes("locationGreece")) {
       setLocation([true, false]);
     } else setLocation([false, true]);
 
-
-    
     if (user.purchasetimeline.includes("sixMonths")) {
       setpurchaseTimeline([true, false, false]);
     } else if (user.purchasetimeline.includes("sixToTwelveMonths")) {
       setpurchaseTimeline([false, true, false]);
     } else setpurchaseTimeline([false, false, true]);
 
-
-
-
-
-    if (user.estinvestmentinterest.includes("50")) {
-      setInvestmentInterst([true, false, false]);
-    } else if (user.estinvestmentinterest.includes("50-100")) {
-      setInvestmentInterst([false, true, false]);
-    } else setInvestmentInterst([false, false, true]);
-
-
-
+    if (user.estinvestmentinterest.endsWith("50")) {
+      setinvestmentInterestValue([true, false, false]);
+    } else if (user.estinvestmentinterest.endsWith("50-100")) {
+      setinvestmentInterestValue([false, true, false]);
+    } else setinvestmentInterestValue([false, false, true]);
 
     if (user.previousinvestment.includes("yes")) {
       setpreviousInvestment([true, false]);
     } else setpreviousInvestment([false, true]);
+
+    if (interestType.some((obj) => obj.interesttype === "residential")) {
+      setInvestmentInterst([
+        ...investmentInterest,
+        (investmentInterest[0] = true),
+      ]);
+    }
+
+    if (interestType.some((obj) => obj.interesttype === "commercial")) {
+      setInvestmentInterst([
+        ...investmentInterest,
+        (investmentInterest[1] = true),
+      ]);
+    }
+
+    if (interestType.some((obj) => obj.interesttype === "land")) {
+      setInvestmentInterst([
+        ...investmentInterest,
+        (investmentInterest[2] = true),
+      ]);
+    }
   };
 
   useEffect(() => {
