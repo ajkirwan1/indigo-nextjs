@@ -1,0 +1,28 @@
+/** @format */
+'use server'
+import db from "@/modules/db";
+
+export async function GetUserRegistrationInformation(id) {
+  try {
+    const change = await db.$transaction([
+      db.user.findFirst({
+        where: { id: id },
+      }),
+      db.investmentinterest.findMany({
+        where: {
+          userId: userid,
+        },
+      }),
+    ]);
+
+    console.log(change)
+
+
+    // const existingUser = await db.user.findFirst({
+    //   where: { id: id },
+    // });
+    // return existingUser;
+  } catch (error) {
+    return { dbFetchError: "An error occured fetching the user information." };
+  }
+}

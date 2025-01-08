@@ -6,11 +6,12 @@ import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-
 import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-registration-update";
 import classes from "./account-registration-details.module.css";
 
+
 export default async function ClientRegistrationDetails({ id }) {
   // await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getUser(id);
 
-  console.log(result, "HEEEEEEEEEEEEEEEEEEEEEEEEEEE")
+  // console.log(result, "HEEEEEEEEEEEEEEEEEEEEEEEEEEE")
 
   return (
     <>

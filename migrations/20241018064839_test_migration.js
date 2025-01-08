@@ -14,7 +14,6 @@ export async function up(knex) {
       table.string("buyertype", 25).nullable();
       table.string("location", 25).nullable();
       table.string("purchasetimeline", 25).nullable();
-      table.string("purchasetype", 25).nullable();
       table.string("estinvestmentinterest", 25).nullable();
       table.string("previousinvestment", 25).nullable();
       table.integer("adminaccess").notNullable();

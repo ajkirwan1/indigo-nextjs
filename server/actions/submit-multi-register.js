@@ -66,8 +66,13 @@ export async function RegisterMultiPage(data) {
       sessionCookie.attributes
     );
 
-    console.log(user);
-    // return redirect("/register/pending-auth");
+    // console.log(user, "USEEEERR");
+
+    // const properties = await db.investmentinterest.findMany({
+    //   where: {
+    //     userId: userid,
+    //   },
+    // });
   } catch (error) {
     return {
       dbErrorMessage: " An error occured accessing the database",
@@ -76,6 +81,4 @@ export async function RegisterMultiPage(data) {
 
   // return redirect("/register/pending-auth");
   return redirect("/account?initial=true");
-
-
 }
