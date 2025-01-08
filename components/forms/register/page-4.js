@@ -12,6 +12,9 @@ import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Link from "next/link";
 import Button from "@/components/ui/button";
 
+import Link from "next/link";
+import Button from "@/components/ui/button";
+
 
 export default function RegisterFormPage4({
   action,
@@ -23,11 +26,13 @@ export default function RegisterFormPage4({
   const [state, formAction] = useFormState(action, { data });
   const [submitPending, setsubmitPending] = useState(false);
   const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState([]);
 
   const [investmentInterest, setinvestmentInterest] = useState([
     false,
     false,
     false,
+    // false,
     // false,
   ]);
   const [previousInvestment, setpreviousInvestment] = useState([false, false]);
@@ -72,6 +77,20 @@ export default function RegisterFormPage4({
       return;
     }
     setErrors([]);
+  const handleSubmitForm = async () => {
+    if (
+      !investmentInterest.includes(true) ||
+      !previousInvestment.includes(true)
+    ) {
+      setErrors([
+        {
+          errorType: "incompleteForm",
+          message: "Please complete all sections",
+        },
+      ]);
+      return;
+    }
+    setErrors([]);
     setsubmitPending(true);
 
     const submitResult = await RegisterMultiPage(data);
@@ -90,7 +109,73 @@ export default function RegisterFormPage4({
   };
 
   // let pending = false;
+  const handleReset = () => {
+    setErrors([]);
+    setsubmitPending(false);
+  };
+
+  // let pending = false;
   return (
+    <>
+      {errors[0]?.dbErrorMessage ? (
+        <>
+          <div className={classes.headerContainer}>
+            <h1>REGISTER</h1>
+            <Image
+              className={classes.iconRegister}
+              src={userIcon}
+              alt="An image of icon which depicts registration"
+            />
+            <h2>4/4</h2>
+            <p>{errors[0].dbErrorMessage}</p>
+            <div className={classes.submitButtonContainer}>
+              <Button onClick={handleReset}>Try again</Button>
+            </div>
+            <Link href="/">Return to homepage</Link>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={classes.headerContainer}>
+            <h1>REGISTER</h1>
+            <Image
+              className={classes.iconRegister}
+              src={userIcon}
+              alt="An image of icon which depicts registration"
+            />
+            <h2>4/4</h2>
+          </div>
+          <form className={classes.registerForm3} action={formAction}>
+            <label>Estimated investment interest - 1,000s €</label>
+            <div className={classes.tickRow}>
+              <div className={classes.inputWrapper}>
+                <label>Up to 50</label>
+                <input
+                  type="checkbox"
+                  name="50"
+                  checked={investmentInterest[0]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              <div className={classes.inputWrapper}>
+                <label>50 - 100</label>
+                <input
+                  type="checkbox"
+                  name="50-100"
+                  checked={investmentInterest[1]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              <div className={classes.inputWrapper}>
+                <label>100 - 150</label>
+                <input
+                  type="checkbox"
+                  name="100-150"
+                  checked={investmentInterest[2]}
+                  onChange={(event) => handleInvestmentInterest(event)}
+                ></input>
+              </div>
+              {/* <div className={classes.inputWrapper}>
     <>
       {errors[0]?.dbErrorMessage ? (
         <>
