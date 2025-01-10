@@ -9,14 +9,14 @@ import heroImage from "/public/images/croppednight.jpg";
 import classes from "./page.module.css";
 
 export default async function LoginPage() {
-  const headerList = headers();
-  const pathname = headerList.get("x-search-params");
+  // const headerList = headers();
+  // const pathname = headerList.get("x-search-params");
 
-  let redirection;
+  // let redirection;
 
-  if (pathname.includes("properties")) {
-    redirection = "properties";
-  }
+  // if (pathname.includes("properties")) {
+  //   redirection = "properties";
+  // }
   const { user } = await validateRequest();
 
   // if (user) {
@@ -28,7 +28,8 @@ export default async function LoginPage() {
       <div className={classes.pageWrapper}>
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
-            <LoginForm redirection={redirection} action={Login}></LoginForm>
+            {/* <LoginForm redirection={redirection} action={Login}></LoginForm> */}
+            <LoginForm action={Login}></LoginForm>
           </div>
         </HeroComponent>
       </div>
