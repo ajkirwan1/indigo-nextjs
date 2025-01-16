@@ -113,9 +113,9 @@
   letter-spacing: normal;
   position: relative;
   display: inline-block;
-  font-size: 36px;
+  font-size: 25px;
   font-weight: 300;
-  margin-bottom: 3.5vh;
+  margin-bottom: 4vh;
   overflow: hidden;
   margin-top: 0;
 }
@@ -125,7 +125,7 @@
   margin-top: 100px;
   margin-bottom: 100px;
   color: black;
-  letter-spacing: 0.3vw;
+  letter-spacing: 0.2vw;
   display: flex;
   justify-content: center;
 }
@@ -146,7 +146,7 @@
 
 .infoWrapper p {
   font-size: 18px;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .blogPageContainer li:hover h2::after,

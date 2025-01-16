@@ -23,7 +23,7 @@ function ProjectItem({ data }) {
         </div>
         <div className={classes.infoWrapper}>
           <h2>{title}</h2>
-          <p>INVESTMENT RETURN - {investmentReturn}</p>
+          {/* <p>INVESTMENT RETURN - {investmentReturn}</p> */}
           <p>{description}</p>
         </div>
       </div>
@@ -42,14 +42,14 @@ export default async function ProjectsPage() {
   return (
     <>
       <div className="header">
-        <h1>SAMPLES OF PROJECTS</h1>
+        <h1>SAMPLES OF SERVICES</h1>
 
         <hr />
       </div>
 
       <div className={classes.blogPageContainer}>
         <h3 className={classes.header}>
-          Below you may find our successfull transformations of the Greek Real
+          Below you will find our successful transformations of the Greek Real
           Estate Investments
         </h3>
         <ul>
