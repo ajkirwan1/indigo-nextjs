@@ -119,6 +119,16 @@
   overflow: hidden;
   margin-top: 0;
 }
+.header {
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  color: black;
+  letter-spacing: 0.3vw;
+  display: flex;
+  justify-content: center;
+}
 
 .infoWrapper h2::after {
   content: "";

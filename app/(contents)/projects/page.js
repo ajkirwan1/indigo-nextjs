@@ -41,12 +41,17 @@ export default async function ProjectsPage() {
 
   return (
     <>
-
       <div className="header">
         <h1>SAMPLES OF PROJECTS</h1>
+
         <hr />
       </div>
+
       <div className={classes.blogPageContainer}>
+        <h3 className={classes.header}>
+          Below you may find our successfull transformations of the Greek Real
+          Estate Investments
+        </h3>
         <ul>
           {result.map((element) => (
             <li key={element.id}>
