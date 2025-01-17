@@ -51,6 +51,7 @@
 .secondSection,
 .newsLetterSection {
   margin-bottom: 5vh;
+  line-height: 2.5vh;
 }
 
 .openingSection p,
@@ -331,6 +332,7 @@
   .thirdSection p,
   .secondSection p {
     font-size: 16px;
+    margin-top: 50px;
   }
 
   .plusIcon {
@@ -393,6 +395,7 @@
   .blogPost h2 {
     max-width: unset;
     line-height: 2rem;
+    font-size: 20px;
   }
 
   .subHeader {
@@ -479,16 +482,20 @@
   .blogPost p {
     font-size: 15px;
   }
+  .blogPost h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
   .openingSection {
     margin-bottom: 0;
   }
   .openingSection > h1 {
-    font-size: 23px;
+    font-size: 18px;
     margin-bottom: 20px;
     letter-spacing: 0.05rem;
   }
   .newsLetterSection > h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .blogPost input[type="email"] {
     font-size: 13px;

@@ -83,10 +83,10 @@ function Success({ result }) {
           <h2>{subTitle}</h2>
           <span>{documentToReactComponents(mainParagraph)}</span>
         </section>
-        <section className={classes.thirdSection}>
+        {/* <section className={classes.thirdSection}>
           <h2>{subTitle}</h2>
           <span>{documentToReactComponents(mainParagraph)}</span>
-        </section>
+        </section> */}
       </div>
       <div className={classes.column2}>
         <section className={classes.newsLetterSection}>

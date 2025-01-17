@@ -93,4 +93,7 @@
   .blogPost input[type="email"] {
     width: 100%;
   }
+  .plusIcon {
+    height: 25px;
+  }
 }
