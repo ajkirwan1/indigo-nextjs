@@ -34,7 +34,6 @@ export const { auth, signIn, signOut } = NextAuth({
         //   errors.push({ errorType: "username", message: "Invalid username" });
         //   return { errors, errorMessage: "", submitted: false };
         // }
-        console.log(existingUser, "USER");
         // const userpassword = await db.password.findFirst({
         //   where: { userId: existingUser.id },
         // });
@@ -54,20 +53,36 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, trigger, account, profile, user, session }) {
       if (user) {
-        token.adminaccess = user.adminaccess;
+        // console.log(token, "token")
+        // console.log(user, "user")
+        token.name = "John"
+        console.log(token, "token")
+        console.log(trigger, "trigger")
+        console.log(account, "account")
+        console.log(profile, "profile")
+        console.log(session, "session")
+        if (user.adminaccess == 2) {
+          token.role = "admin"
+        } else (
+          token.role = "client"
+        )
+token.role = "admin"
       }
       return token;
     },
-    async session({ session, token }) {
-      if (session?.user) {
-        session.user.adminaccess = token.adminaccess;
-      }
+    async session({ token, user, session, newSession, trigger }) {
+      // if (session?.user) {
+      //   console.log(token, "KSAKSAKS")
+      //   session.user = token.user;
+      // }
+      console.log(session, "KDAKDKLDK:LD:L")
+      session.user.role = token.role
+      return session
     },
-    async authorized({ auth }) {
-      const isAuthenticated = !!auth?.user;
-      return isAuthenticated;
-    },
+    async redirect({ url, baseUrl }) {
+      return ("http://localhost:3000/contact")
+    }
   },
 });

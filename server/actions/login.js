@@ -26,24 +26,8 @@ export async function Login(state, formData) {
   let errors = [];
   let userType;
 
-  try {
     const result = await signIn("credentials", { username: username, password: password });
-  } catch (error) {
-    console.log(error)
-    // console.log(error.cause.message, "DKAKLADKLDLKD");
-    // switch (error.cause.message) {
-    //   case "User not found error":
-    //     errors.push({ errorType: "username", message: "User not found error" });
-    //     break;
-    //   case "Incorrect password":
-    //     errors.push({ errorType: "password", message: "Incorrect password" });
-    //     break;
-    //   default:
-    //     break;
-    //     errors.push({ errorType: "", message: "" });
-    return { errors, errorMessage: "", submitted: false };
-    }
-    return { errors, errorMessage: "", submitted: false };
+
   }
 
   // try {
