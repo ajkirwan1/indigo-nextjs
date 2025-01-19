@@ -17,7 +17,7 @@ export default async function LoginPage() {
   // if (pathname.includes("properties")) {
   //   redirection = "properties";
   // }
-  const { user } = await validateRequest();
+  // const { user } = await validateRequest();
 
   // if (user) {
   //   redirect("/logout");

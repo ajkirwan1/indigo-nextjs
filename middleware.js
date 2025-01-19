@@ -5,7 +5,7 @@ import { authConfig } from "./auth.config";
 import { getToken } from "next-auth/jwt"
 // import { auth } from "./auth";
 
-const protectedRoutes = ["/admin", "/properties"];
+const protectedRoutes = ["/admin"];
 const { auth } = NextAuth(authConfig);
 
 // export default NextAuth(authConfig).auth;
@@ -26,9 +26,9 @@ export default auth(async function middleware(req) {
     pathname.startsWith(route)
   );
 
-  // if (isProtected) {
-  //   return NextResponse.redirect(new URL("/login", request.nextUrl));
-  // }
+  if (isProtected && tokeny?.role !== "admin") {
+    return NextResponse.redirect(new URL("/", req.nextUrl));
+  }
   // if (!token) return NextResponse.redirect(new URL("/login", request.url));
 
   // switch (token.role) {
