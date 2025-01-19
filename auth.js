@@ -20,16 +20,22 @@ export const { auth, signIn, signOut } = NextAuth({
         const { username, password } = credentials;
 
         let errors = [];
-        console.log(credentials);
+        let existingUser;
+        // console.log(credentials);
 
-        const existingUser = await db.user.findFirst({
-          where: { username: username },
-        });
-        if (!existingUser) {
-          throw new Error("User does not exist", {
-            cause: { message: "User not found error" },
+        try {
+          const existingUser = await db.user.findFirst({
+            where: { username: username },
           });
+          if (!existingUser) {
+            throw new Error("Username", {
+              cause: { message: "User not found error" },
+            });
+          }
+        } catch (error) {
+          return { error: "User not found error" };
         }
+
         // if (!existingUser) {
         //   errors.push({ errorType: "username", message: "Invalid username" });
         //   return { errors, errorMessage: "", submitted: false };
@@ -57,18 +63,16 @@ export const { auth, signIn, signOut } = NextAuth({
       if (user) {
         // console.log(token, "token")
         // console.log(user, "user")
-        token.name = "John"
-        console.log(token, "token")
-        console.log(trigger, "trigger")
-        console.log(account, "account")
-        console.log(profile, "profile")
-        console.log(session, "session")
+        token.name = "John";
+        console.log(token, "token");
+        console.log(trigger, "trigger");
+        console.log(account, "account");
+        console.log(profile, "profile");
+        console.log(session, "session");
         if (user.adminaccess == 2) {
-          token.role = "admin"
-        } else (
-          token.role = "client"
-        )
-token.role = "admin"
+          token.role = "admin";
+        } else token.role = "client";
+        token.role = "admin";
       }
       return token;
     },
@@ -77,12 +81,12 @@ token.role = "admin"
       //   console.log(token, "KSAKSAKS")
       //   session.user = token.user;
       // }
-      console.log(session, "KDAKDKLDK:LD:L")
-      session.user.role = token.role
-      return session
+      console.log(session, "KDAKDKLDK:LD:L");
+      session.user.role = token.role;
+      return session;
     },
     async redirect({ url, baseUrl }) {
-      return ("http://localhost:3000/contact")
-    }
+      return "http://localhost:3000/contact";
+    },
   },
 });

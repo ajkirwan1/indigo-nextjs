@@ -15,21 +15,21 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       <div className={classes.formItemContainer}>
         <label>User name:</label>
         <input
-          className={state.errors?.find((item) =>
+          className={state?.errors?.find((item) =>
             item.errorType == "username" ? `${classes.inputError}` : null
           )}
           type="text"
           name="username"
           onChange={handleChange}
         />
-        {state.errors?.find((item) => item.errorType == "username") ? (
+        {state?.errors?.find((item) => item.errorType == "username") ? (
           <p className={classes.errorA}>Invalid username </p>
         ) : null}
       </div>
       <div className={classes.formItemContainer}>
         <label>Password:</label>
         <input
-          className={state.errors?.find((item) =>
+          className={state?.errors?.find((item) =>
             item.errorType == "password" ? `${classes.inputError}` : null
           )}
           // type="text"
@@ -37,7 +37,7 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
           name="password"
           onChange={handleChange}
         />
-        {state.errors?.find((item) => item.errorType == "password") ? (
+        {state?.errors?.find((item) => item.errorType == "password") ? (
           <p className={classes.errorA}>Invalid password </p>
         ) : null}
       </div>
@@ -91,7 +91,7 @@ export default function LoginForm({ action, redirection }) {
     <>
     {/* <ModalBackdrop /> */}
       <h1>Login</h1>
-      {!state.errorMessage ? (
+      {!state?.errorMessage ? (
         <Form
           formAction={formAction}
           state={state}

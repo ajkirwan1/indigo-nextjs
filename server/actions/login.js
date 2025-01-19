@@ -25,79 +25,88 @@ export async function Login(state, formData) {
   const password = formData.get("password");
   let errors = [];
   let userType;
-
-    const result = await signIn("credentials", { username: username, password: password });
-
-  }
-
   // try {
-  //   const existingUser = await db.user.findFirst({
-  //     where: { username: username },
+  //   const result = await signIn("credentials", {
+  //     username: username,
+  //     password: password,
   //   });
-
-  //   console.log(existingUser);
-
-  //   if (!existingUser) {
-  //     errors.push({ errorType: "username", message: "Invalid username" });
-  //     return { errors, errorMessage: "", submitted: false };
-  //   }
-  //   const userpasswords = await db.password.findFirst({
-  //     where: { userId: existingUser.id },
-  //   });
-  // let userType;
-
-  // try {
-  //   const existingUser = await db.user.findFirst({
-  //     where: { username: username },
-  //   });
-
-  //   console.log(existingUser);
-
-  //   if (!existingUser) {
-  //     errors.push({ errorType: "username", message: "Invalid username" });
-  //     return { errors, errorMessage: "", submitted: false };
-  //   }
-  //   const userpasswords = await db.password.findFirst({
-  //     where: { userId: existingUser.id },
-  //   });
-
-  //   const validPassword = await new LegacyScrypt().verify(
-  //     userpasswords.hashedPassword,
-  //     password
-  //   );
-
-  //   if (!validPassword) {
-  //     errors.push({ errorType: "password", message: "Invalid password" });
-  //     return { errors, errorMessage: "", submitted: false };
-  //   }
-  //   const userId = existingUser.id;
-  //   const session = await lucia.createSession(userId);
-  //   const sessions = await db.session.findMany();
-
-  //   const sessionCookie = lucia.createSessionCookie(session.id);
-  //   console.log(sessionCookie.name, "Cookie name");
-  //   cookies().set(
-  //     sessionCookie.name,
-  //     sessionCookie.value,
-  //     sessionCookie.attributes
-  //   );
-  //   if (state.redirection) {
-  //     redirect(`/${state.redirection}`);
-  //   }
-  //   if (existingUser.adminaccess == 2) {
-  //     userType = "admin"
-  //     // return redirect("/admin");
-  //   }
   // } catch (error) {
-  //   return {
-  //     errors: [],
-  //     errorMessage: " An error occured fetching your information",
-  //     submitted: false,
-  //   };
+  //   console.log(error)
   // }
+  const result = await signIn("credentials", {
+    username: username,
+    password: password,
+  });
+  console.log(result, "LOGIN RESULT");
+}
 
-  // if (userType == "admin") {
-  //   return redirect("/admin");
-  // }
-  // return redirect("/account");
+// try {
+//   const existingUser = await db.user.findFirst({
+//     where: { username: username },
+//   });
 
+//   console.log(existingUser);
+
+//   if (!existingUser) {
+//     errors.push({ errorType: "username", message: "Invalid username" });
+//     return { errors, errorMessage: "", submitted: false };
+//   }
+//   const userpasswords = await db.password.findFirst({
+//     where: { userId: existingUser.id },
+//   });
+// let userType;
+
+// try {
+//   const existingUser = await db.user.findFirst({
+//     where: { username: username },
+//   });
+
+//   console.log(existingUser);
+
+//   if (!existingUser) {
+//     errors.push({ errorType: "username", message: "Invalid username" });
+//     return { errors, errorMessage: "", submitted: false };
+//   }
+//   const userpasswords = await db.password.findFirst({
+//     where: { userId: existingUser.id },
+//   });
+
+//   const validPassword = await new LegacyScrypt().verify(
+//     userpasswords.hashedPassword,
+//     password
+//   );
+
+//   if (!validPassword) {
+//     errors.push({ errorType: "password", message: "Invalid password" });
+//     return { errors, errorMessage: "", submitted: false };
+//   }
+//   const userId = existingUser.id;
+//   const session = await lucia.createSession(userId);
+//   const sessions = await db.session.findMany();
+
+//   const sessionCookie = lucia.createSessionCookie(session.id);
+//   console.log(sessionCookie.name, "Cookie name");
+//   cookies().set(
+//     sessionCookie.name,
+//     sessionCookie.value,
+//     sessionCookie.attributes
+//   );
+//   if (state.redirection) {
+//     redirect(`/${state.redirection}`);
+//   }
+//   if (existingUser.adminaccess == 2) {
+//     userType = "admin"
+//     // return redirect("/admin");
+//   }
+// } catch (error) {
+//   return {
+//     errors: [],
+//     errorMessage: " An error occured fetching your information",
+//     submitted: false,
+//   };
+// }
+
+// if (userType == "admin") {
+//   return redirect("/admin");
+// }
+// return redirect("/account");
