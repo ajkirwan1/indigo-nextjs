@@ -14,7 +14,7 @@ export default auth(async function middleware(req) {
   const session = await auth();
   const token = await auth();
 
-  console.log(token.role, "token");
+  // console.log(token.role, "token");
   console.log(session, "session");
   const tokeny= await getToken({ req, secret:process.env.AUTH_SECRET })
   console.log(tokeny)

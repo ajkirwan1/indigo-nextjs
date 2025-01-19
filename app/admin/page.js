@@ -1,13 +1,14 @@
 /** @format */
 
 import classes from "./page.module.css";
-import { useSession, getSession } from "next-auth/react"
 import AdminClientHomepage from "@/components/admin-components/admin-client-homepage";
+import { auth } from '@/auth'
+import NextAuth from "next-auth";
 
-export default function AddProperties() {
-  const { data: session } = getSession()
-  console.log(session)
-
+export default async function AddProperties() {
+  const session = await auth()
+  console.log(session, "SESSSSSSS")
+  
   return (
     <>
       <div className="header">
