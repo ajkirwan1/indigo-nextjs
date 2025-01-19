@@ -20,16 +20,12 @@ export async function generateMetadata({ params }, parent) {
   const { slug } = await params;
   const result = await getSingleProject(slug);
   const { fields } = result;
-  const {
-    title,
-  } = fields;
- 
- 
+  const { title } = fields;
+
   return {
     title: title,
-  }
+  };
 }
-
 
 function Success({ result }) {
   const { fields } = result;
@@ -47,7 +43,7 @@ function Success({ result }) {
             <h1>{title}</h1>
             <p>{description}</p>
           </div>
-          <div className={classes.propertyInfo}>
+          {/* <div className={classes.propertyInfo}>
             <h2>KEY FEATURES</h2>
             <ul>
               <li>
@@ -66,7 +62,7 @@ function Success({ result }) {
                 <p>Heated marble flooring</p>
               </li>
             </ul>
-          </div>
+          </div> */}
           <div className={classes.linkContainer}>
             <Link href="/projects">Back</Link>
           </div>
@@ -80,26 +76,26 @@ function Success({ result }) {
         <div className={classes.swiperContainer}>
           <SwiperComponent images={carouselImagesUrls} />
         </div>
-        <div className={classes.propertyInfo}>
-            <h2>KEY FEATURES</h2>
-            <ul>
-              <li>
-                <p>The most desirable location in the Athens Riviera</p>
-              </li>
-              <li>
-                <p>High quality finish </p>
-              </li>
-              <li>
-                <p>Panoramic view</p>
-              </li>
-              <li>
-                <p>Stain-proof carpets in bedrooms</p>
-              </li>
-              <li>
-                <p>Heated marble flooring</p>
-              </li>
-            </ul>
-          </div>
+        {/* <div className={classes.propertyInfo}>
+          <h2>KEY FEATURES</h2>
+          <ul>
+            <li>
+              <p>The most desirable location in the Athens Riviera</p>
+            </li>
+            <li>
+              <p>High quality finish </p>
+            </li>
+            <li>
+              <p>Panoramic view</p>
+            </li>
+            <li>
+              <p>Stain-proof carpets in bedrooms</p>
+            </li>
+            <li>
+              <p>Heated marble flooring</p>
+            </li>
+          </ul>
+        </div> */}
       </div>
     </>
   );

@@ -287,6 +287,11 @@
   }
   .titleHeader p {
     color: black;
+    max-width: 70vw;
+    font-size: 14px;
+    margin: auto;
+    margin-bottom: 20px;
+    line-height: 2vh;
   }
   .propertyInfo ul {
     max-width: 280px;
@@ -295,7 +300,8 @@
   }
 
   .titleHeader h1 {
-    font-size: 32px;
+    font-size: 23px;
+    margin-bottom: 20px;
     color: black;
   }
 
@@ -356,6 +362,7 @@
   }
   .swiperContainer {
     height: 56vw;
+    margin-bottom: 5vh;
   }
   .propertyInfo {
     display: block;

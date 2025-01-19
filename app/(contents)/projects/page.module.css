@@ -216,6 +216,13 @@
     grid-auto-rows: unset;
   }
 
+  .blogPageContainer h3,
+  .blogPageContainerSkeleton h3 {
+    text-align: center;
+    font-size: 17px;
+    line-height: 2.5vh;
+  }
+
   .infoWrapper {
     margin: unset;
     margin-top: 25px;
@@ -239,7 +246,7 @@
     margin-top: 40px;
   }
   .infoWrapper h2 {
-    font-size: 23px;
+    font-size: 22px;
     margin-bottom: 2px;
     line-height: 3.7vh;
   }
