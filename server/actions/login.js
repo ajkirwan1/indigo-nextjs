@@ -24,9 +24,9 @@ export async function Login(state, formData) {
   const username = formData.get("username");
   const password = formData.get("password");
   let errors = [];
-
   try {
-    const result = await signIn("credentials", {
+     const result = await signIn("credentials", {
+      redirectTo: '/account',
       username: username,
       password: password,
     });
@@ -36,8 +36,11 @@ export async function Login(state, formData) {
       case "User not found":
         errors.push({ errorType: "username", message: "Invalid username" });
         return { errors, errorMessage: "", submitted: false };
+      case "Invalid password":
+        errors.push({ errorType: "password", message: "Invalid password" });
+        return { errors, errorMessage: "", submitted: false };
       default:
-        return redirect("/");
+        return redirect("/account");
     }
   }
 }

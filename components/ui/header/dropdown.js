@@ -1,16 +1,19 @@
 /** @format */
-import NavLink from "@/components/nav-link";
+'use client'
 import classes from "./sub-header.module.css";
 import { useSession } from "@/contexts/session-context";
 import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
 import NavLinkMobile from "@/components/nav-link-mobile";
+// import { auth } from '@/auth'
+// import { signOut } from "@/auth";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
+    // const session = await auth();
   // const { user } = useSession();
 
   // let data;
-  // if (user) {
+  // if (session?.user) {
   //   data = submenus.filter((item) => {
   //     return item.title !== "Login";
   //   });
@@ -22,6 +25,8 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
 
   const handleLogout = () => {
     Logout();
+    // signOut({ callbackUrl: 'http://localhost:3000/' })
+
   };
 
   return (
