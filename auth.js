@@ -5,37 +5,25 @@ import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "./auth.config";
 import bcrypt from "bcrypt";
 import db from "./modules/db";
-import { LegacyScrypt } from "lucia";
 
 export const { auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
-      // credentials: {
-      //   username: {},
-      //   password: {},
-      // },
-
       async authorize(credentials) {
         const { username, password } = credentials;
 
-        let errors = [];
-        let existingUser;
-        // console.log(credentials);
-
-        try {
-          const existingUser = await db.user.findFirst({
-            where: { username: username },
+        const existingUser = await db.user.findFirst({
+          where: { username: username },
+        });
+        if (!existingUser) {
+          throw new Error("Username", {
+            cause: { message: "User not found" },
           });
-          if (!existingUser) {
-            throw new Error("Username", {
-              cause: { message: "User not found error" },
-            });
-          }
-        } catch (error) {
-          return { error: "User not found error" };
         }
 
+
+        console.log("PASSED");
         // if (!existingUser) {
         //   errors.push({ errorType: "username", message: "Invalid username" });
         //   return { errors, errorMessage: "", submitted: false };
@@ -61,14 +49,9 @@ export const { auth, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, trigger, account, profile, user, session }) {
       if (user) {
-        // console.log(token, "token")
-        // console.log(user, "user")
+
         token.name = "John";
-        console.log(token, "token");
-        console.log(trigger, "trigger");
-        console.log(account, "account");
-        console.log(profile, "profile");
-        console.log(session, "session");
+
         if (user.adminaccess == 2) {
           token.role = "admin";
         } else token.role = "client";
@@ -81,7 +64,6 @@ export const { auth, signIn, signOut } = NextAuth({
       //   console.log(token, "KSAKSAKS")
       //   session.user = token.user;
       // }
-      console.log(session, "KDAKDKLDK:LD:L");
       session.user.role = token.role;
       return session;
     },

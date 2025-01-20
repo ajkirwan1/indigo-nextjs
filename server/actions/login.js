@@ -24,20 +24,22 @@ export async function Login(state, formData) {
   const username = formData.get("username");
   const password = formData.get("password");
   let errors = [];
-  let userType;
-  // try {
-  //   const result = await signIn("credentials", {
-  //     username: username,
-  //     password: password,
-  //   });
-  // } catch (error) {
-  //   console.log(error)
-  // }
-  const result = await signIn("credentials", {
-    username: username,
-    password: password,
-  });
-  console.log(result, "LOGIN RESULT");
+
+  try {
+    const result = await signIn("credentials", {
+      username: username,
+      password: password,
+    });
+  } catch (error) {
+    const errorType = error.cause?.message;
+    switch (errorType) {
+      case "User not found":
+        errors.push({ errorType: "username", message: "Invalid username" });
+        return { errors, errorMessage: "", submitted: false };
+      default:
+        return redirect("/");
+    }
+  }
 }
 
 // try {
