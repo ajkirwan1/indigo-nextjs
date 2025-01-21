@@ -10,22 +10,23 @@ import NavLinkMobile from "@/components/nav-link-mobile";
 import { signOut } from "@/auth";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
-  // const { data: session } = useSession()
+  const { data: session } = useSession()
 
-  // let data;
-  // if (session?.user) {
-  //   data = submenus.filter((item) => {
-  //     return item.title !== "Login";
-  //   });
-  // } else {
-  //   data = submenus.filter((item) => {
-  //     return item.title !== "Logout";
-  //   });
-  // }
+  let datam;
+  console.log(session, "SESSION USER")
+  if (session?.user) {
+    datam = submenus.filter((item) => {
+      return item.title !== "Login";
+    });
+  } else {
+    datam = submenus.filter((item) => {
+      return item.title !== "Logout";
+    });
+  }
 
   const handleLogout = () => {
-    Logout();
-    // signOut({ callbackUrl: "http://localhost:3000/" });
+    // Logout();
+    signOut({ callbackUrl: "http://localhost:3000/" });
   };
 
   return (

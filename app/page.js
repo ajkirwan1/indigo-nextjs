@@ -1,5 +1,5 @@
 /** @format */
-// "use client";
+"use client";
 import Header from "@/components/ui/header/header";
 import Overlay from "@/components/overlay";
 import Image from "next/image";
@@ -16,8 +16,8 @@ import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import isoImage from "/public/images/pages/home/istockphoto-2.jpg";
 import Link from "next/link";
-import { AuthProvider } from "@/providers/AuthProvider";
-import { auth } from "@/auth";
+// import { AuthProvider } from "@/providers/AuthProvider";
+// import { auth } from "@/auth";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -175,18 +175,18 @@ const componentArray = [
     </HeroComponent>
   </div>,
 ];
-export default async function Homepage() {
+export default function Homepage() {
 
-  const session = await auth()
+  // const session = await auth()
   // const { user } = useSession();
   // if (user?.adminaccess) {
   //   redirect("admin");
   // }
   return (
     <>
-      <AuthProvider session={session}>
+      {/* <AuthProvider session={session}> */}
         <Header className={classes.heroHeader}></Header>
-      </AuthProvider>
+      {/* </AuthProvider> */}
 
       <HomepageCarousel components={componentArray} />
     </>

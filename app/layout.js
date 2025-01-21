@@ -3,6 +3,8 @@ import { Lato } from "next/font/google";
 // import { SessionProvider } from "@/contexts/session-context";
 import { LayoutProvider } from "@/contexts/layout-context";
 import { Providers } from "./providers.jsx";
+import { AuthProvider } from "@/providers/AuthProvider";
+import { auth } from "@/auth";
 
 import "./globals.css";
 // import { validateRequest } from "@/auth/lucia";
@@ -32,14 +34,18 @@ const inter = Lato({
 
 export default async function RootLayout({ children }) {
   // const session = await validateRequest();
+  const session = await auth()
+  console.log(session, "LAYOUR")
   return (
     <html lang="en" className={inter.className}>
       <body>
-        <LayoutProvider>
-          {/* <SessionProvider value={session}> */}
-          <Providers>{children}</Providers>
-          {/* </SessionProvider> */}
-        </LayoutProvider>
+        <AuthProvider session={session}>
+          <LayoutProvider>
+            {/* <SessionProvider value={session}> */}
+            <Providers>{children}</Providers>
+            {/* </SessionProvider> */}
+          </LayoutProvider>
+        </AuthProvider>
       </body>
     </html>
   );
