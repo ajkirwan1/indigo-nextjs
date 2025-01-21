@@ -1,16 +1,18 @@
 /** @format */
+'use client'
 import { useState } from "react";
 import Dropdown from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
-import { useSession } from "@/contexts/session-context";
 import { MdOutlineAccountCircle } from "react-icons/md";
-
+// import { auth } from "@/auth";
+// import { AuthProvider } from "@/providers/AuthProvider";
 import Image from "next/image";
 
 export default function NavigationItems({ items }) {
+  // const session = await auth()
   const [dropdown, setDropdown] = useState(false);
-  const { user } = useSession();
+  // const { user } = useSession();
   return (
     <ul className={classes.ulWrapper} onMouseLeave={() => setDropdown(false)}>
       <li className={classes.menuItems}>
@@ -27,16 +29,23 @@ export default function NavigationItems({ items }) {
             </button>
             {/* <p>name</p> */}
             {dropdown && (
-              <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              // <AuthProvider session={session}>
+                <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              // </AuthProvider>
             )}
           </>
         ) : items.submenu && items.title == "ACCOUNT_LOGGED_IN" ? (
           <>
-            <div className={classes.accountIcon} onMouseOver={() => setDropdown(true)}>
+            <div
+              className={classes.accountIcon}
+              onMouseOver={() => setDropdown(true)}
+            >
               <MdOutlineAccountCircle color="white" size="40px" />
             </div>
             {dropdown && (
-              <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              // <AuthProvider session={session}>
+                <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              // </AuthProvider>
             )}
           </>
         ) : (

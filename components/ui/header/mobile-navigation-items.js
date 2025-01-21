@@ -1,4 +1,5 @@
 /** @format */
+'use client'
 import { useState } from "react";
 import Dropdown from "./dropdown";
 import { motion } from "framer-motion";
