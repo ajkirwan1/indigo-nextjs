@@ -1,32 +1,15 @@
 /** @format */
 'use client'
 import classes from "./sub-header.module.css";
-
-import { useSession } from "next-auth/react";
-import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
 import NavLinkMobile from "@/components/nav-link-mobile";
-// import { auth } from "@/auth";
-import { signOut } from "@/auth";
+import { signOut } from "next-auth/react";
 
 export default function Dropdown({ submenus, dropdown, setDropdown }) {
-  const { data: session } = useSession()
 
-  let datam;
-  console.log(session, "SESSION USER")
-  if (session?.user) {
-    datam = submenus.filter((item) => {
-      return item.title !== "Login";
-    });
-  } else {
-    datam = submenus.filter((item) => {
-      return item.title !== "Logout";
-    });
-  }
-
-  const handleLogout = () => {
+  const asynchandleLogout = () => {
     // Logout();
-    signOut({ callbackUrl: "http://localhost:3000/" });
+    signOut();
   };
 
   return (
@@ -37,7 +20,6 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
             ? `${classes.show} ${classes.dropdown}`
             : `${classes.dropdown}`
         }
-        // onClick={setDropdown}
       >
         {submenus.map((submenu, index) => (
           <motion.li
@@ -48,7 +30,7 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
             transition={{ duration: 1 }}
           >
             {submenu.title == "Logout" ? (
-              <button onClick={handleLogout}>Logout</button>
+              <button onClick={async () => await signOut()}>Logout</button>
             ) : (
               <NavLinkMobile href={submenu.url}>{submenu.title}</NavLinkMobile>
             )}

@@ -1,12 +1,13 @@
 /** @format */
 "use client";
-import User from "@/components/layouts/user";
-import { useSession } from "@/contexts/session-context";
+export default function GetNavData(signedIn) {
 
-export default function GetNavData() {
-  const { user } = useSession();
-
-  // console.log(user);
+  let user;
+  if (signedIn) {
+    user = signedIn;
+  } else {
+    user = false;
+  }
 
   const navigationData = [
     {
@@ -56,7 +57,7 @@ export default function GetNavData() {
       url: "/contact",
       submenu: [
         user
-          ? { title: user.username.toUpperCase(), url: "/account" }
+          ? { title: user.name.toUpperCase(), url: "/account" }
           : { title: "Register", url: "/register" },
         user
           ? {

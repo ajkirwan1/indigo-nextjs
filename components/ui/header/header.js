@@ -4,20 +4,19 @@
 import IndigoLogo from "/public/Indigo_Logo_Transparent.png";
 import classes from "./header.module.css";
 import Link from "next/link";
-import { useSession } from "@/contexts/session-context";
 import MobileMenuIcon from "./mobile-menu-icon";
 import DesktopNav from "./desktop-nav";
-// import { navigationData } from "@/data/navigation-data";
-
+import { useSession } from "next-auth/react";
 import GetNavData from "@/data/navigation-data";
 import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
 
 export default function Header({ className }) {
+  const { data: session } = useSession();
 
-  const navigationData = GetNavData();
+  const { user } = session;
 
-  const { user } = useSession();
+  const navigationData = GetNavData(user);
 
   return (
     <>
@@ -32,7 +31,7 @@ export default function Header({ className }) {
             />
           </Link>
           <DesktopNav
-            data={user?.adminaccess == 2 ? adminNavigationData : navigationData}
+            data={user?.role == "admin" ? adminNavigationData : navigationData}
           />
           <div className={classes.mobileIconContainer}>
             <MobileMenuIcon />
