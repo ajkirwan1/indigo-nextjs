@@ -182,7 +182,7 @@
   align-items: center;
 }
 .linkContainer a {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 20px;
   color: aliceblue;
   text-decoration: inherit; /* no underline */
@@ -220,7 +220,7 @@
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .heroWrapper h1 {
     margin-top: 0;
-    font-size: 40px;
+    font-size: 28px;
     color: aliceblue;
     font-weight: 300;
     text-transform: uppercase;
