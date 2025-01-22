@@ -123,8 +123,8 @@
   position: absolute;
   right: calc(5vw + 50px);
   bottom: 5vh;
-  padding: 20px 10px;
-  width: 20vw;
+  padding: 40px 0px;
+  width: 40vw;
   min-width: 300px;
 }
 
@@ -159,7 +159,7 @@
 }
 
 .propertyInfo p {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 300;
 }
 .titleHeader {
@@ -248,15 +248,15 @@
     position: absolute;
     right: calc(5vw + 50px);
     bottom: 5vh;
-    padding: 20px 10px;
-    width: 20vw;
-    min-width: 300px;
+    padding: 40px 0px;
+    width: 35vw;
+    min-width: 200px;
   }
   .propertyInfo p {
-    font-size: 16px;
+    font-size: 21px;
     line-height: 1.7;
     margin-bottom: 10px;
-    max-width: 280px;
+    max-width: 400px;
     margin: 0 auto;
   }
 }

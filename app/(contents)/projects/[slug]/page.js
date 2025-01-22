@@ -41,28 +41,11 @@ function Success({ result }) {
         <ProjectCarousel images={carouselImagesUrls}>
           <div className={classes.titleHeader}>
             <h1>{title}</h1>
+            {/* <p>{description}</p> */}
+          </div>
+          <div className={classes.propertyInfo}>
             <p>{description}</p>
           </div>
-          {/* <div className={classes.propertyInfo}>
-            <h2>KEY FEATURES</h2>
-            <ul>
-              <li>
-                <p>The most desirable location in the Athens Riviera</p>
-              </li>
-              <li>
-                <p>High quality finish </p>
-              </li>
-              <li>
-                <p>Panoramic view</p>
-              </li>
-              <li>
-                <p>Stain-proof carpets in bedrooms</p>
-              </li>
-              <li>
-                <p>Heated marble flooring</p>
-              </li>
-            </ul>
-          </div> */}
           <div className={classes.linkContainer}>
             <Link href="/projects">Back</Link>
           </div>
@@ -76,26 +59,9 @@ function Success({ result }) {
         <div className={classes.swiperContainer}>
           <SwiperComponent images={carouselImagesUrls} />
         </div>
-        {/* <div className={classes.propertyInfo}>
-          <h2>KEY FEATURES</h2>
-          <ul>
-            <li>
-              <p>The most desirable location in the Athens Riviera</p>
-            </li>
-            <li>
-              <p>High quality finish </p>
-            </li>
-            <li>
-              <p>Panoramic view</p>
-            </li>
-            <li>
-              <p>Stain-proof carpets in bedrooms</p>
-            </li>
-            <li>
-              <p>Heated marble flooring</p>
-            </li>
-          </ul>
-        </div> */}
+        <div className={classes.propertyInfo}>
+          <p>{description}</p>
+        </div>
       </div>
     </>
   );

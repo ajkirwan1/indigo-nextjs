@@ -119,18 +119,24 @@
   overflow: hidden;
   margin-top: 0;
 }
+
+.infoWrapper h2:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 .header {
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 100px;
   margin-bottom: 100px;
   color: black;
-  letter-spacing: 0.2vw;
+  letter-spacing: 0.3vw;
   display: flex;
   justify-content: center;
 }
 
-.infoWrapper h2::after {
+/* .infoWrapper h2::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -142,7 +148,7 @@
   transition: opacity 300ms, transform 300ms;
   transform: scale(0);
   transform-origin: center;
-}
+} */
 
 .infoWrapper p {
   font-size: 16px;
@@ -180,6 +186,9 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1800px) {
+  .infoWrapper h2 {
+    color: black;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
@@ -220,7 +229,7 @@
   .blogPageContainerSkeleton h3 {
     text-align: center;
     font-size: 17px;
-    line-height: 2.5vh;
+    line-height: 3vh;
   }
 
   .infoWrapper {
@@ -244,10 +253,12 @@
   .infoWrapper p {
     font-size: 15px;
     margin-top: 40px;
+    line-height: 3vh;
   }
   .infoWrapper h2 {
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 2px;
     line-height: 3.7vh;
+    color: black;
   }
 }

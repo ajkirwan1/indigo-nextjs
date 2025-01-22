@@ -3,7 +3,7 @@
 import { createClient } from "contentful";
 
 export async function getSingleProject(slug) {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  // await new Promise((resolve) => setTimeout(resolve, 4000));
   try {
     // throw Error
     const client = createClient({
