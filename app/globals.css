@@ -92,7 +92,7 @@ input[type="text"] {
   height: 2rem;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -105,7 +105,7 @@ input[type="email"] {
   height: 2rem;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -116,7 +116,7 @@ textarea {
   border: 1px solid;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   resize: none;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
