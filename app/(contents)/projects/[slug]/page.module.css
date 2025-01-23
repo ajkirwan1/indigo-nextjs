@@ -122,10 +122,19 @@
   line-height: 2vh;
   position: absolute;
   right: calc(5vw + 50px);
-  bottom: 5vh;
+  bottom: 2vh;
   padding: 40px 0px;
   width: 40vw;
   min-width: 300px;
+  animation: slideIn 3s;
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .errorInfo {
@@ -253,8 +262,8 @@
     min-width: 200px;
   }
   .propertyInfo p {
-    font-size: 21px;
-    line-height: 1.7;
+    font-size: 20px;
+    line-height: 1.8;
     margin-bottom: 10px;
     max-width: 400px;
     margin: 0 auto;

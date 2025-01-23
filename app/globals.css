@@ -220,6 +220,7 @@ main {
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
+    color: black;
   }
 
   .error-button-container p {
