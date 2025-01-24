@@ -59,9 +59,9 @@ function Success({ result }) {
         <div className={classes.swiperContainer}>
           <SwiperComponent images={carouselImagesUrls} />
         </div>
-        <div className={classes.propertyInfo}>
-          <p>{description}</p>
-        </div>
+        {/* <div className={classes.linkContainer}>
+          <Link href="/projects">Back</Link>
+        </div> */}
       </div>
     </>
   );
