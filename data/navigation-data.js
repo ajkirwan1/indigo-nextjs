@@ -34,8 +34,8 @@ export const navigationData = [
     url: "/what-we-do",
     submenu: [
       {
-        title: "Indigo consulting",
-        url: "/consulting",
+        title: "Services",
+        url: "/what-we-do",
       },
       {
         title: "Indigo properties",
