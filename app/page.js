@@ -6,17 +6,16 @@ import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
 import circle from "/public/images/pages/home/circledwh.png";
-import heroImage from "/public/images/pages/home/greecehero1.jpg";
-import poshImage from "/public/images/pages/home/hero2people.jpg";
+import heroImage from "/public/images/pages/home/vouliagmenifinal.jpg";
 import swimmingImage from "/public/images/pages/home/pool1.jpg";
-import buildingImage from "/public/images//pages/home/building.jpg";
+import buildingImage from "/public/images//pages/home/propertyfinal.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
 import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
-import isoImage from "/public/images/pages/home/5picture.jpg";
+import isoImage from "/public/images/pages/home/herofinalized1.jpg";
 import Link from "next/link";
 
 const container = {

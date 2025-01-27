@@ -3,7 +3,7 @@ export default function LoadingProperties() {
   return (
     <>
       <div className="header">
-        <h1>SAMPLES OF PROJECTS</h1>
+        <h1>SAMPLES OF SERVICES</h1>
         <hr />
       </div>
       <p>Please wait while we find your properties</p>

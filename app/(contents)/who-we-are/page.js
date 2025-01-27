@@ -3,7 +3,7 @@
 
 import classes from "./page.module.css";
 import Image from "next/image";
-import emmanImage from "/public/images/pages/who-we-are/eman.jpg";
+import emmanImage from "/public/images/pages/who-we-are/emmanuel5.jpg";
 
 export const metadata = {
   title: "Who We Are",

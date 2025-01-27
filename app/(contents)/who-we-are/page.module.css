@@ -232,7 +232,7 @@
     font-size: 17px;
   }
   .image {
-    height: 25vw;
+    height: 28vw;
   }
 }
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
@@ -243,7 +243,7 @@
     flex: 1 1 30%;
   }
   .image {
-    height: 26vw;
+    height: 28vw;
   }
 }
 
