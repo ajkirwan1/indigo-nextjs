@@ -1,33 +1,84 @@
 /** @format */
 "use server";
-import { redirect } from "next/navigation";
-import withAuthentication from "@/components/withAuthentication";
-import PropertyList from "@/components/pages/properties/property-list";
-import { validateRequest } from "/auth/lucia";
-import { getProperties } from "@/server/actions/db/properties";
+
 import classes from "./page.module.css";
-import { headers } from "next/headers";
-import { Spinner } from "@nextui-org/spinner";
+import { getAllProperties } from "@/server/actions/contentful/get-user-properties";
+import Link from "next/link";
+import Image from "next/image";
+import pdfImage from "/public/images/icons/icons8-pdf-100.png";
+import locationIcon from "/public/images/icons/icons8-location-pin-100.png";
+import messageIcon from "/public/images/contact.png";
 
-async function Properties({ userId }) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const properties = await getProperties(userId);
-  return <PropertyList properties={properties} />;
-}
+function PropertyItem({ data }) {
+  const { title, primaryImage, information, pdf, location } = data.fields;
 
-async function PropertiesPage() {
-  const { user } = await validateRequest();
-  const headerList = headers();
-  const pathname = headerList.get("x-current-path");
-
-  if (!user) {
-    redirect(`/login?next=${pathname}`);
-  }
-  const userId = user.id;
+  // console.log(location);
 
   return (
     <>
-      <div className={classes.header}>
+      <li>
+        <div className={classes.imageContainer}>
+          <Image
+            className={classes.image}
+            src={`https:${primaryImage.fields.file.url}`}
+            alt={primaryImage.fields.description}
+            width={800}
+            height={600}
+          />
+          <div className={classes.backdropHover} />
+        </div>
+        <div className={classes.infoContainer}>
+          <h2>{title}</h2>
+
+          <div className={classes.subItemContainer}>
+            <p>{information}</p>
+          </div>
+
+          <div className={classes.messageContainer}>
+            <Image
+              className={classes.messageIcon}
+              src={messageIcon}
+              alt="An icon image of an envelope representing a message"
+            />
+            <Link href="/contact">
+              <p>Contact</p>
+            </Link>
+          </div>
+          <div className={classes.iconContainer}>
+            <Image
+              className={classes.icon}
+              src={pdfImage}
+              alt={pdf.fields.title}
+            />
+            <Link href={`https:${pdf.fields.file.url}`} download>
+              <p>Download pdf</p>
+            </Link>
+          </div>
+        </div>
+      </li>
+    </>
+  );
+}
+
+export default async function PropertiesPage() {
+  //   const { user } = await validateRequest();
+  //   const headerList = headers();
+  //   const pathname = headerList.get("x-current-path");
+
+  const results = await getAllProperties();
+
+  if (results.errorMessage) {
+    // console.log(results.errorMessage);
+  }
+
+  //   if (!user) {
+  //     redirect(`/login?next=${pathname}`);
+  //   }
+
+  return (
+    <>
+      <title>INDIGO Consulting Properties Page</title>
+      <div className="header">
         <h1>PROPERTIES FOR SALE</h1>
         <hr />
       </div>
@@ -41,9 +92,13 @@ async function PropertiesPage() {
           affiliated with our consultancy.
         </p>
       </div>
-      <Properties userId={userId} />
+      <div className={classes.blogPageContainer}>
+        <ul>
+          {results.map((element) => (
+            <PropertyItem key={element} data={element} />
+          ))}
+        </ul>
+      </div>
     </>
   );
 }
-
-export default withAuthentication(PropertiesPage);

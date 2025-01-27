@@ -32,16 +32,16 @@ export const navigationData = [
   {
     title: "SERVICES",
     url: "/what-we-do",
-    // submenu: [
-    //   {
-    //     title: "Indigo consulting",
-    //     url: "/consulting",
-    //   },
-    //   {
-    //     title: "Indigo properties",
-    //     url: "/properties",
-    //   },
-    // ],
+    submenu: [
+      {
+        title: "Indigo consulting",
+        url: "/consulting",
+      },
+      {
+        title: "Indigo properties",
+        url: "/properties",
+      },
+    ],
   },
   {
     title: "CONTACT US",

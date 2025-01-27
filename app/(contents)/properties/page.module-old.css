@@ -1,0 +1,18 @@
+.header {
+  text-align: left;
+  margin-top: 5vh;
+  margin-bottom: 6vh;
+}
+
+.subSubHeader {
+  margin-top: 8vh;
+  margin-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  line-height: 2.5rem;
+}
+
+.subSubHeader p {
+  width: 35vw;
+  line-height: 3.5rem;
+}
