@@ -227,7 +227,7 @@
 }
 
 .service h3 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 300;
   flex: 0 0 auto;
 }
@@ -314,7 +314,7 @@
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .service h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
   .heroContents h1 {
     font-size: 1.4rem;
