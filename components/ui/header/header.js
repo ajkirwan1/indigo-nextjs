@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 
-import IndigoLogo from "/public/Indigo_Logo_Transparent.png";
+import IndigoLogo from "/public/Indigo_Logo.svg";
 import classes from "./header.module.css";
 import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
@@ -12,7 +12,6 @@ import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
 
 export default function Header({ className }) {
-
   const { user } = useSession();
 
   return (

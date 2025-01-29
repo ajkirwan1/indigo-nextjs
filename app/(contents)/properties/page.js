@@ -5,9 +5,9 @@ import classes from "./page.module.css";
 import { getAllProperties } from "@/server/actions/contentful/get-user-properties";
 import Link from "next/link";
 import Image from "next/image";
-import pdfImage from "/public/images/icons/icons8-pdf-100.png";
+import pdfImage from "/public/images/icons/pdf1.png";
 import locationIcon from "/public/images/icons/icons8-location-pin-100.png";
-import messageIcon from "/public/images/contact.png";
+import messageIcon from "/public/images/icons/envelopeios.png";
 
 function PropertyItem({ data }) {
   const { title, primaryImage, information, pdf, location } = data.fields;
