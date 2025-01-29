@@ -3,9 +3,11 @@
 }
 
 .header {
-  text-align: left;
   margin-top: 5vh;
   margin-bottom: 6vh;
+  margin: auto;
+  letter-spacing: normal;
+  max-width: 75vw;
 }
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
@@ -131,7 +133,7 @@
   margin-top: 100px;
   margin-bottom: 100px;
   color: black;
-  letter-spacing: 0.3vw;
+  letter-spacing: 0.1vw;
   display: flex;
   justify-content: center;
 }
@@ -180,10 +182,11 @@
   list-style-type: disc;
   list-style-position: inside;
   font-size: 14px;
+  font-weight: 300;
 }
 
 .infoWrapper li {
-margin-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 
 @media only screen and (max-width: 1800px) {
