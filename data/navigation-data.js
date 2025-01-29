@@ -34,7 +34,7 @@ export const navigationData = [
     url: "/what-we-do",
   },
   {
-    title: "INDIFO PROPERTIES",
+    title: "INDIGO PROPERTIES",
     url: "/properties",
   },
   // {
