@@ -33,8 +33,7 @@ function PropertyItem({ data }) {
           <div className={classes.subItemContainer}>
             <p>{information}</p>
           </div>
-
-          <div className={classes.messageContainer}>
+          {/* <div className={classes.messageContainer}>
             <Image
               className={classes.messageIcon}
               src={messageIcon}
@@ -53,7 +52,7 @@ function PropertyItem({ data }) {
             <Link href={`https:${pdf.fields.file.url}`} download>
               <p>Download pdf</p>
             </Link>
-          </div>
+          </div> */}
         </div>
       </li>
     </>
