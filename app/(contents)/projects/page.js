@@ -6,8 +6,16 @@ import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 
 function ProjectItem({ data }) {
-  const { title, thumbnailImage, investmentReturn, description, slug } =
-    data.fields;
+  const {
+    title,
+    thumbnailImage,
+    investmentReturn,
+    description,
+    slug,
+    features,
+  } = data.fields;
+
+  console.log(features);
 
   return (
     <Link href={`projects/${slug}`}>
@@ -23,8 +31,11 @@ function ProjectItem({ data }) {
         </div>
         <div className={classes.infoWrapper}>
           <h2>{title}</h2>
-          {/* <p>INVESTMENT RETURN - {investmentReturn}</p> */}
-          <p>{description}</p>
+          <ul>
+            {features?.map((value, index) => (
+              <li key={index}>{value}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </Link>

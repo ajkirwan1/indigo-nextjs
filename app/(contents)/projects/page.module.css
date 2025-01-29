@@ -175,6 +175,17 @@
   height: 35vh;
 } */
 
+.infoWrapper ul {
+  all: unset;
+  list-style-type: disc;
+  list-style-position: inside;
+  font-size: 14px;
+}
+
+.infoWrapper li {
+margin-bottom: 1vh;
+}
+
 @media only screen and (max-width: 1800px) {
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {

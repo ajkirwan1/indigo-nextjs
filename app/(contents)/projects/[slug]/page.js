@@ -105,13 +105,20 @@ export default async function Page({ params }) {
   const { slug } = await params;
 
   const result = await getSingleProject(slug);
-  const backupImage = [heroImage];
+  // const backupImage = [heroImage];
   const { fields } = result;
-  const { title, secondaryImages, description } = fields;
+  const { title, secondaryImages, description, inProgressImages } = fields;
   let carouselImagesUrls = [];
+  let inProgressImagesUrls = [];
   Object.entries(secondaryImages).map((entry) => {
     carouselImagesUrls.push(entry[1].fields.file.url);
   });
+
+  if (inProgressImages) {
+    Object.entries(inProgressImages).map((entry) => {
+      inProgressImagesUrls.push(entry[1].fields.file.url);
+    });
+  }
 
   return (
     <>
@@ -138,24 +145,26 @@ export default async function Page({ params }) {
           ))}
         </ul>
       </section>
-      <section className={classes.blogPageContainer}>
-        <h2>The journey...</h2>
-        <ul>
-          {carouselImagesUrls.map((element) => (
-            <li key={element}>
-              <div className={classes.imageContainer}>
-                <Image
-                  alt=""
-                  src={element}
-                  className={classes.image}
-                  width={750}
-                  height={500}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {inProgressImagesUrls.length > 0 ? (
+        <section className={classes.blogPageContainer}>
+          <h2>Indigo&apos;s journey...</h2>
+          <ul>
+            {inProgressImagesUrls.map((element) => (
+              <li key={element}>
+                <div className={classes.imageContainer}>
+                  <Image
+                    alt=""
+                    src={element}
+                    className={classes.image}
+                    width={750}
+                    height={500}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       {/* {result.message ? (
         <div className={classes.heroWrapper}>
           <ProjectCarousel backup={true} images={backupImage}>
