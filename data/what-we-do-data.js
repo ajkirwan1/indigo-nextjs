@@ -83,7 +83,7 @@ export const whatWeDoData = [
         properties. From maintenance to rental collection and payments,
         entrust us with the care and oversight of your investments.`,
     },
-    image: "/images/pages/what-we-do/portrait/img7.jpg",
+    image: "/images/pages/what-we-do/portrait/pic20.jpg",
     button: {
       text: "PROPERTIES",
       href: "/properties",
@@ -107,6 +107,6 @@ export const whatWeDoData = [
         of obtaining a residential visa, ensuring a smooth and
         efficient process.`,
     },
-    image: "/images/pages/what-we-do/portrait/img5.jpg",
+    image: "/images/pages/what-we-do/portrait/visa6.jpg",
   },
 ];

@@ -115,11 +115,12 @@
   letter-spacing: normal;
   position: relative;
   display: inline-block;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 300;
   margin-bottom: 4vh;
   overflow: hidden;
   margin-top: 0;
+  line-height: 2.2rem;
 }
 
 .infoWrapper h2:hover {
@@ -202,10 +203,14 @@
 @media only screen and (min-width: 1200px) and (max-width: 1800px) {
   .infoWrapper h2 {
     color: black;
+    font-size: 22px;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .infoWrapper h2 {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (max-width: 800px) {

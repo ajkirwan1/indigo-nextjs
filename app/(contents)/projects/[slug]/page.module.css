@@ -29,6 +29,7 @@
   line-height: 1.5rem;
   font-weight: 400;
   text-align: left;
+  color: black;
 }
 
 .blogPageContainer ul,
@@ -163,7 +164,7 @@
     font-size: 24px;
   }
   .blogPageContainer h2 {
-    font-size: 20px;
+    font-size: 18 6px;
     margin-right: 2px;
     font-weight: 300;
   }
