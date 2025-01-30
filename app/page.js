@@ -6,7 +6,7 @@ import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
 import circle from "/public/images/pages/home/circledwh.png";
-import heroImage from "/public/images/pages/home/vouliagmenifinal.jpg";
+import heroImage from "/public/images/pages/home/greecehero2.jpg";
 import swimmingImage from "/public/images/pages/home/secondhero.jpg";
 import buildingImage from "/public/images//pages/home/propertyfinal.jpg";
 import HeroComponent from "@/components/hero/hero-component";
