@@ -128,7 +128,7 @@ export default async function Page({ params }) {
       </div>
       <p className={classes.description}>{description}</p>
       <section className={classes.blogPageContainer}>
-        <h2>Project result</h2>
+        <h2>COMPLETED PROJECT</h2>
         <ul>
           {carouselImagesUrls.map((element) => (
             <li key={element}>

@@ -119,11 +119,11 @@
 }
 
 .description {
-  max-width: 70vw;
+  max-width: 75vw;
   margin: auto;
   font-size: 18px;
   letter-spacing: normal;
-  line-height: 1.6rem;
+  line-height: 2rem;
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
@@ -163,8 +163,9 @@
     font-size: 24px;
   }
   .blogPageContainer h2 {
-    font-size: 18px;
+    font-size: 20px;
     margin-right: 2px;
+    font-weight: 300;
   }
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
