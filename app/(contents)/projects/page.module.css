@@ -276,8 +276,8 @@
   }
   .infoWrapper h2 {
     font-size: 18px;
-    margin-bottom: 2px;
-    line-height: 3.7vh;
+    margin-bottom: 5px;
+    line-height: 2.5vh;
     color: black;
   }
 }

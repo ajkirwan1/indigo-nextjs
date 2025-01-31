@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 
-import IndigoLogo from "/public/Indigo_Logo.svg";
+import IndigoLogo from "/public/images/logodark.jpg";
 import classes from "./header.module.css";
 import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
