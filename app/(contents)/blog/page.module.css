@@ -25,7 +25,7 @@
   letter-spacing: normal;
   font-size: 18px;
   line-height: 1.5rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .blogPageContainer ul,
@@ -173,6 +173,7 @@
   .blogPageContainer h2 {
     font-size: 16px;
     margin-right: 2px;
+    font-weight: 300;
   }
 
   .blogPageContainer p {
