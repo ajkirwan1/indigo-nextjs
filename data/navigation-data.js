@@ -33,10 +33,10 @@ export const navigationData = [
     title: "SERVICES",
     url: "/what-we-do",
   },
-  {
-    title: "INDIGO PROPERTIES",
-    url: "/properties",
-  },
+  // {
+  //   title: "INDIGO PROPERTIES",
+  //   url: "/properties",
+  // },
   // {
   //   title: "SERVICES",
   //   url: "/what-we-do",
