@@ -8,7 +8,7 @@ import classes from "./page.module.css";
 import circle from "/public/images/pages/home/circledwh.png";
 import heroImage from "/public/images/pages/home/secondhero.jpg";
 import swimmingImage from "/public/images/pages/home/yellow.jpg";
-import buildingImage from "/public/images//pages/home/propertyfinal.jpg";
+import buildingImage from "/public/images//pages/home/pool3.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
 import { motion } from "framer-motion";
