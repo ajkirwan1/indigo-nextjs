@@ -147,7 +147,7 @@ export default async function Page({ params }) {
       </section>
       {inProgressImagesUrls.length > 0 ? (
         <section className={classes.blogPageContainer}>
-          <h2>WORK IN PROGRESS</h2>
+          <h2>FULL RENOVATION</h2>
           <ul>
             {inProgressImagesUrls.map((element) => (
               <li key={element}>
