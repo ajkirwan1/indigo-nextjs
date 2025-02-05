@@ -58,8 +58,8 @@
 }
 
 .image {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   transition: transform 0.5s ease;
 }
 
