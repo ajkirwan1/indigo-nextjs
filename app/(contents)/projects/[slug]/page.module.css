@@ -194,7 +194,7 @@
     font-size: 20px;
   }
   .blogPageContainer h2 {
-    font-size: 16px;
+    font-size: 14px;
     margin-right: 2px;
   }
 
@@ -220,8 +220,8 @@
     width: 25px;
   }
   .description {
-    font-size: 14px;
-    line-height: 1.1rem;
+    font-size: 16px;
+    line-height: 1.2rem;
     text-align: justify;
   }
 }
