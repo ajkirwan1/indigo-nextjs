@@ -126,9 +126,9 @@ export default async function Page({ params }) {
         <h1>{title}</h1>
         <hr />
       </div>
-      <p>{description}</p>
+      <p className={classes.description}>{description}</p>
       <section className={classes.blogPageContainer}>
-        <h2>The final product...</h2>
+        <h2>COMPLETED PROJECT</h2>
         <ul>
           {carouselImagesUrls.map((element) => (
             <li key={element}>
@@ -147,7 +147,7 @@ export default async function Page({ params }) {
       </section>
       {inProgressImagesUrls.length > 0 ? (
         <section className={classes.blogPageContainer}>
-          <h2>Indigo&apos;s journey...</h2>
+          <h2>FULL RENOVATION</h2>
           <ul>
             {inProgressImagesUrls.map((element) => (
               <li key={element}>

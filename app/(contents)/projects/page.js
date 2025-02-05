@@ -15,7 +15,7 @@ function ProjectItem({ data }) {
     features,
   } = data.fields;
 
-  console.log(features);
+  // console.log(features);
 
   return (
     <Link href={`projects/${slug}`}>

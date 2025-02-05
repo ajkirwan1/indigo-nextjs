@@ -10,7 +10,10 @@ export async function getAllProjects() {
     });
 
     // await new Promise((resolve) => setTimeout(resolve, 2000));
-    const newsEntries = await client.getEntries({ content_type: "project" });
+    // const newsEntries = await client.getEntries({ content_type: "project" });
+    const newsEntries = await client.getEntries({order: "fields.id", content_type: "project" });
+    
+    console.log(newsEntries.items)
 
     return newsEntries.items;
   } catch (error) {

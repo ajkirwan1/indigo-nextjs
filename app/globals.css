@@ -57,7 +57,7 @@ html:has(.modal) {
   align-items: center;
   justify-content: space-around;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../public//images/pages/home/greecehero1.jpg");
+    url("../public//images/pages/home/greecehero2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;

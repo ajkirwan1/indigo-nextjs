@@ -13,7 +13,7 @@ export function middleware(request) {
 
 export const config = {
   // matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-  matcher: ["/login", "/register", "/consulting", "/admin/:path*"]
+  matcher: ["/login", "/register", "/consulting", "/properties", "/admin/:path*"]
 };
 
 // middleware.ts

@@ -58,15 +58,15 @@
 }
 
 .itemContainer:hover {
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
+  /* -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px); */
   background-color: #00000047;
   height: 100%;
 }
 
 .itemContainer:hover .image {
-  -webkit-backdrop-filter: blur(1px);
-  backdrop-filter: blur(1px);
+  /* -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px); */
   background-color: #00000047;
   transform: scale(1.05);
 }
@@ -199,7 +199,7 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-  -webkit-backdrop-filter: blur(1px);
+  /* -webkit-backdrop-filter: blur(1px); */
   background-color: #00000047;
 }
 
@@ -392,5 +392,6 @@
   }
   .imageContainer p {
     font-weight: 300;
+    font-size: 15px;
   }
 }
