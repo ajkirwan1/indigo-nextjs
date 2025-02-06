@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
-import isoImage from "/public/images/pages/home/herofinalized1.jpg";
+import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
 
 const container = {
