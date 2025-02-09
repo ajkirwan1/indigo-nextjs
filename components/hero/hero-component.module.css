@@ -135,12 +135,11 @@
 }
 
 .imageHero {
-  color: transparent;
   position: relative;
   height: 100%;
   width: 100%;
   inset: 0px;
-  opacity: 50%;
+  opacity: 70%;
   /* background-size: cover;
   background-repeat: no-repeat; */
   object-fit: cover;
@@ -168,4 +167,8 @@
     width: 100px;
     height: 20px;
   }
+}
+
+.formContainerOuterWrapper {
+  top: -5vh;
 }

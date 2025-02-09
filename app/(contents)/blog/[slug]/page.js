@@ -23,17 +23,12 @@ export async function generateMetadata({ params }, parent) {
   const { slug } = await params;
   const result = await getSingleBlog(slug);
   const { fields } = result;
-  const {
-    title,
-  } = fields;
- 
- 
+  const { title } = fields;
+
   return {
     title: title,
-  }
+  };
 }
-
-
 
 function Success({ result }) {
   // console.log(result);
@@ -53,15 +48,15 @@ function Success({ result }) {
       <div className={classes.column1}>
         <section className={classes.openingSection}>
           <h1>{title}</h1>
-            <div className={classes.imageContainer}>
-              <Image
-                className={classes.image}
-                src={`https:${primaryImage.fields.file.url}`}
-                alt="alt"
-                width={1000}
-                height={750}
-              />
-            </div>
+          <div className={classes.imageContainer}>
+            <Image
+              className={classes.image}
+              src={`https:${primaryImage.fields.file.url}`}
+              alt="alt"
+              width={1000}
+              height={750}
+            />
+          </div>
           <div className={classes.subHeader}>
             <h1>{title}</h1>
             <p>{publishDate}</p>
@@ -88,10 +83,10 @@ function Success({ result }) {
           <h2>{subTitle}</h2>
           <span>{documentToReactComponents(mainParagraph)}</span>
         </section>
-        <section className={classes.thirdSection}>
+        {/* <section className={classes.thirdSection}>
           <h2>{subTitle}</h2>
           <span>{documentToReactComponents(mainParagraph)}</span>
-        </section>
+        </section> */}
       </div>
       <div className={classes.column2}>
         <section className={classes.newsLetterSection}>
@@ -104,7 +99,7 @@ function Success({ result }) {
 }
 
 export default async function Page({ params }) {
-// await new Promise((resolve) => setTimeout(resolve, 5000));
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   // const { params } = props;
   const { slug } = await params;
   const result = await getSingleBlog(slug);

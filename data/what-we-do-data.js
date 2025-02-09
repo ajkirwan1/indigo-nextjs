@@ -58,14 +58,14 @@ export const whatWeDoData = [
     id: 5,
     title: "Redevelopment/development projects",
     info: {
-      paragraph: `Indigo's founder, an experienced investor, has led visionary
+      paragraph: `Indigo's founder, an experienced investor has led visionary
         transformations in residential projects through previous
         companies, focusing on flipping properties for substantial
         returns on investment.`,
       paragraph2: ` Committed to revitalizing urban spaces, we've transformed
         ordinary properties into luxurious minimalist havens,
         specializing primarily in residential properties with ventures
-        into commercial projects.  Our proven portfolio spans Greece and
+        into commercial projects. Our proven portfolio spans Greece and
         beyond, meticulously crafted for resale to showcase our
         commitment to excellence and financial success.`,
     },
@@ -83,7 +83,7 @@ export const whatWeDoData = [
         properties. From maintenance to rental collection and payments,
         entrust us with the care and oversight of your investments.`,
     },
-    image: "/images/pages/what-we-do/portrait/img7.jpg",
+    image: "/images/pages/what-we-do/portrait/pic20.jpg",
     button: {
       text: "PROPERTIES",
       href: "/properties",
@@ -107,6 +107,6 @@ export const whatWeDoData = [
         of obtaining a residential visa, ensuring a smooth and
         efficient process.`,
     },
-    image: "/images/pages/what-we-do/portrait/img5.jpg",
+    image: "/images/pages/what-we-do/portrait/visa6.jpg",
   },
 ];

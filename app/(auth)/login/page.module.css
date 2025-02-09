@@ -137,18 +137,16 @@
   display: flex;
 }
 
-
 .heroWrapper {
   position: relative;
   width: 100vw;
-
 }
 
 .imageWrapper {
   position: relative;
   height: 85vh;
   z-index: -1;
-  background-color: rgb(10 10 10 / 83%);
+  background-color: rgb(3 3 3 / 100%);
 }
 
 .imageHero {

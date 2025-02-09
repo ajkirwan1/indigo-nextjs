@@ -8,7 +8,6 @@ import heroImage from "/public/images/croppednight.jpg";
 import Button from "@/components/ui/button";
 
 import "./globals.css";
-
 export default function Error({ error, reset }) {
   useEffect(() => {
     console.error(error);

@@ -25,8 +25,8 @@ export default function SwiperComponent({ images }) {
       spaceBetween={20}
       navigation={true}
       style={{
-        "--swiper-navigation-color": "#000",
-        "--swiper-navigation-size": "25px",
+        "--swiper-navigation-color": "#fff",
+        "--swiper-navigation-size": "30px",
       }}
     >
       {images.map((img) => (

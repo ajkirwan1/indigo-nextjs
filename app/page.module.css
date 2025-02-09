@@ -227,8 +227,14 @@
 }
 
 .service h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
+  flex: 0 0 auto;
+}
+
+.circleIcon {
+  width: 20px;
+  height: 20px;
 }
 
 .envelope {
@@ -283,6 +289,11 @@
 
 @media only screen and (min-width: 1800px) {
 }
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .service h3 {
+    font-size: 16px;
+  }
+}
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
   .heroContents h1 {
@@ -293,14 +304,17 @@
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   .heroContents h1 {
-    font-size: 1.4rem;
-    line-height: 1.5;
+    font-size: 1.5rem;
+    line-height: 2;
+  }
+  .sectionTitle {
+    line-height: 2;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .service h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
   .heroContents h1 {
     font-size: 1.4rem;
@@ -325,7 +339,7 @@
   }
   .heroContents h1 {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
   .downArrowContainer {
@@ -337,8 +351,6 @@
     font-size: 20px;
     line-height: 1.7;
   }
-
-
 
   .service h3 {
     font-size: 14px;
@@ -380,15 +392,23 @@
   }
 
   .separator h3 {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .service {
     align-items: center;
-     }
+  }
+  .service h3 {
+    flex: 0 0 auto;
+  }
   .service .circleIcon {
     width: 20px;
     height: 20px;
+  }
+  .service .circleIcon {
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
   }
 
   .heroContents {
@@ -398,6 +418,7 @@
     font-size: 1.1rem;
     font-weight: 300;
     padding: 0.85vh;
+    line-height: 1.8;
   }
 
   .listContainer {

@@ -3,9 +3,11 @@
 }
 
 .header {
-  text-align: left;
   margin-top: 5vh;
   margin-bottom: 6vh;
+  margin: auto;
+  letter-spacing: normal;
+  max-width: 75vw;
 }
 .blogPageContainer {
   color: inherit; /* blue colors for links too */
@@ -56,8 +58,8 @@
 }
 
 .image {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   transition: transform 0.5s ease;
 }
 
@@ -65,6 +67,7 @@
   min-width: 390px;
   font-size: 0;
   overflow: hidden;
+  flex: 0 1;
 }
 
 .avatarAuthorContainer {
@@ -112,14 +115,31 @@
   letter-spacing: normal;
   position: relative;
   display: inline-block;
-  font-size: 36px;
+  font-size: 24px;
   font-weight: 300;
-  margin-bottom: 3.5vh;
+  margin-bottom: 4vh;
   overflow: hidden;
   margin-top: 0;
+  line-height: 2.2rem;
 }
 
-.infoWrapper h2::after {
+.infoWrapper h2:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.header {
+  font-weight: 300;
+  font-size: 20px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  color: black;
+  letter-spacing: 0.1vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* .infoWrapper h2::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -131,11 +151,12 @@
   transition: opacity 300ms, transform 300ms;
   transform: scale(0);
   transform-origin: center;
-}
+} */
 
 .infoWrapper p {
-  font-size: 18px;
-  max-width: 500px;
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 2.5vh;
 }
 
 .blogPageContainer li:hover h2::after,
@@ -157,6 +178,18 @@
   height: 35vh;
 } */
 
+.infoWrapper ul {
+  all: unset;
+  list-style-type: disc;
+  list-style-position: inside;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.infoWrapper li {
+  margin-bottom: 2vh;
+}
+
 @media only screen and (max-width: 1800px) {
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
@@ -168,9 +201,16 @@
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1800px) {
+  .infoWrapper h2 {
+    color: black;
+    font-size: 22px;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .infoWrapper h2 {
+    font-size: 22px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -190,6 +230,7 @@
 
   .imageContainer {
     min-width: unset;
+    flex: 1 1;
   }
 
   .image {
@@ -201,6 +242,13 @@
   .blogPageContainer ul,
   .blogPageContainerSkeleton ul {
     grid-auto-rows: unset;
+  }
+
+  .blogPageContainer h3,
+  .blogPageContainerSkeleton h3 {
+    text-align: center;
+    font-size: 17px;
+    line-height: 3vh;
   }
 
   .infoWrapper {
@@ -220,5 +268,16 @@
 @media only screen and (max-width: 600px) {
   .imageContainer {
     min-width: auto;
+  }
+  .infoWrapper p {
+    font-size: 15px;
+    margin-top: 40px;
+    line-height: 3vh;
+  }
+  .infoWrapper h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 2.5vh;
+    color: black;
   }
 }
