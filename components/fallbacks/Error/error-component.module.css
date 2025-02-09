@@ -1,0 +1,17 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding-top: 20vh;
+}
+
+.error a {
+    all: unset;
+}
+
+.error a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+}

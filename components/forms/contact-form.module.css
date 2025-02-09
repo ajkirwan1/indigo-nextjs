@@ -1,3 +1,5 @@
+/** @format */
+
 .header {
   color: aliceblue !important;
   position: absolute;
@@ -20,11 +22,8 @@
 
 .loginForm input,
 .loginForm textarea {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 300;
-
-  /* font-weight: 200;
-color: black; */
 }
 
 .form label {
@@ -77,11 +76,11 @@ color: black; */
 
 .contactIcon {
   height: auto;
-  width: 35px;
+  width: 50px;
 }
-.contactIcon:hover {
+/* .contactIcon:hover {
   animation: pop 0.3s linear 1;
-}
+} */
 
 .ItemA {
   grid-column-start: 1;
@@ -170,7 +169,7 @@ color: black; */
   gap: 2vh;
 }
 
-.errorLayout p{
+.errorLayout p {
   letter-spacing: normal;
 }
 
@@ -184,8 +183,6 @@ color: black; */
   text-decoration-thickness: 1px;
 }
 
-
-
 .modalInnerWrapper h2 {
   color: aliceblue;
   font-weight: 200 !important;
@@ -198,24 +195,72 @@ color: black; */
   font-size: 24px !important;
 }
 
-@keyframes pop {
-  50% {
-    transform: scale(1.4);
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
-  .contactIcon {
-    height: auto;
-    width: 30px;
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
   }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 16px;
+  }
   .submitButtonContainer {
-    margin: 2vh;
-    /* display: flex; */
     width: 150px;
     height: 40px;
   }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 16px;
+  }
+  .submitButtonContainer {
+    width: 150px;
+    height: 40px;
+  }
+  .contactIcon {
+    height: auto;
+    width: 35px;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+  .contactIcon {
+    height: auto;
+    width: 35px;
+  }
+
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 16px;
+  }
+
+  .submitButtonContainer {
+    width: 130px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
 }
 
 @media only screen and (max-width: 600px) {
@@ -233,11 +278,59 @@ color: black; */
   .submitButtonContainer button {
     font-size: 12px;
   }
+  .loginForm input,
+  .loginForm textarea {
+    font-size: 15px;
+    font-weight: 300;
+    background-color: #fff;
+  }
 
   .loginForm {
     display: flex;
     flex-direction: column;
     /* letter-spacing: normal; */
+  }
+
+  .loginForm div:nth-of-type(1) {
+    animation: fadeInLeft 1s;
+    animation-delay: 1.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(2) {
+    animation: fadeInLeft 1s;
+    animation-delay: 1.8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(3) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(4) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(5) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .loginForm div:nth-of-type(6) {
+    animation: fadeInLeft 1s;
+    animation-delay: 2.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
   }
 
   .formItemContainer {

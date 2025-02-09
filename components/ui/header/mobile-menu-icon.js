@@ -3,7 +3,7 @@
 import { RxCross2 } from "react-icons/rx";
 import { IoMenuOutline } from "react-icons/io5";
 import classes from "./header.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MobileNavbar from "./mobile-nav";
 import { navigationData } from "@/data/navigation-data";
 
@@ -25,8 +25,8 @@ function Cross({ handleMobileIcon }) {
     <div className={classes.hamburgerContainer}>
       <RxCross2
         className={classes.hamburgerMenu}
-        size="80px"
-        color="black"
+        size="70px"
+        color="white"
         onClick={handleMobileIcon}
       />
     </div>

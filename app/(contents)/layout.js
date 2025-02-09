@@ -6,8 +6,8 @@ import Footer from "@/components/ui/footer";
 export default function ContentLayout({ children }) {
   return (
     <>
+      <Header className="non-hero"></Header>
       <div className="properties-loading-layout">
-        <Header className="non-hero"></Header>
         <main>{children}</main>
       </div>
       <Footer></Footer>

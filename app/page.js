@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
+import isoImage from "/public/images/pages/home/istockphoto-2.jpg"
 import Link from "next/link";
 
 const container = {
@@ -24,7 +25,7 @@ const container = {
     opacity: 1,
     y: 0,
     transition: {
-      staggerChildren: 1,
+      staggerChildren: 0.8,
       delayChildren: 0.5,
       delay: 0.5,
       bounce: 0,
@@ -46,15 +47,20 @@ const item = {
 const componentArray = [
   <div key={1} className={classes.heroWrapper}>
     <HeroComponent heroImage={heroImage} altText="Alt text">
-      <div className={classes.heroContents}>
+      <motion.div
+        className={classes.heroContents}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      >
         <Overlay>
           <div>
             <h1>GUIDING VISIONS, MANAGING REALITIES</h1>
-            <h1>YOUR PARTNER IN DEVELOPMENT</h1>
-            <h1>CONSULTING & MANAGEMENT</h1>
+            <h1>YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT</h1>
           </div>
         </Overlay>
-      </div>
+      </motion.div>
     </HeroComponent>
   </div>,
   <div key={2} className={classes.heroWrapper}>
@@ -70,7 +76,7 @@ const componentArray = [
           <motion.h2 layout className={classes.sectionTitle} variants={item}>
             OUR SERVICES
           </motion.h2>
-          <div>
+          <div className={classes.listContainer}>
             <motion.div layout className={classes.separator} variants={item}>
               <div className={classes.service}>
                 <h3>Development Consultancy</h3>
@@ -147,7 +153,7 @@ const componentArray = [
     </HeroComponent>
   </div>,
   <div key={4} className={classes.heroWrapper}>
-    <HeroComponent heroImage={poshImage} altText="Alt text">
+    <HeroComponent heroImage={isoImage} altText="Alt text">
       <div className={classes.heroContents}>
         <motion.div
           variants={container}
@@ -170,7 +176,6 @@ const componentArray = [
   </div>,
 ];
 export default function Homepage() {
-
   // const { user } = useSession();
   // if (user?.adminaccess) {
   //   redirect("admin");

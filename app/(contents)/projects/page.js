@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 
-
 function ProjectItem({ data }) {
   const { title, thumbnailImage, investmentReturn, description, slug } =
     data.fields;
@@ -33,16 +32,16 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getAllProjects();
 
   if (result.error) {
     throw new Error(result.error.message);
   }
 
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
   return (
     <>
-      <title>INDIGO Consulting Projects Page</title>
+
       <div className="header">
         <h1>SAMPLES OF PROJECTS</h1>
         <hr />

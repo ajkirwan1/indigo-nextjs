@@ -1,3 +1,5 @@
+/** @format */
+
 .pageWrapper {
   display: flex;
   flex-direction: column;
@@ -12,12 +14,16 @@
   flex: 1 1 40%;
 }
 
+.formMobile {
+  display: none;
+}
+
 .pageWrapper p {
-  line-height: 2.5rem;
-  font-size: 18px;
+  line-height: 2.2rem;
+  font-size: 24px;
   font-weight: 300;
   animation: fadeIn 2s;
-  max-width: 800px;
+  max-width: 60vw;
   margin: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -25,6 +31,7 @@
 
 .pageWrapper h2 {
   font-weight: 300;
+  font-size: 30px;
 }
 
 .phoneIcon {
@@ -32,13 +39,8 @@
   width: 40px;
   margin: 20px;
 }
-.phoneIcon:hover {
-  animation: pop 0.3s linear 1;
-}
-
 .formcontainer {
   animation: fadeInLeft 1s;
-  /* width: 550px; */
 }
 
 .letsTalk {
@@ -61,6 +63,11 @@
   line-height: 1.5vw;
   letter-spacing: 0.2rem;
   font-size: 10px;
+}
+
+.phoneAndEmail h3 {
+  font-weight: 300;
+  font-size: 26px;
 }
 
 .mobileWrapper {
@@ -92,12 +99,6 @@
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
-}
-
-@keyframes pop {
-  50% {
-    transform: scale(1.4);
-  }
 }
 
 @-webkit-keyframes fadeIn {
@@ -132,7 +133,7 @@
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-10px);
   }
   100% {
     opacity: 1;
@@ -162,84 +163,118 @@
   }
 }
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .pageWrapper h2 {
-    font-size: 40px;
-  }
-  .formContainer {
-    width: 550px;
-  }
-}
-
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
-  .pageWrapper h2 {
-    font-size: 28px;
+    font-size: 22px;
   }
 
   .pageWrapper p {
-    line-height: 1.8rem;
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 2rem;
+  }
+
+  .pageWrapper h3 {
+    font-size: 18px;
+  }
+  .pageWrapper img {
+    height: 30px;
+    width: auto;
   }
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1800px) {
-  .phoneIcon {
+  .mobileWrapper .contactIcon {
     height: auto;
     width: 30px;
   }
-
-  .contactIcon {
-    height: auto;
-    width: 30px;
+  .pageWrapper h2 {
+    font-size: 22px;
   }
-
   .pageWrapper p {
-    line-height: 1.6rem;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.8rem;
   }
 
   .phoneAndEmail {
-    margin-top: 12vh;
     line-height: 3vw;
     letter-spacing: 0.4vh;
     font-size: 9px;
+  }
+
+  .pageWrapper h3 {
+    font-size: 18px;
+  }
+  .phoneIcon {
+    height: auto;
+    width: 35px;
   }
 }
 
 /* Small laptop (macbook air) sized screen (min-width: 600px) and (max-width: 1600px) */
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
-  .pageWrapper {
-    padding-bottom: 40px;
-  }
-
   .formContainer {
     width: unset;
     width: 80%;
   }
   .phoneIcon {
     height: auto;
-    width: 25px;
+    width: 35px;
   }
 
-  .contactIcon {
+  .mobileWrapper .contactIcon {
     height: auto;
     width: 20px;
   }
 
   .pageWrapper p {
-    line-height: 2rem;
-    font-size: 14px;
-    max-width: 600px;
-    /* letter-spacing: 0.2rem; */
+    font-size: 16px;
+    line-height: 1.6rem;
   }
+
+  .pageWrapper h2 {
+    font-size: 22px;
+  }
+
+  .phoneAndEmail h3 {
+    font-size: 16px;
+    line-height: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .phoneIcon {
+    width: 3rem;
+  }
+  .pageWrapper p {
+    line-height: 1.5rem;
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+
   .phoneAndEmail {
-    letter-spacing: 0.1vw;
+    margin-top: 2;
+    line-height: 6vh;
+    letter-spacing: normal;
+  }
+  .formItemContainer input::placeholder {
     font-size: 14px;
   }
 }
 
-/* Mobile phone max-width: 600px */
 @media only screen and (max-width: 800px) {
+  .formMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 40%;
+    margin-top: 4vh;
+  }
+
+  .formMobile img {
+    height: 30px;
+    width: auto;
+    margin: 0;
+  }
   .logoIndigo {
     height: 10rem;
     width: auto;
@@ -261,17 +296,61 @@
 
   .pageWrapper p {
     line-height: 1.5rem;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     animation: fadeIn 2s;
-    max-width: 300px;
-    margin: auto;
-    margin-top: 0;
-    margin-bottom: 0;
+    max-width: 70vw;
+    text-align: justify;
   }
 
-  .pageWrapper h2 {
-    font-size: 20px;
+  .pageWrapper p:nth-child(1) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .letsTalk {
+    animation: unset;
+  }
+
+  .letsTalk h2 {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+  .letsTalk img {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .letsTalk img {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .phoneAndEmail {
+    margin-top: 0;
+    line-height: 6vh;
+  }
+
+  .phoneAndEmail h3:nth-child(1) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 0.8s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .phoneAndEmail h3:nth-child(2) {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
   }
 
   .formcontainer {
@@ -279,14 +358,37 @@
     width: 80%;
   }
 
+  .formcontainer h2 {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1.2s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .formcontainer img {
+    animation: fadeInLeft 0.5s;
+    animation-delay: 1.4s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease-out;
+  }
+
+  .pageWrapper h2 {
+    font-size: 20px;
+  }
+
   .wrapper {
     flex-direction: column;
   }
 
-  .phoneAndEmail {
-    margin-top: 4vh;
+  /* .phoneAndEmail {
+    margin-top: 0;
     line-height: 4vh;
     letter-spacing: 0.1rem;
+  } */
+
+  .phoneAndEmail h3 {
+    font-weight: 300;
+    font-size: 16px;
   }
 
   .wrapperViewport {
