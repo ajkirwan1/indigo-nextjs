@@ -1,5 +1,11 @@
 /** @format */
 
+.breadCrumb {
+  display: flex;
+  padding-left: 4.5vw;
+  letter-spacing: normal;
+}
+
 .nav {
   height: 10vh;
   display: flex;

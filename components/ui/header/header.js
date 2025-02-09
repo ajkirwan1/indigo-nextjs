@@ -33,6 +33,7 @@ export default function Header({ className }) {
             <MobileMenuIcon />
           </div>
         </nav>
+        <div className={classes.breadCrumb}>Home / News / Item </div>
       </header>
     </>
   );
