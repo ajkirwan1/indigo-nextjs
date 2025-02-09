@@ -13,6 +13,7 @@
   grid-template-rows: auto;
   align-items: center;
   letter-spacing: normal;
+  margin-top: 10px;
 }
 
 .loginForm p {
@@ -252,15 +253,20 @@
   .loginForm input,
   .loginForm textarea {
     font-size: 16px;
+    padding: 5px;
   }
 
   .submitButtonContainer {
     width: 130px;
     height: 40px;
+    margin-top: 20px;
   }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 800px) {
+@media only screen and (max-width: 800px) {
+  .loginForm {
+    padding-bottom: 20px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -282,13 +288,14 @@
   .loginForm textarea {
     font-size: 15px;
     font-weight: 300;
-    background-color: #fff;
+    background-color: #fff !important;
   }
 
   .loginForm {
     display: flex;
     flex-direction: column;
     /* letter-spacing: normal; */
+    padding-bottom: 20px;
   }
 
   .loginForm div:nth-of-type(1) {

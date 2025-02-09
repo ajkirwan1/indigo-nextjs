@@ -51,6 +51,7 @@
 .secondSection,
 .newsLetterSection {
   margin-bottom: 5vh;
+  line-height: 2.5vh;
 }
 
 .openingSection p,
@@ -139,7 +140,7 @@
 }
 
 .subHeader > p {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .newsLetterSection > h2 {
@@ -289,11 +290,20 @@
     line-height: 2.5rem;
   }
   .subHeader > p {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .subHeader p {
     line-height: normal;
+  }
+
+  .avatarAuthor p {
+    font-size: 16px;
+  }
+
+  .avatar {
+    width: 34px;
+    height: 34px;
   }
 
   .blogPost p,
@@ -301,10 +311,13 @@
     max-width: unset;
     line-height: 1.5rem;
   }
+  .blogPost h2 {
+    font-weight: 300;
+  }
 
   .newsLetterSection > h2 {
-    margin-left: 48px;
-    letter-spacing: 0.1vh;
+    padding-right: 36px;
+    /* letter-spacing: 0.1vh; */
     font-size: 20px;
   }
 
@@ -319,16 +332,22 @@
   .thirdSection p,
   .secondSection p {
     font-size: 16px;
+    margin-top: 50px;
   }
 
   .plusIcon {
-    height: 20px;
+    height: 26px;
     width: auto;
   }
   .submitButtonContainer {
     display: flex;
     width: 100px;
     height: 35px;
+  }
+  .blogPost input[type="email"] {
+    font-size: 15px;
+    border-width: 1px;
+    height: 2.5rem;
   }
 }
 
@@ -376,6 +395,7 @@
   .blogPost h2 {
     max-width: unset;
     line-height: 2rem;
+    font-size: 20px;
   }
 
   .subHeader {
@@ -387,7 +407,9 @@
   .openingSection > h1 {
     text-align: left;
     display: flex;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 20px;
   }
 
   .subHeader > h1 {
@@ -439,5 +461,51 @@
 
   .subHeaderSkeleton {
     margin-left: 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .openingSection > h1 {
+    text-align: left;
+    display: flex;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .subHeader > p {
+    font-size: 16px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+  }
+  .blogPost p {
+    font-size: 15px;
+  }
+  .blogPost h2 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  .openingSection {
+    margin-bottom: 0;
+  }
+  .openingSection > h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 0.05rem;
+  }
+  .newsLetterSection > h2 {
+    font-size: 18px;
+  }
+  .blogPost input[type="email"] {
+    font-size: 13px;
+    height: 2rem;
+    border-width: 1px;
+  }
+  .newsLetterSection .plusIcon {
+    height: 24px;
+  }
+  .newsLetterSection form {
+    margin-top: 12px;
   }
 }

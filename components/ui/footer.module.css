@@ -38,6 +38,8 @@
   height: 3rem;
   width: auto;
   filter: brightness(100) grayscale(1);
+
+  padding-bottom: 2px;
 }
 
 .flexlist {
@@ -63,13 +65,14 @@
     width: auto;
   }
   .footer ul {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1200px) {
   .aklogo {
     height: 2.5rem;
+    margin-bottom: 1px solid white;
   }
   .footer ul {
     font-size: 0.7rem;
