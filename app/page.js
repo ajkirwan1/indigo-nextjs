@@ -7,7 +7,7 @@ import Image from "next/image";
 import classes from "./page.module.css";
 import circle from "/public/images/pages/home/circledwh.png";
 import heroImage from "/public/images/pages/home/secondhero.jpg";
-import swimmingImage from "/public/images/pages/home/yellow.jpg";
+import swimmingImage from "/public/images/pages/home/istock.jpg";
 import buildingImage from "/public/images//pages/home/pool3.jpg";
 import HeroComponent from "@/components/hero/hero-component";
 import HomepageCarousel from "@/components/homepage-carousel";
@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import properties from "/public/images/pages/home/properties.png";
 import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
-import isoImage from "/public/images/pages/home/herofinalized1.jpg";
+import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
 
 const container = {
