@@ -32,17 +32,25 @@ export const navigationData = [
   {
     title: "SERVICES",
     url: "/what-we-do",
-    // submenu: [
-    //   {
-    //     title: "Indigo consulting",
-    //     url: "/consulting",
-    //   },
-    //   {
-    //     title: "Indigo properties",
-    //     url: "/properties",
-    //   },
-    // ],
   },
+  // {
+  //   title: "INDIGO PROPERTIES",
+  //   url: "/properties",
+  // },
+  // {
+  //   title: "SERVICES",
+  //   url: "/what-we-do",
+  //   submenu: [
+  //     {
+  //       title: "Services",
+  //       url: "/what-we-do",
+  //     },
+  //     {
+  //       title: "Indigo properties",
+  //       url: "/properties",
+  //     },
+  //   ],
+  // },
   {
     title: "CONTACT US",
     url: "/contact",

@@ -14,7 +14,7 @@ body {
   margin: 0;
   letter-spacing: 0.16em;
   text-align: center;
-  background-color: #faefe8;
+  background-color: #f5f5f5d1;
 }
 
 body,
@@ -57,7 +57,7 @@ html:has(.modal) {
   align-items: center;
   justify-content: space-around;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../public//images/pages/home/greecehero1.jpg");
+    url("../public//images/pages/home/greecehero2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -92,7 +92,7 @@ input[type="text"] {
   height: 2rem;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -105,7 +105,7 @@ input[type="email"] {
   height: 2rem;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
@@ -116,7 +116,7 @@ textarea {
   border: 1px solid;
   width: 100%;
   background-color: #ffffffc7;
-  color: #505050;
+  color: black;
   border-radius: 4px;
   resize: none;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -220,6 +220,7 @@ main {
 @media only screen and (min-width: 800px) and (max-width: 1600px) {
   .header h1 {
     font-size: 24px;
+    color: black;
   }
 
   .error-button-container p {
@@ -236,5 +237,10 @@ main {
   .error-button-container p {
     margin: 0;
     font-size: 12px;
+  }
+  @media only screen and (max-width: 600px) {
+    .share-icon {
+      margin-bottom: 10px;
+    }
   }
 }

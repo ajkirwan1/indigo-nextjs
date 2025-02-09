@@ -6,14 +6,14 @@ export function middleware(request) {
   requestHeaders.set("x-current-path", request.nextUrl.pathname);
   requestHeaders.set("x-search-params", request.nextUrl.searchParams);
 
-  return NextResponse.redirect(new URL('/blog', request.url))
+  // return NextResponse.re(new URL('/blog', request.url))
 
-  // return NextResponse.next({ request: { headers: requestHeaders } });
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {
   // matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-  matcher: ["/login", "/register", "/properties", "/consulting", "/admin/:path*"]
+  matcher: ["/login", "/register", "/consulting", "/properties", "/admin/:path*"]
 };
 
 // middleware.ts
