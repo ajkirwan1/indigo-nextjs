@@ -23,7 +23,7 @@ export default function BreadCrumb() {
           return (
             <li key={index}>
               <Link href={href}>{itemLink.replaceAll("-", " ")}</Link>
-              {pathNames.length !== index + 1 && <><span>&nbsp;/</span></>}
+              {pathNames.length !== index + 1 && <><span>&nbsp;/&nbsp;</span></>}
             </li>
           );
         })}
