@@ -10,8 +10,10 @@ import DesktopNav from "./desktop-nav";
 import { navigationData } from "@/data/navigation-data";
 import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
+import BreadCrumb from "@/components/breadcrumbs/breadcrumbs";
 
 export default function Header({ className }) {
+  console.log(className)
   const { user } = useSession();
 
   return (
@@ -33,7 +35,7 @@ export default function Header({ className }) {
             <MobileMenuIcon />
           </div>
         </nav>
-        <div className={classes.breadCrumb}>Home / News / Item </div>
+        {className.includes("non")  && <BreadCrumb />}
       </header>
     </>
   );

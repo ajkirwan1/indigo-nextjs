@@ -1,0 +1,19 @@
+.breadCrumbWrapper {
+    letter-spacing: normal;
+    padding-left: 4.5vw;
+}
+
+.breadCrumbWrapper a {
+    all: unset;
+    color: #505050;
+    font-weight: 500;
+}
+
+.breadCrumbWrapper a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.list {
+    display: flex;
+}
