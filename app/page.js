@@ -137,17 +137,17 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h2 className={classes.sectionTitle} variants={item}>
-            PROPERTIES
+            CASE STUDIES
           </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
-              <Link href="/projects">
-                <h3>SAMPLES OF PROJECTS</h3>
-                <Image
+              <Link href="/case-studies">
+                <h3>SEE OUR SUCCESSFUL TRANSFORMATIONS OF GREEK REAL ESTATE</h3>
+                {/* <Image
                   alt="icon"
                   src={properties}
                   className={classes.properties}
-                />
+                /> */}
               </Link>
             </motion.div>
           </div>

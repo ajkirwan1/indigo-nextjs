@@ -18,7 +18,7 @@ function ProjectItem({ data }) {
   // console.log(features);
 
   return (
-    <Link href={`projects/${slug}`}>
+    <Link href={`case-studies/${slug}`}>
       <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
@@ -53,15 +53,13 @@ export default async function ProjectsPage() {
   return (
     <>
       <div className="header">
-        <h1>SAMPLES OF SERVICES</h1>
-
+        <h1>CASE STUDIES</h1>
         <hr />
       </div>
-
       <div className={classes.blogPageContainer}>
         <h3 className={classes.header}>
-          Below you will find our successful transformations of the Greek Real
-          Estate Investments
+          Below are selected examples of Greek real estate transformations and
+          other advisory services we have provided internationally
         </h3>
         <ul>
           {result.map((element) => (

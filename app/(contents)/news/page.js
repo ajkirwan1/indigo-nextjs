@@ -28,7 +28,7 @@ async function BlogItem({ blogData }) {
 
   return (
     <li>
-      <Link href={`blog/${slug}`}>
+      <Link href={`news/${slug}`}>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{
