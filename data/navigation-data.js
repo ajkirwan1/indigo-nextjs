@@ -3,7 +3,7 @@
 export const navigationData = [
   {
     title: "NEWS",
-    url: "/blog",
+    url: "/news",
   },
   {
     title: "CASE STUDIES",

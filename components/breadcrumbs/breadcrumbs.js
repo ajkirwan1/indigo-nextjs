@@ -18,12 +18,25 @@ export default function BreadCrumb() {
         </li>
         {pathNames.map((link, index) => {
           let href = `/${pathNames.slice(0, index + 1).join("/")}`;
-          let itemLink = link[0].toUpperCase() + link.slice(1, link.length)
-          
+          let itemLink = link[0].toUpperCase() + link.slice(1, link.length);
+
           return (
             <li key={index}>
-              <Link href={href}>{itemLink.replaceAll("-", " ")}</Link>
-              {pathNames.length !== index + 1 && <><span>&nbsp;/&nbsp;</span></>}
+              {index + 1 == pathNames.length && index + 1 > 1 ? (
+                <Link style={{ fontWeight: "500" }} href={href}>
+                  Current
+                </Link>
+              ) : index + 1 == pathNames.length ? (
+                <Link style={{ fontWeight: "500" }} href={href}>{itemLink.replaceAll("-", " ")}</Link>
+              ) : (
+                <Link href={href}>{itemLink.replaceAll("-", " ")}</Link>
+              )}
+
+              {pathNames.length !== index + 1 && (
+                <>
+                  <span>&nbsp;/&nbsp;</span>
+                </>
+              )}
             </li>
           );
         })}
