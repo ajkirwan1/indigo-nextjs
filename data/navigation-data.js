@@ -50,25 +50,29 @@ export default function GetNavData() {
       title: "CONTACT US",
       url: "/contact",
     },
+    // {
+    //   title: user ? "ACCOUNT_LOGGED_IN" : "ACCOUNT",
+    //   accountIcon: true,
+    //   url: "/contact",
+    //   submenu: [
+    //     user
+    //       ? { title: user.username.toUpperCase(), url: "/account" }
+    //       : { title: "Register", url: "/register" },
+    //     user
+    //       ? {
+    //           title: "Logout",
+    //           url: "/logout",
+    //         }
+    //       : {
+    //           title: "Login",
+    //           url: "/login",
+    //         },
+    //   ],
+    // },
     {
-      title: user ? "ACCOUNT_LOGGED_IN" : "ACCOUNT",
-      accountIcon: true,
-      url: "/contact",
-      submenu: [
-        user
-          ? { title: user.username.toUpperCase(), url: "/account" }
-          : { title: "Register", url: "/register" },
-        user
-          ? {
-              title: "Logout",
-              url: "/logout",
-            }
-          : {
-              title: "Login",
-              url: "/login",
-            },
-      ],
-    },
+      title: "LOGIN",
+      url: "/login",
+    }, 
   ];
 
   return navigationData;

@@ -137,12 +137,12 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h2 className={classes.sectionTitle} variants={item}>
-            PROPERTIES
+            PROPERTIES & STUDIES
           </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
-              <Link href="/projects">
-                <h3>SAMPLES OF PROJECTS</h3>
+              <Link href="/login">
+                <h3>ACCESS PROPERTIES FOR SALE AND BESBOKE STUDIES</h3>
                 <Image
                   alt="icon"
                   src={properties}
