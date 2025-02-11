@@ -34,6 +34,10 @@
   animation: fadeInLeft 1s;
 }
 
+.sectionContainer b{
+font-weight: 400;
+}
+
 .pageWrapper h2 {
   font-weight: 300;
   margin-top: 0;
@@ -46,8 +50,8 @@
 
 .paragraphWrapper p,
 .paragraphWrapperRight p {
-  letter-spacing: normal;
-  font-size: 24px;
+  letter-spacing: normal;   
+  font-size: 22px;
 }
 
 .paragraphWrapperRight {
@@ -135,7 +139,7 @@
   .paragraphWrapper p,
   .paragraphWrapperRight p {
     letter-spacing: normal;
-    font-size: 22px;
+    font-size: 18px;
   }
   .paragraphWrapperRight {
     display: unset;
