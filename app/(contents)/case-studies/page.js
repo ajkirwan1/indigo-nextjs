@@ -18,7 +18,7 @@ function ProjectItem({ data }) {
   // console.log(features);
 
   return (
-    <Link href={`projects/${slug}`}>
+    <Link href={`case-studies/${slug}`}>
       <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
@@ -53,7 +53,7 @@ export default async function ProjectsPage() {
   return (
     <>
       <div className="header">
-        <h1>SAMPLES OF SERVICES</h1>
+        <h1>CASE STUDIES</h1>
 
         <hr />
       </div>

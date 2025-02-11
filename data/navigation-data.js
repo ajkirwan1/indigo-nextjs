@@ -3,11 +3,11 @@
 export const navigationData = [
   {
     title: "NEWS",
-    url: "/blog",
+    url: "/news",
   },
   {
-    title: "PROJECTS",
-    url: "/projects",
+    title: "CASE STUDIES",
+    url: "/case-studies",
   },
   {
     title: "WHO WE ARE",
@@ -31,7 +31,7 @@ export const navigationData = [
   */
   {
     title: "SERVICES",
-    url: "/what-we-do",
+    url: "/services",
   },
   // {
   //   title: "INDIGO PROPERTIES",
