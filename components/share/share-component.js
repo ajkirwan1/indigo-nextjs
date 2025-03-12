@@ -11,9 +11,9 @@ export default function ShareComponent({url, title, text, white}) {
     <>
       <RWebShare
         data={{
-          text: "ASASASASSA",
+          text: title,
           url: url,
-          title: "title",
+          title: text,
         }}
       >
         <Image

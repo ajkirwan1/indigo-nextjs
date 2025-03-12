@@ -5,6 +5,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 
+
+export const metadata = {
+  title: "Case Studies",
+  keywords: [
+    "Greece",
+    "Development",
+    "Consulting",
+    "Luxury",
+    "Redevelopment",
+    "Golden visa",
+    "Market Analysis",
+    "Real Estate",
+    "Case Studies",
+    "Consulting Services",
+  ],
+  description:
+    "Explore a curated selection of case studies by Indigo Consulting, highlighting successful real estate projects in Greece, including luxury developments, redevelopment, and market analysis. See how our expertise has made a difference for our clients.",
+};
+
+
 function ProjectItem({ data }) {
   const {
     title,
@@ -15,7 +35,6 @@ function ProjectItem({ data }) {
     features,
   } = data.fields;
 
-  // console.log(features);
 
   return (
     <Link href={`case-studies/${slug}`}>
@@ -43,7 +62,6 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getAllProjects();
 
   if (result.error) {

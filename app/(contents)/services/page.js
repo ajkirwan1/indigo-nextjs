@@ -5,21 +5,24 @@ import WhatWeDoMobileSwiper from "@/components/pages/what-we-do/what-we-do-swipe
 import ServiceItemList from "@/components/pages/what-we-do/service-item-list";
 
 export const metadata = {
-  title: "Services",
+  title: "Services | Indigo Consulting | Real Estate Development & Consulting",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Email",
-    "Conact",
-    "Phone number",
+    "real estate consulting",
+    "luxury real estate Greece",
+    "Greece real estate development",
+    "redevelopment projects Greece",
+    "Golden Visa consulting",
+    "market analysis Greece",
+    "property development Greece",
+    "Indigo Consulting services",
+    "real estate investment consulting",
+    "real estate advisory services",
   ],
   description:
-    "Indigo consulting web application services page. Vistors can read about the services provided by Indigo Consulting",
+    "Explore the range of services offered by Indigo Consulting, including real estate development, luxury property consulting, Golden Visa assistance, market analysis, and redevelopment projects in Greece. Let us help you navigate the dynamic Greek real estate market.",
 };
 
 export default function ServicePage() {

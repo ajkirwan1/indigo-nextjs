@@ -3,21 +3,20 @@
 
 import classes from "./page.module.css";
 
-
 export const metadata = {
-  title: "Privacy",
+  title: "Privacy Policy | Indigo Consulting",
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Privacy",
+    "privacy policy",
+    "data protection",
+    "GDPR compliance",
+    "Indigo Consulting privacy",
+    "user data privacy",
+    "data security",
+    "online privacy",
+    "privacy policy Greece",
   ],
   description:
-    "Indigo consulting web application privacy page. Vistors can read Indigo Consulting's privacy policy",
+    "Read Indigo Consulting's privacy policy to learn how we protect your personal information, comply with data protection regulations like GDPR, and ensure the privacy and security of our clients and users.",
 };
 
 
