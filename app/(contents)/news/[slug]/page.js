@@ -11,6 +11,8 @@ import ShareComponent from "@/components/share/share-component";
 import { getAllBlogs } from "@/server/actions/contentful/get-all-blogs-action";
 import { getSingleBlog } from "@/server/actions/contentful/get-single-blog-action";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
 export async function generateStaticParams() {
   const blogs = await getAllBlogs();
   return blogs.items.map((blog) => ({
@@ -31,7 +33,6 @@ export async function generateMetadata({ params }, parent) {
 }
 
 function Success({ result }) {
-  // console.log(result);
   const { fields } = result;
   const {
     title,
@@ -75,7 +76,7 @@ function Success({ result }) {
               </Link>
             </div>
             <div className={classes.shareIconContainer}>
-              <ShareComponent text={"TEST"} url={"TEST"} title={title} />
+              <ShareComponent text={"Indigo Consulting bews item share"} url={`${baseUrl}/news/${slug}`} title={title} />
             </div>
           </div>
         </section>
