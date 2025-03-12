@@ -76,7 +76,7 @@ export default async function ProjectsPage() {
       </div>
       <div className={classes.blogPageContainer}>
         <h3 className={classes.header}>
-          Below are selected examples of Greek real estate transformations and
+          Below are selected examples of real estate transformations and
           other advisory services we have provided internationally
         </h3>
         <ul>
