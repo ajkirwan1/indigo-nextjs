@@ -25,10 +25,12 @@ export async function generateMetadata({ params }, parent) {
   const { slug } = await params;
   const result = await getSingleBlog(slug);
   const { fields } = result;
-  const { title } = fields;
+  const { title, subTitle } = fields;
 
   return {
-    title: title,
+    title: `${title} | Indigo Consulting`,
+    description: subTitle,
+    keywords: `${title}, real estate, Greece, consulting, blog, Indigo Consulting`,
   };
 }
 
@@ -100,7 +102,7 @@ function Success({ result }) {
 }
 
 export default async function Page({ params }) {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
+
   // const { params } = props;
   const { slug } = await params;
   const result = await getSingleBlog(slug);
