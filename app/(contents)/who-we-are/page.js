@@ -6,27 +6,28 @@ import Image from "next/image";
 import emmanImage from "/public/images/pages/who-we-are/emmanuel5.jpg";
 
 export const metadata = {
-  title: "Who We Are",
+  title: "Who We Are | Indigo Consulting | Real Estate Experts in Greece",
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Architect",
-    "Besboke",
-    "Lawyer",
-    "Notary",
-    "Investment",
-    "CEO",
-    "Experience",
-    "Real Estate",
+    "Indigo Consulting",
+    "real estate consulting Greece",
+    "CEO Emmanuel Petrakis",
+    "luxury real estate Greece",
+    "redevelopment experts",
+    "Golden Visa Greece",
+    "real estate investment",
+    "property consulting Greece",
+    "real estate advisors",
+    "business consulting Greece",
+    "real estate experts",
+    "Greece consulting services",
+    "real estate development leadership",
+    "company values",
+    "about Indigo Consulting",
   ],
   description:
-    "Indigo consulting web apllication who we are page. Vistors can read about Indigo Consulting's CEO, Emmanuel Petrakis, and the information about the company",
+    "Learn more about Indigo Consulting and our mission to provide expert real estate consulting in Greece. Discover the leadership of our CEO, Emmanuel Petrakis, and how our team's experience and dedication drive success in luxury real estate, redevelopment, and Golden Visa services.",
 };
+
 
 function LargeSection() {
   return (
