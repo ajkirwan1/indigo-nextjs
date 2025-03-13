@@ -1,43 +1,43 @@
 export default function sitemap() {
     return [
       {
-        url: 'https://indigo-consulting.com',
+        url: 'https://indigo-consulting.gr',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 1,
       },
       {
-        url: 'https://indigo-consulting.com/blog',
+        url: 'https://indigo-consulting.gr/case-studies',
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.8,
       },
       {
-        url: 'https://indigo-consulting.com/contact',
+        url: 'https://indigo-consulting.gr/contact',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.5,
       },
       {
-        url: 'https://indigo-consulting.com/privacy',
+        url: 'https://indigo-consulting.gr/news',
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      },
+      {
+        url: 'https://indigo-consulting.gr/privacy',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.5,
       },
       {
-        url: 'https://indigo-consulting.com/project',
+        url: 'https://indigo-consulting.gr/services',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.5,
       },
       {
-        url: 'https://indigo-consulting.com/what-we-do',
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-        priority: 0.5,
-      },
-      {
-        url: 'https://indigo-consulting.com/who-we-are',
+        url: 'https://indigo-consulting.gr/who-we-are',
         lastModified: new Date(),
         changeFrequency: 'yearly',
         priority: 0.5,
