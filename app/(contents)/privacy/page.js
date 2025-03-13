@@ -436,7 +436,7 @@ export default function PrivacyPage() {
           us:
         </p>
         <ul>
-          <li>By email: testemail@gmail.com</li>
+          <li>By email: info@indigo-consulting.gr</li>
         </ul>
       </div>
     </>
