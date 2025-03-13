@@ -142,7 +142,10 @@ const componentArray = [
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/case-studies">
-                <h3>SEE OUR SUCCESSFUL TRANSFORMATIONS OF GREEK REAL ESTATE</h3>
+                <h3 style={{ lineHeight: '1.6' }}>
+                  EXPLORE SELECTED EXAMPLES OF REAL ESTATE REDEVELOPMENTS AND
+                  ADVISORY SERVICES WE’VE PROVIDED GLOBALLY
+                </h3>
                 {/* <Image
                   alt="icon"
                   src={properties}
