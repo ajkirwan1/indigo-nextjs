@@ -6,7 +6,11 @@ import { Providers } from "./providers.jsx";
 
 import "./globals.css";
 // import { validateRequest } from "@/auth/lucia";
+
 export const metadata = {
+    verification: {
+    google: 'gKEg7ThRAHUGvwMjdnXn3kSQcv65GNIQ5_lgoT6d0jY'
+    },
   title: {
     template: "Indigo Consulting %s",
     default: "Indigo Consulting",
