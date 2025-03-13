@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://indigo-consulting.gr/sitemap.xml
