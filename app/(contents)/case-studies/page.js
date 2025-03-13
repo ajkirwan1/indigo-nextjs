@@ -3,6 +3,7 @@
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import ReturnToTop from "@/components/return-to-top/return-to-top-component";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 
 
@@ -86,6 +87,7 @@ export default async function ProjectsPage() {
             </li>
           ))}
         </ul>
+        <ReturnToTop />
       </div>
     </>
   );
