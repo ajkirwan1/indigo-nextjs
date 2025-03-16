@@ -9,6 +9,9 @@ import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
 
 export const metadata = {
   title: "Case Studies",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
     "Greece",
     "Development",
