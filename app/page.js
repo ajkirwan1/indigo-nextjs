@@ -137,17 +137,19 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h2 className={classes.sectionTitle} variants={item}>
-            PROPERTIES
+          SAMPLE PROJECTS & CONSULTING WORK 
           </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
-              <Link href="/projects">
-                <h3>SAMPLES OF PROJECTS</h3>
-                <Image
+              <Link href="/case-studies">
+                <h3 style={{ lineHeight: '1.6' }}>
+                Discover examples of real estate redevelopments and advisory services we’ve delivered worldwide
+                </h3>
+                {/* <Image
                   alt="icon"
                   src={properties}
                   className={classes.properties}
-                />
+                /> */}
               </Link>
             </motion.div>
           </div>
@@ -169,7 +171,7 @@ const componentArray = [
           </motion.h2>
           <motion.div className={classes.separator} variants={item}>
             <Link href="/contact">
-              <motion.h3 variants={item}>LET&apos;S TALK</motion.h3>
+              <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
               <Image alt="icon" src={envelope} className={classes.envelope} />
             </Link>
           </motion.div>

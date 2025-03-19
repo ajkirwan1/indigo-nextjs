@@ -3,7 +3,31 @@
 import classes from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import ReturnToTop from "@/components/return-to-top/return-to-top-component";
 import { getAllProjects } from "@/server/actions/contentful/get-all-projects";
+
+
+export const metadata = {
+  title: "Case Studies",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  keywords: [
+    "Greece",
+    "Development",
+    "Consulting",
+    "Luxury",
+    "Redevelopment",
+    "Golden visa",
+    "Market Analysis",
+    "Real Estate",
+    "Case Studies",
+    "Consulting Services",
+  ],
+  description:
+    "Explore a curated selection of case studies by Indigo Consulting, highlighting successful real estate projects in Greece, including luxury developments, redevelopment, and market analysis. See how our expertise has made a difference for our clients.",
+};
+
 
 function ProjectItem({ data }) {
   const {
@@ -15,10 +39,9 @@ function ProjectItem({ data }) {
     features,
   } = data.fields;
 
-  // console.log(features);
 
   return (
-    <Link href={`projects/${slug}`}>
+    <Link href={`case-studies/${slug}`}>
       <div className={classes.ProjectItemWrapper}>
         <div className={classes.imageContainer}>
           <Image
@@ -43,7 +66,6 @@ function ProjectItem({ data }) {
 }
 
 export default async function ProjectsPage() {
-  // await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await getAllProjects();
 
   if (result.error) {
@@ -53,15 +75,13 @@ export default async function ProjectsPage() {
   return (
     <>
       <div className="header">
-        <h1>SAMPLES OF SERVICES</h1>
-
+        <h1>CASE STUDIES</h1>
         <hr />
       </div>
-
       <div className={classes.blogPageContainer}>
         <h3 className={classes.header}>
-          Below you will find our successful transformations of the Greek Real
-          Estate Investments
+          Below are selected examples of real estate transformations and
+          other advisory services we have provided internationally
         </h3>
         <ul>
           {result.map((element) => (
@@ -70,6 +90,7 @@ export default async function ProjectsPage() {
             </li>
           ))}
         </ul>
+        <ReturnToTop />
       </div>
     </>
   );

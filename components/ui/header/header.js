@@ -2,6 +2,7 @@
 "use client";
 
 import IndigoLogo from "/public/images/logodark.jpg";
+import IndigoLogo from "/public/images/logodark.jpg";
 import classes from "./header.module.css";
 import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
@@ -12,6 +13,7 @@ import DesktopNav from "./desktop-nav";
 import GetNavData from "@/data/navigation-data";
 import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
+import BreadCrumb from "@/components/breadcrumbs/breadcrumbs";
 
 export default function Header({ className }) {
 
@@ -38,6 +40,7 @@ export default function Header({ className }) {
             <MobileMenuIcon />
           </div>
         </nav>
+        {className.includes("non")  && <BreadCrumb />}
       </header>
     </>
   );

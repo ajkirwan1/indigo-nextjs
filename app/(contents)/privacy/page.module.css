@@ -22,13 +22,17 @@
   letter-spacing: normal;
   margin-top: 0;
   margin-bottom: 0;
+  margin-left: 0;
   text-align: left;
 }
 
-.pageWrapper h2,
+.pageWrapper h2 {
+  font-weight: 400
+}
+
 .pageWrapper h3,
 .pageWrapper h4 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @media only screen and (min-width: 1800px) {
@@ -74,6 +78,7 @@
     justify-content: space-evenly;
     height: unset;
     margin-top: 10vh;
+    margin-bottom: 5vh;
   }
 
   .pageWrapper p {
@@ -82,12 +87,22 @@
     font-weight: 300;
     animation: fadeIn 2s;
     max-width: 300px;
-    margin: auto;
+    /* margin: auto; */
     margin-top: 0;
     margin-bottom: 0;
   }
 
   .pageWrapper h2 {
     font-size: 20px;
+  }
+
+
+  .pageWrapper h2 {
+    margin-bottom: 5px;
+  }
+  
+  .pageWrapper h3,
+  .pageWrapper h4 {
+    margin-bottom: 5px;
   }
 }

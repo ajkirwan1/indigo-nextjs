@@ -6,6 +6,8 @@ import ShareComponent from "../share/share-component";
 import classes from "./footer.module.css";
 import Link from "next/link";
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+
 export default function Footer() {
   return (
     <footer className={classes.footer}>
@@ -14,7 +16,7 @@ export default function Footer() {
           <ShareComponent
             white="true"
             text={"Indigo Consulting Homepage"}
-            url={"http://localhost:3000"}
+            url={baseUrl}
             title={"Indigo Consulting Homepage"}
           />
         </li>

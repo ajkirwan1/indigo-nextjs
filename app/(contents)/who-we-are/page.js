@@ -6,41 +6,42 @@ import Image from "next/image";
 import emmanImage from "/public/images/pages/who-we-are/emmanuel5.jpg";
 
 export const metadata = {
-  title: "Who We Are",
+  title: "Who We Are | Indigo Consulting | Real Estate Experts in Greece",
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Architect",
-    "Besboke",
-    "Lawyer",
-    "Notary",
-    "Investment",
-    "CEO",
-    "Experience",
-    "Real Estate",
+    "Indigo Consulting",
+    "real estate consulting Greece",
+    "CEO Emmanuel Petrakis",
+    "luxury real estate Greece",
+    "redevelopment experts",
+    "Golden Visa Greece",
+    "real estate investment",
+    "property consulting Greece",
+    "real estate advisors",
+    "business consulting Greece",
+    "real estate experts",
+    "Greece consulting services",
+    "real estate development leadership",
+    "company values",
+    "about Indigo Consulting",
   ],
   description:
-    "Indigo consulting web apllication who we are page. Vistors can read about Indigo Consulting's CEO, Emmanuel Petrakis, and the information about the company",
+    "Learn more about Indigo Consulting and our mission to provide expert real estate consulting in Greece. Discover the leadership of our CEO, Emmanuel Petrakis, and how our team's experience and dedication drive success in luxury real estate, redevelopment, and Golden Visa services.",
 };
+
 
 function LargeSection() {
   return (
     <div className={classes.sectionContainer}>
+      {/* <h2>INDIGO</h2> */}
       <div className={classes.paragraphWrapper}>
-        <h2>INDIGO</h2>
         <p>
-          Established in 2021 by Emmanuel Petrakis. Indigo Consulting stands as
+          Established in 2021 by Emmanuel Petrakis. <b>Indigo Consulting</b> stands as
           a bespoke real estate consulting firm capitalizing on strategic
-          investment opportunities boasting 25 years of experience and local
-          knowledge.
+          investment opportunities boasting <b>25 years of experience and local
+          knowledge</b>.
         </p>
         <p>
-          Indigo serves as a trusted service company to investors, providing
+          Indigo serves as a <b>trusted</b> service company to investors, providing
           expertise consulting in residential development. The company’s
           multi-disciplinary team, comprised of investment, finance and realty
           professionals, collaborates with reputable firms such as developers,
@@ -48,9 +49,9 @@ function LargeSection() {
         </p>
         <p>
           The clientele includes private investors and investment funds, both
-          local and foreign, seeking tailored solutions for various real estate
-          ventures. Indigo emphasizes in transparency, low-risk strategies, and
-          a commitment to guide clients through every step of their investment
+          local and foreign, seeking <b>tailored</b> solutions for various real estate
+          ventures. Indigo emphasizes in <b>transparency</b>, <b>low-risk strategies</b>, and
+          a <b>commitment</b> to guide clients through every step of their investment
           projects in Greece.
         </p>
       </div>
@@ -66,17 +67,22 @@ function LargeSection() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           />
           <div className={classes.paragraphWrapperRight}>
-            <h2>EMMANUEL PETRAKIS</h2>
-            <h3>Director and founder</h3>
             <p>
-              With more than 25 years of extensive local expertise spanning
-              diverse business sectors I have cultivated a deep understanding of
-              the investment landscape.
+            <b>Emmanuel Petrakis</b> is an experienced Company Director and CEO with
+              expertise in corporate and maritime law. He specializes in
+              selecting high-value residential, commercial, and industrial real
+              estate assets to meet investor objectives and portfolio
+              strategies.
             </p>
             <p>
-              Over the last 18 years my focus has extended to encompass real
-              estate. Having served as CEO within this quarter-century timeframe
-              I bring a wealth of knowledge and experience to the table.
+              An active real estate investor with deep knowledge of the Greek
+              property market, Emmanuel leads successful projects with the
+              support of his experienced team.
+            </p>
+            <p>
+              His focus on ROI, project management, contract negotiation, and
+              regulatory compliance ensures every acquisition is transformed
+              into a high-performing investment.
             </p>
           </div>
         </div>

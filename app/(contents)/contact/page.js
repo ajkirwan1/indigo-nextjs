@@ -1,5 +1,6 @@
 /** @format */
 // "use client";
+
 import classes from "./page.module.css";
 import ContactForm from "@/components/forms/contact-form";
 import { ContactUs } from "@/server/actions/contact";
@@ -7,22 +8,23 @@ import Image from "next/image";
 import phoneIcon from "/public/images/icons/phoneblue.png";
 
 export const metadata = {
-  title: "Conact Us",
+  title: "Contact Indigo Consulting | Get in Touch for Expert Consulting",
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Email",
-    "Conact",
-    "Phone number",
+    "contact Indigo Consulting",
+    "consulting contact",
+    "real estate consulting contact",
+    "Greece consulting",
+    "luxury development contact",
+    "contact us Greece",
+    "real estate services Greece",
+    "Golden Visa contact",
+    "email Indigo Consulting",
+    "phone number Indigo Consulting",
   ],
   description:
-    "Indigo consulting web application contact page. Vistors can find Indigo Consulting's contact information and address, and email directly",
+    "Contact Indigo Consulting to discuss your real estate development, consulting, and Golden Visa needs. Find our contact details, including email and phone number, for direct inquiries and expert advice.",
 };
+
 
 export default function ContactUsPage() {
   return (

@@ -3,25 +3,21 @@
 
 import classes from "./page.module.css";
 
-
 export const metadata = {
-  title: "Privacy",
+  title: "Privacy Policy | Indigo Consulting",
   keywords: [
-    "Greece",
-    "Development",
-    "Consulting",
-    "Luxury",
-    "Redevelopment",
-    "Golden visa",
-    "Market Analysis",
-    "Privacy",
+    "privacy policy",
+    "data protection",
+    "GDPR compliance",
+    "Indigo Consulting privacy",
+    "user data privacy",
+    "data security",
+    "online privacy",
+    "privacy policy Greece",
   ],
   description:
-    "Indigo consulting web application privacy page. Vistors can read Indigo Consulting's privacy policy",
+    "Read Indigo Consulting's privacy policy to learn how we protect your personal information, comply with data protection regulations like GDPR, and ensure the privacy and security of our clients and users.",
 };
-
-
-
 
 export default function PrivacyPage() {
   return (
@@ -31,7 +27,9 @@ export default function PrivacyPage() {
         <hr />
       </div>
       <div className={classes.pageWrapper}>
-        <p>Last updated: December 20, 2024</p>
+        <p>
+          <strong>Last updated: December 20, 2024</strong>
+        </p>
         <p>
           This Privacy Policy describes Our policies and procedures on the
           collection, use and disclosure of Your information when You use the
@@ -212,11 +210,11 @@ export default function PrivacyPage() {
             <p>
               <strong>To contact you:</strong> To contact You by email,
               telephone calls, SMS, or other equivalent forms of electronic
-              communication, such as a mobile application&apos;s push notifications
-              regarding updates or informative communications related to the
-              functionalities, products or contracted services, including the
-              security updates, when necessary or reasonable for their
-              implementation.
+              communication, such as a mobile application&apos;s push
+              notifications regarding updates or informative communications
+              related to the functionalities, products or contracted services,
+              including the security updates, when necessary or reasonable for
+              their implementation.
             </p>
           </li>
           <li>
@@ -260,37 +258,51 @@ export default function PrivacyPage() {
         </p>
         <ul>
           <li>
-            <strong>With Service Providers:</strong> We may share Your personal
-            information with Service Providers to monitor and analyze the use of
-            our Service, to contact You.
+            <p>
+              <strong>With Service Providers:</strong> We may share Your
+              personal information with Service Providers to monitor and analyze
+              the use of our Service, to contact You.
+            </p>
           </li>
           <li>
-            <strong>For business transfers:</strong> We may share or transfer
-            Your personal information in connection with, or during negotiations
-            of, any merger, sale of Company assets, financing, or acquisition of
-            all or a portion of Our business to another company.
+            <p>
+              <strong>For business transfers:</strong> We may share or transfer
+              Your personal information in connection with, or during
+              negotiations of, any merger, sale of Company assets, financing, or
+              acquisition of all or a portion of Our business to another
+              company.
+            </p>
           </li>
           <li>
-            <strong>With Affiliates:</strong> We may share Your information with
-            Our affiliates, in which case we will require those affiliates to
-            honor this Privacy Policy. Affiliates include Our parent company and
-            any other subsidiaries, joint venture partners or other companies
-            that We control or that are under common control with Us.
+            <p>
+              <strong>With Affiliates:</strong> We may share Your information
+              with Our affiliates, in which case we will require those
+              affiliates to honor this Privacy Policy. Affiliates include Our
+              parent company and any other subsidiaries, joint venture partners
+              or other companies that We control or that are under common
+              control with Us.
+            </p>
           </li>
           <li>
-            <strong>With business partners:</strong> We may share Your
-            information with Our business partners to offer You certain
-            products, services or promotions.
+            <p>
+              <strong>With business partners:</strong> We may share Your
+              information with Our business partners to offer You certain
+              products, services or promotions.
+            </p>
           </li>
           <li>
-            <strong>With other users:</strong> when You share personal
-            information or otherwise interact in the public areas with other
-            users, such information may be viewed by all users and may be
-            publicly distributed outside.
+            <p>
+              <strong>With other users:</strong> when You share personal
+              information or otherwise interact in the public areas with other
+              users, such information may be viewed by all users and may be
+              publicly distributed outside.
+            </p>
           </li>
           <li>
-            <strong>With Your consent</strong>: We may disclose Your personal
-            information for any other purpose with Your consent.
+            <p>
+              <strong>With Your consent</strong>: We may disclose Your personal
+              information for any other purpose with Your consent.
+            </p>
           </li>
         </ul>
         <h3>Retention of Your Personal Data</h3>
@@ -312,12 +324,12 @@ export default function PrivacyPage() {
         <h3>Transfer of Your Personal Data</h3>
         <p>
           Your information, including Personal Data, is processed at the
-          Company&apos;s operating offices and in any other places where the parties
-          involved in the processing are located. It means that this information
-          may be transferred to — and maintained on — computers located outside
-          of Your state, province, country or other governmental jurisdiction
-          where the data protection laws may differ than those from Your
-          jurisdiction.
+          Company&apos;s operating offices and in any other places where the
+          parties involved in the processing are located. It means that this
+          information may be transferred to — and maintained on — computers
+          located outside of Your state, province, country or other governmental
+          jurisdiction where the data protection laws may differ than those from
+          Your jurisdiction.
         </p>
         <p>
           Your consent to this Privacy Policy followed by Your submission of
@@ -370,16 +382,26 @@ export default function PrivacyPage() {
           that such action is necessary to:
         </p>
         <ul>
-          <li>Comply with a legal obligation</li>
-          <li>Protect and defend the rights or property of the Company</li>
           <li>
-            Prevent or investigate possible wrongdoing in connection with the
-            Service
+            <p>Comply with a legal obligation</p>
           </li>
           <li>
-            Protect the personal safety of Users of the Service or the public
+            <p>Protect and defend the rights or property of the Company</p>
           </li>
-          <li>Protect against legal liability</li>
+          <li>
+            <p>
+              Prevent or investigate possible wrongdoing in connection with the
+              Service
+            </p>
+          </li>
+          <li>
+            <p>
+              Protect the personal safety of Users of the Service or the public
+            </p>
+          </li>
+          <li>
+            <p>Protect against legal liability</p>
+          </li>
         </ul>
         <h3>Security of Your Personal Data</h3>
         <p>
@@ -409,8 +431,8 @@ export default function PrivacyPage() {
         <p>
           Our Service may contain links to other websites that are not operated
           by Us. If You click on a third party link, You will be directed to
-          that third party&apos;s site. We strongly advise You to review the Privacy
-          Policy of every site You visit.
+          that third party&apos;s site. We strongly advise You to review the
+          Privacy Policy of every site You visit.
         </p>
         <p>
           We have no control over and assume no responsibility for the content,
@@ -437,7 +459,7 @@ export default function PrivacyPage() {
           us:
         </p>
         <ul>
-          <li>By email: testemail@gmail.com</li>
+          <li>By email: info@indigo-consulting.gr</li>
         </ul>
       </div>
     </>
