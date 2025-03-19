@@ -144,7 +144,7 @@ export default function RegisterFormPage3({
           </div>
         </div>
         <label>Location:</label>
-        <div className={classes.tickRow}>
+        {/* <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
             <label>Greece</label>
             <input
@@ -163,9 +163,9 @@ export default function RegisterFormPage3({
               onChange={handleLocaleChange}
             ></input>
           </div>
-        </div>
+        </div> */}
         <label>Prefered purchase timeline (months):</label>
-        <div className={classes.tickRow}>
+        {/* <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
             <label>Within 6</label>
             <input
@@ -193,9 +193,9 @@ export default function RegisterFormPage3({
               onChange={(event) => handlePurchaseTimeline(event)}
             ></input>
           </div>
-        </div>
+        </div> */}
         <label>Investment interest:</label>
-        <div className={classes.tickRow}>
+        {/* <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
             <label>Residential</label>
             <input
@@ -220,7 +220,7 @@ export default function RegisterFormPage3({
               onChange={handleInvestmentInterest}
             ></input>
           </div>
-        </div>
+        </div> */}
       </form>
       {errors[0]?.errorType && (
               <p className={classes.errorParagraph}>{errors[0]?.message}</p>
