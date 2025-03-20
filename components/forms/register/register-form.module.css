@@ -70,7 +70,7 @@
 
 .registerForm3 label {
   justify-self: baseline;
-  max-width: 300px;
+  /* max-width: 300px; */
   letter-spacing: 0;
 }
 
@@ -355,7 +355,7 @@
     align-items: flex-start;
     justify-content: unset;
     margin-bottom: unset;
-    width: unset;
+    /* width: unset; */
   }
 
 }
@@ -397,7 +397,7 @@
     align-items: flex-start;
     justify-content: unset;
     margin-bottom: unset;
-    width: unset;
+    /* width: unset; */
     row-gap: unset;
   }
 

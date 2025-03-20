@@ -6,7 +6,8 @@ import classes from "./register-page.module.css";
 import { AnimatePresence, motion } from "framer-motion";
 import RegisterFormPage1 from "@/components/forms/register/page-1";
 import RegisterFormPage2 from "@/components/forms/register/page-2";
-import RegisterFormPage3New from "@/components/forms/register/page-3";
+import RegisterFormPage1New from "@/components/forms/register/register-page-1";
+import RegisterFormPage2New from "@/components/forms/register/register-page-2";
 import RegisterFormPage4 from "@/components/forms/register/page-4";
 
 export default function RegisterPageComponent() {
@@ -205,7 +206,7 @@ export default function RegisterPageComponent() {
       exit={{ opacity: 0 }}
       className={`${classes.formcontainer} ${classes.large}`}
     >
-      <RegisterFormPage3New
+      <RegisterFormPage1New
         handlePreviousTab={handlePreviousTab}
         handleNextTab={handleNextTab}
         handleLocale={handleLocale}
@@ -224,7 +225,7 @@ export default function RegisterPageComponent() {
       exit={{ opacity: 0 }}
       className={`${classes.formcontainer} ${classes.large}`}
     >
-      <RegisterFormPage4
+      <RegisterFormPage2New
         handlePreviousTab={handlePreviousTab}
         handleNextTab={handleNextTab}
         handleChange={handleChange}
