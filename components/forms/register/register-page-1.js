@@ -9,61 +9,60 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 
 export default function RegisterFormPage1New({
-  handleBuyer,
-  handleInvestment,
+  data,
   handleNextTab,
+  handleChange
 }) {
+  
   const [errors, setErrors] = useState([]);
 
   const handleNext = () => {
-    // if (
-    //   buyerType.includes(true) ||
-    //   location.includes(true) ||
-    //   purchaseTimeline.includes(true) ||
-    //   investmentInterst.includes(true)
-    // ) {
-    //   setErrors([
-    //     {
-    //       errorType: "incompleteForm",
-    //       message: "Please complete all sections",
-    //     },
-    //   ]);
-    // } else {
-    //   setErrors([]);
-    //   handleNextTab();
-    // }
-    handleNextTab();
-      // if (result.errors.length > 0) {
-      //   setErrors([...result.errors]);
-      // } else {
-      //   handleNextTab();
-      // }
+    if (
+      buyerType.includes(true) ||
+      location.includes(true) ||
+      purchaseTimeline.includes(true) ||
+      investmentInterst.includes(true)
+    ) {
+      setErrors([
+        {
+          errorType: "incompleteForm",
+          message: "Please complete all sections",
+        },
+      ]);
+    } else {
+      setErrors([]);
+      handleNextTab();
+    }
+  
+      if (result.errors.length > 0) {
+        setErrors([...result.errors]);
+      } else {
+        handleNextTab();
+      }
   };
 
-  // const handleNext = async () => {
-  //   handleNextTab();
-  // };
-
-
-  const [buyerType, setBuyerType] = useState("");
+  // const [buyerType, setBuyerType] = useState("");
 
   const handleBuyerType = (event) => {
-    handleBuyer(event);
-    setBuyerType(event.target.value);
+    handleChange(event)
+    // handleBuyer(event);
+    // setBuyerType(event.target.value);
   };
 
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
 
   const handleLocaleChange = (event) => {
-    // const eventSource = event.target.name;
-    setLocation(event.target.value);
+    handleChange(event);
+    // handleLocale(event);
+    // setLocation(event.target.value);
   };
 
-  const [investmentInterst, setInvestmentInterst] = useState("");
+  // const [investmentInterst, setInvestmentInterst] = useState("");
 
   const handleInvestmentInterest = (event) => {
-    handleInvestment(event);
-    setInvestmentInterst(event.target.value);
+    handleChange(event);
+    // handleInvestment(event);
+    // setInvestmentInterst(event.target.value);
   };
 
   return (
@@ -76,15 +75,13 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={location}
+            value={data.location}
+            name="location"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
             onChange={handleLocaleChange}
           >
-            <MenuItem value="">
-              Location
-            </MenuItem>
             <MenuItem value="Greece">Greece</MenuItem>
             <MenuItem value="Other">Other</MenuItem>
           </Select>
@@ -93,15 +90,13 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={investmentInterst}
+            value={data.investmentInterst}
+            name="investmentInterest"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
             onChange={handleInvestmentInterest}
           >
-            <MenuItem value="">
-              Investment interest
-            </MenuItem>
             <MenuItem value="Buying a property">Buying a property</MenuItem>
             <MenuItem value="Developing a building for ROI">
               Developing a building for ROI
@@ -119,15 +114,13 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={buyerType}
+            value={data.buyerType}
+            name="buyerType"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
             onChange={handleBuyerType}
           >
-            <MenuItem value="">
-             Type
-            </MenuItem>
             <MenuItem value="Buying a property">Direct buyer</MenuItem>
             <MenuItem value="Developing a building for ROI">
               Real estate agent
@@ -141,14 +134,13 @@ export default function RegisterFormPage1New({
       )}
           <div className={classes.buttonWrapper}>
             <RegistrationButton
-              // disabled={
-              //   !data.passwordConfirm ||
-              //   !data.password ||
-              //   !data.userName ||
-              //   !data.email
-              //     ? true
-              //     : false
-              // }
+              disabled={
+                !data.location ||
+                !data.investmentInterest ||
+                !data.buyerType
+                  ? true
+                  : false
+              }
               onClick={handleNext}
             >
               Next

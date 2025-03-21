@@ -7,7 +7,8 @@ import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export default function RegisterFormPage1New({
   handleBuyer,
@@ -73,53 +74,37 @@ export default function RegisterFormPage1New({
         <h1>REGISTER</h1>
       </div>
       <form className={classes.registerForm3}>
-        <label>What is your investment range?</label>
+        <label>Company name</label>
         <FormControl sx={{ width: "100%" }} size="small">
-          <Select
-            id="demo-simple-select"
-            value={location}
-            inputProps={{ "aria-label": "Without label" }}
-            autoWidth
-            displayEmpty
-            onChange={handleLocaleChange}
-          >
-            <MenuItem value="">Location</MenuItem>
-            <MenuItem value="Greece">Greece</MenuItem>
-            <MenuItem value="Other">Other</MenuItem>
-          </Select>
+          <TextField
+            id="outlined-basic"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            variant="outlined"
+          />
         </FormControl>
-        <label>Preferred timeline for purchase or investment?</label>
+        <label>Email address</label>
         <FormControl sx={{ width: "100%" }} size="small">
-          <Select
-            id="demo-simple-select"
-            value={investmentInterst}
-            inputProps={{ "aria-label": "Without label" }}
-            autoWidth
-            displayEmpty
-            onChange={handleInvestmentInterest}
-          >
-            <MenuItem value="">Timeline</MenuItem>
-            <MenuItem value="Next 6 months">Next 6 months</MenuItem>
-            <MenuItem value="6 - 12 months">6 - 12 months</MenuItem>
-            <MenuItem value="12 - 18 months">12 - 18 months</MenuItem>
-            <MenuItem value="18 - 24 months">18 - 24 months</MenuItem>
-            <MenuItem value="+24 months">+24 months</MenuItem>
-          </Select>
+          <TextField
+            id="outlined-basic"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            variant="outlined"
+          />
         </FormControl>
-        <label>Have you previously invested in Greek real estate?</label>
+        <label>Confirm email address</label>
         <FormControl sx={{ width: "100%" }} size="small">
-          <Select
-            id="demo-simple-select"
-            value={buyerType}
-            inputProps={{ "aria-label": "Without label" }}
-            autoWidth
-            displayEmpty
-            onChange={handleBuyerType}
-          >
-            <MenuItem value="">Previous investment?</MenuItem>
-            <MenuItem value="Yes">Yes</MenuItem>
-            <MenuItem value="No">No</MenuItem>
-          </Select>
+          <TextField
+            id="outlined-basic"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            variant="outlined"
+          />
+        </FormControl>
+        <label>Telephone number</label>
+        <FormControl sx={{ width: "100%" }} size="small">
+          <TextField
+            id="outlined-basic"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            variant="outlined"
+          />
         </FormControl>
       </form>
       {errors[0]?.errorType && (
