@@ -9,7 +9,11 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function RegisterFormPage1New({ handlePreviousTab }) {
+import PhoneInput from "react-phone-input-2";
+
+import "react-phone-input-2/lib/material.css";
+
+export default function RegisterFormPage3New({ handlePreviousTab }) {
   // const [errors, setErrors] = useState([]);
 
   const [tickboxSelected, setTickboxSelected] = useState(false);
@@ -18,7 +22,7 @@ export default function RegisterFormPage1New({ handlePreviousTab }) {
   };
 
   return (
-    <>
+    <div>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
       </div>
@@ -67,6 +71,7 @@ export default function RegisterFormPage1New({ handlePreviousTab }) {
           </FormControl>
         </div>
         {/* Error */}
+        {/* <PhoneInput country="de" regions={"europe"} /> */}
         <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
           <label>Telephone number</label>
           <FormControl sx={{ width: "100%" }} size="small">
@@ -87,16 +92,11 @@ export default function RegisterFormPage1New({ handlePreviousTab }) {
               information from Indigo Consulting. I understand that I can
               unsubscribe at any time.
             </label>
-            {/* <input
-              type="checkbox"
-              name="privateBuyer"
-              checked={tickboxSelected}
-              onChange={handleCheckBox}
-            ></input> */}
             <Checkbox
               color="default"
               checked={tickboxSelected}
               onChange={handleCheckBox}
+              sx={{ padding: "15px" }}
             />
           </div>
         </div>
@@ -112,6 +112,6 @@ export default function RegisterFormPage1New({ handlePreviousTab }) {
           Next
         </RegistrationButton>
       </div>
-    </>
+    </div>
   );
 }

@@ -60,8 +60,12 @@
   justify-items: center;
   font-weight: 300;
   margin-bottom: 5vh;
-  width: 90%;
+  width: 50%;
   font-weight: 300;
+}
+
+.inputWrapper {
+  display: flex;
 }
 
 .inputWrapper input {
@@ -92,7 +96,11 @@
 
 .headerContainer h1 {
   display: flex;
-  margin-top: 5vh;
+
+  /* margin-top: 5vh;
+  margin-left: 3vw; */
+  letter-spacing: normal;
+  
 }
 .registerFormSection {
   padding: 20px;
@@ -122,8 +130,9 @@
   grid-row-start: 5;
   grid-row-end: 6;  /* Placing it in the 5th row */
   display: flex;
-  width: 100%;
+  width: 80%;
   gap: 3vw;
+  margin-top: 2vh;
 }
 
 .formCheckboxContainer {
@@ -228,6 +237,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-items: flex-start;
 }
 
 .spinner {
