@@ -114,7 +114,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+
 .tickRow {
+  grid-column-start: 1;
+  grid-column-end: 3;  /* Spanning 2 columns */
+  grid-row-start: 5;
+  grid-row-end: 6;  /* Placing it in the 5th row */
   display: flex;
   width: 100%;
   gap: 3vw;

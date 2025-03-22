@@ -7,64 +7,20 @@ import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 
 export default function RegisterFormPage1New({
-  handleBuyer,
+  handleChange,
   handlePreviousTab,
-  handleInvestment,
   handleNextTab,
+  data
 }) {
-  const [errors, setErrors] = useState([]);
-
   const handleNext = () => {
-    // if (
-    //   buyerType.includes(true) ||
-    //   location.includes(true) ||
-    //   purchaseTimeline.includes(true) ||
-    //   investmentInterst.includes(true)
-    // ) {
-    //   setErrors([
-    //     {
-    //       errorType: "incompleteForm",
-    //       message: "Please complete all sections",
-    //     },
-    //   ]);
-    // } else {
-    //   setErrors([]);
-    //   handleNextTab();
-    // }
     handleNextTab();
-    // if (result.errors.length > 0) {
-    //   setErrors([...result.errors]);
-    // } else {
-    //   handleNextTab();
-    // }
   };
 
-  // const handleNext = async () => {
-  //   handleNextTab();
-  // };
-
-  const [buyerType, setBuyerType] = useState("");
-
-  const handleBuyerType = (event) => {
-    handleBuyer(event);
-    setBuyerType(event.target.value);
-  };
-
-  const [location, setLocation] = useState("");
-
-  const handleLocaleChange = (event) => {
-    // const eventSource = event.target.name;
-    setLocation(event.target.value);
-  };
-
-  const [investmentInterst, setInvestmentInterst] = useState("");
-
-  const handleInvestmentInterest = (event) => {
-    handleInvestment(event);
-    setInvestmentInterst(event.target.value);
+  const handleselect = (event) => {
+    handleChange(event)
   };
 
   return (
@@ -77,28 +33,30 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={location}
+            value={data.investmentRange}
+            name="investmentRange"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
-            onChange={handleLocaleChange}
+            onChange={handleselect}
           >
-            <MenuItem value="">Location</MenuItem>
-            <MenuItem value="Greece">Greece</MenuItem>
-            <MenuItem value="Other">Other</MenuItem>
+            <MenuItem value="€500K-€1M">€500K-€1M</MenuItem>
+            <MenuItem value="€1M-€2M">€1M-€2M</MenuItem>
+            <MenuItem value="€1M-€2M">€2M-€3M</MenuItem>
+            <MenuItem value="€3M+">€3M+</MenuItem>
           </Select>
         </FormControl>
         <label>Preferred timeline for purchase or investment?</label>
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={investmentInterst}
+            value={data.purchaseTimeline}
+            name="purchaseTimeline"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
-            onChange={handleInvestmentInterest}
+            onChange={handleselect}
           >
-            <MenuItem value="">Timeline</MenuItem>
             <MenuItem value="Next 6 months">Next 6 months</MenuItem>
             <MenuItem value="6 - 12 months">6 - 12 months</MenuItem>
             <MenuItem value="12 - 18 months">12 - 18 months</MenuItem>
@@ -110,26 +68,32 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={buyerType}
+            value={data.previousInvestment}
+            name="previousInvestment"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
             displayEmpty
-            onChange={handleBuyerType}
+            onChange={handleselect}
           >
-            <MenuItem value="">Previous investment?</MenuItem>
             <MenuItem value="Yes">Yes</MenuItem>
             <MenuItem value="No">No</MenuItem>
           </Select>
         </FormControl>
       </form>
-      {errors[0]?.errorType && (
-        <p className={classes.errorParagraph}>{errors[0]?.message}</p>
-      )}
       <div className={classes.buttonWrapper}>
         <RegistrationButton onClick={handlePreviousTab}>
           Previous
         </RegistrationButton>
-        <RegistrationButton onClick={handleNext}>Next</RegistrationButton>
+        <RegistrationButton
+          disabled={
+            !data.purchaseTimeline || !data.previousInvestment || !data.investmentRange
+              ? true
+              : false
+          }
+          onClick={handleNext}
+        >
+          Next
+        </RegistrationButton>
       </div>
     </>
   );

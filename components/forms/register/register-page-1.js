@@ -17,52 +17,19 @@ export default function RegisterFormPage1New({
   const [errors, setErrors] = useState([]);
 
   const handleNext = () => {
-    if (
-      buyerType.includes(true) ||
-      location.includes(true) ||
-      purchaseTimeline.includes(true) ||
-      investmentInterst.includes(true)
-    ) {
-      setErrors([
-        {
-          errorType: "incompleteForm",
-          message: "Please complete all sections",
-        },
-      ]);
-    } else {
-      setErrors([]);
       handleNextTab();
-    }
-  
-      if (result.errors.length > 0) {
-        setErrors([...result.errors]);
-      } else {
-        handleNextTab();
-      }
   };
-
-  // const [buyerType, setBuyerType] = useState("");
 
   const handleBuyerType = (event) => {
     handleChange(event)
-    // handleBuyer(event);
-    // setBuyerType(event.target.value);
   };
-
-  // const [location, setLocation] = useState("");
 
   const handleLocaleChange = (event) => {
     handleChange(event);
-    // handleLocale(event);
-    // setLocation(event.target.value);
   };
-
-  // const [investmentInterst, setInvestmentInterst] = useState("");
 
   const handleInvestmentInterest = (event) => {
     handleChange(event);
-    // handleInvestment(event);
-    // setInvestmentInterst(event.target.value);
   };
 
   return (
@@ -90,7 +57,7 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: "100%" }} size="small">
           <Select
             id="demo-simple-select"
-            value={data.investmentInterst}
+            value={data.investmentInterest}
             name="investmentInterest"
             inputProps={{ "aria-label": "Without label" }}
             autoWidth
@@ -129,9 +96,6 @@ export default function RegisterFormPage1New({
           </Select>
         </FormControl>
       </form>
-      {errors[0]?.errorType && (
-        <p className={classes.errorParagraph}>{errors[0]?.message}</p>
-      )}
           <div className={classes.buttonWrapper}>
             <RegistrationButton
               disabled={
