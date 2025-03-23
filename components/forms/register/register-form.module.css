@@ -47,6 +47,10 @@ r/** @format */
   font-weight: 300;
 }
 
+.registerForm1 label {
+  margin-bottom: 5px;
+}
+
 .registerForm1 p {
   line-height: normal;
   color: #4d0013;

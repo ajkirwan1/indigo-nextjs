@@ -2,8 +2,6 @@
 
 import { z } from "zod";
 
-// Zod schema for form validation
-
 export default function ValidateContactForm(
   companyName,
   email,
@@ -46,15 +44,12 @@ export default function ValidateContactForm(
   });
 
   if (!validationResult.success) {
-    // return validationResult.error.format();
     const formFieldErrors = validationResult.error.flatten().fieldErrors;
     const transformedObject = Object.keys(formFieldErrors).reduce((acc, key) => {
         acc[key] = formFieldErrors[key][0]; // Get the first element of the array
         return acc;
       }, {});
-      console.log(transformedObject, "transformedObject")
      return transformedObject;
   }
-
   return validationResult;
 }

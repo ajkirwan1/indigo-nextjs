@@ -17,7 +17,6 @@ export async function RegisterMultiPage(data) {
 
    try {
     const result = ValidateContactForm(companyName, email, confirmEmail, phoneNumber);
-    console.log(result, "RESULT")
 
     // await new Promise((resolve) => setTimeout(resolve, 10000));
     // throw new Error("FAILED TO REGISTER");
@@ -74,7 +73,8 @@ export async function RegisterMultiPage(data) {
     //   sessionCookie.value,
     //   sessionCookie.attributes
     // );
-    console.log(result)
+    return result;
+    console.log(result, "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ")
   } catch (error) {
     console.log(error, "ERROR")
 

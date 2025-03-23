@@ -68,114 +68,114 @@ const componentArray = [
   </div>,
   <div key={2} className={classes.heroWrapper}>
     <HeroComponent heroImage={swimmingImage} altText="Alt text">
-      <div className={classes.heroContents}>
-        <motion.div
-          layout
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          className={classes.heroInnerContents}
-        >
-          <motion.h2 layout className={classes.sectionTitle} variants={item}>
-            OUR SERVICES
-          </motion.h2>
-          <div className={classes.listContainer}>
-            <motion.div layout className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Development Consultancy</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+      <motion.div
+        className={classes.heroContents}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      >
+        <Overlay>
+          <div
+            layout
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+          >
+            <h2 layout className={classes.sectionTitle} variants={item}>
+              OUR SERVCES
+            </h2>
+            <div className={classes.listContainer}>
+              <div layout className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Development Consultancy</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div layout className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Development Opportunities Sourcing</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div layout className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Development Opportunities Sourcing</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Development Project Management</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Development Project Management</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Market Analysis</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Market Analysis</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Property Management</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Property Management</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Redevelopment Development Projects</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Redevelopment Development Projects</h3>
+                </div>
               </div>
-            </motion.div>
-            <motion.div className={classes.separator} variants={item}>
-              <div className={classes.service}>
-                <h3>Residency - Golden Visa</h3>
-                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
+              <div className={classes.separator} variants={item}>
+                <div className={classes.service}>
+                  <h3>Residency - Golden Visa</h3>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
-      </div>
+        </Overlay>
+      </motion.div>
     </HeroComponent>
   </div>,
   <div key={3} className={classes.heroWrapper}>
     <HeroComponent heroImage={buildingImage} altText="Alt text">
       <div className={classes.heroContents}>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          className={classes.heroInnerContents}
-        >
-          <motion.h2 className={classes.sectionTitle} variants={item}>
-          SAMPLE PROJECTS & CONSULTING WORK 
-          </motion.h2>
-          <div className={classes.box}>
-            <motion.div className={classes.separator} variants={item}>
-              <Link href="/case-studies">
-                <h3 style={{ lineHeight: '1.6' }}>
-                Discover examples of real estate redevelopments and advisory services we’ve delivered worldwide
-                </h3>
-                {/* <Image
-                  alt="icon"
-                  src={properties}
-                  className={classes.properties}
-                /> */}
-              </Link>
-            </motion.div>
+        <Overlay>
+          <div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            className={classes.heroInnerContents}
+          >
+            <h2 className={classes.sectionTitle} variants={item}>
+              SAMPLE PROJECTS & CONSULTING WORK
+            </h2>
+            <div className={classes.box}>
+              <div className={classes.separator} variants={item}>
+                <Link href="/case-studies">
+                  <h3 style={{ lineHeight: "1.6" }}>
+                    Discover examples of real estate redevelopments and advisory
+                    services we’ve delivered worldwide
+                  </h3>
+                </Link>
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </Overlay>
       </div>
     </HeroComponent>
   </div>,
   <div key={4} className={classes.heroWrapper}>
     <HeroComponent heroImage={isoImage} altText="Alt text">
       <div className={classes.heroContents}>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          className={classes.heroInnerContents}
-        >
-          <motion.h2 className={classes.sectionTitle} variants={item}>
-            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
-          </motion.h2>
-          <motion.div className={classes.separator} variants={item}>
-            <Link href="/contact">
-              <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
-              <Image alt="icon" src={envelope} className={classes.envelope} />
-            </Link>
-          </motion.div>
-        </motion.div>
+        <Overlay>
+          <div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            className={classes.heroInnerContents}
+          >
+            <h2 className={classes.sectionTitle} variants={item}>
+              YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
+            </h2>
+            <div className={classes.separator} variants={item}>
+              <Link href="/contact">
+                <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
+                <Image alt="icon" src={envelope} className={classes.envelope} />
+              </Link>
+            </div>
+          </div>
+        </Overlay>
       </div>
     </HeroComponent>
   </div>,

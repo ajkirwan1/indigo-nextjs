@@ -20,7 +20,7 @@ export default function RegisterFormPage3New({
   data,
   handleChange,
 }) {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const [tickboxSelected, setTickboxSelected] = useState(false);
   const [submitPending, setsubmitPending] = useState(false);
 
@@ -33,6 +33,12 @@ export default function RegisterFormPage3New({
     setsubmitPending(true);
 
     const submitResult = await RegisterMultiPage(data);
+    if (submitResult.success) {
+      console.log(submitResult, "ZZZZZZZZZZZZZZZZZZZZZZ");
+    } else {
+      console.log(submitResult);
+      setErrors({ ...submitResult });
+    }
 
     // console.log(submitResult);
 
@@ -41,6 +47,7 @@ export default function RegisterFormPage3New({
     //   setsubmitPending(false);
     // }
     setsubmitPending(false);
+    console.log(errors);
   };
 
   return (
@@ -55,67 +62,57 @@ export default function RegisterFormPage3New({
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
               id="outlined-basic"
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
               variant="outlined"
               onChange={handleChange}
               name="companyName"
             />
           </FormControl>
         </div>
-        {/* {errors?.find((item) => item.errorType == "username") ? (
-          <p className={classes.errorA}>Invalid user name</p>
-        ) : errors?.find((item) => item.errorType == "usernameExists") ? (
-          <p className={classes.errorA}>Username already exists</p>
-        ) : null} */}
-        {/* Error */}
+        {errors.companyName && (
+          <p className={classes.errorA}>{errors.companyName}</p>
+        )}
         <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
           <label>Email address</label>
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
               id="outlined-basic"
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
               variant="outlined"
               onChange={handleChange}
               name="email"
             />
           </FormControl>
         </div>
-        {/* Error */}
+        {errors.email && (
+          <p className={classes.errorB}>{errors.email}</p>
+        )}
         <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
           <label>Confirm email address</label>
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
               id="outlined-basic"
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
               variant="outlined"
               onChange={handleChange}
               name="confirmEmail"
             />
           </FormControl>
         </div>
-        {/* Error */}
-        {/* <PhoneInput country="de" regions={"europe"} /> */}
+        {errors.confirmEmail && (
+          <p className={classes.errorC}>{errors.confirmEmail}</p>
+        )}
         <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
           <label>Telephone number</label>
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
               id="outlined-basic"
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
               variant="outlined"
               onChange={handleChange}
               name="phoneNumber"
             />
           </FormControl>
         </div>
-        {/* Error */}
+        {errors.phoneNumber && (
+          <p className={classes.errorD}>{errors.phoneNumber}</p>
+        )}
         <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
             <label>

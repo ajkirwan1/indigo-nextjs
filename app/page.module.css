@@ -13,6 +13,19 @@
   transform: translateX(-5px);
 } */
 
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  grid-template-rows: repeat(3, 1fr);    /* 2 equal rows */
+  align-items: center;
+  gap: 10px; /* Adjust the gap between grid items */
+}
+
+.listContainer > div:nth-child(7) {
+  grid-column: 2; /* Center the last item in the middle column */
+  grid-row: 3;    /* Place it in the last row */
+}
+
 .heroWrapper {
   position: relative;
   height: 100vh;
@@ -221,15 +234,17 @@
   font-weight: 300;
 }
 
-.service {
+/* .service {
   display: flex;
   justify-content: center;
-}
+} */
 
 .service h3 {
   font-size: 16px;
   font-weight: 300;
   flex: 0 0 auto;
+  letter-spacing: normal;
+  line-height: normal;
 }
 
 .circleIcon {
@@ -368,9 +383,9 @@
     font-weight: 300;
     line-height: 1.5;
   }
-  .box .separator {
+  /* .box .separator {
     flex-direction: column;
-  }
+  } */
   .properties {
     width: 40px;
     height: auto;
@@ -401,7 +416,7 @@
   .service h3 {
     flex: 0 0 auto;
   }
-  .service .circleIcon {
+  /* .service .circleIcon {
     width: 20px;
     height: 20px;
   }
@@ -409,7 +424,7 @@
     margin-left: 10px;
     width: 16px;
     height: 16px;
-  }
+  } */
 
   .heroContents {
     width: 80vw;
@@ -421,11 +436,7 @@
     line-height: 1.8;
   }
 
-  .listContainer {
-    display: flex;
-    flex-direction: column;
-    /* align-items: flex-end; */
-  }
+
 
   .circleIcon {
     margin-top: 0;
