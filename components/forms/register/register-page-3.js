@@ -8,23 +8,45 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Checkbox from "@mui/material/Checkbox";
-
-import PhoneInput from "react-phone-input-2";
+import Image from "next/image";
+import userIcon from "/public/images/icons/add-user.png";
+import { RegisterMultiPage } from "@/server/actions/submit-multi-register";
+import { Spinner } from "@nextui-org/spinner";
 
 import "react-phone-input-2/lib/material.css";
 
-export default function RegisterFormPage3New({ handlePreviousTab }) {
-  // const [errors, setErrors] = useState([]);
-
+export default function RegisterFormPage3New({
+  handlePreviousTab,
+  data,
+  handleChange,
+}) {
+  const [errors, setErrors] = useState([]);
   const [tickboxSelected, setTickboxSelected] = useState(false);
+  const [submitPending, setsubmitPending] = useState(false);
+
   const handleCheckBox = () => {
     setTickboxSelected((val) => !val);
   };
 
+  const handleSubmitForm = async () => {
+    setErrors([]);
+    setsubmitPending(true);
+
+    const submitResult = await RegisterMultiPage(data);
+
+    console.log(submitResult);
+
+    if (submitResult?.dbErrorMessage) {
+      setErrors([{ ...submitResult }]);
+      setsubmitPending(false);
+    }
+  };
+
   return (
-    <div>
+    <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
+        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
       </div>
       <form className={classes.registerForm1}>
         <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
@@ -36,6 +58,7 @@ export default function RegisterFormPage3New({ handlePreviousTab }) {
                 <InputAdornment position="start">$</InputAdornment>
               }
               variant="outlined"
+              onChange={handleChange}
             />
           </FormControl>
         </div>
@@ -54,6 +77,7 @@ export default function RegisterFormPage3New({ handlePreviousTab }) {
                 <InputAdornment position="start">$</InputAdornment>
               }
               variant="outlined"
+              onChange={handleChange}
             />
           </FormControl>
         </div>
@@ -67,6 +91,7 @@ export default function RegisterFormPage3New({ handlePreviousTab }) {
                 <InputAdornment position="start">$</InputAdornment>
               }
               variant="outlined"
+              onChange={handleChange}
             />
           </FormControl>
         </div>
@@ -81,6 +106,7 @@ export default function RegisterFormPage3New({ handlePreviousTab }) {
                 <InputAdornment position="start">$</InputAdornment>
               }
               variant="outlined"
+              onChange={handleChange}
             />
           </FormControl>
         </div>
@@ -105,13 +131,24 @@ export default function RegisterFormPage3New({ handlePreviousTab }) {
         <p className={classes.errorParagraph}>{errors[0]?.message}</p>
       )} */}
       <div className={classes.buttonWrapper}>
-        <RegistrationButton onClick={handlePreviousTab}>
-          Previous
-        </RegistrationButton>
-        <RegistrationButton disabled={!tickboxSelected}>
-          Next
-        </RegistrationButton>
+        {submitPending ? (
+          <div className={classes.spinner}>
+            <Spinner color="secondary" size="lg" />
+          </div>
+        ) : (
+          <>
+            <RegistrationButton onClick={handlePreviousTab}>
+              Previous
+            </RegistrationButton>
+            <RegistrationButton
+              disabled={!tickboxSelected}
+              onClick={() => handleSubmitForm()}
+            >
+              Submit
+            </RegistrationButton>
+          </>
+        )}
       </div>
-    </div>
+    </>
   );
 }

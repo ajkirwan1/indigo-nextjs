@@ -1,4 +1,4 @@
-/** @format */
+r/** @format */
 
 .header {
   color: aliceblue !important;
@@ -8,6 +8,7 @@
 }
 
 .headerContainer h1 {
+  padding: 10px;
   font-size: 26px;
 }
 
@@ -56,7 +57,7 @@
 .registerForm3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 20px;
+  row-gap: 10px;
   justify-items: center;
   font-weight: 300;
   margin-bottom: 5vh;
@@ -112,7 +113,7 @@
   padding: 10px;
   padding-bottom: 0;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
 }
 
 .formItemContainer input {
@@ -235,9 +236,9 @@
 
 .headerContainer {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
-  align-items: flex-start;
+  /* align-items: flex-start; */
 }
 
 .spinner {
@@ -292,6 +293,20 @@
   grid-row-end: 3;
 }
 
+.ItemE {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.ItemF {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
 .errorD {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -316,6 +331,22 @@
   letter-spacing: normal;
   font-weight: 400;
   color: #4d0013;
+}
+
+
+.infoWrapper {
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.infoWrapper h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.infoWrapper p {
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1920px) {
@@ -414,7 +445,7 @@
     justify-content: unset;
     margin-bottom: unset;
     /* width: unset; */
-    row-gap: unset;
+    /* row-gap: unset; */
   }
 
 }
@@ -455,7 +486,7 @@
     justify-content: unset;
     margin-bottom: unset;
     width: unset;
-    row-gap: unset;
+    /* row-gap: unset; */
   }
 
 
@@ -536,7 +567,7 @@
     justify-content: unset;
     margin-bottom: unset;
     width: unset;
-    row-gap: 12px;
+    row-gap: 10px;
     margin-bottom: 2vh;
   }
 

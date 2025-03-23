@@ -4,6 +4,7 @@
 import { useState } from "react";
 import classes from "./register-page.module.css";
 import { AnimatePresence, motion } from "framer-motion";
+import RegisterFormPage0New from "@/components/forms/register/register-page-0";
 import RegisterFormPage1New from "@/components/forms/register/register-page-1";
 import RegisterFormPage2New from "@/components/forms/register/register-page-2";
 import RegisterFormPage3New from "@/components/forms/register/register-page-3";
@@ -50,8 +51,6 @@ export default function RegisterPageComponent() {
     });
   };
 
-  // const [phone, setPhone] = useState("");
-
   const formElements = [
     // <motion.div
     //   key={0}
@@ -60,36 +59,42 @@ export default function RegisterPageComponent() {
     //   transition={{ duration: 0.5 }}
     //   exit={{ opacity: 0 }}
     //   className={`${classes.formcontainer} ${classes.large}`}
-    // >asdsad</motion.div>,
-    <motion.div
-      key={1}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }}
-      className={`${classes.formcontainer} ${classes.large}`}
-    >
-      <RegisterFormPage1New
-        handleNextTab={handleNextTab}
-        handleChange={handleChange}
-        data={data}
-      />
-    </motion.div>,
-    <motion.div
-      key={2}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }}
-      className={`${classes.formcontainer} ${classes.large}`}
-    >
-      <RegisterFormPage2New
-        handlePreviousTab={handlePreviousTab}
-        handleNextTab={handleNextTab}
-        handleChange={handleChange}
-        data={data}
-      />
-    </motion.div>,
+    // >
+    //   <RegisterFormPage0New
+    //     handleNextTab={handleNextTab}
+    //     handleChange={handleChange}
+    //     data={data}
+    //   />
+    // </motion.div>,
+    // <motion.div
+    //   key={1}
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1 }}
+    //   transition={{ duration: 0.5 }}
+    //   exit={{ opacity: 0 }}
+    //   className={`${classes.formcontainer} ${classes.large}`}
+    // >
+    //   <RegisterFormPage1New
+    //     handleNextTab={handleNextTab}
+    //     handleChange={handleChange}
+    //     data={data}
+    //   />
+    // </motion.div>,
+    // <motion.div
+    //   key={2}
+    //   initial={{ opacity: 0 }}
+    //   animate={{ opacity: 1 }}
+    //   transition={{ duration: 0.5 }}
+    //   exit={{ opacity: 0 }}
+    //   className={`${classes.formcontainer} ${classes.large}`}
+    // >
+    //   <RegisterFormPage2New
+    //     handlePreviousTab={handlePreviousTab}
+    //     handleNextTab={handleNextTab}
+    //     handleChange={handleChange}
+    //     data={data}
+    //   />
+    // </motion.div>,
     <motion.div
       key={3}
       initial={{ opacity: 0 }}

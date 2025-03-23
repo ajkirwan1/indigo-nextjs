@@ -7,14 +7,13 @@ import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import Image from "next/image";
+import userIcon from "/public/images/icons/add-user.png";
 export default function RegisterFormPage1New({
   data,
   handleNextTab,
   handleChange,
 }) {
-  const [errors, setErrors] = useState([]);
-
   const handleNext = () => {
     handleNextTab();
   };
@@ -35,6 +34,7 @@ export default function RegisterFormPage1New({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
+            <Image className={classes.iconRegister} src={userIcon} alt="alt" />
       </div>
       <form className={classes.registerForm3}>
         <label>Are you located in Greece or a foreign country?</label>
@@ -50,13 +50,13 @@ export default function RegisterFormPage1New({
             sx={{ backgroundColor: "white" }}
             renderValue={(selected) => {
               if (!selected) {
-                return <span style={{ color: "gray" }}>Select your buyer type</span>;
+                return <span style={{ color: "gray" }}>Select</span>;
               }
               return selected;
             }}
           >
             <MenuItem value="" disabled>
-              Select your location
+              Select
             </MenuItem>
             <MenuItem value="Greece">Greece</MenuItem>
             <MenuItem value="Other">Other</MenuItem>
@@ -76,13 +76,13 @@ export default function RegisterFormPage1New({
             sx={{ backgroundColor: "white", color: "black" }}
             renderValue={(selected) => {
               if (!selected) {
-                return <span style={{ color: "gray" }}>Select your buyer type</span>;
+                return <span style={{ color: "gray" }}>Select</span>;
               }
               return selected;
             }}
           >
             <MenuItem value="" disabled>
-              Select your investment interest
+              Select
             </MenuItem>
             <MenuItem value="Buying a property">Buying a property</MenuItem>
             <MenuItem value="Developing a building for ROI">
@@ -110,13 +110,13 @@ export default function RegisterFormPage1New({
             sx={{ backgroundColor: "white" }}
             renderValue={(selected) => {
               if (!selected) {
-                return <span style={{ color: "gray" }}>Select your buyer type</span>;
+                return <span style={{ color: "gray" }}>Select</span>;
               }
               return selected;
             }}
           >
-            <MenuItem value="">
-              Select your buyer type
+            <MenuItem value="" disabled sx={{ color: "gray" }}>
+              Select
             </MenuItem>
             <MenuItem value="Buying a property">Direct buyer</MenuItem>
             <MenuItem value="Developing a building for ROI">
