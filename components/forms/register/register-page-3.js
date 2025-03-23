@@ -12,7 +12,7 @@ import Image from "next/image";
 import userIcon from "/public/images/icons/add-user.png";
 import { RegisterMultiPage } from "@/server/actions/submit-multi-register";
 import { Spinner } from "@nextui-org/spinner";
-
+import { RegisterEmail } from "@/lib/register-email";
 import "react-phone-input-2/lib/material.css";
 
 export default function RegisterFormPage3New({
@@ -34,20 +34,12 @@ export default function RegisterFormPage3New({
 
     const submitResult = await RegisterMultiPage(data);
     if (submitResult.success) {
-      console.log(submitResult, "ZZZZZZZZZZZZZZZZZZZZZZ");
+      console.log(data)
+      const registerEmail = await RegisterEmail(data)
     } else {
-      console.log(submitResult);
       setErrors({ ...submitResult });
     }
-
-    // console.log(submitResult);
-
-    // if (submitResult?.dbErrorMessage) {
-    //   setErrors([{ ...submitResult }]);
-    //   setsubmitPending(false);
-    // }
     setsubmitPending(false);
-    console.log(errors);
   };
 
   return (
@@ -129,9 +121,6 @@ export default function RegisterFormPage3New({
           </div>
         </div>
       </form>
-      {/* {errors[0]?.errorType && (
-        <p className={classes.errorParagraph}>{errors[0]?.message}</p>
-      )} */}
       <div className={classes.buttonWrapper}>
         {submitPending ? (
           <div className={classes.spinner}>

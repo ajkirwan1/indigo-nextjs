@@ -5,7 +5,7 @@ import Header from "@/components/ui/header/header";
 import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
-import circle from "/public/images/pages/home/circledwh.png";
+import LinkButton from "@/components/ui/buttons/link-button/link-button";
 import heroImage from "/public/images/pages/home/secondhero.jpg";
 import swimmingImage from "/public/images/pages/home/istock.jpg";
 import buildingImage from "/public/images//pages/home/pool3.jpg";
@@ -17,6 +17,7 @@ import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
 import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
+import FormSubmit from "@/components/forms/formsubmit";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -76,12 +77,7 @@ const componentArray = [
         viewport={{ once: true }}
       >
         <Overlay>
-          <div
-            layout
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-          >
+          <div layout variants={container} initial="hidden" whileInView="show">
             <h2 layout className={classes.sectionTitle} variants={item}>
               OUR SERVCES
             </h2>
@@ -129,54 +125,64 @@ const componentArray = [
   </div>,
   <div key={3} className={classes.heroWrapper}>
     <HeroComponent heroImage={buildingImage} altText="Alt text">
-      <div className={classes.heroContents}>
+      <motion.div
+        className={classes.heroContents}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      >
         <Overlay>
           <div
             variants={container}
             initial="hidden"
             whileInView="show"
-            className={classes.heroInnerContents}
+            // className={classes.heroInnerContents}
           >
             <h2 className={classes.sectionTitle} variants={item}>
               SAMPLE PROJECTS & CONSULTING WORK
             </h2>
             <div className={classes.box}>
               <div className={classes.separator} variants={item}>
-                <Link href="/case-studies">
-                  <h3 style={{ lineHeight: "1.6" }}>
-                    Discover examples of real estate redevelopments and advisory
-                    services we’ve delivered worldwide
-                  </h3>
-                </Link>
+                <h3 style={{ lineHeight: "1.6" }}>
+                  Discover examples of real estate redevelopments and advisory
+                  services we’ve delivered worldwide
+                </h3>
               </div>
             </div>
           </div>
+          <div className={classes.submitButtonContainer}>
+            <LinkButton location={"/case-studies"}>See our work</LinkButton>
+          </div>
         </Overlay>
-      </div>
+      </motion.div>
     </HeroComponent>
   </div>,
   <div key={4} className={classes.heroWrapper}>
     <HeroComponent heroImage={isoImage} altText="Alt text">
-      <div className={classes.heroContents}>
+      <motion.div
+        className={classes.heroContents}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        viewport={{ once: true }}
+      >
         <Overlay>
           <div
             variants={container}
             initial="hidden"
             whileInView="show"
-            className={classes.heroInnerContents}
+            // className={classes.heroInnerContents}
           >
             <h2 className={classes.sectionTitle} variants={item}>
               YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
             </h2>
-            <div className={classes.separator} variants={item}>
-              <Link href="/contact">
-                <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
-                <Image alt="icon" src={envelope} className={classes.envelope} />
-              </Link>
-            </div>
+            <div className={classes.submitButtonContainer}>
+            <LinkButton location={"/register"}>Register</LinkButton>
+          </div>
           </div>
         </Overlay>
-      </div>
+      </motion.div>
     </HeroComponent>
   </div>,
 ];

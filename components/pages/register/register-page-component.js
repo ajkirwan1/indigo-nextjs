@@ -17,12 +17,7 @@ export default function RegisterPageComponent() {
   const [activeTab, setActiveTab] = useState(0);
 
   const [data, setData] = useState({
-    userName: "",
     email: "",
-    password: "",
-    passwordConfirm: "",
-    firstName: "",
-    lastName: "",
     companyName: "",
     phoneNumber: "",
     buyerType: "",
@@ -43,8 +38,6 @@ export default function RegisterPageComponent() {
   };
 
   const handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.value);
     const { name, value } = event.target;
     setData({
       ...data,
@@ -53,49 +46,49 @@ export default function RegisterPageComponent() {
   };
 
   const formElements = [
-    // <motion.div
-    //   key={0}
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 0.5 }}
-    //   exit={{ opacity: 0 }}
-    //   className={`${classes.formcontainer} ${classes.large}`}
-    // >
-    //   <RegisterFormPage0New
-    //     handleNextTab={handleNextTab}
-    //     handleChange={handleChange}
-    //     data={data}
-    //   />
-    // </motion.div>,
-    // <motion.div
-    //   key={1}
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 0.5 }}
-    //   exit={{ opacity: 0 }}
-    //   className={`${classes.formcontainer} ${classes.large}`}
-    // >
-    //   <RegisterFormPage1New
-    //     handleNextTab={handleNextTab}
-    //     handleChange={handleChange}
-    //     data={data}
-    //   />
-    // </motion.div>,
-    // <motion.div
-    //   key={2}
-    //   initial={{ opacity: 0 }}
-    //   animate={{ opacity: 1 }}
-    //   transition={{ duration: 0.5 }}
-    //   exit={{ opacity: 0 }}
-    //   className={`${classes.formcontainer} ${classes.large}`}
-    // >
-    //   <RegisterFormPage2New
-    //     handlePreviousTab={handlePreviousTab}
-    //     handleNextTab={handleNextTab}
-    //     handleChange={handleChange}
-    //     data={data}
-    //   />
-    // </motion.div>,
+    <motion.div
+      key={0}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+      className={`${classes.formcontainer} ${classes.large}`}
+    >
+      <RegisterFormPage0New
+        handleNextTab={handleNextTab}
+        handleChange={handleChange}
+        data={data}
+      />
+    </motion.div>,
+    <motion.div
+      key={1}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+      className={`${classes.formcontainer} ${classes.large}`}
+    >
+      <RegisterFormPage1New
+        handleNextTab={handleNextTab}
+        handleChange={handleChange}
+        data={data}
+      />
+    </motion.div>,
+    <motion.div
+      key={2}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+      className={`${classes.formcontainer} ${classes.large}`}
+    >
+      <RegisterFormPage2New
+        handlePreviousTab={handlePreviousTab}
+        handleNextTab={handleNextTab}
+        handleChange={handleChange}
+        data={data}
+      />
+    </motion.div>,
     <motion.div
       key={3}
       initial={{ opacity: 0 }}
