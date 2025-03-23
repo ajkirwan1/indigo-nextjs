@@ -31,6 +31,7 @@ export default function RegisterPageComponent() {
     investmentInterest: "",
     investmentRange: "",
     previousInvestment: "",
+    confirmEmail: ""
   });
 
   const handleNextTab = () => {

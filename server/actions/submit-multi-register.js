@@ -8,13 +8,22 @@ import { cookies } from "next/headers";
 import { lucia } from "@/auth/lucia";
 import { generateIdFromEntropySize } from "lucia";
 import { redirect } from "next/navigation";
-
+import { formSchema } from "@/utils/validation/register-form-validation";
 import db from "@/modules/db";
+import ValidateContactForm from "@/utils/validation/register-form-validation";
 
 export async function RegisterMultiPage(data) {
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-    throw new Error("FAILED TO REGISTER");
+  const { companyName, email, confirmEmail, phoneNumber } = data;
+
+   try {
+    const result = ValidateContactForm(companyName, email, confirmEmail, phoneNumber);
+    console.log(result, "RESULT")
+
+    // await new Promise((resolve) => setTimeout(resolve, 10000));
+    // throw new Error("FAILED TO REGISTER");
+
+    // const parsedData = formSchema.parse(data);
+
     // const userid = generateIdFromEntropySize(10);
     // const passwordHash = await new LegacyScrypt().hash(data.password);
     // let investmentInterestArray = [];
@@ -65,13 +74,11 @@ export async function RegisterMultiPage(data) {
     //   sessionCookie.value,
     //   sessionCookie.attributes
     // );
-
+    console.log(result)
   } catch (error) {
-    return {
-      dbErrorMessage: " An error occured accessing the database",
-    };
-  }
+    console.log(error, "ERROR")
 
+  }
   // return redirect("/register/pending-auth");
-  return redirect("/account?initial=true");
+  // return redirect("/account?initial=true");
 }

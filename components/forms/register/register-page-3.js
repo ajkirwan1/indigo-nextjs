@@ -34,12 +34,13 @@ export default function RegisterFormPage3New({
 
     const submitResult = await RegisterMultiPage(data);
 
-    console.log(submitResult);
+    // console.log(submitResult);
 
-    if (submitResult?.dbErrorMessage) {
-      setErrors([{ ...submitResult }]);
-      setsubmitPending(false);
-    }
+    // if (submitResult?.dbErrorMessage) {
+    //   setErrors([{ ...submitResult }]);
+    //   setsubmitPending(false);
+    // }
+    setsubmitPending(false);
   };
 
   return (
@@ -59,6 +60,7 @@ export default function RegisterFormPage3New({
               }
               variant="outlined"
               onChange={handleChange}
+              name="companyName"
             />
           </FormControl>
         </div>
@@ -78,6 +80,7 @@ export default function RegisterFormPage3New({
               }
               variant="outlined"
               onChange={handleChange}
+              name="email"
             />
           </FormControl>
         </div>
@@ -92,6 +95,7 @@ export default function RegisterFormPage3New({
               }
               variant="outlined"
               onChange={handleChange}
+              name="confirmEmail"
             />
           </FormControl>
         </div>
@@ -107,6 +111,7 @@ export default function RegisterFormPage3New({
               }
               variant="outlined"
               onChange={handleChange}
+              name="phoneNumber"
             />
           </FormControl>
         </div>
