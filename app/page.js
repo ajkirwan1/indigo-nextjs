@@ -5,7 +5,7 @@ import Header from "@/components/ui/header/header";
 import Overlay from "@/components/overlay";
 import Image from "next/image";
 import classes from "./page.module.css";
-import LinkButton from "@/components/ui/buttons/link-button/link-button";
+import circle from "/public/images/pages/home/circledwh.png";
 import heroImage from "/public/images/pages/home/secondhero.jpg";
 import swimmingImage from "/public/images/pages/home/istock.jpg";
 import buildingImage from "/public/images//pages/home/pool3.jpg";
@@ -17,7 +17,6 @@ import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
 import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
-import FormSubmit from "@/components/forms/formsubmit";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -69,120 +68,115 @@ const componentArray = [
   </div>,
   <div key={2} className={classes.heroWrapper}>
     <HeroComponent heroImage={swimmingImage} altText="Alt text">
-      <motion.div
-        className={classes.heroContents}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        viewport={{ once: true }}
-      >
-        <Overlay>
-          <div layout variants={container} initial="hidden" whileInView="show">
-            <h2 layout className={classes.sectionTitle} variants={item}>
-              OUR SERVCES
-            </h2>
-            <div className={classes.listContainer}>
-              <div layout className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Development Consultancy</h3>
-                </div>
+      <div className={classes.heroContents}>
+        <motion.div
+          layout
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.heroInnerContents}
+        >
+          <motion.h2 layout className={classes.sectionTitle} variants={item}>
+            OUR SERVICES
+          </motion.h2>
+          <div className={classes.listContainer}>
+            <motion.div layout className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Development Consultancy</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div layout className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Development Opportunities Sourcing</h3>
-                </div>
+            </motion.div>
+            <motion.div layout className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Development Opportunities Sourcing</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Development Project Management</h3>
-                </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Development Project Management</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Market Analysis</h3>
-                </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Market Analysis</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Property Management</h3>
-                </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Property Management</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Redevelopment Development Projects</h3>
-                </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Redevelopment Development Projects</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-              <div className={classes.separator} variants={item}>
-                <div className={classes.service}>
-                  <h3>Residency - Golden Visa</h3>
-                </div>
+            </motion.div>
+            <motion.div className={classes.separator} variants={item}>
+              <div className={classes.service}>
+                <h3>Residency - Golden Visa</h3>
+                {/* <Image alt="icon" src={circle} className={classes.circleIcon} /> */}
               </div>
-            </div>
+            </motion.div>
           </div>
-        </Overlay>
-      </motion.div>
+        </motion.div>
+      </div>
     </HeroComponent>
   </div>,
   <div key={3} className={classes.heroWrapper}>
     <HeroComponent heroImage={buildingImage} altText="Alt text">
-      <motion.div
-        className={classes.heroContents}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        viewport={{ once: true }}
-      >
-        <Overlay>
-          <div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            // className={classes.heroInnerContents}
-          >
-            <h2 className={classes.sectionTitle} variants={item}>
-              SAMPLE PROJECTS & CONSULTING WORK
-            </h2>
-            <div className={classes.box}>
-              <div className={classes.separator} variants={item}>
-                <h3 style={{ lineHeight: "1.6" }}>
-                  Discover examples of real estate redevelopments and advisory
-                  services we’ve delivered worldwide
+      <div className={classes.heroContents}>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.heroInnerContents}
+        >
+          <motion.h2 className={classes.sectionTitle} variants={item}>
+          SAMPLE PROJECTS & CONSULTING WORK 
+          </motion.h2>
+          <div className={classes.box}>
+            <motion.div className={classes.separator} variants={item}>
+              <Link href="/case-studies">
+                <h3 style={{ lineHeight: '1.6' }}>
+                Discover examples of real estate redevelopments and advisory services we’ve delivered worldwide
                 </h3>
-              </div>
-            </div>
+                {/* <Image
+                  alt="icon"
+                  src={properties}
+                  className={classes.properties}
+                /> */}
+              </Link>
+            </motion.div>
           </div>
-          <div className={classes.submitButtonContainer}>
-            <LinkButton location={"/case-studies"}>See our work</LinkButton>
-          </div>
-        </Overlay>
-      </motion.div>
+        </motion.div>
+      </div>
     </HeroComponent>
   </div>,
   <div key={4} className={classes.heroWrapper}>
     <HeroComponent heroImage={isoImage} altText="Alt text">
-      <motion.div
-        className={classes.heroContents}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        viewport={{ once: true }}
-      >
-        <Overlay>
-          <div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            // className={classes.heroInnerContents}
-          >
-            <h2 className={classes.sectionTitle} variants={item}>
-              YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
-            </h2>
-            <div className={classes.submitButtonContainer}>
-            <LinkButton location={"/register"}>Register</LinkButton>
-          </div>
-          </div>
-        </Overlay>
-      </motion.div>
+      <div className={classes.heroContents}>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          className={classes.heroInnerContents}
+        >
+          <motion.h2 className={classes.sectionTitle} variants={item}>
+            YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
+          </motion.h2>
+          <motion.div className={classes.separator} variants={item}>
+            <Link href="/contact">
+              <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
+              <Image alt="icon" src={envelope} className={classes.envelope} />
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
     </HeroComponent>
   </div>,
 ];
