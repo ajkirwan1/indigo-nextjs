@@ -17,6 +17,7 @@ import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
 import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
+import LinkButton from "@/components/ui/buttons/link-button/link-button";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -137,13 +138,14 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h2 className={classes.sectionTitle} variants={item}>
-          SAMPLE PROJECTS & CONSULTING WORK 
+            SAMPLE PROJECTS & CONSULTING WORK
           </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/case-studies">
-                <h3 style={{ lineHeight: '1.6' }}>
-                Discover examples of real estate redevelopments and advisory services we’ve delivered worldwide
+                <h3 style={{ lineHeight: "1.6" }}>
+                  Discover examples of real estate redevelopments and advisory
+                  services we’ve delivered worldwide
                 </h3>
                 {/* <Image
                   alt="icon"
@@ -170,9 +172,8 @@ const componentArray = [
             YOUR GATEWAY TO SUCCESSFUL REAL ESTATE INVESTMENTS IN GREECE
           </motion.h2>
           <motion.div className={classes.separator} variants={item}>
-            <Link href="/contact">
-              <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
-              <Image alt="icon" src={envelope} className={classes.envelope} />
+            <Link href="/register">
+              <motion.h3 variants={item}>Register with Indigo</motion.h3>
             </Link>
           </motion.div>
         </motion.div>

@@ -36,7 +36,7 @@ export default function RegisterFormPage3New({
     const submitResult = await RegisterMultiPage(data);
     if (submitResult.success) {
       const registerEmail = await RegisterEmail(data);
-      if (registerEmail.emailSubmissionError) {
+      if (registerEmail?.emailSubmissionError) {
         handleError()
       }
     } else {

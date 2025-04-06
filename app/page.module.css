@@ -171,7 +171,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
-  height: 42vh;
+  /* height: 42vh; */
 }
 
 .iconContainer {
@@ -196,6 +196,12 @@
 .heroContents a {
   color: #f0f8ff;
 }
+
+.heroContents a:hover {
+  color: #f0f8ff;
+  text-decoration-thickness: 1px;
+}
+
 .separator h3 {
   font-weight: 300;
   flex: 1 40%;
