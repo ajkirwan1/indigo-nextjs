@@ -5,10 +5,7 @@ import classes from "./register-form.module.css";
 import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Image from "next/image";
 import userIcon from "/public/images/icons/add-user.png";
-export default function RegisterFormPage0New({
-  handleNextTab,
-}) {
-
+export default function RegisterFormPage0New({ handleNextTab }) {
   const handleNext = () => {
     handleNextTab();
   };
@@ -17,7 +14,7 @@ export default function RegisterFormPage0New({
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-            <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
       </div>
       <div className={classes.infoWrapper}>
         <h2>
@@ -25,12 +22,11 @@ export default function RegisterFormPage0New({
           Services
         </h2>
         <p>
-          By providing your details, you can gain access to tailored property
-          development services, including expert consultancy, investment
-          opportunities, and project management. We will guide you from
-          planning to completion, while unlocking exclusive opportunities like
-          redevelopment projects and residency options such as the Golden Visa
-          program, ensuring informed decisions and successful outcomes.
+          By sharing your details, you&apos;ll access tailored property development
+          services, including consultancy, investment opportunities, and project
+          management. We&apos;ll guide you through planning to completion, offering
+          exclusive options like redevelopment projects and the Golden Visa
+          program.
         </p>
       </div>
       <div className={classes.buttonWrapper}>

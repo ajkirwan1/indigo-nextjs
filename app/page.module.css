@@ -287,6 +287,13 @@
   cursor: pointer;
 }
 
+.submitButtonContainer {
+  margin: 2vh;
+  display: flex;
+  width: 100px;
+  height: 30px;
+}
+
 @media only screen and (min-width: 1800px) {
 }
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {

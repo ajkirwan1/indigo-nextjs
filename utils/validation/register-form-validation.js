@@ -12,8 +12,8 @@ export default function ValidateContactForm(
   const formSchema = z.object({
     companyName: z
       .string()
-      .nonempty({ message: "Company name is required" })
-      .min(3, { message: "Company name must be at least 3 characters long" }),
+      .nonempty({ message: "A name is required" })
+      .min(3, { message: "A name must be at least 3 characters long" }),
 
     email: z
       .string()

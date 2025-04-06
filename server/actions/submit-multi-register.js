@@ -74,7 +74,6 @@ export async function RegisterMultiPage(data) {
     //   sessionCookie.attributes
     // );
     return result;
-    console.log(result, "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ")
   } catch (error) {
     console.log(error, "ERROR")
 

@@ -118,11 +118,12 @@ export default function RegisterFormPage1New({
             <MenuItem value="" disabled sx={{ color: "gray" }}>
               Select
             </MenuItem>
-            <MenuItem value="Buying a property">Direct buyer</MenuItem>
-            <MenuItem value="Developing a building for ROI">
+            <MenuItem value="Direct buyer">Direct buyer</MenuItem>
+            <MenuItem value="Real estate agent">
               Real estate agent
             </MenuItem>
-            <MenuItem value="Market analysis">Development investor</MenuItem>
+            <MenuItem value="Development investor">Development investor</MenuItem>
+            <MenuItem value="Other">Other</MenuItem>
           </Select>
         </FormControl>
       </form>

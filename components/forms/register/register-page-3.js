@@ -19,6 +19,7 @@ export default function RegisterFormPage3New({
   handlePreviousTab,
   data,
   handleChange,
+  handleError
 }) {
   const [errors, setErrors] = useState({});
   const [tickboxSelected, setTickboxSelected] = useState(false);
@@ -34,8 +35,10 @@ export default function RegisterFormPage3New({
 
     const submitResult = await RegisterMultiPage(data);
     if (submitResult.success) {
-      console.log(data)
-      const registerEmail = await RegisterEmail(data)
+      const registerEmail = await RegisterEmail(data);
+      if (registerEmail.emailSubmissionError) {
+        handleError()
+      }
     } else {
       setErrors({ ...submitResult });
     }
@@ -50,7 +53,7 @@ export default function RegisterFormPage3New({
       </div>
       <form className={classes.registerForm1}>
         <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
-          <label>Company name</label>
+          <label>Company or personal name</label>
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
               id="outlined-basic"
@@ -64,34 +67,6 @@ export default function RegisterFormPage3New({
           <p className={classes.errorA}>{errors.companyName}</p>
         )}
         <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-          <label>Email address</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="email"
-            />
-          </FormControl>
-        </div>
-        {errors.email && (
-          <p className={classes.errorB}>{errors.email}</p>
-        )}
-        <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-          <label>Confirm email address</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="confirmEmail"
-            />
-          </FormControl>
-        </div>
-        {errors.confirmEmail && (
-          <p className={classes.errorC}>{errors.confirmEmail}</p>
-        )}
-        <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
           <label>Telephone number</label>
           <FormControl sx={{ width: "100%" }} size="small">
             <TextField
@@ -103,8 +78,35 @@ export default function RegisterFormPage3New({
           </FormControl>
         </div>
         {errors.phoneNumber && (
-          <p className={classes.errorD}>{errors.phoneNumber}</p>
+          <p className={classes.errorB}>{errors.phoneNumber}</p>
         )}
+        <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
+          <label>Email address</label>
+          <FormControl sx={{ width: "100%" }} size="small">
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              onChange={handleChange}
+              name="email"
+            />
+          </FormControl>
+        </div>
+        {errors.email && <p className={classes.errorC}>{errors.email}</p>}
+        <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
+          <label>Confirm email address</label>
+          <FormControl sx={{ width: "100%" }} size="small">
+            <TextField
+              id="outlined-basic"
+              variant="outlined"
+              onChange={handleChange}
+              name="confirmEmail"
+            />
+          </FormControl>
+
+        </div>
+        {errors.confirmEmail && (
+            <p className={classes.errorD}>{errors.confirmEmail}</p>
+          )}
         <div className={classes.tickRow}>
           <div className={classes.inputWrapper}>
             <label>
