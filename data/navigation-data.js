@@ -8,67 +8,87 @@ export default function GetNavData() {
 
   // console.log(user);
 
-  const navigationData = [
+const navigationData = [
     {
-      title: "INDIGO",
+      title: "NEWS",
+      url: "/news",
+    },
+    {
+      title: "CASE STUDIES",
+      url: "/case-studies",
+    },
+    {
+      title: "WHO WE ARE",
+      url: "/who-we-are",
+    },
+    /*
+    {
+      title: "ABOUT US",
       url: "/who-we-are",
       submenu: [
+        // {
+        //   title: "What we do",
+        //   url: "/what-we-do",
+        // },
         {
-          title: "About us",
+          title: "Who we are",
           url: "/who-we-are",
         },
-        {
-          title: "Projects",
-          url: "/projects",
-        },
-        {
-          title: "News",
-          url: "/blog",
-        },
       ],
     },
-
+    */
     {
       title: "SERVICES",
-      url: "/what-we-do",
-      submenu: [
-        {
-          title: "What we do",
-          url: "/what-we-do",
-        },
-        {
-          title: "Indigo consulting",
-          url: "/consulting",
-        },
-        {
-          title: "Indigo properties",
-          url: "/properties",
-        },
-      ],
+      url: "/services",
     },
+    // {
+    //   title: "INDIGO PROPERTIES",
+    //   url: "/properties",
+    // },
+    // {
+    //   title: "SERVICES",
+    //   url: "/what-we-do",
+    //   submenu: [
+    //     {
+    //       title: "Services",
+    //       url: "/what-we-do",
+    //     },
+    //     {
+    //       title: "Indigo properties",
+    //       url: "/properties",
+    //     },
+    //   ],
+    // },
     {
       title: "CONTACT US",
       url: "/contact",
     },
     {
-      title: user ? "ACCOUNT_LOGGED_IN" : "ACCOUNT",
-      accountIcon: true,
-      url: "/contact",
-      submenu: [
-        user
-          ? { title: user.username.toUpperCase(), url: "/account" }
-          : { title: "Register", url: "/register" },
-        user
-          ? {
-              title: "Logout",
-              url: "/logout",
-            }
-          : {
-              title: "Login",
-              url: "/login",
-            },
-      ],
+      title: "REGISTER",
+      url: "/register",
     },
+    // {
+    //   title: "BLOG",
+    //   url: "/blog",
+    // },
+    // {
+    //   title: "ACCOUNT",
+    //   url: "/contact",
+    //   submenu: [
+    //     {
+    //       title: "Login",
+    //       url: "/login",
+    //     },
+    //     {
+    //       title: "Logout",
+    //       url: "/logout",
+    //     },
+    //     {
+    //       title: "Register",
+    //       url: "/register",
+    //     },
+    //   ],
+    // },
   ];
 
   return navigationData;
