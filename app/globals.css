@@ -1,5 +1,9 @@
-/* @tailwind base;
-@tailwind components; */
+/**
+ * @format
+ * @tailwind base;
+ * @tailwind components;
+ */
+
 @tailwind utilities;
 
 #root {
@@ -86,7 +90,7 @@ html:has(.modal) {
   object-fit: contain;
 }
 
-input[type="text"] {
+ input[type="text"] {
   font: inherit;
   border: 1px solid;
   height: 2rem;
@@ -94,9 +98,9 @@ input[type="text"] {
   background-color: #ffffffc7;
   color: black;
   border-radius: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 input[type="email"] {
@@ -107,10 +111,11 @@ input[type="email"] {
   background-color: #ffffffc7;
   color: black;
   border-radius: 4px;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
-  box-sizing: border-box; /* Opera/IE 8+ */
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
 }
+
 textarea {
   font: inherit;
   border: 1px solid;
@@ -211,9 +216,32 @@ main {
   font-size: 16px;
 }
 
-@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+.submitButtonContainer {
+  margin: 2vh;
+  display: flex;
+  width: 100px;
+  height: 30px;
+}
+
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
   .header h1 {
     font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .submit-button-container {
+    width: 150px;
+    height: 40px;
   }
 }
 
@@ -221,6 +249,11 @@ main {
   .header h1 {
     font-size: 24px;
     color: black;
+  }
+
+  .submit-button-container {
+    width: 130px;
+    height: 40px;
   }
 
   .error-button-container p {
@@ -237,6 +270,10 @@ main {
   .error-button-container p {
     margin: 0;
     font-size: 12px;
+  }
+  .submit-button-container {
+    width: 120px;
+    height: 35px;
   }
   @media only screen and (max-width: 600px) {
     .share-icon {

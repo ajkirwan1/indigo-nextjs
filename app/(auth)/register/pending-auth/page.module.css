@@ -1,36 +1,3 @@
-.header {
-  color: aliceblue !important;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
-.heroHeader {
-  color: aliceblue;
-  /* position: absolute; */
-  display: flex;
-  align-items: center;
-  top: 0;
-  width: 100%;
-}
-.heroHeader a {
-  color: aliceblue;
-}
-
-.heroHeader button {
-  color: aliceblue;
-}
-
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form label {
-  font-size: large;
-}
-
 .formItemContainer {
   display: flex;
   padding: 5px;
@@ -39,42 +6,15 @@
   width: 40%;
 }
 
-.formCheckboxContainer {
-  display: flex;
-}
-
 .pageWrapper {
   height: 100vh;
-}
-
-.hero:after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.378);
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.formContainerOuterWrapper {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .formcontainer {
   margin: auto;
   margin-top: 10vh;
-  padding-top: 200px;
+  padding: 20px;
+  padding-bottom: 50px;
   border-radius: 10px;
   background-color: #ffffffcc;
   position: relative;
@@ -84,40 +24,22 @@
   letter-spacing: normal;
   box-shadow: 1px 1px 1px;
 }
+
+.formcontainer a {
+  text-decoration: none;
+  color: #4d0013;
+}
+
+.formcontainer a:hover {
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px
+
+}
+
 .logoIndigo {
   height: 12rem;
   width: auto;
-}
-.buttoncontainer {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 5vh;
-}
-
-.errorList {
-  list-style: none;
-  display: flex;
-}
-
-.submitButton {
-  background: none;
-  color: inherit;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  border: none;
-}
-
-.submitButtonContainer {
-  margin: 2vh;
-  display: flex;
-  width: 200px;
-  height: 50px;
-}
-
-.heroWrapper {
-  position: relative;
-  width: 100vw;
 }
 
 .imageWrapper {
@@ -141,9 +63,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  /* position: absolute; */
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
 }
 

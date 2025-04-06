@@ -8,6 +8,7 @@ import AccordionPersonal from "@/components/surfaces/accordian";
 import AdminClientPropertyList from "@/components/admin-components/properties-list";
 import Button from "@/components/ui/button";
 import classes from "./page.module.css";
+import Link from "next/link";
 
 export default async function AdminClientPage({ params }) {
   const { user } = await validateRequest();
@@ -100,9 +101,11 @@ export default async function AdminClientPage({ params }) {
       <div className={classes.text}>
         <AdminClientPropertyList properties={properties} />
         <div className={classes.buttonContainer}>
-          <Button href={`/admin/user/${params.id}/properties`}>
-            UPDATE RECORDS
-          </Button>
+          <div className="submit-button-container">
+            <Link href={`/admin/user/${params.id}/properties`}>
+              UPDATE RECORDS
+            </Link>
+          </div>
         </div>
       </div>
     );

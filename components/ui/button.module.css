@@ -1,4 +1,7 @@
-.button {
+/** @format */
+
+.button,
+.pendingButton {
   background: none;
   display: flex;
   border-radius: 4px;
@@ -14,59 +17,91 @@
   height: 100%;
   gap: 5px;
 }
+.pendingButton {
+  background-color: #4d0013;
+}
+
+.disabled {
+  display: none;
+}
 
 .button:hover {
+  border: 1px solid #505050;
   background-color: #003a4dc7;
 }
 
-/* .wrapper {
-  border: 1px solid #505050;
-  color: rgb(251, 253, 254);
+.arrow {
+  height: 20px;
+}
 
+.arrow {
+  height: 10px;
+}
+.wrapper {
+  border: 1px solid #505050;
   width: 200px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  background-color: #003a4d;
+  gap: 5px;
+  background-color: #50505014;
   font-weight: 300;
-  margin-top: 40px;
 }
 
-.wrapper:hover {
+.wrapper {
   cursor: pointer;
-  background-color: #003a4dc7;
-  color: rgb(40, 40, 40);
-  color: rgb(251, 253, 254);
+  background-color: #50505028;
 }
 .link {
   text-decoration: none;
   color: #505050;
-} */
-
-/* .linkWrapper {
-} */
-
-/* .linkWrapper a img,
-.linkWrapper a button {
-  transition: 0.3s;
 }
-.linkWrapper a:hover button + img {
-  transform: translateX(10px);
-}
-.linkWrapper a:hover button {
-  transform: translateX(-5px);
-} */
 
-@media only screen and (min-width: 1800px) {
+@media only screen and (min-width: 1800px) and (max-width: 1920px) {
+  .button {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1800px) {
   .button {
     font-size: 0.8rem;
   }
 }
 
-@media only screen and (min-width: 1200px) and (max-width: 1799px) {
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
   .button {
     font-size: 0.7rem;
   }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .button {
+    font-size: 0.7rem;
+  }
+  .pendingButton {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .button {
+    font-size: 0.6rem;
+  }
+
+}
+

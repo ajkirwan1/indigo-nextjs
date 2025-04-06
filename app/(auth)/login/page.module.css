@@ -1,41 +1,41 @@
-.header {
+/* .header {
   color: aliceblue !important;
   position: absolute;
   top: 0;
   width: 100%;
-}
+} */
 
-.heroHeader {
+/* .heroHeader {
   color: aliceblue;
-  /* position: absolute; */
+  position: absolute;
   display: flex;
   align-items: center;
   top: 0;
   width: 100%;
-}
+} */
 
 .pageWrapper {
   height: 100vh;
 }
-.heroHeader a {
+/* .heroHeader a {
   color: aliceblue;
-}
+} */
 
-.heroHeader button {
+/* .heroHeader button {
   color: aliceblue;
-}
+} */
 
-.loginForm {
+/* .loginForm {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.form label {
+/* .form label {
   font-size: large;
-}
+} */
 
-.formItemContainer {
+/* .formItemContainer {
   display: flex;
   padding: 5px;
   flex-direction: column;
@@ -44,14 +44,14 @@
 }
 .spinner {
   margin-bottom: 5vh;
-}
+} */
 
 /* .formItemContainer label {
   font-size: x-large;
 } */
-.formCheckboxContainer {
+/* .formCheckboxContainer {
   display: flex;
-}
+} */
 
 /* .hero {
   position: relative;
@@ -64,7 +64,7 @@
   background-repeat: no-repeat;
   min-height:200vh;
 } */
-.hero:after {
+/* .hero:after {
   content: "";
   position: absolute;
   z-index: 2;
@@ -75,9 +75,9 @@
   background: rgba(0, 0, 0, 0.378);
   opacity: 0.1;
   pointer-events: none;
-}
+} */
 
-.formContainerOuterWrapper {
+/* .formContainerOuterWrapper {
   position: absolute;
   display: flex;
   align-items: center;
@@ -86,11 +86,12 @@
   left: 0;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
 .formcontainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   border-radius: 4px;
   background-color: #ffffff81;
   position: relative;
@@ -99,6 +100,7 @@
   margin: auto;
   margin-top: 5vh;
   letter-spacing: normal;
+  padding: 5vh;
 }
 
 .formcontainer h1 {
@@ -168,17 +170,37 @@
   align-items: center;
 }
 
-@media only screen and (min-width: 800px) and (max-width: 1600px) {
+
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
 }
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+
+  .formcontainer {
+    width: 70vw;
+  }
+
+}
+
 @media only screen and (max-width: 600px) {
   .logoIndigo {
     height: 10rem;
     width: auto;
   }
-  .submitButtonContainer {
+  /* .submitButtonContainer {
     margin: 2vh;
     display: flex;
     width: 100px;
-    height: 20px;
+    height: 25px;
+  } */
+
+  .formcontainer {
+    width: 70vw;
   }
 }

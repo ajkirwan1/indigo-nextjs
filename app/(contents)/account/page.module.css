@@ -1,0 +1,16 @@
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin-top: 5vh;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+  padding: 40px;
+  padding-bottom: 5px;
+  /* padding-left: 80px; */
+  letter-spacing: normal;
+}
+
+.spinner {
+  margin-bottom: 2vh;
+}

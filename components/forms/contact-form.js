@@ -100,11 +100,6 @@ export default function ContactForm({ action }) {
     contactNumber: "",
     message: "",
   });
-  // const [modalState, setModalState] = useState( {...initialState} );
-
-  // useEffect(() => {
-  //   setModalState({ ...initialState });
-  // }, [state]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -159,7 +154,6 @@ export default function ContactForm({ action }) {
         />
       ) : (
         <div className={classes.errorLayout}>
-          {/* <h2>Your message was not sent</h2> */}
           <p>{state.errorMessage}</p>
           <div className={classes.submitButtonContainer}>
             <Button onClick={handleReset}>Try again</Button>

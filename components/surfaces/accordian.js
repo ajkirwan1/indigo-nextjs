@@ -7,7 +7,7 @@ export default function AccordionPersonal({ data }) {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const handleItemClick = (index) => {
-    console.log(index);
+    // console.log(index);
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 

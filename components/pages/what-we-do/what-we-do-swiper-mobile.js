@@ -20,7 +20,7 @@ export default function WhatWeDoMobileSwiper() {
   // const swiper = useSwiper();
 
   const handleModal = (id) => {
-    console.log("CLICK");
+    // console.log("CLICK");
     if (modalIndex == id) {
       setInfoActive((val) => !val);
       // swiper.pause()

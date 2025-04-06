@@ -5,8 +5,7 @@ import { LayoutProvider } from "@/contexts/layout-context";
 import { Providers } from "./providers.jsx";
 
 import "./globals.css";
-// import { validateRequest } from "@/auth/lucia";
-
+import { validateRequest } from "@/auth/lucia";
 export const metadata = {
     verification: {
     google: 'gKEg7ThRAHUGvwMjdnXn3kSQcv65GNIQ5_lgoT6d0jY'
@@ -44,14 +43,14 @@ const inter = Lato({
 });
 
 export default async function RootLayout({ children }) {
-  // const session = await validateRequest();
+  const session = await validateRequest();
   return (
     <html lang="en" className={inter.className}>
       <body>
         <LayoutProvider>
-          {/* <SessionProvider value={session}> */}
+          <SessionProvider value={session}>
           <Providers>{children}</Providers>
-          {/* </SessionProvider> */}
+          </SessionProvider>
         </LayoutProvider>
       </body>
     </html>

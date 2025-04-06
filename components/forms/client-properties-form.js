@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useFormState } from "react-dom";
 import classes from "./client-properties-form.module.css";
 import FormSubmit from "./formsubmit";
+import Button from "../ui/button";
 
 export default function ClientPropertiesForm({
   action,
@@ -95,9 +96,11 @@ export default function ClientPropertiesForm({
               </div>
             ))}
           </ul>
-          <div className={classes.submitButtonContainer}>
+          <div className="submit-button-container">
             <FormSubmit />
-            <button onClick={handleReset}>Reset</button>
+          </div>
+          <div className="submit-button-container">
+            <Button>Reset</Button>
           </div>
           {/* <div className={classes.submitButtonContainer}> */}
 

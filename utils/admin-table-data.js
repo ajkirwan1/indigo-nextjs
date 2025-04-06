@@ -9,36 +9,57 @@ export default function PrepareAdminClientData(data) {
     "Date of request",
   ];
   let bodyData = [];
+  let bodyData2 = []
 
   data.forEach((element, index) => {
     let arr = {};
+    let arr2 = {};
     let dataList = [];
+    let dataArr = {}
+    let dataList2 = [];
 
     arr.userId = element["id"];
+    dataArr.userId = element["id"];
 
     const fullName = joinName(element["firstname"], element["lastname"]);
     dataList.push(fullName);
 
+    dataArr.name = fullName;
+
     dataList.push(element["email"]);
+
+    dataArr.email = element["email"];
 
     const propertyAccessString = convertAccessToString(
       element["propertyaccess"]
     );
     dataList.push(propertyAccessString);
 
+    dataArr.propertyAccess = propertyAccessString;
+
+
     const consultingAccessString = convertAccessToString(
       element["consultingaccess"]
     );
     dataList.push(consultingAccessString);
 
-    dataList.push(JSON.stringify(element["accessrequestdate"]));
+    dataArr.consultingAccess = propertyAccessString;
+
+    dataList.push(element["accessrequestdate"].toLocaleDateString('en-GB'));
+
+    dataArr.dateOfRequest = element["accessrequestdate"].toLocaleDateString('en-GB');
 
     arr.items = dataList;
 
     bodyData.push(arr);
+    bodyData2.push(dataArr)
   });
 
-  return { headerData, bodyData };
+
+
+
+
+  return { headerData, bodyData, bodyData2 };
 }
 
 function joinName(firstName, lastName) {

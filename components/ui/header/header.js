@@ -7,13 +7,17 @@ import Link from "next/link";
 import { useSession } from "@/contexts/session-context";
 import MobileMenuIcon from "./mobile-menu-icon";
 import DesktopNav from "./desktop-nav";
-import { navigationData } from "@/data/navigation-data";
+// import { navigationData } from "@/data/navigation-data";
+
+import GetNavData from "@/data/navigation-data";
 import { adminNavigationData } from "@/data/admin-navigation-data";
 import Image from "next/image";
 import BreadCrumb from "@/components/breadcrumbs/breadcrumbs";
 
 export default function Header({ className }) {
-  console.log(className)
+
+  const navigationData = GetNavData();
+
   const { user } = useSession();
 
   return (

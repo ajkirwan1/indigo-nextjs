@@ -20,12 +20,11 @@
   padding: 5px;
   flex-direction: column;
   align-items: flex-start;
-  width: 40%;
+  margin-bottom: 1vh;
+  /* width: 40%; */
 }
 
-/* .formItemContainer label {
-    font-size: x-large;
-  } */
+
 .formCheckboxContainer {
   display: flex;
 }
@@ -64,11 +63,11 @@
   top: 25vh;
   box-shadow: 1px 1px 1px;
 }
-.logoIndigo {
+/* .logoIndigo {
   height: 4rem;
   margin-top: 4vh;
   width: auto;
-}
+} */
 .buttoncontainer {
   display: flex;
   justify-content: space-around;
@@ -94,12 +93,18 @@
 }
 
 .submitButtonContainer {
-  margin: 5vh;
+  margin: 3vh;
   display: flex;
-  width: 200px;
-  height: 50px;
-  /* margin-bottom: 200px; */
+  justify-content: center;
+  width: 130px;
+  height: 40px;
 }
+
+.submitButtonContainerClosed {
+height: 0;
+}
+
+
 
 .registerPageContainer {
   height: 100vh;
@@ -131,15 +136,50 @@
   align-items: center;
 }
 
+
+.errorA {
+  margin-top: 1vh;
+  font-weight: 400;
+  color:#4d0013;
+}
+
+.inputError {
+  border: 1px solid #4d0013 !important;
+}
+
+
+
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1400px) {
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+
+  /* .formcontainer {
+    width: 70vw;
+  } */
+
+}
+
 @media only screen and (max-width: 600px) {
-  .logoIndigo {
+  /* .logoIndigo {
     height: 10rem;
     width: auto;
-  }
+  } */
+
+  /* .formcontainer {
+    width: 70vw;
+  } */
+
   .submitButtonContainer {
     margin: 2vh;
     display: flex;
     width: 100px;
-    height: 20px;
+    height: 25px;
   }
 }

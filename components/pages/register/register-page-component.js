@@ -4,30 +4,29 @@
 import { useState } from "react";
 import classes from "./register-page.module.css";
 import { AnimatePresence, motion } from "framer-motion";
-import RegisterFormPage1 from "@/components/forms/register/page-1";
-import RegisterFormPage2 from "@/components/forms/register/page-2";
-import RegisterFormPage3 from "@/components/forms/register/page-3";
-import RegisterFormPage4 from "@/components/forms/register/page-4";
+import Link from "next/link";
+import Button from "@/components/ui/button";
+import RegisterFormPage0New from "@/components/forms/register/register-page-0";
+import RegisterFormPage1New from "@/components/forms/register/register-page-1";
+import RegisterFormPage2New from "@/components/forms/register/register-page-2";
+import RegisterFormPage3New from "@/components/forms/register/register-page-3";
 
 export default function RegisterPageComponent() {
   const [activeTab, setActiveTab] = useState(0);
-  const [confirmed, setConfirmed] = useState(false);
+
+  const [submissionError, setSubmissionError] = useState(false);
 
   const [data, setData] = useState({
-    userName: "",
     email: "",
-    password: "",
-    passwordConfirm: "",
-    firstName: "",
-    lastName: "",
     companyName: "",
     phoneNumber: "",
     buyerType: "",
     location: "",
     purchaseTimeline: "",
-    investmentInterest: { residential: false, commercial: false, land: false },
-    investmentValue: "",
+    investmentInterest: "",
+    investmentRange: "",
     previousInvestment: "",
+    confirmEmail: "",
   });
 
   const handleNextTab = () => {
@@ -38,126 +37,6 @@ export default function RegisterPageComponent() {
     setActiveTab((prev) => prev - 1);
   };
 
-  const handleBuyer = (event) => {
-    const { name } = event.target;
-    if (name == "privateBuyer") {
-      setData({
-        ...data,
-        buyerType: "privateBuyer",
-      });
-    } else if (name == "realEstateBuyer") {
-      setData({
-        ...data,
-        buyerType: "realEstateBuyer",
-      });
-    }
-  };
-
-  const handleLocale = (event) => {
-    const { name } = event.target;
-    if (name == "locationOther") {
-      setData({
-        ...data,
-        location: "locationOther",
-      });
-    } else if (name == "locationGreece") {
-      setData({
-        ...data,
-        location: "locationGreece",
-      });
-    }
-  };
-
-  const handleTimeLine = (event) => {
-    const { name } = event.target;
-    if (name == "sixMonths") {
-      setData({
-        ...data,
-        purchaseTimeline: "sixMonths",
-      });
-    } else if (name == "sixToTwelveMonths") {
-      setData({
-        ...data,
-        purchaseTimeline: "sixToTwelveMonths",
-      });
-    } else if (name == "twelveMonths") {
-      setData({
-        ...data,
-        purchaseTimeline: "twelveMonths",
-      });
-    }
-  };
-
-  const handleInvestment = (event) => {
-    const { name } = event.target;
-
-    if (name == "residential") {
-      setData({
-        ...data,
-        investmentInterest: {
-          ...data.investmentInterest,
-          residential: !data.investmentInterest.residential,
-        },
-      });
-    } else if (name == "commercial") {
-      setData({
-        ...data,
-        investmentInterest: {
-          ...data.investmentInterest,
-          commercial: !data.investmentInterest.commercial,
-        },
-      });
-    } else if (name == "land") {
-      setData({
-        ...data,
-        investmentInterest: {
-          ...data.investmentInterest,
-          land: !data.investmentInterest.land,
-        },
-      });
-    }
-  };
-
-  const handleInterest = (event) => {
-    const { name } = event.target;
-    if (name == "50") {
-      setData({
-        ...data,
-        investmentValue: "50",
-      });
-    } else if (name == "50-100") {
-      setData({
-        ...data,
-        investmentValue: "50-100",
-      });
-    } else if (name == "100-150") {
-      setData({
-        ...data,
-        investmentValue: "100-150",
-      });
-    } else if (name == "150+") {
-      setData({
-        ...data,
-        investmentValue: "150+",
-      });
-    }
-  };
-
-  const handlePreviousInvest = (event) => {
-    const { name } = event.target;
-    if (name == "yes") {
-      setData({
-        ...data,
-        previousInvestment: "yes",
-      });
-    } else if (name == "no") {
-      setData({
-        ...data,
-        previousInvestment: "no",
-      });
-    }
-  };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setData({
@@ -166,19 +45,54 @@ export default function RegisterPageComponent() {
     });
   };
 
+  const handleError = () => {
+    setSubmissionError(true);
+  };
+
+  const handleReset = () => {
+    setSubmissionError(false);
+    setData({
+      email: "",
+      companyName: "",
+      phoneNumber: "",
+      buyerType: "",
+      location: "",
+      purchaseTimeline: "",
+      investmentInterest: "",
+      investmentRange: "",
+      previousInvestment: "",
+      confirmEmail: "",
+    });
+    setActiveTab(1)
+  };
+
   const formElements = [
+    <motion.div
+      key={0}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0 }}
+      className={`${classes.formcontainer} ${classes.large}`}
+    >
+      <RegisterFormPage0New
+        handleNextTab={handleNextTab}
+        handleChange={handleChange}
+        data={data}
+      />
+    </motion.div>,
     <motion.div
       key={1}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
-      className={classes.formcontainer}
+      className={`${classes.formcontainer} ${classes.large}`}
     >
-      <RegisterFormPage1
+      <RegisterFormPage1New
         handleNextTab={handleNextTab}
-        data={data}
         handleChange={handleChange}
+        data={data}
       />
     </motion.div>,
     <motion.div
@@ -187,14 +101,13 @@ export default function RegisterPageComponent() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0 }}
-      className={classes.formcontainer}
+      className={`${classes.formcontainer} ${classes.large}`}
     >
-      <RegisterFormPage2
-        data={data}
-        handleChange={handleChange}
+      <RegisterFormPage2New
         handlePreviousTab={handlePreviousTab}
         handleNextTab={handleNextTab}
-        activeTab={activeTab}
+        handleChange={handleChange}
+        data={data}
       />
     </motion.div>,
     <motion.div
@@ -205,39 +118,44 @@ export default function RegisterPageComponent() {
       exit={{ opacity: 0 }}
       className={`${classes.formcontainer} ${classes.large}`}
     >
-      <RegisterFormPage3
-        handlePreviousTab={handlePreviousTab}
-        handleNextTab={handleNextTab}
-        handleLocale={handleLocale}
-        handleBuyer={handleBuyer}
-        handleChange={handleChange}
-        handleTimeLine={handleTimeLine}
-        handleInvestment={handleInvestment}
-        data={data}
-      />
-    </motion.div>,
-    <motion.div
-      key={4}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0 }}
-      className={`${classes.formcontainer} ${classes.large}`}
-    >
-      <RegisterFormPage4
+      <RegisterFormPage3New
         handlePreviousTab={handlePreviousTab}
         handleNextTab={handleNextTab}
         handleChange={handleChange}
-        handleInterest={handleInterest}
-        handlePreviousInvest={handlePreviousInvest}
+        handleError={handleError}
         data={data}
       />
     </motion.div>,
   ];
 
+  function Error() {
+    return (
+      <div className={classes.errorWrapper}>
+      <div
+        className={`${classes.errorFormcontainer} ${classes.large}`}
+      >
+        <h2>Something went wrong!</h2>
+        <p>
+          We&apos;re sorry, but something went wrong submitting your details
+        </p>
+        <div className="submit-button-container">
+          <Button onClick={handleReset}>Try again</Button>
+        </div>
+        <Link href="/">Return to home page</Link>
+      </div>
+
+      </div>
+
+    );
+  }
+
   return (
     <>
-      <AnimatePresence mode="wait">{formElements[activeTab]}</AnimatePresence>
+      {!submissionError ? (
+        <AnimatePresence mode="wait">{formElements[activeTab]}</AnimatePresence>
+      ) : (
+        <Error />
+      )}
     </>
   );
 }

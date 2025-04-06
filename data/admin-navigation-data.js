@@ -2,8 +2,12 @@
 "use client";
 export const adminNavigationData = [
   {
-    title: "Clients",
+    title: "Home",
     url: "/admin",
+  },
+  {
+    title: "Clients",
+    url: "/admin/user",
   },
   {
     title: "Properties",

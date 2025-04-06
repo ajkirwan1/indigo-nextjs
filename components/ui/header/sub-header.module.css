@@ -79,6 +79,14 @@
   list-style: none;
 }
 
+.linkWrapper {
+  display: flex;
+}
+
+.accountIcon:hover {
+  cursor: pointer;
+}
+
 
 @media only screen and (min-width: 2200px) {
   .desktopNav {

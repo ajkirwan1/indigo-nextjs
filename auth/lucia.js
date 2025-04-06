@@ -18,6 +18,7 @@ export const lucia = new Lucia(adapter, {
     return {
       username: attributes.username,
       firstname: attributes.firstname,
+      lastname: attributes.lastname,
       propertyaccess: attributes.propertyaccess,
       consultingaccess: attributes.consultingaccess,
       adminaccess: attributes.adminaccess,

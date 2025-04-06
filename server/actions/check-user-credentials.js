@@ -8,21 +8,21 @@ function validateRegistration(firstName, lastName, companyName, phoneNumber) {
     firstName.length < 3 ||
     firstName.length > 31
   ) {
-    errors.push("Invalid first name");
+    errors.push({ errorType: "firstName", message: "Invalid firstName" });
   }
   if (
     typeof lastName !== "string" ||
     lastName.length < 3 ||
     lastName.length > 31
   ) {
-    errors.push("Invalid last name");
+    errors.push({ errorType: "lastName", message: "Invalid lastName" });
   }
   if (
     typeof companyName !== "string" ||
     companyName.length < 3 ||
     companyName.length > 31
   ) {
-    errors.push("Invalid company name");
+    errors.push({ errorType: "companyName", message: "Invalid companyName" });
   }
 
   if (
@@ -30,7 +30,7 @@ function validateRegistration(firstName, lastName, companyName, phoneNumber) {
     phoneNumber.length < 3 ||
     phoneNumber.length > 31
   ) {
-    errors.push("Invalid phone number");
+    errors.push({ errorType: "phoneNumber", message: "Invalid phoneNumber" });
   }
 
   return { errors };
