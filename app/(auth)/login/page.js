@@ -8,16 +8,18 @@ import HeroComponent from "@/components/hero/hero-component";
 import heroImage from "/public/images/croppednight.jpg";
 import classes from "./page.module.css";
 
+import { SignIn } from "@/components/forms/sign-in/sign-in-form";
+
 export default async function LoginPage() {
-  const headerList = headers();
-  const pathname = headerList.get("x-search-params");
+  // const headerList = headers();
+  // const pathname = headerList.get("x-search-params");
 
-  let redirection;
+  // let redirection;
 
-  if (pathname.includes("properties")) {
-    redirection = "properties";
-  }
-  const { user } = await validateRequest();
+  // if (pathname.includes("properties")) {
+  //   redirection = "properties";
+  // }
+  // const { user } = await validateRequest();
 
   // if (user) {
   //   redirect("/logout");
@@ -25,13 +27,14 @@ export default async function LoginPage() {
 
   return (
     <>
-      <div className={classes.pageWrapper}>
+      {/* <div className={classes.pageWrapper}>
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
             <LoginForm redirection={redirection} action={Login}></LoginForm>
           </div>
         </HeroComponent>
-      </div>
+      </div> */}
+    <SignIn></SignIn>
     </>
   );
 }

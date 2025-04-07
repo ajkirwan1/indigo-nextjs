@@ -67,6 +67,10 @@ const navigationData = [
       title: "REGISTER",
       url: "/register",
     },
+    {
+      title: "LOGIN",
+      url: "/login",
+    },   
     // {
     //   title: "BLOG",
     //   url: "/blog",
