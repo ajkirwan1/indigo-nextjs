@@ -30,7 +30,8 @@ export default async function LoginPage() {
       <div className={classes.pageWrapper}>
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
-            <LoginForm redirection={redirection} action={Login}></LoginForm>
+            {/* <LoginForm redirection={redirection} action={Login}></LoginForm> */}
+            <LoginForm redirection={redirection}></LoginForm>
           </div>
         </HeroComponent>
       </div>

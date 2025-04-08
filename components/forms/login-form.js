@@ -8,6 +8,8 @@ import classes from "./login-form.module.css";
 import Link from "next/link";
 import Button from "../ui/button";
 import ModalBackdrop from "../modal-backdrop";
+import { authenticate } from "@/server/actions/authenticate/authenticate";
+import { useSearchParams } from 'next/navigation';
 
 function Form({ handleChange, state, formAction, isButtonDisabled }) {
   return (
@@ -15,21 +17,21 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       <div className={classes.formItemContainer}>
         <label>User name:</label>
         <input
-          className={state.errors?.find((item) =>
+          className={state?.errors?.find((item) =>
             item.errorType == "username" ? `${classes.inputError}` : null
           )}
           type="text"
           name="username"
           onChange={handleChange}
         />
-        {state.errors?.find((item) => item.errorType == "username") ? (
+        {state?.errors?.find((item) => item.errorType == "username") ? (
           <p className={classes.errorA}>Invalid username </p>
         ) : null}
       </div>
       <div className={classes.formItemContainer}>
         <label>Password:</label>
         <input
-          className={state.errors?.find((item) =>
+          className={state?.errors?.find((item) =>
             item.errorType == "password" ? `${classes.inputError}` : null
           )}
           // type="text"
@@ -37,7 +39,7 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
           name="password"
           onChange={handleChange}
         />
-        {state.errors?.find((item) => item.errorType == "password") ? (
+        {state?.errors?.find((item) => item.errorType == "password") ? (
           <p className={classes.errorA}>Invalid password </p>
         ) : null}
       </div>
@@ -60,12 +62,16 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
 
 const initialState = { errorMessage: "", errors: [], submitted: false };
 
-export default function LoginForm({ action, redirection }) {
-  const [state, formAction] = useFormState(action, initialState, {
-    redirection,
-  });
+export default function LoginForm() {
+  // const [state, formAction] = useFormState(authenticate, initialState, {
+  //   redirection,
+  // });
+  const [state, formAction] = useFormState(authenticate, initialState);
+
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [data, setData] = useState({ username: "", password: "" });
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -91,7 +97,7 @@ export default function LoginForm({ action, redirection }) {
     <>
     {/* <ModalBackdrop /> */}
       <h1>Login</h1>
-      {!state.errorMessage ? (
+      {!state?.errorMessage ? (
         <Form
           formAction={formAction}
           state={state}
