@@ -4,18 +4,9 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // debug: true,
-  // logger: {
-  //   error(code, ...message) {
-  //     log.error(code, message)
-  //   },
-  //   warn(code, ...message) {
-  //     log.warn(code, message)
-  //   },
-  //   debug(code, ...message) {
-  //     log.debug(code, message)
-  //   },
-  // },
+  pages: {
+    signIn: '/login',
+  },
   providers: [
     Credentials({
       credentials: {
@@ -34,4 +25,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  // callbacks: {
+  //   authorized({ auth, request }) {
+  //     console.log(auth)
+  //     console.log(request)
+  //     return true;
+  //   },
+  // },
+
 });

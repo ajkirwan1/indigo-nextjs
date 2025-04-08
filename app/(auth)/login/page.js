@@ -14,7 +14,7 @@ export default async function LoginPage() {
   // const headerList = headers();
   // const pathname = headerList.get("x-search-params");
 
-  // let redirection;
+  let redirection;
 
   // if (pathname.includes("properties")) {
   //   redirection = "properties";
@@ -27,14 +27,14 @@ export default async function LoginPage() {
 
   return (
     <>
-      {/* <div className={classes.pageWrapper}>
+      <div className={classes.pageWrapper}>
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
             <LoginForm redirection={redirection} action={Login}></LoginForm>
           </div>
         </HeroComponent>
-      </div> */}
-    <SignIn></SignIn>
+      </div>
+    {/* <SignIn></SignIn> */}
     </>
   );
 }
