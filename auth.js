@@ -2,11 +2,10 @@
 
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { authConfig } from "./auth.config";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  pages: {
-    signIn: '/login',
-  },
+  ...authConfig,
   providers: [
     Credentials({
       authorize: async (existingUser) => {
@@ -21,22 +20,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     //   return true;
     // },
     async jwt({ token, trigger, account, profile, user, session }) {
-      // console.log(user, " jwt USER")
-      // console.log(session, "jwt SESSION")
-      // console.log(token, "jwt token")
+      if (user) {
+        token.name = user.firstname;
+        if (user.adminaccess == 2) {
+          token.role = "admin";
+        } else token.role = "client";
+      }
       return token;
     },
     async session({ token, user, session, newSession, trigger }) {
       // if (session?.user) {
       //   console.log(token, "KSAKSAKS")
       //   session.user = token.user;
-      // } 
+      // }
+      session.user.role = token.role;
+
       // session.user.role = token.role;
+      console.log(session, "KSAKSAKS");
+
       return session;
     },
-    async redirect() {
-      return "/admin"
-    }
-  },
-
+    async redirect({ url, baseUrl}) {
+      return "/login/redirect";
+    },
+  }
 });

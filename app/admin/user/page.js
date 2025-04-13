@@ -13,7 +13,7 @@ import TableFallback from "@/components/fallbacks/table-fallback";
 import AdminTableFilter from "@/components/admin-components/admin-table-client-filter";
 
 async function TableData({ query, name, email }) {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   let resp;
 
@@ -57,14 +57,14 @@ export default async function AdminPage(props) {
   const name = searchParams?.name || "";
   const email = searchParams?.email || "";
 
-  const { user } = await validateRequest();
+  // const { user } = await validateRequest();
 
-  if (!user) {
-    redirect("/");
-  }
-  if (user?.adminaccess != 2) {
-    redirect("/");
-  }
+  // if (!user) {
+  //   redirect("/");
+  // }
+  // if (user?.adminaccess != 2) {
+  //   redirect("/");
+  // }
 
   return (
     <>
