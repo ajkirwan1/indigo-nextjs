@@ -5,6 +5,8 @@
  */
 import { LegacyScrypt } from "lucia";
 import { generateId } from "lucia";
+import bcrypt from "bcryptjs"
+
 
 const userId1 = generateId(15);
 const userId2 = generateId(15);
@@ -116,27 +118,27 @@ export async function seed(knex) {
   await knex("passwords").insert([
     {
       id: 100000001,
-      hashedPassword: await new LegacyScrypt().hash("password"),
+      hashedPassword: await bcrypt.hash("password", 10),
       userId: userId1,
     },
     {
       id: 100000002,
-      hashedPassword: await new LegacyScrypt().hash("password"),
+      hashedPassword: await bcrypt.hash("password", 10),
       userId: userId2,
     },
     {
       id: 100000003,
-      hashedPassword: await new LegacyScrypt().hash("password"),
+      hashedPassword: await bcrypt.hash("password", 10),
       userId: userId3,
     },
     {
       id: 100000004,
-      hashedPassword: await new LegacyScrypt().hash("password"),
+      hashedPassword: await bcrypt.hash("password", 10),
       userId: userId4,
     },
     {
       id: 100000005,
-      hashedPassword: await new LegacyScrypt().hash("password"),
+      hashedPassword: await bcrypt.hash("password", 10),
       userId: userId5,
     },
   ]);

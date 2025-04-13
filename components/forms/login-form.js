@@ -7,9 +7,9 @@ import FormSubmit from "./formsubmit";
 import classes from "./login-form.module.css";
 import Link from "next/link";
 import Button from "../ui/button";
-import ModalBackdrop from "../modal-backdrop";
 import { authenticate } from "@/server/actions/authenticate/authenticate";
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
+
 
 function Form({ handleChange, state, formAction, isButtonDisabled }) {
   return (
@@ -24,9 +24,7 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
           name="username"
           onChange={handleChange}
         />
-        {state?.errors?.find((item) => item.errorType == "username") ? (
-          <p className={classes.errorA}>Invalid username </p>
-        ) : null}
+        {state.validationErrors?.username ? <p>Invalid username</p> : state.validationErrors?.noUser ? "Invalid credentials" : null} 
       </div>
       <div className={classes.formItemContainer}>
         <label>Password:</label>
@@ -34,14 +32,11 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
           className={state?.errors?.find((item) =>
             item.errorType == "password" ? `${classes.inputError}` : null
           )}
-          // type="text"
-          type="password"
+          type="text"
           name="password"
           onChange={handleChange}
         />
-        {state?.errors?.find((item) => item.errorType == "password") ? (
-          <p className={classes.errorA}>Invalid password </p>
-        ) : null}
+        {state.validationErrors?.password ? <p>Invalid password</p> : state.validationErrors?.noUser ? "Invalid credentials" : null}
       </div>
       <div
         className={
@@ -71,7 +66,7 @@ export default function LoginForm() {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [data, setData] = useState({ username: "", password: "" });
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -95,7 +90,7 @@ export default function LoginForm() {
 
   return (
     <>
-    {/* <ModalBackdrop /> */}
+      {/* <ModalBackdrop /> */}
       <h1>Login</h1>
       {!state?.errorMessage ? (
         <Form
