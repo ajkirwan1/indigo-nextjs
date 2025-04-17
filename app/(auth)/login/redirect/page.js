@@ -7,7 +7,7 @@ export default async function RedirectingPage() {
 
   if (!session) {
     // Not logged in, send to login
-    redirect('/auth/signin');
+    redirect('/');
   }
 
   const role = session.user.role;

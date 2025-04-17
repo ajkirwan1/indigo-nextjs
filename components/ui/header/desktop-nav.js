@@ -1,11 +1,10 @@
 /** @format */
-"use client";
-
 import classes from "./sub-header.module.css";
 import NavigationItems from "./navigation-items";
 import { SignIn } from "@/components/forms/sign-in/sign-in-form";
+import { SignOutButton } from "@/components/auth/sign-out-button";
 
-export default function DesktopNav({ data }) {
+export default function DesktopNav({ data, session }) {
   return (
     <>
       <div className={classes.desktopNav}>
@@ -13,9 +12,16 @@ export default function DesktopNav({ data }) {
           {data.map((menu, index) => {
             return <NavigationItems items={menu} key={index} />;
           })}
-          <li>
-            <SignIn>asdasdsad</SignIn>
-          </li>
+
+          {session ? (
+            <li>
+              <SignOutButton>Sign Out</SignOutButton>
+            </li>
+          ) : (
+            <li>
+              <SignIn>asdasdsad</SignIn>
+            </li>
+          )}
         </ul>
       </div>
     </>

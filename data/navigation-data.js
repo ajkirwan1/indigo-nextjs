@@ -1,12 +1,6 @@
 /** @format */
-"use client";
-import User from "@/components/layouts/user";
-import { useSession } from "@/contexts/session-context";
 
 export default function GetNavData() {
-  const { user } = useSession();
-
-  // console.log(user);
 
 const navigationData = [
     {
