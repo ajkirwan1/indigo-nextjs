@@ -15,7 +15,7 @@ export default async function RedirectingPage() {
   if (role === 'admin') {
     redirect('/admin');
   } else if (role === 'user') {
-    redirect('/dashboard');
+    redirect('/account');
   } else {
     redirect('/');
   }

@@ -1,24 +1,14 @@
 /** @format */
 
-import { validateRequest } from "@/auth/lucia";
 import { getUser } from "@/server/actions/db/client";
 import { getProperties } from "@/server/actions/db/properties";
-import { redirect } from "next/navigation";
 import AccordionPersonal from "@/components/surfaces/accordian";
 import AdminClientPropertyList from "@/components/admin-components/properties-list";
-import Button from "@/components/ui/button";
 import classes from "./page.module.css";
 import Link from "next/link";
 
 export default async function AdminClientPage({ params }) {
-  const { user } = await validateRequest();
 
-  if (!user) {
-    redirect("/");
-  }
-  if (user?.adminaccess != 2) {
-    redirect("/");
-  }
   const {
     username,
     firstname,
@@ -36,7 +26,7 @@ export default async function AdminClientPage({ params }) {
   } = await getUser(params.id);
 
   const properties = await getProperties(params.id);
-  // console.log(properties, "ADMIN");
+
 
   const PersonalDetails = () => {
     return (

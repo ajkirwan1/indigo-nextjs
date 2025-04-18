@@ -24,7 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         token.name = user.firstname;
         if (user.adminaccess == 2) {
           token.role = "admin";
-        } else token.role = "client";
+        } else token.role = "user";
       }
       return token;
     },
@@ -34,10 +34,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       //   session.user = token.user;
       // }
       session.user.role = token.role;
-
-      // session.user.role = token.role;
-      console.log(session, "KSAKSAKS");
-
       return session;
     },
     async redirect({ url, baseUrl}) {

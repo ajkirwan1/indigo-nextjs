@@ -15,7 +15,6 @@ export default auth(async function middleware(req) {
     const token = await getToken({ req, secret:process.env.AUTH_SECRET })
 
     // const token= await getToken({ req, secret:process.env.AUTH_SECRET })
-    console.log(token, "ROLE")
   
     const { pathname } = req.nextUrl;
   

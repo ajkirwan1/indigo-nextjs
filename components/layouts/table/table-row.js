@@ -15,9 +15,9 @@ export default function TableRow({ data, id }) {
     router.push(`${pathName}/${id}`);
   };
 
-  delete data.userId;
 
-  const dataArray = Object.values(data);
+  const {userId, ...cleanedData} = data;
+  const dataArray = Object.values(cleanedData);
 
   return (
     <>

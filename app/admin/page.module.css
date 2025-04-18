@@ -79,6 +79,7 @@
 .itemWrapper {
   display: flex;
   flex-direction: column;
+  background-color: white;
   border: 1px solid black;
   margin-top: 5vh;
   border-radius: 5px;
@@ -90,6 +91,11 @@
 
 .linkWrapper {
   display: flex;
+}
+
+.linkWrapper a {
+  color: #4d0013;
+  text-decoration: none;
 }
 
 .itemWrapper h2,

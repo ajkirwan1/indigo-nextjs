@@ -1,6 +1,5 @@
 /** @format */
 
-import { validateRequest } from "@/auth/lucia";
 import Table from "@/components/layouts/table/table";
 import { redirect } from "next/navigation";
 import PrepareAdminClientData from "@/utils/admin-table-data";
@@ -46,7 +45,7 @@ async function TableData({ query, name, email }) {
     <Table
       theadData={theadData}
       tbodyData={tbodyData}
-     customClass="admin"
+      customClass="admin"
     />
   );
 }
@@ -56,15 +55,6 @@ export default async function AdminPage(props) {
   const query = searchParams?.query || "";
   const name = searchParams?.name || "";
   const email = searchParams?.email || "";
-
-  // const { user } = await validateRequest();
-
-  // if (!user) {
-  //   redirect("/");
-  // }
-  // if (user?.adminaccess != 2) {
-  //   redirect("/");
-  // }
 
   return (
     <>

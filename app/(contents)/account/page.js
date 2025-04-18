@@ -1,6 +1,6 @@
 /** @format */
 
-import { validateRequest } from "@/auth/lucia";
+import { redirect } from 'next/navigation'
 import classes from "./page.module.css";
 import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
@@ -9,6 +9,7 @@ import { Spinner } from "@nextui-org/spinner";
 import AccountPropertiesDetails from "@/components/pages/account/account-properties-details";
 import Overlay from "@/components/overlay";
 import ModalBackdrop from "@/components/modal-backdrop";
+import { auth } from "@/auth";
 
 export const metadata = {
   title: "Account",
@@ -18,14 +19,21 @@ export const metadata = {
 };
 
 export default async function UserInfo(props) {
+  const session = await auth();
+  console.log(session, "SESION ACCOUNT PAGE");
+
+  if (session.user.role == "admin") {
+    redirect("/admin")
+
+  }
 
   // const searchParams = await props.searchParams;
 
   // let initial = searchParams?.initial || "";
 
-  const { user } = await validateRequest();
+  // const { user } = await validateRequest();
 
-  const { id } = user;
+  // const { id } = user;
 
   return (
     <>
@@ -35,18 +43,18 @@ export default async function UserInfo(props) {
         <hr />
       </div>
       <div className={classes.itemWrapper}>
-      <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
-          <AccountPropertiesDetails id={id} />
+        <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
+          {/* <AccountPropertiesDetails id={id} /> */}
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
-        <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
-          <ClientAccountPersonalDetails id={id} />
+        <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
+          {/* <ClientAccountPersonalDetails id={id} /> */}
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
-        <Suspense fallback={<Spinner className={classes.spinner} size="lg"/>}>
-          <ClientRegistrationDetails id={id} />
+        <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
+          {/* <ClientRegistrationDetails id={id} /> */}
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
