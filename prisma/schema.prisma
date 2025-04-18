@@ -71,7 +71,6 @@ model Session {
   user      User   @relation(references: [id], fields: [userId], onDelete: Cascade)
   createdAt DateTime @default(now())
   
-
   @@map("sessions")
   @@index([createdAt])
   @@index([userId])
@@ -114,7 +113,6 @@ model UsersOnProperties2 {
   property Property2 @relation(fields: [propertyId], references: [id])
   propertyId Int
 
-  
   @@map("usersonproperties2")
 }
 
@@ -125,7 +123,6 @@ model UsersOnProperties {
   userId String
   property Property @relation(fields: [propertyId], references: [id])
   propertyId Int
-
   
   @@map("usersonproperties")
 }
@@ -133,5 +130,21 @@ model UsersOnProperties {
 model Pdf {
   id String @id @default(cuid())
   url String
+}
+
+model UserRegistration {
+  id Int @id @default(autoincrement())
+  name String
+  email String
+  phoneNumber String
+  buyertype String
+  location String
+  purchaseTimeline String
+  investmentInterest String
+  investmentRange String
+  previousInvestment String
+  createdAt DateTime @default(now())
+
+  @@map("userRegistration")
 }
 

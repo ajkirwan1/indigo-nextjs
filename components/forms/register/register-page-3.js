@@ -13,6 +13,7 @@ import userIcon from "/public/images/icons/add-user.png";
 import { RegisterMultiPage } from "@/server/actions/submit-multi-register";
 import { Spinner } from "@nextui-org/spinner";
 import { RegisterEmail } from "@/lib/register-email";
+import { RegisterUser } from "@/server/actions/db/regsiter/register-user";
 import "react-phone-input-2/lib/material.css";
 
 export default function RegisterFormPage3New({
@@ -33,12 +34,14 @@ export default function RegisterFormPage3New({
     setErrors([]);
     setsubmitPending(true);
 
-    const submitResult = await RegisterMultiPage(data);
-    if (submitResult.success) {
-      const registerEmail = await RegisterEmail(data);
-      if (registerEmail?.emailSubmissionError) {
-        handleError()
-      }
+    // const submitResult = await RegisterMultiPage(data);
+    const submitResult = await RegisterUser(data);
+    if (submitResult?.success) {
+      console.log("Success")
+      // const registerEmail = await RegisterEmail(data);
+      // if (registerEmail?.emailSubmissionError) {
+      //   handleError()
+      // }
     } else {
       setErrors({ ...submitResult });
     }

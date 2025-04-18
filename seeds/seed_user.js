@@ -3,7 +3,6 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-import { LegacyScrypt } from "lucia";
 import { generateId } from "lucia";
 import bcrypt from "bcryptjs"
 

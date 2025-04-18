@@ -63,7 +63,7 @@ export default function RegisterPageComponent() {
       previousInvestment: "",
       confirmEmail: "",
     });
-    setActiveTab(1)
+    setActiveTab(1);
   };
 
   const formElements = [
@@ -131,21 +131,17 @@ export default function RegisterPageComponent() {
   function Error() {
     return (
       <div className={classes.errorWrapper}>
-      <div
-        className={`${classes.errorFormcontainer} ${classes.large}`}
-      >
-        <h2>Something went wrong!</h2>
-        <p>
-          We&apos;re sorry, but something went wrong submitting your details
-        </p>
-        <div className="submit-button-container">
-          <Button onClick={handleReset}>Try again</Button>
+        <div className={`${classes.errorFormcontainer} ${classes.large}`}>
+          <h2>Something went wrong!</h2>
+          <p>
+            We&apos;re sorry, but something went wrong submitting your details
+          </p>
+          <div className="submit-button-container">
+            <Button onClick={handleReset}>Try again</Button>
+          </div>
+          <Link href="/">Return to home page</Link>
         </div>
-        <Link href="/">Return to home page</Link>
       </div>
-
-      </div>
-
     );
   }
 
