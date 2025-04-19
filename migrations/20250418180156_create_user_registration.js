@@ -13,6 +13,7 @@ export async function up(knex) {
       table.string('investmentInterest').notNullable();
       table.string('investmentRange').notNullable();
       table.string('previousInvestment').notNullable();
+      table.string('registration').defaultTo("pending").notNullable();
       table.timestamp('createdAt').defaultTo(knex.fn.now()).notNullable();
   
       table.index(['createdAt']);

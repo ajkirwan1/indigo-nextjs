@@ -14,7 +14,7 @@ import RegisterFormPage3New from "@/components/forms/register/register-page-3";
 export default function RegisterPageComponent() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const [submissionError, setSubmissionError] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   const [data, setData] = useState({
     email: "",
@@ -45,12 +45,14 @@ export default function RegisterPageComponent() {
     });
   };
 
-  const handleError = () => {
-    setSubmissionError(true);
+  const handleError = (errorMessage) => {
+    console.log(errorMessage)
+    // setSubmissionError(true);
+    setSubmissionError(errorMessage)
   };
 
   const handleReset = () => {
-    setSubmissionError(false);
+    setSubmissionError("");
     setData({
       email: "",
       companyName: "",
@@ -128,13 +130,14 @@ export default function RegisterPageComponent() {
     </motion.div>,
   ];
 
-  function Error() {
+  function Error({errorMessage}) {
     return (
       <div className={classes.errorWrapper}>
         <div className={`${classes.errorFormcontainer} ${classes.large}`}>
           <h2>Something went wrong!</h2>
           <p>
-            We&apos;re sorry, but something went wrong submitting your details
+          {errorMessage}
+            {/* We&apos;re sorry, but something went wrong submitting your details */}
           </p>
           <div className="submit-button-container">
             <Button onClick={handleReset}>Try again</Button>
@@ -150,7 +153,7 @@ export default function RegisterPageComponent() {
       {!submissionError ? (
         <AnimatePresence mode="wait">{formElements[activeTab]}</AnimatePresence>
       ) : (
-        <Error />
+        <Error errorMessage={submissionError}/>
       )}
     </>
   );

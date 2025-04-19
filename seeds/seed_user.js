@@ -13,6 +13,12 @@ const userId3 = generateId(15);
 const userId4 = generateId(15);
 const userId5 = generateId(15);
 
+function randomDateInLast30Days() {
+  const now = new Date();
+  const daysAgo = Math.floor(Math.random() * 30);
+  return new Date(now.setDate(now.getDate() - daysAgo));
+}
+
 export async function seed(knex) {
   // Deletes ALL existing entries
   await knex("passwords").del();
@@ -21,6 +27,7 @@ export async function seed(knex) {
   await knex("properties2").del();
   await knex("usersonproperties").del();
   await knex("usersonproperties2").del();
+  await knex("userRegistration").del();
   await knex("users").insert([
     {
       id: userId1,
@@ -335,6 +342,148 @@ export async function seed(knex) {
       id: 100000007,
       userId: userId5,
       propertyId: 100000001,
+    },
+  ]);
+  await knex("userRegistration").insert([
+    {
+      id: 1,
+      name: "Nova Holdings",
+      email: "nova@example.com",
+      phoneNumber: "+441100000001",
+      buyertype: "private",
+      location: "Greece",
+      purchaseTimeline: "within 6 months",
+      investmentInterest: "residential",
+      investmentRange: "100,000€ - 150,000€",
+      previousInvestment: "no",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 2,
+      name: "Atlas Ventures",
+      email: "atlas@example.com",
+      phoneNumber: "+441100000002",
+      buyertype: "agent",
+      location: "Spain",
+      purchaseTimeline: "6 - 12 months",
+      investmentInterest: "commercial",
+      investmentRange: "more than 150,000€",
+      previousInvestment: "yes",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 3,
+      name: "Sunrise Group",
+      email: "sunrise@example.com",
+      phoneNumber: "+441100000003",
+      buyertype: "private",
+      location: "Portugal",
+      purchaseTimeline: "+12 months",
+      investmentInterest: "land",
+      investmentRange: "50,000€ - 100,000€",
+      previousInvestment: "no",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 4,
+      name: "Lighthouse Ltd",
+      email: "lighthouse@example.com",
+      phoneNumber: "+441100000004",
+      buyertype: "private",
+      location: "Italy",
+      purchaseTimeline: "within 6 months",
+      investmentInterest: "residential",
+      investmentRange: "100,000€ - 150,000€",
+      previousInvestment: "yes",
+      registration: "accepted",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 5,
+      name: "Zenith Estates",
+      email: "zenith@example.com",
+      phoneNumber: "+441100000005",
+      buyertype: "agent",
+      location: "France",
+      purchaseTimeline: "6 - 12 months",
+      investmentInterest: "commercial",
+      investmentRange: "more than 150,000€",
+      previousInvestment: "yes",
+      registration: "rejected",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 6,
+      name: "Echo Properties",
+      email: "echo@example.com",
+      phoneNumber: "+441100000006",
+      buyertype: "private",
+      location: "Germany",
+      purchaseTimeline: "+12 months",
+      investmentInterest: "land",
+      investmentRange: "50,000€ - 100,000€",
+      previousInvestment: "no",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 7,
+      name: "Solstice Partners",
+      email: "solstice@example.com",
+      phoneNumber: "+441100000007",
+      buyertype: "private",
+      location: "UK",
+      purchaseTimeline: "within 6 months",
+      investmentInterest: "residential",
+      investmentRange: "100,000€ - 150,000€",
+      previousInvestment: "yes",
+      registration: "accepted",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 8,
+      name: "Harborfront Inc",
+      email: "harborfront@example.com",
+      phoneNumber: "+441100000008",
+      buyertype: "agent",
+      location: "Ireland",
+      purchaseTimeline: "6 - 12 months",
+      investmentInterest: "commercial",
+      investmentRange: "more than 150,000€",
+      previousInvestment: "yes",
+      registration: "accepted",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 9,
+      name: "Horizon Developments",
+      email: "horizon@example.com",
+      phoneNumber: "+441100000009",
+      buyertype: "private",
+      location: "Cyprus",
+      purchaseTimeline: "+12 months",
+      investmentInterest: "land",
+      investmentRange: "50,000€ - 100,000€",
+      previousInvestment: "no",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 10,
+      name: "BluePeak Realty",
+      email: "bluepeak@example.com",
+      phoneNumber: "+441100000010",
+      buyertype: "agent",
+      location: "Netherlands",
+      purchaseTimeline: "within 6 months",
+      investmentInterest: "residential",
+      investmentRange: "100,000€ - 150,000€",
+      previousInvestment: "yes",
+      registration: "accepted",
+      createdAt: randomDateInLast30Days(),
     },
   ]);
 }

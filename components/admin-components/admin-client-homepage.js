@@ -53,7 +53,6 @@ export default async function AdminClientHomepage() {
             </Link>
           </div>
         </div>
-        {/* <Link href="/admin/user">All users</Link> */}
       </div>
     </>
   );

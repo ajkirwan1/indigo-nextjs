@@ -16,21 +16,21 @@ export async function RegisterUser(data) {
     purchaseTimeline,
     investmentInterest,
     investmentRange,
-    previousInvestment
+    previousInvestment,
   } = data;
 
+  const result = ValidateContactForm(
+    companyName,
+    email,
+    confirmEmail,
+    phoneNumber
+  );
+
+  if (!result?.success) {
+    return result;
+  }
+
   try {
-    const result = ValidateContactForm(
-      companyName,
-      email,
-      confirmEmail,
-      phoneNumber
-    );
-
-    if (!result?.success) {
-      return result
-    }
-
     const userRegistration = await db.userRegistration.create({
       data: {
         name: companyName,
@@ -44,10 +44,9 @@ export async function RegisterUser(data) {
         previousInvestment: previousInvestment,
       },
     });
-    console.log(userRegistration)
 
     return result;
   } catch (error) {
-    console.log(error, "ERROR");
+    return { dbError: "We're sorry, but something went wrong submitting your details" };
   }
 }

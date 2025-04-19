@@ -4,16 +4,25 @@ import db from "@/modules/db";
 
 export async function GetPendingUsers() {
   try {
-    const pendingPropertyUsers = await db.user.findMany({
+    // const pendingPropertyUsers = await db.user.findMany({
+    //   where: {
+    //     propertyaccess: {
+    //       equals: 0,
+    //     },
+    //   },
+    // });
+
+    const userPendingRegistration = await db.userRegistration.findMany({
       where: {
-        propertyaccess: {
-          equals: 0,
+        registration: {
+          equals: "pending",
         },
       },
-    });
+    }); 
 
-    // throw Error;
-    return pendingPropertyUsers;
+    console.log(userPendingRegistration)
+
+    return userPendingRegistration;
   } catch (error) {
     return { message: "Database Error: Failed to retrieve data" };
   }

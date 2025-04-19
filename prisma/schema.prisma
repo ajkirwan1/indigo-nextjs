@@ -143,6 +143,7 @@ model UserRegistration {
   investmentInterest String
   investmentRange String
   previousInvestment String
+  registration String @default("pending")
   createdAt DateTime @default(now())
 
   @@map("userRegistration")
