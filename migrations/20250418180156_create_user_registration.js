@@ -12,8 +12,6 @@ export async function up(knex) {
       table.string("hashedPassword").nullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now());
       table.integer("registrationId").unsigned().nullable();
-      // Foreign key to `userRegistration`
-      // table.integer("registrationId").unsigned().unique().references("id").inTable("userRegistration").onDelete("SET NULL");
     })
     .createTable("userRegistration", (table) => {
       table.increments("id").primary();
@@ -28,16 +26,7 @@ export async function up(knex) {
       table.string("previousInvestment").notNullable();
       table.string("registration").defaultTo("pending").notNullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now()).notNullable();
-
-      // This is the nullable foreign key to `UserNew`
-      // table.integer("userNewId").unsigned().nullable();
-      // table
-      //   .foreign("userNewId")
-      //   .references("id")
-      //   .inTable("usersNew")
-      //   .onDelete("SET NULL");
-    }
-  )
+    })
     .alterTable("usersNew", (table) => {
       table
         .foreign("registrationId")
@@ -45,7 +34,6 @@ export async function up(knex) {
         .inTable("userRegistration")
         .onDelete("SET NULL");
     })
-
     .createTable("Pdf", (table) => {
       table.string("id").primary(); // cuid
       table.string("name").notNullable();
@@ -66,8 +54,16 @@ export async function up(knex) {
         .references("id")
         .inTable("Pdf")
         .onDelete("CASCADE");
-
       table.unique(["userId", "pdfId"]); // prevent duplicates
+    })
+    .createTable("MagicLinkToken", (table) => {
+      table.string("id").primary(); // cuid or uuid
+      table.string("email").notNullable();
+      table.string("token").unique().notNullable();
+      table.timestamp("expiresAt").notNullable();
+      table.boolean("used").defaultTo(false);
+      table.timestamp("createdAt").defaultTo(knex.fn.now());
+      table.integer("userId").unsigned().references("id").inTable("usersNew").onDelete("CASCADE");
     });
 }
 /**
@@ -78,5 +74,6 @@ export async function down(knex) {
     .dropTableIfExists("user_pdf")
     .dropTableIfExists("Pdf")
     .dropTableIfExists("usersNew")
-    .dropTableIfExists("userRegistration");
+    .dropTableIfExists("userRegistration")
+    .dropTableIfExists("MagicLinkToken");
 }

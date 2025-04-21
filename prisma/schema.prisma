@@ -177,6 +177,19 @@ model UserNew {
   registration       UserRegistration  @relation(fields: [registrationId], references: [id])
 
   pdfLinks           UserPdf[]
+  magicLinkTokens    MagicLinkToken[]
   
   @@map("usersNew")
+}
+
+model MagicLinkToken {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId    Int
+  user      UserNew  @relation(fields: [userId], references: [id])
 }

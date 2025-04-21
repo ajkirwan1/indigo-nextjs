@@ -65,9 +65,9 @@ export default async function AdminPage(props) {
         <h1>REGISTERED USERS</h1>
         <hr />
       </div>
-      <div className={classes.filterContainer}>
+      {/* <div className={classes.filterContainer}>
         <AdminTableFilter />
-      </div>
+      </div> */}
       <div className={classes.tableContainer}>
         <Suspense fallback={<TableFallback />}>
           <TableData query={query} name={name} email={email} />

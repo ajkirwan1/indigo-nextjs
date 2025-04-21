@@ -12,6 +12,7 @@ import { GetAllPdfs } from "@/server/actions/db/admin/properties/pdfs/get-all-pd
 import Button from "@/components/ui/button";
 import { UpdateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/update-client-pdfs";
 import { CreateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/create-client-pdfs";
+import { sendMagicLink } from "@/server/actions/db/admin/send-magic-link";
 
 function ListOfPdfs({
   pdfList,
