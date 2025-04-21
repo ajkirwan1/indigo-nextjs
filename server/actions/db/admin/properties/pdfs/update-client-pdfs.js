@@ -17,10 +17,9 @@ export async function UpdateClientPdfs(userId, newPdfIds) {
       pdfId,
     }));
 
-    console.log(createData, "CREATED DATA")
-
     await db.$transaction([
       // Delete all existing UserPdf links for the user
+
       db.userPdf.deleteMany({
         where: { userId: newUserId.id },
       }),

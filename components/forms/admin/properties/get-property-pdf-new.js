@@ -11,8 +11,14 @@ import classes from "./get-property-pdf-new.module.css";
 import { GetAllPdfs } from "@/server/actions/db/admin/properties/pdfs/get-all-pdfs";
 import Button from "@/components/ui/button";
 import { UpdateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/update-client-pdfs";
+import { CreateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/create-client-pdfs";
 
-function ListOfPdfs({ pdfList, checkboxticked, handleUpdateCheckbox, handleClick }) {
+function ListOfPdfs({
+  pdfList,
+  checkboxticked,
+  handleUpdateCheckbox,
+  handleClick,
+}) {
   return (
     <form>
       <ul>
@@ -39,7 +45,12 @@ function ListOfPdfs({ pdfList, checkboxticked, handleUpdateCheckbox, handleClick
   );
 }
 
-export default function GetPropertyPdfNew({ pdfs, userId, toggleModal }) {
+export default function GetPropertyPdfNew({
+  pdfs,
+  userId,
+  toggleModal,
+  registration,
+}) {
   const [pdfList, setPdfList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState([]);
   const [isPending, setIsPending] = useState(true);
@@ -80,10 +91,16 @@ export default function GetPropertyPdfNew({ pdfs, userId, toggleModal }) {
   };
 
   const handleClick = async (event) => {
-    event.preventDefault()
-    const result = await UpdateClientPdfs(userId, checkboxticked)
-    toggleModal()
-  }
+    event.preventDefault();
+    if (registration == "pending") {
+      await CreateClientPdfs(userId, checkboxticked)
+      
+    }
+    if (registration == "accepted") {
+      await UpdateClientPdfs(userId, checkboxticked);
+    }
+    toggleModal();
+  };
 
   return (
     <div className={classes.picker}>

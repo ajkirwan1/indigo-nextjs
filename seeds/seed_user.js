@@ -506,7 +506,7 @@ export async function seed(knex) {
 
   await knex("usersNew").insert([
     {
-      id: 1,
+      id: 1001,
       userName: "nova_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
@@ -514,7 +514,7 @@ export async function seed(knex) {
       createdAt: randomDateInLast30Days(),
     },
     {
-      id: 2,
+      id: 1002,
       userName: "atlas_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
@@ -522,7 +522,7 @@ export async function seed(knex) {
       createdAt: randomDateInLast30Days(),
     },
     {
-      id: 3,
+      id: 1003,
       userName: "sunrise_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
@@ -530,7 +530,7 @@ export async function seed(knex) {
       createdAt: randomDateInLast30Days(),
     },
     {
-      id: 4,
+      id: 1004,
       userName: "admin_alpha",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
@@ -538,7 +538,7 @@ export async function seed(knex) {
       createdAt: randomDateInLast30Days(),
     },
     {
-      id: 5,
+      id: 1005,
       userName: "admin_beta",
       userType: "admin",
       hashedPassword: await bcrypt.hash("password", 10),
@@ -566,12 +566,12 @@ export async function seed(knex) {
   ]);
 
   await knex("userPdf").insert([
-    { userId: 1, pdfId: pdfId1 },
-    { userId: 1, pdfId: pdfId2 },
-    { userId: 2, pdfId: pdfId1 },
-    { userId: 3, pdfId: pdfId3 },
-    { userId: 4, pdfId: pdfId1 },
-    { userId: 4, pdfId: pdfId2 },
-    { userId: 4, pdfId: pdfId3 },
+    { userId: 1001, pdfId: pdfId1 },
+    { userId: 1001, pdfId: pdfId2 },
+    { userId: 1002, pdfId: pdfId1 },
+    { userId: 1003, pdfId: pdfId3 },
+    { userId: 1004, pdfId: pdfId1 },
+    { userId: 1004, pdfId: pdfId2 },
+    { userId: 1004, pdfId: pdfId3 },
   ]);
 }

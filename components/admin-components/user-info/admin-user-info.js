@@ -27,7 +27,7 @@ export default function AdminUserInfo({ userInfo }) {
     registration,
     pdfs,
   } = userInfo;
-  
+
   const PersonalDetails = () => {
     return (
       <div className={classes.text}>
@@ -86,7 +86,13 @@ export default function AdminUserInfo({ userInfo }) {
     return (
       <div className={classes.text}>
         {registration == "pending" && (
-          <p>The User&apos;s registration is pending</p>
+          <>
+            <p>
+              The User&apos;s registration is pending, and they currently have
+              no access to documents.
+            </p>
+            <p>By updating the following, you will grant them access.</p>
+          </>
         )}
         {registration === "accepted" && (
           <>
@@ -133,7 +139,12 @@ export default function AdminUserInfo({ userInfo }) {
       {modalOpen && (
         <div>
           <ModalBackdrop handleModal={toggleModal}></ModalBackdrop>
-          <GetPropertyPdfNew userId={id} pdfs={pdfs} toggleModal={toggleModal}/>
+          <GetPropertyPdfNew
+            registration={registration}
+            userId={id}
+            pdfs={pdfs}
+            toggleModal={toggleModal}
+          />
         </div>
       )}
       <div className={classes.subHeader}>

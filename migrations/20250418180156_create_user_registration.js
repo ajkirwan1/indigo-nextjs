@@ -7,9 +7,9 @@ export async function up(knex) {
   await knex.schema
     .createTable("usersNew", (table) => {
       table.increments("id").primary();
-      table.string("userName").notNullable();
-      table.string("userType").notNullable(); // 'client' or 'admin'
-      table.string("hashedPassword").notNullable();
+      table.string("userName").nullable();
+      table.string("userType").nullable(); // 'client' or 'admin'
+      table.string("hashedPassword").nullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now());
       table.integer("registrationId").unsigned().nullable();
       // Foreign key to `userRegistration`

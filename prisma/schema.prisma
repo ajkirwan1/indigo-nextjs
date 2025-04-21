@@ -168,9 +168,9 @@ model UserRegistration {
 
 model UserNew {
   id             Int               @id @default(autoincrement())
-  userName       String
-  userType       String
-  hashedPassword String
+  userName       String?
+  userType       String?
+  hashedPassword String?
   createdAt      DateTime          @default(now())
 
   registrationId     Int               @unique
