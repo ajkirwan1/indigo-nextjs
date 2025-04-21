@@ -41,7 +41,7 @@ export default async function AdminClientHomepage() {
             </Link>
           </div>
           <div>
-            <Link href="admin/user?query=pending&firstnav=true">
+            <Link href="admin/user?query=all&firstnav=true">
               <h3>Total users</h3>
               <Suspense
                 fallback={

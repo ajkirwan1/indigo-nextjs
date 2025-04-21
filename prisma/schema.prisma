@@ -129,23 +129,54 @@ model UsersOnProperties {
 
 model Pdf {
   id String @id @default(cuid())
-  url String
+  name String
+  url      String   @db.Text
+
+  userLinks UserPdf[]
+}
+
+model UserPdf {
+  userId Int
+  pdfId  String
+
+  user   UserNew @relation(fields: [userId], references: [id])
+  pdf    Pdf     @relation(fields: [pdfId], references: [id])
+
+  @@id([userId, pdfId]) // composite primary key
+
+   @@map("userPdf")
 }
 
 model UserRegistration {
-  id Int @id @default(autoincrement())
-  name String
-  email String
-  phoneNumber String
-  buyertype String
-  location String
-  purchaseTimeline String
-  investmentInterest String
-  investmentRange String
-  previousInvestment String
-  registration String @default("pending")
-  createdAt DateTime @default(now())
+  id                  Int       @id @default(autoincrement())
+  name                String
+  email               String
+  phoneNumber         String
+  buyertype           String
+  location            String
+  purchaseTimeline    String
+  investmentInterest  String
+  investmentRange     String
+  previousInvestment  String
+  registration        String    @default("pending")
+  createdAt           DateTime  @default(now())
+
+  userNew            UserNew? 
 
   @@map("userRegistration")
 }
 
+model UserNew {
+  id             Int               @id @default(autoincrement())
+  userName       String
+  userType       String
+  hashedPassword String
+  createdAt      DateTime          @default(now())
+
+  registrationId     Int               @unique
+  registration       UserRegistration  @relation(fields: [registrationId], references: [id])
+
+  pdfLinks           UserPdf[]
+  
+  @@map("usersNew")
+}

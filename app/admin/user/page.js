@@ -16,17 +16,17 @@ async function TableData({ query, name, email }) {
 
   let resp;
 
-  // if (query == "pending") {
-  //   resp = await GetPendingUsers();
-  // } else if (query == "recent") {
-  //   resp = await GetNewUsers();
-  // } else if (query == "all") {
-  //   resp = await FindAllUsers();
-  // } else {
-  //   resp = await FindAllUsers();
-  // }
+  if (query == "pending") {
+    resp = await GetPendingUsers();
+  } else if (query == "recent") {
+    resp = await GetNewUsers();
+  } else if (query == "all") {
+    resp = await FindAllUsers();
+  } else {
+    resp = await FindAllUsers();
+  }
 
-  resp = await GetPendingUsers()
+  // resp = await GetPendingUsers()
 
   // if (resp.message) {
   //   return (<h2>An error occured fetching the data</h2>)
@@ -39,9 +39,6 @@ async function TableData({ query, name, email }) {
   // resp = resp.filter((user) => user.email.includes(email));
 
   const { headerData,  bodyData2 } = PrepareAdminClientData(resp);
-
-  console.log(headerData, 'headerdata')
-  console.log(bodyData2, 'bodyData')
 
   const theadData = [...headerData];
   const tbodyData = [...bodyData2];

@@ -4,14 +4,18 @@
  * @returns { Promise<void> }
  */
 import { generateId } from "lucia";
-import bcrypt from "bcryptjs"
-
+import bcrypt from "bcryptjs";
+import cuid from 'cuid';
 
 const userId1 = generateId(15);
 const userId2 = generateId(15);
 const userId3 = generateId(15);
 const userId4 = generateId(15);
 const userId5 = generateId(15);
+
+const pdfId1 = cuid()
+const pdfId2 = cuid()
+const pdfId3= cuid()
 
 function randomDateInLast30Days() {
   const now = new Date();
@@ -344,7 +348,8 @@ export async function seed(knex) {
       propertyId: 100000001,
     },
   ]);
-  await knex("userRegistration").insert([
+
+  const usersReg = [
     {
       id: 1,
       name: "Nova Holdings",
@@ -356,8 +361,9 @@ export async function seed(knex) {
       investmentInterest: "residential",
       investmentRange: "100,000€ - 150,000€",
       previousInvestment: "no",
-      registration: "pending",
+      registration: "accepted",
       createdAt: randomDateInLast30Days(),
+      // userNewId: 1,
     },
     {
       id: 2,
@@ -370,8 +376,9 @@ export async function seed(knex) {
       investmentInterest: "commercial",
       investmentRange: "more than 150,000€",
       previousInvestment: "yes",
-      registration: "pending",
+      registration: "accepted",
       createdAt: randomDateInLast30Days(),
+      // userNewId: 2,
     },
     {
       id: 3,
@@ -386,6 +393,7 @@ export async function seed(knex) {
       previousInvestment: "no",
       registration: "pending",
       createdAt: randomDateInLast30Days(),
+      // userNewId: 3,
     },
     {
       id: 4,
@@ -400,6 +408,7 @@ export async function seed(knex) {
       previousInvestment: "yes",
       registration: "accepted",
       createdAt: randomDateInLast30Days(),
+      // userNewId: 4,
     },
     {
       id: 5,
@@ -414,6 +423,7 @@ export async function seed(knex) {
       previousInvestment: "yes",
       registration: "rejected",
       createdAt: randomDateInLast30Days(),
+      // userNewId: null,
     },
     {
       id: 6,
@@ -428,6 +438,7 @@ export async function seed(knex) {
       previousInvestment: "no",
       registration: "pending",
       createdAt: randomDateInLast30Days(),
+      // userNewId: null,
     },
     {
       id: 7,
@@ -442,6 +453,7 @@ export async function seed(knex) {
       previousInvestment: "yes",
       registration: "accepted",
       createdAt: randomDateInLast30Days(),
+      // userNewId: null,
     },
     {
       id: 8,
@@ -454,8 +466,9 @@ export async function seed(knex) {
       investmentInterest: "commercial",
       investmentRange: "more than 150,000€",
       previousInvestment: "yes",
-      registration: "accepted",
+      registration: "rejected",
       createdAt: randomDateInLast30Days(),
+      // userNewId: null,
     },
     {
       id: 9,
@@ -470,6 +483,7 @@ export async function seed(knex) {
       previousInvestment: "no",
       registration: "pending",
       createdAt: randomDateInLast30Days(),
+      // userNewId: null,
     },
     {
       id: 10,
@@ -482,8 +496,82 @@ export async function seed(knex) {
       investmentInterest: "residential",
       investmentRange: "100,000€ - 150,000€",
       previousInvestment: "yes",
-      registration: "accepted",
+      registration: "pending",
+      createdAt: randomDateInLast30Days(),
+      // userNewId: null,
+    },
+  ];
+
+  await knex("userRegistration").insert(usersReg);
+
+  await knex("usersNew").insert([
+    {
+      id: 1,
+      userName: "nova_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 1,
       createdAt: randomDateInLast30Days(),
     },
+    {
+      id: 2,
+      userName: "atlas_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 2,
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 3,
+      userName: "sunrise_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 4,
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 4,
+      userName: "admin_alpha",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 7,
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 5,
+      userName: "admin_beta",
+      userType: "admin",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: null,
+      createdAt: randomDateInLast30Days(),
+    },
+  ]);
+
+  await knex("Pdf").insert([
+    {
+      id: pdfId1,
+      name: "Karikan Realty",
+      url: "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAWOOW4PVAWAYBUWGK%2F20250419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250419T153220Z&X-Amz-Expires=3600&X-Amz-Signature=ab2a1c43f98488bbda147f7046907539d1b9d06012d12e5e86d9994720d816b6&X-Amz-SignedHeaders=host&x-id=GetObject",
+    },
+    {
+      id: pdfId2,
+      name: "Karikan Realty Enhanced",
+      url: "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAWOOW4PVAWAYBUWGK%2F20250419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250419T153220Z&X-Amz-Expires=3600&X-Amz-Signature=ab2a1c43f98488bbda147f7046907539d1b9d06012d12e5e86d9994720d816b6&X-Amz-SignedHeaders=host&x-id=GetObject",
+    },
+    {
+      id: pdfId3,
+      name: "Karikan Realty Budget",
+      url: "https://next-js-pdf-bucket.s3.eu-central-1.amazonaws.com/Karikan_Realty_%CE%A619_Project_Book.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAWOOW4PVAWAYBUWGK%2F20250419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Date=20250419T153220Z&X-Amz-Expires=3600&X-Amz-Signature=ab2a1c43f98488bbda147f7046907539d1b9d06012d12e5e86d9994720d816b6&X-Amz-SignedHeaders=host&x-id=GetObject",
+    },
+  ]);
+
+  await knex("userPdf").insert([
+    { userId: 1, pdfId: pdfId1 },
+    { userId: 1, pdfId: pdfId2 },
+    { userId: 2, pdfId: pdfId1 },
+    { userId: 3, pdfId: pdfId3 },
+    { userId: 4, pdfId: pdfId1 },
+    { userId: 4, pdfId: pdfId2 },
+    { userId: 4, pdfId: pdfId3 },
   ]);
 }
