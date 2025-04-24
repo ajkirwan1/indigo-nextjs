@@ -5,23 +5,19 @@ import { SignIn } from "@/components/forms/sign-in/sign-in-form";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 
 export default function DesktopNav({ data, session }) {
+  function AdminNav() {
+    return <>{session ? <SignOutButton /> : <SignIn />}</>;
+  }
+
   return (
     <>
       <div className={classes.desktopNav}>
         <ul className={classes.menus}>
           {data.map((menu, index) => {
-            return <NavigationItems items={menu} key={index} />;
+            return (
+              <NavigationItems items={menu} key={index} session={session} />
+            );
           })}
-
-          {session ? (
-            <li>
-              <SignOutButton>Sign Out</SignOutButton>
-            </li>
-          ) : (
-            <li>
-              <SignIn>asdasdsad</SignIn>
-            </li>
-          )}
         </ul>
       </div>
     </>

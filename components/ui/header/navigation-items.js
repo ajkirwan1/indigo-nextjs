@@ -4,14 +4,14 @@ import { useState } from "react";
 import Dropdown from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
-import { useSession } from "@/contexts/session-context";
+// import { useSession } from "@/contexts/session-context";
 import { MdOutlineAccountCircle } from "react-icons/md";
 
-import Image from "next/image";
+// import Image from "next/image";
 
-export default function NavigationItems({ items }) {
+export default function NavigationItems({ items, session }) {
   const [dropdown, setDropdown] = useState(false);
-  const { user } = useSession();
+  // const { user } = useSession();
   return (
     <ul className={classes.ulWrapper} onMouseLeave={() => setDropdown(false)}>
       <li className={classes.menuItems}>
@@ -28,7 +28,7 @@ export default function NavigationItems({ items }) {
             </button>
             {/* <p>name</p> */}
             {dropdown && (
-              <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              <Dropdown submenus={items.submenu} dropdown={dropdown} session={session}/>
             )}
           </>
         ) : items.submenu && items.title == "ACCOUNT_LOGGED_IN" ? (

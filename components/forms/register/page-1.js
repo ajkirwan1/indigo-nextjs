@@ -12,8 +12,8 @@ import Button from "@/components/ui/button";
 import { useFormState } from "react-dom";
 import FormSubmit from "../formsubmit";
 
-export default function RegisterFormPage1() {
-  const initialState = { errorMessage: "", errors: [] };
+export default function RegisterFormPage1({magicLinkRecord}) {
+  const initialState = { errorMessage: "", errors: [], magicLinkRecord: magicLinkRecord};
   const [errors, setErrors] = useState([]);
   const [state, formAction] = useFormState(NewUserSignUp, initialState);
 
@@ -25,7 +25,8 @@ export default function RegisterFormPage1() {
   //   console.log("KLKL");
   // };
 
-  console.log(state);
+  console.log(state, "STATE");
+  console.log(magicLinkRecord, "magicLinkRecord");
   return (
     <>
       {errors[0]?.dbErrorMessage ? (
@@ -65,9 +66,7 @@ export default function RegisterFormPage1() {
               <input
                 type="email"
                 name="email"
-                placeholder="email@123.com"
-                // value={data.email}
-                // onChange={handleChange}
+                value={magicLinkRecord.email}
               />
             </div>
             {state.errors.email && (

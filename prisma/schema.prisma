@@ -184,8 +184,8 @@ model UserNew {
 
 model MagicLinkToken {
   id        String   @id @default(cuid())
-  email     String
   token     String   @unique
+  email     String
   expiresAt DateTime
   used      Boolean  @default(false)
   createdAt DateTime @default(now())

@@ -54,7 +54,7 @@ export async function up(knex) {
         .references("id")
         .inTable("Pdf")
         .onDelete("CASCADE");
-      table.unique(["userId", "pdfId"]); // prevent duplicates
+      table.unique(["userId", "pdfId"]);
     })
     .createTable("MagicLinkToken", (table) => {
       table.string("id").primary(); // cuid or uuid

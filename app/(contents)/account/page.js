@@ -19,13 +19,12 @@ export const metadata = {
 };
 
 export default async function UserInfo(props) {
-  const session = await auth();
-  console.log(session, "SESION ACCOUNT PAGE");
+  // const session = await auth();
+  // console.log(session, "SESION ACCOUNT PAGE");
 
-  if (session.user.role == "admin") {
-    redirect("/admin")
-
-  }
+  // if (session.user.role == "admin") {
+  //   redirect("/admin")
+  // }
 
   // const searchParams = await props.searchParams;
 

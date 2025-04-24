@@ -36,7 +36,7 @@ export default async function NewUserPage({ searchParams }) {
       <div className={classes.pageWrapper}>
         <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
           <div className={classes.formcontainer}>
-            <RegisterFormPage1 />
+            <RegisterFormPage1 magicLinkRecord={magicLinkRecord}/>
           </div>
         </HeroComponent>
       </div>

@@ -1,8 +1,7 @@
 /** @format */
 
 export default function GetNavData() {
-
-const navigationData = [
+  const navigationData = [
     {
       title: "NEWS",
       url: "/news",
@@ -24,9 +23,23 @@ const navigationData = [
       url: "/contact",
     },
     {
-      title: "REGISTER",
-      url: "/register",
-    },  
+      title: "ACCOUNT",
+      url: "/contact",
+      submenu: [
+        {
+          title: "REGSITER",
+          url: "/register",
+        },
+        {
+          title: "SignIn",
+          url: "/",
+        },
+        {
+          title: "SignOut",
+          url: "/",
+        },
+      ],
+    },
   ];
 
   return navigationData;

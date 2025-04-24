@@ -5,6 +5,7 @@ import {authConfig} from "./auth.config"
 import { getToken } from "next-auth/jwt"
 
 const protectedRoutes = ["/admin"];
+const adminRedirectRoutes = ["/", "/contact"]
 
 const { auth } = NextAuth(authConfig);
 
@@ -13,10 +14,17 @@ export default auth(async function middleware(req) {
     // const session = await auth();
     
     const token = await getToken({ req, secret:process.env.AUTH_SECRET })
+    const { pathname } = req.nextUrl;
+    
+    const shouldRedirectToAdmin = token?.role === "admin" && 
+    adminRedirectRoutes.some((route) => pathname === route || pathname.startsWith(route + "/"));
+
+    if (shouldRedirectToAdmin) {
+      return NextResponse.redirect(new URL("/admin", req.nextUrl));
+    }
 
     // const token= await getToken({ req, secret:process.env.AUTH_SECRET })
   
-    const { pathname } = req.nextUrl;
   
     const isProtected = protectedRoutes.some((route) =>
       pathname.startsWith(route)
