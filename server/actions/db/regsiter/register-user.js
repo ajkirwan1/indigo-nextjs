@@ -47,6 +47,7 @@ export async function RegisterUser(data) {
 
     return result;
   } catch (error) {
+    console.log(error)
     return { dbError: "We're sorry, but something went wrong submitting your details" };
   }
 }

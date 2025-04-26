@@ -12,8 +12,8 @@ export default function NavLinkMobile({ children, href, handleMobileIcon }) {
     event.preventDefault();
     const evnt =  router.push(href);
     
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    handleMobileIcon();
+    // await new Promise((resolve) => setTimeout(resolve, 500));
+    // handleMobileIcon();
   };
 
   return (

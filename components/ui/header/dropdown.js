@@ -9,7 +9,6 @@ import { SignIn } from "@/components/forms/sign-in/sign-in-form";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 
 export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
-
   return (
     <ul
       className={
@@ -24,8 +23,11 @@ export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {!session && submenu.title == "SignIn" && <SignIn />}
-          {session && submenu.title == "SignOut" && <SignOutButton />}
+          {submenu.title !== "SignIn" && submenu.title !== "SignOut" && (
+            <NavLinkMobile href={submenu.url}>{submenu.title}</NavLinkMobile>
+          )}
+          {submenu.title === "SignIn" && !session && <SignIn />}
+          {submenu.title === "SignOut" && session && <SignOutButton />}
         </motion.li>
       ))}
     </ul>

@@ -20,19 +20,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     //   return true;
     // },
     async jwt({ token, trigger, account, profile, user, session }) {
+      console.log(user, "USERS")
       if (user) {
-        token.name = user.firstname;
-        if (user.adminaccess == 2) {
+        token.id = user.id
+        token.userName = user.userName;
+        if (user.userType == "admin") {
           token.role = "admin";
         } else token.role = "user";
       }
       return token;
     },
     async session({ token, user, session, newSession, trigger }) {
-      // if (session?.user) {
-      //   console.log(token, "KSAKSAKS")
-      //   session.user = token.user;
-      // }
+      session.user.userName = token.userName;
+      session.user.id = token.id;
       session.user.role = token.role;
       return session;
     },

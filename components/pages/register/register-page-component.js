@@ -46,8 +46,6 @@ export default function RegisterPageComponent() {
   };
 
   const handleError = (errorMessage) => {
-    console.log(errorMessage)
-    // setSubmissionError(true);
     setSubmissionError(errorMessage)
   };
 
@@ -137,7 +135,6 @@ export default function RegisterPageComponent() {
           <h2>Something went wrong!</h2>
           <p>
           {errorMessage}
-            {/* We&apos;re sorry, but something went wrong submitting your details */}
           </p>
           <div className="submit-button-container">
             <Button onClick={handleReset}>Try again</Button>

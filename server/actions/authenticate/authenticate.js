@@ -17,25 +17,19 @@ export async function authenticate(prevState, formData) {
     const username = formData.get("username");
     const password = formData.get("password");
 
-    const existingUser = await db.user.findFirst({
-      where: { username: username },
+    const existingUser = await db.userNew.findFirst({
+      where: { userName: username },
     });
 
     if (!existingUser) {
       return {validationErrors: {noUser: "Invalid credentials"}}
     }
 
-    const userpassword = await db.password.findFirst({
-      where: { userId: existingUser.id },
-    });
-
-    const passwordMatch = await bcrypt.compare(password, userpassword.hashedPassword)
+    const passwordMatch = await bcrypt.compare(password, existingUser.hashedPassword)
 
     if (!passwordMatch) {
       return {validationErrors: {noUser: "Invalid credentials"}}
     }
-    console.log(existingUser)
-
     await signIn("credentials", existingUser);
     
   } catch (error) {

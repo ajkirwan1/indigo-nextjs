@@ -351,7 +351,7 @@ export async function seed(knex) {
 
   const usersReg = [
     {
-      id: 1,
+      id: 1001,
       name: "Nova Holdings",
       email: "nova@example.com",
       phoneNumber: "+441100000001",
@@ -366,7 +366,7 @@ export async function seed(knex) {
       // userNewId: 1,
     },
     {
-      id: 2,
+      id: 1002,
       name: "Atlas Ventures",
       email: "atlas@example.com",
       phoneNumber: "+441100000002",
@@ -381,7 +381,7 @@ export async function seed(knex) {
       // userNewId: 2,
     },
     {
-      id: 3,
+      id: 1003,
       name: "Sunrise Group",
       email: "sunrise@example.com",
       phoneNumber: "+441100000003",
@@ -396,7 +396,7 @@ export async function seed(knex) {
       // userNewId: 3,
     },
     {
-      id: 4,
+      id: 1004,
       name: "Lighthouse Ltd",
       email: "lighthouse@example.com",
       phoneNumber: "+441100000004",
@@ -411,7 +411,7 @@ export async function seed(knex) {
       // userNewId: 4,
     },
     {
-      id: 5,
+      id: 1005,
       name: "Zenith Estates",
       email: "zenith@example.com",
       phoneNumber: "+441100000005",
@@ -426,7 +426,7 @@ export async function seed(knex) {
       // userNewId: null,
     },
     {
-      id: 6,
+      id: 1006,
       name: "Echo Properties",
       email: "echo@example.com",
       phoneNumber: "+441100000006",
@@ -441,7 +441,7 @@ export async function seed(knex) {
       // userNewId: null,
     },
     {
-      id: 7,
+      id: 1007,
       name: "Solstice Partners",
       email: "solstice@example.com",
       phoneNumber: "+441100000007",
@@ -456,7 +456,7 @@ export async function seed(knex) {
       // userNewId: null,
     },
     {
-      id: 8,
+      id: 1008,
       name: "Harborfront Inc",
       email: "harborfront@example.com",
       phoneNumber: "+441100000008",
@@ -471,7 +471,7 @@ export async function seed(knex) {
       // userNewId: null,
     },
     {
-      id: 9,
+      id: 1009,
       name: "Horizon Developments",
       email: "horizon@example.com",
       phoneNumber: "+441100000009",
@@ -486,7 +486,7 @@ export async function seed(knex) {
       // userNewId: null,
     },
     {
-      id: 10,
+      id: 1010,
       name: "BluePeak Realty",
       email: "bluepeak@example.com",
       phoneNumber: "+441100000010",
@@ -510,7 +510,7 @@ export async function seed(knex) {
       userName: "nova_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 1,
+      registrationId: 1001,
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -518,7 +518,7 @@ export async function seed(knex) {
       userName: "atlas_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 2,
+      registrationId: 1002,
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -526,7 +526,7 @@ export async function seed(knex) {
       userName: "sunrise_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 4,
+      registrationId: 1004,
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -534,12 +534,12 @@ export async function seed(knex) {
       userName: "admin_alpha",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 7,
+      registrationId: 1007,
       createdAt: randomDateInLast30Days(),
     },
     {
       id: 1005,
-      userName: "admin_beta",
+      userName: "admin123",
       userType: "admin",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: null,

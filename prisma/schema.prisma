@@ -173,8 +173,8 @@ model UserNew {
   hashedPassword String?
   createdAt      DateTime          @default(now())
 
-  registrationId     Int               @unique
-  registration       UserRegistration  @relation(fields: [registrationId], references: [id])
+  registrationId     Int?               @unique
+  registration       UserRegistration?  @relation(fields: [registrationId], references: [id])
 
   pdfLinks           UserPdf[]
   magicLinkTokens    MagicLinkToken[]
