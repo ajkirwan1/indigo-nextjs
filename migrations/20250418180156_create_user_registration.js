@@ -27,7 +27,7 @@ export async function up(knex) {
       table.string("registration").defaultTo("pending").notNullable();
       table.timestamp("createdAt").defaultTo(knex.fn.now()).notNullable();
     })
-    .alterTable("usersNew", (table) => {
+    .alterTable("userNew", (table) => {
       table
         .foreign("registrationId")
         .references("id")
@@ -71,9 +71,9 @@ export async function up(knex) {
  */
 export async function down(knex) {
   await knex.schema
-    .dropTableIfExists("user_pdf")
+    .dropTableIfExists("userPdf")
     .dropTableIfExists("Pdf")
-    .dropTableIfExists("usersNew")
+    .dropTableIfExists("userNew")
     .dropTableIfExists("userRegistration")
     .dropTableIfExists("MagicLinkToken");
 }

@@ -507,7 +507,7 @@ export async function seed(knex) {
 
   await knex("userRegistration").insert(usersReg);
 
-  await knex("usersNew").insert([
+  await knex("userNew").insert([
     {
       id: 1001,
       userName: "nova_user",
