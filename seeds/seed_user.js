@@ -32,7 +32,7 @@ export async function seed(knex) {
   await knex("usersonproperties").del();
   await knex("usersonproperties2").del();
   await knex("userRegistration").del();
-  await knex("usersNew").del();
+  await knex("userNew").del();
   await knex("Pdf").del();
   await knex("userPdf").del();
   await knex("users").insert([
