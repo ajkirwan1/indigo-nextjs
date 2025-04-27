@@ -75,3 +75,15 @@ export async function up(knex) {
       .onDelete("CASCADE");
   });
 }
+
+/**
+ * @param {import('knex').Knex} knex
+ */
+export async function down(knex) {
+  await knex.schema
+    .dropTableIfExists("MagicLinkToken")
+    .dropTableIfExists("userPdf")
+    .dropTableIfExists("Pdf")
+    .dropTableIfExists("userNew")
+    .dropTableIfExists("userRegistration");
+}
