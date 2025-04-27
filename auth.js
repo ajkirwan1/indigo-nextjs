@@ -14,20 +14,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   callbacks: {
-    // authorized({ auth, request }) {
-    //   console.log(auth)
-    //   console.log(request)
-    //   return true;
-    // },
     async jwt({ token, trigger, account, profile, user, session }) {
-      console.log(user, "USERS")
-      if (user) {
-        token.id = user.id
-        token.userName = user.userName;
-        if (user.userType == "admin") {
-          token.role = "admin";
-        } else token.role = "user";
-      }
+      // console.log(user, "USERSJWT")
+      // if (user) {
+      //   token.id = user.id
+      //   token.userName = user.userName;
+      //   if (user.userType == "admin") {
+      //     token.role = "admin";
+      //   } else token.role = "user";
+      // }
+      token.id = user.id;
+      token.userName = user.userName;
+      if (user.userType == "admin") {
+        token.role = "admin";
+      } else token.role = "user";
       return token;
     },
     async session({ token, user, session, newSession, trigger }) {
@@ -36,8 +36,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.user.role = token.role;
       return session;
     },
-    async redirect({ url, baseUrl}) {
+    async redirect({ url, baseUrl }) {
       return "/login/redirect";
     },
-  }
+  },
 });
