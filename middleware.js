@@ -14,6 +14,8 @@ export default auth(async function middleware(req) {
     // const session = await auth();
     
     const token = await getToken({ req, secret:process.env.AUTH_SECRET })
+    console.log(process.env.AUTH_SECRET, "process.env.AUTH_SECRET")
+    console.log(token, "token")
     const { pathname } = req.nextUrl;
     
     const shouldRedirectToAdmin = token?.role === "admin" && 
