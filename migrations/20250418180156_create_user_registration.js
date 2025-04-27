@@ -5,7 +5,7 @@
 
 export async function up(knex) {
   await knex.schema
-    .createTable("usersNew", (table) => {
+    .createTable("userNew", (table) => {
       table.increments("id").primary();
       table.string("userName").nullable();
       table.string("userType").nullable(); // 'client' or 'admin'
@@ -46,7 +46,7 @@ export async function up(knex) {
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("usersNew")
+        .inTable("userNew")
         .onDelete("CASCADE");
       table
         .string("pdfId")
@@ -63,7 +63,7 @@ export async function up(knex) {
       table.timestamp("expiresAt").notNullable();
       table.boolean("used").defaultTo(false);
       table.timestamp("createdAt").defaultTo(knex.fn.now());
-      table.integer("userId").unsigned().references("id").inTable("usersNew").onDelete("CASCADE");
+      table.integer("userId").unsigned().references("id").inTable("userNew").onDelete("CASCADE");
     });
 }
 /**

@@ -179,6 +179,7 @@ model UserNew {
   pdfLinks           UserPdf[]
   magicLinkTokens    MagicLinkToken[]
   
+  @@map("userNew")
 }
 
 model MagicLinkToken {
