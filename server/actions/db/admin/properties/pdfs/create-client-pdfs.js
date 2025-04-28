@@ -58,10 +58,15 @@ export async function CreateClientPdfs(userId, newPdfIds) {
           data: { registration: "accepted" },
         });
 
-      const baseUrl =
-        process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+        ? process.env.NEXT_PUBLIC_BASE_URL
+        : process.env.VERCEL_URL
           ? `https://${process.env.VERCEL_URL}`
           : "http://localhost:3000";
+      
+      console.log("Base URL:", baseUrl); // 👈 Add this for debugging
+      
+        
 
       const magicLink = `${baseUrl}/new-user?token=${token}`;
 
