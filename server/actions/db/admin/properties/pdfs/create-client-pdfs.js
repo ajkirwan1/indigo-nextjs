@@ -6,7 +6,7 @@ import db from "@/modules/db";
 import { revalidateTag } from "next/cache";
 import { sendMagicLink } from "../../send-magic-link";
 import { sendMagicLinkEmail } from "@/lib/mail/send-magic-link-email";
-import crypto from 'crypto';
+import crypto from "crypto";
 
 export async function CreateClientPdfs(userId, newPdfIds) {
   // console.log(userId);
@@ -16,15 +16,14 @@ export async function CreateClientPdfs(userId, newPdfIds) {
 
   try {
     const result = await db.$transaction(async (tx) => {
-
       const userEmail = await tx.userRegistration.findFirst({
-        where: {id: userId},
+        where: { id: userId },
         select: {
           email: true,
         },
       });
 
-      console.log("USER EMAIL", userEmail)
+      console.log("USER EMAIL", userEmail);
 
       const newUser = await tx.userNew.create({
         data: {
@@ -41,33 +40,34 @@ export async function CreateClientPdfs(userId, newPdfIds) {
           email: userEmail.email,
           token,
           expiresAt,
-          userId : newUser.id,
+          userId: newUser.id,
         },
       });
 
-      
       const createData = newPdfIds.map((pdfId) => ({
         userId: newUser.id,
         pdfId,
       }));
-      
+
       await tx.userPdf.createMany({
         data: createData,
         skipDuplicates: true,
       }),
+        await tx.userRegistration.update({
+          where: { id: userId },
+          data: { registration: "accepted" },
+        });
 
-      await tx.userRegistration.update({
-        where: { id: userId },
-        data: { registration: "accepted" },
-      });
+      const baseUrl =
+        process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : "http://localhost:3000";
 
+      const magicLink = `${baseUrl}/new-user?token=${token}`;
 
-      const magicLink = `${process.env.NEXT_PUBLIC_BASE_URL}/new-user?token=${token}`;
-
-      const email = "ajkirwan1@gmail.com"
+      const email = "ajkirwan1@gmail.com";
 
       await sendMagicLinkEmail(email, magicLink);
-
 
       revalidateTag(`user-${userId}`);
     });
