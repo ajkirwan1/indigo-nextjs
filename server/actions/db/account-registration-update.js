@@ -1,89 +1,38 @@
 /** @format */
 "use server";
-import db from "@/modules/db";
 
-export async function UpdateUserAccountRegisrationInfo(state, formData, id) {
-  // console.log(state)
+// import { updateUserRegistration } from "@/server/db"; // Your DB update function (replace with your real import)
+
+export async function UpdateUserAccountRegisrationInfo(_, formData) {
   try {
-    let buyer;
-    let location;
-    let time;
-    let type;
-    let capital;
-    let previous;
+    // Extract fields from formData
+    const location = formData.get("location");
+    const investmentInterest = formData.get("investmentInterest");
+    const buyerType = formData.get("buyerType");
+    const investmentRange = formData.get("investmentRange");
+    const purchaseTimeline = formData.get("purchaseTimeline");
+    const previousInvestment = formData.get("previousInvestment");
 
-    const privateBuyer = formData.get("privateBuyer");
-    const realEstateBuyer = formData.get("realEstateBuyer");
+    // Validate data here if needed
 
-    const locationOther = formData.get("locationOther");
-    const locationGreece = formData.get("locationGreece");
+    // Call your database update function (implement this in your backend)
+    // await updateUserRegistration({
+    //   location,
+    //   investmentInterest,
+    //   buyertype: buyerType,
+    //   investmentRange,
+    //   purchaseTimeline,
+    //   previousInvestment,
+    // });
 
-    const sixMonths = formData.get("sixMonths");
-    const sixToTwelveMonths = formData.get("sixToTwelveMonths");
-    const twelveMonths = formData.get("twelveMonths");
-
-    const residential = formData.get("residential");
-    const commercial = formData.get("commercial");
-    const land = formData.get("land");
-
-    let investmentInterestArray = [];
-
-    const fifty = formData.get("50");
-    const fiftyToHundred = formData.get("50-100");
-    const hundredToHundredFifty = formData.get("100-150");
-
-    const previousInvestmentYes = formData.get("yes");
-    const previousInvestmentNo = formData.get("no");
-
-    if (privateBuyer == "on") {
-      buyer = "privateBuyer";
-    } else {
-      buyer = "realEstateBuyer";
-    }
-
-    if (locationOther == "on") {
-      location = "locationOther";
-    } else {
-      location = "locationGreece";
-    }
-
-    if (sixMonths == "on") {
-      time = "sixMonths";
-    } else if (sixToTwelveMonths == "on") {
-      time = "sixToTwelveMonths";
-    } else {
-      time = "twelveMonths";
-    }
-
-    if (residential == "on") {
-      investmentInterestArray.push("residential");
-    }
-    if (commercial == "on") {
-      investmentInterestArray.push("commercial");
-    }
-    if (land == "on") {
-      investmentInterestArray.push("land");
-    }
-
-    if (fifty == "on") {
-      capital = "50";
-    } else if (fiftyToHundred == "on") {
-      capital = "50-100";
-    } else {
-      capital = "100-150";
-    }
-
-    if (previousInvestmentYes == "on") {
-      previous = "yes";
-    } else {
-      previous = "no";
-    }
-
-    throw Error
-
+    return {
+      errorMessage: "",
+      success: true,
+    };
   } catch (error) {
     return {
-      dbError: "Error occured submiting to the database",
+      errorMessage: "Failed to update registration info",
+      success: false,
     };
   }
 }

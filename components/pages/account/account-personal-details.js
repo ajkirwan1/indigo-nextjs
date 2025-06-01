@@ -3,11 +3,14 @@
 import classes from "./account-personal-details.module.css";
 import ClientPersonalDetailsForm from "@/components/forms/account/client-personal-details-form";
 import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-reset";
-import { getUser } from "@/server/actions/db/client";
+import { getClientDetails } from "@/server/actions/db/client/get-client-details";
 
 export default async function ClientAccountPersonalDetails({ id }) {
   // await new Promise((resolve) => setTimeout(resolve, 3000));
-  const result = await getUser(id);
+
+  // const clientDetails = 
+
+  // console.log(clientDetails, "RESULT")
 
   // if (!result.dbFetchError) {
   //   const { username, firstname, lastname, email, companyname, phonenumber } =
@@ -16,7 +19,7 @@ export default async function ClientAccountPersonalDetails({ id }) {
 
   return (
     <>
-      {result?.dbFetchError ? (
+      {/* {result?.dbFetchError ? (
         <RequestFallbackReset />
       ) : (
         <div className={classes.outerWrapper}>
@@ -31,7 +34,7 @@ export default async function ClientAccountPersonalDetails({ id }) {
             id={id}
           />
         </div>
-      )}
+      )} */}
     </>
   );
 }

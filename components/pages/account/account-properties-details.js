@@ -5,15 +5,22 @@ import ClientPersonalDetailsForm from "@/components/forms/account/client-persona
 import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-reset";
 import { getProperties } from "@/server/actions/db/properties";
 import { getPropertyAccessByUser } from "@/server/actions/db/admin/get-property-access";
+import { getClientPdfs } from "@/server/actions/db/client/get-client-pdfs";
 
 export default async function AccountPropertiesDetails({ id }) {
+  console.log(id)
+  const userPdfs = await getClientPdfs(id);
+  console.log(userPdfs, "USER PDFS")
+
+  // console.log(userPdfs, "USER PDFS");
+
   // await new Promise((resolve) => setTimeout(resolve, 3000));
 
-  const userResult = await getPropertyAccessByUser(id);
+  // const userResult = await getPropertyAccessByUser(id);
 
-  const result = await getProperties(id);
+  // const result = await getProperties(id);
 
-  console.log(result);
+  // console.log(result);
 
   // if (!result.dbFetchError) {
   //   const { username, firstname, lastname, email, companyname, phonenumber } =
@@ -22,7 +29,27 @@ export default async function AccountPropertiesDetails({ id }) {
 
   return (
     <>
-      {result?.dbFetchError || userResult?.dbFetchError ? (
+      {userPdfs.dbFetchError ? (
+        <RequestFallbackReset />
+      ) : (
+        <div>
+          <div className={classes.outerWrapper}>
+            <h2>Properties</h2>
+          </div>
+          <ul>
+            {userPdfs.map((pdf) => (
+              <li key={pdf.id}>
+                <h2>{pdf.name}</h2>
+                <a href={pdf.url} target="_blank" rel="noopener noreferrer">
+                  View PDF
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* {result?.dbFetchError || userResult?.dbFetchError ? (
         <RequestFallbackReset />
       ) : userResult.propertyaccess == 0 ? (
         <>
@@ -48,7 +75,7 @@ export default async function AccountPropertiesDetails({ id }) {
             properties
           </p>
         </>
-      )}
+      )} */}
     </>
   );
 }

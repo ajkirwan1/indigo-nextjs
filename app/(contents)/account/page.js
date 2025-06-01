@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import classes from "./page.module.css";
-import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
+// import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/spinner";
@@ -21,6 +21,10 @@ export const metadata = {
 export default async function UserInfo(props) {
   const session = await auth();
   console.log(session, "SESION ACCOUNT PAGE");
+  console.log(session?.user?.id)
+
+  const id = parseInt(session?.user?.id);
+  console.log(id, "ID HERE")
 
   // if (session.user.role == "admin") {
   //   redirect("/admin")
@@ -32,7 +36,7 @@ export default async function UserInfo(props) {
 
   // const { user } = await validateRequest();
 
-  // const { id } = user;
+  
 
   return (
     <>
@@ -43,7 +47,7 @@ export default async function UserInfo(props) {
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
-          {/* <AccountPropertiesDetails id={id} /> */}
+          <AccountPropertiesDetails id={id} />
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
@@ -53,7 +57,7 @@ export default async function UserInfo(props) {
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
-          {/* <ClientRegistrationDetails id={id} /> */}
+          <ClientRegistrationDetails id={id} />
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
