@@ -30,12 +30,9 @@ export default async function UserInfo(props) {
   // const searchParams = await props.searchParams;
 
   // let initial = searchParams?.initial || "";
-
   // const { user } = await validateRequest();
 
-  
-
-  return (
+ return (
     <>
       <div className="header">
         <h1>Your Details</h1>

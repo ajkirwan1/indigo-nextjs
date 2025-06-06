@@ -36,8 +36,8 @@ export default async function AccountPropertiesDetails({ id }) {
           </div>
           <ul>
             {userPdfs.map((pdf) => (
-              <li key={pdf.id}>
-                <h2>{pdf.name}</h2>
+              <li key={pdf.id} className={classes.listItem}>
+                <p>{pdf.name}</p>
                 <a href={pdf.url} target="_blank" rel="noopener noreferrer">
                   View PDF
                 </a>

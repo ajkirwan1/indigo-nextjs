@@ -18,3 +18,7 @@
 .buttonFlex{
   display: flex;
 }
+
+.formControl {
+  margin-top: 1vh;
+}

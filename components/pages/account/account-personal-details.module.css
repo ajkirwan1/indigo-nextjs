@@ -6,6 +6,22 @@ display: flex;
 padding-left: 10px;
 }
 
+.listItem {
+  display: flex;
+justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.listItem p {
+  margin: 0; /* Remove default margins for clean alignment */
+}
+
+.listItem a {
+  margin-left: 1rem; /* Optional spacing between p and a */
+  text-decoration: underline;
+  color: blue;
+}
 
 
 

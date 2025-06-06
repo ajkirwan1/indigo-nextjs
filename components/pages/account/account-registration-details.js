@@ -6,7 +6,6 @@ import ClientRegistrationDetailsForm from "@/components/forms/account/client-reg
 import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-reset";
 import { UpdateUserAccountRegisrationInfo } from "@/server/actions/db/account-registration-update";
 import classes from "./account-registration-details.module.css";
-
 import { GetUserRegistrationInformation } from "@/server/actions/db/admin/get-user-registration-information";
 
 export default async function ClientRegistrationDetails({ id }) {

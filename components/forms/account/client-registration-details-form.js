@@ -73,7 +73,7 @@ export default function ClientRegistrationDetailsForm({
     <form action={formAction} className={classes.form}>
       <div>
         <label>Are you located in Greece or a foreign country?</label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="location"
             value={data.location}
@@ -99,7 +99,7 @@ export default function ClientRegistrationDetailsForm({
       </div>
       <div>
         <label>What type of investment interests you?</label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="investmentInterest"
             value={data.investmentInterest}
@@ -127,7 +127,7 @@ export default function ClientRegistrationDetailsForm({
         <label>
           Are you a direct buyer, real estate agent, or development investor?
         </label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="buyertype"
             value={data.buyertype}
@@ -153,7 +153,7 @@ export default function ClientRegistrationDetailsForm({
       </div>
       <div>
         <label>What is your investment range?</label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="investmentRange"
             value={data.investmentRange}
@@ -180,7 +180,7 @@ export default function ClientRegistrationDetailsForm({
       {/* ✅ New Dropdowns Below */}
       <div>
         <label>Preferred timeline for purchase or investment?</label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="purchaseTimeline"
             value={data.purchaseTimeline}
@@ -206,7 +206,7 @@ export default function ClientRegistrationDetailsForm({
       </div>
       <div>
         <label>Have you previously invested in Greek real estate?</label>
-        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
             name="previousInvestment"
             value={data.previousInvestment}
