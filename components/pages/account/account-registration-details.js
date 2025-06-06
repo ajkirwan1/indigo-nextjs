@@ -11,7 +11,6 @@ import { GetUserRegistrationInformation } from "@/server/actions/db/admin/get-us
 
 export default async function ClientRegistrationDetails({ id }) {
   const result = await GetUserRegistrationInformation(id);
-  console.log(result, "registration details")
 
   return (
     <>

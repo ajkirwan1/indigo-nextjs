@@ -8,9 +8,7 @@ import { getPropertyAccessByUser } from "@/server/actions/db/admin/get-property-
 import { getClientPdfs } from "@/server/actions/db/client/get-client-pdfs";
 
 export default async function AccountPropertiesDetails({ id }) {
-  console.log(id)
   const userPdfs = await getClientPdfs(id);
-  console.log(userPdfs, "USER PDFS")
 
   // console.log(userPdfs, "USER PDFS");
 

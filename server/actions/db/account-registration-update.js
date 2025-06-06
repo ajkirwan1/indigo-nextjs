@@ -1,38 +1,61 @@
 /** @format */
 "use server";
 
-// import { updateUserRegistration } from "@/server/db"; // Your DB update function (replace with your real import)
+import db from "@/modules/db";
 
-export async function UpdateUserAccountRegisrationInfo(_, formData) {
+export async function UpdateUserAccountRegisrationInfo(state, formData) {
   try {
-    // Extract fields from formData
     const location = formData.get("location");
     const investmentInterest = formData.get("investmentInterest");
-    const buyerType = formData.get("buyerType");
+    const buyerType = formData.get("buyertype");
     const investmentRange = formData.get("investmentRange");
     const purchaseTimeline = formData.get("purchaseTimeline");
     const previousInvestment = formData.get("previousInvestment");
 
-    // Validate data here if needed
+    const userId = state.id;
 
-    // Call your database update function (implement this in your backend)
-    // await updateUserRegistration({
-    //   location,
-    //   investmentInterest,
-    //   buyertype: buyerType,
-    //   investmentRange,
-    //   purchaseTimeline,
-    //   previousInvestment,
-    // });
+    console.log(userId, "UserNew ID");
+
+    // Step 1: Find the associated UserRegistration ID
+    const user = await db.userNew.findUnique({
+      where: { id: userId },
+      select: { registrationId: true },
+    });
+
+    console.log(user, "USER")
+
+    if (!user || !user.registrationId) {
+      throw new Error("User or associated registration not found.");
+    }
+
+    // Step 2: Update the UserRegistration record
+    const userRegistrationInfo = await db.userRegistration.update({
+      where: { id: user.registrationId },
+      data: {
+        location,
+        investmentInterest,
+        buyertype: buyerType,
+        investmentRange,
+        purchaseTimeline,
+        previousInvestment,
+      },
+    });
+
+    console.log(userRegistrationInfo, 'userRegistrationInfo')
 
     return {
+      id: userId,
       errorMessage: "",
       success: true,
+      editable: false
     };
   } catch (error) {
+    console.error("Error updating registration:", error);
     return {
+      id: userId,
       errorMessage: "Failed to update registration info",
       success: false,
+      editable: false
     };
   }
 }

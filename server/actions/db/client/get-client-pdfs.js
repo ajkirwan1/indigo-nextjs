@@ -22,7 +22,6 @@ export async function getClientPdfs(userId) {
         },
       },
     });
-    console.log(pdfs, "PDFS");
     return pdfs;
   } catch (error) {
     return { dbFetchError: "An error occured fetching the user information." };

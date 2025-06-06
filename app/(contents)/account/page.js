@@ -20,11 +20,8 @@ export const metadata = {
 
 export default async function UserInfo(props) {
   const session = await auth();
-  console.log(session, "SESION ACCOUNT PAGE");
-  console.log(session?.user?.id)
 
   const id = parseInt(session?.user?.id);
-  console.log(id, "ID HERE")
 
   // if (session.user.role == "admin") {
   //   redirect("/admin")

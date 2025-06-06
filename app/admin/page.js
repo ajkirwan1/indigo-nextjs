@@ -8,8 +8,6 @@ import { auth } from "@/auth";
 export default async function AddProperties() {
 
   const session = await auth();
-  console.log(session, "SESION ACCOUNT PAGE");
-
 
   return (
     <>

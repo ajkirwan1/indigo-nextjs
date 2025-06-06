@@ -2,15 +2,16 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFormState } from "react-dom";
 import classes from "./client-registration-details-form.module.css";
 import Button from "@/components/ui/button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import FormSubmit from "../formsubmit";
 
-const originalOptions = {
+const options = {
   location: ["Greece", "Other"],
   investmentInterest: [
     "Buying a property",
@@ -41,19 +42,16 @@ export default function ClientRegistrationDetailsForm({
   action,
   id,
 }) {
-  const initialState = {};
+  const initialState = {id};
   const [state, formAction] = useFormState(action, initialState);
   const [data, setData] = useState(clientInfo.registration);
   const [editable, setEditable] = useState(false);
 
-  const [dropdownOptions, setDropdownOptions] = useState({
-    location: [clientInfo.registration.location],
-    investmentInterest: [clientInfo.registration.investmentInterest],
-    buyerType: [clientInfo.registration.buyertype],
-    investmentRange: [clientInfo.registration.investmentRange],
-    purchaseTimeline: [clientInfo.registration.purchaseTimeline],
-    previousInvestment: [clientInfo.registration.previousInvestment],
-  });
+  useEffect(() => {
+  if (state?.success) {
+    setEditable(false);
+  }
+}, [state]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -64,144 +62,194 @@ export default function ClientRegistrationDetailsForm({
   const enableEditing = (event) => {
     event.preventDefault();
     setEditable(true);
-    // setDropdownOptions(originalOptions);
   };
 
+  const disabledEditing = (event) => {
+    event.preventDefault();
+    setEditable(false);
+  }
+
   return (
-    <form action={formAction}>
-      <label>Are you located in Greece or a foreign country?</label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="location"
-          value={data.location}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.location.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <label>What type of investment interests you?</label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="investmentInterest"
-          value={data.investmentInterest}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.investmentInterest.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <label>
-        Are you a direct buyer, real estate agent, or development investor?
-      </label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="buyerType"
-          value={data.buyertype}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.buyerType.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
+    <form action={formAction} className={classes.form}>
+      <div>
+        <label>Are you located in Greece or a foreign country?</label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="location"
+            value={data.location}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.location.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      <div>
+        <label>What type of investment interests you?</label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="investmentInterest"
+            value={data.investmentInterest}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.investmentInterest.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      <div>
+        <label>
+          Are you a direct buyer, real estate agent, or development investor?
+        </label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="buyertype"
+            value={data.buyertype}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.buyertype.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      <div>
+        <label>What is your investment range?</label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="investmentRange"
+            value={data.investmentRange}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.investmentRange.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
       {/* ✅ New Dropdowns Below */}
-
-      <label>What is your investment range?</label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="investmentRange"
-          value={data.investmentRange}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.investmentRange.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <label>Preferred timeline for purchase or investment?</label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="purchaseTimeline"
-          value={data.purchaseTimeline}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.purchaseTimeline.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <label>Have you previously invested in Greek real estate?</label>
-      <FormControl fullWidth size="small" sx={{ mb: 2 }}>
-        <Select
-          name="previousInvestment"
-          value={data.previousInvestment}
-          onChange={handleChange}
-          displayEmpty
-          disabled={!editable}
-          renderValue={(selected) =>
-            selected ? selected : <span style={{ color: "gray" }}>Select</span>
-          }
-          sx={{ backgroundColor: "white" }}
-        >
-          {dropdownOptions.previousInvestment.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <Button variant="contained" onClick={enableEditing}>
-        Edit
-      </Button>
+      <div>
+        <label>Preferred timeline for purchase or investment?</label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="purchaseTimeline"
+            value={data.purchaseTimeline}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.purchaseTimeline.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      <div>
+        <label>Have you previously invested in Greek real estate?</label>
+        <FormControl fullWidth size="small" sx={{ mb: 2 }}>
+          <Select
+            name="previousInvestment"
+            value={data.previousInvestment}
+            onChange={handleChange}
+            displayEmpty
+            disabled={!editable}
+            renderValue={(selected) =>
+              selected ? (
+                selected
+              ) : (
+                <span style={{ color: "gray" }}>Select</span>
+              )
+            }
+            sx={{ backgroundColor: "white" }}
+          >
+            {options.previousInvestment.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
+      {editable ? (
+        <div className={`${classes.spanTwoColumns} ${classes.buttonFlex}`}>
+          <div className="submitButtonContainer">
+            <FormSubmit showSpinner={false}/>
+          </div>
+          <div className="submitButtonContainer">
+            <Button variant="contained" onClick={disabledEditing}>
+              Close
+            </Button>
+          </div>
+        </div>
+      ) : (
+        <div className={classes.spanTwoColumns}>
+          <div className="submitButtonContainer">
+            <Button variant="contained" onClick={enableEditing}>
+              Edit
+            </Button>
+          </div>
+        </div>
+      )}
     </form>
   );
 }
