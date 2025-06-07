@@ -2,7 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import classes from "./page.module.css";
-// import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
+import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/spinner";
@@ -46,7 +46,7 @@ export default async function UserInfo(props) {
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
-          {/* <ClientAccountPersonalDetails id={id} /> */}
+          <ClientAccountPersonalDetails id={id} />
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
