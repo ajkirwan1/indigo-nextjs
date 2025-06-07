@@ -44,7 +44,7 @@ export default function ClientRegistrationDetailsForm({
 }) {
   const initialState = {id};
   const [state, formAction] = useFormState(action, initialState);
-  const [data, setData] = useState(clientInfo.registration);
+  const [data, setData] = useState(clientInfo?.registration);
   const [editable, setEditable] = useState(false);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function ClientRegistrationDetailsForm({
 
   return (
     <form action={formAction} className={classes.form}>
-      <div>
+      <div className={classes.inputField}>
         <label>Are you located in Greece or a foreign country?</label>
         <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
@@ -97,7 +97,7 @@ export default function ClientRegistrationDetailsForm({
           </Select>
         </FormControl>
       </div>
-      <div>
+      <div className={classes.inputField}>
         <label>What type of investment interests you?</label>
         <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
@@ -123,7 +123,7 @@ export default function ClientRegistrationDetailsForm({
           </Select>
         </FormControl>
       </div>
-      <div>
+      <div className={classes.inputField}>
         <label>
           Are you a direct buyer, real estate agent, or development investor?
         </label>
@@ -151,7 +151,7 @@ export default function ClientRegistrationDetailsForm({
           </Select>
         </FormControl>
       </div>
-      <div>
+      <div className={classes.inputField}>
         <label>What is your investment range?</label>
         <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
@@ -178,7 +178,7 @@ export default function ClientRegistrationDetailsForm({
         </FormControl>
       </div>
       {/* ✅ New Dropdowns Below */}
-      <div>
+      <div className={classes.inputField}>
         <label>Preferred timeline for purchase or investment?</label>
         <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
@@ -204,7 +204,7 @@ export default function ClientRegistrationDetailsForm({
           </Select>
         </FormControl>
       </div>
-      <div>
+      <div className={classes.inputField}>
         <label>Have you previously invested in Greek real estate?</label>
         <FormControl fullWidth size="small" sx={{ mb: 2 }} className={classes.formControl}>
           <Select
