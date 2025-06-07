@@ -1,6 +1,6 @@
 /** @format */
 
-export default function GetNavData() {
+export default function GetNavData(session) {
   const navigationData = [
     {
       title: "NEWS",
@@ -23,7 +23,7 @@ export default function GetNavData() {
       url: "/contact",
     },
     {
-      title: "ACCOUNT",
+      title: session ? "ACCOUNT_LOGGED_IN" : "ACCOUNT" ,
       url: "/contact",
       submenu: [
         {

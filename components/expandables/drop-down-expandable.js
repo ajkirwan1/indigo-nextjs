@@ -22,15 +22,15 @@ export default function DropDownExpandable({ children, expandableOpen, setExpand
             src={expandIcon}
             style={{ transform: "rotate(180deg)" }}
             alt="An icon representing hiding filter information"
-            width={40}
-            height={40}
+            width={25}
+            height={25}
           />
         ) : (
           <Image
             src={expandIcon}
             alt="An icon representing hiding filter information"
-            width={40}
-            height={40}
+            width={25}
+            height={25}
           />
         )}
       </div>

@@ -10,10 +10,9 @@ import { auth } from "@/auth";
 
 export default async function Header({ className }) {
 
-  const navigationData = GetNavData();
-  const adminNavData = GetAdminNavData();
-
   const session = await auth()
+  const navigationData = GetNavData(session);
+  const adminNavData = GetAdminNavData();
 
   const role = session?.user.role;
 

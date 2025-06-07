@@ -1,20 +1,35 @@
-/** @format */
-
 import db from "@/modules/db";
 
-export async function getClientDetails(userId) {
+export async function GetClientDetails(userId) {
   try {
-    const clientDetails = await db.pdf.findMany({
-      where: {
-        userLinks: {
-          some: {
-            userId: userId,
+    const [user] = await db.$transaction([
+      db.userNew.findUnique({
+        where: { id: userId },
+        select: {
+          userName: true,
+          registration: {
+            select: {
+              name: true,
+              email: true,
+              phoneNumber: true,
+            },
           },
         },
-      },
-    });
-    return pdfs
+      }),
+    ]);
+
+    if (!user) {
+      return { dbFetchError: "User not found." };
+    }
+
+    return {
+      userName: user.userName,
+      name: user.registration?.name ?? null,
+      email: user.registration?.email ?? null,
+      phoneNumber: user.registration?.phoneNumber ?? null,
+    };
   } catch (error) {
-    return { dbFetchError: "An error occured fetching the user information." };
+    console.error("Error fetching client details:", error);
+    return { dbFetchError: "An error occurred fetching the user information." };
   }
 }

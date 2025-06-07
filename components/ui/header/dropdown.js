@@ -9,6 +9,11 @@ import { SignIn } from "@/components/forms/sign-in/sign-in-form";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 
 export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
+
+  const res = submenus.filter(submenu => submenu.title !== "REGISTER");
+
+  console.log(res, "RES")
+
   return (
     <ul
       className={

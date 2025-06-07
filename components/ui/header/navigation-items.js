@@ -11,6 +11,7 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 
 export default function NavigationItems({ items, session }) {
   const [dropdown, setDropdown] = useState(false);
+  
   return (
     <ul className={classes.ulWrapper} onMouseLeave={() => setDropdown(false)}>
       <li className={classes.menuItems}>
@@ -36,7 +37,7 @@ export default function NavigationItems({ items, session }) {
               <MdOutlineAccountCircle color="white" size="40px" />
             </div>
             {dropdown && (
-              <Dropdown submenus={items.submenu} dropdown={dropdown} />
+              <Dropdown submenus={items.submenu} dropdown={dropdown} session={session}/>
             )}
           </>
         ) : (

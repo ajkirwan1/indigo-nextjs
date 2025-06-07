@@ -14,7 +14,6 @@ export async function UpdateUserAccountRegisrationInfo(state, formData) {
 
     const userId = state.id;
 
-    console.log(userId, "UserNew ID");
 
     // Step 1: Find the associated UserRegistration ID
     const user = await db.userNew.findUnique({
@@ -22,7 +21,6 @@ export async function UpdateUserAccountRegisrationInfo(state, formData) {
       select: { registrationId: true },
     });
 
-    console.log(user, "USER")
 
     if (!user || !user.registrationId) {
       throw new Error("User or associated registration not found.");

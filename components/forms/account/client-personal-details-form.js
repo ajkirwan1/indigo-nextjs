@@ -11,9 +11,7 @@ import { Spinner } from "@nextui-org/spinner";
 export default function ClientPersonalDetailsForm({
   username,
   firstname,
-  lastname,
   email,
-  companyname,
   phonenumber,
   id,
 }) {
@@ -21,8 +19,6 @@ export default function ClientPersonalDetailsForm({
     userName: username,
     email,
     firstName: firstname,
-    lastName: lastname,
-    companyName: companyname,
     phoneNumber: phonenumber,
   });
 
@@ -53,8 +49,6 @@ export default function ClientPersonalDetailsForm({
       userName: username,
       email,
       firstName: firstname,
-      lastName: lastname,
-      companyName: companyname,
       phoneNumber: phonenumber,
     });
     setErrors([]);
@@ -63,7 +57,7 @@ export default function ClientPersonalDetailsForm({
 
   const handleSubmit = async () => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 4000));
+    // await new Promise((resolve) => setTimeout(resolve, 4000));
     const validateResult = ValidatePersonalDetails(data);
     setLoading(false);
     if (validateResult?.errors) {
@@ -80,8 +74,6 @@ export default function ClientPersonalDetailsForm({
         userName: submitResult.username,
         email: submitResult.email,
         firstName: submitResult.firstname,
-        lastName: submitResult.lastname,
-        companyName: submitResult.companyname,
         phoneNumber: submitResult.phonenumber,
       });
       setErrors([]);
@@ -94,8 +86,6 @@ export default function ClientPersonalDetailsForm({
       userName: username,
       email,
       firstName: firstname,
-      lastName: lastname,
-      companyName: companyname,
       phoneNumber: phonenumber,
     });
     setErrors([]);
@@ -136,7 +126,7 @@ export default function ClientPersonalDetailsForm({
               <p className={classes.errorA}>Invalid user name</p>
             ) : null}
             <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-              <label>First name:</label>
+              <label>Name:</label>
               <input
                 type="text"
                 name="firstName"
@@ -149,19 +139,6 @@ export default function ClientPersonalDetailsForm({
               <p className={classes.errorB}>Invalid first name</p>
             ) : null}
             <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-              <label>Last name:</label>
-              <input
-                type="text"
-                name="lastName"
-                placeholder={lastname}
-                value={data.lastName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "lastname") ? (
-              <p className={classes.errorC}>Invalid last name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
               <label>Email:</label>
               <input
                 type="text"
@@ -172,22 +149,9 @@ export default function ClientPersonalDetailsForm({
               />
             </div>
             {errors?.find((item) => item.errorType == "lastname") ? (
-              <p className={classes.errorD}>Invalid email</p>
+              <p className={classes.errorC}>Invalid email</p>
             ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemE}`}>
-              <label>Company name:</label>
-              <input
-                type="text"
-                name="companyName"
-                placeholder={companyname}
-                value={data.companyName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "companyname") ? (
-              <p className={classes.errorE}>Invalid company name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemF}`}>
+            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
               <label>Phone number:</label>
               <input
                 type="text"
@@ -198,7 +162,7 @@ export default function ClientPersonalDetailsForm({
               />
             </div>
             {errors?.find((item) => item.errorType == "phonenumber") ? (
-              <p className={classes.errorF}>Invalid phone number</p>
+              <p className={classes.errorD}>Invalid phone number</p>
             ) : null}
           </form>
           <div className={classes.buttonWrapper}>
@@ -210,18 +174,18 @@ export default function ClientPersonalDetailsForm({
             ) : null}
             {formDisabled ? (
               <div className="submit-button-container">
-                <Button onClick={handleEnable}>Enable update</Button>
+                <Button onClick={handleEnable}>Edit</Button>
               </div>
             ) : (
               <div className={classes.doubleButtonWrapper}>
                 <div className="submit-button-container">
-                  <Button onClick={handleReset}>Reset</Button>
+                  <Button onClick={handleReset}>Close</Button>
                 </div>
                 <div className="submit-button-container">
                   {loading ? (
                     <Spinner size="lg" />
                   ) : (
-                    <Button onClick={handleSubmit}>Update</Button>
+                    <Button onClick={handleSubmit}>Submit</Button>
                   )}
                 </div>
               </div>

@@ -232,10 +232,10 @@ export default function ClientRegistrationDetailsForm({
       </div>
       {editable ? (
         <div className={`${classes.spanTwoColumns} ${classes.buttonFlex}`}>
-          <div className="submitButtonContainer">
+          <div className="submit-button-container">
             <FormSubmit showSpinner={false}/>
           </div>
-          <div className="submitButtonContainer">
+          <div className="submit-button-container">
             <Button variant="contained" onClick={disabledEditing}>
               Close
             </Button>
@@ -243,7 +243,7 @@ export default function ClientRegistrationDetailsForm({
         </div>
       ) : (
         <div className={classes.spanTwoColumns}>
-          <div className="submitButtonContainer">
+          <div className="submit-button-container">
             <Button variant="contained" onClick={enableEditing}>
               Edit
             </Button>

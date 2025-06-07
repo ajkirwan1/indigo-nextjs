@@ -1,29 +1,11 @@
 /** @format */
 
 import classes from "./account-personal-details.module.css";
-import ClientPersonalDetailsForm from "@/components/forms/account/client-personal-details-form";
 import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-reset";
-import { getProperties } from "@/server/actions/db/properties";
-import { getPropertyAccessByUser } from "@/server/actions/db/admin/get-property-access";
 import { getClientPdfs } from "@/server/actions/db/client/get-client-pdfs";
 
 export default async function AccountPropertiesDetails({ id }) {
   const userPdfs = await getClientPdfs(id);
-
-  // console.log(userPdfs, "USER PDFS");
-
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-
-  // const userResult = await getPropertyAccessByUser(id);
-
-  // const result = await getProperties(id);
-
-  // console.log(result);
-
-  // if (!result.dbFetchError) {
-  //   const { username, firstname, lastname, email, companyname, phonenumber } =
-  //     user;
-  // }
 
   return (
     <>
