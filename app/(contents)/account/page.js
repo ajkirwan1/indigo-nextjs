@@ -1,14 +1,11 @@
 /** @format */
 
-import { redirect } from 'next/navigation'
 import classes from "./page.module.css";
 import ClientAccountPersonalDetails from "@/components/pages/account/account-personal-details";
 import ClientRegistrationDetails from "@/components/pages/account/account-registration-details";
 import { Suspense } from "react";
 import { Spinner } from "@nextui-org/spinner";
 import AccountPropertiesDetails from "@/components/pages/account/account-properties-details";
-import Overlay from "@/components/overlay";
-import ModalBackdrop from "@/components/modal-backdrop";
 import { auth } from "@/auth";
 
 export const metadata = {
@@ -22,15 +19,6 @@ export default async function UserInfo(props) {
   const session = await auth();
 
   const id = parseInt(session?.user?.id);
-
-  // if (session.user.role == "admin") {
-  //   redirect("/admin")
-  // }
-
-  // const searchParams = await props.searchParams;
-
-  // let initial = searchParams?.initial || "";
-  // const { user } = await validateRequest();
 
  return (
     <>

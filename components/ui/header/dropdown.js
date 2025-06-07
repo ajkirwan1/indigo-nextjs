@@ -1,18 +1,14 @@
 /** @format */
-import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
-import { useSession } from "@/contexts/session-context";
-import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
 import NavLinkMobile from "@/components/nav-link-mobile";
 import { SignIn } from "@/components/forms/sign-in/sign-in-form";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 
 export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
-
-  const res = submenus.filter(submenu => submenu.title !== "REGISTER");
-
-  console.log(res, "RES")
+const res = session
+  ? submenus.filter(submenu => submenu.title !== "REGISTER")
+  : submenus.filter(submenu => submenu.title !== "ACCOUNT");
 
   return (
     <ul
@@ -20,7 +16,7 @@ export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
         dropdown ? `${classes.show} ${classes.dropdown}` : `${classes.dropdown}`
       }
     >
-      {submenus.map((submenu, index) => (
+      {res.map((submenu, index) => (
         <motion.li
           key={index}
           className={classes.menuItems}

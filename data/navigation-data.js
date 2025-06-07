@@ -23,12 +23,16 @@ export default function GetNavData(session) {
       url: "/contact",
     },
     {
-      title: session ? "ACCOUNT_LOGGED_IN" : "ACCOUNT" ,
+      title: session ? "ACCOUNT_LOGGED_IN" : "ACCOUNT",
       url: "/contact",
       submenu: [
         {
-          title: "REGSITER",
+          title: "REGISTER",
           url: "/register",
+        },
+        {
+          title: "ACCOUNT",
+          url: "/account",
         },
         {
           title: "SignIn",

@@ -8,8 +8,6 @@ import expandIcon from "/public/images/icons/icons8-expand-arrow-50.png";
 export default function DropDownExpandable({ children, expandableOpen, setExpandableOpen }) {
 
   const handleExpandable = () => {
-    console.log("FIRE")
-    console.log("typeof setExpandableOpen:", typeof setExpandableOpen); // 🔍 debug
     setExpandableOpen((val) => !val);
   };
 

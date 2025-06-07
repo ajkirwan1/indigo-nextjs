@@ -10,8 +10,6 @@ export default async function ClientAccountPersonalDetails({ id }) {
 
   const result = await GetClientDetails(id);
 
-  console.log(result, "result")
-
   return (
     <>
       {result?.dbFetchError ? (
