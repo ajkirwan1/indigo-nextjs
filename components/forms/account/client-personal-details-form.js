@@ -57,7 +57,6 @@ export default function ClientPersonalDetailsForm({
 
   const handleSubmit = async () => {
     setLoading(true);
-    // await new Promise((resolve) => setTimeout(resolve, 4000));
     const validateResult = ValidatePersonalDetails(data);
     setLoading(false);
     if (validateResult?.errors) {
@@ -169,7 +168,7 @@ export default function ClientPersonalDetailsForm({
             {errors[0]?.disabledError ? (
               <p>
                 Form is disbaled for editting. To update you details, please
-                click enable
+                click edit
               </p>
             ) : null}
             {formDisabled ? (
@@ -179,14 +178,14 @@ export default function ClientPersonalDetailsForm({
             ) : (
               <div className={classes.doubleButtonWrapper}>
                 <div className="submit-button-container">
-                  <Button onClick={handleReset}>Close</Button>
-                </div>
-                <div className="submit-button-container">
                   {loading ? (
                     <Spinner size="lg" />
                   ) : (
                     <Button onClick={handleSubmit}>Submit</Button>
                   )}
+                </div>
+                <div className="submit-button-container">
+                  <Button onClick={handleReset}>Close</Button>
                 </div>
               </div>
             )}

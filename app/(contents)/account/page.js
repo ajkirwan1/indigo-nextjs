@@ -20,13 +20,10 @@ export default async function UserInfo() {
 
   const id = parseInt(session?.user?.id);
 
-  console.log(id, "ID ACCOUNT")
-
  return (
     <>
       <div className="header">
-        <h1>Your Details</h1>
-        <p>You are signed-in</p>
+        <h1>Hi, {session.user.userName}</h1>
         <hr />
       </div>
       <div className={classes.itemWrapper}>
