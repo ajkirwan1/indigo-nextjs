@@ -7,6 +7,7 @@ import { adminNavigationData } from "@/data/admin-navigation-data";
 import BreadCrumb from "@/components/breadcrumbs/breadcrumbs";
 import ImageHeader from "./image-header";
 import { auth } from "@/auth";
+import MobileMenuIcon from "./mobile-menu-icon";
 
 export default async function Header({ className }) {
 
@@ -22,10 +23,10 @@ export default async function Header({ className }) {
         <nav className={classes.nav}>
           <ImageHeader />
           <DesktopNav
-            data={role == "admin" ? adminNavData : navigationData} session={session}
+            data={role == "admin" ? adminNavData : navigationData} session={session} className={className}
           />
           <div className={classes.mobileIconContainer}>
-            {/* <MobileMenuIcon /> */}
+            <MobileMenuIcon />
           </div>
         </nav>
         {className.includes("non")  && <BreadCrumb />}

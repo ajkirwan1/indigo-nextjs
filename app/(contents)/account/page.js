@@ -15,10 +15,12 @@ export const metadata = {
   Registered users can access and change their personal information.`,
 };
 
-export default async function UserInfo(props) {
+export default async function UserInfo() {
   const session = await auth();
 
   const id = parseInt(session?.user?.id);
+
+  console.log(id, "ID ACCOUNT")
 
  return (
     <>

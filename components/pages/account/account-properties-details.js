@@ -6,6 +6,7 @@ import { getClientPdfs } from "@/server/actions/db/client/get-client-pdfs";
 
 export default async function AccountPropertiesDetails({ id }) {
   const userPdfs = await getClientPdfs(id);
+  console.log(userPdfs, "USE PDFS")
 
   return (
     <>

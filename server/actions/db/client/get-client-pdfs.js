@@ -12,6 +12,10 @@ export async function getClientPdfs(userId) {
   //   return { dbFetchError: "An error occured fetching the user information." };
   // }
 
+  const user = await db.userNew.findMany({});
+
+  console.log(user, "USER SE");
+
   try {
     const pdfs = await db.pdf.findMany({
       where: {

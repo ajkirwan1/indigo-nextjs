@@ -1,5 +1,5 @@
 /** @format */
-
+'use client'
 import { RxCross1 } from "react-icons/rx";
 import { VscMenu } from "react-icons/vsc";
 import classes from "./header.module.css";

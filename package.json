@@ -25,6 +25,8 @@
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
     "@lucia-auth/adapter-prisma": "^4.0.1",
+    "@mdi/js": "^7.4.47",
+    "@mdi/react": "^1.6.1",
     "@mui/material": "^6.1.7",
     "@nextui-org/avatar": "^2.0.33",
     "@nextui-org/react": "^2.4.8",
