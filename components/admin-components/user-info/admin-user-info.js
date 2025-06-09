@@ -10,7 +10,7 @@ import { useState } from "react";
 import ModalBackdrop from "@/components/modal-backdrop";
 import Link from "next/link";
 
-export default function AdminUserInfo({ userInfo }) {
+export default function AdminUserInfo({ userInfo, files }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const {
@@ -27,6 +27,12 @@ export default function AdminUserInfo({ userInfo }) {
     registration,
     pdfs,
   } = userInfo;
+
+  const googleData =[...files];
+
+  console.log(files, "FILES ADMIN USER INFO");
+
+  console.log(googleData, "GOOGLE DATA")
 
   const PersonalDetails = () => {
     return (
@@ -91,6 +97,11 @@ export default function AdminUserInfo({ userInfo }) {
               The User&apos;s registration is pending, and they currently have
               no access to documents.
             </p>
+            {googleData?.map((el, index) => (
+              <li key={index}>
+                <p>{el.name}</p>
+              </li>
+            ))}
             <p>By updating the following, you will grant them access.</p>
           </>
         )}
@@ -101,6 +112,11 @@ export default function AdminUserInfo({ userInfo }) {
               {pdfs?.map((element, index) => (
                 <li key={index}>
                   <Link href={element.url}>{element.name}</Link>
+                </li>
+              ))}
+              {googleData?.map((el, index) => (
+                <li key={index}>
+                  <p>{el.name}</p>
                 </li>
               ))}
             </ul>
@@ -144,6 +160,7 @@ export default function AdminUserInfo({ userInfo }) {
             userId={id}
             pdfs={pdfs}
             toggleModal={toggleModal}
+            files={files}
           />
         </div>
       )}

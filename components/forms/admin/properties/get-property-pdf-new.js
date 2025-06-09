@@ -13,6 +13,7 @@ import Button from "@/components/ui/button";
 import { UpdateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/update-client-pdfs";
 import { CreateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/create-client-pdfs";
 import { sendMagicLink } from "@/server/actions/db/admin/send-magic-link";
+// import { listDriveFiles } from "@/lib/google/get-drive-files";
 
 function ListOfPdfs({
   pdfList,
@@ -51,6 +52,7 @@ export default function GetPropertyPdfNew({
   userId,
   toggleModal,
   registration,
+  files={files}
 }) {
   const [pdfList, setPdfList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState([]);
@@ -59,6 +61,9 @@ export default function GetPropertyPdfNew({
   useEffect(() => {
     async function fetchPdfs() {
       const result = await GetAllPdfs();
+      // add GetAllGoogleDriveFolderNames
+      // const googleDriveFiles = await listDriveFiles();
+      // console.log("GOOGLE DRIVE FILES", googleDriveFiles)
       setIsPending(false);
       setPdfList(result);
 
@@ -115,6 +120,11 @@ export default function GetPropertyPdfNew({
           handleClick={handleClick}
         />
       )}
+      {files?.map((el, index) => (
+        <li key={index}>
+          <p>{el.name}</p>
+        </li>
+      ))}
     </div>
   );
 }
