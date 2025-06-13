@@ -11,6 +11,7 @@ export async function up(knex) {
     table.string("hashedPassword").nullable();
     table.timestamp("createdAt").defaultTo(knex.fn.now());
     table.integer("registrationId").unsigned().nullable();
+    table.string("googleDriveFolderId").nullable();
   });
 
   await knex.schema.createTable("userRegistration", (table) => {

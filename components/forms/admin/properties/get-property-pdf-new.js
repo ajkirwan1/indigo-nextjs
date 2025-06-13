@@ -15,16 +15,49 @@ import { CreateClientPdfs } from "@/server/actions/db/admin/properties/pdfs/crea
 import { sendMagicLink } from "@/server/actions/db/admin/send-magic-link";
 // import { listDriveFiles } from "@/lib/google/get-drive-files";
 
-function ListOfPdfs({
-  pdfList,
+// function ListOfPdfs({
+//   pdfList,
+//   checkboxticked,
+//   handleUpdateCheckbox,
+//   handleClick,
+// }) {
+//   return (
+//     <form>
+//       <ul>
+//         {pdfList.map((element, index) => (
+//           <li key={index}>
+//             <div className={classes.tickRow}>
+//               <label>
+//                 <p>{element.name}</p>
+//               </label>
+//               <input
+//                 type="checkbox"
+//                 name={element.name}
+//                 checked={checkboxticked?.includes(element.id)}
+//                 onChange={() => handleUpdateCheckbox(element.id)}
+//               ></input>
+//             </div>
+//           </li>
+//         ))}
+//       </ul>
+//       <div className="submitButtonContainer">
+//         <Button onClick={handleClick}>Submit</Button>
+//       </div>
+//     </form>
+//   );
+// }
+
+function ListOfGoogleDriveFolders({
+  files,
   checkboxticked,
   handleUpdateCheckbox,
   handleClick,
+  // pdfList,
 }) {
   return (
     <form>
       <ul>
-        {pdfList.map((element, index) => (
+        {files.map((element, index) => (
           <li key={index}>
             <div className={classes.tickRow}>
               <label>
@@ -52,40 +85,41 @@ export default function GetPropertyPdfNew({
   userId,
   toggleModal,
   registration,
-  files={files}
+  files,
 }) {
-  const [pdfList, setPdfList] = useState([]);
+  // const [pdfList, setPdfList] = useState([]);
+  const [googleDriveFolderList, setgoogleDriveFolderList] = useState([]);
   const [checkboxticked, setCheckboxTicked] = useState([]);
-  const [isPending, setIsPending] = useState(true);
+  // const [isPending, setIsPending] = useState(true);
 
-  useEffect(() => {
-    async function fetchPdfs() {
-      const result = await GetAllPdfs();
-      // add GetAllGoogleDriveFolderNames
-      // const googleDriveFiles = await listDriveFiles();
-      // console.log("GOOGLE DRIVE FILES", googleDriveFiles)
-      setIsPending(false);
-      setPdfList(result);
+  // useEffect(() => {
+  //   async function fetchPdfs() {
+  //     const result = await GetAllPdfs();
+  //     // add GetAllGoogleDriveFolderNames
+  //     // const googleDriveFiles = await listDriveFiles();
+  //     // console.log("GOOGLE DRIVE FILES", googleDriveFiles)
+  //     setIsPending(false);
+  //     setPdfList(result);
 
-      if (pdfs && pdfs.length > 0) {
-        const matchingIndexes = findMatchingPdfIndexes(pdfs, result);
-        setCheckboxTicked(matchingIndexes);
-      }
-    }
-    fetchPdfs();
-  }, [pdfs]);
+  //     if (pdfs && pdfs.length > 0) {
+  //       const matchingIndexes = findMatchingPdfIndexes(pdfs, result);
+  //       setCheckboxTicked(matchingIndexes);
+  //     }
+  //   }
+  //   fetchPdfs();
+  // }, [pdfs]);
 
-  function findMatchingPdfIndexes(pdfs, pdfList) {
-    const matchingIndexes = [];
+  // function findMatchingPdfIndexes(pdfs, pdfList) {
+  //   const matchingIndexes = [];
 
-    pdfs.forEach((pdf, index) => {
-      const matchExists = pdfList.some((item) => item.id === pdf.id);
-      if (matchExists) {
-        matchingIndexes.push(pdf.id);
-      }
-    });
-    return matchingIndexes;
-  }
+  //   pdfs.forEach((pdf, index) => {
+  //     const matchExists = pdfList.some((item) => item.id === pdf.id);
+  //     if (matchExists) {
+  //       matchingIndexes.push(pdf.id);
+  //     }
+  //   });
+  //   return matchingIndexes;
+  // }
 
   const handleUpdateCheckbox = (id) => {
     setCheckboxTicked(
@@ -97,34 +131,46 @@ export default function GetPropertyPdfNew({
   };
 
   const handleClick = async (event) => {
-    event.preventDefault();
+    console.log()
+    event.preventDefault(checkboxticked, "CHECKBOXTICKED");
     if (registration == "pending") {
-      await CreateClientPdfs(userId, checkboxticked)
-      
+      // await CreateClientPdfs(userId, checkboxticked);
     }
     if (registration == "accepted") {
-      await UpdateClientPdfs(userId, checkboxticked);
+      // await UpdateClientPdfs(userId, checkboxticked);
     }
     toggleModal();
   };
 
   return (
     <div className={classes.picker}>
-      {isPending ? (
-        <p>loading....</p>
-      ) : (
-        <ListOfPdfs
-          pdfList={pdfList}
+      <div>
+        <ListOfGoogleDriveFolders
+          files={files}
           checkboxticked={checkboxticked}
           handleUpdateCheckbox={handleUpdateCheckbox}
           handleClick={handleClick}
         />
-      )}
-      {files?.map((el, index) => (
-        <li key={index}>
-          <p>{el.name}</p>
-        </li>
-      ))}
+      </div>
+      {/* {isPending ? (
+        <p>loading....</p>
+      ) : (
+        // <ListOfGoogleDriveFolders files={files}/>
+        // <ListOfPdfs
+        //   pdfList={pdfList}
+        //   checkboxticked={checkboxticked}
+        //   handleUpdateCheckbox={handleUpdateCheckbox}
+        //   handleClick={handleClick}
+        // />
+        // <div>
+        //   <ListOfGoogleDriveFolders
+        //     files={files}
+        //     checkboxticked={checkboxticked}
+        //     handleUpdateCheckbox={handleUpdateCheckbox}
+        //     handleClick={handleClick}
+        //   />
+        // </div>
+      )} */}
     </div>
   );
 }

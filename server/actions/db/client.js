@@ -20,6 +20,7 @@ export async function getUser(id) {
           registrationId: id,
         },
         select: {
+          googleDriveFolderId: true,
           pdfLinks: {
             include: {
               pdf: {
@@ -34,10 +35,14 @@ export async function getUser(id) {
         },
       });
 
+      // console.log(userPdfLinks, "RAW DATA")
+
       const pdfs = userPdfLinks?.pdfLinks.map(link => link.pdf) || [];
+      const googleDriveFolderId = userPdfLinks?.googleDriveFolderId;
       const result = {
         ...registration,
-        pdfs
+        pdfs,
+        googleDriveFolderId
       }
       return result
 

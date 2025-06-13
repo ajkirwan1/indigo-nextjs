@@ -171,6 +171,7 @@ model UserNew {
   userName       String?
   userType       String?
   hashedPassword String?
+  googleDriveFolderId String?
   createdAt      DateTime          @default(now())
 
   registrationId     Int?               @unique

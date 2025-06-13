@@ -514,6 +514,7 @@ export async function seed(knex) {
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: 1001,
+      googleDriveFolderId: "1BTVsghq_ROyp_G5JNVPEOOfpWAcvaaYo",
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -522,6 +523,7 @@ export async function seed(knex) {
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: 1002,
+      googleDriveFolderId: "1ZgJagrG5DmUaqiSD1mpn06r-AmesQIAq",
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -530,6 +532,7 @@ export async function seed(knex) {
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: 1004,
+      googleDriveFolderId: "1dVCca50QD4Z7bhJqZ6VKIVPozOEBNeur",
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -538,6 +541,7 @@ export async function seed(knex) {
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: 1007,
+      googleDriveFolderId: "1-S8rsd9Ctz6HOCDmK87POwwlTJbrDmMh",
       createdAt: randomDateInLast30Days(),
     },
     {
@@ -546,6 +550,7 @@ export async function seed(knex) {
       userType: "admin",
       hashedPassword: await bcrypt.hash("password", 10),
       registrationId: null,
+      googleDriveFolderId: null,
       createdAt: randomDateInLast30Days(),
     },
   ]);
