@@ -1,5 +1,6 @@
 /** @format */
 "use client";
+import { useState } from "react";
 import Button from "@/components/ui/button";
 import VirtualizedFileList from "./virtualised-google-drive-file-list";
 
@@ -8,8 +9,12 @@ export default function GoogleDriveClientComponent({
   registration,
   result,
 }) {
+  
+  const [virtualListOpen, setVirtualListOpen] = useState(false);
+
   const handleClick = () => {
     console.log("CLICK");
+    setVirtualListOpen(val => !val)
   };
 
   return (
@@ -21,7 +26,7 @@ export default function GoogleDriveClientComponent({
             access to a folder.
           </p>
           <p>By updating the following, you will grant them access.</p>
-        <VirtualizedFileList result={result}/>
+          {virtualListOpen && <VirtualizedFileList result={result} />}
         </>
       )}
       {/* {registration === "accepted" && (
