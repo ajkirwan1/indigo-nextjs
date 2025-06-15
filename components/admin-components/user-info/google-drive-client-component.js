@@ -5,6 +5,7 @@ import Button from "@/components/ui/button";
 import VirtualizedFileList from "./virtualised-google-drive-file-list";
 import { updateGoogleDriveFolderId } from "@/server/actions/db/admin/google-folders/update-google-folder-id";
 import VirtualizedGoogleDriveSingleFIle from "./virtualised-google-drive-single-file";
+import DriveFileListTest from "./virtualised-google-drive-file-update";
 
 export default function GoogleDriveClientComponent({
   classes,
@@ -15,6 +16,7 @@ export default function GoogleDriveClientComponent({
   const [virtualListOpen, setVirtualListOpen] = useState(false);
   const [selectedCheckItem, setSelectedCheckItem] = useState(null);
   const [checkedIndex, setCheckedIndex] = useState(null);
+  const [updatePending, setUpdatePending] = useState(false);
 
   console.log(result, "RESULT");
 
@@ -46,9 +48,13 @@ export default function GoogleDriveClientComponent({
     const updateResult = updateGoogleDriveFolderId(userId, selectedCheckItem);
   };
 
+  const handleUpdate = () => {
+    setUpdatePending(true);
+  };
+
   return (
     <>
-      {registration == "pending" && (
+      {registration == "pending" && !updatePending && (
         <>
           <p>
             The User&apos;s registration is pending, and they currently have no
@@ -62,9 +68,21 @@ export default function GoogleDriveClientComponent({
               checkedIndex={checkedIndex}
             />
           )}
+          <div className={classes.buttonContainer}>
+            <div className="submit-button-container">
+              <Button onClick={handleClick}>
+                {virtualListOpen ? "Close" : "Edit"}
+              </Button>
+            </div>
+            {selectedCheckItem && (
+              <div className="submit-button-container">
+                <Button onClick={handleUpdateDb}>Save</Button>
+              </div>
+            )}
+          </div>
         </>
       )}
-      {registration === "accepted" && (
+      {registration === "accepted" && !updatePending && (
         <div>
           <h3>The following folder is accessible by the client:</h3>
           <VirtualizedGoogleDriveSingleFIle
@@ -72,21 +90,14 @@ export default function GoogleDriveClientComponent({
             handleToggle={handleToggle}
             checkedIndex={checkedIndex}
           />
+          <div className={classes.buttonContainer}>
+            <div className="submit-button-container">
+              <Button onClick={handleUpdate}>Update</Button>
+            </div>
+          </div>
         </div>
       )}
-      <div className={classes.buttonContainer}>
-        <div className="submit-button-container">
-          <Button onClick={handleClick}>
-            {virtualListOpen ? "Close" : "Edit"}
-          </Button>
-        </div>
-
-        {selectedCheckItem && (
-          <div className="submit-button-container">
-            <Button onClick={handleUpdateDb}>Save</Button>
-          </div>
-        )}
-      </div>
+      {updatePending && <DriveFileListTest />}
     </>
   );
 }
