@@ -52,6 +52,10 @@ export default function GoogleDriveClientComponent({
     setUpdatePending(true);
   };
 
+  const handleRevert = () => {
+    setUpdatePending(false);
+  };
+
   return (
     <>
       {registration == "pending" && !updatePending && (
@@ -84,10 +88,11 @@ export default function GoogleDriveClientComponent({
       )}
       {registration === "accepted" && !updatePending && (
         <div>
-          <h3>The following folder is accessible by the client:</h3>
+          <p>The following folder is accessible by the client:</p>
           <VirtualizedGoogleDriveSingleFIle
             result={result}
             handleToggle={handleToggle}
+            
             checkedIndex={checkedIndex}
           />
           <div className={classes.buttonContainer}>
@@ -97,7 +102,27 @@ export default function GoogleDriveClientComponent({
           </div>
         </div>
       )}
-      {updatePending && <DriveFileListTest />}
+      {updatePending && (
+        <>
+          <p>Revert update, or check new folder:</p>
+          <DriveFileListTest
+            result={result}
+            handleToggle={handleToggle}
+            checkedIndex={checkedIndex}
+            setCheckedIndex={setCheckedIndex}
+          />
+          <div className={classes.buttonContainer}>
+            <div className="submit-button-container">
+              <Button onClick={handleRevert}>Revert</Button>
+            </div>
+            {selectedCheckItem && (
+              <div className="submit-button-container">
+                <Button onClick={handleUpdateDb}>Save</Button>
+              </div>
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 }
