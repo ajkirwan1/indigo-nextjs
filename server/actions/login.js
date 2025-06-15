@@ -7,18 +7,6 @@ import { lucia } from "@/auth/lucia";
 import { redirect } from "next/navigation";
 
 export async function Login(state, formData) {
-  // const passwords = await db.password.findMany();
-  // const users = await db.user.findMany();
-  // const user = await db.user.findFirst({
-  //   where: { username: "user123" },
-  // });
-  // console.log(user);
-  // console.log(passwords);
-  // const sessions = await db.session.findMany();
-  // console.log(sessions);
-
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const username = formData.get("username");
   const password = formData.get("password");

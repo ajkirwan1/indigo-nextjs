@@ -18,7 +18,7 @@ export default async function AccordionPersonal({ userInfo }) {
   return (
     <div className={classes.container}>
       <div className={classes.text}>
-        <h2>Personal details</h2>
+        <h2>Client Information</h2>
         <div className={classes.row}>
           <p>Name: &nbsp;&nbsp;</p>
           <p>{name}</p>
@@ -33,7 +33,7 @@ export default async function AccordionPersonal({ userInfo }) {
         </div>
       </div>
       <div className={classes.text}>
-        <h2>Registration information</h2>
+        {/* <h2>Registration information</h2> */}
         <div className={classes.row}>
           <p>Name: &nbsp;&nbsp;</p>
           <p>{name}</p>
@@ -63,8 +63,8 @@ export default async function AccordionPersonal({ userInfo }) {
           <p>{previousInvestment}</p>
         </div>
       </div>
-      <div className={classes.text}>
-      </div>
+      {/* <div className={classes.text}>
+      </div> */}
     </div>
   );
 }

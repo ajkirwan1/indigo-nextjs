@@ -1,8 +1,9 @@
 .container {
-  background-color: #4d001361;
+  /* background-color: #4d001361; */
   /* height: 500px; */
-  border: 1px solid aliceblue;
-  box-shadow: 2px 2px 15px rgb(89 13 104 / 27%);
+  border: 1px solid black;
+  border-radius: 5px;
+  /* box-shadow: 2px 2px 15px rgb(89 13 104 / 27%); */
   margin-bottom: 10vh;
   margin-top: 5vh;
 }

@@ -4,14 +4,6 @@ import db from "@/modules/db";
 
 export async function GetPendingUsers() {
   try {
-    // const pendingPropertyUsers = await db.user.findMany({
-    //   where: {
-    //     propertyaccess: {
-    //       equals: 0,
-    //     },
-    //   },
-    // });
-
     const userPendingRegistration = await db.userRegistration.findMany({
       where: {
         registration: {
@@ -19,8 +11,6 @@ export async function GetPendingUsers() {
         },
       },
     }); 
-
-    console.log(userPendingRegistration)
 
     return userPendingRegistration;
   } catch (error) {

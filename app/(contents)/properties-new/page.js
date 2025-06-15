@@ -14,8 +14,6 @@ import messageIcon from "/public/images/contact.png";
 function PropertyItem({ data }) {
   const { title, primaryImage, information, pdf, location } = data.fields;
 
-  // console.log(location);
-
   return (
     <>
       <div className={classes.ProjectItemWrapper}>
@@ -71,7 +69,6 @@ export default async function PropertiesPage() {
   const results = await getAllProperties();
 
   if (results.errorMessage) {
-    // console.log(results.errorMessage);
   }
 
   if (!user) {

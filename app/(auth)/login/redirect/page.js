@@ -5,8 +5,6 @@ import { auth } from '@/auth';
 export default async function RedirectingPage() {
   const session = await auth();
 
-  console.log(session, "REDIRECT SESSION")
-
   if (!session) {
     // Not logged in, send to login
     redirect('/');

@@ -3,7 +3,6 @@
 import db from "@/modules/db";
 
 export async function GetUserRegistrationInformation(id) {
-  console.log(id)
   try {
     const userWithRegistration = await db.userNew.findUnique({
       where: {

@@ -6,7 +6,9 @@ import { getUser } from "@/server/actions/db/client";
 import classes from "./page.module.css";
 
 export default async function AdminClientPage({ params }) {
-  const userInfo = await getUser(parseInt(params.id));
+  const userId = params.id
+  const userInfo = await getUser(parseInt(userId));
+  console.log(userInfo, "USEINFO")
 
   const { registration, googleDriveFolderId } = userInfo;
 
@@ -20,6 +22,7 @@ export default async function AdminClientPage({ params }) {
         classes={classes}
         registration={registration}
         googleDriveFolderId={googleDriveFolderId}
+        userId={userId}
       />
     </div>
   );

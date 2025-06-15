@@ -7,7 +7,6 @@ import heroImage from "/public/images/croppednight.jpg";
 import RegisterFormPage1 from "@/components/forms/register/page-1";
 
 export default async function NewUserPage({ searchParams }) {
-  console.log(searchParams);
   const { token } = searchParams;
 
   if (!token) {
@@ -19,8 +18,6 @@ export default async function NewUserPage({ searchParams }) {
     const magicLinkRecord = await db.magicLinkToken.findUnique({
       where: { token },
     });
-
-    console.log(magicLinkRecord);
 
     // Step 2: If token is invalid (not found or expired/used), redirect to error page
     if (
