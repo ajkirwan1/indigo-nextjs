@@ -17,6 +17,7 @@ export default function GoogleDriveClientComponent({
   const [selectedCheckItem, setSelectedCheckItem] = useState(null);
   const [checkedIndex, setCheckedIndex] = useState(null);
   const [updatePending, setUpdatePending] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
   console.log(result, "RESULT");
 
@@ -92,7 +93,6 @@ export default function GoogleDriveClientComponent({
           <VirtualizedGoogleDriveSingleFIle
             result={result}
             handleToggle={handleToggle}
-            
             checkedIndex={checkedIndex}
           />
           <div className={classes.buttonContainer}>
@@ -104,14 +104,35 @@ export default function GoogleDriveClientComponent({
       )}
       {updatePending && (
         <>
-          <p>Revert update, or check new folder:</p>
+          {isFetching ? (
+            <p>Loading folders:</p>
+          ) : (
+            <p>Revert update, or check new folder:</p>
+          )}
+
           <DriveFileListTest
             result={result}
             handleToggle={handleToggle}
             checkedIndex={checkedIndex}
             setCheckedIndex={setCheckedIndex}
+            setIsLoading={setIsFetching}
           />
-          <div className={classes.buttonContainer}>
+          {isFetching ? (
+            <div className={classes.buttonContainer}>
+            </div>
+          ) : (
+            <div className={classes.buttonContainer}>
+              <div className="submit-button-container">
+                <Button onClick={handleRevert}>Revert</Button>
+              </div>
+              {selectedCheckItem && (
+                <div className="submit-button-container">
+                  <Button onClick={handleUpdateDb}>Save</Button>
+                </div>
+              )}
+            </div>
+          )}
+          {/* <div className={classes.buttonContainer}>
             <div className="submit-button-container">
               <Button onClick={handleRevert}>Revert</Button>
             </div>
@@ -120,7 +141,7 @@ export default function GoogleDriveClientComponent({
                 <Button onClick={handleUpdateDb}>Save</Button>
               </div>
             )}
-          </div>
+          </div> */}
         </>
       )}
     </>

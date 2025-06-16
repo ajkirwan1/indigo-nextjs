@@ -9,26 +9,32 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
+import { Spinner } from "@nextui-org/spinner";
 
 export default function DriveFileListTest({
   result,
   handleToggle,
   checkedIndex,
-  setCheckedIndex
+  setCheckedIndex,
+  setIsLoading
 }) {
   const [files, setFiles] = useState([]);
   // const [checkedIndex, setCheckedIndex] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // const [, setIsLoading]
+ 
 
   // Fetch files and determine checkedIndex
   useEffect(() => {
+    setIsLoading?.(true); // Start loading
     fetch("/api/drive/list")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch files");
         return res.json();
       })
       .then((data) => {
+        setIsLoading?.(false);
         setFiles(data);
         const foundIndex = data.findIndex((file) => file.name === result);
         console.log("Matching result:", result?.name);
@@ -74,7 +80,7 @@ export default function DriveFileListTest({
     );
   };
 
-  if (loading) return <p>Loading files...</p>;
+  if (loading) return <Spinner color="default" size="lg" className="spinner" />;
   if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
 
   return (
