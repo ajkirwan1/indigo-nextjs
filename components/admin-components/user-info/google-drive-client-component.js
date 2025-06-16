@@ -19,17 +19,13 @@ export default function GoogleDriveClientComponent({
   const [updatePending, setUpdatePending] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
 
-  console.log(result, "RESULT");
-
   const handleToggle = useCallback(
     (index) => {
       setCheckedIndex((prev) => {
         const newIndex = prev === index ? null : index;
         const selectedItem = result[newIndex];
         if (selectedItem) {
-          // onSelect(newIndex, selectedItem);
           setSelectedCheckItem({ ...selectedItem });
-          console.log(selectedItem, "ITEMS");
         } else {
           setSelectedCheckItem(null);
         }
@@ -40,14 +36,12 @@ export default function GoogleDriveClientComponent({
   );
 
   const handleClick = () => {
-    console.log("CLICK");
     setVirtualListOpen((val) => !val);
   };
 
-  const handleUpdateDb = () => {
-    console.log("UPDATE DB");
-    const updateResult = updateGoogleDriveFolderId(userId, selectedCheckItem);
-  };
+  // const handleUpdateDb = () => {
+  //   const updateResult = updateGoogleDriveFolderId(userId, selectedCheckItem);
+  // };
 
   const handleUpdate = () => {
     setUpdatePending(true);

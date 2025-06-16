@@ -14,6 +14,13 @@
   gap: 2vw;
 }
 
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2vh;
+}
+
 .listItem p {
   margin: 0; /* Remove default margins for clean alignment */
 }
