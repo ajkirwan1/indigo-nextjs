@@ -15,7 +15,7 @@ export default async function GoogleDriveComponent({
     registration == "accepted"
   ) {
     result = await getFolderNameById(googleDriveFolderId);
-    console.log(result, "RESULTY")
+    // console.log(result, "RESULTY")
   } else {
     result = await listDriveFiles();
   }

@@ -18,6 +18,8 @@ export default function GoogleDriveClientComponent({
   const [checkedIndex, setCheckedIndex] = useState(null);
   const [updatePending, setUpdatePending] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
+  const [registrationStatus, setRegistrationStatus] = useState(registration);
+  const [resultStatus, setResultStatus] = useState(result);
 
   const handleToggle = useCallback(
     (index) => {
@@ -25,7 +27,10 @@ export default function GoogleDriveClientComponent({
         const newIndex = prev === index ? null : index;
         const selectedItem = result[newIndex];
         if (selectedItem) {
+          console.log(selectedItem);
           setSelectedCheckItem({ ...selectedItem });
+  
+          // setResultStatus({...selectedItem})
         } else {
           setSelectedCheckItem(null);
         }
@@ -39,9 +44,22 @@ export default function GoogleDriveClientComponent({
     setVirtualListOpen((val) => !val);
   };
 
-  // const handleUpdateDb = () => {
-  //   const updateResult = updateGoogleDriveFolderId(userId, selectedCheckItem);
-  // };
+  const handleUpdateDb = async () => {
+    const updateResult = await updateGoogleDriveFolderId(
+      userId,
+      selectedCheckItem
+    );
+    if (updateResult.createdUser) {
+      setResultStatus(selectedCheckItem.name);
+      setRegistrationStatus("accepted");
+      setUpdatePending(false);
+    }
+  };
+
+  const handleUpdateFolder = () => {
+    setResultStatus(selectedCheckItem);
+    setUpdatePending(false);
+  }
 
   const handleUpdate = () => {
     setUpdatePending(true);
@@ -53,7 +71,7 @@ export default function GoogleDriveClientComponent({
 
   return (
     <>
-      {registration == "pending" && !updatePending && (
+      {registrationStatus == "pending" && !updatePending && (
         <>
           <p>
             The User&apos;s registration is pending, and they currently have no
@@ -62,7 +80,7 @@ export default function GoogleDriveClientComponent({
           <p>By updating the following, you will grant them access.</p>
           {virtualListOpen && (
             <VirtualizedFileList
-              result={result}
+              result={resultStatus}
               handleToggle={handleToggle}
               checkedIndex={checkedIndex}
             />
@@ -81,11 +99,11 @@ export default function GoogleDriveClientComponent({
           </div>
         </>
       )}
-      {registration === "accepted" && !updatePending && (
+      {registrationStatus === "accepted" && !updatePending && (
         <div>
           <p>The following folder is accessible by the client:</p>
           <VirtualizedGoogleDriveSingleFIle
-            result={result}
+            result={resultStatus}
             handleToggle={handleToggle}
             checkedIndex={checkedIndex}
           />
@@ -105,15 +123,14 @@ export default function GoogleDriveClientComponent({
           )}
 
           <DriveFileListTest
-            result={result}
+            result={resultStatus}
             handleToggle={handleToggle}
             checkedIndex={checkedIndex}
             setCheckedIndex={setCheckedIndex}
             setIsLoading={setIsFetching}
           />
           {isFetching ? (
-            <div className={classes.buttonContainer}>
-            </div>
+            <div className={classes.buttonContainer}></div>
           ) : (
             <div className={classes.buttonContainer}>
               <div className="submit-button-container">
@@ -121,21 +138,11 @@ export default function GoogleDriveClientComponent({
               </div>
               {selectedCheckItem && (
                 <div className="submit-button-container">
-                  <Button onClick={handleUpdateDb}>Save</Button>
+                  <Button onClick={handleUpdateFolder}>Save</Button>
                 </div>
               )}
             </div>
           )}
-          {/* <div className={classes.buttonContainer}>
-            <div className="submit-button-container">
-              <Button onClick={handleRevert}>Revert</Button>
-            </div>
-            {selectedCheckItem && (
-              <div className="submit-button-container">
-                <Button onClick={handleUpdateDb}>Save</Button>
-              </div>
-            )}
-          </div> */}
         </>
       )}
     </>

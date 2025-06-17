@@ -12,6 +12,8 @@ import Link from "@mui/material/Link";
 export default function VirtualizedGoogleDriveListOfFiles({ result }) {
   if (!Array.isArray(result)) return null;
 
+  console.log(result, "RESULTS")
+
   return (
     <Box
       sx={{
@@ -34,7 +36,7 @@ export default function VirtualizedGoogleDriveListOfFiles({ result }) {
               }
             />
             <Link
-              href="/api/download?fileId=1ZWDGADnfnYd1T32kwCEyCsR_oiCUpJnb"
+              href={`/api/download?fileId=${item.id}`}
               target="_blank"
               rel="noopener noreferrer"
               underline="hover"

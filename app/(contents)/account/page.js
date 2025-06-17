@@ -20,6 +20,8 @@ export default async function UserInfo() {
 
   const id = parseInt(session?.user?.id);
 
+  console.log("IDD", id);
+
  return (
     <>
       <div className="header">

@@ -5,7 +5,7 @@
  */
 import { generateId } from "lucia";
 import bcrypt from "bcryptjs";
-import cuid from 'cuid';
+import cuid from "cuid";
 
 const userId1 = generateId(15);
 const userId2 = generateId(15);
@@ -13,9 +13,9 @@ const userId3 = generateId(15);
 const userId4 = generateId(15);
 const userId5 = generateId(15);
 
-const pdfId1 = cuid()
-const pdfId2 = cuid()
-const pdfId3= cuid()
+const pdfId1 = cuid();
+const pdfId2 = cuid();
+const pdfId3 = cuid();
 
 function randomDateInLast30Days() {
   const now = new Date();
@@ -394,7 +394,7 @@ export async function seed(knex) {
       investmentInterest: "land",
       investmentRange: "50,000€ - 100,000€",
       previousInvestment: "no",
-      registration: "pending",
+      registration: "accepted",
       createdAt: randomDateInLast30Days(),
       // userNewId: 3,
     },
@@ -431,7 +431,7 @@ export async function seed(knex) {
     {
       id: 1006,
       name: "Echo Properties",
-      email: "echo@example.com",
+      email: "ajkirwan1@gmail.com",
       phoneNumber: "+441100000006",
       buyertype: "private",
       location: "Germany",
@@ -476,7 +476,7 @@ export async function seed(knex) {
     {
       id: 1009,
       name: "Horizon Developments",
-      email: "horizon@example.com",
+      email: "ajkirwan1@gmail.com",
       phoneNumber: "+441100000009",
       buyertype: "private",
       location: "Cyprus",
@@ -491,7 +491,7 @@ export async function seed(knex) {
     {
       id: 1010,
       name: "BluePeak Realty",
-      email: "bluepeak@example.com",
+      email: "ajkirwan@gmail.com",
       phoneNumber: "+441100000010",
       buyertype: "agent",
       location: "Netherlands",
@@ -531,21 +531,48 @@ export async function seed(knex) {
       userName: "sunrise_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 1004,
+      registrationId: 1003,
       googleDriveFolderId: "1dVCca50QD4Z7bhJqZ6VKIVPozOEBNeur",
       createdAt: randomDateInLast30Days(),
     },
     {
       id: 1004,
-      userName: "admin_alpha",
+      userName: "lighthouse_user",
       userType: "client",
       hashedPassword: await bcrypt.hash("password", 10),
-      registrationId: 1007,
-      googleDriveFolderId: "1-S8rsd9Ctz6HOCDmK87POwwlTJbrDmMh",
+      registrationId: 1004,
+      googleDriveFolderId: "1dVCca50QD4Z7bhJqZ6VKIVPozOEBNeur",
       createdAt: randomDateInLast30Days(),
     },
     {
       id: 1005,
+      userName: "zenith_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 1005,
+      googleDriveFolderId: null,
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 1006,
+      userName: "solstice_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 1007,
+      googleDriveFolderId: "1dVCca50QD4Z7bhJqZ6VKIVPozOEBNeur",
+      createdAt: randomDateInLast30Days(),
+    },
+      {
+      id: 1007,
+      userName: "harborfront_user",
+      userType: "client",
+      hashedPassword: await bcrypt.hash("password", 10),
+      registrationId: 1008,
+      googleDriveFolderId: null,
+      createdAt: randomDateInLast30Days(),
+    },
+    {
+      id: 1008,
       userName: "admin123",
       userType: "admin",
       hashedPassword: await bcrypt.hash("password", 10),

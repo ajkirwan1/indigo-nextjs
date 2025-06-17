@@ -27,17 +27,37 @@ export async function GET(req) {
   const auth = await getAuth();
   const drive = google.drive({ version: 'v3', auth });
 
-  const res = await drive.files.get(
+  // Get file metadata to determine MIME type
+  const metadataRes = await drive.files.get({
+    fileId,
+    fields: 'name, mimeType',
+  });
+
+  const fileName = metadataRes.data.name || `${fileId}`;
+  const mimeType = metadataRes.data.mimeType;
+
+  // Stream the file content
+  const fileRes = await drive.files.get(
     { fileId, alt: 'media' },
     { responseType: 'stream' }
   );
 
-  const stream = res.data;
+  // Determine content type (use known or default fallback)
+  let contentType = 'application/octet-stream';
+  if (mimeType === 'application/pdf') {
+    contentType = 'application/pdf';
+  } else if (
+    mimeType === 'text/csv' ||
+    mimeType === 'application/vnd.ms-excel' // Some CSVs may have this
+  ) {
+    contentType = 'text/csv';
+  }
 
-  return new NextResponse(stream, {
+  return new NextResponse(fileRes.data, {
     headers: {
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': `inline; filename="${fileId}.pdf"`,
+      'Content-Type': contentType,
+      'Content-Disposition': `inline; filename="${fileName}"`,
     },
   });
 }
+

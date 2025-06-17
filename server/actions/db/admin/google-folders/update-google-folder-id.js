@@ -1,29 +1,46 @@
-/** @format */
 "use server";
 import db from "@/modules/db";
 
-/**
- * Updates the Google Drive folder ID for a given user.
- *
- * @param id - User's unique identifier.
- * @param folderId - New Google Drive folder ID to be set.
- * @returns The updated user record or an error object.
- */
-export async function updateGoogleDriveFolderId(id, folderId) {
-  try {
-    // const updatedUser = await db.userNew.update({
-    //   where: { id },
-    //   data: { googleDriveFolderId: folderId },
-    //   select: {
-    //     id: true,
-    //     googleDriveFolderId: true,
-    //   },
-    // });
+export async function updateGoogleDriveFolderId(registrationId, selectedCheckItem) {
+  const numericRegistrationId = parseInt(registrationId, 10);
 
-    // return updatedUser;
-    console.log(id, folderId);
+  console.log("🔍 Starting transaction for registrationId:", numericRegistrationId);
+  console.log("📁 Folder ID to set:", selectedCheckItem?.id);
+
+  try {
+    const [createdUser, updatedRegistration] = await db.$transaction([
+      db.userNew.create({
+        data: {
+          googleDriveFolderId: selectedCheckItem.id,
+          registrationId: numericRegistrationId,
+        },
+        select: {
+          id: true,
+          googleDriveFolderId: true,
+          registrationId: true,
+        },
+      }),
+
+      db.userRegistration.update({
+        where: { id: numericRegistrationId },
+        data: { registration: "accepted" },
+        select: { id: true, registration: true },
+      }),
+    ]);
+
+    console.log("✅ Created UserNew:", createdUser);
+    console.log("✅ Updated registration status:", updatedRegistration);
+
+    // You can return the actual created and updated data here if you want
+    return {
+      message: "✅ Success: UserNew created and registration accepted.",
+      createdUser,
+      updatedRegistration,
+    };
   } catch (error) {
-    console.error("Error updating Google Drive Folder ID:", error);
-    return { dbUpdateError: "An error occurred while updating the folder ID." };
+    console.error("❌ Error during transaction:", error);
+    return {
+      createError: "An error occurred during creation and registration update.",
+    };
   }
 }

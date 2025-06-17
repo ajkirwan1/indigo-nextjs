@@ -14,7 +14,7 @@ export default function VirtualizedGoogleDriveSingleFIle({
   checkedIndex,
 }) {
 //   if (checkedIndex == null) return null; // nothing to display if unchecked
-
+console.log(result);
   return (
     <Box
       sx={{
