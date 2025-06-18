@@ -14,8 +14,14 @@ export async function authenticate(prevState, formData) {
       return validationResult;
     }
 
+    
+
     const username = formData.get("username");
     const password = formData.get("password");
+
+
+    console.log(username)
+    console.log(password)
 
     const existingUser = await db.userNew.findFirst({
       where: { userName: username },

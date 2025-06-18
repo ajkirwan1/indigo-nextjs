@@ -24,9 +24,9 @@ const config = {
   darkMode: "class",
   plugins: [
     nextui({ addCommonColors: true }),
-    scopedPreflightStyles({
-      isolationStrategy: isolateInsideOfContainer([".spinner", ".skeleton"]),
-    }),
+    // scopedPreflightStyles({
+    //   isolationStrategy: isolateInsideOfContainer([".spinner", ".skeleton"]),
+    // }),
   ],
 };
 

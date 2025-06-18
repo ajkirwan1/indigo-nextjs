@@ -8,13 +8,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function VirtualizedGoogleDriveSingleFIle({
-  result,
+export default function VirtualizedGoogleDriveSingleFile({
   handleToggle,
   checkedIndex,
+  googleFileName
 }) {
-//   if (checkedIndex == null) return null; // nothing to display if unchecked
-console.log(result);
   return (
     <Box
       sx={{
@@ -28,7 +26,7 @@ console.log(result);
     >
       <ListItem component="div" disablePadding>
         <ListItemButton onClick={() => handleToggle(checkedIndex)}>
-          <ListItemText primary={result || "Unnamed Item"} />
+          <ListItemText primary={googleFileName || "Unnamed Item"} />
           <Checkbox
             edge="start"
             checked={true}

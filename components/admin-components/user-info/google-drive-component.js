@@ -1,8 +1,9 @@
 /** @format */
 
 import { getFolderNameById } from "@/lib/google/get-google-folder-name-by-id";
-import GoogleDriveClientComponent from "./google-drive-client-component";
+// import GoogleDriveClientComponent from "./google-drive-client-component";
 import { listDriveFiles } from "@/lib/google/get-drive-files";
+import GoogleDriveClientComponent from "./google-drive-components/google-drive-client-component";
 
 export default async function GoogleDriveComponent({
   classes,
@@ -10,21 +11,12 @@ export default async function GoogleDriveComponent({
   googleDriveFolderId,
   userId
 }) {
-  let result;
-  if (
-    registration == "accepted"
-  ) {
-    result = await getFolderNameById(googleDriveFolderId);
-    // console.log(result, "RESULTY")
-  } else {
-    result = await listDriveFiles();
-  }
 
   return (
     <div className={classes.text}>
       <h2>Files and Folders</h2>
       <GoogleDriveClientComponent
-        result={result}
+        googleDriveFolderId={googleDriveFolderId}
         classes={classes}
         registration={registration}
         userId={userId}

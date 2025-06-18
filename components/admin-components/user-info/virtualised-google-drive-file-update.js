@@ -1,5 +1,4 @@
 /** @format */
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -9,63 +8,37 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
-import { Spinner } from "@nextui-org/spinner";
 
-export default function DriveFileListTest({
-  result,
-  handleToggle,
-  checkedIndex,
-  setCheckedIndex,
-  setIsLoading
-}) {
+export default function DriveFileListTest({ googleFolders, allGoogleFolders, setGoogleFolders }) {
+  const [selectedFolder, setSelectedFolder] = useState(googleFolders); // Track the currently selected folder by name
   const [files, setFiles] = useState([]);
-  // const [checkedIndex, setCheckedIndex] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  // const [, setIsLoading]
- 
 
-  // Fetch files and determine checkedIndex
+  // Set files from allGoogleFolders prop
   useEffect(() => {
-    setIsLoading?.(true); // Start loading
-    fetch("/api/drive/list")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch files");
-        return res.json();
-      })
-      .then((data) => {
-        setIsLoading?.(false);
-        setFiles(data);
-        const foundIndex = data.findIndex((file) => file.name === result);
-        console.log("Matching result:", result?.name);
-        console.log("Found at index:", foundIndex);
-        if (foundIndex !== -1) {
-          setCheckedIndex(foundIndex);
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [result]);
+    setFiles(allGoogleFolders);
+  }, [allGoogleFolders]);
 
-  // const handleToggle = (index) => {
-  //   setCheckedIndex(index === checkedIndex ? null : index);
-  // };
+  // --- Handle checkbox toggle ---
+  const handleToggle = (name) => {
+    // Only update if a new folder is selected, preventing toggling off the selected one
+    if (selectedFolder !== name) {
+      setSelectedFolder(name); // Update selected folder to the clicked one
+      setGoogleFolders(name); // Pass the selected folder back to parent
+    }
+  };
 
+  // --- Row rendering function for the list ---
   const Row = ({ index, style }) => {
     const item = files[index];
-    const isChecked = checkedIndex === index;
+    const isChecked = item?.name === selectedFolder; // Check if the folder is the selected one
 
     return (
       <ListItem style={style} key={index} component="div" disablePadding>
-        <ListItemButton onClick={() => handleToggle(index)}>
+        <ListItemButton onClick={() => handleToggle(item?.name)}>
           <ListItemText primary={item?.name || `Item ${index + 1}`} />
           <Checkbox
             edge="start"
-            checked={isChecked}
+            checked={isChecked} // This will always reflect the selectedFolder state
             tabIndex={-1}
             disableRipple
             sx={{
@@ -80,9 +53,6 @@ export default function DriveFileListTest({
     );
   };
 
-  if (loading) return <Spinner color="default" size="lg" className="spinner" />;
-  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
-
   return (
     <Box
       sx={{
@@ -95,7 +65,7 @@ export default function DriveFileListTest({
       }}
     >
       <FixedSizeList
-        key={files.length + "-" + checkedIndex} // Forces re-render on change
+        key={files.length + "-" + selectedFolder} // Forces re-render on change
         height={300}
         itemCount={files.length}
         itemSize={40}
