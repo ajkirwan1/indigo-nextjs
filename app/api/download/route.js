@@ -2,16 +2,19 @@ import { google } from 'googleapis';
 import path from 'path';
 import { promises as fs } from 'fs';
 import { NextResponse } from 'next/server';
+import { getGoogleCredentialsFromEnv } from '@/utils/credentials/get-google-credentials';
 
 const SCOPES = ['https://www.googleapis.com/auth/drive.readonly'];
 
+
 async function getAuth() {
+  const googleCred = getGoogleCredentialsFromEnv()
   const keyPath = path.join(process.cwd(), 'service-account.json');
   const keyFile = await fs.readFile(keyPath, 'utf-8');
   const credentials = JSON.parse(keyFile);
 
   return new google.auth.GoogleAuth({
-    credentials,
+    credentials: googleCred,
     scopes: SCOPES,
   });
 }
