@@ -4,7 +4,7 @@
 import { FindAllUsers } from "@/server/actions/find-all-users";
 
 export default async function AllUsers() {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   const result = await FindAllUsers();
 
   if (result.message) {

@@ -1,54 +1,38 @@
 /** @format */
 
 import classes from "./account-personal-details.module.css";
-import ClientPersonalDetailsForm from "@/components/forms/account/client-personal-details-form";
 import RequestFallbackReset from "@/components/fallbacks/admin/request-fallback-reset";
-import { getProperties } from "@/server/actions/db/properties";
-import { getPropertyAccessByUser } from "@/server/actions/db/admin/get-property-access";
+import VirtualizedGoogleDriveListOfFiles from "@/components/client-components/google-drive-client-file-list";
+import { GetUserGoogleDriveFolderId } from "@/server/actions/db/client/get-user-google-drive-folder-id";
+import { listFilesInFolder } from "@/lib/google/get-drive-files-list";
 
 export default async function AccountPropertiesDetails({ id }) {
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
+  try {
+    const userGoogleDriveFolder = await GetUserGoogleDriveFolderId(id);
 
-  const userResult = await getPropertyAccessByUser(id);
+    if (
+      !userGoogleDriveFolder.success ||
+      !userGoogleDriveFolder.googleDriveFolderId
+    ) {
+      throw new Error("Google Drive folder not found.");
+    }
 
-  const result = await getProperties(id);
+    const googleDriveFiles = await listFilesInFolder(
+      userGoogleDriveFolder.googleDriveFolderId
+    );
 
-  console.log(result);
-
-  // if (!result.dbFetchError) {
-  //   const { username, firstname, lastname, email, companyname, phonenumber } =
-  //     user;
-  // }
-
-  return (
-    <>
-      {result?.dbFetchError || userResult?.dbFetchError ? (
-        <RequestFallbackReset />
-      ) : userResult.propertyaccess == 0 ? (
-        <>
-          <div className={classes.outerWrapper}>
-            <h2>Properties</h2>
+    return (
+      <div>
+        <div className={classes.outerWrapper}>
+          <h2>Properties</h2>
+          <div className={classes.listContainer}>
+            <VirtualizedGoogleDriveListOfFiles result={googleDriveFiles} />
           </div>
-          <p>Your access to properties is pending. Please return later.</p>
-        </>
-      ) : userResult.propertyaccess == 1 ? (
-        <>
-          <div className={classes.outerWrapper}>
-            <h2>Properties</h2>
-          </div>
-          <p>You currently do not have access to 1 property</p>
-        </>
-      ) : (
-        <>
-          <div className={classes.outerWrapper}>
-            <h2>Properties</h2>
-          </div>
-          <p>
-            You currently do not have access to {userResult.propertyaccess}
-            properties
-          </p>
-        </>
-      )}
-    </>
-  );
+        </div>
+      </div>
+    );
+  } catch (error) {
+    console.error("Error in AccountPropertiesDetails:", error);
+    return <RequestFallbackReset />;
+  }
 }

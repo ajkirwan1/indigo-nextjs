@@ -7,7 +7,7 @@ import { getAllObjectsSignedUrlsS3 } from "@/server/actions/s3/images/get-all-im
 // import { generateIdFromEntropySize } from "lucia";
 
 export async function GetPropertyPdfAction(state, formData) {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   const result = await getAllObjectsSignedUrlsS3({
     Bucket: process.env.AWS_BUCKET_NAME_PDF,
   });

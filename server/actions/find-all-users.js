@@ -6,20 +6,10 @@ import db from "@/modules/db";
 
 export async function FindAllUsers() {
   try {
-    const existingUsers = await db.user.findMany({
-      select: {
-        id: true,
-        firstname: true,
-        lastname: true,
-        email: true,
-        propertyaccess: true,
-        consultingaccess: true,
-        accessrequestdate: true,
-      },
-    });
-    // throw Error;
+    const existingUsers = await db.userRegistration.findMany({});
     return existingUsers;
   } catch (error) {
+    console.log(error, "existingUsers")
     return { message: "Database Error: Failed to retrieve data" };
   }
 }

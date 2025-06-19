@@ -6,7 +6,7 @@ import { GetNewUsers } from "@/server/actions/db/admin/get-new-users";
 import { Tooltip } from "@nextui-org/react";
 
 export default async function NewUsers() {
-  await new Promise((resolve) => setTimeout(resolve, 8000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const result = await GetNewUsers();
 
   if (result.message) {

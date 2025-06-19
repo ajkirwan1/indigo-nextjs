@@ -1,5 +1,5 @@
 /** @format */
-// "use client";
+
 import Header from "@/components/ui/header/header";
 import classes from "./hero-component.module.css";
 import Image from "next/image";

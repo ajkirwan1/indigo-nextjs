@@ -1,29 +1,45 @@
 /** @format */
+
+// export { auth as middleware } from "@/auth"
 import { NextResponse } from "next/server";
+import NextAuth from "next-auth";
+import { authConfig } from "./auth.config";
+import { getToken } from "next-auth/jwt";
 
-export function middleware(request) {
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-current-path", request.nextUrl.pathname);
-  requestHeaders.set("x-search-params", request.nextUrl.searchParams);
+const protectedRoutes = ["/admin"];
+const adminRedirectRoutes = ["/", "/contact"];
 
-  // return NextResponse.redirect(new URL('/blog', request.url))
+const { auth } = NextAuth(authConfig);
 
-  return NextResponse.next({ request: { headers: requestHeaders } });
-}
+export default auth(async function middleware(req) {
+  // const session = await auth();
 
-export const config = {
-  // matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-  // matcher: ["/login", "/register", "/properties", "/consulting", "/admin/:path*"]
-};
+  // const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+  // const token2 = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+  // console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET);
+  // console.log("AUTH_SECRET:", process.env.AUTH_SECRET);
+  // console.log(token, "token");
+  // console.log(token2, "token2");
+  // const { pathname } = req.nextUrl;
 
-// middleware.ts
+  // const shouldRedirectToAdmin =
+  //   token?.role === "admin" &&
+  //   adminRedirectRoutes.some(
+  //     (route) => pathname === route || pathname.startsWith(route + "/")
+  //   );
 
-// import { chain } from "@/middlewares/chain";
-// import { adminRedirect } from "@/middlewares/admin";
-// import { loginRedirect } from "@/middlewares/login-redirect";
+  // if (shouldRedirectToAdmin) {
+  //   return NextResponse.redirect(new URL("/admin", req.nextUrl));
+  // }
 
-// export default chain([loginRedirect, adminRedirect]);
+  // // const token= await getToken({ req, secret:process.env.AUTH_SECRET })
 
-// export const config = {
-//   matcher: "/admin/:path*",
-// };
+  // const isProtected = protectedRoutes.some((route) =>
+  //   pathname.startsWith(route)
+  // );
+
+  // if (isProtected && token?.role !== "admin") {
+  //   return NextResponse.redirect(new URL("/", req.nextUrl));
+  // }
+  return NextResponse.next();
+});

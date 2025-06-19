@@ -1,37 +1,22 @@
 /** @format */
-import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
-import { useSession } from "@/contexts/session-context";
-import { Logout } from "@/server/actions/logout";
 import { motion } from "framer-motion";
 import NavLinkMobile from "@/components/nav-link-mobile";
+import { SignIn } from "@/components/forms/sign-in/sign-in-form";
+import { SignOutButton } from "@/components/auth/sign-out-button";
 
-export default function Dropdown({ submenus, dropdown, setDropdown }) {
-  // const { user } = useSession();
-
-  // let data;
-  // if (user) {
-  //   data = submenus.filter((item) => {
-  //     return item.title !== "Login";
-  //   });
-  // } else {
-  //   data = submenus.filter((item) => {
-  //     return item.title !== "Logout";
-  //   });
-  // }
-
-  const handleLogout = () => {
-    Logout();
-  };
+export default function Dropdown({ submenus, dropdown, setDropdown, session }) {
+const res = session
+  ? submenus.filter(submenu => submenu.title !== "REGISTER")
+  : submenus.filter(submenu => submenu.title !== "ACCOUNT");
 
   return (
     <ul
       className={
         dropdown ? `${classes.show} ${classes.dropdown}` : `${classes.dropdown}`
       }
-      // onClick={setDropdown}
     >
-      {submenus.map((submenu, index) => (
+      {res.map((submenu, index) => (
         <motion.li
           key={index}
           className={classes.menuItems}
@@ -39,11 +24,11 @@ export default function Dropdown({ submenus, dropdown, setDropdown }) {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          {submenu.title == "Logout" ? (
-            <button onClick={handleLogout}>Logout</button>
-          ) : (
+          {submenu.title !== "SignIn" && submenu.title !== "SignOut" && (
             <NavLinkMobile href={submenu.url}>{submenu.title}</NavLinkMobile>
           )}
+          {submenu.title === "SignIn" && !session && <SignIn />}
+          {submenu.title === "SignOut" && session && <SignOutButton />}
         </motion.li>
       ))}
     </ul>

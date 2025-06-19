@@ -32,7 +32,7 @@ export default function ValidateContactForm(
         message: "Invalid phone number format",
       }),
   }).refine((data) => data.email === data.confirmEmail, {
-    message: "Passwords don't match",
+    message: "Emails don't match",
     path: ["confirmPassword"] // Highlights which field has the error
   });
 

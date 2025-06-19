@@ -1,0 +1,11 @@
+.expandableContainer {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    cursor: pointer;
+}
+
+.expandableContainer:hover h2 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}

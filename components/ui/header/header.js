@@ -1,39 +1,29 @@
 /** @format */
-"use client";
-
-import IndigoLogo from "/public/images/logodark.jpg";
 import classes from "./header.module.css";
-import Link from "next/link";
-import { useSession } from "@/contexts/session-context";
-import MobileMenuIcon from "./mobile-menu-icon";
 import DesktopNav from "./desktop-nav";
-// import { navigationData } from "@/data/navigation-data";
-
 import GetNavData from "@/data/navigation-data";
+import GetAdminNavData from "@/data/admin-navigation-data";
 import { adminNavigationData } from "@/data/admin-navigation-data";
-import Image from "next/image";
 import BreadCrumb from "@/components/breadcrumbs/breadcrumbs";
+import ImageHeader from "./image-header";
+import { auth } from "@/auth";
+import MobileMenuIcon from "./mobile-menu-icon";
 
-export default function Header({ className }) {
+export default async function Header({ className }) {
 
-  const navigationData = GetNavData();
+  const session = await auth()
+  const navigationData = GetNavData(session);
+  const adminNavData = GetAdminNavData();
 
-  const { user } = useSession();
+  const role = session?.user.role;
 
   return (
     <>
       <header className={className}>
         <nav className={classes.nav}>
-          <Link href="/">
-            <Image
-              priority
-              src={IndigoLogo}
-              alt="The logo for indigo"
-              className={classes.logoIndigo}
-            />
-          </Link>
+          <ImageHeader />
           <DesktopNav
-            data={user?.adminaccess == 2 ? adminNavigationData : navigationData}
+            data={role == "admin" ? adminNavData : navigationData} session={session} className={className}
           />
           <div className={classes.mobileIconContainer}>
             <MobileMenuIcon />

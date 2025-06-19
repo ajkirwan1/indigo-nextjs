@@ -6,19 +6,12 @@ import SubmitButton from "../ui/buttons/submit-button";
 import { Spinner } from "@nextui-org/spinner";
 import classes from "./formsubmit.module.css";
 
-export default function FormSubmit({ disabled }) {
+export default function FormSubmit({ disabled, showSpinner = true }) {
   const status = useFormStatus();
   return (
     <>
-      {status.pending ? (
+      {status.pending && showSpinner ? (
         <div className={classes.spinnerWrapper}>
-          {/* <Spinner
-            classNames={{
-              circle1: `border-2 border-b-rose-950`,
-              circle2: "border-2 border-b-rose-950",
-            }}
-            size="lg"
-          /> */}
           <Spinner size="lg" />
         </div>
       ) : (

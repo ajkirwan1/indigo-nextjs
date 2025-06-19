@@ -1,55 +1,47 @@
-   .linkWrapper {
-    display: flex;
-  }
-  
-  .itemWrapper h2,
-  .itemWrapper p {
-    display: flex;
-  }
-  
-  .itemWrapper a {
-  }
+.linkWrapper {
+  display: flex;
+}
 
-  .dataWrapper {
-    display: flex;
-    justify-content: space-evenly;
-  }
+.dataWrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-  .dataWrapper span {
-    font-size: 36px;
-  }
+.dataWrapper a {
+  text-decoration: none;
+  color: #4d0013;
+}
 
-  .dataWrapper div:hover h3{
-    color: #4d0013;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-  }
-  
-  
-  .dataWrapper:hover {
-    cursor: pointer;
-  }
-  
-  .dataWrapper span {
-    font-size: 36px;
-  }
-  
-  .dataWrapper div:hover span {
-    color: #4d0013;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-  }
+.dataWrapper span {
+  font-size: 36px;
+}
 
-  @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+.dataWrapper div:hover h3,
+.dataWrapper div:hover span
+{
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
 
-  }
-  
-  @media only screen and (min-width: 800px) and (max-width: 1600px) {
 
+.dataWrapper:hover {
+  cursor: pointer;
+}
+
+.dataWrapper span {
+  font-size: 36px;
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1600px) {
+
+}
+
+@media only screen and (max-width: 800px) {
+  .dataWrapper  {
+    flex-direction: column;
   }
-  
-  @media only screen and (max-width: 800px) {
-    .dataWrapper  {
-      flex-direction: column;
-    }
-  }
+}

@@ -25,10 +25,9 @@
 
 .buttonWrapper {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin-top: 3vh;
   margin-bottom: 2vh;
-  padding-right: 10px;
 }
 
 .buttonWrapper p {
@@ -41,7 +40,7 @@
 }
 .doubleButtonWrapper {
   display: flex;
-  gap: 2vw;
+  gap: 1vw;
 }
 
 .enabled input[type="text"],

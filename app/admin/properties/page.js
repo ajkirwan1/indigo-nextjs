@@ -12,7 +12,7 @@ import PropertyTableFallback from "@/components/fallbacks/property-table-fallbac
 import { FindAllProperties } from "@/server/actions/db/admin/properties/get-properties/get-all-properties";
 
 async function TableData() {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  // await new Promise((resolve) => setTimeout(resolve, 4000));
   const resp = await FindAllProperties();
 
   const { headerData, bodyData } = PrepareAdminPropertyData(resp);
@@ -25,13 +25,13 @@ async function TableData() {
 }
 
 export default async function PropertyPage() {
-  const { user } = await validateRequest();
-  if (!user) {
-    redirect("/");
-  }
-  if (user?.adminaccess != 2) {
-    redirect("/");
-  }
+  // const { user } = await validateRequest();
+  // if (!user) {
+  //   redirect("/");
+  // }
+  // if (user?.adminaccess != 2) {
+  //   redirect("/");
+  // }
 
   return (
     <div className={classes.tableContainer}>

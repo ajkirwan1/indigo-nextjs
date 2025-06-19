@@ -1,8 +1,14 @@
-.outerWrapper {
+/* .outerWrapper {
     margin-bottom: 2vh;
-}
+} */
 
 .outerWrapper h2{
     display: flex;
     padding-left: 10px;
     }
+
+.expandableContainer {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}

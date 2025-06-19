@@ -1,11 +1,35 @@
-.outerWrapper {
+/* .outerWrapper {
     margin-bottom: 2vh;
-}
+} */
 .outerWrapper h2{
-display: flex;
-padding-left: 10px;
+  display: flex;
+  padding-left: 10px;
 }
 
+.listItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: 2vw;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2vh;
+}
+
+.listItem p {
+  margin: 0; /* Remove default margins for clean alignment */
+}
+
+.listItem a {
+
+  text-decoration: underline;
+  color: blue;
+}
 
 
 

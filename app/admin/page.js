@@ -2,8 +2,13 @@
 
 import classes from "./page.module.css";
 import AdminClientHomepage from "@/components/admin-components/admin-client-homepage";
+import { auth } from "@/auth";
 
-export default function AddProperties() {
+
+export default async function AddProperties() {
+
+  const session = await auth();
+
   return (
     <>
       <div className="header">

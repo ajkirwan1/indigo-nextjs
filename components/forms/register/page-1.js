@@ -2,49 +2,31 @@
 
 "use client";
 import classes from "./register-form.module.css";
-import { CheckUserAction } from "@/server/actions/check-user-action";
+import { NewUserSignUp } from "@/server/actions/registration/new-user-signup";
 import { useState } from "react";
 import Image from "next/image";
 import userIcon from "/public/images/icons/add-user.png";
 import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Link from "next/link";
 import Button from "@/components/ui/button";
+import { useFormState } from "react-dom";
+import FormSubmit from "../formsubmit";
 
-export default function RegisterFormPage1({
-  data,
-  handleChange,
-  handleNextTab,
-}) {
+export default function RegisterFormPage1({magicLinkRecord}) {
+  const initialState = { errorMessage: "", errors: [], magicLinkRecord: magicLinkRecord};
   const [errors, setErrors] = useState([]);
-
-  const handleNext = async () => {
-    const result = await CheckUserAction(
-      data.userName,
-      data.email,
-      data.password,
-      data.passwordConfirm
-    );
-
-    if (result?.errors) {
-      setErrors([...result.errors]);
-    } else if (result?.dbErrorMessage) {
-      setErrors([{ ...result }]);
-      // console.log(errors[0]);
-    } else {
-      handleNextTab();
-    }
-
-    // (result.errors.length > 0) {
-    //   setErrors([...result.errors]);
-    // } else {
-
-    // }
-  };
+  const [state, formAction] = useFormState(NewUserSignUp, initialState);
 
   const handleReset = () => {
     setErrors([]);
   };
 
+  // const handleSubmit = () => {
+  //   console.log("KLKL");
+  // };
+
+  console.log(state, "STATE");
+  console.log(magicLinkRecord, "magicLinkRecord");
   return (
     <>
       {errors[0]?.dbErrorMessage ? (
@@ -52,7 +34,6 @@ export default function RegisterFormPage1({
           <div className={classes.headerContainer}>
             <h1>REGISTER</h1>
             <Image className={classes.iconRegister} src={userIcon} alt="alt" />
-            <h2>1/4</h2>
             <p>{errors[0].dbErrorMessage}</p>
             <div className={classes.submitButtonContainer}>
               <Button onClick={handleReset}>Try again</Button>
@@ -65,82 +46,64 @@ export default function RegisterFormPage1({
           <div className={classes.headerContainer}>
             <h1>REGISTER</h1>
             <Image className={classes.iconRegister} src={userIcon} alt="alt" />
-            <h2>1/4</h2>
           </div>
-          <form className={classes.registerForm1}>
+          <form className={classes.registerForm1} action={formAction}>
             <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
               <label>User name:</label>
               <input
                 type="text"
                 name="userName"
                 placeholder="User name"
-                value={data.userName}
-                onChange={handleChange}
+                // value={data.userName}
+                // onChange={handleChange}
               />
             </div>
-            {errors?.find((item) => item.errorType == "username") ? (
-              <p className={classes.errorA}>Invalid user name</p>
-            ) : errors?.find((item) => item.errorType == "usernameExists") ? (
-              <p className={classes.errorA}>Username already exists</p>
-            ) : null}
+            {state.errors.userName && (
+              <p className={classes.errorA}>{state.errors.userName}</p>
+            )}
             <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
               <label>Email:</label>
               <input
                 type="email"
                 name="email"
-                placeholder="email@123.com"
-                value={data.email}
-                onChange={handleChange}
+                value={magicLinkRecord.email}
               />
             </div>
-            {errors?.find((item) => item.errorType == "email") ? (
-              <p className={classes.errorB}>Invalid email</p>
-            ) : errors?.find((item) => item.errorType == "emailExists") ? (
-              <p className={classes.errorB}>Email already exists</p>
-            ) : null}
+            {state.errors.email && (
+              <p className={classes.errorB}>{state.errors.email}</p>
+            )}
             <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
               <label>Password:</label>
               <input
                 type="text"
                 name="password"
                 placeholder="password"
-                value={data.password}
-                onChange={handleChange}
+                // value={data.password}
+                // onChange={handleChange}
               />
             </div>
-            {errors?.find((item) => item.errorType == "password") ? (
-              <p className={classes.errorC}>Invalid password</p>
-            ) : null}
+            {state.errors.password && (
+              <p className={classes.errorC}>{state.errors.password}</p>
+            )}
             <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
               <label>Confirm password:</label>
               <input
                 type="text"
                 name="passwordConfirm"
                 placeholder="confirm password"
-                value={data.passwordConfirm}
-                onChange={handleChange}
+                // value={data.passwordConfirm}
+                // onChange={handleChange}
               />
             </div>
-            {errors?.find((item) => item.errorType == "passwordConfirm") ? (
-              <p className={classes.errorD}>Passwords must match</p>
-            ) : null}
-            {/* <div className={classes.buttonContainer}></div> */}
+            {state.errors.passwordConfirm && (
+              <p className={classes.errorD}>{state.errors.passwordConfirm}</p>
+            )}
+            <div className={classes.tickRow}>
+              <div className="submit-button-container">
+                <FormSubmit />
+              </div>
+            </div>
           </form>
-          <div className={classes.buttonWrapper}>
-            <RegistrationButton
-              disabled={
-                !data.passwordConfirm ||
-                !data.password ||
-                !data.userName ||
-                !data.email
-                  ? true
-                  : false
-              }
-              onClick={handleNext}
-            >
-              Next
-            </RegistrationButton>
-          </div>
         </>
       )}
     </>

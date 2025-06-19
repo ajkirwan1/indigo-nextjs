@@ -6,16 +6,15 @@ export async function GetNewUsers() {
   try {
     let date = new Date();
 
-    date.setDate(date.getDate() - 7);
+    date.setDate(date.getDate() - 14);
 
-    const recentUsers = await db.user.findMany({
+    const recentUsers = await db.userRegistration.findMany({
       where: {
-        accessrequestdate: {
+        createdAt: {
           gte: new Date(date),
         },
       },
     });
-    // throw Error
     return recentUsers;
   } catch (error) {
     return { message: "Database Error: Failed to retrieve data" };

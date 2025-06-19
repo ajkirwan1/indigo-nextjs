@@ -71,7 +71,6 @@ model Session {
   user      User   @relation(references: [id], fields: [userId], onDelete: Cascade)
   createdAt DateTime @default(now())
   
-
   @@map("sessions")
   @@index([createdAt])
   @@index([userId])
@@ -114,7 +113,6 @@ model UsersOnProperties2 {
   property Property2 @relation(fields: [propertyId], references: [id])
   propertyId Int
 
-  
   @@map("usersonproperties2")
 }
 
@@ -125,13 +123,74 @@ model UsersOnProperties {
   userId String
   property Property @relation(fields: [propertyId], references: [id])
   propertyId Int
-
   
   @@map("usersonproperties")
 }
 
 model Pdf {
   id String @id @default(cuid())
-  url String
+  name String
+  url      String   @db.Text
+
+  userLinks UserPdf[]
 }
 
+model UserPdf {
+  userId Int
+  pdfId  String
+
+  user   UserNew @relation(fields: [userId], references: [id])
+  pdf    Pdf     @relation(fields: [pdfId], references: [id])
+
+  @@id([userId, pdfId]) // composite primary key
+
+   @@map("userPdf")
+}
+
+model UserRegistration {
+  id                  Int       @id @default(autoincrement())
+  name                String
+  email               String
+  phoneNumber         String
+  buyertype           String
+  location            String
+  purchaseTimeline    String
+  investmentInterest  String
+  investmentRange     String
+  previousInvestment  String
+  registration        String    @default("pending")
+  createdAt           DateTime  @default(now())
+
+  userNew            UserNew? 
+
+  @@map("userRegistration")
+}
+
+model UserNew {
+  id             Int               @id @default(autoincrement())
+  userName       String?
+  userType       String?
+  hashedPassword String?
+  googleDriveFolderId String?
+  createdAt      DateTime          @default(now())
+
+  registrationId     Int?               @unique
+  registration       UserRegistration?  @relation(fields: [registrationId], references: [id])
+
+  pdfLinks           UserPdf[]
+  magicLinkTokens    MagicLinkToken[]
+  
+  @@map("userNew")
+}
+
+model MagicLinkToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  email     String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId    Int
+  user      UserNew  @relation(fields: [userId], references: [id])
+}
