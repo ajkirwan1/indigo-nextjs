@@ -1,17 +1,17 @@
 "use server";
 import db from "@/modules/db";
 
-export async function updateGoogleDriveFolderId(registrationId, selectedCheckItem) {
+export async function updateGoogleDriveFolderId(registrationId, googleFieldId) {
   const numericRegistrationId = parseInt(registrationId, 10);
 
   console.log("🔍 Starting transaction for registrationId:", numericRegistrationId);
-  console.log("📁 Folder ID to set:", selectedCheckItem?.id);
+  console.log("📁 Folder ID to set:", googleFieldId);
 
   try {
     const [createdUser, updatedRegistration] = await db.$transaction([
       db.userNew.create({
         data: {
-          googleDriveFolderId: selectedCheckItem.id,
+          googleDriveFolderId: googleFieldId,
           registrationId: numericRegistrationId,
         },
         select: {

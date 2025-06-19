@@ -9,10 +9,11 @@ export const PendingBlock = ({
   state,
   toggleListOpen,
   toggleFileSelection,
-  resultStatus,
+  // resultStatus,
   classes,
   handleUpdateDb,
-  setState, // Receive setState as a prop
+  allGoogleFolders,
+  // setState, 
 }) => (
   <>
     <p>
@@ -20,26 +21,25 @@ export const PendingBlock = ({
       access to a folder.
     </p>
     <p>By updating the following, you will grant them access.</p>
-
     {state.virtualListOpen && (
       <VirtualizedFileList
-        result={resultStatus}
+        allGoogleFolders={allGoogleFolders}
+        toggleFileSelection={toggleFileSelection}
         handleToggle={toggleFileSelection}
         checkedIndex={state.checkedIndex}
       />
     )}
-
     <div className={classes.buttonContainer}>
       <div className="submit-button-container">
         <Button onClick={toggleListOpen}>
           {state.virtualListOpen ? "Close" : "Edit"}
         </Button>
       </div>
-      {state.selectedItem && (
-        <div className="submit-button-container">
-          <Button onClick={handleUpdateDb}>Save</Button>
-        </div>
-      )}
+      {state.checkedIndex !== null && (
+      <div className="submit-button-container">
+        <Button onClick={handleUpdateDb}>Save</Button>
+      </div>
+)}
     </div>
   </>
 );
@@ -50,7 +50,7 @@ export const AcceptedBlock = ({
   state,
   classes,
   handleUpdate,
-  setState, // Receive setState as a prop
+  // setState, // Receive setState as a prop
 }) => (
   <div>
     <p>The following folder is accessible by the client:</p>
@@ -99,7 +99,7 @@ export const UpdatePendingBlock = ({
                 setState((prev) => ({ ...prev, updatePending: false }));
               }}
             >
-              Save1
+              Save
             </Button>
           </div>
         </>

@@ -9,7 +9,7 @@ export default async function GoogleDriveComponent({
   classes,
   registration,
   googleDriveFolderId,
-  userId
+  registrationId
 }) {
 
   return (
@@ -19,7 +19,7 @@ export default async function GoogleDriveComponent({
         googleDriveFolderId={googleDriveFolderId}
         classes={classes}
         registration={registration}
-        userId={userId}
+        registrationId={registrationId}
       />
     </div>
   );

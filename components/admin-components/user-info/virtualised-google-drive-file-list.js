@@ -9,16 +9,22 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";
 
-export default function VirtualizedFileList({ result, handleToggle, checkedIndex }) {
+export default function VirtualizedFileList({ allGoogleFolders, handleToggle, checkedIndex }) {
+  // const [checkedIndex, setCheckedIndex] = useState(null);
 
+  // Handle the checkbox toggle logic
+  // const handleToggle = (index) => {
+  //   setCheckedIndex(checkedIndex === index ? null : index); // Deselect if already selected
+  // };
+
+  // Row renderer function for react-window
   const Row = useCallback(
     ({ index, style }) => {
-      const item = result[index];
-      const isChecked = checkedIndex === index;
-
+      const item = allGoogleFolders[index]; // Get the folder item
+      const isChecked = checkedIndex === index; // Check if the current item is selected
       return (
-        <ListItem style={style} key={index} component="div" disablePadding>
-          <ListItemButton onClick={() => handleToggle(index)}>
+        <ListItem style={style} key={item.id} component="div" disablePadding>
+          <ListItemButton onClick={() => handleToggle(index, item)}>
             <ListItemText primary={item?.name || `Item ${index + 1}`} />
             <Checkbox
               edge="start"
@@ -28,7 +34,7 @@ export default function VirtualizedFileList({ result, handleToggle, checkedIndex
               sx={{
                 color: "#003a4d",
                 "&.Mui-checked": {
-                 color: "#003a4d",
+                  color: "#003a4d",
                 },
               }}
             />
@@ -36,7 +42,7 @@ export default function VirtualizedFileList({ result, handleToggle, checkedIndex
         </ListItem>
       );
     },
-    [result, handleToggle, checkedIndex]
+    [checkedIndex, allGoogleFolders] // Recreate Row when checkedIndex or allGoogleFolders change
   );
 
   return (
@@ -52,11 +58,13 @@ export default function VirtualizedFileList({ result, handleToggle, checkedIndex
     >
       <FixedSizeList
         height={300}
-        itemCount={result.length}
-        itemSize={40}
+        itemCount={allGoogleFolders.length} // Set the item count to allGoogleFolders length
+        itemSize={40} // Set height for each row
         width={360}
       >
-        {Row}
+        {({ index, style }) => {
+          return <Row index={index} style={style} />; // Correctly invoking the Row function
+        }}
       </FixedSizeList>
     </Box>
   );

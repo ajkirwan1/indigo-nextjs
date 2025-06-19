@@ -1,36 +1,37 @@
 "use server";
 import db from "@/modules/db";
 
-export async function updateGoogleDriveFolderIdByUserNewId(userNewId, googleFolderId) {
-  const numericUserNewId = parseInt(userNewId, 10);
+export async function updateGoogleDriveFolderIdByUserNewId(userRegistrationId, googleFolderId) {
+  const numericRegistrationId = parseInt(userRegistrationId, 10);
 
-  console.log("🔍 Starting transaction for userNewId:", numericUserNewId);
+  console.log("🔍 Looking for UserNew with registrationId:", numericRegistrationId);
   console.log("📁 Folder ID to set:", googleFolderId);
 
   try {
-    // Update the googleDriveFolderId for the specific userNew
     const updatedUserNew = await db.userNew.update({
-      where: { id: numericUserNewId }, // Find the userNew by its id
+      where: {
+        registrationId: numericRegistrationId, // Find UserNew by its registrationId
+      },
       data: {
-        googleDriveFolderId: googleFolderId // Update the googleDriveFolderId field
+        googleDriveFolderId: googleFolderId,
       },
       select: {
         id: true,
+        registrationId: true,
         googleDriveFolderId: true,
       },
     });
 
     console.log("✅ Updated UserNew:", updatedUserNew);
 
-    // You can return the actual updated data here if you want
     return {
       message: "✅ Success: GoogleDriveFolderId updated.",
       updatedUserNew,
     };
   } catch (error) {
-    console.error("❌ Error during transaction:", error);
+    console.error("❌ Error during update:", error);
     return {
-      updateError: "An error occurred during the update.",
+      updateError: "An error occurred while updating UserNew.",
     };
   }
 }

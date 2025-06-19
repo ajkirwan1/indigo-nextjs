@@ -11,8 +11,8 @@ export const fetchGoogleFolders = async (
   
     if (registration === "accepted") {
       apiEndpoint = `/api/google-drive/get-folder-name?folderId=${googleDriveFolderId}`;
-    } else if (registration === "typeB") {
-      apiEndpoint = "https://api.example.com/foldersTypeB";
+    } else if (registration === "pending") {
+      throw Error();
     } else {
       console.log("Invalid registration type");
       return;
