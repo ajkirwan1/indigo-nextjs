@@ -10,7 +10,7 @@ export default function ClientAccountPersonalDetailsExpandable({ id, result }) {
 
   return (
     <>
-      <DropDownExpandable
+      {/* <DropDownExpandable
         expandableOpen={expandableOpen}
         setExpandableOpen={setExpandableOpen}
       >
@@ -25,7 +25,15 @@ export default function ClientAccountPersonalDetailsExpandable({ id, result }) {
           phonenumber={result.phoneNumber}
           id={id}
         />
-      ) : null}
+      ) : null} */}
+      <h2>Personal Details</h2>
+      <ClientPersonalDetailsForm
+          username={result.userName}
+          firstname={result.name}
+          email={result.email}
+          phonenumber={result.phoneNumber}
+          id={id}
+        />
     </>
   );
 }

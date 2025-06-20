@@ -19,9 +19,9 @@ export default function VirtualizedGoogleDriveListOfFiles({ result }) {
       sx={{
         width: "100%",
         maxWidth: 500,
-        bgcolor: "background.paper",
-        border: "1px solid #ccc",
-        borderRadius: 1,
+        // bgcolor: "background.paper",
+        // border: "1px solid #ccc",
+        // borderRadius: 1,
         overflow: "auto",
         maxHeight: 300,
         p: 1,

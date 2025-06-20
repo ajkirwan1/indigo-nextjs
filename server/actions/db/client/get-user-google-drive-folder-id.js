@@ -3,26 +3,50 @@
 
 import db from "@/modules/db";
 
-export async function GetUserGoogleDriveFolderId(userId) {
-//   const userId = state.id;
+/**
+ * Logs server-side actions; replace with remote logging service in production.
+ */
+async function logServer(message, meta = {}) {
+  console.log(`[GetUserGoogleDriveFolderId] ${message}`, meta);
+  // Example replacement:
+  // Sentry.captureMessage(message, { extra: meta });
+}
 
+/**
+ * Fetches the Google Drive folder ID associated with a user.
+ */
+export async function GetUserGoogleDriveFolderId(userId) {
   try {
-    // Step 1: Retrieve googleDriveFolderId from userNew
     const user = await db.userNew.findUnique({
       where: { id: userId },
       select: { googleDriveFolderId: true },
     });
 
-    // Step 2: Handle missing user or folder ID
     if (!user) {
-      throw new Error("User not found.");
+      await logServer("User not found.", { userId });
+      return {
+        id: userId,
+        googleDriveFolderId: null,
+        errorMessage: "User not found.",
+        success: false,
+      };
     }
 
     if (!user.googleDriveFolderId) {
-      throw new Error("Google Drive Folder ID not found for this user.");
+      await logServer("Google Drive folder ID missing for user.", { userId });
+      return {
+        id: userId,
+        googleDriveFolderId: null,
+        errorMessage: "Google Drive folder not configured for this user.",
+        success: false,
+      };
     }
 
-    // Success
+    await logServer("Successfully retrieved Google Drive folder ID.", {
+      userId,
+      folderId: user.googleDriveFolderId,
+    });
+
     return {
       id: userId,
       googleDriveFolderId: user.googleDriveFolderId,
@@ -30,12 +54,15 @@ export async function GetUserGoogleDriveFolderId(userId) {
       success: true,
     };
   } catch (error) {
-    console.error("Error retrieving Google Drive folder ID:", error);
+    await logServer("Error retrieving folder ID from DB", {
+      userId,
+      error: error.message,
+    });
 
     return {
       id: userId,
       googleDriveFolderId: null,
-      errorMessage: error.message || "Failed to retrieve folder ID.",
+      errorMessage: "Failed to fetch folder ID due to a database error.",
       success: false,
     };
   }
