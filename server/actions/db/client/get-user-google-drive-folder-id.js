@@ -2,27 +2,45 @@
 "use server";
 
 import db from "@/modules/db";
+import { createErrorResponse } from "@/utils/errors/error-response";
 
+/**
+ * Logs server-side actions; replace with remote logging service in production.
+ */
+async function logServer(message, meta = {}) {
+  console.log(`[GetUserGoogleDriveFolderId] ${message}`, meta);
+  // Example for production:
+  // Sentry.captureMessage(message, { extra: meta });
+}
+
+/**
+ * Fetches the Google Drive folder ID associated with a user.
+ */
 export async function GetUserGoogleDriveFolderId(userId) {
-//   const userId = state.id;
-
   try {
-    // Step 1: Retrieve googleDriveFolderId from userNew
     const user = await db.userNew.findUnique({
       where: { id: userId },
       select: { googleDriveFolderId: true },
     });
 
-    // Step 2: Handle missing user or folder ID
     if (!user) {
-      throw new Error("User not found.");
+      await logServer("❌ User not found.", { userId });
+      return createErrorResponse("USER_NOT_FOUND", "User not found.");
     }
 
     if (!user.googleDriveFolderId) {
-      throw new Error("Google Drive Folder ID not found for this user.");
+      await logServer("⚠️ Google Drive folder ID missing.", { userId });
+      return createErrorResponse(
+        "NO_DRIVE_ACCESS",
+        "Google Drive folder not configured for this user."
+      );
     }
 
-    // Success
+    await logServer("✅ Folder ID retrieved.", {
+      userId,
+      folderId: user.googleDriveFolderId,
+    });
+
     return {
       id: userId,
       googleDriveFolderId: user.googleDriveFolderId,
@@ -30,13 +48,14 @@ export async function GetUserGoogleDriveFolderId(userId) {
       success: true,
     };
   } catch (error) {
-    console.error("Error retrieving Google Drive folder ID:", error);
+    await logServer("🔥 DB fetch error", {
+      userId,
+      error: error.message,
+    });
 
-    return {
-      id: userId,
-      googleDriveFolderId: null,
-      errorMessage: error.message || "Failed to retrieve folder ID.",
-      success: false,
-    };
+    return createErrorResponse(
+      "DB_ERROR",
+      "Failed to fetch folder ID due to a database error."
+    );
   }
 }

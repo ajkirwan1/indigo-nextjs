@@ -10,7 +10,7 @@ export default function ClientRegistrationDetailsExpandable({ id, result }) {
 
   return (
     <>
-      <DropDownExpandable
+      {/* <DropDownExpandable
         expandableOpen={expandableOpen}
         setExpandableOpen={setExpandableOpen}
       >
@@ -22,7 +22,13 @@ export default function ClientRegistrationDetailsExpandable({ id, result }) {
           clientInfo={result}
           action={UpdateUserAccountRegisrationInfo}
         />
-      ) : null}
+      ) : null} */}
+      {/* <h2>Registration Information</h2> */}
+      <ClientRegistrationDetailsForm
+          id={id}
+          clientInfo={result}
+          action={UpdateUserAccountRegisrationInfo}
+        />
     </>
   );
 }

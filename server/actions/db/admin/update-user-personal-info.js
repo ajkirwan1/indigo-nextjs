@@ -1,26 +1,48 @@
-/** @format */
-'use server'
+'use server';
+
+import { createErrorResponse } from "@/utils/errors/error-response";
 import db from "@/modules/db";
 
-export async function UpdateUserPersonalInfo(data, id) {
+/**
+ * Updates a user's personal and registration info in the database.
+ * @param data - The user input data to update.
+ * @param id - The ID of the user in the UserNew table.
+ * @returns Updated user or a structured error response.
+ */
+export async function updateUserPersonalInfo(data, id) {
   try {
-    throw Error
-    const udpateUserPersonalInfo = await db.user.update({
-      where: {
-        id: id,
-      },
+    if (!id || !data) {
+      return createErrorResponse("MISSING_PARAMETERS", "User ID and data are required.");
+    }
+
+    const updatedUser = await db.userNew.update({
+      where: { id },
       data: {
-        username: data.userName,
-        email: data.email,
-        firstname: data.firstName,
-        lastname: data.lastName,
-        companyname: data.companyName,
-        phonenumber: data.phoneNumber
+        userName: data.userName,
+        registration: {
+          update: {
+            name: data.firstName, // assuming name = first name
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+          },
+        },
+      },
+      include: {
+        registration: true,
       },
     });
 
-    return udpateUserPersonalInfo;
+    return {
+      success: true,
+      data: {
+        userName: updatedUser.userName,
+        firstName: updatedUser.registration.name,
+        email: updatedUser.registration.email,
+        phoneNumber: updatedUser.registration.phoneNumber,
+      },
+    };
   } catch (error) {
-    return { dbError: "An error occured writing to the database" };
+    console.error("Database update failed:", error);
+    return createErrorResponse("DB_UPDATE_FAILED", "An error occurred while updating the user.");
   }
 }

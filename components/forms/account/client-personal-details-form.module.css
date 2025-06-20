@@ -131,3 +131,27 @@
   grid-row-start: 6;
   grid-row-end: 6;
 }
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.editButton {
+  all: unset; /* Removes all default styling */
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+.editButton:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
