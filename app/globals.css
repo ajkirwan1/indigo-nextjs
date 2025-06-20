@@ -90,7 +90,7 @@ html:has(.modal) {
   object-fit: contain;
 }
 
- input[type="text"] {
+ input[type="text"]:not(.mui-isolated-input) {
   font: inherit;
   border: 1px solid;
   height: 2rem;

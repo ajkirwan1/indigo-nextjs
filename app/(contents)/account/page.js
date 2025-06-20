@@ -45,9 +45,9 @@ export default async function UserInfo() {
           <hr />
         </div>
         <div className={classes.itemWrapper}>
-          <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>
+          {/* <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}> */}
             <AccountPropertiesDetails id={id} />
-          </Suspense>
+          {/* </Suspense> */}
         </div>
         <div className={classes.itemWrapper}>
           <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>

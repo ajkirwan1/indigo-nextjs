@@ -1,25 +1,30 @@
 /** @format */
 "use client";
 
-import classes from "./client-personal-details-form.module.css";
 import { useState } from "react";
+import {
+  TextField,
+  Grid,
+  Typography,
+  Button as MUIButton,
+  Box,
+} from "@mui/material";
 import ValidatePersonalDetails from "@/utils/validate-personal-details";
 import Button from "@/components/ui/button";
-import { UpdateUserPersonalInfo } from "@/server/actions/db/admin/update-user-personal-info";
-import { Spinner } from "@nextui-org/spinner";
+import { updateUserPersonalInfo } from "@/server/actions/db/admin/update-user-personal-info";
 
 export default function ClientPersonalDetailsForm({
-  username,
-  firstname,
-  email,
-  phonenumber,
+  username = "",
+  firstname = "",
+  email = "",
+  phonenumber = "",
   id,
 }) {
   const [data, setData] = useState({
-    userName: username,
-    email,
-    firstName: firstname,
-    phoneNumber: phonenumber,
+    userName: username ?? "",
+    email: email ?? "",
+    firstName: firstname ?? "",
+    phoneNumber: phonenumber ?? "",
   });
 
   const [formDisabled, setFormDisabled] = useState(true);
@@ -32,10 +37,10 @@ export default function ClientPersonalDetailsForm({
     if (formDisabled) {
       setErrors([{ disabledError: true }]);
     } else {
-      setData({
-        ...data,
+      setData((prev) => ({
+        ...prev,
         [name]: value,
-      });
+      }));
     }
   };
 
@@ -46,10 +51,10 @@ export default function ClientPersonalDetailsForm({
 
   const handleReset = () => {
     setData({
-      userName: username,
-      email,
-      firstName: firstname,
-      phoneNumber: phonenumber,
+      userName: username ?? "",
+      email: email ?? "",
+      firstName: firstname ?? "",
+      phoneNumber: phonenumber ?? "",
     });
     setErrors([]);
     setFormDisabled(true);
@@ -59,21 +64,24 @@ export default function ClientPersonalDetailsForm({
     setLoading(true);
     const validateResult = ValidatePersonalDetails(data);
     setLoading(false);
+
     if (validateResult?.errors) {
       setErrors([...validateResult.errors]);
       return;
     }
 
-    const submitResult = await UpdateUserPersonalInfo(data, id);
+    const submitResult = await updateUserPersonalInfo(data, id);
 
-    if (submitResult?.dbError) {
+    console.log(submitResult, "HHHHHHHHHH")
+
+    if (submitResult?.dbError || submitResult?.success === false) {
       setErrors([{ ...submitResult }]);
     } else {
       setData({
-        userName: submitResult.username,
-        email: submitResult.email,
-        firstName: submitResult.firstname,
-        phoneNumber: submitResult.phonenumber,
+        userName: submitResult?.data?.userName ?? "",
+        firstName: submitResult?.data?.firstName ?? "",
+        email: submitResult?.data?.email ?? "",
+        phoneNumber: submitResult?.data?.phoneNumber ?? "",
       });
       setErrors([]);
       setFormDisabled(true);
@@ -82,118 +90,120 @@ export default function ClientPersonalDetailsForm({
 
   const handleRetry = () => {
     setData({
-      userName: username,
-      email,
-      firstName: firstname,
-      phoneNumber: phonenumber,
+      userName: username ?? "",
+      email: email ?? "",
+      firstName: firstname ?? "",
+      phoneNumber: phonenumber ?? "",
     });
     setErrors([]);
   };
 
+  const getError = (type) => errors?.find((e) => e.errorType === type);
+
   return (
-    <>
-      {errors[0]?.dbError ? (
-        <div>
-          <p>
-            An error occured submitting your update. Our records have not been
-            updated
-          </p>
-          <div className="submit-button-container">
+    <Box sx={{ p: 3 }}>
+      {errors[0]?.dbError || errors[0]?.errorMessage ? (
+        <Box>
+          <Typography color="error" variant="body1" gutterBottom>
+            An error occurred submitting your update. Our records have not been updated.
+          </Typography>
+          <Box mt={2}>
             <Button onClick={handleRetry}>Try again</Button>
-          </div>
-        </div>
+          </Box>
+        </Box>
       ) : (
-        <div>
-          <div className={classes.headerWrapper}>
-          <h2>Personal Details</h2>
-                <button className={classes.editButton} onClick={handleEnable}>Edit</button>
-          </div>
-          <form
-            className={
-              formDisabled
-                ? `${classes.personalDetailsForm}`
-                : `${classes.personalDetailsForm} ${classes.enabled}`
-            }
-          >
-            <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
-              <label>User name:</label>
-              <input
-                type="text"
-                name="userName"
-                placeholder={username}
-                value={data.userName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "username") ? (
-              <p className={classes.errorA}>Invalid user name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-              <label>Name:</label>
-              <input
-                type="text"
-                name="firstName"
-                placeholder={firstname}
-                value={data.firstName}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "firstname") ? (
-              <p className={classes.errorB}>Invalid first name</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-              <label>Email:</label>
-              <input
-                type="text"
-                name="email"
-                placeholder={email}
-                value={data.email}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "lastname") ? (
-              <p className={classes.errorC}>Invalid email</p>
-            ) : null}
-            <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
-              <label>Phone number:</label>
-              <input
-                type="text"
-                name="phoneNumber"
-                placeholder={phonenumber}
-                value={data.phoneNumber}
-                onChange={handleChange}
-              />
-            </div>
-            {errors?.find((item) => item.errorType == "phonenumber") ? (
-              <p className={classes.errorD}>Invalid phone number</p>
-            ) : null}
-          </form>
-          <div className={classes.buttonWrapper}>
-            {errors[0]?.disabledError ? (
-              <p>
-                Form is disbaled for editting. To update you details, please
-                click edit
-              </p>
-            ) : null}
+        <Box>
+          <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+            <Typography variant="h5">Personal Details</Typography>
             {formDisabled ? (
-                null
+              <MUIButton variant="outlined" size="small" onClick={handleEnable}>
+                Edit
+              </MUIButton>
             ) : (
-              <div className={classes.doubleButtonWrapper}>
-                <div className="submit-button-container">
-                  {loading ? (
-                    <Spinner size="lg" />
-                  ) : (
-                    <Button onClick={handleSubmit}>Submit</Button>
-                  )}
-                </div>
-                <div className="submit-button-container">
-                  <Button onClick={handleReset}>Close</Button>
-                </div>
+              <MUIButton variant="outlined" size="small" onClick={handleReset}>
+                Close
+              </MUIButton>
+            )}
+          </Box>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                name="userName"
+                label="User name"
+                placeholder={username}
+                value={data.userName ?? ""}
+                onChange={handleChange}
+                disabled={formDisabled}
+                error={!!getError("username")}
+                helperText={getError("username") && "Invalid user name"}
+                inputProps={{ className: "mui-isolated-input" }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                name="firstName"
+                label="Name"
+                placeholder={firstname}
+                value={data.firstName ?? ""}
+                onChange={handleChange}
+                disabled={formDisabled}
+                error={!!getError("firstname")}
+                helperText={getError("firstname") && "Invalid first name"}
+                inputProps={{ className: "mui-isolated-input" }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                name="email"
+                label="Email"
+                placeholder={email}
+                value={data.email ?? ""}
+                onChange={handleChange}
+                disabled={formDisabled}
+                error={!!getError("email")}
+                helperText={getError("email") && "Invalid email"}
+                inputProps={{ className: "mui-isolated-input" }}
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                name="phoneNumber"
+                label="Phone number"
+                placeholder={phonenumber}
+                value={data.phoneNumber ?? ""}
+                onChange={handleChange}
+                disabled={formDisabled}
+                error={!!getError("phonenumber")}
+                helperText={getError("phonenumber") && "Invalid phone number"}
+                inputProps={{ className: "mui-isolated-input" }}
+              />
+            </Grid>
+          </Grid>
+
+          <Box mt={3}>
+            {errors[0]?.disabledError && (
+              <Typography color="warning.main" variant="body2" mb={2}>
+                Form is disabled. Click "Edit" to update your details.
+              </Typography>
+            )}
+            {!formDisabled && (
+              <div className="submit-button-container">
+                <Button onClick={handleSubmit}>
+                  {loading ? "Saving..." : "Submit"}
+                </Button>
               </div>
             )}
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
-    </>
+    </Box>
   );
 }

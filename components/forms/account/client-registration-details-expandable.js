@@ -23,7 +23,7 @@ export default function ClientRegistrationDetailsExpandable({ id, result }) {
           action={UpdateUserAccountRegisrationInfo}
         />
       ) : null} */}
-      <h2>Registration Information</h2>
+      {/* <h2>Registration Information</h2> */}
       <ClientRegistrationDetailsForm
           id={id}
           clientInfo={result}
