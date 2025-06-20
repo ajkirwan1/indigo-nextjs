@@ -7,38 +7,51 @@ import { GetUserGoogleDriveFolderId } from "@/server/actions/db/client/get-user-
 import { listFilesInFolder } from "@/lib/google/get-drive-files-list";
 
 export default async function AccountPropertiesDetails({ id }) {
-  try {
-    // Step 1: Get Google Drive Folder ID
-    const { success: folderSuccess, googleDriveFolderId, errorMessage: folderError } =
-      await GetUserGoogleDriveFolderId(id);
+  // Step 1: Get Google Drive Folder ID
+  const {
+    success: folderSuccess,
+    googleDriveFolderId,
+    errorMessage: folderError,
+    errorCode: folderErrorCode,
+  } = await GetUserGoogleDriveFolderId(id);
 
-    if (!folderSuccess || !googleDriveFolderId) {
-      console.error("Google Drive Folder Retrieval Failed:", folderError);
-      return <RequestFallbackReset message={folderError} />;
-    }
+  if (!folderSuccess || !googleDriveFolderId) {
+    console.error(`[AccountPropertiesDetails] ❌ Folder retrieval failed`, {
+      userId: id,
+      errorCode: folderErrorCode,
+      message: folderError,
+    });
 
-    // Step 2: Get Files from Google Drive Folder
-    const { success: filesSuccess, files, errorMessage: filesError } =
-      await listFilesInFolder(googleDriveFolderId);
+    return <RequestFallbackReset code={folderErrorCode} />;
+  }
 
-    if (!filesSuccess) {
-      console.error("Google Drive File Listing Failed:", filesError);
-      return <RequestFallbackReset message={filesError} />;
-    }
+  // Step 2: Get Files from Google Drive Folder
+  const {
+    success: filesSuccess,
+    files,
+    errorMessage: filesError,
+    errorCode: filesErrorCode,
+  } = await listFilesInFolder(googleDriveFolderId);
 
-    // Render file list UI
-    return (
-      <div>
-        <div className={classes.outerWrapper}>
-          <h2>Properties</h2>
-          <div className={classes.listContainer}>
-            <VirtualizedGoogleDriveListOfFiles result={files} />
-          </div>
+  if (!filesSuccess) {
+    console.error(`[AccountPropertiesDetails] ❌ File listing failed`, {
+      folderId: googleDriveFolderId,
+      errorCode: filesErrorCode,
+      message: filesError,
+    });
+
+    return <RequestFallbackReset message={filesError} />;
+  }
+
+  // ✅ Render the list of files
+  return (
+    <div>
+      <div className={classes.outerWrapper}>
+        <h2>Properties</h2>
+        <div className={classes.listContainer}>
+          <VirtualizedGoogleDriveListOfFiles result={files} />
         </div>
       </div>
-    );
-  } catch (error) {
-    console.error("Unexpected error in AccountPropertiesDetails:", error);
-    return <RequestFallbackReset message="Unexpected error loading properties." />;
-  }
+    </div>
+  );
 }
