@@ -104,6 +104,10 @@ export default function ClientPersonalDetailsForm({
         </div>
       ) : (
         <div>
+          <div className={classes.headerWrapper}>
+          <h2>Personal Details</h2>
+                <button className={classes.editButton} onClick={handleEnable}>Edit</button>
+          </div>
           <form
             className={
               formDisabled
@@ -172,9 +176,7 @@ export default function ClientPersonalDetailsForm({
               </p>
             ) : null}
             {formDisabled ? (
-              <div className="submit-button-container">
-                <Button onClick={handleEnable}>Edit</Button>
-              </div>
+                null
             ) : (
               <div className={classes.doubleButtonWrapper}>
                 <div className="submit-button-container">
