@@ -191,7 +191,7 @@ export default function ClientPersonalDetailsForm({
           <Box mt={3}>
             {errors[0]?.disabledError && (
               <Typography color="warning.main" variant="body2" mb={2}>
-                Form is disabled. Click "Edit" to update your details.
+                Form is disabled. Click Edit to update your details.
               </Typography>
             )}
             {!formDisabled && (
