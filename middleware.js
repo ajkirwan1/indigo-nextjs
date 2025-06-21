@@ -13,9 +13,21 @@ function log(...args) {
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
 
-  const token = await getToken({ req, secret: process.env.AUTH_SECRET,
-    cookieName: '__Secure-authjs.session-token',
+  const isSecure = req.nextUrl.protocol === 'https:' || process.env.NODE_ENV === 'production';
+
+  const cookieName = isSecure ? '__Secure-authjs.session-token' : undefined;
+
+  const token = await getToken({
+    req,
+    secret: process.env.AUTH_SECRET,
+    cookieName,
   });
+  
+
+
+
+
+
   const role = token?.role;
 
   log("Requested Path:", pathname);
