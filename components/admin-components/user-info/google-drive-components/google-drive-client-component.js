@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { updateGoogleDriveFolderId } from "@/server/actions/db/admin/google-folders/update-google-folder-id";
 import { fetchGoogleFolders } from "./fetch-google-folders";
 import { PendingBlock, AcceptedBlock, UpdatePendingBlock } from "./ui-blocks"
 import { updateGoogleDriveFolderIdByUserNewId } from "@/server/actions/db/admin/google-folders/accepted-user-update-google-id";
 import { fetchGoogleFoldersNew } from "./fetch-google-folders-new";
+import MaterialUiModal from "@/components/ui/modal/material-ui-modal";
 
 
 export default function GoogleDriveClientComponent({
@@ -28,6 +29,22 @@ export default function GoogleDriveClientComponent({
   const [googleFolders, setGoogleFolders] = useState(null);
   const [allGoogleFolders, setAllGoogleFolders] = useState(null);
   const [originalGoogleFolders, setOriginalGoogleFolders] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openConfirmationModal = () => {
+    return new Promise((resolve) => {
+      setModalOpen(true);
+
+      const handleClose = (value) => {
+        setModalOpen(false);
+        resolve(value);
+      };
+
+      // We'll pass these handlers to the modal:
+      modalHandlers.current = { onClose: () => handleClose(false), onConfirm: () => handleClose(true) };
+    });
+  };
+
 
   useEffect(() => {
     if (!googleDriveFolderId || registration !== "accepted") return;
@@ -99,15 +116,39 @@ export default function GoogleDriveClientComponent({
     }
     setState((prev) => ({ ...prev, virtualListOpen: !prev.virtualListOpen }));
   };
+
+  const modalHandlers = useRef({
+    onClose: () => {},
+    onConfirm: () => {},
+  });
   
   const handleUpdateDb = async () => {
-    const updateResult = await updateGoogleDriveFolderId(registrationId, state.googleFileId);
-    if (updateResult.createdUser) {
-      setOriginalGoogleFolders(state.googleFileName);
-      setGoogleFolders(state.googleFileName)
-      setRegistrationStatus("accepted");
+    setModalOpen(true);
+    const result = await openConfirmationModal();
+
+    if (result) {
+      // User confirmed, do your DB update here
+      const updateResult = await updateGoogleDriveFolderId(registrationId, state.googleFileId);
+      if (updateResult.createdUser) {
+        setOriginalGoogleFolders(state.googleFileName);
+        setGoogleFolders(state.googleFileName);
+        setRegistrationStatus("accepted");
+        setState((prev) => ({ ...prev, updatePending: false }));
+      }
+      console.log("Confirmed!");
+    } else {
+      console.log("Cancelled");
       setState((prev) => ({ ...prev, updatePending: false }));
     }
+
+
+    // const updateResult = await updateGoogleDriveFolderId(registrationId, state.googleFileId);
+    // if (updateResult.createdUser) {
+    //   setOriginalGoogleFolders(state.googleFileName);
+    //   setGoogleFolders(state.googleFileName)
+    //   setRegistrationStatus("accepted");
+    //   setState((prev) => ({ ...prev, updatePending: false }));
+    // }
   };
 
   const handleRevert = () => {
@@ -130,13 +171,8 @@ export default function GoogleDriveClientComponent({
   };
   
   const handleUpdateFolder = async (val) => {
-    console.log("handleUpdateFolder")
-    console.log(googleFolders, "googleFolders")
-    console.log(allGoogleFolders, "allGoogleFolders")
     const folderId = getGoogleFolderId(googleFolders, allGoogleFolders);
-    console.log(folderId, "FOLDERID")
     const updateResult = await updateGoogleDriveFolderIdByUserNewId(registrationId, folderId);
-    console.log(updateResult, "updateResult");
     setGoogleFolders(val); // Update googleFolders based on the checkbox selection
   };
 
@@ -166,6 +202,11 @@ export default function GoogleDriveClientComponent({
   // --- MAIN RENDER ---
   return (
     <>
+      <MaterialUiModal
+        open={modalOpen}
+        onClose={modalHandlers.current.onClose}
+        onConfirm={modalHandlers.current.onConfirm}
+      />
       {registrationStatus === "accepted" && !state.updatePending && (
         <AcceptedBlock
           googleFolders={googleFolders}
