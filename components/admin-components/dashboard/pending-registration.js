@@ -2,8 +2,6 @@
 import { GetPendingUsers } from "@/server/actions/db/admin/get-pending-users";
 
 export default async function PendingUsers() {
-
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   const result = await GetPendingUsers();
 
   if (result.message) {
@@ -14,7 +12,7 @@ export default async function PendingUsers() {
       </>
     );
   }
-  const numberOfPendingUsers = result.length;
+  const numberOfPendingUsers = result.data.length;
 
   return <span>{numberOfPendingUsers}</span>;
 }

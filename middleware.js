@@ -1,45 +1,44 @@
 /** @format */
 
-// export { auth as middleware } from "@/auth"
 import { NextResponse } from "next/server";
-import NextAuth from "next-auth";
-import { authConfig } from "./auth.config";
 import { getToken } from "next-auth/jwt";
 
-const protectedRoutes = ["/admin"];
-const adminRedirectRoutes = ["/", "/contact"];
+// Routes that require the user to be an admin
+const protectedAdminRoutes = ["/admin"];
 
-const { auth } = NextAuth(authConfig);
+// Routes where admins should be redirected *away* from
+const publicRedirectIfAdminRoutes = ["/", "/contact"];
 
-export default auth(async function middleware(req) {
-  // const session = await auth();
+export async function middleware(req) {
+  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
 
-  // const token = await getToken({ req, secret: process.env.AUTH_SECRET });
-  // const token2 = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-  // console.log("NEXTAUTH_SECRET:", process.env.NEXTAUTH_SECRET);
-  // console.log("AUTH_SECRET:", process.env.AUTH_SECRET);
-  // console.log(token, "token");
-  // console.log(token2, "token2");
-  // const { pathname } = req.nextUrl;
+  const { pathname } = req.nextUrl;
 
-  // const shouldRedirectToAdmin =
-  //   token?.role === "admin" &&
-  //   adminRedirectRoutes.some(
-  //     (route) => pathname === route || pathname.startsWith(route + "/")
-  //   );
+  const isAdmin = token?.role === "admin";
 
-  // if (shouldRedirectToAdmin) {
-  //   return NextResponse.redirect(new URL("/admin", req.nextUrl));
-  // }
+  // 1. Redirect unauthenticated or non-admin users away from protected admin routes
+  const isProtectedAdminRoute = protectedAdminRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
 
-  // // const token= await getToken({ req, secret:process.env.AUTH_SECRET })
+  if (isProtectedAdminRoute && !isAdmin) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
 
-  // const isProtected = protectedRoutes.some((route) =>
-  //   pathname.startsWith(route)
-  // );
+  // 2. Optionally redirect admins away from public-facing pages
+  const shouldRedirectAdminToDashboard =
+    isAdmin &&
+    publicRedirectIfAdminRoutes.some(
+      (route) => pathname === route || pathname.startsWith(route + "/")
+    );
 
-  // if (isProtected && token?.role !== "admin") {
-  //   return NextResponse.redirect(new URL("/", req.nextUrl));
-  // }
+  if (shouldRedirectAdminToDashboard) {
+    return NextResponse.redirect(new URL("/admin", req.url));
+  }
+
   return NextResponse.next();
-});
+}
+
+export const config = {
+  matcher: ["/", "/contact", "/admin/:path*"],
+};

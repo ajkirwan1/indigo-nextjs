@@ -1,22 +1,42 @@
 /** @format */
 
+"use server";
+
 import db from "@/modules/db";
 
+/**
+ * Fetches users created within the last 14 days.
+ * @returns An object with `success`, `data`, or `message`.
+ */
 export async function GetNewUsers() {
   try {
-    let date = new Date();
-
-    date.setDate(date.getDate() - 14);
+    const fourteenDaysAgo = new Date();
+    fourteenDaysAgo.setDate(fourteenDaysAgo.getDate() - 14);
 
     const recentUsers = await db.userRegistration.findMany({
       where: {
         createdAt: {
-          gte: new Date(date),
+          gte: fourteenDaysAgo,
         },
       },
+      orderBy: {
+        createdAt: "desc",
+      },
     });
-    return recentUsers;
+
+    return {
+      success: true,
+      data: recentUsers,
+    };
   } catch (error) {
-    return { message: "Database Error: Failed to retrieve data" };
+    console.error("❌ GetNewUsers Error:", {
+      message: (error)?.message,
+      stack: (error)?.stack,
+    });
+
+    return {
+      success: false,
+      message: "Database error: failed to retrieve recent users.",
+    };
   }
 }

@@ -12,18 +12,21 @@ import TableFallback from "@/components/fallbacks/table-fallback";
 import AdminTableFilter from "@/components/admin-components/admin-table-client-filter";
 
 async function TableData({ query, name, email }) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   let resp;
 
   if (query == "pending") {
-    resp = await GetPendingUsers();
+    const result = await GetPendingUsers()
+    resp = result.data
   } else if (query == "recent") {
-    resp = await GetNewUsers();
+    const result = await GetNewUsers();
+    resp = result.data;
   } else if (query == "all") {
-    resp = await FindAllUsers();
+    const result = await FindAllUsers();
+    resp = result.data;
   } else {
-    resp = await FindAllUsers();
+    const result = await FindAllUsers();
+    resp = result.data;
   }
 
   // resp = await GetPendingUsers()
@@ -69,9 +72,9 @@ export default async function AdminPage(props) {
         <AdminTableFilter />
       </div> */}
       <div className={classes.tableContainer}>
-        <Suspense fallback={<TableFallback />}>
+        {/* <Suspense fallback={<TableFallback />}> */}
           <TableData query={query} name={name} email={email} />
-        </Suspense>
+        {/* </Suspense> */}
       </div>
     </>
   );
