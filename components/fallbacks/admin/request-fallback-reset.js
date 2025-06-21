@@ -11,6 +11,7 @@ const errorMessageMapper = {
   USER_NOT_FOUND: "The user account was not found.",
   NETWORK_ERROR: "A network issue occurred. Please try again.",
   DEFAULT: "Request failed. Please try again.",
+  DB_FETCH_ERROR: "A database error occured. Please try again"
 };
 
 export default function RequestFallbackReset({
@@ -22,7 +23,7 @@ export default function RequestFallbackReset({
   const displayMessage =
     errorMessageMapper[code] || message || errorMessageMapper.DEFAULT;
 
-  const showRetryButton = code === "DEFAULT" || code === "NETWORK_ERROR";
+  const showRetryButton = code === "DEFAULT" || code === "DB_FETCH_ERROR" || code === "NETWORK_ERROR";
   const showRequestAccessButton = code === "NO_DRIVE_ACCESS";
 
   const handleRetry = () => {

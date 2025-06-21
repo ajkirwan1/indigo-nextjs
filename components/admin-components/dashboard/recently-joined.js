@@ -6,7 +6,6 @@ import { GetNewUsers } from "@/server/actions/db/admin/get-new-users";
 
 export default async function NewUsers() {
   const result = await GetNewUsers();
-  console.log(result?.data, "res")
 
   if (result.message) {
     return (

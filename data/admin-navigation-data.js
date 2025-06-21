@@ -2,11 +2,11 @@
 export default function GetAdminNavData() {
   const adminNavigationData = [
     {
-      title: "Home",
+      title: "ADMIN HOME",
       url: "/admin",
     },
     {
-      title: "Clients",
+      title: "ALL CLIENTS",
       url: "/admin/user",
     },
     {
