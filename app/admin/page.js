@@ -3,11 +3,17 @@
 import classes from "./page.module.css";
 import AdminClientHomepage from "@/components/admin-components/admin-client-homepage";
 import { auth } from "@/auth";
-
+import { redirect } from "next/navigation";
 
 export default async function AddProperties() {
 
   const session = await auth();
+
+  // Redirect if session is missing or the user is not an admin
+
+  if (!session || session.user?.role !== "admin") {
+    redirect("/");
+  }
 
   return (
     <>
