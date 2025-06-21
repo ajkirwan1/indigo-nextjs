@@ -13,12 +13,16 @@ function log(...args) {
 export async function middleware(req) {
   const { pathname } = req.nextUrl;
 
-  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+  const token = await getToken({ req, secret: process.env.AUTH_SECRET,
+    cookieName: '__Secure-authjs.session-token',
+  });
   const role = token?.role;
 
   log("Requested Path:", pathname);
   log("Token:", token ? "Valid" : "Missing or expired");
   log("Role:", role ?? "None");
+  log("Cookies:", req.headers.get("cookie") || "No cookies");
+
 
   const isAdmin = role === "admin";
   const isClient = role === "user";
