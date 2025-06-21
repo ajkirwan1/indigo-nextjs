@@ -3,53 +3,59 @@
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-// Routes that require the user to be an admin
 const protectedAdminRoutes = ["/admin"];
-
-// Public routes where admins should NOT access (redirect them to /admin)
-const publicRedirectIfAdminRoutes = ["/", "/contact"];
-
-// Add /login/redirect as allowed for admin users
 const adminAllowedRoutes = ["/admin", "/login/redirect"];
 
+function log(...args) {
+  console.log("[MIDDLEWARE DEBUG]", ...args);
+}
+
 export async function middleware(req) {
-  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
   const { pathname } = req.nextUrl;
 
-  const isAdmin = token?.role === "admin";
-  const isClient = token?.role === "user";
+  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+  const role = token?.role;
 
-  // 1. Redirect unauthenticated or non-admin users away from /admin routes
+  log("Requested Path:", pathname);
+  log("Token:", token ? "Valid" : "Missing or expired");
+  log("Role:", role ?? "None");
+
+  const isAdmin = role === "admin";
+  const isClient = role === "user";
   const isProtectedAdminRoute = protectedAdminRoutes.some((route) =>
     pathname.startsWith(route)
   );
 
-  // Allow admin users to access /login/redirect
+  // 1. Block unauthenticated access to /admin or /account
+  if ((pathname.startsWith("/admin") || pathname.startsWith("/account")) && !role) {
+    log("Unauthenticated user. Redirecting to /login");
+    return NextResponse.redirect(new URL("/login", req.url));
+  }
+
+  // 2. Admin-specific access control
   if (isAdmin) {
-    // If admin is trying to access anything NOT in adminAllowedRoutes, redirect to /admin
     const isAllowedForAdmin = adminAllowedRoutes.some((route) =>
       pathname.startsWith(route)
     );
     if (!isAllowedForAdmin) {
+      log("Admin accessing disallowed route. Redirecting to /admin");
       return NextResponse.redirect(new URL("/admin", req.url));
     }
-  } else {
-    // Non-admin users trying to access /admin redirect to /account
-    if (isProtectedAdminRoute) {
-      return NextResponse.redirect(new URL("/account", req.url));
-    }
   }
 
-  // 3. Redirect non-client users trying to access /account routes
+  // 3. Block user (client) access to admin routes
+  if (isClient && pathname.startsWith("/admin")) {
+    log("Client trying to access admin route. Redirecting to /account");
+    return NextResponse.redirect(new URL("/account", req.url));
+  }
+
+  // 4. Block non-client (e.g., admin) access to /account
   if (pathname.startsWith("/account") && !isClient) {
+    log("Non-client accessing /account. Redirecting to /login");
     return NextResponse.redirect(new URL("/login", req.url));
   }
 
-  // 4. Redirect unauthenticated users trying to access /admin or /account to login
-  if ((pathname.startsWith("/admin") || pathname.startsWith("/account")) && !token?.role) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
-
+  log("Access granted. Proceeding.");
   return NextResponse.next();
 }
 
