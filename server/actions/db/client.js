@@ -1,56 +1,55 @@
 /** @format */
 
 import db from "@/modules/db";
+import { createErrorResponse } from "@/utils/errors/error-response";
 
+/**
+ * Fetch user registration and related Google Drive folder ID if registration is accepted.
+ * @param {string} id - User registration ID
+ * @returns {object|null|{success: false, errorCode: string, errorMessage: string}} - User registration info or error object
+ */
 export async function getUser(id) {
   try {
+    if (!id) {
+      console.warn("getUser called without a valid ID");
+      return createErrorResponse("DB_FETCH_ERROR",
+        "An error occurred while fetching user information.");
+    }
+
     const registration = await db.userRegistration.findFirst({
       where: { id },
     });
-    
+
     if (!registration) {
-      // Handle not found
-      return null;
+      console.info(`No registration found for ID: ${id}`);
+      return createErrorResponse("DB_FETCH_ERROR",
+        "An error occurred while fetching user information.");
     }
-    
+
+    // If user is accepted, fetch associated PDF links
     if (registration.registration === "accepted") {
-      // Fetch with related usersNew.id
       const userPdfLinks = await db.userNew.findFirst({
-        where: {
-          registrationId: id,
-        },
-        select: {
-          googleDriveFolderId: true,
-          pdfLinks: {
-            include: {
-              pdf: {
-                select: {
-                  id: true,
-                  name: true,
-                  url: true,
-                },
-              },
-            },
-          },
-        },
+        where: { registrationId: id },
+        select: { googleDriveFolderId: true },
       });
 
-      // console.log(userPdfLinks, "RAW DATA")
-
-      const pdfs = userPdfLinks?.pdfLinks.map(link => link.pdf) || [];
-      const googleDriveFolderId = userPdfLinks?.googleDriveFolderId;
-      const result = {
+      return {
         ...registration,
-        pdfs,
-        googleDriveFolderId
-      }
-      return result
-
+        googleDriveFolderId: userPdfLinks?.googleDriveFolderId ?? null,
+      };
     }
-    
-    return registration;
+
+    // Return registration as-is if not accepted
+    return {
+      ...registration,
+      googleDriveFolderId: null,
+    };
+
   } catch (error) {
-    console.log(error)
-    return { dbFetchError: "An error occured fetching the user information." };
+    console.error(`Database fetch error in getUser for ID: ${id}`, error);
+    return createErrorResponse(
+      "DB_FETCH_ERROR",
+      "An error occurred while fetching user information."
+    );
   }
 }

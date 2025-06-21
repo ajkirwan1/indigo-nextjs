@@ -5,12 +5,12 @@ import { auth } from '@/auth';
 export default async function RedirectingPage() {
   const session = await auth();
 
-  if (!session) {
-    // Not logged in, send to login
-    redirect('/');
-  }
+  // if (!session) {
+  //   // Not logged in, send to login
+  //   redirect('/');
+  // }
 
-  const role = session.user.role;
+  const role = session?.user?.role;
 
   if (role === 'admin') {
     redirect('/admin');

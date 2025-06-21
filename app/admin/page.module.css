@@ -110,3 +110,13 @@
   height: 50px;
   width: 100px;
 }
+
+.loadingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  flex-direction: column;
+  text-align: center;
+  gap: 5vh;
+}

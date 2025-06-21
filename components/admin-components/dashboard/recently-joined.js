@@ -3,11 +3,10 @@
 "use server";
 
 import { GetNewUsers } from "@/server/actions/db/admin/get-new-users";
-import { Tooltip } from "@nextui-org/react";
 
 export default async function NewUsers() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
   const result = await GetNewUsers();
+
 
   if (result.message) {
     return (
@@ -15,13 +14,10 @@ export default async function NewUsers() {
         <span>!</span>
         <p>An error occured fetching this data</p>
       </>
-      // <Tooltip color="danger" content="A AM A TOOLTIP">
-
-      // </Tooltip>
     );
   }
 
-  const numberOfNewUsers = result.length;
+  const numberOfNewUsers = result.data.length;
 
   return <span>{numberOfNewUsers}</span>;
 }
