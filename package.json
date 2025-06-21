@@ -40,6 +40,7 @@
     "bcryptjs": "^3.0.2",
     "contentful": "^11.2.5",
     "cuid": "^3.0.0",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.5",
     "file-loader": "^6.2.0",
     "framer-motion": "^11.3.31",
