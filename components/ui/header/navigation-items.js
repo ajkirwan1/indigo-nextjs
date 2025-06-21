@@ -4,14 +4,10 @@ import { useState } from "react";
 import Dropdown from "./dropdown";
 import NavLink from "@/components/nav-link";
 import classes from "./sub-header.module.css";
-import { MdOutlineAccountCircle } from "react-icons/md";
 import { VscAccount } from "react-icons/vsc";
-// import Icon from '@mdi/react';
-// import { mdiAccountOutline } from '@mdi/js';
-
 
 export default function NavigationItems({ items, session, className }) {
-  console.log(className, "CLASSNAME")
+
   const [dropdown, setDropdown] = useState(false);
   
   return (
@@ -36,7 +32,6 @@ export default function NavigationItems({ items, session, className }) {
           <>
             <div className={classes.accountIcon} onMouseOver={() => setDropdown(true)}>
               <VscAccount color={className.includes("heroHeader") ? "white" : "#505050"} size="35px"/>
-              {/* <Icon path={mdiAccountOutline} size={1} /> */}
             </div>
             {dropdown && (
               <Dropdown submenus={items.submenu} dropdown={dropdown} session={session}/>
