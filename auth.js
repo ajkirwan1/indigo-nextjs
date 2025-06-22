@@ -25,9 +25,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
     async session({ token, user, session, newSession, trigger }) {
-      session.user.userName = token.userName;
-      session.user.id = token.id;
-      session.user.role = token.role;
+      if (session?.user) {
+        session.user.id = token.id;
+        session.user.role = token.role;
+        session.user.userName = token.userName;
+      }
       return session;
     },
     async redirect({ url, baseUrl}) {
