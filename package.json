@@ -27,6 +27,7 @@
     "@lucia-auth/adapter-prisma": "^4.0.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
+    "@mui/icons-material": "^6.4.12",
     "@mui/material": "^6.4.12",
     "@mui/x-data-grid": "^8.5.3",
     "@nextui-org/avatar": "^2.0.33",
