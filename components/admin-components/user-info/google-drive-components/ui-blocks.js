@@ -90,7 +90,7 @@ export const UpdatePendingBlock = ({
       {!state.isFetching && (
         <>
           <div className="submit-button-container">
-            <Button onClick={handleRevert}>Revert1</Button>
+            <Button onClick={handleRevert}>Revert</Button>
           </div>
           <div className="submit-button-container">
             <Button
