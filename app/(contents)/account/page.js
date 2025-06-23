@@ -7,7 +7,13 @@ import { Suspense } from "react";
 import { Spinner } from "@nextui-org/spinner";
 import AccountPropertiesDetails from "@/components/pages/account/account-properties-details";
 import { auth } from "@/auth";
-import { redirect } from "next/navigation";
+import {
+  Typography,
+  Box,
+  Container
+} from '@mui/material';
+import DeleteAccountDialog from "@/components/pages/account/delete-personal-account";
+import ResetPasswordDialog from "@/components/pages/account/update-password";
 
 // Optional: Replace this with Sentry or any remote logging service
 async function logServerError(message, meta) {
@@ -46,8 +52,16 @@ export default async function UserInfo() {
         <hr />
       </div>
       <div className={classes.itemWrapper}>
+      <Container maxWidth={false} sx={{ width: "100%", py: 4 }}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+      <Typography variant="h5">
+          Files
+        </Typography>
+      </Box>
+      <AccountPropertiesDetails id={id} />
+      </Container>
         {/* <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}> */}
-          <AccountPropertiesDetails id={id} />
+        
         {/* </Suspense> */}
       </div>
       <div className={classes.itemWrapper}>
@@ -61,7 +75,22 @@ export default async function UserInfo() {
         </Suspense>
       </div>
       <div className={classes.itemWrapper}>
-        <h2>Update password or delete account</h2>
+      <Container maxWidth={false} sx={{ width: "100%", py: 4 }}>
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+      <Typography variant="h5">
+          Registration Information
+        </Typography>
+        </Box>
+        <Box       display="flex"
+      justifyContent="center"
+      alignItems="center"
+      gap="2vw"
+      sx={{ mt: 4 }} // optional top margin
+      >
+      <DeleteAccountDialog />
+      <ResetPasswordDialog />
+    </Box>
+      </Container>
       </div>
     </>
   );
