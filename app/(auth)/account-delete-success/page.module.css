@@ -1,0 +1,115 @@
+.pageWrapper {
+    height: 100vh;
+  }
+  
+  .formcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #ffffff81;
+    position: relative;
+    width: 500px;
+    box-shadow: 1px 1px 1px;
+    margin: auto;
+    margin-top: 5vh;
+    letter-spacing: normal;
+    padding: 5vh;
+  }
+  
+  .formcontainer h1 {
+    display: flex;
+    margin-top: 5vh;
+    justify-content: center;
+  }
+  .logoIndigo {
+    height: 12rem;
+    width: auto;
+  }
+  .buttoncontainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+  }
+  
+  .errorList {
+    list-style: none;
+    display: flex;
+  }
+  
+  .submitButton {
+    background: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .submitButtonContainer {
+    margin: 2vh;
+    display: flex;
+  }
+  
+  .heroWrapper {
+    position: relative;
+    width: 100vw;
+  }
+  
+  .imageWrapper {
+    position: relative;
+    height: 85vh;
+    z-index: -1;
+    background-color: rgb(3 3 3 / 100%);
+  }
+  
+  .imageHero {
+    color: transparent;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    inset: 0px;
+    opacity: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .heroContent {
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* position: absolute; */
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+  }
+  
+  
+  @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  }
+  
+  @media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  }
+  
+  @media only screen and (min-width: 800px) and (max-width: 1400px) {
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 800px) {
+  
+    .formcontainer {
+      width: 70vw;
+    }
+  
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .logoIndigo {
+      height: 10rem;
+      width: auto;
+    }
+  
+    .formcontainer {
+      width: 70vw;
+    }
+  }
+  
