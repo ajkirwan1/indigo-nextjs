@@ -87,7 +87,7 @@ export default async function UserInfo() {
       gap="2vw"
       sx={{ mt: 4 }} // optional top margin
       >
-      <DeleteAccountDialog />
+      <DeleteAccountDialog registrationId={id}/>
       <ResetPasswordDialog />
     </Box>
       </Container>

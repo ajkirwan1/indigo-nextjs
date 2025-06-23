@@ -1,5 +1,5 @@
 'use client';
-
+import { signOut } from 'next-auth/react';
 import {
   Button,
   Dialog,
@@ -11,8 +11,9 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { deleteAccountByRegistrationId } from '@/lib/api/delete-account';
 
-export default function DeleteAccountDialog() {
+export default function DeleteAccountDialog({ registrationId}) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -20,14 +21,15 @@ export default function DeleteAccountDialog() {
   const handleDelete = async () => {
     setLoading(true);
     try {
-      // Simulate API call to delete account
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const result = await deleteAccountByRegistrationId(registrationId);
 
-      // Redirect to success page
-      router.push('/account-delete-success');
-    } catch (error) {
-      // Optionally log or handle error here
-      console.error('Account deletion failed:', error);
+      if (!result.success) {
+        console.error('Account deletion failed:', result.errorCode, result.errorMessage);
+        return; // Optionally show error message to user
+      }
+
+      // await signOut({ callbackUrl: '/account-delete-success' });
+      router.push('/delete');
     } finally {
       setLoading(false);
       setOpen(false);

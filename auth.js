@@ -32,8 +32,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return session;
     },
-    async redirect({ url, baseUrl}) {
+    async redirect({ url, baseUrl }) {
+      // If the URL contains "delete", redirect somewhere else
+      if (url.includes("delete")) {
+        return "/some-other-page"; // redirect here if 'delete' in URL
+      }
+      // Otherwise, redirect to default
       return "/login/redirect";
-    },
+    }
+    
   }
 });
