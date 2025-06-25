@@ -47,7 +47,7 @@ export default async function AccountPropertiesDetails({ id }) {
   return (
     <div>
       <div className={classes.outerWrapper}>
-        <h2>Properties</h2>
+        {/* <h2>Properties</h2> */}
         <div className={classes.listContainer}>
           <VirtualizedGoogleDriveListOfFiles result={files} />
         </div>

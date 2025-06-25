@@ -32,8 +32,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return session;
     },
-    async redirect({ url, baseUrl}) {
+    async redirect({ url, baseUrl }) {
+      console.log(url, "URLSLSKSKSKD")
+      // If the URL contains "delete", redirect somewhere else
+      if (url.includes("account-delete-success")) {
+        console.log("SUCCEESSSSSSSSSSS")
+        return url; // redirect here if 'delete' in URL
+      }
+      // Otherwise, redirect to default
       return "/login/redirect";
-    },
+    }
+    
   }
 });
