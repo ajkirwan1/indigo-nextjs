@@ -1,11 +1,10 @@
 /** @format */
 import { Lato } from "next/font/google";
-import { SessionProvider } from "@/contexts/session-context";
 import { LayoutProvider } from "@/contexts/layout-context";
 import { Providers } from "./providers.jsx";
 
+
 import "./globals.css";
-import { validateRequest } from "@/auth/lucia";
 export const metadata = {
     verification: {
     google: 'gKEg7ThRAHUGvwMjdnXn3kSQcv65GNIQ5_lgoT6d0jY'
@@ -43,14 +42,12 @@ const inter = Lato({
 });
 
 export default async function RootLayout({ children }) {
-  const session = await validateRequest();
+  // const session = await auth(); // no headers
   return (
     <html lang="en" className={inter.className}>
       <body>
         <LayoutProvider>
-          <SessionProvider value={session}>
-          <Providers>{children}</Providers>
-          </SessionProvider>
+            <Providers>{children}</Providers>
         </LayoutProvider>
       </body>
     </html>

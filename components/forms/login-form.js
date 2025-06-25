@@ -48,6 +48,7 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       >
         <FormSubmit
           disabled={false}
+          showSpinner={false}
           // disabled={isButtonDisabled}
         />
       </div>

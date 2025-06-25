@@ -23,10 +23,13 @@ export async function middleware(req) {
     cookieName,
   });
   
-
-
-
-
+  // const token = await getToken({
+  //   req,
+  //   secret: process.env.AUTH_SECRET,
+  //   // cookieName: req.headers.get("cookie")?.includes("__Secure-authjs.session-token")
+  //   //   ? "__Secure-authjs.session-token"
+  //   //   : "authjs.session-token",
+  // });
 
   const role = token?.role;
 

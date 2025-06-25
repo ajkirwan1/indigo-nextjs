@@ -1,22 +1,15 @@
-// app/redirecting/page.tsx
-import { redirect } from 'next/navigation';
-import { auth } from '@/auth';
+import { SessionProvider } from "next-auth/react";
+import RedirectComponent from "@/components/redirect/redirect-component";
+import { Suspense } from "react";
 
-export default async function RedirectingPage() {
-  const session = await auth();
+export default function RedirectPage() {
 
-  // if (!session) {
-  //   // Not logged in, send to login
-  //   redirect('/');
-  // }
+  return (
+    <Suspense>
+      <SessionProvider>
+      <RedirectComponent />
+    </SessionProvider>    
+    </Suspense>
 
-  const role = session?.user?.role;
-
-  if (role === 'admin') {
-    redirect('/admin');
-  } else if (role === 'user') {
-    redirect('/account');
-  } else {
-    redirect('/');
-  }
+  );
 }
