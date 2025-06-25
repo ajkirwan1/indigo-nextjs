@@ -1,6 +1,7 @@
 // app/api/delete-account/route.js
 import { NextResponse } from 'next/server';
 import { DeleteUserByRegistrationId } from '@/server/actions/db/client/delete-account';
+import jwt from 'jsonwebtoken';
 
 export async function DELETE(req) {
   try {
@@ -14,13 +15,34 @@ export async function DELETE(req) {
       }, { status: 400 });
     }
 
+    const secret = process.env.JWT_DELETE_ACCOUNT_SECRET;
+    if (!secret) {
+      return NextResponse.json({
+        success: false,
+        errorCode: 'MISSING_SECRET',
+        errorMessage: 'JWT secret not configured.',
+      }, { status: 500 });
+    }
+
     const result = await DeleteUserByRegistrationId(registrationId);
 
     if (!result.success) {
       return NextResponse.json(result, { status: 500 });
     }
 
-    return NextResponse.json({ success: true });
+    const token = jwt.sign(
+      {
+        type: 'account-deleted',
+        registrationId,
+      },
+      secret,
+      { expiresIn: '2m' }
+    );
+
+    return NextResponse.json({
+      success: true,
+      token,
+    });
   } catch (error) {
     console.error('API Delete Error:', error);
     return NextResponse.json({

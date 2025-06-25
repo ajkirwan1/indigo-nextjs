@@ -10,26 +10,26 @@ import {
   CircularProgress,
 } from '@mui/material';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { deleteAccountByRegistrationId } from '@/lib/api/delete-account';
 
 export default function DeleteAccountDialog({ registrationId}) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleDelete = async () => {
     setLoading(true);
     try {
       const result = await deleteAccountByRegistrationId(registrationId);
 
-      if (!result.success) {
-        console.error('Account deletion failed:', result.errorCode, result.errorMessage);
+       const token = result?.token;
+
+      if (!result?.success) {
+        console.error('Account deletion failed:', result?.errorCode, result?.errorMessage);
         return; // Optionally show error message to user
       }
 
-      // await signOut({ callbackUrl: '/account-delete-success' });
-      router.push('/delete');
+      await signOut({ callbackUrl: `/account-delete-success?token=${token}` });
+
     } finally {
       setLoading(false);
       setOpen(false);

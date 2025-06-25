@@ -46,10 +46,15 @@ export async function middleware(req) {
   );
 
   // 1. Block unauthenticated access to /admin or /account
-  if ((pathname.startsWith("/admin") || pathname.startsWith("/account")) && !role) {
+  if (
+    (pathname.startsWith("/admin") || pathname.startsWith("/account")) &&
+    !pathname.startsWith("/account-delete-success") &&
+    !role
+  ) {
     log("Unauthenticated user. Redirecting to /login");
     return NextResponse.redirect(new URL("/login", req.url));
   }
+  
 
   // 2. Admin-specific access control
   if (isAdmin) {
@@ -69,10 +74,15 @@ export async function middleware(req) {
   }
 
   // 4. Block non-client (e.g., admin) access to /account
-  if (pathname.startsWith("/account") && !isClient) {
+  if (
+    pathname.startsWith("/account") &&
+    !pathname.startsWith("/account-delete-success") &&
+    !isClient
+  ) {
     log("Non-client accessing /account. Redirecting to /login");
     return NextResponse.redirect(new URL("/login", req.url));
   }
+  
 
   log("Access granted. Proceeding.");
   return NextResponse.next();
