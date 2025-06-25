@@ -45,6 +45,8 @@ export default async function UserInfo() {
     // redirect("/");
   }
 
+  console.log(id, "CLIENT TIDDDDD")
+
   return (
     <>
       <div className="header">
@@ -87,7 +89,7 @@ export default async function UserInfo() {
       gap="2vw"
       sx={{ mt: 4 }} // optional top margin
       >
-      <DeleteAccountDialog registrationId={id}/>
+      <DeleteAccountDialog userId={id}/>
       <ResetPasswordDialog />
     </Box>
       </Container>

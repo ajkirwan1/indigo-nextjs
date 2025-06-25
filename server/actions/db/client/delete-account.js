@@ -1,14 +1,21 @@
 import db from "@/modules/db";
 import { createErrorResponse } from "@/utils/errors/error-response";
 
-export async function DeleteUserByRegistrationId(registrationId) {
+export async function DeleteUserById(userId) {
+  console.log(userId, "USER ID passed in");
+
   try {
+    // First, find the user's registrationId (if needed)
     const user = await db.userNew.findUnique({
-      where: { registrationId },
-      select: { id: true },
+      where: { id: userId },
+      select: { id: true, registrationId: true },
     });
 
-    const userId = user.id;
+    if (!user) {
+      return createErrorResponse("USER_NOT_FOUND", "User not found.");
+    }
+
+    const registrationId = user.registrationId;
 
     await db.$transaction([
       db.magicLinkToken.deleteMany({ where: { userId } }),
@@ -19,10 +26,10 @@ export async function DeleteUserByRegistrationId(registrationId) {
 
     return { success: true };
   } catch (error) {
-    console.error("DeleteUserByRegistrationId error", {
+    console.error("DeleteUserById error", {
       error: error?.message,
       stack: error?.stack,
-      registrationId,
+      userId,
     });
 
     return createErrorResponse("DELETE_FAILED", "Failed to delete user.");

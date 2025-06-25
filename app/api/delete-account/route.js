@@ -1,13 +1,12 @@
 // app/api/delete-account/route.js
 import { NextResponse } from 'next/server';
-import { DeleteUserByRegistrationId } from '@/server/actions/db/client/delete-account';
+import { DeleteUserById } from '@/server/actions/db/client/delete-account';
 import jwt from 'jsonwebtoken';
-
 export async function DELETE(req) {
   try {
-    const { registrationId } = await req.json();
+    const { userId } = await req.json();
 
-    if (!registrationId) {
+    if (!userId) {
       return NextResponse.json({
         success: false,
         errorCode: 'MISSING_ID',
@@ -24,7 +23,7 @@ export async function DELETE(req) {
       }, { status: 500 });
     }
 
-    const result = await DeleteUserByRegistrationId(registrationId);
+    const result = await DeleteUserById(userId);
 
     if (!result.success) {
       return NextResponse.json(result, { status: 500 });
@@ -33,7 +32,7 @@ export async function DELETE(req) {
     const token = jwt.sign(
       {
         type: 'account-deleted',
-        registrationId,
+        userId,
       },
       secret,
       { expiresIn: '2m' }

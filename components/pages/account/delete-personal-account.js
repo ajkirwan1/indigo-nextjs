@@ -12,14 +12,14 @@ import {
 import { useState } from 'react';
 import { deleteAccountByRegistrationId } from '@/lib/api/delete-account';
 
-export default function DeleteAccountDialog({ registrationId}) {
+export default function DeleteAccountDialog({userId}) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
     setLoading(true);
     try {
-      const result = await deleteAccountByRegistrationId(registrationId);
+      const result = await deleteAccountByRegistrationId(userId);
 
        const token = result?.token;
 
