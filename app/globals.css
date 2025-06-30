@@ -103,7 +103,7 @@ html:has(.modal) {
   box-sizing: border-box; 
 }
 
-input[type="email"] {
+input[type="email"]:not(.mui-isolated-input) {
   font: inherit;
   border: 1px solid;
   height: 2rem;
