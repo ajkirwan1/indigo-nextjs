@@ -102,7 +102,7 @@ export default function LoginForm() {
           handleChange={handleChange}
           isButtonDisabled={isButtonDisabled}
         />
-        <Link href="/password-reset">Reset Password</Link>
+        <Link href="/password-reset-request">Reset Password</Link>
         </>
 
       ) : (

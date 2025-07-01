@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import {
@@ -10,16 +10,8 @@ import {
   Alert,
   CircularProgress,
 } from '@mui/material';
-
-const mockCheckEmail = async (email) => {
-  // Simulate API delay
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const existingEmails = ['user@example.com', 'admin@example.com'];
-      resolve(existingEmails.includes(email.toLowerCase()));
-    }, 1000);
-  });
-};
+import { GetUserNewIdByEmail } from '@/server/actions/db/client/get-user-id-by-email';
+import { SendMagicLinkPasswordReset } from '@/server/actions/db/client/send-magic-link-password-reset';
 
 const ResetRequestForm = () => {
   const [email, setEmail] = useState('');
@@ -43,10 +35,26 @@ const ResetRequestForm = () => {
     }
 
     setSubmitting(true);
-    const exists = await mockCheckEmail(email);
+
+    // 1. Get userId by email
+    const userResponse = await GetUserNewIdByEmail(email);
+
+    if (!userResponse.success) {
+      setSnackbar({
+        open: true,
+        message: userResponse.errorMessage || 'This email is not registered.',
+        severity: 'error',
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    // 2. Send magic link email using userId
+    const resetResponse = await SendMagicLinkPasswordReset(email, userResponse.userId);
+
     setSubmitting(false);
 
-    if (exists) {
+    if (resetResponse.success) {
       setSnackbar({
         open: true,
         message: 'Password reset email sent if this account exists.',
@@ -55,26 +63,14 @@ const ResetRequestForm = () => {
     } else {
       setSnackbar({
         open: true,
-        message: 'This email is not registered.',
+        message: resetResponse.errorMessage || 'Failed to send password reset email.',
         severity: 'error',
       });
     }
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{
-        // maxWidth: 400,
-        // mx: 'auto',
-        // mt: 8,
-        // p: 4,
-        // borderRadius: 2,
-        // boxShadow: 3,
-        // bgcolor: 'background.paper',
-      }}
-    >
+    <Box component="form" onSubmit={handleSubmit}>
       <Typography variant="h5" mb={2}>
         Reset Your Password
       </Typography>
@@ -87,7 +83,7 @@ const ResetRequestForm = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         sx={{ mb: 2 }}
-        inputProps={{ className: "mui-isolated-input" }}
+        inputProps={{ className: 'mui-isolated-input' }}
       />
 
       <Button
