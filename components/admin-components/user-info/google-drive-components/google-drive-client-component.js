@@ -100,6 +100,8 @@ export default function GoogleDriveClientComponent({
       try {
         const response = await fetch('/api/google-drive/all-folders');
         const data = await response.json();
+
+        console.log(data, "ALL GOOGLE FOLDERS")
         
         if (response.ok) {
 
