@@ -34,8 +34,8 @@
   animation: fadeInLeft 1s;
 }
 
-.sectionContainer b{
-font-weight: 400;
+.sectionContainer b {
+  font-weight: 400;
 }
 
 .pageWrapper h2 {
@@ -50,7 +50,7 @@ font-weight: 400;
 
 .paragraphWrapper p,
 .paragraphWrapperRight p {
-  letter-spacing: normal;   
+  letter-spacing: normal;
   font-size: 22px;
 }
 
@@ -164,7 +164,7 @@ font-weight: 400;
   }
   .paragraphWrapper p,
   .paragraphWrapperRight p {
-    font-size: 17px;
+    font-size: 20px;
     padding-top: 5px;
   }
   .paragraphWrapper h3 {
@@ -196,7 +196,7 @@ font-weight: 400;
   }
 
   .sectionContainer p {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.8rem;
   }
 
@@ -334,6 +334,7 @@ font-weight: 400;
   }
   .paragraphWrapperRight {
     max-width: unset;
+    padding-top: 40px;
   }
   .sectionContainer p {
     font-size: 16px;

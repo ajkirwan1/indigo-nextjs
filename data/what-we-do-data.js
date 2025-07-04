@@ -62,7 +62,7 @@ export const whatWeDoData = [
         transformations in residential projects through previous
         companies, focusing on flipping properties for substantial
         returns on investment.`,
-      paragraph2: ` Committed to revitalizing urban spaces, we've transformed
+      paragraph2: ` Committed to revitalizing urban spaces, we have transformed
         ordinary properties into luxurious minimalist havens,
         specializing primarily in residential properties with ventures
         into commercial projects. Our proven portfolio spans Greece and

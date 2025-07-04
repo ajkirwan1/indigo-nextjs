@@ -1,17 +1,15 @@
 .overlay {
-  border: 0.5px solid #faefe836;
   border-radius: 8px;
-  background-color: #faefe845;
-  border-radius: 8px;
-  color: #000000f9;
+  color: aliceblue;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.8rem;
   letter-spacing: 0.16em;
   padding: 45px;
   padding-left: 60px;
   padding-right: 60px;
-  filter: invert(1);
+
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 /* .overlay h1 {

@@ -1,0 +1,28 @@
+.button {
+  padding: 20px 60px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  text-transform: uppercase;
+  font-family: "Futura", "Georgia", serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 9999px; /* Fully rounded */
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.429);
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .button {
+    padding: 10px 24px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+}

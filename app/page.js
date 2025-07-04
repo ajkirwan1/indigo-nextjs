@@ -17,6 +17,7 @@ import envelope from "/public/images/pages/home/envelope.png";
 import { useSession } from "@/contexts/session-context";
 import isoImage from "/public/images/pages/home/drone.jpg";
 import Link from "next/link";
+import LuxuryButton from "@/components/ui/luxury-button/luxury-button";
 
 const container = {
   hidden: { opacity: 0, y: 20 },
@@ -57,9 +58,13 @@ const componentArray = [
         <Overlay>
           <div>
             <h1>
-              GUIDING VISIONS, MANAGING REALITIES
+              <span>GUIDING VISIONS</span>
               <br />
-              YOUR PARTNER IN DEVELOPMENT CONSULTING & MANAGEMENT
+              <span>MANAGING REALITIES</span>
+              <br />
+              <span>YOUR PARTNER IN DEVELOPMENT</span>
+              <br />
+              <span>CONSULTING & MANAGEMENT</span>
             </h1>
           </div>
         </Overlay>
@@ -137,19 +142,12 @@ const componentArray = [
           className={classes.heroInnerContents}
         >
           <motion.h2 className={classes.sectionTitle} variants={item}>
-          SAMPLE PROJECTS & CONSULTING WORK 
+            SAMPLE PROJECTS & CONSULTING WORK
           </motion.h2>
           <div className={classes.box}>
             <motion.div className={classes.separator} variants={item}>
               <Link href="/case-studies">
-                <h3 style={{ lineHeight: '1.6' }}>
-                Discover examples of real estate redevelopments and advisory services we’ve delivered worldwide
-                </h3>
-                {/* <Image
-                  alt="icon"
-                  src={properties}
-                  className={classes.properties}
-                /> */}
+                <LuxuryButton>DISCOVER MORE </LuxuryButton>
               </Link>
             </motion.div>
           </div>
@@ -171,8 +169,7 @@ const componentArray = [
           </motion.h2>
           <motion.div className={classes.separator} variants={item}>
             <Link href="/contact">
-              <motion.h3 variants={item}>Let&apos;s talk</motion.h3>
-              <Image alt="icon" src={envelope} className={classes.envelope} />
+              <LuxuryButton>CONTACT US</LuxuryButton>
             </Link>
           </motion.div>
         </motion.div>

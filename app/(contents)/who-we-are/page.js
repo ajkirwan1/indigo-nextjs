@@ -28,31 +28,33 @@ export const metadata = {
     "Learn more about Indigo Consulting and our mission to provide expert real estate consulting in Greece. Discover the leadership of our CEO, Emmanuel Petrakis, and how our team's experience and dedication drive success in luxury real estate, redevelopment, and Golden Visa services.",
 };
 
-
 function LargeSection() {
   return (
     <div className={classes.sectionContainer}>
       {/* <h2>INDIGO</h2> */}
       <div className={classes.paragraphWrapper}>
         <p>
-          Established in 2021 by Emmanuel Petrakis. <b>Indigo Consulting</b> stands as
-          a bespoke real estate consulting firm capitalizing on strategic
-          investment opportunities boasting <b>25 years of experience and local
-          knowledge</b>.
+          Established in <strong>2021</strong> by{" "}
+          <strong>Emmanuel Petrakis.</strong>
         </p>
         <p>
-          Indigo serves as a <b>trusted</b> service company to investors, providing
-          expertise consulting in residential development. The company’s
-          multi-disciplinary team, comprised of investment, finance and realty
-          professionals, collaborates with reputable firms such as developers,
-          architects, lawyers, notaries and more.
+          <b>Indigo Consulting</b> stands as a bespoke real estate consulting
+          firm capitalizing on strategic investment opportunities boasting{" "}
+          <b>25 years of experience and local knowledge</b>.
+        </p>
+        <p>
+          Indigo serves as a <b>trusted</b> service company to investors,
+          providing expertise consulting in residential development. The
+          company’s multi-disciplinary team, comprised of investment, finance
+          and realty professionals, collaborates with reputable firms such as
+          developers, architects, lawyers, notaries and more.
         </p>
         <p>
           The clientele includes private investors and investment funds, both
-          local and foreign, seeking <b>tailored</b> solutions for various real estate
-          ventures. Indigo emphasizes in <b>transparency</b>, <b>low-risk strategies</b>, and
-          a <b>commitment</b> to guide clients through every step of their investment
-          projects in Greece.
+          local and foreign, seeking <b>tailored</b> solutions for various real
+          estate ventures. Indigo emphasizes in <b>transparency</b>,
+          <b>low-risk strategies</b>, and a <b>commitment</b> to guide clients
+          through every step of their investment projects in Greece.
         </p>
       </div>
       <span></span>
@@ -68,10 +70,10 @@ function LargeSection() {
           />
           <div className={classes.paragraphWrapperRight}>
             <p>
-            <b>Emmanuel Petrakis</b> is an experienced Company Director and CEO with
-              expertise in corporate and maritime law. He specializes in
-              selecting high-value residential, commercial, and industrial real
-              estate assets to meet investor objectives and portfolio
+              <b>Emmanuel Petrakis</b> is an experienced Company Director and
+              CEO with expertise in corporate and maritime law. He specializes
+              in selecting high-value residential, commercial, and industrial
+              real estate assets to meet investor objectives and portfolio
               strategies.
             </p>
             <p>

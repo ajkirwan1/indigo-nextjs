@@ -286,8 +286,8 @@
     margin-left: 2vw;
   }
   .subHeader > h1 {
-    font-size: 24px;
-    line-height: 2.5rem;
+    font-size: 28px;
+    line-height: 2.6rem;
   }
   .subHeader > p {
     font-size: 16px;
@@ -313,6 +313,8 @@
   }
   .blogPost h2 {
     font-weight: 300;
+    font-size: 28px;
+    line-height: 1.8rem;
   }
 
   .newsLetterSection > h2 {
@@ -331,8 +333,9 @@
   }
   .thirdSection p,
   .secondSection p {
-    font-size: 16px;
+    font-size: 19px;
     margin-top: 50px;
+    line-height: 1.8rem;
   }
 
   .plusIcon {
