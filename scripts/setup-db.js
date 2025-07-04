@@ -3,7 +3,7 @@ import { execSync } from "child_process";
 import "dotenv/config";
 
 // --- Detect branch/environment ---
-const branch = process.env.VERCEL_GIT_BRANCH || process.env.GIT_BRANCH || "";
+const branch = process.env.VERCEL_GIT_COMMIT_REF || process.env.GIT_BRANCH || "";
 const vercelEnv = process.env.VERCEL_ENV || "";
 const isStaging = branch === "staging" || (vercelEnv === "preview" && process.env.USE_STAGING_DB === "true");
 const isProduction = vercelEnv === "production";
