@@ -48,7 +48,7 @@ export async function up(knex) {
       .integer("userId")
       .unsigned()
       .references("id")
-      .inTable("userNew")
+      .inTable("user")
       .onDelete("CASCADE");
   });
 }
