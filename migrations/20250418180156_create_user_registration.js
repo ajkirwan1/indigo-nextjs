@@ -4,7 +4,7 @@
  */
 
 export async function up(knex) {
-  await knex.schema.createTable("userNew", (table) => {
+  await knex.schema.createTable("user", (table) => {
     table.increments("id").primary();
     table.string("userName").nullable();
     table.string("userType").nullable(); // 'client' or 'admin'
@@ -29,36 +29,12 @@ export async function up(knex) {
     table.timestamp("createdAt").defaultTo(knex.fn.now()).notNullable();
   });
 
-  await knex.schema.alterTable("userNew", (table) => {
+  await knex.schema.alterTable("user", (table) => {
     table
       .foreign("registrationId")
       .references("id")
       .inTable("userRegistration")
       .onDelete("SET NULL");
-  });
-
-  await knex.schema.createTable("Pdf", (table) => {
-    table.string("id").primary(); // cuid
-    table.string("name").notNullable();
-    table.text("url").notNullable();
-  });
-
-  await knex.schema.createTable("userPdf", (table) => {
-    table.increments("id").primary();
-    table
-      .integer("userId")
-      .unsigned()
-      .notNullable()
-      .references("id")
-      .inTable("userNew")
-      .onDelete("CASCADE");
-    table
-      .string("pdfId")
-      .notNullable()
-      .references("id")
-      .inTable("Pdf")
-      .onDelete("CASCADE");
-    table.unique(["userId", "pdfId"]);
   });
 
   await knex.schema.createTable("MagicLinkToken", (table) => {
@@ -83,8 +59,6 @@ export async function up(knex) {
 export async function down(knex) {
   await knex.schema
     .dropTableIfExists("MagicLinkToken")
-    .dropTableIfExists("userPdf")
-    .dropTableIfExists("Pdf")
-    .dropTableIfExists("userNew")
+    .dropTableIfExists("user")
     .dropTableIfExists("userRegistration");
 }

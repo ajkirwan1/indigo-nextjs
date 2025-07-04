@@ -13,9 +13,10 @@
     "lint": "next lint",
     "db:migrate": "knex migrate:latest",
     "db:migrate:undo": "knex migrate:down",
-    "db:seed": "knex seed:run seed_user",
+    "db:seed": "node scripts/seed.js",
     "db:migrate:make": "knex migrate:make",
-    "vercel-build": "npx prisma generate && npm run knex:init && next build"
+    "vercel-build": "node scripts/vercel-build.js",
+    "setup:db": "node scripts/setup-db.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.696.0",
