@@ -41,6 +41,7 @@ export async function DELETE(req) {
     return NextResponse.json({
       success: true,
       token,
+      email: result.email || null, 
     });
   } catch (error) {
     console.error('API Delete Error:', error);

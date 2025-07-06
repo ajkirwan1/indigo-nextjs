@@ -5,10 +5,16 @@ export async function DeleteUserById(userId) {
   console.log(userId, "USER ID passed in");
 
   try {
-    // First, find the user's registrationId (if needed)
+    // Fetch user + linked email from userRegistration
     const user = await db.userNew.findUnique({
       where: { id: userId },
-      select: { id: true, registrationId: true },
+      select: {
+        id: true,
+        registrationId: true,
+        registration: {
+          select: { email: true },
+        },
+      },
     });
 
     if (!user) {
@@ -16,6 +22,7 @@ export async function DeleteUserById(userId) {
     }
 
     const registrationId = user.registrationId;
+    const email = user.registration?.email || null;
 
     await db.$transaction([
       db.magicLinkToken.deleteMany({ where: { userId } }),
@@ -24,7 +31,7 @@ export async function DeleteUserById(userId) {
       db.userRegistration.delete({ where: { id: registrationId } }),
     ]);
 
-    return { success: true };
+    return { success: true, email };
   } catch (error) {
     console.error("DeleteUserById error", {
       error: error?.message,

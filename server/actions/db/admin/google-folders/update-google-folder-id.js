@@ -24,7 +24,7 @@ export async function updateGoogleDriveFolderId(registrationId, googleFieldId) {
       db.userRegistration.update({
         where: { id: numericRegistrationId },
         data: { registration: "accepted" },
-        select: { id: true, registration: true },
+        select: { id: true, registration: true, email: true },
       }),
     ]);
 

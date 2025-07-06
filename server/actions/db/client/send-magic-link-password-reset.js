@@ -35,7 +35,7 @@ export async function SendMagicLinkPasswordReset(email, userId) {
 
       const magicLink = url.toString();
 
-      await sendMagicLinkPasswordResetEmail("ajkirwan1@gmail.com", magicLink);
+      await sendMagicLinkPasswordResetEmail(email, magicLink);
     });
 
     return { success: true };
