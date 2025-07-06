@@ -1,5 +1,7 @@
+'use server'
+
 import db from "@/modules/db";
-import { createErrorResponse } from "@/utils/error";
+import { createErrorResponse } from "@/utils/errors/error-response";
 
 export async function GetUserNewIdByEmail(email) {
   try {

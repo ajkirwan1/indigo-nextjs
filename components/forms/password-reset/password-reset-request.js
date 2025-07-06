@@ -1,0 +1,175 @@
+'use client';
+
+import { useState } from 'react';
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Snackbar,
+  Alert,
+  CircularProgress,
+} from '@mui/material';
+import { SubmitNewPassword } from '@/server/actions/db/client/submit-new-password'; // You'll need to implement this
+
+const PasswordResetRequestResetForm = ({ token }) => {
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: '',
+    severity: 'info',
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!password || !confirmPassword) {
+      return setSnackbar({
+        open: true,
+        message: 'Please fill in both fields.',
+        severity: 'error',
+      });
+    }
+
+    if (password !== confirmPassword) {
+      return setSnackbar({
+        open: true,
+        message: 'Passwords do not match.',
+        severity: 'error',
+      });
+    }
+
+    if (password.length < 8) {
+      return setSnackbar({
+        open: true,
+        message: 'Password must be at least 8 characters.',
+        severity: 'error',
+      });
+    }
+
+    setSubmitting(true);
+
+    const response = await SubmitNewPassword(token, password); // token comes from magic link or route
+
+    setSubmitting(false);
+
+    if (response.success) {
+      setSnackbar({
+        open: true,
+        message: 'Your password has been reset successfully.',
+        severity: 'success',
+      });
+    } else {
+      setSnackbar({
+        open: true,
+        message: response.errorMessage || 'Failed to reset password.',
+        severity: 'error',
+      });
+    }
+  };
+
+  return (
+    <Box component="form" onSubmit={handleSubmit}>
+      <Typography variant="h5" mb={2}>
+        Set a New Password
+      </Typography>
+
+      <TextField
+        label="New Password"
+        type="password"
+        fullWidth
+        required
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        sx={{
+          mb: 2,
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#003a4d',
+            },
+            '&:hover fieldset': {
+              borderColor: '#007BFF',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#003a4d',
+            },
+            '& input': {
+              cursor: 'pointer',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: '#003a4d', // default label color
+          },
+          '& .MuiInputLabel-root.Mui-focused': {
+            color: '#003a4d', // label color on focus
+          },
+        }}     
+      />
+
+      <TextField
+        label="Confirm Password"
+        type="password"
+        fullWidth
+        required
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        sx={{
+          mb: 2,
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: '#003a4d',
+            },
+            '&:hover fieldset': {
+              borderColor: '#007BFF',
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: '#003a4d',
+            },
+            '& input': {
+              cursor: 'pointer',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: '#003a4d', // default label color
+          },
+          '& .MuiInputLabel-root.Mui-focused': {
+            color: '#003a4d', // label color on focus
+          },
+        }}
+        
+        
+      />
+      <div className='submit-button-container'>
+      <Button
+        type="submit"
+        variant="contained"
+        fullWidth
+        disabled={submitting}
+        endIcon={submitting && <CircularProgress size={20} />}
+        sx={{
+          backgroundColor: '#003a4d', // Custom blue
+          color: '#fff',
+          '&:hover': {
+            backgroundColor: '#003a4dc7', // Darker blue
+          },
+        }}
+      >
+        Reset
+      </Button>
+      </div>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+      >
+        <Alert severity={snackbar.severity} variant="filled">
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+    </Box>
+  );
+};
+
+export default PasswordResetRequestResetForm;

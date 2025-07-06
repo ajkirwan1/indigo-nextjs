@@ -6,7 +6,7 @@ import db from "@/modules/db";
 import { sendMagicLinkEmail } from "@/lib/mail/send-magic-link-email";
 import { sendMagicLinkPasswordResetEmail } from "@/lib/mail/send-magic-link-password-reset-email";
 import crypto from "crypto";
-import { createErrorResponse } from "@/utils/error";
+import { createErrorResponse } from "@/utils/errors/error-response";
 
 export async function SendMagicLinkPasswordReset(email, userId) {
   if (!email || !userId) {
