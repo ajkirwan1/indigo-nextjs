@@ -11,6 +11,8 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import { deleteAccountByRegistrationId } from '@/lib/api/delete-account';
+import { DeleteAccountEmail } from '@/lib/mail/client-account-deleted';
+
 
 export default function DeleteAccountDialog({userId}) {
   const [open, setOpen] = useState(false);
@@ -18,23 +20,31 @@ export default function DeleteAccountDialog({userId}) {
 
   const handleDelete = async () => {
     setLoading(true);
-    try {
-      const result = await deleteAccountByRegistrationId(userId);
-
-       const token = result?.token;
-
-      if (!result?.success) {
-        console.error('Account deletion failed:', result?.errorCode, result?.errorMessage);
-        return; // Optionally show error message to user
-      }
-
-      await signOut({ callbackUrl: `/account-delete-success?token=${token}` });
-
-    } finally {
+  
+    const result = await deleteAccountByRegistrationId(userId);
+  
+    if (!result?.success) {
+      console.error('Account deletion failed:', result?.errorCode, result?.errorMessage);
       setLoading(false);
       setOpen(false);
+      return;
     }
+  
+    const { token, email } = result;
+  
+    const emailResult = await DeleteAccountEmail(email);
+  
+    if (emailResult?.success === false) {
+      console.error('Email dispatch failed:', emailResult.emailSubmissionError);
+      // You could optionally show a warning to the user here
+    }
+  
+    await signOut({ callbackUrl: `/account-delete-success?token=${token}` });
+  
+    setLoading(false);
+    setOpen(false);
   };
+  
 
   return (
     <>

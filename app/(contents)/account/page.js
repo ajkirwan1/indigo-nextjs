@@ -31,21 +31,18 @@ export const metadata = {
 
 export default async function UserInfo() {
   const session = await auth();
-  console.log(session, "SESSION");
 
   if (!session?.user?.id) {
     logServerError("No user ID found in session", { session });
-    // redirect("/");
+    redirect("/");
   }
 
   const id = parseInt(session.user.id, 10);
 
   if (isNaN(id)) {
     logServerError("Failed to parse user ID to integer", { userId: session.user.id });
-    // redirect("/");
+    redirect("/");
   }
-
-  console.log(id, "CLIENT TIDDDDD")
 
   return (
     <>
@@ -62,9 +59,6 @@ export default async function UserInfo() {
       </Box>
       <AccountPropertiesDetails id={id} />
       </Container>
-        {/* <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}> */}
-        
-        {/* </Suspense> */}
       </div>
       <div className={classes.itemWrapper}>
         <Suspense fallback={<Spinner className={classes.spinner} size="lg" />}>

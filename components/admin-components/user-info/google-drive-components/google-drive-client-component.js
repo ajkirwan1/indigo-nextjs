@@ -7,6 +7,8 @@ import { PendingBlock, AcceptedBlock, UpdatePendingBlock } from "./ui-blocks"
 import { updateGoogleDriveFolderIdByUserNewId } from "@/server/actions/db/admin/google-folders/accepted-user-update-google-id";
 import { fetchGoogleFoldersNew } from "./fetch-google-folders-new";
 import MaterialUiModal from "@/components/ui/modal/material-ui-modal";
+import { sendMagicLink } from "@/server/actions/db/admin/send-magic-link";
+import { Email } from "@mui/icons-material";
 
 
 export default function GoogleDriveClientComponent({
@@ -98,7 +100,9 @@ export default function GoogleDriveClientComponent({
 
     if (!allGoogleFolders) {
       try {
-        const response = await fetch('/api/google-drive/all-folders');
+        const response = await fetch('/api/google-drive/all-folders', {
+          cache: 'no-store',
+        });
         const data = await response.json();
 
         console.log(data, "ALL GOOGLE FOLDERS")
@@ -132,6 +136,10 @@ export default function GoogleDriveClientComponent({
       // User confirmed, do your DB update here
       const updateResult = await updateGoogleDriveFolderId(registrationId, state.googleFileId);
       if (updateResult.createdUser) {
+        const {createdUser, updatedRegistration} = updateResult;
+        console.log(updateResult, "updateResult")
+        const sendMagicLinkResult = await sendMagicLink(updatedRegistration.email, createdUser.id)
+        console.log(sendMagicLinkResult, "MAGIC LINK RESULT")
         setOriginalGoogleFolders(state.googleFileName);
         setGoogleFolders(state.googleFileName);
         setRegistrationStatus("accepted");
