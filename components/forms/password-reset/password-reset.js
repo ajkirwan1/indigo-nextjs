@@ -85,8 +85,8 @@ const ResetRequestForm = () => {
         sx={{ mb: 2 }}
         inputProps={{ className: 'mui-isolated-input' }}
       />
-
-      <Button
+    <div className='submit-button-container'>
+    <Button
         type="submit"
         variant="contained"
         fullWidth
@@ -95,7 +95,7 @@ const ResetRequestForm = () => {
       >
         Send Reset Link
       </Button>
-
+    </div>
       <Snackbar
         open={snackbar.open}
         autoHideDuration={4000}

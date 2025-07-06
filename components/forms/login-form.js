@@ -96,13 +96,13 @@ export default function LoginForm() {
       
       {!state?.errorMessage ? (
         <>
-                <Form
+          <Form
           formAction={formAction}
           state={state}
           handleChange={handleChange}
           isButtonDisabled={isButtonDisabled}
         />
-        <Link href="/password-reset-request">Reset Password</Link>
+        <Link className={classes.forgotPassword} href="/password-reset-request">Forgot password?</Link>
         </>
 
       ) : (

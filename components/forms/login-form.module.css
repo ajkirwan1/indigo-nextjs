@@ -24,6 +24,15 @@
   /* width: 40%; */
 }
 
+.forgotPassword {
+  all: unset;
+  cursor: pointer;
+  text-decoration: none;
+}
+.forgotPassword:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
 
 .formCheckboxContainer {
   display: flex;
