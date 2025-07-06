@@ -37,16 +37,27 @@ async function listDriveFiles() {
 export async function GET(request) {
   try {
     const files = await listDriveFiles();
-    console.log(files, "FILES")
-    // Return the list of files as JSON
-    return new Response(JSON.stringify({ files }), { status: 200 });
+    console.log(files, "FILES");
+
+    return new Response(JSON.stringify({ files }), {
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-store', // ✅ Force fresh fetch on every call
+        'Content-Type': 'application/json',
+      },
+    });
   } catch (error) {
     console.error('Error listing Google Drive files:', error);
-    
-    // Return an error response if something goes wrong
+
     return new Response(
       JSON.stringify({ error: 'Failed to list Google Drive files' }),
-      { status: 500 }
+      {
+        status: 500,
+        headers: {
+          'Cache-Control': 'no-store',
+          'Content-Type': 'application/json',
+        },
+      }
     );
   }
 }
