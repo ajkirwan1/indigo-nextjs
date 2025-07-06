@@ -41,6 +41,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#003a4d',
+          textTransform: 'none',
           color: '#fff',
           '&:hover': {
             backgroundColor: '#003a4dc7',
