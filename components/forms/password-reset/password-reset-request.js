@@ -10,7 +10,7 @@ import {
   Alert,
   CircularProgress,
 } from '@mui/material';
-import { SubmitNewPassword } from '@/server/actions/db/client/submit-new-password'; // You'll need to implement this
+import { SubmitNewPassword } from '@/server/actions/db/client/submit-new-password';
 
 const PasswordResetRequestResetForm = ({ token }) => {
   const [password, setPassword] = useState('');
@@ -51,7 +51,7 @@ const PasswordResetRequestResetForm = ({ token }) => {
 
     setSubmitting(true);
 
-    const response = await SubmitNewPassword(token, password); // token comes from magic link or route
+    const response = await SubmitNewPassword(token, password);
 
     setSubmitting(false);
 
@@ -83,29 +83,7 @@ const PasswordResetRequestResetForm = ({ token }) => {
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        sx={{
-          mb: 2,
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: '#003a4d',
-            },
-            '&:hover fieldset': {
-              borderColor: '#007BFF',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: '#003a4d',
-            },
-            '& input': {
-              cursor: 'pointer',
-            },
-          },
-          '& .MuiInputLabel-root': {
-            color: '#003a4d', // default label color
-          },
-          '& .MuiInputLabel-root.Mui-focused': {
-            color: '#003a4d', // label color on focus
-          },
-        }}     
+        sx={{ mb: 2 }}
       />
 
       <TextField
@@ -115,50 +93,21 @@ const PasswordResetRequestResetForm = ({ token }) => {
         required
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
-        sx={{
-          mb: 2,
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: '#003a4d',
-            },
-            '&:hover fieldset': {
-              borderColor: '#007BFF',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: '#003a4d',
-            },
-            '& input': {
-              cursor: 'pointer',
-            },
-          },
-          '& .MuiInputLabel-root': {
-            color: '#003a4d', // default label color
-          },
-          '& .MuiInputLabel-root.Mui-focused': {
-            color: '#003a4d', // label color on focus
-          },
-        }}
-        
-        
+        sx={{ mb: 2 }}
       />
-      <div className='submit-button-container'>
-      <Button
-        type="submit"
-        variant="contained"
-        fullWidth
-        disabled={submitting}
-        endIcon={submitting && <CircularProgress size={20} />}
-        sx={{
-          backgroundColor: '#003a4d', // Custom blue
-          color: '#fff',
-          '&:hover': {
-            backgroundColor: '#003a4dc7', // Darker blue
-          },
-        }}
-      >
-        Reset
-      </Button>
+
+      <div className="submit-button-container">
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          disabled={submitting}
+          endIcon={submitting && <CircularProgress size={20} />}
+        >
+          Reset
+        </Button>
       </div>
+
       <Snackbar
         open={snackbar.open}
         autoHideDuration={4000}
