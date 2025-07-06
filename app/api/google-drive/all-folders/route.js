@@ -1,4 +1,5 @@
 // app/api/drive/files/route.js
+export const dynamic = 'force-dynamic';
 
 import { google } from 'googleapis';
 import { getGoogleCredentialsFromEnv } from '@/utils/credentials/get-google-credentials';

@@ -118,7 +118,7 @@ export default function GoogleDriveClientComponent({
         console.error('Error fetching Google Drive files:', error);
       }
     } else {
-      console.log("FAlready have the data")
+      console.log("Already have the data")
     }
     setState((prev) => ({ ...prev, virtualListOpen: !prev.virtualListOpen }));
   };
