@@ -16,6 +16,8 @@ export async function GetUserNewIdByEmail(email) {
       },
     });
 
+    console.log(userNew, "USERDETAILS")
+
     if (!userNew) {
       console.error(`[GetUserNewIdByEmail] USER_NOT_FOUND: No UserNew record for email "${email}"`);
       return createErrorResponse("USER_NOT_FOUND", "UserNew not found for the provided email.");
