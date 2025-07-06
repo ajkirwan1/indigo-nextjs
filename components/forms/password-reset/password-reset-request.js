@@ -9,12 +9,19 @@ import {
   Snackbar,
   Alert,
   CircularProgress,
+  InputAdornment,
+  IconButton,
 } from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { SubmitNewPassword } from '@/server/actions/db/client/submit-new-password';
 
 const PasswordResetRequestResetForm = ({ token }) => {
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [submitting, setSubmitting] = useState(false);
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -78,22 +85,54 @@ const PasswordResetRequestResetForm = ({ token }) => {
 
       <TextField
         label="New Password"
-        type="password"
+        type={showPassword ? 'text' : 'password'}
         fullWidth
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         sx={{ mb: 2 }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                onClick={() => setShowPassword(!showPassword)}
+                edge="end"
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+        inputProps={{
+          className: 'mui-isolated-input',
+        }}
       />
 
       <TextField
         label="Confirm Password"
-        type="password"
+        type={showConfirmPassword ? 'text' : 'password'}
         fullWidth
         required
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         sx={{ mb: 2 }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                edge="end"
+              >
+                {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+        inputProps={{
+          className: 'mui-isolated-input',
+        }}
       />
 
       <div className="submit-button-container">
