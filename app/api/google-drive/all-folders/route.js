@@ -37,7 +37,7 @@ async function listDriveFiles() {
 export async function GET(request) {
   try {
     const files = await listDriveFiles();
-    
+    console.log(files, "FILES")
     // Return the list of files as JSON
     return new Response(JSON.stringify({ files }), { status: 200 });
   } catch (error) {

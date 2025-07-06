@@ -4,7 +4,6 @@
 
 import db from "@/modules/db";
 import { revalidateTag } from "next/cache";
-import { sendMagicLink } from "../../send-magic-link";
 import { sendMagicLinkEmail } from "@/lib/mail/send-magic-link-email";
 import crypto from "crypto";
 

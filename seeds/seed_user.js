@@ -416,7 +416,7 @@ export async function seed(knex) {
     {
       id: 1005,
       name: "Zenith Estates",
-      email: "ajkirwan1@gmail.com",
+      email: "ajkirwan86@gmail.com",
       phoneNumber: "+441100000005",
       buyertype: "agent",
       location: "France",
@@ -431,7 +431,7 @@ export async function seed(knex) {
     {
       id: 1006,
       name: "Echo Properties",
-      email: "ajkirwan1@gmail.com",
+      email: "ajkirwan86@gmail.com",
       phoneNumber: "+441100000006",
       buyertype: "private",
       location: "Germany",

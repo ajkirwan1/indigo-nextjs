@@ -93,13 +93,18 @@ export default function LoginForm() {
     <>
       {/* <ModalBackdrop /> */}
       <h1>Login</h1>
+      
       {!state?.errorMessage ? (
-        <Form
+        <>
+          <Form
           formAction={formAction}
           state={state}
           handleChange={handleChange}
           isButtonDisabled={isButtonDisabled}
         />
+        <Link className={classes.forgotPassword} href="/password-reset-request">Forgot password?</Link>
+        </>
+
       ) : (
         <>
           <h2>Something went wrong!</h2>
