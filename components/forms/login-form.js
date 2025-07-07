@@ -1,87 +1,113 @@
-/** @format */
-
 "use client";
-import { useFormState } from "react-dom";
-import { useState } from "react";
-import FormSubmit from "./formsubmit";
-import classes from "./login-form.module.css";
-import Link from "next/link";
-import Button from "../ui/button";
-import { authenticate } from "@/server/actions/authenticate/authenticate";
-import { useSearchParams } from "next/navigation";
 
+import { useState } from "react";
+import { useFormState } from "react-dom";
+import Link from "next/link";
+import {
+  TextField,
+  Box,
+  Button,
+  Typography,
+  Stack,
+  CircularProgress,
+} from "@mui/material";
+import { authenticate } from "@/server/actions/authenticate/authenticate";
+
+// Dummy FormSubmit replacement using Material UI Button
+function FormSubmit({ disabled, showSpinner }) {
+  return (
+    <Button
+      type="submit"
+      variant="contained"
+      color="primary"
+      disabled={disabled}
+      fullWidth
+      sx={{ py: 1.5 }}
+    >
+      {showSpinner ? <CircularProgress size={24} color="inherit" /> : "Login"}
+    </Button>
+  );
+}
 
 function Form({ handleChange, state, formAction, isButtonDisabled }) {
   return (
-    <form className={classes.loginForm} action={formAction}>
-      <div className={classes.formItemContainer}>
-        <label>User name:</label>
-        <input
-          className={state?.errors?.find((item) =>
-            item.errorType == "username" ? `${classes.inputError}` : null
-          )}
-          type="text"
-          name="username"
-          onChange={handleChange}
-        />
-        {state.validationErrors?.username ? <p>Invalid username</p> : state.validationErrors?.noUser ? "Invalid credentials" : null} 
-      </div>
-      <div className={classes.formItemContainer}>
-        <label>Password:</label>
-        <input
-          className={state?.errors?.find((item) =>
-            item.errorType == "password" ? `${classes.inputError}` : null
-          )}
-          type="text"
-          name="password"
-          onChange={handleChange}
-        />
-        {state.validationErrors?.password ? <p>Invalid password</p> : state.validationErrors?.noUser ? "Invalid credentials" : null}
-      </div>
-      <div
-        className={
-          // isButtonDisabled
-          false
-            ? `${classes.submitButtonContainer} ${classes.submitButtonContainerClosed}`
-            : `${classes.submitButtonContainer}`
+    <Box
+      component="form"
+      action={formAction}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+        mt: 2,
+      }}
+    >
+      <TextField
+        label="Username"
+        name="username"
+        type="text"
+        fullWidth
+        variant="outlined"
+        onChange={handleChange}
+        error={Boolean(
+          state?.validationErrors?.username || state?.validationErrors?.noUser
+        )}
+        helperText={
+          state?.validationErrors?.username
+            ? "Invalid username"
+            : state?.validationErrors?.noUser
+            ? "Invalid credentials"
+            : ""
         }
-      >
-        <FormSubmit
-          disabled={false}
-          showSpinner={false}
-          // disabled={isButtonDisabled}
-        />
+        inputProps={{ className: "mui-isolated-input" }}
+        sx={{
+          input: {
+            backgroundColor: "transparent",
+            WebkitBoxShadow: "0 0 0 1000px transparent inset",
+            transition: "background-color 5000s ease-in-out 0s",
+          },
+        }}
+      />
+
+      <TextField
+        label="Password"
+        name="password"
+        type="password"
+        fullWidth
+        variant="outlined"
+        onChange={handleChange}
+        error={Boolean(
+          state?.validationErrors?.password || state?.validationErrors?.noUser
+        )}
+        helperText={
+          state?.validationErrors?.password
+            ? "Invalid password"
+            : state?.validationErrors?.noUser
+            ? "Invalid credentials"
+            : ""
+        }
+      />
+      <div className="submit-button-container">
+      <FormSubmit disabled={isButtonDisabled} showSpinner={false} />
       </div>
-    </form>
+    </Box>
   );
 }
 
 const initialState = { errorMessage: "", errors: [], submitted: false };
 
 export default function LoginForm() {
-  // const [state, formAction] = useFormState(authenticate, initialState, {
-  //   redirection,
-  // });
   const [state, formAction] = useFormState(authenticate, initialState);
-
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [data, setData] = useState({ username: "", password: "" });
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    const { username, password } = data;
+    const newData = { ...data, [name]: value };
+    setData(newData);
 
-    if (password.length > 5 && username.length > 5) {
-      setIsButtonDisabled(false);
-    } else {
-      setIsButtonDisabled(true);
-    }
-    setData({
-      ...data,
-      [name]: value,
-    });
+    // Enable button only if both fields are > 5 characters
+    setIsButtonDisabled(!(newData.username.length > 5 && newData.password.length > 5));
   };
 
   const handleReset = () => {
@@ -90,31 +116,43 @@ export default function LoginForm() {
   };
 
   return (
-    <>
-      {/* <ModalBackdrop /> */}
-      <h1>Login</h1>
-      
+    <Box sx={{ p: 3, maxWidth: 400, mx: "auto" }}>
+      <Typography variant="h5" gutterBottom>
+        Login
+      </Typography>
+
       {!state?.errorMessage ? (
         <>
           <Form
-          formAction={formAction}
-          state={state}
-          handleChange={handleChange}
-          isButtonDisabled={isButtonDisabled}
-        />
-        <Link className={classes.forgotPassword} href="/password-reset-request">Forgot password?</Link>
+            formAction={formAction}
+            state={state}
+            handleChange={handleChange}
+            isButtonDisabled={isButtonDisabled}
+          />
+          <Box sx={{ mt: 2 }}>
+            <Link href="/password-reset-request" passHref legacyBehavior>
+              <Typography variant="body2" component="a" color="primary">
+                Forgot password?
+              </Typography>
+            </Link>
+          </Box>
         </>
-
       ) : (
-        <>
-          <h2>Something went wrong!</h2>
-          <p>{state.errorMessage}</p>
-          <div className={classes.submitButtonContainer}>
-            <Button onClick={handleReset}>Try again</Button>
-          </div>
-          <Link href="/">Return to home page</Link>
-        </>
+        <Stack spacing={2}>
+          <Typography variant="h6" color="error">
+            Something went wrong!
+          </Typography>
+          <Typography>{state.errorMessage}</Typography>
+          <Button variant="contained" onClick={handleReset}>
+            Try again
+          </Button>
+          <Link href="/" passHref legacyBehavior>
+            <Typography variant="body2" component="a">
+              Return to home page
+            </Typography>
+          </Link>
+        </Stack>
       )}
-    </>
+    </Box>
   );
 }
