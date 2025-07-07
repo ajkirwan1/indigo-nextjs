@@ -2,8 +2,6 @@ import db from "@/modules/db";
 import { createErrorResponse } from "@/utils/errors/error-response";
 
 export async function DeleteUserById(userId) {
-  console.log(userId, "USER ID passed in");
-
   try {
     // Fetch user + linked email from userRegistration
     const user = await db.userNew.findUnique({
