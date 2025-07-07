@@ -84,7 +84,7 @@ export default async function UserInfo() {
       sx={{ mt: 4 }} // optional top margin
       >
       <DeleteAccountDialog userId={id}/>
-      <ResetPasswordDialog />
+      <ResetPasswordDialog userId={id}/>
     </Box>
       </Container>
       </div>

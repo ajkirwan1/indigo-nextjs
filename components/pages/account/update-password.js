@@ -17,6 +17,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useState } from 'react';
 import { z } from 'zod';
 import { passwordSchema } from '@/utils/validation/zod/password-schema';
+import { updatePasswordByUserId } from '@/lib/api/update-password';
 
 // Schema for reset password form using imported passwordSchema
 const resetPasswordSchema = z
@@ -30,7 +31,7 @@ const resetPasswordSchema = z
     path: ['confirm'],
   });
 
-export default function ResetPasswordDialog() {
+export default function ResetPasswordDialog({ userId }) {
   const [open, setOpen] = useState(false);
   const [fields, setFields] = useState({
     current: '',
@@ -81,8 +82,17 @@ export default function ResetPasswordDialog() {
     setLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const updatePasswordResult = await updatePasswordByUserId(userId, fields.newPass);
+
+      if (!updatePasswordResult.success) {
+        setSnackbar({
+          open: true,
+          message: updatePasswordResult.errorMessage || 'Failed to reset password.',
+          severity: 'error',
+        });
+        setLoading(false);
+        return;
+      }
 
       setSnackbar({
         open: true,
@@ -110,7 +120,15 @@ export default function ResetPasswordDialog() {
 
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="sm">
         <DialogTitle>Reset Your Password</DialogTitle>
-        <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, mt: 1, pt: '16px !important',}}>
+        <DialogContent
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 2,
+            mt: 1,
+            pt: '16px !important',
+          }}
+        >
           <TextField
             type={showPassword.current ? 'text' : 'password'}
             label="Current Password"
@@ -123,7 +141,11 @@ export default function ResetPasswordDialog() {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => toggleVisibility('current')} edge="end" aria-label="toggle current password visibility">
+                  <IconButton
+                    onClick={() => toggleVisibility('current')}
+                    edge="end"
+                    aria-label="toggle current password visibility"
+                  >
                     {showPassword.current ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
@@ -144,7 +166,11 @@ export default function ResetPasswordDialog() {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => toggleVisibility('newPass')} edge="end" aria-label="toggle new password visibility">
+                  <IconButton
+                    onClick={() => toggleVisibility('newPass')}
+                    edge="end"
+                    aria-label="toggle new password visibility"
+                  >
                     {showPassword.newPass ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
@@ -165,7 +191,11 @@ export default function ResetPasswordDialog() {
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton onClick={() => toggleVisibility('confirm')} edge="end" aria-label="toggle confirm password visibility">
+                  <IconButton
+                    onClick={() => toggleVisibility('confirm')}
+                    edge="end"
+                    aria-label="toggle confirm password visibility"
+                  >
                     {showPassword.confirm ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
