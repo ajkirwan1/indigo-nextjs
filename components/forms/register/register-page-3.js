@@ -1,152 +1,216 @@
-/** @format */
-
 "use client";
+
 import { useState } from "react";
-import classes from "./register-form.module.css";
-import RegistrationButton from "@/components/ui/buttons/registration-button";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import Checkbox from "@mui/material/Checkbox";
 import Image from "next/image";
+import { Box, Grid, TextField, Typography, Checkbox, FormControlLabel, CircularProgress, Button } from "@mui/material";
 import userIcon from "/public/images/icons/add-user.png";
-import { RegisterMultiPage } from "@/server/actions/submit-multi-register";
-import { Spinner } from "@nextui-org/spinner";
+import { Spinner } from "@nextui-org/spinner"; // Optional: replace with CircularProgress
+import RegistrationButton from "@/components/ui/buttons/registration-button";
 import { RegisterEmail } from "@/lib/register-email";
 import { RegisterUser } from "@/server/actions/db/regsiter/register-user";
-import "react-phone-input-2/lib/material.css";
+import classes from "./register-form.module.css"
 
 export default function RegisterFormPage3New({
   handlePreviousTab,
   data,
   handleChange,
-  handleError
+  handleError,
 }) {
   const [errors, setErrors] = useState({});
   const [tickboxSelected, setTickboxSelected] = useState(false);
-  const [submitPending, setsubmitPending] = useState(false);
+  const [submitPending, setSubmitPending] = useState(false);
 
   const handleCheckBox = () => {
     setTickboxSelected((val) => !val);
   };
 
   const handleSubmitForm = async () => {
-    setErrors([]);
-    setsubmitPending(true);
+    setErrors({});
+    setSubmitPending(true);
 
     const submitResult = await RegisterUser(data);
+
     if (submitResult.dbError) {
-      handleError(submitResult.dbError)
+      handleError(submitResult.dbError);
     }
+
     if (submitResult?.success) {
       const registerEmail = await RegisterEmail(data);
       if (registerEmail?.emailSubmissionError) {
-        handleError(registerEmail.emailSubmissionError)
+        handleError(registerEmail.emailSubmissionError);
       }
-
     } else {
       setErrors({ ...submitResult });
     }
-    setsubmitPending(false);
+
+    setSubmitPending(false);
   };
 
   return (
-    <>
-      <div className={classes.headerContainer}>
-        <h1>REGISTER</h1>
-        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
-      </div>
-      <form className={classes.registerForm1}>
-        <div className={`${classes.formItemContainer} ${classes.ItemA}`}>
-          <label>Company or personal name</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="companyName"
-            />
-          </FormControl>
-        </div>
-        {errors.companyName && (
-          <p className={classes.errorA}>{errors.companyName}</p>
-        )}
-        <div className={`${classes.formItemContainer} ${classes.ItemB}`}>
-          <label>Telephone number</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="phoneNumber"
-            />
-          </FormControl>
-        </div>
-        {errors.phoneNumber && (
-          <p className={classes.errorB}>{errors.phoneNumber}</p>
-        )}
-        <div className={`${classes.formItemContainer} ${classes.ItemC}`}>
-          <label>Email address</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="email"
-            />
-          </FormControl>
-        </div>
-        {errors.email && <p className={classes.errorC}>{errors.email}</p>}
-        <div className={`${classes.formItemContainer} ${classes.ItemD}`}>
-          <label>Confirm email address</label>
-          <FormControl sx={{ width: "100%" }} size="small">
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              onChange={handleChange}
-              name="confirmEmail"
-            />
-          </FormControl>
+    <Box sx={{ maxWidth: 1000, mx: "auto", mt: 4, px: 2 }}>
+      {/* Header */}
+      <Box sx={{ textAlign: "center", mb: 3 }}>
+        <Typography variant="h5" gutterBottom>
+          REGISTER
+        </Typography>
+        <Image src={userIcon} alt="User icon" width={32} height={32} />
+      </Box>
 
-        </div>
-        {errors.confirmEmail && (
-            <p className={classes.errorD}>{errors.confirmEmail}</p>
-          )}
-        <div className={classes.tickRow}>
-          <div className={classes.inputWrapper}>
-            <label>
-              I agree to receive communications, updates, and promotional
-              information from Indigo Consulting. I understand that I can
-              unsubscribe at any time.
-            </label>
-            <Checkbox
-              color="default"
-              checked={tickboxSelected}
-              onChange={handleCheckBox}
-              sx={{ padding: "15px" }}
+      {/* Form */}
+      <form noValidate>
+        <Grid container spacing={2} >
+          {/* Company Name */}
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Company or personal name"
+              name="companyName"
+              type="text"
+              value={data.companyName}
+              onChange={handleChange}
+              error={!!errors.companyName}
+              helperText={errors.companyName || ""}
+              size="small"
+              inputProps={{ className: "mui-isolated-input" }}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  backgroundColor: '#f4f4f4', // your desired color
+                },
+                width: {
+                  xs: '60%',    // default on mobile
+                  sm: '90%',     // ≥600px
+                  md: '90%',     // ≥900px
+                  lg: '90%',     // ≥1200px
+                  xl: '90%',     // ≥1536px
+                },
+              }}
             />
+          </Grid>
+
+          {/* Telephone */}
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Telephone number"
+              name="phoneNumber"
+              value={data.phoneNumber}
+              onChange={handleChange}
+              error={!!errors.phoneNumber}
+              helperText={errors.phoneNumber || ""}
+              size="small"
+              inputProps={{ className: "mui-isolated-input" }}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  backgroundColor: '#f4f4f4', // your desired color
+                },
+                width: {
+                  xs: '60%',    // default on mobile
+                  sm: '90%',     // ≥600px
+                  md: '90%',     // ≥900px
+                  lg: '90%',     // ≥1200px
+                  xl: '90%',     // ≥1536px
+                },
+              }}
+            />
+          </Grid>
+
+          {/* Email */}
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Email address"
+              name="email"
+              value={data.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email || ""}
+              size="small"
+              inputProps={{ className: "mui-isolated-input" }}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  backgroundColor: '#f4f4f4', // your desired color
+                },
+                width: {
+                  xs: '60%',    // default on mobile
+                  sm: '90%',     // ≥600px
+                  md: '90%',     // ≥900px
+                  lg: '90%',     // ≥1200px
+                  xl: '90%',     // ≥1536px
+                },  // ≥1536px
+              }}
+              
+            />
+          </Grid>
+
+          {/* Confirm Email */}
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              label="Confirm email address"
+              name="confirmEmail"
+              value={data.confirmEmail}
+              onChange={handleChange}
+              error={!!errors.confirmEmail}
+              helperText={errors.confirmEmail || ""}
+              size="small"
+              inputProps={{ className: "mui-isolated-input" }}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  backgroundColor: '#f4f4f4', // your desired color
+                },
+                width: {
+                  xs: '60%',    // default on mobile
+                  sm: '90%',     // ≥600px
+                  md: '90%',     // ≥900px
+                  lg: '90%',     // ≥1200px
+                  xl: '90%',     // ≥1536px
+                },
+              }}
+            />
+          </Grid>
+
+          {/* Checkbox */}
+          <Grid item xs={12}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={tickboxSelected}
+                  onChange={handleCheckBox}
+                  color="primary"
+                />
+              }
+              label={
+                <Typography variant="body2">
+                  I agree to receive communications, updates, and promotional
+                  information from Indigo Consulting. I understand that I can
+                  unsubscribe at any time.
+                </Typography>
+              }
+            />
+          </Grid>
+        </Grid>
+
+        {/* Buttons */}
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+        <div className={classes.buttonWrapper}>
+          {submitPending ? (
+            <CircularProgress color="primary" size={28} />
+          ) : (
+            <>
+              <RegistrationButton onClick={handlePreviousTab}>
+                Previous
+              </RegistrationButton>
+              <RegistrationButton
+                disabled={!tickboxSelected}
+                onClick={handleSubmitForm}
+              >
+                Submit
+              </RegistrationButton>
+              </>
+          )}
           </div>
-        </div>
+        </Box>
       </form>
-      <div className={classes.buttonWrapper}>
-        {submitPending ? (
-          <div className={classes.spinner}>
-            <Spinner color="secondary" size="lg" />
-          </div>
-        ) : (
-          <>
-            <RegistrationButton onClick={handlePreviousTab}>
-              Previous
-            </RegistrationButton>
-            <RegistrationButton
-              disabled={!tickboxSelected}
-              onClick={() => handleSubmitForm()}
-            >
-              Submit
-            </RegistrationButton>
-          </>
-        )}
-      </div>
-    </>
+    </Box>
   );
 }

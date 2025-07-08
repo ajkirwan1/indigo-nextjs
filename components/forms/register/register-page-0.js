@@ -14,7 +14,7 @@ export default function RegisterFormPage0New({ handleNextTab }) {
     <>
       <div className={classes.headerContainer}>
         <h1>REGISTER</h1>
-        <Image className={classes.iconRegister} src={userIcon} alt="alt" />
+        <Image className={classes.iconRegister} src={userIcon} alt="A user registration icon" />
       </div>
       <div className={classes.infoWrapper}>
         <h2>

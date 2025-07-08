@@ -22,12 +22,12 @@ r/** @format */
   margin-top: 0;
 }
 
-.registerForm {
+/* .registerForm {
   display: flex;
   min-height: 70vh;
   flex-direction: column;
   align-items: center;
-}
+} */
 .iconRegister {
   opacity: 0.5;
   height: 45px;
@@ -67,12 +67,11 @@ r/** @format */
 
 .registerForm3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 10px;
+  grid-template-columns: minmax(150px, 250px) minmax(150px, 300px);
+  column-gap: 2vw;
+  row-gap: 2vh;
   justify-items: center;
-  font-weight: 300;
-  margin-bottom: 5vh;
-  width: 50%;
+  align-items: center;
   font-weight: 300;
 }
 
@@ -86,8 +85,8 @@ r/** @format */
 
 .registerForm3 label {
   justify-self: baseline;
-  /* max-width: 300px; */
   letter-spacing: 0;
+  /* max-width: 80%; */
 }
 
 .buttonContainer {
@@ -136,23 +135,23 @@ r/** @format */
 }
 
 
-.tickRow {
+/* .tickRow {
   grid-column-start: 1;
-  grid-column-end: 3;  /* Spanning 2 columns */
+  grid-column-end: 3;
   grid-row-start: 5;
-  grid-row-end: 6;  /* Placing it in the 5th row */
+  grid-row-end: 6;  
   display: flex;
   justify-content: center;
   width: 80%;
   gap: 3vw;
   margin-top: 2vh;
-}
+} */
 
-.formCheckboxContainer {
+/* .formCheckboxContainer {
   display: flex;
-}
+} */
 
-.hero:after {
+/* .hero:after {
   content: "";
   position: absolute;
   z-index: 2;
@@ -163,7 +162,7 @@ r/** @format */
   background: rgba(0, 0, 0, 0.378);
   opacity: 0.1;
   pointer-events: none;
-}
+} */
 
 .formcontainer {
   border-radius: 10px;
@@ -176,11 +175,12 @@ r/** @format */
   box-shadow: 1px 1px 1px;
 }
 
-.logoIndigo {
+/* .logoIndigo {
   height: 4rem;
   margin-top: 4vh;
   width: auto;
-}
+} */
+
 .buttoncontainer {
   display: flex;
   justify-content: space-around;
@@ -220,7 +220,7 @@ r/** @format */
   height: 100vh;
 }
 
-.darkBG {
+/* .darkBG {
   background-color: rgba(0, 0, 0, 0.644);
   width: 100vw;
   height: 100vh;
@@ -229,9 +229,9 @@ r/** @format */
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-}
+} */
 
-.centered {
+/* .centered {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -244,7 +244,7 @@ r/** @format */
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-}
+} */
 
 .headerContainer {
   display: flex;
@@ -257,7 +257,7 @@ r/** @format */
   margin-bottom: 5vh;
 }
 
-.ItemA {
+/* .ItemA {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -324,7 +324,7 @@ r/** @format */
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 4;
-}
+} */
 
 .submitButtonContainer {
   margin: 2vh;
@@ -398,10 +398,6 @@ r/** @format */
 
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
 
-  .buttonWrapper {
-    /* margin-top: 0; */
-  }
-
   .headerContainer h1 {
     font-size: 22px;
   }
@@ -426,24 +422,12 @@ r/** @format */
   .submitButtonContainer button {
     font-size: 12px;
     
-  }
-
-  .registerForm3 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: unset;
-    margin-bottom: unset;
-    /* width: unset; */
   }
 
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
 
-  .buttonWrapper {
-    /* margin-top: 0; */
-  }
   .headerContainer h1 {
     font-size: 22px;
   }
@@ -460,7 +444,6 @@ r/** @format */
 
   .submitButtonContainer {
     margin: 2vh;
-    /* display: flex; */
     width: 120px;
     height: 35px;
   }
@@ -473,19 +456,15 @@ r/** @format */
   .registerForm3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: unset;
     margin-bottom: unset;
-    /* width: unset; */
-    /* row-gap: unset; */
+    row-gap: 1.6vh;
   }
 
 }
 
 @media only screen and (min-width: 600px) and (max-width: 800px) {
-  .buttonWrapper {
-    /* margin-top: 0; */
-  }
   .headerContainer h1 {
     font-size: 22px;
   }
@@ -514,20 +493,15 @@ r/** @format */
   .registerForm3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: unset;
     margin-bottom: unset;
-    width: unset;
-    /* row-gap: unset; */
+    row-gap: 1.6vh;
   }
-
-
 }
 
 @media only screen and (max-width: 600px) {
-  .buttonWrapper {
-    margin-top: 10px;
-  }
+
   .registerForm1 {
     display: flex;
     flex-direction: column;
@@ -553,7 +527,7 @@ r/** @format */
   }
 
   .headerContainer h1 {
-    font-size: 18px;
+    font-size: 24px;
     /* margin-top: 0; */
   }
 
@@ -567,19 +541,16 @@ r/** @format */
     margin-top: 0;
   }
 
-
-
-
   .formItemContainer label {
     font-size: 14px;
   }
 
-  .formItemContainer input[type="text"],
+  /* .formItemContainer input[type="text"],
   .formItemContainer input[type="email"],
   .formItemContainer input[type="password"] {
     font-size: 12px;
     height: 1.8rem;
-  }
+  } */
 
   .submitButtonContainer {
     margin: 2vh;
@@ -595,21 +566,27 @@ r/** @format */
   .registerForm3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: unset;
     margin-bottom: unset;
-    width: unset;
-    row-gap: 10px;
-    margin-bottom: 2vh;
+    row-gap: 1.4vh;
   }
 
 
   .registerForm3 label{
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .errorParagraph {
     font-size: 14px;
   }
 
+  .infoWrapper h2 {
+    font-size: 18px;
+  }
+
+  .infoWrapper p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
 }

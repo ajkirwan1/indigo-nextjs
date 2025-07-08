@@ -8,6 +8,28 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiFormControl: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          [theme.breakpoints.only('xs')]: {
+            width: '60%',
+          },
+          [theme.breakpoints.only('sm')]: {
+            width: '70%',
+          },
+          [theme.breakpoints.only('md')]: {
+            width: '80%',
+          },
+          [theme.breakpoints.only('lg')]: {
+            width: '70%',
+          },
+          [theme.breakpoints.up('xl')]: {
+            width: '80%',
+          },
+        }),
+      },
+    },
+
     MuiTextField: {
       defaultProps: {
         variant: 'outlined',
@@ -37,6 +59,83 @@ const theme = createTheme({
         },
       },
     },
+
+    MuiInputBase: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          fontSize: '14px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '15px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '16px',
+          },
+        }),
+      },
+    },
+
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '14px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '15px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '16px',
+          },
+        }),
+      },
+    },
+
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '12px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '13px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '14px',
+          },
+        }),
+      },
+    },
+
+    MuiMenuItem: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '1rem',
+          [theme.breakpoints.only('xs')]: {
+            fontSize: '0.85rem',
+          },
+          [theme.breakpoints.only('sm')]: {
+            fontSize: '0.9rem',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '1rem',
+          },
+        }),
+      },
+    },
+
+    MuiSelect: {
+      styleOverrides: {
+        select: ({ theme }) => ({
+          fontSize: '1rem',
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '0.85rem',
+          },
+          [theme.breakpoints.only('sm')]: {
+            fontSize: '0.9rem',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '1rem',
+          },
+        }),
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         root: {

@@ -31,7 +31,7 @@ export default function RegisterFormPage1New({
       </div>
       <form className={classes.registerForm3}>
         <label>What is your investment range?</label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl size="small">
           <Select
             id="demo-simple-select"
             value={data.investmentRange}
@@ -58,13 +58,13 @@ export default function RegisterFormPage1New({
           </Select>
         </FormControl>
         <label>Preferred timeline for purchase or investment?</label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl size="small">
           <Select
             id="demo-simple-select"
             value={data.purchaseTimeline}
             name="purchaseTimeline"
             inputProps={{ "aria-label": "Without label" }}
-            autoWidth
+            // autoWidth
             displayEmpty
             onChange={handleselect}
             sx={{ backgroundColor: "white" }}

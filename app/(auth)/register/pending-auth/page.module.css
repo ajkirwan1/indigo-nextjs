@@ -1,11 +1,3 @@
-.formItemContainer {
-  display: flex;
-  padding: 5px;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 40%;
-}
-
 .pageWrapper {
   height: 100vh;
 }
@@ -19,7 +11,7 @@
   background-color: #ffffffcc;
   position: relative;
   width: 40vw;
-  height: 30vh;
+  height: fit-content;
   line-height: 2rem;
   letter-spacing: normal;
   box-shadow: 1px 1px 1px;
@@ -31,51 +23,67 @@
 }
 
 .formcontainer a:hover {
-
   text-decoration: underline;
   text-decoration-thickness: 1px
-
 }
 
-.logoIndigo {
-  height: 12rem;
-  width: auto;
+@media only screen and (max-width: 1600px) {
+
+  .formcontainer {
+    line-height: 1.6rem;
+  }
+
+  .formcontainer h1 {
+    font-size: 28px;
+  }
+
+  .formcontainer h2 {
+    font-size: 20px;
+  }
+
+  .formcontainer p {
+    font-size: 18px;
+  }
 }
 
-.imageWrapper {
-  position: relative;
-  z-index: -1;
-  background-color: rgb(10 10 10 / 83%);
-}
 
-.imageHero {
-  color: transparent;
-  position: relative;
-  height: 90vh;
-  width: 100%;
-  inset: 0px;
-  opacity: 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+@media only screen and (max-width: 1200px) {
 
-.heroContent {
-  left: 0;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  .formcontainer {
+    width: 60vw;
+    line-height: 1.6rem;
+  }
+
+  .formcontainer h1 {
+    font-size: 26px;
+  }
+
+  .formcontainer h2 {
+    font-size: 18px;
+  }
+
+  .formcontainer p {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  .logoIndigo {
-    height: 10rem;
-    width: auto;
+
+  .formcontainer {
+    width: 80vw;
+    line-height: 1.4rem;
   }
-  .submitButtonContainer {
-    margin: 2vh;
-    display: flex;
-    width: 100px;
-    height: 20px;
+
+  .formcontainer h1 {
+    font-size: 24px;
   }
+
+  .formcontainer h2 {
+    font-size: 18px;
+  }
+
+  .formcontainer p {
+    font-size: 16px;
+  }
+
 }
