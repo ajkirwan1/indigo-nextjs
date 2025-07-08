@@ -16,7 +16,7 @@ export default async function RegisterPage() {
 
   return (
     <div className={classes.pageWrapper}>
-      <HeroComponent heroImage={heroImage} altText="Alt text" header footer>
+      <HeroComponent heroImage={heroImage} altText="Hero image showing a building roof-top" header footer>
           <RegisterPageComponent />
       </HeroComponent>
     </div>

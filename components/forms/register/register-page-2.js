@@ -61,7 +61,7 @@ export default function RegisterFormPage1New({
         <FormControl sx={{ width: {
             xs: "100%",  // extra-small screens (e.g. phones)
             sm: "80%",   // small screens (optional step)
-            md: "60%",   // medium screens and up
+            md: "80%",   // medium screens and up
           }}} size="small">
           <Select
             id="demo-simple-select"
