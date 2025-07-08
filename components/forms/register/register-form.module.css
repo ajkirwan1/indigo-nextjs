@@ -67,12 +67,11 @@ r/** @format */
 
 .registerForm3 {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 10px;
+  grid-template-columns: minmax(150px, 300px) minmax(150px, 200px);
+  column-gap: 2vw;
+  row-gap: 2vh;
   justify-items: center;
-  font-weight: 300;
-  margin-bottom: 5vh;
-  width: 50%;
+  align-items: center;
   font-weight: 300;
 }
 
@@ -84,11 +83,10 @@ r/** @format */
   margin-left: 15px;
 }
 
-.registerForm3 label {
+/* .registerForm3 label {
   justify-self: baseline;
-  /* max-width: 300px; */
   letter-spacing: 0;
-}
+} */
 
 .buttonContainer {
   grid-column-start: 1;
@@ -136,21 +134,21 @@ r/** @format */
 }
 
 
-.tickRow {
+/* .tickRow {
   grid-column-start: 1;
-  grid-column-end: 3;  /* Spanning 2 columns */
+  grid-column-end: 3;
   grid-row-start: 5;
-  grid-row-end: 6;  /* Placing it in the 5th row */
+  grid-row-end: 6;  
   display: flex;
   justify-content: center;
   width: 80%;
   gap: 3vw;
   margin-top: 2vh;
-}
+} */
 
-.formCheckboxContainer {
+/* .formCheckboxContainer {
   display: flex;
-}
+} */
 
 .hero:after {
   content: "";
@@ -176,11 +174,12 @@ r/** @format */
   box-shadow: 1px 1px 1px;
 }
 
-.logoIndigo {
+/* .logoIndigo {
   height: 4rem;
   margin-top: 4vh;
   width: auto;
-}
+} */
+
 .buttoncontainer {
   display: flex;
   justify-content: space-around;
@@ -428,22 +427,18 @@ r/** @format */
     
   }
 
-  .registerForm3 {
+  /* .registerForm3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: unset;
     margin-bottom: unset;
-    /* width: unset; */
-  }
+  } */
 
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1400px) {
 
-  .buttonWrapper {
-    /* margin-top: 0; */
-  }
   .headerContainer h1 {
     font-size: 22px;
   }
@@ -460,7 +455,6 @@ r/** @format */
 
   .submitButtonContainer {
     margin: 2vh;
-    /* display: flex; */
     width: 120px;
     height: 35px;
   }
@@ -473,11 +467,9 @@ r/** @format */
   .registerForm3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: unset;
     margin-bottom: unset;
-    /* width: unset; */
-    /* row-gap: unset; */
   }
 
 }

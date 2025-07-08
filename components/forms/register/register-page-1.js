@@ -1,7 +1,6 @@
 /** @format */
 
 "use client";
-import { useState } from "react";
 import classes from "./register-form.module.css";
 import RegistrationButton from "@/components/ui/buttons/registration-button";
 import Select from "@mui/material/Select";
@@ -38,7 +37,11 @@ export default function RegisterFormPage1New({
       </div>
       <form className={classes.registerForm3}>
         <label>Are you located in Greece or a foreign country?</label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl sx={{ width: {
+            xs: "100%",  // extra-small screens (e.g. phones)
+            sm: "80%",   // small screens (optional step)
+            md: "60%",   // medium screens and up
+          }}} size="small">
           <Select
             id="demo-simple-select"
             value={data.location}
@@ -64,7 +67,11 @@ export default function RegisterFormPage1New({
         </FormControl>
         <label>What type of investment interests you?</label>
 
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl sx={{ width: {
+            xs: "100%",  // extra-small screens (e.g. phones)
+            sm: "80%",   // small screens (optional step)
+            md: "60%",   // medium screens and up
+          }}} size="small">
           <Select
             id="demo-simple-select"
             value={data.investmentInterest}
@@ -98,7 +105,11 @@ export default function RegisterFormPage1New({
         <label>
           Are you a direct buyer, real estate agent, or development investor?
         </label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl sx={{ width: {
+            xs: "100%",  // extra-small screens (e.g. phones)
+            sm: "80%",   // small screens (optional step)
+            md: "60%",   // medium screens and up
+          }}} size="small">
           <Select
             id="demo-simple-select"
             value={data.buyerType}

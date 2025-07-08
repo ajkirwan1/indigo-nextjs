@@ -58,13 +58,17 @@ export default function RegisterFormPage1New({
           </Select>
         </FormControl>
         <label>Preferred timeline for purchase or investment?</label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl sx={{ width: {
+            xs: "100%",  // extra-small screens (e.g. phones)
+            sm: "80%",   // small screens (optional step)
+            md: "60%",   // medium screens and up
+          }}} size="small">
           <Select
             id="demo-simple-select"
             value={data.purchaseTimeline}
             name="purchaseTimeline"
             inputProps={{ "aria-label": "Without label" }}
-            autoWidth
+            // autoWidth
             displayEmpty
             onChange={handleselect}
             sx={{ backgroundColor: "white" }}
