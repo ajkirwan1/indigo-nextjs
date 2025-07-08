@@ -11,25 +11,25 @@ const theme = createTheme({
     MuiFormControl: {
       styleOverrides: {
         root: ({ theme }) => ({
-          [theme.breakpoints.down('xs')]: {
-            width: '80%',  // <600px
+          [theme.breakpoints.only('xs')]: {
+            width: '60%',
           },
           [theme.breakpoints.only('sm')]: {
-            width: '70%',   // 600px - 899px
+            width: '70%',
           },
           [theme.breakpoints.only('md')]: {
-            width: '50%',   // 900px - 1199px
+            width: '80%',
           },
           [theme.breakpoints.only('lg')]: {
-            width: '80%',   // 1200px - 1535px
+            width: '70%',
           },
           [theme.breakpoints.up('xl')]: {
-            width: '80%',   // >=1536px
+            width: '80%',
           },
         }),
       },
     },
-    
+
     MuiTextField: {
       defaultProps: {
         variant: 'outlined',
@@ -59,6 +59,83 @@ const theme = createTheme({
         },
       },
     },
+
+    MuiInputBase: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          fontSize: '14px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '15px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '16px',
+          },
+        }),
+      },
+    },
+
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '14px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '15px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '16px',
+          },
+        }),
+      },
+    },
+
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '12px',
+          [theme.breakpoints.up('sm')]: {
+            fontSize: '13px',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '14px',
+          },
+        }),
+      },
+    },
+
+    MuiMenuItem: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: '1rem',
+          [theme.breakpoints.only('xs')]: {
+            fontSize: '0.85rem',
+          },
+          [theme.breakpoints.only('sm')]: {
+            fontSize: '0.9rem',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '1rem',
+          },
+        }),
+      },
+    },
+
+    MuiSelect: {
+      styleOverrides: {
+        select: ({ theme }) => ({
+          fontSize: '1rem',
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '0.85rem',
+          },
+          [theme.breakpoints.only('sm')]: {
+            fontSize: '0.9rem',
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '1rem',
+          },
+        }),
+      },
+    },
+
     MuiButton: {
       styleOverrides: {
         root: {
@@ -71,41 +148,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiMenuItem: {
-      styleOverrides: {
-        root: ({ theme }) => ({
-          fontSize: '1rem', // fallback/default
-    
-          [theme.breakpoints.down('sm')]: {
-            fontSize: '0.85rem',
-          },
-          [theme.breakpoints.only('sm')]: {
-            fontSize: '0.9rem',
-          },
-          [theme.breakpoints.up('md')]: {
-            fontSize: '1rem',
-          },
-        }),
-      },
-    },
-    MuiSelect: {
-      styleOverrides: {
-        select: ({ theme }) => ({
-          fontSize: '1rem', // default fallback
-    
-          [theme.breakpoints.down('sm')]: {
-            fontSize: '0.85rem',
-          },
-          [theme.breakpoints.only('sm')]: {
-            fontSize: '0.9rem',
-          },
-          [theme.breakpoints.up('md')]: {
-            fontSize: '1rem',
-          },
-        }),
-      },
-    },
-      
   },
 });
 

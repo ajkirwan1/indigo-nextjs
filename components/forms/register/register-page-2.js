@@ -31,7 +31,7 @@ export default function RegisterFormPage1New({
       </div>
       <form className={classes.registerForm3}>
         <label>What is your investment range?</label>
-        <FormControl sx={{ width: "100%" }} size="small">
+        <FormControl size="small">
           <Select
             id="demo-simple-select"
             value={data.investmentRange}
@@ -58,11 +58,7 @@ export default function RegisterFormPage1New({
           </Select>
         </FormControl>
         <label>Preferred timeline for purchase or investment?</label>
-        <FormControl sx={{ width: {
-            xs: "100%",  // extra-small screens (e.g. phones)
-            sm: "80%",   // small screens (optional step)
-            md: "80%",   // medium screens and up
-          }}} size="small">
+        <FormControl size="small">
           <Select
             id="demo-simple-select"
             value={data.purchaseTimeline}
