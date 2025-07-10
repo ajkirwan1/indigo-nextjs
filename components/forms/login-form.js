@@ -43,7 +43,7 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       }}
     >
       <TextField
-        label="Username"
+        placeholder="Username"
         name="username"
         type="text"
         fullWidth
@@ -61,16 +61,20 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
         }
         inputProps={{ className: "mui-isolated-input" }}
         sx={{
+          '& .MuiInputBase-input': {
+            height: { xs: '36px', sm: 'auto' }, // Smaller height on mobile
+            padding: { xs: '4px 10px', sm: undefined }, // Optional: tighter padding
+          },
           input: {
-            backgroundColor: "transparent",
-            WebkitBoxShadow: "0 0 0 1000px transparent inset",
-            transition: "background-color 5000s ease-in-out 0s",
+            backgroundColor: 'transparent',
+            WebkitBoxShadow: '0 0 0 1000px transparent inset',
+            transition: 'background-color 5000s ease-in-out 0s',
           },
         }}
       />
 
       <TextField
-        label="Password"
+        placeholder="Password"
         name="password"
         type="password"
         fullWidth
@@ -116,7 +120,13 @@ export default function LoginForm() {
   };
 
   return (
-    <Box sx={{ p: 3, maxWidth: 400, mx: "auto" }}>
+    <Box
+  sx={{
+    maxWidth: 800,
+    mx: { xs: 0, sm: "auto" }, // No horizontal margin on mobile, centered on small and up
+    width: { xs: "100%", sm: "auto" }, // Full width on mobile, default on larger screens
+  }}
+>
       <Typography variant="h5" gutterBottom>
         Login
       </Typography>
@@ -128,6 +138,7 @@ export default function LoginForm() {
             state={state}
             handleChange={handleChange}
             isButtonDisabled={isButtonDisabled}
+            fullWidth
           />
           <Box sx={{ mt: 2 }}>
             <Link href="/password-reset-request" passHref legacyBehavior>

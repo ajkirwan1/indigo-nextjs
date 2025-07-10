@@ -9,8 +9,8 @@ import Link from "next/link";
 export default function HeroFooter() {
   return (
     <footer className={classes.footer}>
-      <ul>
-        <li>
+      <ul className={classes.footerGrid}>
+        <li >
           <ShareComponent
             white="true"
             text={"Indigo Consulting Homepage"}

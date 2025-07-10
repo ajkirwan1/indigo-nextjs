@@ -552,6 +552,8 @@ r/** @format */
     height: 1.8rem;
   } */
 
+  
+
   .submitButtonContainer {
     margin: 2vh;
     /* display: flex; */
@@ -582,11 +584,11 @@ r/** @format */
   }
 
   .infoWrapper h2 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .infoWrapper p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.4;
   }
 }

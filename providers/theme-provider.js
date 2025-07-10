@@ -64,7 +64,14 @@ const theme = createTheme({
       styleOverrides: {
         input: ({ theme }) => ({
           fontSize: '14px',
+          height: '36px',
+          padding: '4px 10px',
+          backgroundColor: 'transparent',
+          WebkitBoxShadow: '0 0 0 1000px transparent inset',
+          transition: 'background-color 5000s ease-in-out 0s',
           [theme.breakpoints.up('sm')]: {
+            height: 'auto',
+            padding: undefined,
             fontSize: '15px',
           },
           [theme.breakpoints.up('md')]: {
@@ -73,6 +80,23 @@ const theme = createTheme({
         }),
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: ({ theme }) => ({
+          height: '36px',
+          padding: '4px 10px',
+          backgroundColor: 'transparent',
+          WebkitBoxShadow: '0 0 0 1000px transparent inset',
+          transition: 'background-color 5000s ease-in-out 0s',
+          [theme.breakpoints.up('sm')]: {
+            height: 'auto',
+            padding: undefined,
+          },
+        }),
+      },
+    },
+    
+    
 
     MuiInputLabel: {
       styleOverrides: {
@@ -138,16 +162,23 @@ const theme = createTheme({
 
     MuiButton: {
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           backgroundColor: '#003a4d',
           textTransform: 'none',
           color: '#fff',
+          paddingTop: '12px',
+          paddingBottom: '12px',
           '&:hover': {
             backgroundColor: '#003a4dc7',
           },
-        },
+          [theme.breakpoints.down('sm')]: {
+            paddingTop: '6px',
+            paddingBottom: '6px',
+          },
+        }),
       },
     },
+    
   },
 });
 
