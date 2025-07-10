@@ -89,7 +89,7 @@ const theme = createTheme({
           },
           [theme.breakpoints.up('sm')]: {
             height: 'auto',
-            padding: '16.5px 14px', // MUI default for outlined variant
+            padding: '14px 14px', // MUI default for outlined variant
           },
           backgroundColor: 'transparent',
           WebkitBoxShadow: '0 0 0 1000px transparent inset',
