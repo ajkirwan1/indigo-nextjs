@@ -45,6 +45,10 @@
   align-items: center;
   gap: 2vh;
 }
+
+
+
+
 @media only screen and (min-width: 1800px) {
   .aklogo {
     height: 4rem;
@@ -97,12 +101,12 @@
 
   @media only screen and (max-width: 800px) {
     .footer ul {
-      list-style: none;
+      /* list-style: none;
       height: 100%;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 1.5rem;
+      display: flex; */
+      /* gap: 1.5rem;
       font-size: 1.25rem;
       align-items: center;
       justify-content: center;
@@ -114,9 +118,22 @@
       padding-inline-start: 0;
       flex-direction: column;
       padding-bottom: 20px;
-      padding-top: 20px;
+      padding-top: 20px; */
     }
+
+    .footer ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columns */
+      grid-template-rows: repeat(2, auto);   /* 2 rows */
+      gap: 1rem; /* Optional: adds space between grid items */
+      padding-bottom: 20px;
+      padding-top: 20px;
+      justify-items: center
+    }
+  
+
   }
+
 
   .footer li {
     font-size: 12px;

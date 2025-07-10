@@ -6,107 +6,106 @@ import {
   TextField,
   Button,
   Typography,
-  Snackbar,
-  Alert,
   CircularProgress,
+  useMediaQuery,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { GetUserNewIdByEmail } from '@/server/actions/db/client/get-user-id-by-email';
 import { SendMagicLinkPasswordReset } from '@/server/actions/db/client/send-magic-link-password-reset';
 
-const ResetRequestForm = () => {
+export default function ResetRequestForm() {
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'info',
-  });
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
+    setSuccessMessage('');
 
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      setSnackbar({
-        open: true,
-        message: 'Please enter a valid email address.',
-        severity: 'error',
-      });
+      setErrorMessage('Please enter a valid email address.');
       return;
     }
 
     setSubmitting(true);
 
-    // 1. Get userId by email
     const userResponse = await GetUserNewIdByEmail(email);
-
     if (!userResponse.success) {
-      setSnackbar({
-        open: true,
-        message: userResponse.errorMessage || 'This email is not registered.',
-        severity: 'error',
-      });
+      setErrorMessage(userResponse.errorMessage || 'This email is not registered.');
       setSubmitting(false);
       return;
     }
 
-    // 2. Send magic link email using userId
     const resetResponse = await SendMagicLinkPasswordReset(email, userResponse.userId);
-
     setSubmitting(false);
 
     if (resetResponse.success) {
-      setSnackbar({
-        open: true,
-        message: 'Password reset email sent if this account exists.',
-        severity: 'success',
-      });
+      setSuccessMessage('Password reset email sent if this account exists.');
     } else {
-      setSnackbar({
-        open: true,
-        message: resetResponse.errorMessage || 'Failed to send password reset email.',
-        severity: 'error',
-      });
+      setErrorMessage(resetResponse.errorMessage || 'Failed to send password reset email.');
     }
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
-      <Typography variant="h5" mb={2}>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        mx: { xs: 0, sm: 'auto' },
+        px: { xs: 2, sm: 0 },
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 2,
+      }}
+    >
+      <Typography variant="h5" textAlign="center">
         Reset Your Password
       </Typography>
 
       <TextField
-        label="Email Address"
+        {...(isMobile
+          ? { placeholder: 'Email Address' }
+          : { label: 'Email Address' })}
         type="email"
         fullWidth
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        sx={{ mb: 2 }}
+        variant="outlined"
+        error={Boolean(errorMessage)}
+        helperText={errorMessage || ''}
+        sx={{
+          [theme.breakpoints.down('sm')]: {
+            width: '100% !important',
+          },
+        }}
         inputProps={{ className: 'mui-isolated-input' }}
       />
-    <div className='submit-button-container'>
-    <Button
-        type="submit"
-        variant="contained"
-        fullWidth
-        disabled={submitting}
-        endIcon={submitting && <CircularProgress size={20} />}
-      >
-        Send Reset Link
-      </Button>
-    </div>
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={4000}
-        onClose={() => setSnackbar({ ...snackbar, open: false })}
-      >
-        <Alert severity={snackbar.severity} variant="filled">
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
+
+      {successMessage && (
+        <Typography variant="body2" color="success.main" textAlign="center">
+          {successMessage}
+        </Typography>
+      )}
+
+      <div className="submit-button-container">
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          disabled={submitting}
+          endIcon={submitting && <CircularProgress size={20} />}
+        >
+          {submitting ? 'Sending...' : 'Send Reset'}
+        </Button>
+      </div>
     </Box>
   );
-};
-
-export default ResetRequestForm;
+}

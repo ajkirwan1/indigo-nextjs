@@ -10,10 +10,11 @@ import {
   Typography,
   Stack,
   CircularProgress,
+  useMediaQuery,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { authenticate } from "@/server/actions/authenticate/authenticate";
 
-// Dummy FormSubmit replacement using Material UI Button
 function FormSubmit({ disabled, showSpinner }) {
   return (
     <Button
@@ -22,7 +23,6 @@ function FormSubmit({ disabled, showSpinner }) {
       color="primary"
       disabled={disabled}
       fullWidth
-      sx={{ py: 1.5 }}
     >
       {showSpinner ? <CircularProgress size={24} color="inherit" /> : "Login"}
     </Button>
@@ -30,6 +30,9 @@ function FormSubmit({ disabled, showSpinner }) {
 }
 
 function Form({ handleChange, state, formAction, isButtonDisabled }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Box
       component="form"
@@ -43,7 +46,12 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       }}
     >
       <TextField
-        label="Username"
+        {...(isMobile
+          ? { placeholder: "Username" }
+          : {
+              label: "Username",
+              // InputLabelProps: { shrink: true },
+            })}
         name="username"
         type="text"
         fullWidth
@@ -60,17 +68,15 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
             : ""
         }
         inputProps={{ className: "mui-isolated-input" }}
-        sx={{
-          input: {
-            backgroundColor: "transparent",
-            WebkitBoxShadow: "0 0 0 1000px transparent inset",
-            transition: "background-color 5000s ease-in-out 0s",
-          },
-        }}
       />
 
       <TextField
-        label="Password"
+        {...(isMobile
+          ? { placeholder: "Password" }
+          : {
+              label: "Password",
+              // InputLabelProps: { shrink: true },
+            })}
         name="password"
         type="password"
         fullWidth
@@ -87,8 +93,9 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
             : ""
         }
       />
+
       <div className="submit-button-container">
-      <FormSubmit disabled={isButtonDisabled} showSpinner={false} />
+        <FormSubmit disabled={isButtonDisabled} showSpinner={false} />
       </div>
     </Box>
   );
@@ -107,7 +114,9 @@ export default function LoginForm() {
     setData(newData);
 
     // Enable button only if both fields are > 5 characters
-    setIsButtonDisabled(!(newData.username.length > 5 && newData.password.length > 5));
+    setIsButtonDisabled(
+      !(newData.username.length > 5 && newData.password.length > 5)
+    );
   };
 
   const handleReset = () => {
@@ -116,7 +125,13 @@ export default function LoginForm() {
   };
 
   return (
-    <Box sx={{ p: 3, maxWidth: 400, mx: "auto" }}>
+    <Box
+      sx={{
+        maxWidth: 800,
+        mx: { xs: 0, sm: "auto" }, // No margin on mobile, center on larger screens
+        width: { xs: "100%", sm: "80%" }, // Full width on mobile
+      }}
+    >
       <Typography variant="h5" gutterBottom>
         Login
       </Typography>

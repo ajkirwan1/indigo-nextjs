@@ -2,13 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Box, Grid, TextField, Typography, Checkbox, FormControlLabel, CircularProgress, Button } from "@mui/material";
+import { Box, Grid, TextField, Typography, Checkbox, FormControlLabel, CircularProgress, Button, useMediaQuery } from "@mui/material";
 import userIcon from "/public/images/icons/add-user.png";
 import { Spinner } from "@nextui-org/spinner"; // Optional: replace with CircularProgress
 import RegistrationButton from "@/components/ui/buttons/registration-button";
 import { RegisterEmail } from "@/lib/register-email";
 import { RegisterUser } from "@/server/actions/db/regsiter/register-user";
 import classes from "./register-form.module.css"
+import { useTheme } from "@mui/material/styles";
 
 export default function RegisterFormPage3New({
   handlePreviousTab,
@@ -16,6 +17,8 @@ export default function RegisterFormPage3New({
   handleChange,
   handleError,
 }) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [errors, setErrors] = useState({});
   const [tickboxSelected, setTickboxSelected] = useState(false);
   const [submitPending, setSubmitPending] = useState(false);
@@ -47,23 +50,21 @@ export default function RegisterFormPage3New({
   };
 
   return (
-    <Box sx={{ maxWidth: 1000, mx: "auto", mt: 4, px: 2 }}>
-      {/* Header */}
-      <Box sx={{ textAlign: "center", mb: 3 }}>
-        <Typography variant="h5" gutterBottom>
-          REGISTER
-        </Typography>
-        <Image src={userIcon} alt="User icon" width={32} height={32} />
-      </Box>
-
-      {/* Form */}
+    <>
+      <div className={classes.headerContainer}>
+      <h1>REGISTER</h1>
+        <Image className={classes.iconRegister} src={userIcon} alt="User icon" />
+        </div>
       <form noValidate>
         <Grid container spacing={2} >
-          {/* Company Name */}
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              label="Company or personal name"
+              {...(isMobile
+                ? { placeholder: "Company or personal name" }
+                : {
+                    label: "Company or personal name",
+                  })}
               name="companyName"
               type="text"
               value={data.companyName}
@@ -77,7 +78,7 @@ export default function RegisterFormPage3New({
                   backgroundColor: '#f4f4f4', // your desired color
                 },
                 width: {
-                  xs: '60%',    // default on mobile
+                  xs: '80%',    // default on mobile
                   sm: '90%',     // ≥600px
                   md: '90%',     // ≥900px
                   lg: '90%',     // ≥1200px
@@ -91,7 +92,11 @@ export default function RegisterFormPage3New({
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              label="Telephone number"
+              {...(isMobile
+                ? { placeholder: "Telephone number" }
+                : {
+                    label: "Telephone number",
+                  })}
               name="phoneNumber"
               value={data.phoneNumber}
               onChange={handleChange}
@@ -104,7 +109,7 @@ export default function RegisterFormPage3New({
                   backgroundColor: '#f4f4f4', // your desired color
                 },
                 width: {
-                  xs: '60%',    // default on mobile
+                  xs: '80%',    // default on mobile
                   sm: '90%',     // ≥600px
                   md: '90%',     // ≥900px
                   lg: '90%',     // ≥1200px
@@ -113,12 +118,15 @@ export default function RegisterFormPage3New({
               }}
             />
           </Grid>
-
-          {/* Email */}
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              label="Email address"
+              {...(isMobile
+                ? { placeholder: "Email Address" }
+                : {
+                    label: "Email Address",
+                    // InputLabelProps: { shrink: true },
+                  })}
               name="email"
               value={data.email}
               onChange={handleChange}
@@ -131,12 +139,12 @@ export default function RegisterFormPage3New({
                   backgroundColor: '#f4f4f4', // your desired color
                 },
                 width: {
-                  xs: '60%',    // default on mobile
+                  xs: '80%',    // default on mobile
                   sm: '90%',     // ≥600px
                   md: '90%',     // ≥900px
                   lg: '90%',     // ≥1200px
                   xl: '90%',     // ≥1536px
-                },  // ≥1536px
+                },
               }}
               
             />
@@ -146,7 +154,12 @@ export default function RegisterFormPage3New({
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-              label="Confirm email address"
+              {...(isMobile
+                ? { placeholder: "Confirm email Address" }
+                : {
+                    label: "Confirm email Address",
+                    // InputLabelProps: { shrink: true },
+                  })}
               name="confirmEmail"
               value={data.confirmEmail}
               onChange={handleChange}
@@ -159,7 +172,7 @@ export default function RegisterFormPage3New({
                   backgroundColor: '#f4f4f4', // your desired color
                 },
                 width: {
-                  xs: '60%',    // default on mobile
+                  xs: '80%',    // default on mobile
                   sm: '90%',     // ≥600px
                   md: '90%',     // ≥900px
                   lg: '90%',     // ≥1200px
@@ -211,6 +224,6 @@ export default function RegisterFormPage3New({
           </div>
         </Box>
       </form>
-    </Box>
+    </>
   );
 }
