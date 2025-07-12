@@ -20,8 +20,14 @@ export async function sendMagicLink(email, userId) {
       },
     });
 
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    ? process.env.NEXT_PUBLIC_BASE_URL
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+
     // Step 3: Build the URL
-    const magicLink = `${process.env.NEXT_PUBLIC_BASE_URL}/new-user?token=${token}`;
+    const magicLink = `${baseUrl}/new-user?token=${token}`;
 
     // Step 4: Send the email
     await sendMagicLinkEmail(email, magicLink);
