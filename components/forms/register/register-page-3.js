@@ -61,9 +61,9 @@ export default function RegisterFormPage3New({
             <TextField
               fullWidth
               {...(isMobile
-                ? { placeholder: "Company or personal name" }
+                ? { placeholder: "Name" }
                 : {
-                    label: "Company or personal name",
+                    label: "Name",
                   })}
               name="companyName"
               type="text"

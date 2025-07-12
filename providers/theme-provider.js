@@ -84,7 +84,7 @@ const theme = createTheme({
       styleOverrides: {
         input: ({ theme }) => ({
           [theme.breakpoints.down('sm')]: {
-            height: '36px',
+            height: '30px',
             padding: '4px 10px',
           },
           [theme.breakpoints.up('sm')]: {
