@@ -161,4 +161,8 @@
     width: 100px;
     height: 20px;
   }
+
+  .pageWrapper {
+    height: 110vh;
+  }
 }

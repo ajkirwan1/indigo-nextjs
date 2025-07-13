@@ -11,8 +11,11 @@ import {
   Stack,
   CircularProgress,
   useMediaQuery,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { authenticate } from "@/server/actions/authenticate/authenticate";
 
 function FormSubmit({ disabled, showSpinner }) {
@@ -33,6 +36,10 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // New state for toggling password visibility
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => setShowPassword((show) => !show);
+
   return (
     <Box
       component="form"
@@ -46,12 +53,13 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       }}
     >
       <TextField
-        {...(isMobile
-          ? { placeholder: "Username" }
-          : {
-              label: "Username",
-              // InputLabelProps: { shrink: true },
-            })}
+        // {...(isMobile
+        //   ? { placeholder: "Username" }
+        //   : {
+        //       label: "Username",
+        //       // InputLabelProps: { shrink: true },
+        //     })}
+        placeholder= "Username"
         name="username"
         type="text"
         fullWidth
@@ -71,14 +79,15 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
       />
 
       <TextField
-        {...(isMobile
-          ? { placeholder: "Password" }
-          : {
-              label: "Password",
-              // InputLabelProps: { shrink: true },
-            })}
+        // {...(isMobile
+        //   ? { placeholder: "Password" }
+        //   : {
+        //       label: "Password",
+        //       // InputLabelProps: { shrink: true },
+        //     })}
+        placeholder= "Password"
         name="password"
-        type="password"
+        type={showPassword ? "text" : "password"} // toggle type here
         fullWidth
         variant="outlined"
         onChange={handleChange}
@@ -92,6 +101,21 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
             ? "Invalid credentials"
             : ""
         }
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton
+                onClick={toggleShowPassword}
+                onMouseDown={(e) => e.preventDefault()}
+                edge="end"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <VisibilityOff /> : <Visibility />}
+              </IconButton>
+            </InputAdornment>
+          ),
+        }}
+        inputProps={{ className: "mui-isolated-input" }}
       />
 
       <div className="submit-button-container">

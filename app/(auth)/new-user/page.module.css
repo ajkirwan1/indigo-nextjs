@@ -9,19 +9,15 @@
     border-radius: 4px;
     background-color: #ffffff81;
     position: relative;
-    width: 500px;
+    width: 40vw;
     box-shadow: 1px 1px 1px;
     margin: auto;
     margin-top: 5vh;
     letter-spacing: normal;
-    padding: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
   
-  .formcontainer h1 {
-    display: flex;
-    margin-top: 5vh;
-    justify-content: center;
-  }
   .logoIndigo {
     height: 12rem;
     width: auto;
@@ -105,15 +101,10 @@
       height: 10rem;
       width: auto;
     }
-    /* .submitButtonContainer {
-      margin: 2vh;
-      display: flex;
-      width: 100px;
-      height: 25px;
-    } */
   
     .formcontainer {
       width: 70vw;
+      margin-top: 0;
     }
   }
   

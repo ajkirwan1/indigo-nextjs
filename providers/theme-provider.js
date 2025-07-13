@@ -84,8 +84,8 @@ const theme = createTheme({
       styleOverrides: {
         input: ({ theme }) => ({
           [theme.breakpoints.down('sm')]: {
-            height: '36px',
-            padding: '4px 10px',
+            height: '26px',
+            padding: '3px 10px',
           },
           [theme.breakpoints.up('sm')]: {
             height: 'auto',
@@ -94,6 +94,23 @@ const theme = createTheme({
           backgroundColor: 'transparent',
           WebkitBoxShadow: '0 0 0 1000px transparent inset',
           transition: 'background-color 5000s ease-in-out 0s',
+        }),
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        body2: ({ theme }) => ({
+          // fontSize: '12px',
+          color: '#4a4a4a', // default color
+          // lineHeight: 1.5,
+
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '10px',
+            lineHeight: 1.3,
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '14px',
+          },
         }),
       },
     },
@@ -125,6 +142,17 @@ const theme = createTheme({
           [theme.breakpoints.up('md')]: {
             fontSize: '14px',
           },
+          [theme.breakpoints.down('sm')]: {
+            letterSpacing: '0.5px', // adjust as needed
+            lineHeight:1
+          },
+              // Specific styles when in error state
+        '&.Mui-error': {
+          color: '#d32f2f', // or your custom red
+          fontWeight: 100,
+          margin: 0,
+
+        },
         }),
       },
     },

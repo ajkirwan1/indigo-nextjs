@@ -134,36 +134,6 @@ r/** @format */
   justify-content: space-between;
 }
 
-
-/* .tickRow {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;  
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  gap: 3vw;
-  margin-top: 2vh;
-} */
-
-/* .formCheckboxContainer {
-  display: flex;
-} */
-
-/* .hero:after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.378);
-  opacity: 0.1;
-  pointer-events: none;
-} */
-
 .formcontainer {
   border-radius: 10px;
   background-color: #ffffffcc;
@@ -174,13 +144,6 @@ r/** @format */
   top: 35vh;
   box-shadow: 1px 1px 1px;
 }
-
-/* .logoIndigo {
-  height: 4rem;
-  margin-top: 4vh;
-  width: auto;
-} */
-
 .buttoncontainer {
   display: flex;
   justify-content: space-around;
@@ -190,7 +153,7 @@ r/** @format */
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 5vh;
+  margin-bottom: 3vh;
   gap: 30px;
   margin-top: 30px;
 }
@@ -220,32 +183,6 @@ r/** @format */
   height: 100vh;
 }
 
-/* .darkBG {
-  background-color: rgba(0, 0, 0, 0.644);
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-} */
-
-/* .centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #d9d9d9b2;
-  width: 800px;
-  min-height: 60%;
-  max-width: 70vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-} */
-
 .headerContainer {
   display: flex;
   /* flex-direction: column; */
@@ -256,75 +193,6 @@ r/** @format */
 .spinner {
   margin-bottom: 5vh;
 }
-
-/* .ItemA {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-
-.errorA {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.ItemB {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 1;
-}
-.errorB {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.ItemC {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 3;
-}
-
-.errorC {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 4;
-}
-
-.ItemD {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 3;
-}
-
-.ItemE {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 4;
-}
-
-.ItemF {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 4;
-}
-
-.errorD {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 4;
-} */
 
 .submitButtonContainer {
   margin: 2vh;
