@@ -50,6 +50,9 @@ const theme = createTheme({
               cursor: 'pointer',
             },
           },
+          '& .MuiOutlinedInput-root': {
+            backgroundColor: '#f8f8f8',
+          },
           '& .MuiInputLabel-root': {
             color: '#003a4d',
           },
@@ -82,10 +85,25 @@ const theme = createTheme({
     },
     MuiOutlinedInput: {
       styleOverrides: {
+        root: ({ theme }) => ({
+          // Style the outline (border) normally
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#003a4d', // default border
+          },
+          // On hover
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#007BFF',
+          },
+          // On focus
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#003a4d',
+            borderWidth: '2px',  
+          },
+        }),
         input: ({ theme }) => ({
           [theme.breakpoints.down('sm')]: {
-            height: '36px',
-            padding: '4px 10px',
+            height: '26px',
+            padding: '3px 10px',
           },
           [theme.breakpoints.up('sm')]: {
             height: 'auto',
@@ -94,6 +112,26 @@ const theme = createTheme({
           backgroundColor: 'transparent',
           WebkitBoxShadow: '0 0 0 1000px transparent inset',
           transition: 'background-color 5000s ease-in-out 0s',
+        }),
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        body2: ({ theme }) => ({
+          textDecoration: 'none',
+          color: '#4a4a4a',
+          cursor: 'pointer',
+          '&:hover': {
+            textDecoration: 'underline',
+            color: '#4d0013',
+          },
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '10px',
+            lineHeight: 1.3,
+          },
+          [theme.breakpoints.up('md')]: {
+            fontSize: '14px',
+          },
         }),
       },
     },
@@ -125,6 +163,17 @@ const theme = createTheme({
           [theme.breakpoints.up('md')]: {
             fontSize: '14px',
           },
+          [theme.breakpoints.down('sm')]: {
+            letterSpacing: '0.5px', // adjust as needed
+            lineHeight:1
+          },
+              // Specific styles when in error state
+        '&.Mui-error': {
+          color: '#d32f2f', // or your custom red
+          fontWeight: 100,
+          margin: 0,
+
+        },
         }),
       },
     },

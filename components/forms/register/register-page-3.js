@@ -61,9 +61,9 @@ export default function RegisterFormPage3New({
             <TextField
               fullWidth
               {...(isMobile
-                ? { placeholder: "Company or personal name" }
+                ? { placeholder: "Name" }
                 : {
-                    label: "Company or personal name",
+                    label: "Name",
                   })}
               name="companyName"
               type="text"
@@ -181,8 +181,6 @@ export default function RegisterFormPage3New({
               }}
             />
           </Grid>
-
-          {/* Checkbox */}
           <Grid item xs={12}>
             <FormControlLabel
               control={
@@ -202,8 +200,6 @@ export default function RegisterFormPage3New({
             />
           </Grid>
         </Grid>
-
-        {/* Buttons */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
         <div className={classes.buttonWrapper}>
           {submitPending ? (

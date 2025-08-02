@@ -39,15 +39,11 @@ export async function NewUserSignUp(prevState, formData) {
     });
 
     if (existingUser) {
-      const userError =
-        existingUser.userName === userName
-          ? { errorType: "usernameExists", message: "Username already exists" }
-          : { errorType: "emailExists", message: "Email already exists" };
 
       return {
         ...prevState,
         errorMessage: "",
-        errors: [userError],
+        errors: { existingUserError: true },
         submitted: false,
         magicLinkRecord,
       };

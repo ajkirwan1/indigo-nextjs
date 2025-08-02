@@ -1,12 +1,10 @@
 import { z } from "zod";
 import { passwordSchema } from "./path-to-password-schema";
+import { userNameSchema } from "./user-name-schema";
 
 export const signupSchema = z
   .object({
-    userName: z
-      .string()
-      .nonempty({ message: "A username is required" })
-      .min(3, { message: "A username must be at least 3 characters long" }),
+    userName: userNameSchema,
 
     email: z
       .string()

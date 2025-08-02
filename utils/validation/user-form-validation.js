@@ -1,6 +1,8 @@
 /** @format */
 
 import { z } from "zod";
+import { userNameSchema } from "./zod/user-name-schema";
+import { passwordSchema } from "./zod/password-schema";
 
 export default function ValidateNewUserSignup(
   userName,
@@ -10,25 +12,15 @@ export default function ValidateNewUserSignup(
 ) {
   const formSchema = z
     .object({
-      userName: z
-        .string()
-        .nonempty({ message: "A username is required" })
-        .min(3, { message: "A username must be at least 3 characters long" }),
-
+      userName: userNameSchema,
       email: z
         .string()
         .nonempty({ message: "Email address is required" })
         .email({ message: "Invalid email address" }),
 
-      password: z
-        .string()
-        .nonempty({ message: "Password is required" })
-        .min(8, { message: "A password must be at least 8 characters long" }),
+      password: passwordSchema,
 
-      passwordConfirm: z
-        .string()
-        .nonempty({ message: "Password is required" })
-        .min(8, { message: "A password must be at least 8 characters long" }),
+      passwordConfirm: passwordSchema,
     })
     .refine((data) => data.password === data.passwordConfirm, {
       message: "Passwords don't match",
