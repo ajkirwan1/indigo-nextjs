@@ -117,7 +117,6 @@ function Form({ handleChange, state, formAction, isButtonDisabled }) {
         }}
         inputProps={{ className: "mui-isolated-input" }}
       />
-
       <div className="submit-button-container">
         <FormSubmit disabled={isButtonDisabled} showSpinner={false} />
       </div>

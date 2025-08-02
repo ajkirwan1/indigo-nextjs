@@ -50,6 +50,9 @@ const theme = createTheme({
               cursor: 'pointer',
             },
           },
+          '& .MuiOutlinedInput-root': {
+            backgroundColor: '#f8f8f8',
+          },
           '& .MuiInputLabel-root': {
             color: '#003a4d',
           },
@@ -82,6 +85,21 @@ const theme = createTheme({
     },
     MuiOutlinedInput: {
       styleOverrides: {
+        root: ({ theme }) => ({
+          // Style the outline (border) normally
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#003a4d', // default border
+          },
+          // On hover
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#007BFF',
+          },
+          // On focus
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#003a4d',
+            borderWidth: '2px',  
+          },
+        }),
         input: ({ theme }) => ({
           [theme.breakpoints.down('sm')]: {
             height: '26px',
@@ -100,10 +118,13 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         body2: ({ theme }) => ({
-          // fontSize: '12px',
-          color: '#4a4a4a', // default color
-          // lineHeight: 1.5,
-
+          textDecoration: 'none',
+          color: '#4a4a4a',
+          cursor: 'pointer',
+          '&:hover': {
+            textDecoration: 'underline',
+            color: '#4d0013',
+          },
           [theme.breakpoints.down('sm')]: {
             fontSize: '10px',
             lineHeight: 1.3,
